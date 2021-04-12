@@ -1,5 +1,5 @@
 ---
-title: Restrict egress traffic in Azure Red Hat OpenShift (ARO)
+title: Restrict egress traffic in an Azure Red Hat OpenShift (ARO) cluster
 description: Learn what ports and addresses are required to control egress traffic in Azure Red Hat OpenShift (ARO)
 author: sakthi-vetrivel
 ms.author: jzim
@@ -9,11 +9,11 @@ ms.date: 04/09/2021
 ---
 # Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)
 
-This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). It contains the cluster requirements for a base ARO deployment, and additional requirements for optional Red Hat and 3rd party components. [An example will be provided at the end on how to configure these requirements with Azure Firewall](#private-aro-cluster-setup). You can apply this information to Azure Firewall or to any outbound restriction method or appliance.
+This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). It contains the cluster requirements for a basic ARO deployment, and more requirements for optional Red Hat and third-party components. An [example](#private-aro-cluster-setup) will be provided at the end on how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
 
 ## Before you begin
 
-This article assumes that you are creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster)
+This article assumes that you're creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
 
 > [!IMPORTANT]
 > ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis.
@@ -27,9 +27,9 @@ The following FQDN / application rules are required:
 | Destination FQDN | Port | Use |
 | ----------- | ----------- | ------------- |
 | **`quay.io`** | **HTTPS:443** | Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images. |
-| **`registry.redhat.io`** | **HTTPS:443** | Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator based add-ons, or Red Hat provided container images such as our middleware, the Universal Base Image.
-| **`mirror.openshift.com`** | **HTTPS:443** | This one is required in the VDI environment or your laptop to access mirrored installation content and images and required in the cluster to download platform release signatures, used by the cluster to know what images to pull from quay.io. |
-| **`api.openshift.com`** | **HTTPS:443** | Required  by the cluster to check if there are available updates before download the image signatures. |
+| **`registry.redhat.io`** | **HTTPS:443** | Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator-based add-ons, and Red Hat provided container images.
+| **`mirror.openshift.com`** | **HTTPS:443** | This is required in the VDI environment or your laptop to access mirrored installation content and images. It's required in the cluster to download platform release signatures to know what images to pull from quay.io. |
+| **`api.openshift.com`** | **HTTPS:443** | Required  by the cluster to check if there are available updates before downloading the image signatures. |
 | **`arosvc.azurecr.io`** | **HTTPS:443** | Internal Private registry for ARO Operators.  Required if you do not allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
 | **`management.azure.com`** | **HTTPS:443** | This is used by the cluster to access Azure APIs. |
 | **`login.microsoftonline.com`** | **HTTPS:443** | This is used by the cluster for authentication to Azure. |
@@ -47,7 +47,7 @@ The following FQDN / application rules are required:
 ### FIRST GROUP: INSTALLING AND DOWNLOADING PACKAGES AND TOOLS
 
 - **`quay.io`**: Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images.
-- **`registry.redhat.io`**: Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator based add-ons, or Red Hat provided container images such as our middleware, the Universal Base Image...
+- **`registry.redhat.io`**: Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator-based add-ons, or Red Hat provided container images such as our middleware, the Universal Base Image...
 - **`sso.redhat.com`**: This one is required in the VDI environment or your laptop to connect to cloud.redhat.com. This is the site where we can download the pull secret, and use some of the SaaS solutions we offer in Red Hat to facilitate monitoring of your subscriptions, cluster inventory, chargeback reporting, among other things.
 - **`openshift.org`**: This one is required in the VDI environment or your laptop to connect to download RH CoreOS images, but in Azure they are picked from the marketplace, there is no need to download OS images.
 
@@ -60,7 +60,7 @@ All this section can be opted out, but before we know how, please check what it 
 - **`api.access.redhat.com`**: Use in your VDI or laptop environment.
 - **`infogw.api.openshift.com`**: Use in your VDI or laptop environment.
 - **`https://cloud.redhat.com/api/ingress`**: Use in the cluster for the insights operator who integrates with the aaS Red Hat Insights.
-In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, as well as better understand how product upgrades impact clusters. Check details here: https://docs.openshift.com/container-platform/4.6/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
+In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.6/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
 
 ---
 
@@ -75,8 +75,8 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 - **`mirror.openshift.com`**: This one is required in the VDI environment or your laptop to access mirrored installation content and images and required in the cluster to download platform release signatures, used by the cluster to know what images to pull from quay.io.
 - **`storage.googleapis.com/openshift-release`**: Alternative site to download platform release signatures, used by the cluster to know what images to pull from quay.io.
 - **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is use in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
-- **`api.openshift.com`**: Required  by the cluster to check if there are available updates before download the image signatures.
-- **`registry.access.redhat.com`**: Required in your VDI or laptop environment to download dev images when using the ODO CLI tool (alternative CLI tool for developers who do not understand K8S). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
+- **`api.openshift.com`**: Required  by the cluster to check if there are available updates before downloading the image signatures.
+- **`registry.access.redhat.com`**: Registry access is required in your VDI or laptop environment to download dev images when using the ODO CLI tool. (This CLI tool is an alternative CLI tool for developers who aren't familiar with kubernetes). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
 
 ---
 
@@ -208,7 +208,7 @@ az vm create --name ubuntu-jump \
 ## Create an Azure Red Hat OpenShift cluster
 ### Get a Red Hat pull secret (optional)
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with other content. This step is optional but recommended.
 
 1. **[Go to your Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and log in.**
 
@@ -300,9 +300,9 @@ az network vnet subnet update -g $RESOURCEGROUP --vnet-name $AROVNET --name "$CL
 ```
 
 ## Test the configuration from the Jumpbox
-These steps works only if you added rules for Docker images. 
+These steps work only if you added rules for Docker images. 
 ### Configure the jumpbox
-Log into a jumpbox VM and install `azure-cli`, `oc-cli`, and `jq` utils. For the installation of openshift-cli check the Red Hat customer portal.
+Log into a jumpbox VM and install `azure-cli`, `oc-cli`, and `jq` utils. For the installation of openshift-cli, check the Red Hat customer portal.
 ```bash
 #Install Azure-cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -328,7 +328,7 @@ Get an API server endpoint:
 ARO_URL=$(az aro show -n $CLUSTER -g $RESOURCEGROUP -o json | jq -r '.apiserverProfile.url')
 ```
 
-### Download the oc cli to the jumpbox
+### Download the oc CLI to the jumpbox
 ```bash
 cd ~
 wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
@@ -362,7 +362,8 @@ spec:
     - "3600"
 EOF
 ```
-Once the Pod is Running exec into it and test outside connectivity
+Once the pod is running, exec into it and test outside connectivity.
+
 ```bash
 oc exec -it centos -- /bin/bash
 curl microsoft.com
@@ -379,7 +380,7 @@ example:
 sudo ssh -i /Users/jimzim/.ssh/id_rsa -L 443:console-openshift-console.apps.d5xm5iut.eastus.aroapp.io:443 aroadmin@104.211.18.56
 ```
 
-### Modify the etc hosts file on your local machine
+### Modify the etc. hosts file on your local machine
 ```bash
 ##
 # Host Database
