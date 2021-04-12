@@ -146,8 +146,6 @@
   items: 
   - name: Spatial Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
-  - name: Set up the host machine and run the container
-    href: spatial-analysis-container.md
   - name: Responsible use of AI
     items:
     - name: Transparency notes
@@ -170,6 +168,8 @@
     items:
     - name: Use the Spatial Analysis container
       items:
+      - name: Set up the host machine and run the container
+        href: spatial-analysis-container.md
       - name: Configure operations
         href: spatial-analysis-operations.md
       - name: Deploy a people counting web app
