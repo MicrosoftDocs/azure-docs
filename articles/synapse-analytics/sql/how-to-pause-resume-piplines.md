@@ -58,14 +58,14 @@ Synapse Pipelines allow for the automation of pause and resume, but you can exec
     |Name  |Type  |Default value  |Description|
     |---------|---------|---------|-----------|
     |ResourceGroup    |string        |Synapse          |Name of the resource group for your dedicated SQL pools|
-    |SubscriptionID   |string        |<SubscriptionID>|Subscription ID for your resource group|
+    |SubscriptionID   |string        |<SubscriptionID> |Subscription ID for your resource group|
     |WorkspaceName    |string        |Synapse          |Name of your workspace|
     |SQLPoolName      |string        |SQLPool1         |Name of your dedicated SQL pool|
     |PauseorResume    |string        |Pause            |The desired state at the end of the pipeline run|
 
     ![Pipeline parameters in Synapse Studio.](./media/how-to-pause-resume-pipelines/pipeline-parameters.png)
 
-3. Set up a **Web** activity, you'll use this activity to identify the list of dedicated SQL pools by calling the dedicated SQL pools - List By Server REST API request. The output is a JSON string that contains a list of thededicated SQL pools in your workspace. The JSON string is passed to the next activity.
+3. Set up a **Web** activity, you'll use this activity to identify the list of dedicated SQL pools by calling the dedicated SQL pools - List By Server REST API request. The output is a JSON string that contains a list of the dedicated SQL pools in your workspace. The JSON string is passed to the next activity.
     1. Under **Activities** > **General** drag a **Web** activity to the pipeline canvas as the first stage of your pipeline.  
     1. In the **General** tab, name this stage GET List. 
     1. Select the **Settings** tab then click in the **URL** entry space, then select **Add dynamic content**. Copy and paste the GET request that has been parameterized using the @concat string function  below into the dynamic content box. Select **Finish**. 
