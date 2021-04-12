@@ -6,7 +6,6 @@ Follow these steps to generate the manifest from the template file and then depl
 1. Next to the **AZURE IOT HUB** pane, select the **More actions** icon to set the IoT Hub connection string. You can copy the string from the *src/cloud-to-device-console-app/appsettings.json* file. 
 
     ![Set IOT Connection String](../../../media/quickstarts/set-iotconnection-string.png)
-    <!-- This image location may have changed -->
 > [!NOTE]
 > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
     ```

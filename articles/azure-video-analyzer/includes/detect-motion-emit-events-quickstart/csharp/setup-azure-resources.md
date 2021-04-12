@@ -16,10 +16,10 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     ![Environment selector](../../../media/quickstarts/env-selector.png)
 1. Run the following command.
 
-    ```
+```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
-    ```
-<!-- Provide new link to shell script (not entire deployment experience can be handled from ARM) -->
+```
+<!-- Provide new link to the new ARM deployment experience -->
     
     Upon successful completion of the script, you should see all of the required resources in your subscription. A total of 12 resources will be setup by the script:
     1. **Virtual machine** - This is a virtual machine that will act as your edge device.
@@ -43,4 +43,4 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     ![App settings](../../../media/quickstarts/clouddrive.png)
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide]()** to resolve some commonly encountered issues.

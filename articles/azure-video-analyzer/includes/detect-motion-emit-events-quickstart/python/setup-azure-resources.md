@@ -42,4 +42,4 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     ![App settings](../../../media/quickstarts/clouddrive.png)
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide]()** to resolve some commonly encountered issues.

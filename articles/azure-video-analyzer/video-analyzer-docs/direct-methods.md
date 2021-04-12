@@ -5,9 +5,7 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 
 ---
-# Direct methods
-
-[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+# Azure Video Analyzer Direct methods
 
 Azure Video Analyzer exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
@@ -357,11 +355,11 @@ Key aspects:
 |--|--|--|
 | Existing entity updated | 200 | N/A |
 | New entity created | 201 | N/A |
-| General user errors | 400 range |  |
+| General user errors | 400 range | N/A |
 | Pipeline Validation Errors | 400 | PipelineValidationError |
 | Module Validation Errors | 400 | ModuleValidationError |
 | Resource validation errors | 409 | ResourceValidationError |
-| General server errors | 500 range |  |  |
+| General server errors | 500 range | N/A |
 
 ### LivePipelineDelete
 
@@ -535,4 +533,4 @@ Key aspects:
 
 ## Next steps
 
-[Module Twin configuration schema](module-twin-configuration-schema.md)
+[Module Twin configuration schema]()

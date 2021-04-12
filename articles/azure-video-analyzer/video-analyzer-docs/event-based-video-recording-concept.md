@@ -1,28 +1,26 @@
 ---
-title: Event-based video recording  - Azure
-description: Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question could originate due to processing of the video signal itself (for example, detection on motion) or could be from an independent source (for example, opening of a door).  A few use cases related to event-based video recording are described in this article.
-
+title: Azure Video Analyzer Event-based video recording - Azure
+description: Azure Video Analyzer event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question could originate due to processing of the video signal itself (for example, detection on motion) or could be from an independent source (for example, opening of a door). A few use cases related to event-based video recording are described in this article.
 ms.topic: conceptual
 ms.date: 04/07/2021
 
 ---
 # Event-based video recording  
 
-[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Suggested pre-reading  
 
 * [Continuous video recording](continuous-video-recording-concept.md)
-* [Playback of recorded content](video-playback-concept.md)
-* [Media graph concept](media-graph-concept.md)
+* [Playback of recorded content]()
+* [Media graph concept]()
 
 ## Overview 
 
 Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question, could originate due to processing of the video signal itself (for example, detection on motion) or could be from an independent source (for example, opening of a door). 
 
-You can record video (triggered by an event) from a CCTV camera to a Media Services asset using a media graph consisting of an [RTSP source](media-graph-concept.md#rtsp-source) node, an [asset sink](media-graph-concept.md#asset-sink) node, and other nodes as outlined in the use cases below. You can configure the [asset sink](media-graph-concept.md#asset-sink) node to generate new assets each time an event occurs, so that the video that corresponds to each event will be in its own asset. You can also choose to use one asset to hold the video for all events. 
+You can record video (triggered by an event) from a CCTV camera to a Media Services asset using a media graph consisting of an [RTSP source]() node, an [asset sink]() node, and other nodes as outlined in the use cases below. You can configure the [asset sink]() node to generate new assets each time an event occurs, so that the video that corresponds to each event will be in its own asset. You can also choose to use one asset to hold the video for all events. 
 
-As an alternative to the asset sink node, you can use a [file sink](media-graph-concept.md#file-sink) node to capture short snippets of video (related to an event of interest), to a specified location on the local file system on the Edge device. 
+As an alternative to the asset sink node, you can use a [file sink]() node to capture short snippets of video (related to an event of interest), to a specified location on the local file system on the Edge device. 
 
 A few use cases related to event-based video recording are described in this article.
 
@@ -37,7 +35,7 @@ The diagram below shows a graphical representation of a pipeline that addresses 
 > :::image type="content" source="./media/event-based-video-recording/motion-detection.svg" alt-text="Video recording based on motion detection":::
 <!-- Above image needs to be updated -->
 
-In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to a [motion detection processor](media-graph-concept.md#motion-detection-processor) node. Upon detecting motion in the live video, the motion detection processor node generates event which go to the [signal gate processor](media-graph-concept.md#signal-gate-processor) node, as well as to the IoT Hub message sink node. The latter node sends the events to the IoT Edge Hub, from where they can be routed to other destinations to trigger alerts. 
+In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to a [motion detection processor]() node. Upon detecting motion in the live video, the motion detection processor node generates event which go to the [signal gate processor]() node, as well as to the IoT Hub message sink node. The latter node sends the events to the IoT Edge Hub, from where they can be routed to other destinations to trigger alerts. 
 
 An event from the motion detector node will trigger the signal gate processor node, and it will let the live video feed from the RTSP source node flow through to the asset sink node. In the absence of subsequent such motion detection events the gate will close after a configured amount of time. This determines the duration of the recorded video.
 
@@ -50,7 +48,7 @@ In this use case, signals from another IoT sensor can be used to trigger recordi
 > :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Video recording based on events from other sources":::
 <!-- Above image needs to be updated -->
 
-In the diagram, the external sensor sends events to the IoT Edge Hub. The events are then routed to the signal gate processor node via the [IoT Hub message source](media-graph-concept.md#iot-hub-message-source) node. The behavior of the signal gate processor node is the same as with the previous use case - it will open and let the live video feed flow through from the RTSP source node to the file sink node (or asset sink node) when it is triggered by the external event. 
+In the diagram, the external sensor sends events to the IoT Edge Hub. The events are then routed to the signal gate processor node via the [IoT Hub message source]() node. The behavior of the signal gate processor node is the same as with the previous use case - it will open and let the live video feed flow through from the RTSP source node to the file sink node (or asset sink node) when it is triggered by the external event. 
 
 If you use a file sink node the video will be recorded to the local file system on the edge device. Else if you use an asset sink node, the video will be recorded to an asset.
 
@@ -63,7 +61,7 @@ In this use case, you can record video clips based on a signal from an external 
 > :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Video recording based on an external inferencing module":::
 <!-- Above image needs to be updated -->
 
-In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to two branches: one has a [signal gate processor](media-graph-concept.md#signal-gate-processor) node, and the other uses an [HTTP extension](media-graph-concept.md) node to send data to an external logic module. The HTTP extension node allows the pipeline to send image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. This signal path can typically only support low frame rates (<5fps). You can use the HTTP extension processor node to lower the frame rate of the video going to the external inferencing module.
+In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to two branches: one has a [signal gate processor]() node, and the other uses an [HTTP extension]() node to send data to an external logic module. The HTTP extension node allows the pipeline to send image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. This signal path can typically only support low frame rates (<5fps). You can use the HTTP extension processor node to lower the frame rate of the video going to the external inferencing module.
 
 The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node, where they can be further processed by the external logic module. If the inference service is capable of detecting vehicles, for example, the logic module could look for a specific vehicle such as a bus or a truck. When the logic module detects the object of interest, it can trigger the signal gate processor node by sending an event via the IoT Edge Hub to the IoT Hub message source node in the graph. The output from the signal gate is shown to go to either a file sink node or an asset sink node. In the former case, the video will be recorded to the local file system on the edge device. In the latter case, the video will be recorded to an asset.
 

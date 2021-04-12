@@ -14,7 +14,9 @@ Follow these steps to run the sample code:
 <!-- I believe we're changing to LivePipelineSet -->
 <!-- Below url needs to  be updated to new topology sample-->
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
+```
+    "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"
+```
 1. On the **LivePipelineSet** and **LivePipelineDelete**  nodes, ensure that the value of `topologyName` matches the value of the `name` property in the graph topology:
 
     `"topologyName" : "MotionDetection"`

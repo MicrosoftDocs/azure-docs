@@ -20,7 +20,7 @@ This article lists the steps that will help you deploy Azure Video Analyzer on y
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
-* [Create an Azure Media Services account](../latest/account-create-how-to.md)
+* [Create an Azure Media Services account]()
 
     * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
@@ -29,11 +29,11 @@ This article lists the steps that will help you deploy Azure Video Analyzer on y
 
 ### Create custom Azure Resource Manager role
 
-See [Create custom Azure Resource Manager role](create-custom-azure-resource-manager-role-how-to.md) and assign it to a service principal for Azure Video Analyzer use.
+See [Create custom Azure Resource Manager role]() and assign it to a service principal for Azure Video Analyzer use.
 
 ### Set up a premium streaming endpoint
 
-If you intend to use Azure Video Analyzer to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/stream-streaming-endpoint-concept.md#types).  
+If you intend to use Azure Video Analyzer to record video continuously to the cloud, and subsequently use [query APIs]() before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/stream-streaming-endpoint-concept.md#types).  
 
 This is an optional step. You can use this Azure CLI command to do so:
 
@@ -50,7 +50,7 @@ You can use this command to start the streaming endpoint
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.
+Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs]() and select the Portal tab.
 
 ## Create and use local user account for deployment
 To run the Azure Video Analyzer module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
@@ -80,7 +80,7 @@ sudo chown -R avaedgeuser /var/media
 
 ## Deploy Azure Video Analyzer Edge module
 
-The Azure Video Analyzer exposes module twin properties that are documented in [Module Twin configuration schema](module-twin-configuration-schema.md). 
+The Azure Video Analyzer exposes module twin properties that are documented in [Module Twin configuration schema](). 
 
 ### Deploy using the Azure portal
 
@@ -150,7 +150,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
  
     ![Twin settings](./media/deploy-iot-edge-device/twin-settings.png)
 
-    Azure Video Analyzer requires a set of mandatory twin properties in order to run, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
+    Azure Video Analyzer requires a set of mandatory twin properties in order to run, as listed in [Module Twin configuration schema]().  
 
     The JSON that you need to enter into Module Twin Settings edit box will look like this:    
     ```
@@ -167,12 +167,12 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * {resourceGroupName} - this the resource group to which your Media Service account belongs
     * {AMS-account-name} - this is the name of your Media Services account
     
-    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.  
+    To get the other values, see [Access Azure Media Services API]() and select the Portal tab.  
     * aadTenantId - this is the ID of your tenant and is the same as the "AadTenantId" from the above link.
     * aadServicePrincipalAppId - this is the app ID of the service principal for your Media Service Account and is the same as the "AadClientId" from the above link.
     * aadServicePrincipalSecret - this is the password of the service principal and is the same as the "AadSecret" from the above link.
 
-    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitoring-logging.md):
+    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging]():
     
     ```
     "diagnosticsEventsOutputName": "avaEdgeDiagnostics",
@@ -248,7 +248,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 
 ## Next steps
 
-Try [Quickstart: Get started - Azure Video Analyzer](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
+Try [Quickstart: Get started - Azure Video Analyzer]()
 
 > [!TIP]
 > If you proceed with the above quickstart, when invoking the direct methods using Visual Studio Code, you will use the device that was added to the IoT Hub via this article, instead of the default `avasample-iot-edge-device`.
