@@ -37,7 +37,7 @@ To restore a deleted Azure Database for MySQL server, you need following:
  
      [![Create server using REST API](./media/howto-restore-dropped-server/create-server-from-rest-api.png)](./media/howto-restore-dropped-server/create-server-from-rest-api.png#lightbox)
   
- 6. Scroll below on Request Body section and paste the following replacing the "Dropped server Location", "submissionTimestamp", and "resourceId". For "restorePointInTime", specify a value of "submissionTimestamp" minus **15 minutes** to ensure the command does not error out.
+ 6. Scroll below on Request Body section and paste the following:
  
     ```json
     {
@@ -50,10 +50,14 @@ To restore a deleted Azure Database for MySQL server, you need following:
             }
     }
     ```
+7. Replace the following values in the above request body:
+   * "Dropped server Location" with the Azure region where the deleted server was originally created
+   * "submissionTimestamp", and "resourceId" with the values captured in Step 3. 
+   * For "restorePointInTime", specify a value of "submissionTimestamp" minus **15 minutes** to ensure the command does not error out.
+   
+8. If you see Response Code 201 or 202, the restore request is successfully submitted. 
 
-7. If you see Response Code 201 or 202, the restore request is successfully submitted. 
-
-8. The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for 
+9. The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for 
    - **Subscription** = Your Subscription
    - **Resource Type** = Azure Database for MySQL servers (Microsoft.DBforMySQL/servers) 
    - **Operation** =  Update MySQL Server Create
