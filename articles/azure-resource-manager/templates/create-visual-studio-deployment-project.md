@@ -39,7 +39,7 @@ In this section, you create an Azure Resource Group project with a **Web app** t
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |A PowerShell script that runs PowerShell commands to deploy to Azure Resource Manager. Visual Studio uses this PowerShell script to deploy your template. |
    | WebSite.json |The Resource Manager template that defines the infrastructure you want deploy to Azure, and the parameters you can provide during deployment. It also defines the dependencies between the resources so Resource Manager deploys the resources in the correct order. |
-   | WebSite.parameters.json |A parameters file that has values needed by the template. You pass in parameter values to customize each deployment. Notice that **Build Action** is set to **Content**. If you add more parameter files, the build action to defaults to **None**. Change that setting to **Content**. |
+   | WebSite.parameters.json |A parameters file that has values needed by the template. You pass in parameter values to customize each deployment. Notice that **Build Action** is set to **Content**. If you add more parameter files, make sure the build action is set to **Content**. |
 
     All resource group deployment projects have these basic files. Other projects may have more files to support other functionality.
 
