@@ -21,8 +21,8 @@ The Azure Stack Edge Pro R device has the following specifications for compute a
 
 | Specification  | Value                                             |
 |----------------|---------------------------------------------------|
-| CPU type       | 2 X Intel Xeon Silver 4114 CPU                    |
-| CPU: raw       | 20-core CPU, 40 vCPUs                             |
+| CPU type       | Dual Intel Xeon Silver 4114 CPU                   |
+| CPU: raw       | 20 total cores, 40 total vCPUs                    |
 | CPU: usable    | 32 vCPUs                                          |
 | Memory type    | Dell Compatible 16 GB RDIMM, 2666 MT/s, Dual rank |
 | Memory: raw    | 256 GB RAM                                        |
