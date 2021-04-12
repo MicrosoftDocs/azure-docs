@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 04/14/2021
 ms.custom: references_regions 
 ---
 
@@ -146,7 +146,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Supported for Azure VMs with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions except for France Central, Australia Central, South Africa North, UAE North, Switzerland North, Germany West Central, Norway East, UG IOWA, and UG Virginia. <br>For information about use in those regions, contact [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Azure VM               | Supported for Azure VMs (including Encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions except for France Central, Australia Central, South Africa North, UAE North, Switzerland North, Germany West Central, Norway East, UG IOWA, and UG Virginia. <br>For information about use in those regions, contact [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | SQL /SAP HANA | In preview                                                      | Available in all Azure public regions and sovereign regions except for France Central, Australia Central, South Africa North, UAE North, Switzerland North, Germany West Central, Norway East, UG IOWA, and UG Virginia. <br>For information about use in those regions, contact [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
