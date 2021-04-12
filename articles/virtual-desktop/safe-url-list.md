@@ -31,8 +31,15 @@ The Required URL Check Tool will validate URLs and display whether the required 
 
 **How to use the Required URL Check Tool**
 1. Open a Command Prompt as an Administrator on your VM.
-2. Type *WVDAgentUrlTool.exe* and press *Enter*. 
-3. After running this tool, a list of non-accessible and accessible URLs will be outputted.
+2. Type and run the following command:
+```
+cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
+```
+3. Type and run the following command:
+```
+WVDAgentUrlTool.exe
+``` 
+4. After running this tool, a list of non-accessible and accessible URLs will be outputted.
 
 Example of output if you need to whitelist 2 of required non-wildcard URLs:
 > [!div class="mx-imgBorder"]
