@@ -14,6 +14,8 @@ ms.custom: mimckitt
 
 # Reference an existing virtual network in an Azure scale set template
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 This article shows how to modify the [basic scale set template](virtual-machine-scale-sets-mvss-start.md) to deploy into an existing virtual network instead of creating a new one.
 
 ## Prerequisites
