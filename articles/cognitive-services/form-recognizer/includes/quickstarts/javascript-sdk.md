@@ -193,7 +193,7 @@ This section demonstrates how to analyze and extract common fields from sales in
 
 To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
-:::code language="Javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_"invoice":::
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_"invoice":::
 
 > [!TIP]
 > You can also analyze local business card images. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeInvoices**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
