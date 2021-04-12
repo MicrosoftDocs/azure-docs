@@ -44,6 +44,8 @@
     href: http-extension-protocol.md
   - name: gRPC extension protocol
     href: grpc-extension-protocol.md
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md
 - name: Resources
   items:
   - name: Azure roadmap
