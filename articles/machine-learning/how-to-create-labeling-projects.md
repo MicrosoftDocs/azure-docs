@@ -6,14 +6,19 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
-ms.date: 02/23/2021
+ms.topic: conceptual
+ms.date: 04/12/2021
 ms.custom: data4ml
 ---
 
 # Create a data labeling project and export labels
 
 Learn how to create and run projects to label images or label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
+
+> [!IMPORTANT]
+> Features marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Data labeling capabilities
 
@@ -27,18 +32,19 @@ Text data can be either ".txt" or ".csv" files.
     * For ".csv" files, each row of the file is one item to be labeled.
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
- - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
- - Tracks progress and maintains the queue of incomplete labeling tasks.
- - Start and stop the project and control the labeling progress.
- - Review the labeled data and export labeled in COCO format or as an Azure Machine Learning dataset.
+
+- Coordinate data, labels, and team members to efficiently manage labeling tasks. 
+- Tracks progress and maintains the queue of incomplete labeling tasks.
+- Start and stop the project and control the labeling progress.
+- Review the labeled data and export labeled in COCO format or as an Azure Machine Learning dataset.
 
 ## Prerequisites
 
-* The data that you want to label, either in local files or in Azure blob storage.
-* The set of labels that you want to apply.
-* The instructions for labeling.
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- The data that you want to label, either in local files or in Azure blob storage.
+- The set of labels that you want to apply.
+- The instructions for labeling.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+- A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create a data labeling project
 
@@ -46,7 +52,7 @@ Labeling projects are administered from Azure Machine Learning. You use the **La
 
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For an example of using a datastore, see [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 
-To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**. Project name cannot be reused, even if the project is deleted in future.
+To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**. The project name cannot be reused, even if the project is deleted in future.
 
 ### Image labeling project
 
@@ -54,15 +60,11 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation for mage labeling":::
 
-    * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
-    * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
-    * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
-    * Choose **Instance Segmentation (Polygon)(Preview)** for projects when you want to assign a label and draw a polygon around each object within an image.
+  * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
+  * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
+  * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
+  * Choose **Instance Segmentation (Polygon)(Preview)** for projects when you want to assign a label and draw a polygon around each object within an image.
 
-    > [!IMPORTANT]
-    > Instance Segmentation (Polygon) is in public preview.
-    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
     
 * Select **Next** when you're ready to continue.
 
@@ -83,7 +85,6 @@ To create a project, select **Add project**. Give the project an appropriate nam
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Specify the data to label
-
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
@@ -297,5 +298,5 @@ Use these tips if you see any of these issues.
 ## Next steps
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
-* Label images for [image classification or object detection](how-to-label-images.md)
+* Label images for [image classification or object detection](how-to-label-data.md)
 * Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

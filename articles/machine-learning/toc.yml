@@ -322,7 +322,7 @@
               href: how-to-create-labeling-projects.md
             - name: Label images
               displayName: data, dataset, labeling
-              href: how-to-label-images.md
+              href: how-to-label-data.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
