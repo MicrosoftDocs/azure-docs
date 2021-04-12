@@ -46,7 +46,7 @@ https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-lates
 
 Your netlist file must be uploaded to an Azure storage blob container for access by the attestation service.  
 
-Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: /azure/storage/blobs/storage-quickstart-blobs-cli.  
+Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](/azure/storage/blobs/storage-quickstart-blobs-cli).  
 
 You can also use the Azure portal for this as well.  
 
