@@ -241,7 +241,7 @@ The following template shows how to pass values between two `deploymentScripts` 
 In the first resource, you define a variable called `$DeploymentScriptOutputs`, and use it to store the output values. To access the output value from another resource within the template, use:
 
 ```json
-reference('<ResourceName>').output.text
+reference('<ResourceName>').outputs.text
 ```
 
 ## Work with outputs from CLI script
