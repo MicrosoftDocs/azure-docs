@@ -28,7 +28,7 @@ This article highlights Microsoft partner companies integrated with Azure Storag
 |![Peer company logo](./media/peer-logo.png) |**Peer Software**<br>Peer Software provides real-time file management solutions for hybrid and multi-cloud environments Key use cases include high availability for user and application data across branch offices, Azure regions and availability zones, file sharing with version integrity, and migration to file or object storage with minimal cutover downtime. |[Partner page](https://go.peersoftware.com/azure_file_management_solutions)|
 |![Privacera company logo](./media/privacera-logo.png) |**Privacera**<br>Privacera provides a unified system for data governance and security across multiple cloud services and analytical platforms. Privacera enables IT and data platform teams to democratize data for analytics, while ensuring compliance with privacy regulations.  |[Partner page](https://privacera.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/globaltenetincdbaprivacera1585932150924.privacera_platform)
 
-You are a storage partner but your solution is not listed yet? Send us your info [here](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUQjY4QlJYUzFHQ0ZBVDNYWERaUlNRVU5IMyQlQCN0PWcu).
+Are you a storage partner but your solution is not listed yet? Send us your info [here](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUQjY4QlJYUzFHQ0ZBVDNYWERaUlNRVU5IMyQlQCN0PWcu).
 ## Next steps
 
 To learn more about some of our other partners, see:

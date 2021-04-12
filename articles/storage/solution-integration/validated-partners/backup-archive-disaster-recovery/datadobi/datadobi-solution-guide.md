@@ -184,7 +184,7 @@ You can also [create log alerts](../../../../../service-health/alerts-activity-l
 
 #### DobiSync Documentation
 
-For additional details regarding the configuration of DobiSync please visit the DobiSync [User Manual](https://downloads.datadobi.com/NAS/5.11/docs/olh/dobisync/index.html).
+For additional details regarding the configuration of DobiSync please visit the DobiSync [User Manual](https://downloads.datadobi.com/NAS/olh/latest/dobisync.html).
 
 ### How to open support cases
 
@@ -205,8 +205,8 @@ In the [Azure portal](https://portal.azure.com) search for **support** in the se
 
 See the following Datadobi documentation for further detail:
 
-- [Prerequisites Guide](https://downloads.datadobi.com/NAS/5.11/docs/guides/prerequisites/index.html)
-- [DobiProtect Install Guide](https://downloads.datadobi.com/NAS/5.11/docs/olh/dobisync/index.html)
+- [Prerequisites Guide](https://downloads.datadobi.com/NAS/guides/latest/prerequisites.html)
+- [DobiProtect Install Guide](https://downloads.datadobi.com/NAS/guides/latest/installguide.html)
 
 ## Next steps
 
