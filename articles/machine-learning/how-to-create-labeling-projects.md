@@ -79,11 +79,6 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
 * Select **Next** when you're ready to continue.
 
-> [!IMPORTANT]
-> Text labeling is in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Specify the data to label
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
