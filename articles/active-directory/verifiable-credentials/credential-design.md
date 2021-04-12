@@ -21,7 +21,7 @@ Verifiable credentials are made up of two components, the rules and display file
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Rules File: Requirements from the user
+## Rules file: Requirements from the user
 
 The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular, it describes how claims are used to populate your verifiable credential.
 
@@ -31,15 +31,15 @@ There are currently three input types that that are available to configure in th
 - Verifiable credentials via a verifiable presentation.
 - Self-Attested Claims
 
-**ID Token:** The sample App and Tutorial use the ID Token. When this option is configured, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
+**ID token:** The sample App and Tutorial use the ID Token. When this option is configured, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
 
-**Verifiable Credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The Rules File is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
+**Verifiable credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The Rules File is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
 
-**Self Attested Claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self attested claims. 
+**Self attested claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self attested claims. 
 
 ![detailed view of verifiable credential card](media/credential-design/issuance-doc.png) 
 
-**Static Claims:** Additionally we are able declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
+**Static claims:** Additionally we are able declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
 
 ```json
 "vc": {
@@ -53,7 +53,7 @@ There are currently three input types that that are available to configure in th
 ```
 
 
-## Input Type: ID Token
+## Input type: ID token
 
 To get ID Token as input, the rules file needs to configure the well-known endpoint of the OIDC compatible Identity system. In that system you need to register an application with the correct information from [Issuer service communication examples](issuer-openid.md). Additionally, the client_id needs to be put in the rules file, as well as a scope parameter needs to be filled in with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
 ```json
@@ -108,7 +108,7 @@ By declaring all three types, Contoso University's diplomas can be used to satis
 
 To ensure interoperability of your credentials, it's recommended that you work closely with related organizations to define credential types, schemas, and URIs for use in your industry. Many industry bodies provide guidance on the structure of official documents that can be repurposed for defining the contents of verifiable credentials. You should also work closely with the verifiers of your credentials to understand how they intend to request and consume your verifiable credentials.
 
-## Input Type: Verifiable Credential
+## Input type: Verifiable credential
 
 >[!NOTE]
 >Rules files that ask for a verifiable credential do not use the presentation exchange format for requesting credentials. This will be updated when the Issuing Service supports the standard, Credential Manifest. 
@@ -162,7 +162,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
 | `vc.type` | An array of strings indicating the schema(s) that your verifiable credential satisfies. |
 
 
-## Input Type: Self-Attested Claims
+## Input type: Self-attested claims
 
 During the issuance flow, the user can be asked to input some self-attested information. As of now, the only input type is a 'string'. 
 ```json
@@ -196,7 +196,7 @@ During the issuance flow, the user can be asked to input some self-attested info
 | `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. |
 
 
-## Display File: verifiable credentials in Microsoft Authenticator
+## Display file: Verifiable credentials in Microsoft Authenticator
 
 Verifiable credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great once issued to users.
 
@@ -260,7 +260,7 @@ The display file has the following structure.
 | `claims.{attribute}.type` | Indicates the attribute type. Currently we only support 'String'. |
 | `claims.{attribute}.label` | The value that should be used as a label for the attribute, which will show up in Authenticator. This maybe different than the label that was used in the rules file. Recommended maximum length of 40 characters. |
 
->[!note]
+>[!NOTE]
   >If a claim is included in the rules file and then omitted in the display file, there are two different types of experiences. On iOS, the claim will not be displayed in details section shown in the above image, while on Android the claim will be shown.  
 
 ## Next steps

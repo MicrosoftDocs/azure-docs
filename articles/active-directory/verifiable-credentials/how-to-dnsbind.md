@@ -1,5 +1,5 @@
 ---
-title: Link your Domain to your Decentralized Identifier (DID) (preview)
+title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure Active Directory Verifiable Credentials
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your Domain to your Decentralized Identifier (DID)
+# Link your domain to your Decentralized Identifier (DID)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -79,11 +79,11 @@ After you have the well-known configuration file, you need to make the file avai
 >[!IMPORTANT]
 >Microsoft Authenticator does not honor redirects, the URL specified must be the final destination URL.
 
-## User Experience 
+## User experience 
 
 When a user is going through an issuance flow or presenting a verifiable credential, they should know something about organization and its DID. If the domain our verifiable credential wallet, Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
 
-## Verified Domain
+## Verified domain
 
 Before Microsoft Authenticator displays a **Verified** icon, a few things need to be true:
 
@@ -96,7 +96,7 @@ If all of the previously mentioned are true, then Microsoft Authenticator displa
 
 ![new permission request](media/how-to-dnsbind/new-permission-request.png) 
 
-## Unverified Domain
+## Unverified domain
 
 If any of the above are not true, the Microsoft Authenticator will display a full page warning to the user that the domain is unverified, the user is in the middle of a risky transaction and they should proceed with caution. We have chosen to take this route because:
 

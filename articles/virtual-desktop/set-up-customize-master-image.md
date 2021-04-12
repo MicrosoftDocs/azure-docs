@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Prepare and customize a master VHD image
 
