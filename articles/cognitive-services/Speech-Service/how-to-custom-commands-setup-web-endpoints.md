@@ -35,7 +35,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 
 * For the sake of this tutorial, you need an HTTP endpoint which maintains states for all the devices which you set up in the **TurnOnOff** command of your custom commands application.
 
-* If you already have a web endpoint you want to call, skip to the [next section](#Setup-web-endpoints). Alternatively, in the next section, we have provided you with a default hosted web endpoint which you can use if you want to skip this section.
+* If you already have a web endpoint you want to call, skip to the [next section](#setup-web-endpoints-in-custom-commands). Alternatively, in the next section, we have provided you with a default hosted web endpoint which you can use if you want to skip this section.
 
 ### Input format of Azure Function
 * Next, you will deploy an endpoint using [Azure Functions](../../azure-functions/index.yml).
@@ -89,20 +89,20 @@ The following is the general format of an Custom Commands event that is passed t
 #### Output consumed by a Custom Commands  application
 In this case you can set the output format must adhere to the following format. Follow [Update a command from a web endpoint](./how-to-custom-commands-update-command-from-web-endpoint.md) for more details.
 
-    ```JSON
-    {
-      "updatedCommand": {
-        "name": "SomeCommandName",
-        "updatedParameters": {
-          "SomeParameterName": "SomeParameterValue"
-        },
-        "cancel": false
-      },
-      "updatedGlobalParameters": {
-        "SomeGlobalParameterName": "SomeGlobalParameterValue"
-      }
-    }
-    ```
+```json
+{
+  "updatedCommand": {
+    "name": "SomeCommandName",
+    "updatedParameters": {
+      "SomeParameterName": "SomeParameterValue"
+    },
+    "cancel": false
+  },
+  "updatedGlobalParameters": {
+    "SomeGlobalParameterName": "SomeGlobalParameterValue"
+  }
+}
+```
 
 #### Output consumed by a client application
 In this case you can set the output format to suit your client's need.
@@ -115,7 +115,7 @@ In this case you can set the output format to suit your client's need.
     }
     ``` 
 
-*  Also, this output should be written to an external storage, so that you can accordingly maintain the state of devices. The external storage will state will be used in the [Integrate with client application section](#Integrate-with-client-application).
+*  Also, this output should be written to an external storage, so that you can accordingly maintain the state of devices. The external storage will state will be used in the [Integrate with client application section](#integrate-with-client-application).
 
 
 ### Host Azure Function
