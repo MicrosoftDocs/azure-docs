@@ -1,17 +1,16 @@
 ---
-title: "Tutorial: Get started with verifiable credentials using a sample app (preview)"
+title: Tutorial - Get started with Azure Active Directory Verifiable Credentials using a sample app (preview)
 description: In this tutorial, you learn how to issue verifiable credentials using our sample app and test tenant
 ms.service: identity
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
-
-# Tutorial: Get started with verifiable credentials using a sample app (preview)
+#  Tutorial - Get started with Azure Active Directory Verifiable Credentials using a sample app (preview)
 
 In this tutorial, we go over the steps needed to issue your first verifiable credential: a Verified Credential expert card. You can then use this card to prove to a verifier that you are a verified credential expert, mastered in the art of digital credentialing. Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
 

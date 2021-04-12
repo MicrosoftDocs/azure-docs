@@ -101,14 +101,14 @@ If you want to enable certain IPs on your own firewalls or want to constrain inp
 * Max live event name is 32 characters.
 * The name should follow this [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-Also see [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
+Also see [Streaming Endpoints naming conventions](stream-streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > To guarantee uniqueness of your live event name, you can generate a GUID then remove all the hyphens and curly brackets (if any). The string will be unique across all live events and its length is guaranteed to be 32.
 
 ## Live event ingest URLs
 
-Once the live event is created, you can get ingest URLs that you'll provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md).
+Once the live event is created, you can get ingest URLs that you'll provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](encode-recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
 > As of the 2020-05-01 API release, "vanity" URLs are known as Static Host Names (useStaticHostname: true)

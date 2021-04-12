@@ -1532,6 +1532,8 @@
         href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
+      - name: RSA Archer Suite
+        href: rsa-archer-suite-tutorial.md
       - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
@@ -2147,6 +2149,8 @@
         href: bonusly-provisioning-tutorial.md
       - name: Box
         href: box-userprovisioning-tutorial.md
+      - name: Boxcryptor
+        href: boxcryptor-provisioning-tutorial.md
       - name: Bpanda
         href: bpanda-provisioning-tutorial.md
       - name: Brivo Onair Identity Connector
