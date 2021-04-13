@@ -139,7 +139,7 @@ Azure Firewalls associated with a firewall policy have supported SNAT private ra
                     "tier": "Standard" 
                 }, 
                 "snat": { 
-                    "privateRanges": [] 
+                    "privateRanges": [255.255.255.255/32] 
                 } 
             } 
 ```
