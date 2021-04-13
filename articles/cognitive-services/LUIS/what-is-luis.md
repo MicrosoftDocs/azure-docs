@@ -5,7 +5,7 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 03/22/2021
+ms.date: 04/13/2021
 ms.custom: cog-serv-seo-aug-2020
 ---
 
