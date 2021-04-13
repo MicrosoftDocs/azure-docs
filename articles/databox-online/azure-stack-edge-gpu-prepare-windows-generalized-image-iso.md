@@ -1,24 +1,27 @@
 ---
-title: Create a generalized Windows VHD for Azure Stack Edge from an ISO
-description: Describes how to use an ISO to create generalized virtual machines for Azure Stack Edge.
+title: Use a generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device
+description: Describes how to create a generalized VM image starting from an ISO. Use this generalized image to create virtual machines on your Azure Stack Edge Pro device.
+
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 04/13/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly create multiple new virtual machines with a common profile.
 ---
 
-# Create a generalized Windows VHD from an ISO 
+# Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to create a Windows virtual hard disk (VHD) from ISO installation media and then generalize that image so you can use it to create multiple new virtual machines (VMs) on multiple systems in Azure Stack Edge. 
+This article describes how to create a VM image starting from ISO installation media and then generalize that image so you can use it to create multiple new virtual machines (VMs) on multiple systems in Azure Stack Edge.
 
 When you use a generalized image to create a VM, you complete the setup on first boot of the machine, configuring the hostname, admin user, other settings specific to that virtual machine.
+
+Describes how to create VM images from generalized images starting from a Windows VHD or a VHDX. Use this generalized image to create VM images to use with VMs deployed on your Azure Stack Edge Pro GPU device.
 
 > [!NOTE]
 > By contrast, you can use a *specialized image* to create a fully pre-configured VM targeted to a specific system. To compare use of the two image types in Azure Stack Edge, see [About preparing a Windows VHD](./azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md#about-preparing-windows-vhd).

@@ -1,13 +1,13 @@
 ---
-title: Create VM images from generalized image of Windows VHD for your Azure Stack Edge Pro GPU device
-description: Describes how to VM images from generalized images starting from a Windows VHD or a VHDX. Use this generalized image to create VM images to use with VMs deployed on your Azure Stack Edge Pro GPU device.
+title: Create VM images from a generalized image of a Windows VHD for your Azure Stack Edge Pro GPU device
+description: Describes how to create a generalized VM image starting from a Windows VHD or VHDX. Use this generalized image to create VM images to use to deploy virtual machines on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 04/13/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
