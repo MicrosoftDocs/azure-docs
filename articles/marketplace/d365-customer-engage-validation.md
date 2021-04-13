@@ -71,4 +71,6 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 ## Next steps
 
-- To start creating an offer, see [Planning a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md).
+- To start creating an offer, see [Plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md) <font color="red"> [ use if this is first and delete below] </font>
+- To publish your offer, see [Review and publish your offer](review-publish-offer.md) <font color="red"> [ use if this is at the end and delete above] </font>
+

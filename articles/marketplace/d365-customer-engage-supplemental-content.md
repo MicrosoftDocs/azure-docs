@@ -17,8 +17,8 @@ This page lets you provide additional information to help us validate your offer
 
 Upload a PDF file that lists your offer's key usage scenarios. All scenarios may be verified by our validation team before we approve your offer for the marketplace.
 
-Select **Save draft**, then **Review and publish**.
+Select **Save draft**, then continue with functional validation in **Next steps** below.
 
 ## Next steps
 
-- [Review and publish your offer](review-publish-offer.md)
+- [Functional validation](d365-customer-engage-validation.md)
