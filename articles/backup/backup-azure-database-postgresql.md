@@ -2,7 +2,7 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.custom: references_regions 
 ---
 
@@ -250,7 +250,7 @@ This section provides troubleshooting information for backing up Azure PostgreSQ
 
 ### UserErrorMSIMissingPermissions
 
-Give Backup Vault MSI **Read** access on the PG server you want to back up or restore:
+Give Backup Vault MSI **Read** access on the PG server you want to back up or restore.
 
 To establish secure connection to the PostgreSQL database, Azure Backup uses the [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) authentication model. This means that the backup vault will have access to only those resources that have been explicitly granted permission by the user.
 
@@ -262,21 +262,17 @@ Steps:
 
     ![Access Control pane](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Select **Add a role assignment**.
+1. Select **Add role assignments**.
 
     ![Add role assignment](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
 1. In the right context pane that opens, enter the following:<br>
 
-    **Role:** Reader<br>
-    **Assign access to:** Choose **Backup vault**<br>
-    If you can’t find the **Backup vault** option in the drop-down list, choose the **Azure AD user, group, or service principal option**<br>
+   - **Role:** Choose the **Reader** role in the drop-down list.<br>
+   - **Assign access to:** Choose the **User, group, or service principal** option in the drop-down list.<br>
+   - **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
 
-    ![Select role](./media/backup-azure-database-postgresql/select-role.png)
-
-    **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
-
-    ![Enter Backup vault name](./media/backup-azure-database-postgresql/enter-backup-vault-name.png)
+    ![Select role](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ### UserErrorBackupUserAuthFailed
 
