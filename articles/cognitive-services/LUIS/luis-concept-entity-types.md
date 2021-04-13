@@ -145,7 +145,7 @@ The LUIS portal shows the following when the entity has a different entity predi
 
 :::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance":::
 
-The erroring text is highlighted within the example utterance, and the example utterance line has an error indicator to the right, shown as a red triangle. 
+The text causing the error is highlighted within the example utterance, and the example utterance line has an error indicator to the right, shown as a red triangle. 
 
 To resolve entity errors, try one or more of the following:
 
