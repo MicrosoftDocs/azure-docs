@@ -137,7 +137,7 @@ Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment con
 
 To prepare an existing Spring Boot application for deployment to Azure Spring Cloud include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Cloud supports only Spring Boot apps either Spring Boot version 2.1 or version 2.2. The following table lists the supported Spring Boot and Spring Cloud combinations:
+Azure Spring Cloud supports Spring Boot version 2.2, 2.3, 2.4. The following table lists the supported Spring Boot and Spring Cloud combinations:
 
 Spring Boot version | Spring Cloud version
 ---|---
