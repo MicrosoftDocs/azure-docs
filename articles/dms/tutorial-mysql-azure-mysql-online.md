@@ -216,13 +216,13 @@ After the service is created, locate it within the Azure portal, open it, and th
     > [!NOTE]
     > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
-6. Select **Save**, note the requirements to successfully use DMS to migrate data, and then select **Create and run activity**.
+6. Note the requirements to successfully setup target database for DMS to migrate data, and then select **Create and run activity**.
 
 ## Specify source details
 
-1. On the **Add Source Details** screen, specify the connection details for the source MySQL instance.
+1. On the **Select source** screen, specify the connection details for the source MySQL instance.
 
-    ![Add Source Details screen](media/tutorial-mysql-to-azure-mysql-online/dms-add-source-details.png)
+    ![Add Source Details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/10-dms-portal-project-mysql-source.png)
 
 ## Specify target details
 
