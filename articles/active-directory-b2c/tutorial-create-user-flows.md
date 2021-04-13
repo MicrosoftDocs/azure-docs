@@ -338,4 +338,4 @@ Next, learn how to use Azure AD B2C to sign in and sign up users in an applicati
 > [!div class="nextstepaction"]
 > [Tutorial: Enable authentication in a web application using Azure AD B2C >](tutorial-web-app-dotnet.md)
 
-You can also [Learn more](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm) in the series of steps in the Azure portal.
+You can also learn more in the [Azure AD B2C Architecture Deep Dive Series](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).
