@@ -32,17 +32,16 @@ If you receive an error when configuring the Azure Arc enabled servers agent, th
 | AZCM0061 | Unable to reach the agent service | Verify you are running the command in an elevated user context (administrator/root) and that the HIMDS service is running on your server. |
 | AZCM0062 | An error occurred while connecting the server | Review other error codes in the output for more specific information. If the error occurred after the Azure resource was created, you will need to delete the Arc server from your resource group before retrying. |
 | AZCM0063 | An error occurred while disconnecting the server | Review other error codes in the output for more specific information. If you continue to encounter this error, you can delete the resource in Azure and then run `azcmagent disconnect --force-local-only` on the server to disconnect the agent. |
-| AZCM0064 | | |
-| AZCM0065 | | |
-| AZCM0066 | | |
+| AZCM0064 | The agent service is not responding | Check the status of the `himds` service to ensure it is running. Start the service if it is not running. If it is running, wait a minute then try again. |
+| AZCM0065 | An internal agent communication error occurred | Contact Microsoft Support for assistance |
+| AZCM0066 | The agent web service is not responding or unavailable | Contact Microsoft Support for assistance |
 | AZCM0067 | The agent is already connected to Azure | [Disconnect the agent](manage-agent.md#unregister-machine) first, then try again. |
-| AZCM0068 | | |
-| AZCM0081 | | |
-| AZCM0101 | | |
+| AZCM0068 | An internal error occurred while disconnecting the server from Azure | Contact Microsoft Support for assistance |
+| AZCM0081 | An error occurred while downloading the Azure Active Directory managed identity certificate | If encountered when connecting a server to Azure, the agent will not be able to communicate with the Azure Arc service. Delete the resource in Azure and try connecting again. |
+| AZCM0101 | The command was not parsed successfully | Run `azcmagent <command> --help` to review the correct command syntax |
 | AZCM0102 | Unable to retrieve the computer hostname | Run `hostname` to check for any system-level error messages, then contact Microsoft Support. |
-| AZCM0103 | | |
+| AZCM0103 | An error occurred while generating RSA keys | Contact Microsoft Support for assistance |
 | AZCM0104 | Failed to read system information | Verify the identity used to run `azcmagent` has full administrator/root privileges on the system and try again. |
-| AZCM0105 | | |
 
 ## Agent verbose log
 
