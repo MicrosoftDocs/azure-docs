@@ -1,0 +1,332 @@
+---
+title: Analyze live video with your own gRPC model
+description: This quickstart describes how to analyze live video with your own gRPC model with Azure Video Analyzer.
+ms.service: azure-video-analyzer
+ms.topic: quickstart
+ms.date: 04/01/2021
+zone_pivot_groups: video-analyzer-programming-languages
+
+---
+
+# Quickstart: Analyze live video with your own gRPC model
+
+This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
+
+This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the Detect motion and emit events quickstart.
+
+## Prerequisites
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-grpc/csharp/prerequisites.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-grpc/python/prerequisites.md)]
+::: zone-end
+
+## Review the sample video
+
+When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
+
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://www.videolan.org/vlc/) to start playback. You see the footage of many vehicles moving in highway traffic.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
+
+In this quickstart, you'll use Azure Video Analyzer to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
+
+## Overview
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/overview.png" alt-text="gRPC overview":::
+ 
+This diagram shows how the signals flow in this quickstart. An [edge module]()<!--add link--> simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node]()<!--add link--> pulls the video feed from this server and sends video frames to the [motion detection processor]()<!--add link--> node. This processor will detect motion and upon detection will push video frames to the [gRPC extension processor]()<!--add link--> node.
+
+The gRPC extension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over gRPC to another edge module that runs an AI model behind a gRPC endpoint over a [shared memory](https://en.wikipedia.org/wiki/Shared_memory). In this example, that edge module is built by using the [YOLOv3]()<!--add link--> model, which can detect many types of objects. The gRPC extension processor node gathers the detection results and publishes events to the [IoT Hub sink]()<!--add link--> node. The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+
+In this quickstart, you will:
+
+1. Create and deploy the pipeline.
+1. Interpret the results.
+1. Clean up resources.
+
+## Create and deploy the pipeline
+
+### Examine and edit the sample files
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-grpc/csharp/sample-files.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-grpc/python/sample-files.md)]
+::: zone-end
+
+> [!NOTE]
+> Expand this and check out how the VideoAnalyzer.GrpcExtension node is implemented in the topology.
+
+## Generate and deploy the IoT Edge deployment manifest
+
+1. Right-click the *src/edge/* deployment.grpcyolov3icpu.template.json file and then select **Generate IoT Edge Deployment Manifest**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
+1. The *deployment.grpcyolov3icpu.amd64.json* manifest file is created in the src/edge/config folder.
+1. If you completed the [Detect motion and emit events]()<!--add link--> quickstart, then skip this step.
+1. Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
+     
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Connection string":::
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:<br/>`Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
+1. Right-click src/edge/config/ **deployment.grpcyolov3icpu.amd64.json** and select **Create Deployment for Single Device**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/deployment-single-device.png" alt-text= "Create Deployment for Single Device"::: 
+1. When you're prompted to select an IoT Hub device, select avasample-iot-edge-device.
+1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
+    * The Azure Video Analyzer module, named **avaedge**.
+    * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
+    
+    > [!NOTE]
+    > The above steps are assuming you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with admin rights, to pull and store the sample video file used for this quickstart:
+    
+    ```
+    mkdir /home/avaedgeuser/samples
+    mkdir /home/avaedgeuser/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/avaedgeuser/samples/input/camera-300s.mkv  
+    chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
+    ```
+    * The **avaExtension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
+
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
+    
+## Prepare to monitor events
+
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select Extension Settings.
+     
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text="Extensions":::
+1. Search and enable “Show Verbose Message”.
+1. 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
+1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the OUTPUT window of Visual Studio Code.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/monitor-event-endpoint.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
+
+> [!NOTE]
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for Built-in endpoints option in the left navigation pane. Click there and look for the Event Hub-compatible endpoint under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:<br/>`Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
+
+## Run the sample program
+
+1. To start a debugging session, select the F5 key. You see messages printed in the TERMINAL window.
+1. The operations.json code starts off with calls to the direct methods PipelineTopologyList and LivePipelineList. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
+    
+    ```
+    --------------------------------------------------------------------------
+    Executing operation pipelineTopologyList
+    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
+    {
+    "@apiVersion": "1.0"
+    }
+    ---------------  Response: pipelineTopologyList - Status: 200  ---------------
+    {
+    "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    
+    Press Enter to continue
+    ```
+1. The TERMINAL window shows the next set of direct method calls:
+    
+    * A call to pipelineTopologySet that uses the preceding topologyUrl
+    * A call to livePipelineSet that uses the following body:
+    
+    ```
+    {
+      "@apiVersion": "1.0",
+      "name": "Sample-Graph-1",
+      "properties": {
+        "topologyName": "InferencingWithGrpcExtension",
+        "description": "Sample graph description",
+        "parameters": [
+          {
+            "name": "rtspUrl",
+            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          },
+          {
+            "name": "rtspUserName",
+            "value": "testuser"
+          },
+          {
+            "name": "rtspPassword",
+            "value": "testpassword"
+          },
+          {
+            "name": "grpcExtensionAddress",
+            "value": "tcp://avaextension:44000"
+          }
+        ]
+      }
+    }
+    ```
+    * A call to livePipelineActivate that starts the graph instance and the flow of video.
+    * A second call to livePipelineList that shows that the graph instance is in the running state.
+1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
+1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Azure Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the TERMINAL window and select Enter.
+1. The next series of calls cleans up resources:
+
+* A call to livePipelineDeactivate deactivates the graph instance.
+* A call to livePipelineDelete deletes the instance.
+* A call to pipelineTopologyDelete deletes the topology.
+* A final call to pipelineTopologyList shows that the list is empty.
+
+## Interpret results
+
+When you run the pipeline topology, the results from the gRPC extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window contain a body section and an applicationProperties section. For more information, see Create and read IoT Hub messages.
+
+In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
+
+### MediaSessionEstablished event
+
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is Microsoft.VideoAnalyzer..Diagnostics.MediaSessionEstablished.
+
+```
+[IoTHubMonitor] [1:42:22 PM] Message received from [avasample-iot-edge-device/avaedge]:
+{
+  "sdp": "SDP:\nv=0\r\no=- 1617655341856633 1 IN IP4 172.18.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
+},
+  "applicationProperties": {
+    "dataVersion": "1.0",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
+    "subject": "/livePipelines/LIVEPIPELINENAMEHERE/sources/rtspSource",
+    "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
+    "eventTime": "2020-04-09T16:42:18.1280000Z"
+  }
+}
+```
+
+In this message, notice these details:
+
+* The message is a diagnostics event. MediaSessionEstablished indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
+* In applicationProperties, subject indicates that the message was generated from the RTSP source node in the media graph.
+* In applicationProperties, eventType indicates that this event is a diagnostics event.
+* The eventTime indicates the time when the event occurred.
+* The body contains data about the diagnostics event. In this case, the data comprises the Session Description Protocol (SDP) details.
+
+### Inference event
+
+The gRPC extension processor node receives inference results from the avaextension module. It then emits the results through the IoT Hub sink node as inference events. In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the 
+UTC time when the object was detected. In the following example, three cars were detected in the same video frame, with varying levels of confidence.
+
+```json
+[IoTHubMonitor] [1:48:04 PM] Message received from [avasample-iot-edge-device/avaedge]:
+{
+  "timestamp": 145589011404622,
+  "inferences": [
+    {
+      "type": "entity",
+      "entity": {
+        "tag": {
+          "value": "car",
+          "confidence": 0.97052866
+        },
+        "box": {
+          "l": 0.40896654,
+          "t": 0.60390747,
+          "w": 0.045092657,
+          "h": 0.029998193
+        }
+      }
+    },
+    {
+      "type": "entity",
+      "entity": {
+        "tag": {
+          "value": "car",
+          "confidence": 0.9547283
+        },
+        "box": {
+          "l": 0.20050547,
+          "t": 0.6094412,
+          "w": 0.043425046,
+          "h": 0.037724357
+        }
+      }
+    },
+    {
+      "type": "entity",
+      "entity": {
+        "tag": {
+          "value": "car",
+          "confidence": 0.94567955
+        },
+        "box": {
+          "l": 0.55363107,
+          "t": 0.5320657,
+          "w": 0.037418623,
+          "h": 0.027014252
+        }
+      }
+    },
+    {
+      "type": "entity",
+      "entity": {
+        "tag": {
+          "value": "car",
+          "confidence": 0.8916893
+        },
+        "box": {
+          "l": 0.6642384,
+          "t": 0.581689,
+          "w": 0.034349587,
+          "h": 0.027812533
+        }
+      }
+    },
+    {
+      "type": "entity",
+      "entity": {
+        "tag": {
+          "value": "car",
+          "confidence": 0.8547814
+        },
+        "box": {
+          "l": 0.584758,
+          "t": 0.60079926,
+          "w": 0.07082855,
+          "h": 0.034121
+        }
+      }
+    }
+  ]
+}
+```
+
+In the messages, notice the following details:
+
+* In applicationProperties, subject references the node in the graph topology from which the message was generated.
+* In applicationProperties, eventType indicates that this event is an analytics event.
+* The eventTime value is the time when the event occurred.
+* The body section contains data about the analytics event. In this case, the event is an inference event, so the body contains inferences data.
+* The inferences section indicates that the type is entity. This section includes additional data about the entity.
+
+## Clean up resources
+
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
+
+## Next steps
+
+* Try running different media graph topologies using gRPC protocol.
+* Build and run sample Azure Video Analyzer (AVA) extensions 
+
+    * [Sample YOLOv3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Sample YOLOv4 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
+    
+

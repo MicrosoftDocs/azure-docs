@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -20,11 +20,11 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## March 2021
 
-The March 2021 release is introduced on April 6, 2021.
+The March 2021 release was initially introduced on April 5th 2021, and the final stages of release were completed April 9th 2021.
 
 Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
 
-Azure Data CLI (`azdata`) version number: 20.3.2. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+Azure Data CLI (`azdata`) version number: 20.3.2. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 ### Data controller
 
@@ -41,7 +41,9 @@ Both custom resource definitions (CRD) for PostgreSQL have been consolidated int
 
 You will delete the previous CRDs as you cleanup past installations. See [Cleanup from past installations](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
 
-### Azure Arc enabled managed instance
+### Azure Arc enabled SQL Managed Instance
+
+- You can now create a SQL managed instance from the Azure portal in the direct connected mode.
 
 - You can now restore a database to SQL Managed Instance with 3 replicas and it will be automatically added to the availability group. 
 
@@ -59,7 +61,7 @@ You will delete the previous CRDs as you cleanup past installations. See [Cleanu
 
 ### New capabilities and features
 
-Azure Data CLI (`azdata`) version number: 20.3.1. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+Azure Data CLI (`azdata`) version number: 20.3.1. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 Additional updates include:
 
@@ -78,7 +80,7 @@ For issues associated with this release, see [Known issues - Azure Arc enabled d
 
 ### New capabilities and features
 
-Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+Azure Data CLI (`azdata`) version number: 20.3.0. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 Additional updates include:
 - Localized portal available for 17 new languages
@@ -104,7 +106,7 @@ Additional updates include:
 
 ### New capabilities & features
 
-Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+Azure Data CLI (`azdata`) version number: 20.2.5. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 View endpoints for SQL Managed Instance and PostgreSQL Hyperscale using the Azure Data CLI (`azdata`) with `azdata arc sql endpoint list` and `azdata arc postgres endpoint list` commands.
 
@@ -163,7 +165,7 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
 ## October 2020 
 
-Azure Data CLI (`azdata`) version number: 20.2.3. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+Azure Data CLI (`azdata`) version number: 20.2.3. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 ### Breaking changes
 

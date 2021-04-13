@@ -212,6 +212,6 @@ When a user selects **Forgot password**, your application throws an error which 
 
 Learn more about these Azure AD B2C concepts:
 
-- [User flows](../../active-directory-b2c/tutorial-create-user-flows.md)
-- [Custom policies](../../active-directory-b2c/custom-policy-get-started.md)
+- [User flows](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-user-flow)
+- [Custom policies](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [UX customization](../../active-directory-b2c/configure-user-input.md)

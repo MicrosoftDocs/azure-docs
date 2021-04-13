@@ -59,8 +59,6 @@ Pipeline extensions allow you to run inference models of your choice on any avai
 
 The diagram below depicts the high-level data flow:
 
-<!-- TODO: Placeholder image, needs update during finalization -->
-
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline-extension/ai-inference-results.svg" alt-text="Inferencing model":::
  
@@ -76,4 +74,4 @@ For advanced users, you can check out some of our [Jupyter notebook](https://git
 
 ## Next steps 
 
-check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Azure Video Analyzer.
+Check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Azure Video Analyzer.
