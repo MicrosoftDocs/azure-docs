@@ -42,8 +42,8 @@ Fill in the following fields:
 
 Under **Select Data Lake Storage Gen 2**:
 
-1. By **Account name**, click **Create New** and name the new storage account **contosolake** or similar as this name must be unique.
-1. By **File system name**, click **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
+1. By **Account name**, select **Create New** and name the new storage account **contosolake** or similar as the name must be unique.
+1. By **File system name**, select **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
 1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
 
 ## Completing the process
@@ -61,10 +61,10 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
 ## Place sample data into the primary storage account
-We are going to use a small 100K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
+We are going to use a small 100 K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
 
 * Download this file to your computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
-* In Synapse Studiio, navigate to the the Data Hub. 
+* In Synapse Studio, navigate to the Data Hub. 
 * Select **Linked**.
 * Under the category **Azure Data Lake Storae Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
 * Select the container named **users (Primary)**.
