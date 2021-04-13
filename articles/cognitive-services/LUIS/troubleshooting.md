@@ -154,10 +154,6 @@ See the [boundaries](luis-limits.md) reference.
 
 See [Best practices for intents](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
 
-### I want to build an app in LUIS with more than the maximum number of entities. What should I do?
-
-See [Best practices for entities](luis-concept-entity-types.md#exceeding-app-limits-for-entities)
-
 ### What are the limits on the number and size of phrase lists?
 For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-limits.md) reference.
 
