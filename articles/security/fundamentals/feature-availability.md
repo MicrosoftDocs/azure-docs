@@ -5,7 +5,7 @@ author: batamig #Required; your GitHub user alias, with correct capitalization.
 ms.author: bagol #Required; Microsoft alias of author; optional team alias.
 ms.service: security #Required; service per approved list. service slug assigned to your service by ACOM.
 ms.topic: conceptual #Required
-ms.date: 04/08/2021 #Required; mm/dd/yyyy format.
+ms.date: 04/13/2021 #Required; mm/dd/yyyy format.
 ---
 
 <!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
@@ -41,7 +41,7 @@ Learn what security features are available in the following sovereign clouds:
 - Azure Government for Department of Defense (DoD)
 
 > [!TIP]
-> - To differentiate between sovereign and non-sovereign clouds, this article will use the term __Azure Public__ to refer to non-sovereign clouds.
+> - To differentiate between sovereign and non-sovereign clouds, this article will use the term __Azure_ to refer to non-sovereign clouds.
 >
 ## Azure Sentinel
 
@@ -52,12 +52,142 @@ For more information, see the [Azure Sentinel product documentation](/azure/sent
 The following tables list the current Sentinel feature availability between our public and US sovereign clouds.
 
 > [!NOTE]
-> <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure Public cloud supports commercial and GCC Microsoft services.
+> <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
 >
-> <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC and Office DoD services.
-> 
+> <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD services.
+>
 
-| Feature | Azure Public <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
+# [Simplest](#tab/simplest)
+
+| Feature | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
+| ----- | ----- | ---- |
+|- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
+| - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
+| - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Not Available |
+| - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[3](#footnote1)</sup> | GA | Not Available |
+|- [Notebooks](/azure/sentinel/notebooks) | GA | Not Available |
+|- [SOC incident audit metrics](/azure/sentinel/manage-soc-with-incident-metrics) | GA | GA |
+|- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
+| **Threat intelligence support** | | |
+| - [Threat Intelligence - TAXII data connector](/azure/sentinel/import-threat-intelligence)  | Public Preview | Not Available |
+| - [Threat Intelligence Platform data connector](/azure/sentinel/import-threat-intelligence)  | Public Preview | Not Available |
+| - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | Public Preview | Not Available |
+| - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | GA | Not Available |
+| - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | Not Available |
+|**Detection support** | | | | | |
+| - [Anomalous Windows File Share Access Detection](/azure/sentinel/fusion)  | Public Preview | Not Available |
+| - [Anomalous RDP Login Detection](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
+| - [Anomalous SSH login detection](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
+| **External Azure Sentinel connectors**| | |
+| - Agari Phising Defense and Brand Protection       | Public Preview | Public Preview |
+| - AI Analyst Darktrace                            | Public Preview | Public Preview |
+| - AI Vectra Detect                                 | Public Preview | Public Preview |
+| - Akamai Security Events                           | Public Preview | Public Preview |
+| - Alcide kAudit                                    | Public Preview | Not Available      |
+| - Alsid for Active Directory                      | Public Preview | Not Available      |
+| - Apache HHTP Server                               | Public Preview | Not Available      |
+| - Aruba ClearPass                                  | Public Preview | Public Preview |
+| - AWS                                             | GA             | GA             |
+| - Azure Activity                                   | GA             | GA             |
+| - Barracuda CloudGen Firewall                      | GA             | GA             |
+| - Barracuda Web App Firewall                       | GA             | GA             |
+| - BETTER Mobile Threat Defense MTD                 | Public Preview | Not Available      |
+| - Beyond Security beSECURE                        | Public Preview | Not Available      |
+| - Blackberry CylancePROTECT                        | Public Preview | Public Preview |
+| - Broadcom Symantec DLP                            | Public Preview | Public Preview |
+| - Check Point                                      | GA             | GA             |
+| - Cisco ASA                                        | GA             | GA             |
+| - Cisco Meraki                                     | Public Preview | Public Preview |
+| - Cisco Umbrella                                   | Public Preview | Public Preview |
+| - Cisco USC                                        | Public Preview | Public Preview |
+| - CiscoFirepowerEStreamer                          | Public Preview | Public Preview |
+| - Citrix Analytics WAF                             | GA             | GA             |
+| - Common Event Format (CEF)                        | GA             | GA             |
+| - CyberArk Enterprise Password Vault (EPV) Events | Public Preview | Public Preview |
+| - DNS                                             | Public Preview | Not Available      |
+| - ESET Enterprise Inspector                       | Public Preview | Not Available      |
+| - Eset Security Management Center                  | Public Preview | Not Available      |
+| - ExtraHop Reveal(x)                               | GA             | GA             |
+| - F5 BIG-IP                                        | GA             | GA             |
+| - F5 Networks                                     | GA             | GA             |
+| - Forcepoint NGFW                                  | Public Preview | Public Preview |
+| - Forepoint CASB                                  | Public Preview | Public Preview |
+| - Forepoint DLP                                    | Public Preview | Not Available      |
+| - ForgeRock Common Audit for CEF                  | Public Preview | Public Preview |
+| - Fortinet                                         | GA             | GA             |
+| - Google Workspace (G Suite)                       | Public Preview | Not Available      |
+| - Illusive Attack Management System                | Public Preview | Public Preview |
+| - Imperva WAF Gateway                             | Public Preview | Public Preview |
+| - Infoblox NIOS                                    | Public Preview | Public Preview |
+| - Juniper SRX                                      | Public Preview | Public Preview |
+| - Morphisec UTPP                                   | Public Preview | Public Preview |
+| - Netskope                                         | Public Preview | Public Preview |
+| - NXLog DNS Logs                                   | Public Preview | Not Available      |
+| - NXLog LinuxAudit                                 | Public Preview | Not Available      |
+| - Okta Single Sign On                              | Public Preview | Public Preview |
+| - Onapsis Platform                                 | Public Preview | Public Preview |
+| - One Identity Safeguard                          | GA             | GA             |
+| - Orca Security Alerts                            | Public Preview | Not Available      |
+| - Palo Alto Networks                               | GA             | GA             |
+| - Perimeter 81 Activity Logs                      | GA             | Not Available      |
+| - Proofpoint On Demand Email Security             | Public Preview | Not Available      |
+| - Proofpoint TAP                                   | Public Preview | Public Preview |
+| - Pulse Connect Secure                             | Public Preview | Public Preview |
+| - Qualys VM KNot AvailablewledgeBase                   | Public Preview | Public Preview |
+| - Qualys Vulnerability Management                  | Public Preview | Public Preview |
+| - Salesforce Service Cloud                         | Public Preview | Not Available      |
+| - Security Events                                  | GA             | GA             |
+| - SonicWall Firewall                               | Public Preview | Public Preview |
+| - Sophos Cloud Optix                               | Public Preview | Not Available      |
+| - Sophos XG Firewall                               | Public Preview | Public Preview |
+| - Squadra TechNot Availablelogies secRMM               | GA             | GA             |
+| - Squid Proxy                                      | Public Preview | Not Available      |
+| - Symantec Integrated Cyber Defense Exchange       | GA             | GA             |
+| - Symantec ProxySG                                | Public Preview | Public Preview |
+| - Symantec VIP                                     | Public Preview | Public Preview |
+| - Syslog                                           | GA             | GA             |
+| - Threat Intelligence Platforms                   | Public Preview | Not Available      |
+| - Threat Intelligence TAXII                       | Public Preview | Not Available      |
+| - Thycotic Secret Server                          | Public Preview | Public Preview |
+| - Trend Micro Deep Security                       | GA             | GA             |
+| - Trend Micro TippingPoint                         | Public Preview | Public Preview |
+| - Trend Micro XDR                                  | Public Preview | Not Available      |
+| - Vmware Carbon Black Endpoint Standard           | Public Preview | Public Preview |
+| - Vmware ESXi                                      | Public Preview | Public Preview |
+| - Windows Firewall                                 | GA             | GA             |
+| - WireX Network Forensics Platform                | Public Preview | Public Preview |
+| - Zimperium Mobile Threat Defense                  | Public Preview | Not Available      |
+| - Zscaler                                         | GA             | GA             |
+| | | |
+| **Azure Active Directory**                |    GA          |   GA            |
+| **Azure ADIP**                          |     GA         |    GA                  |
+| **Azure DDoS Protection**                |    GA          |        GA              |
+| **Azure Defender**                       |     GA         |           GA           |
+| **Azure Defender for IoT**               |       GA       |     Not Available        |
+| **Azure Firewall**                        |  GA            |          GA            |
+| **Azure Information Protection**              |    Public Preview          |      Not Available                |
+| **Azure Key Vault**                           |     Public Preview         |      Not Available                |
+| **Azure Kubernetes Services (AKS)**           |     Public Preview         |      Not Available                |
+| **Azure SQL Databases**                        |    GA          |      GA                |
+| **Azure WAF**                                  |   GA           |      GA                |
+| **Dynamics365**                               |    Public Preview          |    Not Available                  |
+| **Microsoft 365 Defender**                             |    Public Preview          |   Not Available                   |
+| **Microsoft Cloud App Support (MCAS)**                                      |   GA           |       GA               |
+| **Microsoft Cloud App Support (MCAS)** <br>Shadow IT logs                |   Public Preview           |         Public Preview             |
+| **Microsoft Cloud App Support (MCAS)**          <br>Alerts           |     Public Preview         |     Public Preview                 |
+| **Microsoft Defender for Entity**                               |       GA       |       Not Available                |
+| **Microsoft Defender for Identity**                            |    Public Preview          |    Not Available                  |
+| **Microsoft Defender for Office 365**               |     Public Preview         |      Not Available                |
+| **Office 365**                                      |      GA        |       GA               |
+| | | | |
+
+
+<sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
+
+
+# [GCC/GCC-H/DoD](#tab/gcc-gcch-dod)
+
+| Feature | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
 | ----- | ----- | ---- |
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
@@ -164,9 +294,9 @@ The following tables list the current Sentinel feature availability between our 
 
 ### Microsoft 365 data connectors
 
-Azure Sentinel in Azure Public cloud supports commercial and GCC Microsoft services, while Azure Sentinel in Azure Government clouds supports GCC and Office DoD services.
+Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, while Azure Sentinel in Azure Government clouds supports GCC and Office DoD services.
 
-| Connector | Azure Public <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
+| Connector | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
 | ------------------------------------ | -------------- | ---------------------- |
 | **Azure Active Directory**                |              |               |
 | - GCC |GA | -|
@@ -249,6 +379,10 @@ Azure Sentinel in Azure Public cloud supports commercial and GCC Microsoft servi
 | - GCC High |- |GA |
 | - Office DoD |- |GA |
 | | | | |
+
+
+---
+
 
 ## Next steps
 
