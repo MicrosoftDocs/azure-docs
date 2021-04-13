@@ -1,7 +1,7 @@
 ---
 title: Azure Service Fabric releases
 description: Release notes for Azure Service Fabric. Includes information on the latest features and improvements in Service Fabric.
-ms.date: 06/10/2019
+ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
@@ -83,7 +83,7 @@ Due to the current COVID-19 crisis, and taking into consideration the challenges
 You will be able to update to 7.1 via through the [Azure portal](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal) or via an [Azure Resource Manager deployment](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Service Fabric clusters with automatic upgrades enabled will begin to receive the 7.1 update automatically once we resume the standard rollout procedure. We will provide another announcement before the standard rollout begins on the [Service Fabric Tech Community Site](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
-We also have published updates to end of support date for major releases starting from 6.5 up to 7.1 [here](./service-fabric-versions.md#supported-versions). 
+We also have published updates to end of support date for major releases starting from 6.5 up to 7.1 [here](./service-fabric-versions.md). 
 
 #### Key Announcements
 
