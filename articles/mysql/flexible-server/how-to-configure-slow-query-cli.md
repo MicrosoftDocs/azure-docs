@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2021
 ---
 
-# Configure and access audit logs for Azure Database for MySQL - Flexible Server using the Azure CLI
+# Configure slow query logs for Azure Database for MySQL - Flexible Server using the Azure CLI
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
-You can configure [audit logs](concepts-audit-logs.md) and [slow query logs](concepts-slow-query-logs.md) for your MySQL flexible server using Azure CLI
+The article shows you how to configure [slow query logs](concepts-slow-query-logs.md) for your MySQL flexible server using Azure CLI. 
 
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -35,22 +35,6 @@ You can configure [audit logs](concepts-audit-logs.md) and [slow query logs](con
     ```azurecli
     az mysql flexible-server create --resource-group myresourcegroup --name myservername
     ```
-
-## Configure audit logging
-
->[!IMPORTANT]
-> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
-
-Enable and configure audit logging.
-
-```azurecli
-# Enable audit logs
-az mysql flexible-server parameter set \
---name audit_log_enabled \
---resource-group myresourcegroup \
---server-name mydemoserver \
---value ON
-```
 
 ## Configure slow query logs
 
@@ -86,7 +70,4 @@ az mysql flexible-server parameter set \
 ```
 
 ## Next steps
-
-- Learn more about [audit logs](concepts-audit-logs.md)
 - Learn about [slow query logs](concepts-slow-query-logs.md)
-<!-- - Learn how to configure audit logs in the [Azure CLI](howto-configure-audit-logs-cli.md)-->
