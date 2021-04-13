@@ -21,6 +21,35 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2021-04-05
 
+### Azure Machine Learning SDK for Python v1.27.0
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
+  + **azureml-automl-runtime**
+    + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
+  + **azureml-core**
+    + Users can now override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable
+    + Fixed bug where docker settings in Environment object are note respected.
+    + Allowing a user to\xa0partition data\xa0to the destination specified by target
+    + Adding a custom mode to the OutputDatasetConfig and enabling a user to pass through created Datasets in pipelines through a link function. File path destinations support placeholders. These support the enhancements made to enable Tabular Partitioning for PRS.
+    + Addition of new KubernetesCompute compute type to azureml-core.
+    + Fix the additional period in experimental doc link. The additional period causes the link navigation to fail.
+  + **azureml-pipeline-core**
+    + Adding a custom mode to the OutputDatasetConfig and enabling a user to pass through created Datasets in pipelines through a link function. File path destinations support placeholders. These support the enhancements made to enable Tabular Partitioning for PRS.
+    + Addition of new KubernetesCompute compute type to azureml-core.
+  + **azureml-pipeline-steps**
+    + Addition of new KubernetesCompute compute type to azureml-core.
+  + **azureml-synapse**
+    + Update spark UI url in widget of azureml synapse
+  + **azureml-train-automl-client**
+    + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
+  + **azureml-train-core**
+    + Fixed bug where docker settings in Environment object are note respected.
+    + Addition of new KubernetesCompute compute type to azureml-core.
+
+
+## 2021-04-19
+
 ### Azure Machine Learning SDK for Python v1.26.0
 + **Bug fixes and improvements**
   + **azureml-automl-core**
