@@ -174,12 +174,12 @@ Once you store the script, refer to it during creation of your compute instance:
     1. Browse to the shell script you saved.  Or upload a script from your computer.
     1. Add command arguments as needed.
     
-    :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provision with a setup script in the studio":::
+    :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
 
 * In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance), add `setupScripts`. For example:
 
-    ```json
-"setupScripts":{
+  ```json
+  "setupScripts":{
       "scripts":{
          "creationScript":{
             "scriptSource":"workspaceStorage",
@@ -188,12 +188,12 @@ Once you store the script, refer to it during creation of your compute instance:
          }
       }
    }
-    ```
+   ```
 
-    You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  For example, specify a base64 encoded command string for `scriptData`:
+  You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  For example, specify a base64 encoded command string for `scriptData`:
 
-    ```json
-   "setupScripts":{
+  ```json
+  "setupScripts":{
       "scripts":{
          "creationScript":{
             "scriptSource":"inline",
@@ -202,7 +202,7 @@ Once you store the script, refer to it during creation of your compute instance:
          }
       }
    }
-    ```
+  ```
 
 ### Setup script logs
 
