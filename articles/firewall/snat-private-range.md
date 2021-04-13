@@ -27,7 +27,7 @@ If your organization uses a public IP address range for private networks, Azure 
 > [!IMPORTANT]
 > If you want to specify your own private IP address ranges, and keep the default IANA RFC 1918 address ranges, make sure your custom list still includes the IANA RFC 1918 range. 
 
-You can configure the SNAT private IP addresses using the following methods:
+You can configure the SNAT private IP addresses using the following methods. You must configure the SNAT private addresses using the method appropriate for your configuration. Firewalls associated with a firewall policy must specify the range in the policy and not use `AdditionalProperties`.
 
 
 |Method            |Using classic rules  |Using firewall policy  |
@@ -35,7 +35,7 @@ You can configure the SNAT private IP addresses using the following methods:
 |Azure portal     | [supported](#classic-rules-3)| [supported](#firewall-policy-1)|
 |Azure PowerShell     |[configure `PrivateRange`](#classic-rules)|currently unsupported|
 |Azure CLI|[configure `--private-ranges`](#classic-rules-1)|currently unsupported|
-|ARM template     |[configure `AdditionalProperties` in firewall property](#classic-rules-2)|[configure `snat/privateRanges` under properties](#firewall-policy)|
+|ARM template     |[configure `AdditionalProperties` in firewall property](#classic-rules-2)|[configure `snat/privateRanges` in firewall policy](#firewall-policy)|
 
 
 ## Configure SNAT private IP address ranges - Azure PowerShell
@@ -125,7 +125,7 @@ To configure SNAT during ARM Template deployment, you can add the following to t
 ```
 ### Firewall policy
 
-Azure Firewalls associated with a firewall policy have supported SNAT private ranges since the 2020-11-01 API version. Currently, you can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **not** SNAT network traffic:
+Azure Firewalls associated with a firewall policy have supported SNAT private ranges since the 2020-11-01 API version. Currently, you can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **always** SNAT network traffic:
 
 ```json
 { 
