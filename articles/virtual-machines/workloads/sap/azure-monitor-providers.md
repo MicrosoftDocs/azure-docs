@@ -113,13 +113,8 @@ To configure Microsoft SQL Server provider, the SAP System ID, the Host IP addre
 Customers can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. AMS NetWeaver provider leverages the existing [SAPControl webservice](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate telemetry information.
 
 For the current release, below are the standard out-of-box SOAP web methods invoked by AMS.
-|Web method|	ABAP|	JAVA|	Metrics|
-|--|--|--|--|
-|GetSystemInstanceList|	X|	X|	Instance Availability, Message Server, Gateway, ICM, ABAP Availability|
-|GetProcessList|	X|	X|	If instance list is RED, we can get what Process causing that server to be RED|
-|GetQueueStatistic|	X|	X|	Queue Statistics (DIA/BATCH/UPD)|
-|ABAPGetWPTable|	X|	 -|	Work process utilization|
-|EnqGetStatistic|	X	|X	|Locks|
+
+![image](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
 
 In public preview, customers can expect to see the following data with the SAP NetWeaver provider: 
 - System and instance availability
