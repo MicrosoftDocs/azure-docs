@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Jostle to support provisioning with Azure AD
 
-## Automation account
+### Automation account
 
 Before you begin, you’ll need to create an **Automation user** in your Jostle intranet. This will be the account you’ll use to configure with Azure. Automation users can be created in Admin **Settings > User accounts and data > Manage Automation users**.
 
@@ -55,7 +55,7 @@ For more details on Automation users and how to create one, see [this article](h
 
 Once created, the Automation user account **must be activated** (i.e. logged in to your intranet at least once) before it can be used to configure Azure.
 
-## Manage user provisioning
+### Manage user provisioning
 
 Before you begin, ensure that your account subscription **includes SSO/user provisioning features**. If it doesn't, you can contact your Customer Success Manager <success@jostle.me> and they can assist you in adding it to your account.
 
@@ -65,16 +65,15 @@ The next step is to obtain the **API URL** and **API key** from Jostle:
 1. Under **User data to/from other systems** click **Manage user provisioning** .If you do not see "Manage user provisioning" here and have verified that your account includes SSO/user provisioning, contact Support <support@jostle.me> to have this page enabled in your Admin Settings).
 1. In the **User Provisioning API details** section, go to **Your Base URL** field, click the Copy button and save the URL somewhere you can easily access it later.                                                           
 
-   ![Provisioning](media\jostle-provisioning-tutorial\manage-user-provisioning.png)
+   ![Provisioning](media/jostle-provisioning-tutorial/manage-user-provisioning.png)
                 
 1. Next, click the **Add a new key**... button
 1. On the following screen, go to the **Automation User** field and use the drop-down menu to select your Automation user account. 
 
-   ![Integration Account](media\jostle-provisioning-tutorial\select-integration-account.png)                                                                                                                                     
-1. In the **Provisioning API key description** field give your key a name (i.e. “Azure”) and then click the **Add** button.                                                                     
-   ![Copy API Key](media\jostle-provisioning-tutorial\copy-api-key.png)
+   ![Integration Account](media/jostle-provisioning-tutorial/select-integration-account.png)                                                                                                                                     
+1. In the **Provisioning API key description** field give your key a name (i.e. “Azure”) and then click the **Add** button.
 
-1. Once your key is generated, **make sure to copy it right away** and save it where you saved your URL (since this will be the only time your key will appear).                                                                   
+1. Once your key is generated, **make sure to copy it right away** and save it where you saved your URL (since this will be the only time your key will appear).                                                               
 1. Next, you’ll use the **API URL** and **API key** to configure the integration in Azure.
 ## Step 3. Add Jostle from the Azure AD application gallery
 
