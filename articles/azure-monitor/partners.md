@@ -3,7 +3,8 @@ title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 ms.topic: conceptual
 ms.date: 02/19/2021
-
+ms.author:robb
+author:rboucher
 ---
 
 # Azure Monitor partner integrations
@@ -296,7 +297,7 @@ With Site24x7 Azure Monitoring, you will be able to:
 
 ## SpearTip
 
-![SpearTip logo](./media/partners/speartip.png)
+![SpearTip logo](./media/partners/speartip1.png)
 
 SpearTip’s 24/7 security operations center continuously monitors Azure environments for cyber threats. Utilizing the ShadowSpear integration with Azure Monitor, security events are collected and analyzed for advanced threats, while SpearTip engineers investigate and respond to stop threat actors in their tracks. The integration is seamless and provides instant value once the integration is deployed.
 
