@@ -25,7 +25,7 @@ After you have imported a configuration, you can view it in the Azure portal.
 
 1. On the configuration's detail page, click **Delete** to remove the configuration.
 
-   :::image type="content" source="./media/remove-dsc-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/change-tracking/configurations-tab.png":::
+   :::image type="content" source="./media/remove-dsc-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/change-tracking/delete-extension.png":::
 
 ## Unregister a node
 
