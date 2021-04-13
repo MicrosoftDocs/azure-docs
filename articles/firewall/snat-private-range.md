@@ -35,7 +35,7 @@ You can configure the SNAT private IP addresses using the following methods:
 |Azure portal     | [supported](#classic-rules-3)| [supported](#firewall-policy-1)|
 |Azure PowerShell     |[configure `PrivateRange`](#classic-rules)|currently unsupported|
 |Azure CLI|[configure `--private-ranges`](#classic-rules-1)|currently unsupported|
-|ARM template     |[configure `AdditionalProperties` in firewall property](#classic-rules-2)|[configure `SNAT/privateRanges` under properties](#firewall-policy)|
+|ARM template     |[configure `AdditionalProperties` in firewall property](#classic-rules-2)|[configure `snat/privateRanges` under properties](#firewall-policy)|
 
 
 ## Configure SNAT private IP address ranges - Azure PowerShell
@@ -85,7 +85,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 You can use Azure CLI to specify private IP address ranges for the firewall using classic rules. 
 
-### New firewall
+#### New firewall
 
 For a new firewall using classic rules, the Azure CLI command is:
 
@@ -100,9 +100,9 @@ az network firewall create \
 > Deploying Azure Firewall using Azure CLI command `az network firewall create` requires additional configuration steps to create public IP addresses and IP configuration. See [Deploy and configure Azure Firewall using Azure CLI](deploy-cli.md) for a full deployment guide.
 
 > [!NOTE]
-> IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it. To keep the IANAPrivateRanges default in your private range specification, it must remain in your `PrivateRange` specification as shown in the following examples.
+> IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it. To keep the IANAPrivateRanges default in your private range specification, it must remain in your `private-ranges` specification as shown in the following examples.
 
-### Existing firewall
+#### Existing firewall
 
 To configure an existing firewall using classic rules, the Azure CLI command is:
 
