@@ -635,7 +635,7 @@ Add the virtual machines to the back-end pool with [az network nic ip-config add
   done
 
 ```
-
+---
 ## Test the load balancer
 
 Create the network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create). Specify the following:
