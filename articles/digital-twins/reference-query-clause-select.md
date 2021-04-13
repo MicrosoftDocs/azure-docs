@@ -54,7 +54,7 @@ FROM DIGITALTWINS
 
 You can use projections in the SELECT clause to choose which columns a query will return. You can specify named collections of twins and relationships, or properties of twins and relationships.
 
-At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check.
+Projection is now supported for both primitive properties and complex properties.
 
 ### Syntax
 
@@ -202,14 +202,13 @@ Here is the JSON payload that's returned from this query:
 
 #### Project property example
 
-Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship. Note that the query uses `IS_PRIMITIVE` to verify that the property names are of primitive types, since complex properties are not currently supported by projection.
+Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship.
 
 ```sql
 SELECT Consumer.name, Relationship.managedBy
 FROM DIGITALTWINS Factory
 JOIN Consumer RELATED Factory.consumerRelationship Relationship
 WHERE Factory.$dtId = 'FactoryA'
-AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Relationship.managedBy)
 ```
 
 Here is the JSON payload that's returned from this query:
@@ -255,6 +254,13 @@ The following query returns the count of all digital twins in the instance.
 ```sql
 SELECT COUNT()
 FROM DIGITALTWINS
+```
+
+The following query returns the count of all relationships in the instance.
+
+```sql
+SELECT COUNT()
+FROM RELATIONSHIPS
 ```
 
 ## SELECT TOP

@@ -95,7 +95,6 @@ FROM DIGITALTWINS DT
 WHERE DT.Temperature < 80 OR DT.Humidity < 50
 ```
 
-
 Here is an example using `NOT`. The following query returns twins who do not meet the conditions of Temperature less than 80.
 
 ```sql
@@ -113,4 +112,4 @@ See the section below for more details.
 
 ### Limit for IN/NIN
 
-The limit for the number of values that can be included in an `IN` or `NIN` set is 50 values.
+The limit for the number of values that can be included in an `IN` or `NIN` set is 100 values.

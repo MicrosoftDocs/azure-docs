@@ -23,11 +23,11 @@ The FROM clause is the second part of a query. It specifies the collection and a
 
 This clause is required for all queries.
 
-## Core syntax: FROM DIGITALTWINS
+## SELECT ... FROM DIGITALTWINS
 
-Use `FROM DIGITALTWINS` (not case sensitive) to refer to the entire collection of digital twins in an instance. This is currently the only `FROM` collection that the query language supports.
+Use `FROM DIGITALTWINS` (not case sensitive) to refer to the entire collection of digital twins in an instance.
 
-You can also add a name to the collection of digital twins by adding the name to the end of the statement.
+You can optionally add a name to the collection of digital twins by adding the name to the end of the statement.
 
 ### Syntax
 
@@ -61,6 +61,48 @@ SELECT *
 FROM DIGITALTWINS T
 ```
 
+## SELECT ... FROM RELATIONSHIPS
+
+Use `FROM RELATIONSHIPS` (not case sensitive) to refer to the entire collection of relationships in an instance.
+
+You can optionally add a name to the collection of relationships by adding the name to the end of the statement.
+
+>[!NOTE]
+> This feature cannot be combined with `JOIN`.
+
+### Syntax
+
+Basic:
+
+```sql
+--SELECT ...
+FROM RELATIONSHIPS
+```
+
+To name the collection:
+
+```sql
+--SELECT ...
+FROM RELATIONSHIPS <collection-name>
+```
+
+### Examples
+
+Here is a query that returns all relationships in the instance. 
+
+```sql
+SELECT *
+FROM RELATIONSHIPS
+```
+
+Here is a query that returns all relationships coming from twins `A`, `B`, `C`, or `D`.
+
+```sql
+SELECT *
+FROM RELATIONSHIPS
+WHERE $sourceId IN  ['A', 'B', 'C', 'D']
+```
+
 ## Using FROM and JOIN together
 
 The `FROM` clause can be combined with the `JOIN` clause to express cross-entity traversals in the Azure Digital Twins graph.
@@ -71,8 +113,9 @@ For more information on the `JOIN` clause and crafting graph traversal queries, 
 
 The following limits apply to queries using `FROM`.
 * [No subqueries](#no-subqueries)
+* [Choose FROM RELATIONSHIPS or JOIN](#choose-from-relationships-or-join)
 
-See the section below for more details.
+See the sections below for more details.
 
 ### No subqueries
 
@@ -86,3 +129,9 @@ The following query shows an example of what **cannot** be done as per this limi
 SELECT * 
 FROM (SELECT * FROM DIGITALTWINS T WHERE ...)
 ```
+
+### Choose FROM RELATIONSHIPS or JOIN
+
+The `FROM RELATIONSHIPS` feature cannot be combined with `JOIN`. You will have to select which of these options works best for the information you'd like to select.
+
+
