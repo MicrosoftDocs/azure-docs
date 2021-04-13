@@ -24,7 +24,7 @@ items:
   - name: 2 Analyze using serverless SQL pool
     href: get-started-analyze-sql-on-demand.md
     displayName: get, started
-  - name: 3 Analyze using serveless Spark pool
+  - name: 3 Analyze using serverless Spark pool
     href: get-started-analyze-spark.md
     displayName: get, started
   - name: 4 Analyze using a dedicated SQL pool
@@ -183,7 +183,7 @@ items:
         - name: Connect to Azure Synapse workspace with private endpoints
           href: security/how-to-connect-to-workspace-with-private-links.md
           displayname: links
-        - name: Provision and secure a linked service with Managed Vnet
+        - name: Provision and secure a linked service with Managed VNet
           href: ./data-integration/linked-service.md
         - name: Connect to Synapse workspace from restricted network
           href: security/how-to-connect-to-workspace-from-restricted-network.md
@@ -588,6 +588,8 @@ items:
       href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
     - name: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
       href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
+    - name: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
+      href: ./spark/apache-spark-azure-log-analytics.md
   - name: Concepts
     items:
     - name: Apache Spark 
