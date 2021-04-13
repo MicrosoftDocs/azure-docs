@@ -21,12 +21,11 @@ The tables below outline the Service Fabric and platform versions actively suppo
 
 ** Service Fabric does not provide a .Net Core runtime and the service author is responsible for ensuring it is <a href="https://docs.microsoft.com/dotnet/core/deploying/">available</a>
 
-### Supported Windows versions and support end date<br>
+## Supported Windows versions and support end date<br>
+Support for SF on a specific OS ends when Support for the OS version reaches its End of Life.
 <br>
 
-#### Windows Server
-Support for SF on a specific OS ends when Support for the OS version reaches its End of Life.
-
+### Windows Server
 
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- | --- |
@@ -39,9 +38,7 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 
 <br>
 
-#### Windows 10
-Support for SF on a specific OS ends when Support for the OS version reaches its End of Life.
-
+### Windows 10
 
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- | --- |	
@@ -65,7 +62,7 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 
 ** Service Fabric does not provide a .Net Core runtime and the service author is responsible for ensuring it is <a href="https://docs.microsoft.com/dotnet/core/deploying/">available</a>
 
-### Supported Linux versions and support end date
+## Supported Linux versions and support end date
 Support for SF on a specific OS ends when Support for the OS version reaches its End of Life
 
 #### Ubuntu
@@ -75,6 +72,7 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 | Ubuntu 16.04 | April 2024 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 
 <br>
+
 ## Service Fabric Version Name and Number Reference
 The following table lists the version names of Service Fabric and their corresponding version numbers.
 
