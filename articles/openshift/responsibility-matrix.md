@@ -408,7 +408,7 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 
 <li>Scale and/or resize control plane nodes to maintain quality of service
 
-<li>Monitor utilization of customer resources including Network, Storage and Compute capacity. Where autoscaling features are not enabled alert customer for any changes required to cluster resources (eg. new compute nodes to scale, additional storage, etc)
+<li>Monitor utilization of customer resources including Network, Storage and Compute capacity. Where autoscaling features are not enabled alert customer for any changes required to cluster resources (eg. new compute nodes to scale, additional storage, etc.)
 </li>
 </ul>
    </td>
@@ -457,7 +457,7 @@ Identity and Access management includes all responsibilities for ensuring that o
    <td>
 <ul>
 
-<li>Configure OpenShift RBAC to control access to projects and by extension a project'92s application logs.
+<li>Configure OpenShift RBAC to control access to projects and by extension a project's application logs.
 
 <li>For third-party or custom application logging solutions, the customer is responsible for access management.
 </li>
@@ -568,14 +568,14 @@ Security and compliance includes any responsibilities and controls that ensure c
 
 <li>Monitor virtual networking components for potential issues and security threats.
 
-<li>Leverage additional public Microsoft and Red Hat Azure tools for additional monitoring and protection.
+<li>Use additional public Microsoft and Red Hat Azure tools for additional monitoring and protection.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Monitor optionally-configured virtual networking components for potential issues and security threats.
+<li>Monitor optionally configured virtual networking components for potential issues and security threats.
 
 <li>Configure any necessary firewall rules or data center protections as required.
 </li>
@@ -648,11 +648,11 @@ The customer is responsible for the applications, workloads, and data that they 
 
 <li>Maintain responsibility for customer and third-party applications, data, and their complete lifecycle.
 
-<li>If a customer adds Red Hat, community, third-party, their own, or other services to the cluster by using Operators or external images, the customer is responsible for these services and for working with the appropriate provider (including Red Hat) to troubleshoot any issues.
+<li>If a customer adds Red Hat, community, third party, their own, or other services to the cluster by using Operators or external images, the customer is responsible for these services and for working with the appropriate provider (including Red Hat) to troubleshoot any issues.
 
 <li>Use the provided tools and features to <a href="https://docs.openshift.com/dedicated/4/architecture/understanding-development.html#application-types">configure and deploy</a>; <a href="https://docs.openshift.com/dedicated/4/applications/deployments/deployment-strategies.html">keep up-to-date</a>; <a href="https://docs.openshift.com/dedicated/4/applications/working-with-quotas.html">set up resource requests and limits</a>; <a href="https://docs.openshift.com/dedicated/4/getting_started/scaling-your-cluster.html">size the cluster to have enough resources to run  apps</a>; <a href="https://docs.openshift.com/dedicated/4/administering_a_cluster/dedicated-admin-role.html#dedicated-admin-granting-permissions_dedicated-administrator">set up permissions</a>; integrate with other services; <a href="https://docs.openshift.com/dedicated/4/openshift_images/images-understand.html">manage any image streams or templates that the customer deploys</a>; <a href="https://docs.openshift.com/dedicated/4/cloud_infrastructure_access/dedicated-aws-private-cluster.html">externally serve</a>; save, back up, and restore data; and otherwise manage their highly available and resilient workloads.
 
-<li>Maintain responsibility for monitoring the applications run on Azure Red Hat OpenShift; including installing and operating software to gather metrics and create alerts..
+<li>Maintain responsibility for monitoring the applications run on Azure Red Hat OpenShift; including installing and operating software to gather metrics and create alerts.
 </li>
 </ul>
    </td>
@@ -660,4 +660,4 @@ The customer is responsible for the applications, workloads, and data that they 
 </table>
 
 
-Table 7. Customer responsibilities for customer data, customer applications, and services}
+Table 7. Customer responsibilities for customer data, customer applications, and services
