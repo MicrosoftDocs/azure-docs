@@ -136,7 +136,7 @@ Install the device updates in KB4542887 by following the steps in [To install an
 
 Follow the steps to install first order updates. There are no second order updates in Update 5.1.
 
-For Update 5.1, these software versions are installed:
+For Update 5.1, check for these software versions after installing:
 
  * FriendlySoftwareVersion: StorSimple 8000 Series Update 5.1
  * HcsSoftwareVersion: 6.3.9600.17885
