@@ -14,7 +14,7 @@ ms.author: apimpm
 
 This article shows how to enable zone redundancy for your API Management instance by using the Azure portal. [Zone redundancy](../availability-zones/az-overview.md#availability-zones.md) provides resiliency and high availability to a service instance in a specific Azure region (location). Configuring API Management for zone redundancy is an option in all [Azure regions with availability zones](../availability-zones/az-region#azure-regions-with-availability-zones). 
 
-API Management also supports [multi-region deployments](api-management-howto-deploy-multi-region.md), which helps reduce request latency perceived by geographically distributed API consumers and improves service availability if one region goes offline. The combination of availability zones for redundancy within a region, and multi-region deployments to improve service availability in case of a regional outage, helps enhance both the reliability and performance of your API Managment instance.
+API Management also supports [multi-region deployments](api-management-howto-deploy-multi-region.md), which helps reduce request latency perceived by geographically distributed API consumers and improves service availability if one region goes offline. The combination of availability zones for redundancy within a region, and multi-region deployments to improve service availability if there is a regional outage, helps enhance both the reliability and performance of your API Management instance.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
