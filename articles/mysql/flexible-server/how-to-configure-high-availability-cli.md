@@ -19,7 +19,7 @@ This articles describes how you can enable or disable zone redundant high availa
 High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). Enabling or disablng high availability does not change your other settings including VNET configuration, firewall settings, and backup retention. Disabling of high availability does not impact your application connectivity and operations.
 
 > [!IMPORTANT]
-> Zone redundant high availability is available in limited set of regions. Please review the supported regions [here](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/overview#azure-regions). 
+> Zone redundant high availability is available in limited set of regions. Please review the supported regions [here](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions). 
 
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
