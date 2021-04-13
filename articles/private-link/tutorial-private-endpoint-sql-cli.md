@@ -148,6 +148,8 @@ az vm create \
     --admin-username azureuser
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create an Azure SQL server
 
 In this section, you'll create a SQL server and database.

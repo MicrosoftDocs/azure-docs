@@ -34,4 +34,6 @@ The number of requests, words, bytes, or sentences is irrelevant in the characte
 
 Calls to the Detect and BreakSentence methods are not counted in the character consumption. However, we do expect that the calls to the Detect and BreakSentence methods are in a reasonable proportion to the use of other functions that are counted. If the number of Detect or BreakSentence calls you make exceeds the number of other counted methods by 100 times, Microsoft reserves the right to restrict your use of the Detect and BreakSentence methods.
 
+Every character submitted to the translate function is counted even when the content is not changed or when the source and target language are the same.
+
 More information about character counts is in the [Translator FAQ](https://www.microsoft.com/en-us/translator/faq.aspx).
