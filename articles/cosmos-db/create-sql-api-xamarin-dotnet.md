@@ -92,18 +92,18 @@ Go back to the Azure portal to get your API key information and copy it into the
 
 2. In Visual Studio, open **ToDoItems.Core/Helpers/APIKeys.cs**.
 
-3. In the Azure Portal, using the copy button, copy the **URI** value and make it the value of the `CosmosEndpointUrl` variable in APIKeys.cs.
+3. In the Azure portal, using the copy button, copy the **URI** value and make it the value of the `CosmosEndpointUrl` variable in APIKeys.cs.
 
     ```csharp
     //#error Enter the URL of your Azure Cosmos DB endpoint here
-    public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    public static readonly string CosmosEndpointUrl = "[URI Copied from Azure portal]";
     ```
 
-4. In the Azure Portal, using the copy button, copy the **PRIMARY KEY** value and make it the value of the `Cosmos Auth Key` in APIKeys.cs.
+4. In the Azure portal, using the copy button, copy the **PRIMARY KEY** value and make it the value of the `Cosmos Auth Key` in APIKeys.cs.
 
     ```csharp
     //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
-    public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure portal";
     ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
