@@ -7,7 +7,7 @@
     },
     {
         "source_path_from_root": "/articles/security/benchmarks/introduction.md",
-        "redirect_url": "/security/benchmark/azure/introduction.",
+        "redirect_url": "/security/benchmark/azure/introduction",
         "redirect_document_id": false
     },
     {
