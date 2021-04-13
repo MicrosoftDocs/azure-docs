@@ -1,6 +1,6 @@
 ---
-title: Azure Compute - Linux Diagnostic Extension 4.0
-description: How to configure the Azure Linux Diagnostic Extension (LAD) 4.0 to collect metrics and log events from Linux VMs running in Azure.
+title: Azure Compute - Linux diagnostic extension 4.0
+description: How to configure the Azure Linux diagnostic extension (LAD) 4.0 to collect metrics and log events from Linux VMs running in Azure.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -10,17 +10,17 @@ ms.collection: linux
 ms.date: 02/05/2021
 
 ---
-# Use Linux Diagnostic Extension 4.0 to monitor metrics and logs
+# Use the Linux diagnostic extension 4.0 to monitor metrics and logs
 
-This document describes the latest versions of Linux Diagnostic Extension (LAD).
+This document describes the latest versions of the Linux diagnostic extension (LAD).
 
 > [!IMPORTANT]
-> For information about version 3.x, see  [Use Linux Diagnostic Extension 3.0 to monitor metrics and logs](./diagnostics-linux-v3.md). 
+> For information about version 3.x, see  [Use the Linux diagnostic extension 3.0 to monitor metrics and logs](./diagnostics-linux-v3.md). 
 > For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
 
-Linux Diagnostic Extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following capabilities:
+the Linux diagnostic extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following capabilities:
 
 * Collects system performance metrics from the VM and stores them in a specific table in a designated storage account.
 * Retrieves log events from syslog and stores them in a specific table in the designated storage account.
@@ -52,7 +52,7 @@ The downloadable configuration is just an example. Modify it to suit your needs.
 
 ### Supported Linux distributions
 
-Linux Diagnostic Extension supports many distributions and versions. The following list of distributions and versions applies only to Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
+The Linux diagnostic extension supports many distributions and versions. The following list of distributions and versions applies only to Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
 
 A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or later than the specified version are supported.
 
@@ -76,7 +76,7 @@ Supported distributions and versions:
 
 ### Python requirement
 
-Linux Diagnostic Extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, install it. 
+The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, install it. 
 
 The following sample commands install Python 2 on various distributions:	
 
@@ -284,7 +284,7 @@ Element | Value
 name | A string used to refer to this sink elsewhere in the extension configuration.
 type | The type of sink being defined. Determines the other values (if any) in instances of this type.
 
-Linux Diagnostic Extension 4.0 supports two sink types: `EventHub` and `JsonBlob`.
+The Linux diagnostic extension 4.0 supports two sink types: `EventHub` and `JsonBlob`.
 
 #### EventHub sink
 
@@ -331,7 +331,7 @@ Blobs are stored in a container that has the same name as the sink. The Azure St
 
 ## Public settings
 
-The public settings structure contains various blocks of settings that control the information that the extension collects. Each setting, except `ladCfg`, is optional. If you specify metric or syslog collection in `ladCfg`, you must also specify `StorageAccount`. You must specify the `sinksConfig` element to enable the Azure Monitor sink for metrics from LAD 4.0
+The public settings structure contains various blocks of settings that control the information that the extension collects. Each setting, except `ladCfg`, is optional. If you specify metric or syslog collection in `ladCfg`, you must also specify `StorageAccount`. You must specify the `sinksConfig` element to enable the Azure Monitor sink for metrics from LAD 4.0.
 
 ```json
 {
@@ -664,7 +664,7 @@ If your protected settings are in the file *ProtectedSettings.json* and your pub
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. 
+The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. 
 
 For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
 
