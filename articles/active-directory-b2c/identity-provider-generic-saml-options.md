@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -40,8 +40,8 @@ You can also include claims that aren't returned by the identity provider, as lo
 The output claim element contains the following attributes:
 
 - **ClaimTypeReferenceId** is the reference to a claim type. 
-- **PartnerClaimType** is the name of the property that appears in Azure Insights. Use the syntax `{property:NAME}`, where `NAME` is property being added to the event.
-- **DefaultValue** is a predefined value to be recorded, such as event name. A claim that is used in the user journey, such as the identity provider name. If the claim is empty, the default value will be used. For example, the `identityProvider` claim is set by the federation technical profiles, such as Facebook. If the claim is empty, it indicates the user sign-in with a local account. Thus, the default value is set to *Local*. You can also record a [claim resolvers](claim-resolver-overview.md) with a contextual value, such as the application ID, or the user IP address.
+- **PartnerClaimType** is the name of the property that appears SAML assertion. 
+- **DefaultValue** is a predefined default value. If the claim is empty, the default value will be used. You can also use a [claim resolvers](claim-resolver-overview.md) with a contextual value, such as the correlation ID, or the user IP address.
 
 ### Subject name
 
@@ -82,9 +82,11 @@ The following is an example of an Azure AD metadata single sign-on service with 
 </IDPSSODescriptor>
 ```
 
-SAML responses are transmitted to Azure AD B2C via HTTP POST binding. Azure AD B2C policy metadata sets the `AssertionConsumerService` binding to `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
+### Assertion consumer service
 
-The following is an example of an Azure AD B2C policy metadata assertion consumer service element.
+The Assertion Consumer Service (or ACS) is where the identity provider SAML responses can be sent and received by Azure AD B2C. SAML responses are transmitted to Azure AD B2C via HTTP POST binding. The ACS location points to your relying party's base policy. For example, if the relying policy is *B2C_1A_signup_signin*, the ACS is the base policy of the *B2C_1A_signup_signin*, such as *B2C_1A_TrustFrameworkBase*.
+
+The following is an example of an Azure AD B2C policy metadata assertion consumer service element. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

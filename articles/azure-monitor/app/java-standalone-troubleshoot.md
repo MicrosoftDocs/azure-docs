@@ -11,7 +11,7 @@ In this article, we cover some of the common issues that you might face while in
 
 ## Check the self-diagnostic log file
 
-By default, the Java 3.0 agent for Application Insights produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.0.2.jar` file.
+By default, the Java 3.0 agent for Application Insights produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.0.3.jar` file.
 
 This log file is the first place to check for hints to any issues you might be experiencing.
 
@@ -36,13 +36,17 @@ These changes include:
 
 ## Some logging is not auto-collected
 
-Logging is only captured if it first meets the logging frameworks' configured threshold,
-and second also meets the Application Insights configured threshold.
+Logging is only captured if it first meets the level that is configured for the logging framework,
+and second, also meets the level that is configured for Application Insights.
+
+For example, if your logging framework is configured to log `WARN` (and above) from package `com.example`,
+and Application Insights is configured to capture `INFO` (and above),
+then Application Insights will only capture `WARN` (and above) from package `com.example`.
 
 The best way to know if a particular logging statement meets the logging frameworks' configured threshold
 is to confirm that it is showing up in your normal application log (e.g. file or console).
 
-Also note that if an exception is passed to the logger, then the log message (and exception)
+Also note that if an exception object is passed to the logger, then the log message (and exception object details)
 will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
 
 See the [auto-collected logging configuration](./java-standalone-config.md#auto-collected-logging) for more details.

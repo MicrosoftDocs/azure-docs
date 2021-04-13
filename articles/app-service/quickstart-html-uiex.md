@@ -7,7 +7,7 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.custom: mvc, cli-validate, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -63,7 +63,7 @@ The command may take a few minutes to complete.
 <ul>
 <li>Create a default resource group.</li>
 <li>Create a default App Service plan.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an App Service app</a> with the specified name.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Create an App Service app</a> with the specified name.</li>
 <li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
 <li>While running, it provides messages about resource creation, logging, and ZIP deployment.</li>
 </ul>

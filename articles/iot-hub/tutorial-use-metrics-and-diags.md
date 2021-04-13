@@ -211,7 +211,7 @@ To set up metric alerts:
 
 1. First configure the condition that the alert will trigger on.
 
-    1. Under **Condition**, select **Select condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
+    1. Under **Condition**, select **Add condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot showing selecting the metric.":::
 
@@ -237,7 +237,7 @@ To set up metric alerts:
 
 1. Now configure the action for the alert.
 
-    1. Back on the **Create alert rule** pane, under **Actions**, select **Select action group**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
+    1. Back on the **Create alert rule** pane, under **Actions**, select **Add action groups**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
 
     1. Under the **Basics** tab on the **Create action group** pane, give your action group a name and a display name.
 
@@ -305,7 +305,7 @@ With these settings, an alert will trigger and you'll get an email notification 
 
 ## Run the simulated device app
 
-In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it. 
+In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it.
 
 > [!IMPORTANT]
 >

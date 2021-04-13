@@ -2,7 +2,7 @@
 title: Tutorial - Use quickstart templates for Azure Resource Manager Bicep development
 description: Learn how to use Azure Quickstart templates to complete your Bicep development.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:

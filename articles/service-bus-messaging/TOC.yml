@@ -92,12 +92,20 @@
   items:
   - name: Queues, topics, and subscriptions
     href: service-bus-queues-topics-subscriptions.md
+  - name: Message sessions
+    href: message-sessions.md
   - name: Topic filters and actions
     href: topic-filters.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+  - name: Message transfers, locks, and settlement
+    href: message-transfers-locks-settlement.md
+  - name: Dead-letter queues
+    href: service-bus-dead-letter-queues.md
+  - name: Message counters
+    href: message-counters.md
   - name: Optimize performance
     href: service-bus-performance-improvements.md
   - name: Federation 
@@ -154,28 +162,20 @@
       href: service-bus-to-event-grid-integration-concept.md
 - name: How-to guides
   items:
-  - name: Move across regions
-    href: move-across-regions.md
-  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
-    href: deprecate-service-bus-management.md
-  - name: Create a namespace
-    href: service-bus-create-namespace-portal.md
   - name: Develop
     items:
+    - name: Create a namespace
+      href: service-bus-create-namespace-portal.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md    
     - name: Message handling
       items:
-      - name: Queues, topics, and subscriptions
-        href: service-bus-queues-topics-subscriptions.md
       - name: Java message service (JMS) 2.0 entities
         href: java-message-service-20-entities.md
       - name: Java Message Service (JMS) Developer guide.md
         href: jms-developer-guide.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
-      - name: Message transfers, locks, and settlement
-        href: message-transfers-locks-settlement.md
       - name: Message sequencing and timestamps
         href: message-sequencing.md
       - name: Message expiration (Time to Live)
@@ -184,8 +184,6 @@
       href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
       href: service-bus-partitioning.md
-    - name: Message sessions
-      href: message-sessions.md
     - name: AMQP
       items:
       - name: AMQP overview
@@ -202,14 +200,10 @@
         href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
-      - name: Dead-letter queues
-        href: service-bus-dead-letter-queues.md
       - name: Prefetch messages
         href: service-bus-prefetch.md
       - name: Duplicate message detection
         href: duplicate-detection.md
-      - name: Message counters
-        href: message-counters.md
       - name: Message deferral
         href: message-deferral.md
       - name: Message browsing
@@ -224,6 +218,8 @@
     items:
     - name: Migrate from ActiveMQ to Azure Service Bus
       href: migrate-jms-activemq-to-servicebus.md
+    - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+      href: deprecate-service-bus-management.md
   - name: Monitor
     items:
     - name: End-to-end tracing and diagnostics
@@ -238,6 +234,8 @@
       href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
+    - name: Move across regions
+      href: move-across-regions.md
     - name: Automatically update messaging units 
       href: automate-update-messaging-units.md
     - name: Use Azure PowerShell to provision entities
@@ -310,13 +308,15 @@
     - name: azure/service-bus version 7 
       href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
     - name: azure/service-bus version 1 
-      href: /javascript/api/overview/azure/service-bus?view=azure-node-latest
+      href: /javascript/api/overview/azure/service-bus
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby
     href: https://github.com/Azure/azure-sdk-for-ruby
   - name: Go
     href: https://github.com/Azure/azure-service-bus-go
+  - name: Azure CLI
+    href: /cli/azure/servicebus
   - name: Azure PowerShell
     href: /powershell/module/az.servicebus
   - name: REST

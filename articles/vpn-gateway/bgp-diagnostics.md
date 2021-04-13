@@ -6,16 +6,68 @@ services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 02/22/2021
+ms.date: 03/10/2021
 ms.author: alzam
 
 ---
 
-# View BGP metrics and status using PowerShell
+# View BGP metrics and status
 
-Use **Get-AzVirtualNetworkGatewayBGPPeerStatus** to view all BGP peers and the status
+You can view BGP metrics and status by using the Azure portal, or by using Azure PowerShell.
+
+## Azure portal
+
+In the Azure portal, you can view BGP peers, learned routes, and advertised routes. You can also download .csv files containing this data.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your virtual network gateway.
+1. Under **Monitoring**, select **BGP peers** to open the BGP peers page.
+
+   :::image type="content" source="./media/bgp-diagnostics/bgp-portal.jpg" alt-text="Screenshot of metrics in the Azure portal.":::
+
+### Learned routes
+
+1. You can view up to 50 learned routes in the portal.
+
+   :::image type="content" source="./media/bgp-diagnostics/learned-routes.jpg" alt-text="Screenshot of learned routes.":::
+
+1. You can also download the learned routes file. If you have more than 50 learned routes, the only way to view all of them is by downloading and viewing the .csv file. To download, select **Download learned routes**.
+
+   :::image type="content" source="./media/bgp-diagnostics/download-routes.jpg" alt-text="Screenshot of downloading learned routes.":::
+1. Then, view the file.
+
+   :::image type="content" source="./media/bgp-diagnostics/learned-routes-file.jpg" alt-text="Screenshot of downloaded learned routes.":::
+
+### Advertised routes
+
+1. To view advertised routes, select the **...** at the end of the network that you want to view, then click **View advertised routes**.
+
+   :::image type="content" source="./media/bgp-diagnostics/select-route.png" alt-text="Screenshot showing how to view advertised routes." lightbox="./media/bgp-diagnostics/route-expand.png":::
+1. On the **Routes advertised to peer** page, you can view up to 50 advertised routes.
+
+   :::image type="content" source="./media/bgp-diagnostics/advertised-routes.jpg" alt-text="Screenshot of advertised routes.":::
+1. You can also download the advertised routes file. If you have more than 50 advertised routes, the only way to view all of them is by downloading and viewing the .csv file. To download, select **Download advertised routes**.
+
+   :::image type="content" source="./media/bgp-diagnostics/download-advertised.jpg" alt-text="Screenshot of selecting downloaded advertised routes.":::
+1. Then, view the file.
+
+   :::image type="content" source="./media/bgp-diagnostics/advertised-routes-file.jpg" alt-text="Screenshot of downloaded advertised routes.":::
+
+### BGP peers
+
+1. You can view up to 50 BGP peers in the portal.
+
+   :::image type="content" source="./media/bgp-diagnostics/peers.jpg" alt-text="Screenshot of BGP peers.":::
+1. You can also download the BGP peers file. If you have more than 50 BGP peers, the only way to view all of them is by downloading and viewing the .csv file. To download, select **Download BGP peers** on the portal page.
+
+   :::image type="content" source="./media/bgp-diagnostics/download-peers.jpg" alt-text="Screenshot of downloading BGP peers.":::
+1. Then, view the file.
+
+   :::image type="content" source="./media/bgp-diagnostics/peers-file.jpg" alt-text="Screenshot of downloaded BGP peers.":::
+
+## PowerShell
+
+Use **Get-AzVirtualNetworkGatewayBGPPeerStatus** to view all BGP peers and the status.
 
 [!INCLUDE [VPN Gateway PowerShell instructions](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
@@ -68,14 +120,6 @@ Use **Get-AzVirtualNetworkGatewayAdvertisedRoute** to view all the routes that t
 Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName gatewayName -ResourceGroupName resourceGroupName -Peer 10.0.0.254
 ```
 
-## Clean up resources
-
-When you no longer need the resources you created, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to delete the resource group. This command deletes the resource group and all of the resources it contains.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name ResourceGroupName
-```
-
 ## Next steps
 
-For more information about the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
+For more information about BGP, see [Configure BGP for VPN Gateway](bgp-howto.md).

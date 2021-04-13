@@ -33,7 +33,7 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 * You no longer need to update [User-Defined Routes](../virtual-network/virtual-networks-udr-overview.md) manually whenever your NVA announces new routes or withdraw old ones. 
 
-* You no longer need to configure a load balancer in front of your NVA for resiliency or performance purposes. When you peer multiple instances of your NVA with Azure Route Server, you can configure the BGP attributes in your NVA. These BGP attributes will let Azure Route Server which NVA instance should be active or passive. 
+* You can peer multiple instances of your NVA with Azure Route Server. You can configure the BGP attributes in your NVA and, depending on your design (e.g., active-active for performance or active-passive for resiliency), let Azure Route Server know which NVA instance is active or which one is passive. 
 
 * The interface between NVA and Azure Route Server is based on a common standard protocol. As long as your NVA supports BGP, you can peer it with Azure Route Server. For more information, see [Route Server supported routing protocols](route-server-faq.md#protocol).
 

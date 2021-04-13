@@ -53,6 +53,4 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 >
 > Follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio.
 
-Your function app is now published to Azure. 
-
-For your function app to be able to access Azure Digital Twins, it will need to have a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
+Your function app is now published to Azure.

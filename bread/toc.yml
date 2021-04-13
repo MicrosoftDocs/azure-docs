@@ -174,9 +174,6 @@
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
     topicHref: /azure/remote-rendering/   
-  - name: Azure Object Understanding
-    tocHref: /azure/object-understanding/
-    topicHref: /azure/object-understanding/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -207,7 +204,13 @@
     topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal documentation
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/\
+    topicHref: /azure/azure-portal/
+  - name: Azure portal documentation
+    tocHref: /azure/virtual-machines/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /power-bi
+    topicHref: /azure/azure-portal/index
   - name: Internet of Things
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
@@ -245,6 +248,9 @@
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
+      - name: Azure Certified Device
+        tocHref: /azure/certification/
+        topicHref: /azure/certification/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -274,6 +280,10 @@
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
+    items:
+    - name: Azure Stack Edge
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/
   - name: Azure Stack User
     tocHref: /azure/azure-stack/user/
     topicHref: /azure/azure-stack/user/
@@ -470,9 +480,6 @@
     - name: Data Box offline transfer
       tocHref: /azure/databox/
       topicHref: /azure/databox/
-    - name: Data Box online transfer
-      tocHref: /azure/databox-online/
-      topicHref: /azure/databox-online/
     - name: Data Box Gateway
       tocHref: /azure/databox-gateway/
       topicHref: /azure/databox-gateway/  
@@ -674,6 +681,8 @@
     tocHref: /azure/networking/
     topicHref: /azure/networking/
     items:
+      - name: Fundamentals
+        tocHref: /azure/networking/fundamentals
       - name: Application Gateway
         tocHref: /azure/application-gateway/
         topicHref: /azure/application-gateway/
@@ -792,6 +801,9 @@
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/
+      - name: Journey
+        tocHref: /azure/security/journey
+        topicHref: /azure/security/journey
       - name: Benchmarks
         tocHref: /azure/security/benchmarks/
         topicHref: /azure/security/benchmarks/
@@ -954,6 +966,9 @@
     - name: Reservations
       tocHref: /azure/cost-management-billing/reservations/
       topicHref: /azure/cost-management-billing/reservations/
+    - name: Microsoft Customer Agreement
+      tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+      topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/

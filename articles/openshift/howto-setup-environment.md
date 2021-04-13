@@ -39,7 +39,7 @@ az --version
 
 The first line of output will have the CLI version, for example `azure-cli (2.0.65)`.
 
-Here are instructions for [installing the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you require a new installation or an upgrade.
+Here are instructions for [installing the Azure CLI](/cli/azure/install-azure-cli) if you require a new installation or an upgrade.
 
 Alternately, you can use the [Azure Cloud Shell](../cloud-shell/overview.md). When using the Azure Cloud Shell, be sure to select the **Bash** environment if you plan to follow along with the [Create and manage an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial series.
 

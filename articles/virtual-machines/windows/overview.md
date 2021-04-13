@@ -3,6 +3,7 @@ title: Overview of Windows VMs in Azure
 description: Overview of Windows virtual machines in Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 11/14/2019
@@ -44,7 +45,7 @@ This table shows some of the ways you can get a list of available locations.
 | --- | --- |
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. |
-| REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
+| REST API |Use the [List locations](/rest/api/resources/subscriptions/listlocations) operation. |
 | Azure CLI |Use the [az account list-locations](/cli/azure/account) operation. |
 
 ## Availability

@@ -2,7 +2,7 @@
 title: Tutorial - Connect and monitor Azure Synapse Spark Application level metrics
 description: Tutorial - Learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector.
 services: synapse-analytics 
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics
@@ -147,7 +147,7 @@ You can use the client credentials flow to get an access token. To access the me
 | grant_type    | True     | Specifies the requested grant type. In a Client Credentials Grant flow, the value must be client_credentials. |
 | client_id     | True     | The application (service principal) ID of the application you registered in Azure portal or Azure CLI.        |
 | client_secret | True     | The secret generated for the application (service principal)                                                  |
-| resource      | True     | Synapse resource uri, should be https://dev.azuresynapse.net                                                  |
+| resource      | True     | Synapse resource uri, should be 'https://dev.azuresynapse.net'                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -171,7 +171,7 @@ Response looks like:
 
 ### 2. List running applications in the Azure Synapse workspace
 
-To get list of spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Spark Job List](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+To get list of spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Spark Job List](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
 ### 3. Collect spark application metrics with the Prometheus or REST APIs

@@ -82,7 +82,7 @@ following to get your users and applications back up and running:
 
 * If the new server is meant to replace the original server, redirect clients
   and client applications to the new server
-* Ensure appropriate server-level firewall and VNet rules are in place for
+* Ensure appropriate server-level firewall is in place for
   users to connect. These rules aren't copied from the original server group.
 * Adjust PostgreSQL server parameters as needed. The parameters aren't copied
   from the original server group.

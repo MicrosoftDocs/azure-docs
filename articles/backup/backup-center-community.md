@@ -1,13 +1,13 @@
 ---
-title: Access community resources using Backup Center
-description: Use Backup Center to access sample templates, scripts, and feature requests
+title: Access community resources using Backup center
+description: Use Backup center to access sample templates, scripts, and feature requests
 ms.topic: conceptual
 ms.date: 02/18/2021
 ---
 
-# Access community resources using Backup Center
+# Access community resources using Backup center
 
-You can use Backup Center to access various community resources useful for a backup admin or operator.
+You can use Backup center to access various community resources useful for a backup admin or operator.
 
 ## Using Community Hub
 
@@ -25,4 +25,4 @@ Some of the resources available via the Community Hub are:
 
 ## Next Steps
 
-- [Learn More about Backup Center](backup-center-overview.md)
+- [Learn More about Backup center](backup-center-overview.md)

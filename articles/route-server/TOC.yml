@@ -12,7 +12,13 @@
     href: quickstart-configure-route-server-powershell.md
   - name: Configure a Route Server - CLI
     href: quickstart-configure-route-server-cli.md
+  - name: Configure a Route Server - ARM template
+    href: quickstart-configure-template.md
   expanded: true
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Route Server FAQ
@@ -26,9 +32,9 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.network/?view=azps-5.5.0#route
+    href: /powershell/module/az.network/#route
   - name: Azure CLI
-    href: /cli/azure/network/routeserver?view=azure-cli-latest
+    href: /cli/azure/network/routeserver
   - name: REST
     href: /rest/api/virtualwan/virtualhubipconfiguration
 - name: Resources
@@ -38,7 +44,7 @@
   - name: Networking Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/routeserver/
+    href: https://azure.microsoft.com/pricing/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates

@@ -3,7 +3,7 @@ title: Configure Azure Image Builder Service permissions using Azure CLI
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using Azure CLI
 author: cynthn
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -12,7 +12,11 @@ ms.collection: linux
 
 # Configure Azure Image Builder Service permissions using Azure CLI
 
-Azure Image Builder Service requires configuration of permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios using Azure CLI.
+When you register for the (AIB), this grants the AIB Service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. This is done by an AIB Service Principal Name (SPN) being made available in your subscription during a successful registration.
+
+To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
+
+You must setup permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios using Azure CLI.
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -231,7 +235,7 @@ Replace the following placeholder settings:
 | \<Storage account container\> | Storage account container name |
 | \<Subscription ID\> | Azure subscription |
 
-For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
+For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](./image-builder-user-assigned-identity.md). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
 
 ## Next steps
 

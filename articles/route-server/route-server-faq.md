@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/29/2021
 ms.author: duau
 ---
 
@@ -31,6 +31,9 @@ Azure Route Server supports Border Gateway Protocol (BGP) only. Your NVA needs t
 ### Does Azure Route Server route data traffic between my NVA and my VMs?
 
 No. Azure Route Server only exchanges BGP routes with your NVA. The data traffic goes directly from the NVA to the chosen VM and directly from the VM to the NVA.
+
+### Does Azure Route Server store customer data?
+No. Azure Route Server only exchanges BGP routes with your NVA and then propagates them to your virtual network.
 
 ### If Azure Route Server receives the same route from more than one NVA, will it program all copies of the route (but each with a different next hop) to the VMs in the virtual network?
 
@@ -65,7 +68,7 @@ Azure Route Server has the following limits (per deployment).
 | Number of routes each BGP peer can advertise to Azure Route Server | 200 |
 | Number of routes that Azure Route Server can advertise to ExpressRoute or VPN gateway | 200 |
 
-For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+If your NVA advertises more routes than the limit, the BGP session will be dropped. If this happens to the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
 ## Next steps
 

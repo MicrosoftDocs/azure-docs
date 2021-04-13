@@ -1,16 +1,10 @@
 ---
 title: Azure Security Center's features according to OS, machine type, and cloud
 description: Learn about which Azure Security Center features are available according to their OS, type, and cloud deployment.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
 ---
