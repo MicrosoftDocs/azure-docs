@@ -106,7 +106,7 @@ Verify that your device is running **StorSimple 8000 Series Update 5.1 (6.3.9600
 If you want to install Update 5.1 as a hotfix, you should complete the Update 5.0 updates before you install Update 5.1. For instructions, see [Install Update 5 on your StorSimple device](storsimple-8000-install-update-5.md).
 
 > [!NOTE]
-> The recommended method to install Update 5.1 is through the Azure portal when trying to update from Update 3 or a later version. When updating a device running versions prior to Update 3, use this procedure. You can also use this procedure if you fail the gateway check when trying to install the updates through the Azure portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.
+> The recommended method to install Update 5.1 is through the Azure portal when trying to update from Update 3 or a later version. When updating a device running versions prior to Update 3, use this procedure. You can also use this procedure if you fail the gateway check when trying to install the updates through the Azure portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.<!--Move this advice to the Portal intro, and advise them to install Update 5.0 before they install Update 5.1? Does 5.0 cover the need to use the hotfix method if they are installing for a version before 3.0?-->
 
 The hotfix method involves the following three steps:
 
