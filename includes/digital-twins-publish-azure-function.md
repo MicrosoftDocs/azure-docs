@@ -49,8 +49,8 @@ On the **Publish** pane that opens in the main Visual Studio window, check that 
 > :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Screenshot of Visual Studio, showing a pop-up window called Publish credentials. It contains fields for a Username and Password. It also contains a button to Attempt to retrieve credentials from Azure." border="false":::
 >
 > If you see one of the following warnings, follow the prompts to upgrade to the latest Azure Functions runtime version:
-> * Upgrade Functions version on Azure.
-> * Your version of the functions runtime does not match the version running in Azure.
+> * *Upgrade Functions version on Azure.*
+> * *Your version of the functions runtime does not match the version running in Azure.*
 >
 > These warnings might appear if you're using an old version of Visual Studio.
 

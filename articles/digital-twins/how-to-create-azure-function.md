@@ -78,7 +78,7 @@ Now declare class-level variables and add authentication code that will allow th
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
 
-* **Managed identity credentials in Azure Functions.**
+* **Managed identity credentials.**
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
 * **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. Do *not* make this variable static inside your class.
@@ -119,7 +119,7 @@ You can set up security access for the function app by using either the Azure CL
 # [CLI](#tab/cli)
 
 Run these commands in [Azure Cloud Shell](https://shell.azure.com) or a [local Azure CLI installation](/cli/azure/install-azure-cli).
-You can use the function app's system-managed identity to give it the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance. The role gives the function app permission in the instance to perform data plane activities. Then make the URL of the digital twin accessible to your function by setting an environment variable.
+You can use the function app's system-managed identity to give it the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance. The role gives the function app permission in the instance to perform data plane activities. Then make the URL of the instance accessible to your function by setting an environment variable.
 
 ### Assign an access role
 
@@ -153,10 +153,10 @@ To make sure the bearer token is passed, set up [managed identities](../active-d
 
 ### Configure application settings
 
-Make the URL of your digital twin accessible to your function by setting an *environment variable* for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+Make the URL of your instance accessible to your function by setting an *environment variable* for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your digital twin's *host name*. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's *host name*. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive	
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
@@ -205,7 +205,7 @@ The lifecycle of this type of managed identity is tied to the lifecycle of this 
 
 To make the URL of your Azure Digital Twins instance accessible to your function, you can set an *environment variable*. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
-To set an environment variable with the URL of your instance, first find your digital twin's host name: 
+To set an environment variable with the URL of your instance, first find your instance's host name: 
 
 1. Search for your instance in the [Azure portal](https://portal.azure.com). 
 1. In the menu on the left, select __Overview__. 
