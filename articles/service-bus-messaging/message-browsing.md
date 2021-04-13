@@ -9,11 +9,11 @@ ms.date: 03/29/2021
 
 Message browsing, or peeking, enables a Service Bus client to enumerate all messages in a queue or a subscription, for diagnostic and debugging purposes.
 
-The peek operation on a queue or a subscription returns the requested number of messages or all messages if the requested number is less than total number of messages in the queue. Here are some important points about the peek operation:
+The peek operation on a queue or a subscription returns the requested number of messages. It returns all messages if there are fewer messages than the requested number of messages. Here are some important points about the peek operation:
 
 - **Dead-lettered** messages aren't included in returned messages. 
 - **Scheduled** messages in a subscription log aren't included in returned messages. 
-- A message is included even if a message isn't available for immediate acquisition. 
+- A message in a **queue** is included even if a message isn't available for immediate acquisition. 
 - **Expired** messages may be included. Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run. This step may not necessarily occur immediately after messages expire. That's why, a peek operation may return messages that have already expired. These messages will be removed or dead-lettered when a receive operation is invoked on the queue or subscription the next time. Keep this behavior in mind when attempting to recover deferred messages from the queue. 
 
     An expired message is no longer eligible for regular retrieval by any other means, even when it's being returned by Peek. Returning these messages is by design as Peek is a diagnostics tool reflecting the current state of the log.
@@ -36,8 +36,7 @@ You can populate the [fromSequenceNumber](/dotnet/api/microsoft.servicebus.messa
 ### [Microsoft.Azure.ServiceBus](#tab/dotnetold)
 The [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) and [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) methods exist on receiver objects: `MessageReceiver`, `MessageSession`. Peek works on queues, subscriptions, and their respective dead-letter queues.
 
-You can use an overload of the method with a [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) at which to start, and then call the parameterless method overload to enumerate further. **PeekBatch** functions equivalently, but retrieves a set of messages all at once.
-
+You can use an overload of the method with a [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) at which to start, and then call the parameterless method overload to enumerate further. 
 
 ---
 
