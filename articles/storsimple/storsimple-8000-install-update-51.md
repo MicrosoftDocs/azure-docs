@@ -21,7 +21,9 @@ ms.author: alkohli
 
 This tutorial explains how to install Update 5.1 on a StorSimple device running an earlier software version via the Azure portal. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
 
-Update 5.1 includes non-disruptive security updates. The non-disruptive or regular updates can be applied through the Azure portal<!--or by the hotfix method-->.
+Update 5.1 includes non-disruptive security updates. The non-disruptive or regular updates can be applied through the Azure portal or by the hotfix method.
+
+<!--Rework the lead, incorporating when to use the hotfix method. Incorporate the final two bullets in the Important note.-->
 
 > [!IMPORTANT]
 >
@@ -30,7 +32,7 @@ Update 5.1 includes non-disruptive security updates. The non-disruptive or regul
 > * If you apply updates from the Azure portal, a set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity.
 > * If you want to install using the hotfix method, you should install Update 5.1 first by using the instructions in [Install Update 5 on your StorSimple device](storsimple-8000-install-update-5.md). Then use the hotfix instructions in this article to install the hotfix for Update 5.1.<!--Convert to a section link? If I do, convert previous bullet also.-->
 
-<!--
+<!--IS ANY OF THIS GUIDANCE APPLICABLE?
 > * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md). 
 
 
@@ -134,7 +136,14 @@ Install the device updates in KB4542887 by following the steps in [To install an
 
 Follow the steps to install first order updates. There are no second order updates in Update 5.1.
 
-For Update 5.1, the `CisAgentVersion` will be TBD.
+For Update 5.1, these software versions are installed:
+
+ * FriendlySoftwareVersion: StorSimple 8000 Series Update 5.1
+ * HcsSoftwareVersion: 6.3.9600.17885
+ * CisAgentVersion: 1.0.9777.0
+ * MdsAgentVersion: 35.2.2.0
+ * Lsisas2Version: 2.0.78.00
+
 
 #### Install and verify disk firmware updates
 
