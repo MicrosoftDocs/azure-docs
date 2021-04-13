@@ -26,9 +26,6 @@ Get started with Azure Load Balancer by using the Azure CLI to create an interna
 
 This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
->[!NOTE]
->Azure Load Balancer Standard is the recommended choice for production workloads. This article contains information about Azure Load Balancer Standard, as well as Azure Load Balancer Basic. For more information about SKUs, see [Azure Load Balancer SKUs](skus.md).
-
 ## Create a resource group
 
 An Azure resource group is a logical container into which you deploy and manage your Azure resources.
@@ -44,6 +41,9 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 ---
 # [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
+
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
@@ -332,6 +332,9 @@ Add the virtual machines to the back-end pool with [az network nic ip-config add
 ```
 
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
+
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
