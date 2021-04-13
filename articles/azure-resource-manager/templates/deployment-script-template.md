@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/30/2021
 ms.author: jgao
 
 ---
@@ -126,13 +126,16 @@ The following JSON is an example. For more information, see the latest [template
 > [!NOTE]
 > The example is for demonstration purposes. The properties `scriptContent` and `primaryScriptUri` can't coexist in a template.
 
+> [!NOTE]
+> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. There are many free JSON string escape/unescape tools available. For example, [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+
 Property value details:
 
 - `identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. Currently, only user-assigned managed identity is supported.
 - `kind`: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are supported. The values are **AzurePowerShell** and **AzureCLI**.
 - `forceUpdateTag`: Changing this value between template deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-- `containerSettings`: Specify the settings to customize Azure Container Instance.  `containerGroupName` is for specifying the container group name. If not specified, the group name is automatically generated.
-- `storageAccountSettings`: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
+- `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated.
+- `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
 - `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
@@ -155,9 +158,6 @@ Property value details:
 
 - `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `scriptContent`: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
-  > [!NOTE]
-  > The Azure portal can't parse a deployment script with multiple lines. To deploy a template with deployment script from the Azure portal, you can either chain the PowerShell commands by using semicolons into one line, or use the `primaryScriptUri` property with an external script file.
-
 - `primaryScriptUri`: Specify a publicly accessible URL to the primary deployment script with supported file extensions. For more information, see [Use external scripts](#use-external-scripts).
 - `supportingScriptUris`: Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. For more information, see [Use external scripts](#use-external-scripts).
 - `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
@@ -241,7 +241,7 @@ The following template shows how to pass values between two `deploymentScripts` 
 In the first resource, you define a variable called `$DeploymentScriptOutputs`, and use it to store the output values. To access the output value from another resource within the template, use:
 
 ```json
-reference('<ResourceName>').output.text
+reference('<ResourceName>').outputs.text
 ```
 
 ## Work with outputs from CLI script

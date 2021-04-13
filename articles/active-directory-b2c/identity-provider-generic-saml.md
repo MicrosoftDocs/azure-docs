@@ -224,7 +224,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Contoso** to sign in with Contoso account.
 

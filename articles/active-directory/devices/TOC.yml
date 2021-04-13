@@ -66,7 +66,7 @@
   - name: Frequently asked questions
     items:
     - name: FAQs
-      href: faq.md
+      href: faq.yml
     - name: Enable enterprise state FAQs
       href: enterprise-state-roaming-faqs.md
 - name: Reference

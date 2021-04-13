@@ -4,7 +4,7 @@ description: Learn how to create a custom trigger in Azure Data Factory that run
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
 ---
