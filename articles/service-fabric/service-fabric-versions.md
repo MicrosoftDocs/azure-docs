@@ -28,28 +28,24 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 ### Windows Server
 
 |OS Version|SF support end date|OS Lifecycle link|
-|---|---| --- |
+|---|---|---|
 |Windows Server 2019|1/9/2029|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2019">Windows Server 2019 - Microsoft Lifecycle</a>|
-|Windows Server 2016 |1/12/2027	|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft Lifecycle</a>|
-|Windows Server 2012 R2 |10/10/2023 |<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft Lifecycle</a>|
+|Windows Server 2016 |1/12/2027|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft Lifecycle</a>|
+|Windows Server 2012 R2 |10/10/2023|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft Lifecycle</a>|
 |Version 20H2 |5/10/2022|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
 |Version 2004 |12/14/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
 |Version 1909 |5/11/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
 
-<br>
-
 ### Windows 10
 
-| OS Version |SF support end date| OS Lifecycle link|
+| OS Version | SF support end date| OS Lifecycle link |
 | --- | --- | --- |
-|Windows 10 2019 LTSC |1/9/2029 |<a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a>|
-|Version 20H2 |5/9/2023|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
-|Version 2004 |12/14/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
-|Version 1909 |5/10/2022|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycls</a>|
-|Version 1809 |5/11/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
-|Version 1803 |5/11/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
-
-<br>
+| Windows 10 2019 LTSC | 1/9/2029 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a> |
+| Version 20H2 | 5/9/2023 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
+| Version 2004 | 12/14/2021| <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
+| Version 1909 | 5/10/2022 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycls</a> |
+| Version 1809 | 5/11/2021 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
+| Version 1803 | 5/11/2021 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
 
 ## Linux
 
