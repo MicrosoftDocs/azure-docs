@@ -44,7 +44,7 @@
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
-      href: /azure/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
 - name: Concepts
   items:
   - name: Face detection
