@@ -114,7 +114,7 @@ Start VM on Connect is a host pool setting. If you only want a select group of u
 
 To use the Azure portal to configure Start VM on Connect:
 
-1. Open your browser and go to [the Azure portal](https://portal.azure.com.).
+1. Open your browser and go to [the Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, go to **Windows Virtual Desktop**.
 
