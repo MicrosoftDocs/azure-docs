@@ -44,7 +44,7 @@ You can configure the SNAT private IP addresses using the following methods:
 You can use Azure PowerShell to specify private IP address ranges for the firewall.
 
 > [!NOTE]
-> The firewall `PrivateRange` property is ignored for firewalls associated with a Firewall Policy. You must use the `SNAT` property in Firewall Policy as described in [Configure SNAT private IP address ranges for firewalls associated with Firewall Policy](#configure-snat-private-ip-address-ranges-for-firewalls-associated-with-firewall-policy).
+> The firewall `PrivateRange` property is ignored for firewalls associated with a Firewall Policy. You must use the `SNAT` property in `firewallPolicies` as described in [Configure SNAT private IP address ranges - ARM template](#firewall-policy).
 
 #### New firewall
 
