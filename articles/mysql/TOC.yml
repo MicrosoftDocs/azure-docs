@@ -512,7 +512,7 @@
           - name: Configure Slow query logs using Azure portal
             href: flexible-server/how-to-configure-slow-query-logs-portal.md
           - name: Configure Slow query/Audit logs using Azure CLI
-            href: /flexible-server/how-to-configure-slow-query-log-audit-log-cli.md
+            href: flexible-server/how-to-configure-slow-query-log-audit-log-cli.md
       - name: Audit logs
         items:
           - name: Concepts
