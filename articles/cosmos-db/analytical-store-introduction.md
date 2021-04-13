@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: "seo-nov-2020"
 ---
@@ -129,6 +129,7 @@ There are two modes of schema representation in the analytical store. These mode
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
 * A property always has the same type across multiple items.
+* We only allow 1 type change, from null to any other data type.The first non-null occurrence defines the column data type.
 
   * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `"a"` as the data type of `“a”` in the first-occurring item in the lifetime of the container. The document will still be included in analytical store, but items where the data type of `"a"` differs will not.
   

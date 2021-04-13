@@ -5,7 +5,7 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
 ---
