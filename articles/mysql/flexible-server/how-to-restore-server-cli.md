@@ -39,7 +39,7 @@ This article provides step-by-step procedure to perform point-in-time recoveries
 
 ## Restore a server from backup to a new server
 
-You can run the following command to restore a server to an earlierst existing backup.
+You can run the following command to restore a server to an earliest existing backup.
 
 **Usage**
 ```azurecli
