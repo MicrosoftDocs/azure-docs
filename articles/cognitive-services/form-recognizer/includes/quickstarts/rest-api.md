@@ -1090,7 +1090,7 @@ To start analyzing an identity document, use the cURL command below. For more in
 1. Replace `{your business card URL}` with the URL address of a receipt image.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 
-### [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1
 
 ```bash
 curl -i -X POST "https://{endpoint}/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
