@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/12/2021
+ms.date: 04/14/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
 ---
@@ -34,7 +34,7 @@ ms.author: lajanuar
 
 ### Create a new Gradle project
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
 ```console
 mkdir myapp && cd myapp
@@ -73,7 +73,7 @@ dependencies {
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.1.0-beta.3 SDK reflects _API version 2.1-preview.3_. 
+> The Form Recognizer 3.1.0-beta.3 SDK reflects _API version 2.1-preview.3_.
 
 #### [v2.0](#tab/ga)
 
@@ -120,14 +120,14 @@ In the application's **FormRecognizer** class, create variables for your resourc
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later. You'll also need to add references to the URLs for your training and testing data.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
-  
+
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 * To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
 * Use the above method to get the URL of a receipt image as well.
@@ -195,7 +195,6 @@ These code snippets show you how to do the following tasks with the Form Recogni
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-
 ---
 
 ## Authenticate the client
@@ -240,7 +239,7 @@ Cell has text ET.
 
 This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md).
 
-To analyze receipts from a URI, use the **beginRecognizeReceiptsFromUrl** method. 
+To analyze receipts from a URI, use the **beginRecognizeReceiptsFromUrl** method.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
@@ -255,7 +254,7 @@ The next block of code iterates through the individual items detected on the rec
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
 
-### Output 
+### Output
 
 ```console
 Analyze receipt...
@@ -278,7 +277,7 @@ Total Price: null, confidence: 0.93
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
 
-To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromUrl` method. 
+To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromUrl` method.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
 
@@ -302,7 +301,7 @@ The returned value is a collection of **RecognizedForm** objects: one for each c
 
 This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
 
-To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method. 
+To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
@@ -322,18 +321,27 @@ The returned value is a collection of **RecognizedForm** objects: one for each i
 
 ## Analyze identity documents
 
-This section demonstrates how to analyze and extract key information from government issued identity documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about identity document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
+#### [v2.1 preview](#tab/preview)
+
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about identity document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
 To analyze identity documents from a URI use the `beginRecognizeIdDocumentsFromUrl` method.
 
 :::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_call":::
 
 > [!TIP]
-> You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdDocuments**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+> You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdDocuments**. Also, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
 :::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
+
+#### [v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+---
 
 ## Train a custom model
 
@@ -346,7 +354,7 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 Train custom models to analyze all fields and values found in your custom forms without manually labeling the training documents.
 
-The following method trains a model on a given set of documents and prints the model's status to the console. 
+The following method trains a model on a given set of documents and prints the model's status to the console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_call)]
 
@@ -357,7 +365,6 @@ The returned **CustomFormModel** object contains information on the form types t
 Finally, this method returns the unique ID of the model.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_return)]
-
 
 ### Output
 
@@ -418,7 +425,7 @@ This section demonstrates how to extract key/value information and other content
 > [!IMPORTANT]
 > In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
 
-You'll use the **beginRecognizeCustomFormsFromUrl** method. 
+You'll use the **beginRecognizeCustomFormsFromUrl** method.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
@@ -461,7 +468,7 @@ The following code block checks how many models you have saved in your Form Reco
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
 
-#### Output 
+#### Output
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
@@ -474,7 +481,7 @@ The following code block lists the current models in your account and prints the
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
 
 
-#### Output 
+#### Output
 
 This response has been truncated for readability.
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->
@@ -1084,16 +1084,16 @@ This JSON content has been shortened for readability. See the [full sample outpu
 
 ### [v2.1 preview](#tab/v2-1)
 
-To start analyzing an identity document, use the cURL command below. For more information about identity document analysis, see the [Identity documents conceptual guide](../../concept-identification-cards.md). To start analyzing a business card, you call the **[Analyze ID Document]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing an identification document, use the cURL command below. For more information about identity document analysis, see the [Identity documents conceptual guide](../../concept-identification-cards.md). To start analyzing an identity document, you call the **[Analyze ID Document]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
 
-1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{your business card URL}` with the URL address of a receipt image.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{your ID document URL}` with the URL address of a receipt image.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 
 ### [v2.1 preview](#tab/v2-1
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your  ID document URL}'}"
 ```
 
 ### [v2.0](#tab/v2-0)
@@ -1113,7 +1113,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1-preview.3/prebuil
 
 After you've called the **Analyze ID Document** API, call the **[Get Analyze Id Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822)** API to get the status of the operation and the extracted data.  Before you run the command, make these changes:
 
-1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{resultId}` with the operation ID from the previous step.
 1. Replace `{subscription key}` with your subscription key.
 
@@ -1132,7 +1132,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 Below is a sample identity document and  its corresponding JSON output
 
-* :::image type="content" source="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg" alt-text="sample drivers license":::
+* :::image type="content" source="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg" alt-text="sample driver's license":::
 
 ```json
 {

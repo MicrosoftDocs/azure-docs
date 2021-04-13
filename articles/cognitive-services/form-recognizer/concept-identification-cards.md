@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
 ---
 
@@ -21,7 +21,11 @@ Azure Form Recognizer can analyze and extract information from government-issued
 
 The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses and returns them in an organized structured JSON response.
 
+### **Driver's license example**
+
 ![Sample Driver's License](./media/id-example-drivers-license.JPG)
+
+### **Passport example**
 
 ![Sample Passport](./media/id-example-passport-result.JPG)
 
@@ -240,11 +244,10 @@ The `readResults` node contains all of the recognized text. Text is organized by
 }
 ```
 
-
 ## Next steps
 
-- Try your own IDs and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
+* Try your own IDs and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
+* Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

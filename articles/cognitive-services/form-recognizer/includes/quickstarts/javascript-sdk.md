@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/12/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
@@ -178,7 +178,7 @@ First receipt:
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
+This section demonstrates how to analyze and extract common fields from English-language business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
 
 To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromURL` method.
 
@@ -200,7 +200,7 @@ To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
 ## Analyze identity documents
 
-This section demonstrates how to analyze and extract key information from government-issued identity documents—Worldwide Passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about invoice analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about invoice analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
 To analyze identity documents from a URL use the `beginRecognizeIdDocumentsFromUrl` method.
 
@@ -263,7 +263,6 @@ You can also train custom models by manually labeling the training documents. Tr
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
-
 ### Output
 
 This is the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). This sample output has been truncated for readability.
@@ -310,7 +309,6 @@ You'll use the `beginRecognizeCustomFormsFromUrl` method. The returned value is 
 > [!TIP]
 > You can also analyze local files. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
 
-
 ### Output
 
 ```console
@@ -348,7 +346,6 @@ Field Subtotal has value 'undefined' with a confidence score of undefined
 Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
 ```
-
 
 ## Manage your custom models
 

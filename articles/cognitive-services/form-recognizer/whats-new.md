@@ -25,13 +25,6 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### **C#**
 
-
-#### Breaking changes
-
-1. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
-
-1. `StartRecognizeCustomForms()` now throws a `RequestFailedException()` when an invalid file is passed.
-
 #### Updates
 
  1. **New methods to recognize data from identity documents**:
@@ -47,6 +40,8 @@ StartRecognizeIdDocumentsFromUriAsync(<sourceUri>)
 ```console
 StartRecognizeIdDocumentsAsync(<sourcePath>)
 ```
+
+For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
 2. Expanded the set of document languages that can be provided to the `StartRecognizeContent()` method.
 
@@ -65,6 +60,12 @@ The `Pages` property allows you to select individual or a range of pages for mul
 
 The `ReadingOrder` property is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
+#### Breaking changes
+
+1. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
+
+1. `StartRecognizeCustomForms()` now throws a `RequestFailedException()` when an invalid file is passed.
+
 ### **Java**
 
 #### Updates
@@ -82,6 +83,9 @@ beginRecognizeIdDocumentsFromUrl(<sourceURL>)
 ```console
 beginRecognizeIdDocuments(<sourcePath>)
 ```
+
+For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+
 2. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
 
 * `image/bmp`
@@ -95,11 +99,9 @@ beginRecognizeIdDocuments(<sourcePath>)
 
 The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-
 4. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
 
 * `image/bmp`
-
 
 5. **New keyword argument `ReadingOrder` supported for the following methods**:
 
@@ -109,35 +111,36 @@ The `ReadingOrder` keyword argument is an optional parameter that allows you to 
 
 6. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
 
-
 ### **JavaScript**
 
 1. **New methods to recognize data from identity documents**:
 
 **Recognize ID documents from a URL**
+
 ```console
 beginRecognizeIdDocumentsFromUrl(<sourceURL>)
 ```
 
 **Recognize ID documents from a given file**
+
 ```console
 beginRecognizeIdDocuments(<sourcePath>)
 ```
-2. **New field values added to the [FieldValue interface]()**:
+
+For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+
+2. **New field values added to the FieldValue interface**:
+
 * `gender`—possible values are `M` `F` or `X`.
 * `country`—possible values follow [ISO alpha-3](https://www.iso.org/obp/ui/#search) three-letter country code string.
 
-3.  **New option `pages` supported by all form recognition methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+3. **New option `pages` supported by all form recognition methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-1.  Added support for a readingOrder option to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+1. Added support for a readingOrder option to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
 1. Split `FormField` into several different interfaces. This should not cause any API compatibility issues except in certain edge cases (undefined valueType).
 
 1. Migrated to the 2.1-preview.3 Form Recognizer service endpoint for all REST API calls.
-
-
-
-
 
 ### **Python**
 
@@ -156,7 +159,6 @@ begin_recognize_id_documents_from_url(<sourceURL>)
 ```console
 begin_recognize_id_documents(<sourcePath>)
 ```
-
 
 For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
@@ -184,38 +186,33 @@ The `pages` keyword argument allows you to select individual or a range of pages
 
 The `readingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-### REST API
-
-
-
-
 ## March 2021
 
 **Form Recognizer v2.1 public preview 3 is now available.** v2.1-preview.3 has been released, including the following features:
 
-- **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses, such as name, date of birth, issue date, expiration date, and more.
+* **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses, such as name, date of birth, issue date, expiration date, and more.
 
   [Learn more about the prebuilt ID model](concept-identification-cards.md)
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="passport example" lightbox="./media/id-canada-passport-example.png":::
 
-- **Line-item extraction for prebuilt invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call, you can extract useful data from your invoices - text, table, key-value pairs, and line items.
+* **Line-item extraction for prebuilt invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call, you can extract useful data from your invoices - text, table, key-value pairs, and line items.
 
    [Learn more about the prebuilt invoice model](concept-invoices.md)
 
-- **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
+* **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
 
     :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
 
     In addition to labeling tables, you and now label empty values and regions; if some documents in your training set do not have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
 
-- **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
+* **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
 
   [Learn more about Form Recognizer's language support](language-support.md)
 
-- **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and to-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
+* **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and to-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
 
-- **Prebuilt receipt model quality improvements** This update includes many quality improvements for the prebuilt Receipt model, especially around line item extraction.
+* **Prebuilt receipt model quality improvements** This update includes many quality improvements for the prebuilt Receipt model, especially around line item extraction.
 
 ## November 2020
 
