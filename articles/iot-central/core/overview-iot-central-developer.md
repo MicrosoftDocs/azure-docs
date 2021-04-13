@@ -63,15 +63,6 @@ Using DPS enables:
 
 To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md) and [Best practices](concepts-best-practices.md).
 
-Under the **Devices** section on the left pane navigation you can create and connect individual devices by clicking on **+ New**. If you're looking to register multiple devices, you can also do so in bulk by clicking on **Import** on the Devices action bar. The import process expects a CSV file with the following columns:
-
-| Column | Description 
-| - | - | 
-| IOTC_DEVICEID | The device ID is a unique identified this device will use to connect. This must be unique across each IoT Central app. |
-| IOTC_DEVICENAME | The device name is a friendly name that will be displayed throughout the application. If not specified, this will be the same as the device ID.   |
-	
-
-
 ### Security
 
 The connection between a device and your IoT Central application is secured using either [shared access signatures](./concepts-get-connected.md#sas-group-enrollment) or industry-standard [X.509 certificates](./concepts-get-connected.md#x509-group-enrollment).

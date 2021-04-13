@@ -158,12 +158,11 @@ If you are seeing issues related to your authentication flow:
 
 ### File upload error codes
 
-Here is a list of common error codes you might experience when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file upload](howto-configure-file-uploads.md) on your application first.
+Here is a list of common error codes you might see when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file uploads](howto-configure-file-uploads.md) in your application.
 
 | Error code | Description | Possible Mitigation |
 | - | - | - |
 | 403006  | You've exceeded the number of concurrent file upload operations. Each device client is limited to 10 concurrent file uploads. | Ensure the device promptly notifies IoT Central that the file upload operation has completed. If that doesn't work, try reducing the request timeout. |
-
 
 ## Payload shape issues
 
