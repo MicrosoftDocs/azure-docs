@@ -65,10 +65,10 @@ We are going to use a small 100K row sample dataset of NYX Taxi Cab data for man
 
 * Download this file to your computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * In Synapse Studiio, navigate to the the Data Hub. 
-* Click **Linked**.
-* Under the category **Azure Data Lake Storae Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**
-* Click on the container named **users (Primary)**
-* Click **Upload** and select the `NYCTripSmall.parquet` file you downloaded
+* Select **Linked**.
+* Under the category **Azure Data Lake Storae Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
+* Select the container named **users (Primary)**.
+* Select **Upload** and select the `NYCTripSmall.parquet` file you downloaded.
 
 ## Next steps
 
