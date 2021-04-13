@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
@@ -56,7 +56,7 @@ The SCIM standard defines a schema for managing users and groups.
 The **core** user schema only requires three attributes (all other attributes are optional):
 
 - `id`, service provider defined identifier
-- `externalId`, client defined identifier
+- `userName`, a unique identifier for the user (generally maps to the Azure AD user principal name)
 - `meta`, *read-only* metadata maintained by the service provider
 
 In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application’s needs. 
