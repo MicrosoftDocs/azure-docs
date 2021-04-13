@@ -21,10 +21,8 @@ Review the information contained in the release notes before you deploy the upda
 
 > [!IMPORTANT]
 >
-> * Update 5.1 is a mandatory update and must be installed immediately. For more information, see how to [Apply Update 5.1](storsimple-8000-install-update-51.md).
-> * Update 5.0 is a minimally supported version. We strongly recommend that you apply Update 5.1 to ensure the operation of your device.
-> * Update 5.1 has security updates only. It takes approximately 30 minutes to install this update.<!--Should this be added to the Update article?-->
-> * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these updates will become available soon.<!--Should this be added to the Update article?-->
+> * Update 5.1 is a mandatory update and must be installed immediately to ensure the operation of the device. Update 5.0 is a minimally supported version.
+> * Update 5.1 has security updates that take approximately 30 minutes to install. For more information, see how to [Apply Update 5.1](storsimple-8000-install-update-51.md).<!--Add this info to the Update article. For placement, see the 5.0 note.-->
 
 ## What's new in Update 5.1
 
