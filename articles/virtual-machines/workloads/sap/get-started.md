@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/09/2021
+ms.date: 04/12/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -79,6 +79,8 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 
 ## Change Log
+- 04/12/2021: Replaced backup documentation for SAP HANA by documents of [SAP HANA backup/restore with Azure Backup service](../../../backup/sap-hana-db-about.md) 
+- 04/12/2021: Release of [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) configuration guide
 - 04/07/2021: Clarified support for SQL Server multi-instance and multi-database support in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md)
 - 04/07/2021: Added information related to secondary IP addresses in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
 - 04/07/2021: added support for Oracle DBMS support on ANF in [Azure Storage types for SAP workload](./planning-guide-storage.md)
@@ -175,22 +177,4 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - February 21, 2020: Changes in HANA Large Instance documents to represent newly certified SKUs of S224 and S224m
 - February 21, 2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](./high-availability-guide-rhel.md) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md) to adjust the cluster constraints for enqueue server replication 2 architecture (ENSA2)
 - February 20, 2020: Change in [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md) to add a link to the SUSE multi-SID cluster guide
-- February 13, 2020: Changes to [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) to implement links to new documents
-- February 13, 2020: Added new document [SAP workload on Azure virtual machine supported scenario](./sap-planning-supported-configurations.md)
-- February 13, 2020: Added new document [What SAP software is supported for Azure deployment](./sap-supported-product-on-azure.md)
-- February 13, 2020: Change in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) to point to document that describes access to public endpoint with Standard Azure Load balancer
-- February 13, 2020: Add the new VM types to [SAP certifications and configurations running on Microsoft Azure](./sap-certifications.md)
-- February 13, 2020: Add new SAP support notes [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
-- February 13, 2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](./high-availability-guide-rhel.md) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md) to align the cluster resources timeouts to the Red Hat timeout recommendations
-- February 11, 2020: Release of [SAP HANA on Azure Large Instance migration to Azure Virtual Machines](./hana-large-instance-virtual-machine-migration.md)
-- February 07, 2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) to update sample NSG screenshot
-- February 03, 2020: Change in [High availability for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) and [High availability for SAP NW on Azure VMs on SLES with ANF for SAP applications](./high-availability-guide-suse-netapp-files.md) to remove the warning about using dash in the host names of cluster nodes on SLES
-- January 28, 2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to align the SAP HANA cluster resources timeouts to the Red Hat timeout recommendations
-- January 17, 2020: Change in [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md) to change the section of moving existing VMs into a proximity placement group
-- January 17, 2020: Change in [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) to point to procedure that automates measurements of latency between Availability Zones
-- January 16, 2020: Change in [How to install and configure SAP HANA (Large Instances) on Azure](./hana-installation.md) to adapt OS releases to HANA IaaS hardware directory
-- January 16, 2020: Changes in [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md) to add instructions for SAP systems, using enqueue server 2 architecture (ENSA2)
-- January 10, 2020: Changes in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) and in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) to add instructions on how to make `nfs4_disable_idmapping` changes permanent.
-- January 10, 2020: Changes in [High availability for SAP NetWeaver on Azure VMs on SLES with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md) and in [Azure Virtual Machines high availability for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md) to add instructions how to mount Azure NetApp Files NFSv4 volumes.
-- December 23, 2019: Release of [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md)
-- December 18, 2019: Release of [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md)
+
