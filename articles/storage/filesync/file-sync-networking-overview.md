@@ -4,7 +4,7 @@ description: Learn how to configure networking to use Azure File Sync to cache f
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---

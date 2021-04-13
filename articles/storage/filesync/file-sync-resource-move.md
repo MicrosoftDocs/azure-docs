@@ -4,7 +4,7 @@ description: Learn how to move sync resources across resource groups, subscripti
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/13/2021
 ms.author: fauhse
 ms.subservice: files
 ---

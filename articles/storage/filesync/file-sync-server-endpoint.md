@@ -4,7 +4,7 @@ description: Learn to add or remove a server endpoint with Azure File Sync. A se
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---

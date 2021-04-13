@@ -4,7 +4,7 @@ description: Migrate bulk data offline that's compatible with Azure File Sync. A
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/12/2019
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---

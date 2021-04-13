@@ -4,7 +4,7 @@ description: Details on how the date and volume free space policies work togethe
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---

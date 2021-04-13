@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions

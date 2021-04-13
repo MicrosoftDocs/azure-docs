@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/02/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---

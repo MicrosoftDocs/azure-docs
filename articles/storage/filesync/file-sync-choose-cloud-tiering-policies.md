@@ -4,7 +4,7 @@ description: Details on what to keep in mind when choosing Azure File Sync cloud
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---
