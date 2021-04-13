@@ -21,11 +21,11 @@ After you have imported a configuration, you can view it in the Azure portal.
 1. On the Automation account detail page, select **State configuration (DSC)** under **Configuration Management**.
 1. On the **State configuration (DSC)** page, click the **Configurations** tab, then select the name of the configuration you want to delete.
 
-   :::image type="content" source="./media/remove-dsc-package/configurations-tab.png" alt-text="Screenshot of configurations tab." lightbox="./media/change-tracking/configurations-tab.png":::
+   :::image type="content" source="./media/remove-dsc-package/configurations-tab.png" alt-text="Screenshot of configurations tab." lightbox="./media/remove-dsc-package/configurations-tab.png":::
 
 1. On the configuration's detail page, click **Delete** to remove the configuration.
 
-   :::image type="content" source="./media/remove-dsc-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/change-tracking/delete-extension.png":::
+   :::image type="content" source="./media/remove-dsc-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/remove-dsc-package/delete-extension.png":::
 
 ## Unregister a node
 
