@@ -171,7 +171,7 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 1. Right click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/get-started-detect-motion-emit-events/extensions-settings.png" alt-text="Extension Settings":::<!--TODO: replace this with ./media/run-program/extensions-tab.png-->
+    > :::image type="content" source="./media/get-started-detect-motion-emit-events/extension-settings.png" alt-text="Extension Settings":::<!--TODO: replace this with ./media/run-program/extensions-tab.png-->
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
