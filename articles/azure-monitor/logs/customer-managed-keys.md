@@ -132,7 +132,7 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
   "identity": {
   "type": "UserAssigned",
     "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
       }
   }
   ```
@@ -166,7 +166,7 @@ Select the current version of your key in Azure Key Vault to get the key identif
 Update KeyVaultProperties in cluster with key identifier details.
 
 >[!NOTE]
->Customer-managed key rotation supports two modes: **explicit key version update** or **auto-rotation**, see [Key rotation](#key-rotation) to determine the best approach for you. 
+>Key rotation supports two modes: auto-rotation or explicit key version update, see [Key rotation](#key-rotation) to determine the best approach for you.
 
 The operation is asynchronous and can take a while to complete.
 
@@ -266,9 +266,9 @@ The cluster's storage periodically checks your Key Vault to attempt to unwrap th
 
 ## Key rotation
 
-Customer-managed key rotation supports two modes: 
-- Explicit key version update - when you update your cluster and provide key version in ```"keyVersion"``` property, new key versions require an explicit update to the cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the Log Analytics cluster storage will keep using your previous key. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
-- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but either omit ```"keyVersion"``` property, or set it to ```""```, storage will autoamatically use the new version and you don't need to update it in the cluster.
+Key rotation has two modes: 
+- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```, storage will autoamatically use the latest versions.
+- Explicit key version update - when you update your cluster and provide key version in ```"keyVersion"``` property, any new key versions require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the Log Analytics cluster storage will keep using your previous key. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 

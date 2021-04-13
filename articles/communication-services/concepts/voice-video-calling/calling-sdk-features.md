@@ -63,12 +63,12 @@ The following list presents the set of features which are currently available in
 |                   | Get camera list                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Set camera                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Get selected camera                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Get microphone list                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Set microphone                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Get selected microphone                                                                                             | ✔️   | ✔️            | ✔️
-|                   | Get speakers list                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Set speaker                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Get selected speaker                                                                                                | ✔️   | ✔️            | ✔️
+|                   | Get microphone list                                                                                                 | ✔️   | ❌           |❌  
+|                   | Set microphone                                                                                                      | ✔️   | ❌           | ❌  
+|                   | Get selected microphone                                                                                             | ✔️   | ❌           | ❌  
+|                   | Get speakers list                                                                                                   | ✔️   | ❌           | ❌  
+|                   | Set speaker                                                                                                         | ✔️   | ❌           | ❌  
+|                   | Get selected speaker                                                                                                | ✔️   | ❌           | ❌  
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️            | ✔️
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
