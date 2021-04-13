@@ -24,8 +24,8 @@ This document contains reference information on **operators** for the [Azure Dig
 The following operators from the comparison family are supported.
 
 * `=`, `!=`: Used to compare equality of expressions.
-* `<`, `>`: Used to compare size of expressions.
-* `<=`, `>=`: Used to compare equality or size of expressions.
+* `<`, `>`: Used for ordered comparison of expressions.
+* `<=`, `>=`: Used for ordered comparison of expressions, including equality.
 
 ### Example
 
@@ -57,8 +57,8 @@ WHERE NOT DT.Temperature <= 80
 
 The following operators from the contains family are supported.
 
-* `IN`: Evaluates to true if a given value is in a collection.
-* `NIN`: Evaluates to true if a given value is not in a collection.
+* `IN`: Evaluates to true if a given value is in a set of values.
+* `NIN`: Evaluates to true if a given value is not in a set of values.
 
 ### Example
 

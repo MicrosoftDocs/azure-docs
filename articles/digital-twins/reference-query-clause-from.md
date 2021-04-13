@@ -19,13 +19,13 @@ ms.service: digital-twins
 
 This document contains reference information on the **FROM clause** for the [Azure Digital Twins query language](concepts-query-language.md).
 
-The FROM clause is the second part of a query. It specifies the collections and any joins that the query will act on.
+The FROM clause is the second part of a query. It specifies the connection and any joins that the query will act on.
 
 This clause is required for all queries.
 
 ## Core syntax: FROM DIGITALTWINS
 
-Use `FROM DIGITALTWINS` (not case sensitive) to refer to the entire collection of digital twins in an instance.
+Use `FROM DIGITALTWINS` (not case sensitive) to refer to the entire collection of digital twins in an instance. This is currently the only `FROM` collection that the query language supports.
 
 You can also add a name to the collection of digital twins by adding the name to the end of the statement.
 
@@ -61,13 +61,11 @@ SELECT *
 FROM DIGITALTWINS T
 ```
 
-## FROM the relationship collection
+## Using FROM and JOIN together
 
-You can also use the `FROM` clause to pull relationships into the query scope.
+The `FROM` clause can be combined with the `JOIN` clause to express cross-entity traversals in the Azure Digital Twins graph.
 
-Unlike in classical SQL-type languages, each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`.
-
-For more information on the `JOIN` clause and crafting relationship queries, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
+For more information on the `JOIN` clause and crafting graph traversal queries, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
 ## Limitations
 

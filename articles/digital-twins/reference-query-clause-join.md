@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 This document contains reference information on the **JOIN clause** for the [Azure Digital Twins query language](concepts-query-language.md).
 
-The `JOIN` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md) when you want to query from a relationship collection.
+The `JOIN` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md) when you want to query to traverse the Azure Digital Twins graph.
 
 This clause is optional while querying.
 
@@ -33,7 +33,7 @@ The query must then use the `WHERE` clause to specify which specific twin or twi
 ```sql
 --SELECT ...
 FROM DIGITALTWINS <twin-collection-name>
-JOIN <target-twin-collection-name> RELATED <twin-collection-name>.<relationship-type> <relationship-collection-name>
+JOIN <target-twin-collection-name> RELATED <twin-collection-name>.<relationship-type> <OPTIONAL: relationship-collection-name>
 WHERE <twin-collection-name-OR-target-twin-collection-name>.$dtId = '<twin-id>'
 ```
 
@@ -73,16 +73,6 @@ JOIN LightBulb RELATED LightPanel.contains
 WHERE Room.$dtId IN ['room1', 'room2']
 ```
 
-## JOIN with variable-hop
-
-### Example
-
-The following example...
-
-```sql
-<example>
-```
-
 ## Limitations
 
 The following limits apply to queries using `JOIN`.
@@ -115,16 +105,21 @@ WHERE Buliding.$dtId = 'Building1'
 
 `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 
-#### Example (negative)
+#### Example
 
-The following query shows an example of what **cannot** be done as per this limitation.
+Consider the following query illustrating a building traversal.
 
 ```sql
-<example>
+SELECT Building, Floor
+FROM DIGITALTWINS Building
+JOIN Floor RELATED Building.contains
+WHERE Building.$dtId = 'Building1'
 ```
+
+If `Building1` contains no floors, then this query will return an empty result set (instead of returning one row with a value for Building and `undefined` for Floor).
 
 ### Twins required
 
 Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This is included as part of the default `JOIN` usage in Azure Digital Twins through the `RELATED` keyword. 
 
-Queries with a `JOIN` clause must also filter by the source or target twin's `$dtId` in the `WHERE` clause, to clarify which twin(s) are being used to support the relationship query.
+Queries with a `JOIN` clause must also filter by any twin's `$dtId` property in the `WHERE` clause, to clarify which twin(s) are being used to support the relationship query.

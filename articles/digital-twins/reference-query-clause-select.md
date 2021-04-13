@@ -25,7 +25,10 @@ This clause is required for all queries.
 
 ## SELECT *
 
-Use the `*` character in a select statement to select all digital twins that meet the query requirements.
+Use the `*` character in a select statement to project the digital twin document as is, without assigning it to a property in the result set.
+
+>[!NOTE]
+> `SELECT *` is only valid syntax when the query does not use a `JOIN`. For more information on queries using `JOIN`, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
 ### Syntax
 
@@ -36,7 +39,7 @@ SELECT *
 
 ### Returns
 
-A collection of twins.
+The set of properties which are returned from the query.
 
 ### Example
 
@@ -71,31 +74,59 @@ A collection of twins, properties, or relationships.
 
 ### Examples
 
-Here is an example that projects a collection. The following query returns all digital twins in the instance, by naming the entire twin collection `T` and projecting `T` as the collection to return. 
+For the following examples, consider a twin graph that contains a Factory twin called FactoryA. FactoryA has a "customer"-type relationship called FactoryA-customer-Contoso that connects it to a Consumer twin called Contoso. The FactoryA-customer-Contoso relationship has one property, managedBy.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/reference-query-clause-select/projections-graph.png" alt-text="Diagram showing the sample graph described above.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+
+Here is an example that projects a collection from this graph. The following query returns all digital twins in the instance, by naming the entire twin collection `T` and projecting `T` as the collection to return. 
 
 ```sql
 SELECT T
 FROM DIGITALTWINS T
 ```
 
-This is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the Consumer, Factory and Edge from a scenario where the a Factory called ABC has a Factory.consumer relationship with a Consumer, and that relationship is presented as Edge. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
+The result of this query for the scenario described above is this:
+
+| T |
+| --- |
+| `<JSON data for FactoryA>` | 
+| `<JSON data for Contoso>` |
+
+Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the Consumer, Factory and Relationship from a scenario where the a Factory called FactoryA has a Factory.consumer relationship with a Consumer, and that relationship is presented as Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
 ```sql
-SELECT Consumer, Factory, Edge
+SELECT Consumer, Factory, Relationship
 FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
+JOIN Consumer RELATED Factory.customer Relationship
+WHERE Factory.$dtId = 'FactoryA'
 ```
 
-Here is an example that projects a property. The following query uses projection to return the `name` property of a Consumer-type twin, and the `prop2` property of the Edge relationship. Note that the query uses `IS_PRIMITIVE` to verify that the property names are of primitive types, since complex properties are not currently supported by projection.
+The result of this query for the scenario described above is this:
+
+| Consumer | Factory | Relationship |
+| --- | --- | --- |
+| `<JSON data for Contoso>` | `<JSON data for FactoryA>` | `<JSON data for FactoryA-customer-Contoso>` |
+
+Here is an example that projects a property. The following query uses projection to return the `name` property of a Consumer-type twin, and the `managedBy` property of the relationship. Note that the query uses `IS_PRIMITIVE` to verify that the property names are of primitive types, since complex properties are not currently supported by projection.
 
 ```sql
-SELECT Consumer.name, Edge.prop2
+SELECT Consumer.name, Relationship.managedBy
 FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop2)
+JOIN Consumer RELATED Factory.customer Relationship
+WHERE Factory.$dtId = 'FactoryA'
+AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Relationship.managedBy)
 ```
+
+| Consumer.name | Relationship.managedBy |
+| --- | --- | --- |
+| `Contoso` | `Jeff` |
 
 ## SELECT COUNT
 

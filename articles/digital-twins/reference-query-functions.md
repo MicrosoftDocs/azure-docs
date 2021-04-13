@@ -113,6 +113,8 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:room;1', ex
 
 A type checking and casting function for determining whether an expression has a Boolean value.
 
+This function is usually combined with other predicates if the program processing the query results requires a boolean value, and you want to filter out entities for which the property is not a boolean.
+
 ### Syntax
 
 ```sql
@@ -129,17 +131,27 @@ A Boolean value indicating if the type of the specified expression is a Boolean.
 
 ### Example
 
-The following query ...
+The following query selects the digital twins that have a boolean `HasTemperature` property.
 
 ```sql
 SELECT *
 FROM DIGITALTWINS T
-WHERE ...
+WHERE IS_BOOL( HasTemperature )
+```
+
+The following query builds on the above example to select the digital twins that have a boolean `HasTemperature` property, and the value of that property is not `false`.
+
+```sql
+SELECT *
+FROM DIGITALTWINS T
+WHERE IS_BOOL( HasTemperature ) AND HasTemperature != false
 ```
 
 ## IS_NUMBER
 
 A type checking and casting function for determining whether an expression has a number value.
+
+This function is usually combined with other predicates if the program processing the query results requires a number value, and you want to filter out entities for which the property is not a number.
 
 ### Syntax
 
@@ -157,17 +169,19 @@ A Boolean value indicating if the type of the specified expression is a number.
 
 ### Example
 
-The following query ...
+The following query selects the digital twins that have a numeric `Capacity` property and its value is not equal to 0.
 
 ```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE ...
+SELECT * 
+FROM DIGITALTWINS 
+WHERE IS_NUMBER( Capacity ) AND Capacity != 0
 ```
 
 ## IS_STRING
 
-A type checking and casting function for determining whether an expression has a string value.
+A type checking and casting function for determining whether an expression has a string value. 
+
+This function is usually combined with other predicates if the program processing the query results requires a string value, and you want to filter out entities for which the property is not a string.
 
 ### Syntax
 
@@ -185,12 +199,12 @@ A Boolean value indicating if the type of the specified expression is a string.
 
 ### Example
 
-The following query ...
+The following query selects the digital twins that have a string property `Status` property and its value is not equal to `Completed`.
 
 ```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE ...
+SELECT * 
+FROM DIGITIALTWINS 
+WHERE IS_STRING( Status ) AND Status != 'Completed'
 ```
 
 ## IS_NULL
@@ -225,6 +239,8 @@ WHERE NOT IS_NULL(T.Temperature)
 
 A type checking and casting function for determining whether an expression's value is of a primitive type (string, Boolean, numeric, or `null`).
 
+This function is usually combined with other predicates if the program processing the query results requires a primitive-typed value, and you want to filter out entities for which the property is not primitive.
+
 ### Syntax
 
 ```sql
@@ -254,6 +270,8 @@ AND IS_PRIMITIVE(Factory.area)
 
 A type checking and casting function for determining whether an expression's value is of a JSON object type.
 
+This function is usually combined with other predicates if the program processing the query results requires a JSON object, and you want to filter out entities for which the value is not a JSON object.
+
 ### Syntax
 
 ```sql
@@ -270,10 +288,12 @@ A Boolean value indicating if the type of the specified expression is a JSON obj
 
 ### Example
 
-The following query...
+The following query selects all of the digital twins where this is an object called `MapObject` which does not have a child property `TemperatureReading`.
 
 ```sql
-<example>
+SELECT * 
+FROM DIGITALTWINS 
+WHERE IS_OBJECT( MapObject ) AND NOT IS_DEFINED ( MapObject.TemperatureReading )
 ```
 
 ## STARTSWITH
