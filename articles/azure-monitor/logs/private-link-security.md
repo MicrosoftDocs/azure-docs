@@ -239,7 +239,7 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 
 
 >[!NOTE]
-> Private endpoints created at or after April 19, 2021 won't require these settings. Instead, the solution packs storage account will be accessed through the private link.
+> Starting April 19, 2021 the above setting won't be required, and you'll be able to reach the solution packs storage account through the private link. The new capability requires re-creating the AMPLS (on April 19th, 2021 or later) and the Private Endpoint connected to it. It will not apply to existing AMPLSs and Private Endpints.
 
 ## Configure Application Insights
 
