@@ -20,7 +20,7 @@ This topic shows you how to create a managed identity for an Automation account 
 
 - A target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the Automation runbook authenticate access to the target resource.
 
-- If you want to execute hybrid jobs using an identity, update the Windows and Linux Hybrid workers to the latest version. The minimum required versions are:
+- If you want to execute hybrid jobs using a managed identity, update the Hybrid Runbook Worker to the latest version. The minimum required versions are:
 
    - Windows Hybrid Runbook: version 7.3.1125.0
    - Linux Hybrid Runbook: version 1.7.4.0
