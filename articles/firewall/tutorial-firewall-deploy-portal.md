@@ -120,6 +120,8 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 12. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 13. Review the settings on the summary page, and then select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Deploy the firewall
 
 Deploy the firewall into the VNet.
