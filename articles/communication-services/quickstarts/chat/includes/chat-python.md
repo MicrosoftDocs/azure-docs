@@ -96,8 +96,12 @@ the `get_chat_thread_client` method. `ChatThreadClient` can be used to perform o
 from azure.communication.chat import ChatThreadParticipant
 
 topic="test topic"
+participants = [ChatParticipant(
+    identifier='<USER_ID>',
+    display_name='<USER_DISPLAY_NAME>'
+)]
 
-create_chat_thread_result = chat_client.create_chat_thread(topic)
+create_chat_thread_result = chat_client.create_chat_thread(topic, thread_participants=participants)
 chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
 ```
 
