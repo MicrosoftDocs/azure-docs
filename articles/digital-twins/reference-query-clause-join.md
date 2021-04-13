@@ -78,7 +78,7 @@ WHERE Room.$dtId IN ['room1', 'room2']
 The following limits apply to queries using `JOIN`.
 * [Depth limit of five](#depth-limit-of-five)
 * [No OUTER JOIN semantics](#no-outer-join-semantics)
-* [Source twin required](#source-twin-required)
+* [Source twin required](#twins-required)
 
 See the sections below for more details.
 
