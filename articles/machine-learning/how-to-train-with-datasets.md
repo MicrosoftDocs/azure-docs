@@ -154,7 +154,7 @@ You can specify where to write your training results with an [OutputFileDatasetC
 
 OutputFileDatasetConfig objects allow you to: 
 
-* Copy the output of a run.
+* Mount or upload the output of a run to cloud storage you specify.
 * Save the output as a FileDataset to these supported storage types:
     * Azure blob
     * Azure file share
@@ -197,7 +197,7 @@ run.wait_for_completion(show_output=True)
 
 ### Simple training script
 
-The following script is submitted through the ScriptRunConfig. It reads the `mnist_ds ` dataset as input, and writes out the training results to the `outputdataset` folder in the default blob datastore, `def_blob_store`.
+The following script is submitted through the ScriptRunConfig. It reads the `mnist_ds ` dataset as input, and writes the file to the `outputdataset` folder in the default blob datastore, `def_blob_store`.
 
 ```Python
 %%writefile $source_directory/dummy_train.py
