@@ -577,13 +577,13 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
 - **Recommendation**:
     1. Make sure you have put the correct service URI in the linked service. 
-    1. If you use Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server. 
+    1. If you use the Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server. 
  
  
 <br> 
  
  
-- **Cause**: If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from server side. 
+- **Cause**: If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from the server side. 
 
 - **Recommendation**: 
     1. Make sure your username and password are correct if you use the Office 365 authentication. 
@@ -597,7 +597,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**: 
     1. Make sure you have input the correct service URI.
-    1. If you use the regional CRM URL (URL has a number after 'crm'), make sure you use the correct regional identifier. 
+    1. If you use the regional CRM URL (URL has a number after 'crm'), make sure that you use the correct regional identifier. 
     1. Contact the Dynamics support team for help. 
   
 <br> 
@@ -611,7 +611,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: For other errors, usually the issue is on the server side. 
 
-- **Recommendation**:  Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connections. If the error persists, contact the Dynamics support team for help. 
+- **Recommendation**:  Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. 
  
  
  
@@ -622,7 +622,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: The operation failed on the server side. 
 
-- **Recommendation**:  Extract the error code of the dynamics operation from the error message: `Dynamics operation failed with error code: {code}`. Refer to the article [Web service error codes](https://docs.microsoft.com/powerapps/developer/data-platform/org-service/web-service-error-codes) for more detailed information. You can contact the Dynamics support team if necessary. 
+- **Recommendation**:  Extract the error code of the dynamics operation from the error message: `Dynamics operation failed with error code: {code}`, and refer to the article [Web service error codes](https://docs.microsoft.com/powerapps/developer/data-platform/org-service/web-service-error-codes) for more detailed information. You can contact the Dynamics support team if necessary. 
  
  
  
@@ -653,9 +653,9 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
 - **Message**: `The primary key attribute '%attribute;' must be of type guid.` 
  
-- **Cause**: The type of the primary key column is not Guid. 
+- **Cause**: The type of the primary key column is not 'Guid'. 
  
-- **Recommendation**:  Make sure that the primary key column in the source data is of Guid type. 
+- **Recommendation**:  Make sure that the primary key column in the source data is of 'Guid' type. 
  
 ### Error code:  DynamicsAlternateKeyNotFound 
  
