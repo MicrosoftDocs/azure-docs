@@ -22,6 +22,7 @@ For public preview, the following provider types are supported:
 - SAP HANA
 - High-availability cluster
 - Microsoft SQL Server
+- SAP NetWeaver
 
 ![Azure Monitor for SAP solutions providers](./media/azure-monitor-sap/azure-monitor-providers.png)
 
@@ -106,6 +107,27 @@ In public preview, customers can expect to see the following data with SQL Serve
 To configure Microsoft SQL Server provider, the SAP System ID, the Host IP address, SQL Server port number and the SQL Server login name and password are required.
 
 ![Azure Monitor for SAP solutions providers - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+
+## Provider type SAP NetWeaver
+
+Customers can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. AMS NetWeaver provider leverages the existing [SAPControl webservice](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate telemetry information.
+
+For the current release, below are the standard out-of-box SOAP web methods invoked by AMS.
+|Web method|	ABAP|	JAVA|	Metrics|
+|--|--|--|--|
+|GetSystemInstanceList|	X|	X|	Instance Availability, Message Server, Gateway, ICM, ABAP Availability|
+|GetProcessList|	X|	X|	If instance list is RED, we can get what Process causing that server to be RED|
+|GetQueueStatistic|	X|	X|	Queue Statistics (DIA/BATCH/UPD)|
+|ABAPGetWPTable|	X|	 -|	Work process utilization|
+|EnqGetStatistic|	X	|X	|Locks|
+
+In public preview, customers can expect to see the following data with the SAP NetWeaver provider: 
+- System and instance availability
+- Work process utilization
+- Queue utilization
+- Enqueue lock statistics.
+
+![image](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
 
 ## Next steps
 

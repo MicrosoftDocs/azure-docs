@@ -138,7 +138,7 @@ Managed identities limits have dependencies on Azure service limits, Azure Insta
 - **Azure Active Directory service** Each managed identity counts towards the object quota limit in an Azure AD tenant as described in Azure [AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 
-## Is it Ok to move a user-assigned managed identity to a different resource group/subscription?
+### Is it possible to move a user-assigned managed identity to a different resource group/subscription?
 
 Moving a user-assigned managed identity to a different resource group is not supported.
 
