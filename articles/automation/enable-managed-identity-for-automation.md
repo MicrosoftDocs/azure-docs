@@ -8,11 +8,11 @@ ms.topic: conceptual
 ---
 # Enable and use managed identity for Automation
 
-This topic shows you how to create a managed identity for an Automation Account and how to use it to access other resources. For more on how managed identity works with Azure automation, see [Managed identities](automation-security-overview.md#managed-identities).
+This topic shows you how to create a managed identity for an Automation account and how to use it to access other resources. For more information on how managed identity works with Azure automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, sign up for a [free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
+- An Azure account and subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Both the managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
 
 - The latest version of Automation account modules.
 
@@ -20,9 +20,9 @@ This topic shows you how to create a managed identity for an Automation Account 
 
 - A target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the Automation runbook authenticate access to the target resource.
 
-- If you want to execute hybrid jobs using an identity, update the Windows and Linux Hybrid workers to the latest version. Minimum acceptable versions are:
+- If you want to execute hybrid jobs using an identity, update the Windows and Linux Hybrid workers to the latest version. The minimum required versions are:
 
-   - Windows Hybrid Runbook: version 7.3.1125.0 
+   - Windows Hybrid Runbook: version 7.3.1125.0
    - Linux Hybrid Runbook: version 1.7.4.0
 
 ## Enable system-assigned identity
@@ -34,9 +34,11 @@ Setting up system-assigned identities for Automation can be done one of two ways
 
 ### Enable system-assigned identity in Azure portal
 
-1. In the Azure portal, go to the Automation account you'll be using.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the Automation Account menu, under **Account Settings**, select **Identity**. Set the **System assigned** switch to **On** and press **Save**. When you're prompted to confirm, select **Yes**.
+1. Navigate to your Automation account and select **Identity** under **Account Settings**.
+
+1. Set the **System assigned** option to **On** and press **Save**. When you're prompted to confirm, select **Yes**.
 
 :::image type="content" source="media/managed-identity/managed-identity-on.png" alt-text="Enabling system-assigned identity in Azure portal.":::
 
@@ -80,12 +82,12 @@ Request body
 
 |Property (JSON) | Value | Description|
 |----------|-----------|------------|
-| principalid | \<principal-ID\> | The Globally Unique Identifier (GUID) of the service principal object for the managed identity that represents your automation account in the Azure AD tenant. This GUID sometimes appears as an "object ID" or objectID. |
-| tenantid | \<Azure-AD-tenant-ID\> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the automation account is now a member. Inside the Azure AD tenant, the service principal has the same name as the automation account. |
+| principalid | \<principal-ID\> | The Globally Unique Identifier (GUID) of the service principal object for the managed identity that represents your Automation account in the Azure AD tenant. This GUID sometimes appears as an "object ID" or objectID. |
+| tenantid | \<Azure-AD-tenant-ID\> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the Automation account is now a member. Inside the Azure AD tenant, the service principal has the same name as the Automation account. |
 
 ## Give identity access to Azure resources by obtaining a token
 
-An Automation Account can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens do not represent any specific user of the application. Instead, they represent the application that’s accessing the resource. For example, in this case, the token represents an Automation account.
+An Automation account can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens do not represent any specific user of the application. Instead, they represent the application that’s accessing the resource. For example, in this case, the token represents an Automation account.
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
