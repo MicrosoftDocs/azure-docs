@@ -168,8 +168,8 @@ The Device Update agent can also be configured without the IoT Identity service 
         > [!Important]
         > Do not add quotes around the connection string.
         ```shell
-        - connection_string=<ADD CONNECTION STRING HERE>
-       ```
+        connection_string=<ADD CONNECTION STRING HERE>
+        ```
        
     1. Enter and save.
     
