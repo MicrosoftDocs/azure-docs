@@ -11,7 +11,7 @@ This article describes all of the alert types, that may be generated from the De
 
 ## Policy engine alerts
 
-Policy engine alerts describe detected deviations in the packet structure or field values compared to protocol specifications.
+Policy engine alerts describe detected deviations from baseline behavior defined in learned or configured settings.
 
 | Title  | Description | Severity |
 |--|--|--|
@@ -113,7 +113,7 @@ Policy engine alerts describe detected deviations in the packet structure or fie
 
 ## Anomaly engine alerts
 
-Anomaly engine alerts describe detected malicious network activity.
+Anomaly engine alerts describe detected anomalies network activity.
 
 | Title | Description | Severity |
 |--|--|--|
@@ -144,7 +144,7 @@ Anomaly engine alerts describe detected malicious network activity.
 
 ## Protocol violation engine alerts
 
-Protocol engine alerts describe detected deviations from learned baseline behaviors.
+Protocol engine alerts describe detected violations in the packet structure, or when field values don't comply with the protocol specification.
 
 | Title | Description | Severity |
 |--|--|--|
@@ -176,7 +176,7 @@ Protocol engine alerts describe detected deviations from learned baseline behavi
 
 ## Malware engine alerts
 
-Malware engine alerts describe operational incidents, or malfunctioning entities.
+Malware engine alerts describe detected malicious network activity.
 
 | Title | Description| Severity |
 |--|--|--|
@@ -208,7 +208,7 @@ Malware engine alerts describe operational incidents, or malfunctioning entities
 
 ## Operational engine alerts
 
-Operational engine alerts describe detected anomalies in network behavior.
+Operational engine alerts describe detected operational incidents or malfunctioning entities.
 
 | Title | Description | Severity |
 |--|--|--|
