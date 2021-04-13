@@ -24,22 +24,29 @@ ms.reviewer:
 > **This content is focused on Azure SQL Database.** Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting and configuration options differ. For more on MAXDOP in SQL Server, see [Configure the max degree of parallelism Server Configuration Option](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 ## Overview
-  MAXDOP controls the degree of intra-query parallelism in the database engine. Higher MAXDOP values generally result in more parallel threads used and faster query execution. In Azure SQL Database, the default MAXDOP setting for each new single database and elastic pool database is 8. This default prevents unnecessary resource utilization while still allowing the database engine to execute queries faster using parallel threads. It is not typically necessary to further configure MAXDOP in Azure SQL Database workloads, though it may provide benefits as an advanced performance tuning exercise.
+  MAXDOP controls intra-query parallelism in the database engine. Higher MAXDOP values generally result in more parallel threads per query, and faster query execution. 
+
+  In Azure SQL Database, the default MAXDOP setting for each new single database and elastic pool database is 8. This default prevents unnecessary resource utilization, while still allowing the database engine to execute queries faster using parallel threads. It is not typically necessary to further configure MAXDOP in Azure SQL Database workloads, though it may provide benefits as an advanced performance tuning exercise.
 
 > [!Note]
->   In September 2020, based on years of telemetry in the Azure SQL Database service [MAXDOP 8 was chosen](https://techcommunity.microsoft.com/t5/azure-sql/changing-default-maxdop-in-azure-sql-database-and-azure-sql/ba-p/1538528) as the default for new databases as an optimal value for the widest variety of customer workloads. This default has helped to prevent performance problems due to excessive parallelism. Prior to that, the default setting for new databases was MAXDOP 0. MAXDOP was not automatically changed for existing databases created prior to September 2020.
+>   In September 2020, based on years of telemetry in the Azure SQL Database service MAXDOP 8 was made the [default for new databases](https://techcommunity.microsoft.com/t5/azure-sql/changing-default-maxdop-in-azure-sql-database-and-azure-sql/ba-p/1538528), as the optimal value for the widest variety of customer workloads. This default helped prevent performance problems due to excessive parallelism. Prior to that, the default setting for new databases was MAXDOP 0. MAXDOP was not automatically changed for existing databases created prior to September 2020.
 
-  In general, if the database engine chooses to execute a query using parallelism, execution time is faster. However, excess parallelism can consume additional processor resources without improving query performance. At scale, excess parallelism can negatively affect query performance for all queries executing on the same database engine instance, so traditionally setting an upper bound for parallelism has been a common performance tuning exercise in SQL Server workloads.
+  In general, if the database engine chooses to execute a query using parallelism, execution time is faster. However, excess parallelism can consume additional processor resources without improving query performance. At scale, excess parallelism can negatively affect query performance for all queries executing on the same database engine instance. Traditionally, setting an upper bound for parallelism has been a common performance tuning exercise in SQL Server workloads.
 
   The following table describes database engine behavior when executing queries with different MAXDOP values:
 
 | MAXDOP | Behavior | 
 |--|--|
-| = 1 | The database engine does not execute queries using parallel threads. | 
-| > 1 | The database engine sets the number of [schedulers](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the MAXDOP value. Because multiple parallel threads may execute on the same scheduler, the total number of parallel threads used to execute a query may be higher than specified MAXDOP value. |
-| = 0 | The database engine sets the number of [schedulers](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the total number of logical processors or 64, whichever is smaller. Because multiple parallel threads may execute on the same scheduler, the total number of parallel threads used to execute a query may be higher than the number of logical processors.| 
+| = 1 | The database engine uses a single serial thread to execute queries. Parallel threads are not used. | 
+| > 1 | The database engine sets the number of additional [schedulers](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the MAXDOP value, or the total number of logical processors, whichever is smaller. |
+| = 0 | The database engine sets the number of additional [schedulers](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the total number of logical processors or 64, whichever is smaller. | 
 | | |
-  
+
+> [!Note]
+> Each query executes with at least one scheduler, and one worker thread on that scheduler.
+>
+> A query executing with parallelism uses additional schedulers, and additional parallel threads. Because multiple parallel threads may execute on the same scheduler, the total number of threads used to execute a query may be higher than specified MAXDOP value or the total number of logical processors. For more information, see [Scheduling parallel tasks](/sql/relational-databases/thread-and-task-architecture-guide#scheduling-parallel-tasks).
+
 ##  <a name="Considerations"></a> Considerations  
 
 -   In Azure SQL Database, you can change the default MAXDOP value:
@@ -52,8 +59,6 @@ ms.reviewer:
   
 -   In addition to queries and index operations, the database scoped configuration option for MAXDOP also controls parallelism of other statements that may use parallel execution, such as DBCC CHECKTABLE, DBCC CHECKDB, and DBCC CHECKFILEGROUP. 
 
--   For more information, see [Scheduling parallel tasks](/sql/relational-databases/thread-and-task-architecture-guide#scheduling-parallel-tasks). 
-
 ##  <a name="Recommendations"></a> Recommendations  
 
   Changing MAXDOP for the database can have major impact on query performance and resource utilization, both positive and negative. However, there is no single MAXDOP value that is optimal for all workloads. The [recommendations](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) for setting MAXDOP are nuanced, and depend on many factors. 
@@ -64,11 +69,14 @@ ms.reviewer:
 
   A higher MAXDOP often reduces duration for CPU-intensive queries. However, excessive parallelism can worsen other concurrent workload performance by starving other queries of CPU and worker thread resources. In extreme cases, excessive parallelism can consume all database or elastic pool resources, causing query timeouts, errors, and application outages. 
 
-  We recommend that customers avoid setting MAXDOP to 0 even if it does not appear to cause problems currently. Excessive parallelism becomes most problematic when there are more concurrent requests than can be supported by the CPU and worker thread resources provided by the service objective. Avoid MAXDOP 0 to reduce the risk of potential future problems due to excessive parallelism if a database is scaled up, or if future hardware generations in Azure SQL Database provide more cores for the same database service objective.
+> [!Tip]
+> We recommend that customers avoid setting MAXDOP to 0 even if it does not appear to cause problems currently.
+
+  Excessive parallelism becomes most problematic when there are more concurrent requests than can be supported by the CPU and worker thread resources provided by the service objective. Avoid MAXDOP 0 to reduce the risk of potential future problems due to excessive parallelism if a database is scaled up, or if future hardware generations in Azure SQL Database provide more cores for the same database service objective.
 
 ### Modifying MAXDOP 
 
-  If you determine that a MAXDOP setting different from the default is optimal for your Azure SQL Database workload, you can use the `ALTER DATABASE SCOPED CONFIGURATION` T-SQL statement. For examples, see the [Examples using Transact-SQL](#examples) section below. To change MAXDOP for each new database you create, add this step to your database deployment process.
+  If you determine that a MAXDOP setting different from the default is optimal for your Azure SQL Database workload, you can use the `ALTER DATABASE SCOPED CONFIGURATION` T-SQL statement. For examples, see the [Examples using Transact-SQL](#examples) section below. To change MAXDOP to a non-default value for each new database you create, add this step to your database deployment process.
 
   If non-default MAXDOP benefits only a small subset of queries in the workload, you can override MAXDOP at the query level by adding the OPTION (MAXDOP) hint. For examples, see the [Examples using Transact-SQL](#examples) section below. 
 
