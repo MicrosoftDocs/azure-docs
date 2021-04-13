@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/09/2021
+ms.date: 04/12/2021
 ms.author: radeltch
 ---
 
@@ -254,7 +254,6 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Enter the name of the new load balancer rule (for example, **hana-lb**).
 		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
 		1.	Select **HA Ports**.
-		1.	Increase the **idle timeout** to 30 minutes.
 		1.	Make sure to **enable Floating IP**.
 		1.	Select **OK**.
 
@@ -481,7 +480,7 @@ This is important step to optimize the integration with the cluster and improve 
 
     ```bash
      mkdir -p /hana/shared/myHooks
-     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
      chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
@@ -525,9 +524,9 @@ This is important step to optimize the integration with the cluster and improve 
      awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
      { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
      # Example output
-     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
-     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
-     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
 
     ```
 
