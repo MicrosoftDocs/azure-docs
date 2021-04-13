@@ -134,6 +134,6 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 ## Next steps
 
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md)
-- Continue with [Azure App Services on Azure Arc](TODO) and create your first web, function, or logic app. 
-- [Create an Event Grid topic and an event subscription](TODO) for Event Grid on Kubernetes. 
-- [Deploy an API Management gateway to your cluster](TODO). 
+- Continue with Azure App Services on Azure Arc] and create your first web, function, or logic app. 
+- Create an Event Grid topic and an event subscription for Event Grid on Kubernetes. 
+- Deploy an API Management gateway to your cluster. 
