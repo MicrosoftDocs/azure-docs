@@ -552,36 +552,29 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  For more details, check network connectivity or check the Dynamics server log. For further help, contact Dynamics support.
 
+
 ### Error code:  DynamicsFailedToConnect 
  
  
 - **Message**: `Failed to connect to Dynamics: %message;` 
  
- 
-<br> 
- 
- 
+<br/> 
+
 - **Cause**: If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth. 
- 
  
 - **Recommendation**: 
     1. Contact Dynamics support team with the detailed error message for help.  
     1. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](https://docs.microsoft.com/azure/data-factory/connector-dynamics-crm-office-365#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
  
- 
-<br> 
- 
+<br/> 
  
 - **Cause**: If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. 
- 
  
 - **Recommendation**:
     1. Make sure you have put the correct service URI in the linked service. 
     1. If you use the Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server. 
- 
- 
-<br> 
- 
+  
+<br/> 
  
 - **Cause**: If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from the server side. 
 
@@ -591,7 +584,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     1. If you use regional CRM URL (URL has a number after 'crm'), make sure you use the correct regional identifier.
     1. Contact the Dynamics support team for help. 
  
-<br> 
+<br/> 
  
 - **Cause**: If you see `No Organizations Found` in the error message, it means that either your organization name is wrong or you used a wrong CRM region identifier in the service URL. 
 
@@ -600,23 +593,20 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     1. If you use the regional CRM URL (URL has a number after 'crm'), make sure that you use the correct regional identifier. 
     1. Contact the Dynamics support team for help. 
   
-<br> 
+<br/> 
  
 - **Cause**: If you see `401 Unauthorized` and AAD-related error message, it means that there's an issue with the service principal. 
 
 - **Recommendation**: Follow the guidance in the error message to fix the service principal issue.  
  
-<br> 
+<br/> 
  
-
 - **Cause**: For other errors, usually the issue is on the server side. 
 
 - **Recommendation**:  Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. 
  
  
- 
 ### Error code:  DynamicsOperationFailed 
- 
  
 - **Message**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
 
@@ -625,10 +615,8 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Extract the error code of the dynamics operation from the error message: `Dynamics operation failed with error code: {code}`, and refer to the article [Web service error codes](https://docs.microsoft.com/powerapps/developer/data-platform/org-service/web-service-error-codes) for more detailed information. You can contact the Dynamics support team if necessary. 
  
  
- 
 ### Error code:  DynamicsInvalidFetchXml 
- 
- 
+  
 - **Message**: `The Fetch Xml query specified is invalid.` 
 
 - **Cause**:  There is an error existed in the fetch XML.  
@@ -636,9 +624,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Fix the error in the fetch XML. 
  
  
- 
 ### Error code:  DynamicsMissingKeyColumns 
- 
  
 - **Message**: `Input DataSet must contain keycolumn(s) in Upsert/Update scenario. Missing key column(s): %column;`
  
@@ -647,9 +633,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Confirm that key columns are in the source data or map a source column to the key column on the sink entity. 
  
  
- 
 ### Error code:  DynamicsPrimaryKeyMustBeGuid 
- 
  
 - **Message**: `The primary key attribute '%attribute;' must be of type guid.` 
  
@@ -657,8 +641,8 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
 - **Recommendation**:  Make sure that the primary key column in the source data is of 'Guid' type. 
  
+
 ### Error code:  DynamicsAlternateKeyNotFound 
- 
  
 - **Message**: `Cannot retrieve key information of alternate key '%key;' for entity '%entity;'.` 
  
@@ -669,9 +653,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     1. Make sure that you have sufficient permissions on the entity. 
  
  
- 
 ### Error code:  DynamicsInvalidSchemaDefinition 
- 
  
 - **Message**: `The valid structure information (column name and type) are required for Dynamics source.` 
  
@@ -679,8 +661,6 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
 - **Recommendation**: You can add the 'type' property to those columns in the column mapping by using JSON editor on the portal. 
 
-
-  
 
 ## FTP
 
