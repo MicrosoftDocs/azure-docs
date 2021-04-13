@@ -168,7 +168,7 @@ Once you store the script, refer to it during creation of your compute instance:
     1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
     1. On the left, select **Compute**.
     1. Select **+New** to create a new compute instance.
-    1. [Fill out the form](how-to-create-attach-compute-studio.md).
+    1. [Fill out the form](how-to-create-attach-compute-studio.md#compute-instance).
     1. On the second page of the form, open **Show advanced settings**
     1. Turn on **Provision with setup script**
     1. Browse to the shell script you saved.  Or upload a script from your computer.
