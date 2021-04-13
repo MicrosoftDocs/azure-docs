@@ -10,7 +10,7 @@ ms.date: 04/15/2021
 
 ---
 
-# Overview
+# Overview of the Azure Policy Guest Configuration extension
 
 The Guest Configuration extension is a component Azure Policy that performs audit and configuration operations inside virtual machines.
 Policies such as security baseline definitions for 
