@@ -114,7 +114,7 @@ Customers can configure one or more providers of provider type SAP NetWeaver to 
 
 For the current release, below are the standard out-of-box SOAP web methods invoked by AMS.
 
-![image](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
+![image1](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
 
 In public preview, customers can expect to see the following data with the SAP NetWeaver provider: 
 - System and instance availability
