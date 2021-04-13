@@ -74,7 +74,15 @@ A collection of twins, properties, or relationships.
 
 ### Examples
 
-For the following examples, consider a twin graph that contains a Factory twin called FactoryA. FactoryA has a "customer"-type relationship called FactoryA-customer-Contoso that connects it to a Consumer twin called Contoso. The FactoryA-customer-Contoso relationship has one property, managedBy.
+For the following examples, consider a twin graph that contains the following data elements:
+* A Factory twin called `FactoryA`
+    - Contains a property called `name` with a value of `FactoryA`
+* A Consumer twin called `Contoso`
+    - Contains a property called `name` with a value of `Contoso`
+* A consumerRelationship relationship from `FactoryA` to `Contoso`, called `FactoryA-consumerRelationship-Contoso`
+    - Contains a property called `managedBy` with a value of `Jeff`
+
+Here's a diagram illustrating this scenario:
 
 :::row:::
     :::column:::
@@ -85,7 +93,7 @@ For the following examples, consider a twin graph that contains a Factory twin c
 :::row-end:::
 
 
-Here is an example that projects a collection from this graph. The following query returns all digital twins in the instance, by naming the entire twin collection `T` and projecting `T` as the collection to return. 
+Below is an example query that projects a collection from this graph. The following query returns all digital twins in the instance, by naming the entire twin collection `T` and projecting `T` as the collection to return. 
 
 ```sql
 SELECT T
@@ -99,12 +107,12 @@ The result of this query for the scenario described above is this:
 | `<JSON data for FactoryA>` | 
 | `<JSON data for Contoso>` |
 
-Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the Consumer, Factory and Relationship from a scenario where the a Factory called FactoryA has a Factory.consumer relationship with a Consumer, and that relationship is presented as Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
+Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
 ```sql
 SELECT Consumer, Factory, Relationship
 FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Relationship
+JOIN Consumer RELATED Factory.consumerRelationship Relationship
 WHERE Factory.$dtId = 'FactoryA'
 ```
 
@@ -112,14 +120,14 @@ The result of this query for the scenario described above is this:
 
 | Consumer | Factory | Relationship |
 | --- | --- | --- |
-| `<JSON data for Contoso>` | `<JSON data for FactoryA>` | `<JSON data for FactoryA-customer-Contoso>` |
+| `<JSON data for Contoso>` | `<JSON data for FactoryA>` | `<JSON data for FactoryA-consumerRelationship-Contoso>` |
 
-Here is an example that projects a property. The following query uses projection to return the `name` property of a Consumer-type twin, and the `managedBy` property of the relationship. Note that the query uses `IS_PRIMITIVE` to verify that the property names are of primitive types, since complex properties are not currently supported by projection.
+Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship. Note that the query uses `IS_PRIMITIVE` to verify that the property names are of primitive types, since complex properties are not currently supported by projection.
 
 ```sql
 SELECT Consumer.name, Relationship.managedBy
 FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Relationship
+JOIN Consumer RELATED Factory.consumerRelationship Relationship
 WHERE Factory.$dtId = 'FactoryA'
 AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Relationship.managedBy)
 ```
@@ -127,7 +135,7 @@ AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Relationship.managedBy)
 The result of this query for the scenario described above is this:
 
 | Consumer.name | Relationship.managedBy |
-| --- | --- | --- |
+| --- | --- |
 | `Contoso` | `Jeff` |
 
 ## SELECT COUNT
