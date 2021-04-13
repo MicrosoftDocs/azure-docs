@@ -11,7 +11,7 @@ This article describes all of the alert types, that may be generated from the De
 
 ## Policy engine alerts
 
-Policy engine alerts describe detected deviations from baseline behavior defined in learned, or configured settings.
+Policy engine alerts describe detected deviations from learned baseline behavior.
 
 | Title  | Description | Severity |
 |--|--|--|
