@@ -42,7 +42,7 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- | --- |	
-|Windows 10 2019 LTSC 1/9/2029 |<a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a>|
+|Windows 10 2019 LTSC |1/9/2029 |<a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a>|
 |Version 20H2 |5/9/2023|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
 |Version 2004 |12/14/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
 |Version 1909 |5/10/2022|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycls</a>|
