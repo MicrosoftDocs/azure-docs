@@ -9,7 +9,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
 ---
 
