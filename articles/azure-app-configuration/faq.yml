@@ -101,8 +101,8 @@ sections:
 
       - question: How does App Configuration ensure high data availability? 
         answer: |
-          Azure App Configuration supports Azure Availability Zones to protect your data from datacenter failures. Azure region consists of 3 availability zones, where each is an independent datacenter. Data is automatically replicated between these zones at no extra cost to you. For App Configuration, regions that support Availability Zones are East US, East US 2, West US 2, North Europe, France Central, and Japan East. For more information, see [Regions and Availability Zones in Azure.](https://docs.microsoft.com/azure/availability-zones/az-overview)
-
+          Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone enabled regions consists of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Regions that App Configuration has enabled Availability Zones are East US, East US 2, West US 2, North Europe, France Central, and Japan East. For more information, see [Regions and Availability Zones in Azure.](https://docs.microsoft.com/azure/availability-zones/az-overview)
+          
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
           Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour.
