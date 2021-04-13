@@ -58,7 +58,6 @@ Learn more about planning and building your application [here](luis-how-plan-you
 * [API reference][endpoint-apis]
 * [Best practices](luis-concept-best-practices.md)
 * [Developer resources](developer-reference-resource.md "Developer resources") for LUIS.
-=======
 * [Plan your app](luis-how-plan-your-app.md "Plan your app") with [intents](luis-concept-intent.md "intents") and [entities](luis-concept-entity-types.md "entities").
 
 [bot-framework]: /bot-framework/
