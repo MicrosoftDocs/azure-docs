@@ -107,7 +107,7 @@ Next, select the source enrollment to transition. Then select the billing accoun
 
 :::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition with validated choices." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" :::
 
-**Possible problems**:
+**Error conditions**
 
 If you have the Enterprise Administrator (read-only) role, you'll see the following error that prevents the transition. You must have the Enterprise Administrator role before before you can transition your enrollment.
 
@@ -128,7 +128,6 @@ If you don't have owner permission to the billing profile, you'll see the follow
 If your new billing profile doesn't have the new plan enabled, you'll see the following error. You must enable the plan before you can transition your enrollment.
 
 `Select another Billing Profile. The current selection does not have Azure Plan and Azure dev test plan enabled on it.`
-
 
 ## Understand changes to your billing hierarchy
 
