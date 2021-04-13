@@ -69,11 +69,11 @@ With the Text Analytics resource created, you'll copy a few settings and set the
 
 1. Copy **Key 1** by clicking on the icon at the end of the input box.
 
-1. **Paste the value** into a text editor.
+1. Paste the value into a text editor.
 
 1. Copy the **Endpoint** by clicking on the icon at the end of the input box.
 
-1. **Paste the value** into a text editor.
+1. Paste the value into a text editor.
 
 ## Create the function app
 
@@ -105,12 +105,12 @@ With the Text Analytics resource created, you'll copy a few settings and set the
 
 1. Select **Add** from the top menu and enter the following values.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Development environment | **Develop in portal** |
-    | Template | **HTTP Trigger** |
-    | New Function | **TweetSentimentFunction** |
-    | Authorization level | **Function** |
+    | Setting | Value | Remarks |
+    | ------- | ----- | ------- |
+    | Development environment | **Develop in portal** | |
+    | Template | **HTTP Trigger** | |
+    | New Function | **TweetSentimentFunction** | This is the name of your function. |
+    | Authorization level | **Function** | |
 
 1. Select the **Add** button.
 
@@ -162,7 +162,7 @@ With the Text Analytics resource created, you'll copy a few settings and set the
     > [!NOTE]
     > To test the function, select **Test/Run** from the top menu. On the _Input_ tab, enter a value of `0.9` in the _Body_ input box, and then select **Run**. Verify that a value of _Positive_ is returned in the _HTTP response content_ box in the _Output_ section.
 
-Next, create a logic app that integrates an Azure Function with your Twitter account and the Cognitive Services API.
+Next, create a logic app that integrates with Azure Functions, Twitter, and the Cognitive Services API.
 
 ## Create a logic app
 
@@ -235,7 +235,7 @@ Next, connect to text analytics to detect the sentiment of collected tweets.
 
 1. Select the **Text Analytics** icon.
 
-1. Select the **Detect Sentiment** and enter the following values.
+1. Select **Detect Sentiment** and enter the following values.
 
     | Setting | Value |
     | ------- | ----- |
@@ -245,7 +245,7 @@ Next, connect to text analytics to detect the sentiment of collected tweets.
 
 1. Select **Create**.
 
-1. Click inside the _Add new parameter_ box, and check the box next to **documents** that appears in the dropdown.
+1. Click inside the _Add new parameter_ box, and check the box next to **documents** that appears in the pop-up.
 
 1. Click inside the _documents Id - 1_ textbox to open the dynamic content pop-up.
 
@@ -257,11 +257,11 @@ Next, connect to text analytics to detect the sentiment of collected tweets.
 
 1. In **Choose an action**, type **Text Analytics**, and then click the **Detect sentiment** action.
 
+1. Select the **Save** button on the toolbar to save your progress.
+
 The _Detect Sentiment_ box should look like the following screenshot.
 
 :::image type="content" source="media/functions-twitter-email/detect-sentiment.png" alt-text="Detect Sentiment settings":::
-
-1. Select the **Save** button on the toolbar to save your progress.
 
 ## Connect sentiment output to function endpoint
 
@@ -328,6 +328,8 @@ The email box should now look like this screenshot.
 1. From your Twitter account, tweet the following text: **I'm enjoying #my-twitter-tutorial**.
 
 1. Return to the Logic Apps Designer and select the **Run** button.
+
+1. Check your email for a message from the workflow.
 
 ## Clean up resources
 
