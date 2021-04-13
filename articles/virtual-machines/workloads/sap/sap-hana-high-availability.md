@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
 
 ---
@@ -168,7 +168,6 @@ To deploy the template, follow these steps:
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
       1. Select **HA Ports**.
-      1. Increase the **idle timeout** to 30 minutes.
       1. Make sure to **enable Floating IP**.
       1. Select **OK**.
 
@@ -495,6 +494,71 @@ The steps in this section use the following prefixes:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
+## Implement the Python system replication hook SAPHanaSR
+
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+
+1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
+
+   > [!TIP]
+   > Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.       
+   > The python hook can only be implemented for HANA 2.0.        
+
+   1. Prepare the hook as `root`.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Stop HANA on both nodes. Execute as <sid\>adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Adjust `global.ini` on each cluster node.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+For more details on the implementation of the SAP HANA system replication hook see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers).  
+
+3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+
+    ```
+
 ## Create SAP HANA cluster resources
 
 First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
@@ -707,6 +771,9 @@ This section describes how you can test your setup. Every test assumes that you 
 Before you start the test, make sure that Pacemaker does not have any failed action (via crm_mon -r), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA is sync state, for example with SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+Sites    srHook
+----------------
+SITE2    SOK
 
 Global cib-time
 --------------------------------
@@ -720,7 +787,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 
 You can migrate the SAP HANA master node by executing the following command:
 
-<pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
 </code></pre>
 
 If you set `AUTOMATED_REGISTER="false"`, this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to hn1-db-1.
@@ -759,7 +826,7 @@ The migration creates location constraints that need to be deleted again:
 
 <pre><code># Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
 You also need to clean up the state of the secondary node resource:
