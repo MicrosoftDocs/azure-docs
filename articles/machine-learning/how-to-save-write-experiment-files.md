@@ -31,7 +31,7 @@ The storage limit for experiment snapshots is 300 MB and/or 2000 files.
 
 For this reason, we recommend:
 
-* **Storing your files in an Azure Machine Learning [dataset](/python/api/azureml-core/azureml.data).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about how to specify a dataset as your input data source in your training script with [Train with datasets](how-to-train-with-datasets.md#) .
+* **Storing your files in an Azure Machine Learning [dataset](/python/api/azureml-core/azureml.data).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about how to specify a dataset as your input data source in your training script with [Train with datasets](how-to-train-with-datasets.md).
 
 * **If you only need a couple data files and dependency scripts and can't use a datastore,** place the files in the same folder directory as your training script. Specify this folder as your `source_directory` directly in your training script, or in the code that calls your training script.
 
