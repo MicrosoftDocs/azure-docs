@@ -247,7 +247,7 @@ In some cases, custom native C++ apps that use a multi-pass stereo rendering mod
 
 ## Conversion File Download Errors
 
-The Conversion service may encounter errors downloading files from blob storage due to path length limits imposed by Windows. As a result of the underlying layout of the Conversion service folder structure, file paths and file names in your blob storage must not exceed 178 characters. The Conversion service will download all files specified under the `blobPrefix`, not just the files used in the conversion. The files/folder causing issues may be less obvious in these cases so its important to check everything contained in the storage account under `blobPrefix`. See the example inputs below for what gets downloaded.
+The Conversion service may encounter errors downloading files from blob storage because of path length limits imposed by Windows and the service. File paths and file names in your blob storage must not exceed 178 characters. The Conversion service will download all files specified under the `blobPrefix`, not just the files used in the conversion. The files/folder causing issues may be less obvious in these cases so it's important to check everything contained in the storage account under `blobPrefix`. See the example inputs below for what gets downloaded.
 ``` json
 {
   "settings": {
