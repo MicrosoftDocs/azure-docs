@@ -103,3 +103,14 @@ SELECT *
 FROM DIGITALTWINS DT
 WHERE NOT DT.Temperature < 80
 ```
+
+## Limitations
+
+The following limits apply to queries using operators.
+* [Limit for IN/NIN](#limit-for-in-nin)
+
+See the section below for more details.
+
+### Limit for IN/NIN
+
+The limit for the number of values that can be included in an `IN` or `NIN` set is 50 values.
