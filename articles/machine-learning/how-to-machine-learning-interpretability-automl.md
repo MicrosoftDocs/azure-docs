@@ -318,7 +318,7 @@ if service.state == 'Healthy':
 
 ### Visualize to discover patterns in data and explanations at training time
 
-You can visualize the feature importance chart in your workspace in [Machine Learning Studio](https://ml.azure.com). After your AutoML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
+You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). After your AutoML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
 
 [![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 

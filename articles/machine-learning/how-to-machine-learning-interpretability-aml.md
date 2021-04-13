@@ -15,8 +15,6 @@ ms.custom: how-to, devx-track-python, responsible-ml
 
 # Use the interpretability package to explain ML models & predictions in Python (preview)
 
-
-
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
 
