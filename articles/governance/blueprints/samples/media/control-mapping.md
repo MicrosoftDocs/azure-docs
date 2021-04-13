@@ -8,7 +8,7 @@ ms.topic: sample
 
 The following article details how the Azure Blueprints Media blueprint sample maps to the Media
 controls. For more information about the controls, see
-[Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+[Media](https://www.motionpictures.org/best-practices).
 
 The following mappings are to the **Media** controls. Use the navigation on the right to jump
 directly to a specific control mapping. Many of the mapped controls are implemented with an

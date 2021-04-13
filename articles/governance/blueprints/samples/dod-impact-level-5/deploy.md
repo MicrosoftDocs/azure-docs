@@ -13,8 +13,9 @@ To deploy the Azure Blueprints Department of Defense Impact Level 5 (DoD IL5) bl
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+If you don't have an Azure Government subscription, request a
+[trial subscription](https://azure.microsoft.com/global-infrastructure/government/request/) before
+you begin.
 
 ## Create blueprint from sample
 
