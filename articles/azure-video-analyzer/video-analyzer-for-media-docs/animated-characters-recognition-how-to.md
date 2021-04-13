@@ -67,11 +67,11 @@ Follow these steps to connect you Custom Vision account to Video Analyzer for Me
 
 ### Create an animated characters model
 
-1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
+1. Browse to the [Video Analyzer for Media](https://vi.microsoft.com/) website and sign in.
 1. To customize a model in your account, select the **Content model customization** button on the left of the page.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Customize content model in Video Indexer":::
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Customize content model in Video Analyzer for Media":::
 1. Go to the **Animated characters** tab in the model customization section.
 1. Click on **Add model**.
 1. Name you model and click enter to save the name.
@@ -95,25 +95,25 @@ Before tagging and training the model, all animated characters will be named “
 
 ### Customize the animated characters models
 
-1. Name the characters in Video Indexer.
+1. Name the characters in Video Analyzer for Media.
 
     1. After the model created character group, it is recommended to review these groups in Custom Vision. 
     1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window. 
     1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" to a temporary name (or the name that was previously assigned to the character). 
-    1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer. 
+    1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Analyzer for Media. 
 1. Paid accounts only: Review the groups in Custom Vision 
 
     > [!NOTE]
-    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). It’s important to note that training of the model should be done only via Video Indexer (as described in this topid), and not via the Custom Vision website. 
+    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). It’s important to note that training of the model should be done only via Video Analyzer for Media (as described in this topid), and not via the Custom Vision website. 
 
-    1. Go to the **Custom Models** page in Video Indexer and choose the **Animated characters** tab. 
+    1. Go to the **Custom Models** page in Video Analyzer for Media and choose the **Animated characters** tab. 
     1. Click on the Edit button for the model you are working on to manage it in Custom Vision. 
     1. Review each character group: 
 
         * If the group contains unrelated images it is recommended to delete these in the Custom Vision website. 
         * If there are images that belong to a different character, change the tag on these specific images by click on the image, adding the right tag and deleting the wrong tag. 
-        * If the group is not correct, meaning it contains mainly non-character images or images from multiple characters, you can delete in in Custom Vision website or in Video Indexer insights. 
-        * The grouping algorithm will sometimes split your characters to different groups. It is therefore recommended to give all the groups that belong to the same character the same name (in Video Indexer Insights), which will immediately cause all these groups to appear as on in Custom Vision website. 
+        * If the group is not correct, meaning it contains mainly non-character images or images from multiple characters, you can delete in in Custom Vision website or in Video Analyzer for Media insights. 
+        * The grouping algorithm will sometimes split your characters to different groups. It is therefore recommended to give all the groups that belong to the same character the same name (in Video Analyzer for Media Insights), which will immediately cause all these groups to appear as on in Custom Vision website. 
     1. Once the group is refined, make sure the initial name you tagged it with reflects the character in the group. 
 1. Train the model 
 
@@ -121,7 +121,7 @@ Before tagging and training the model, all animated characters will be named “
     1. Once a character is trained into the model, it will be recognized it the next video indexed with that model. 
     1. Open the customization page and click on the **Animated characters** tab and then click on the **Train** button to train your model. In order to keep the connection between Video 
     
-Indexer and the model, don't train the model in the Custom Vision website (paid accounts have access to Custom Vision website), only in Video Indexer. 
+Indexer and the model, don't train the model in the Custom Vision website (paid accounts have access to Custom Vision website), only in Video Analyzer for Media. 
 Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
 
 ## Delete an animated character and the model
