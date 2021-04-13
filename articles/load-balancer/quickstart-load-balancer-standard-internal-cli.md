@@ -42,7 +42,8 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 ```
 
-## Azure Load Balancer Standard
+---
+# [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
 
 In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
@@ -330,7 +331,7 @@ Add the virtual machines to the back-end pool with [az network nic ip-config add
 
 ```
 
-## Azure Load Balancer Basic
+# [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
 In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
