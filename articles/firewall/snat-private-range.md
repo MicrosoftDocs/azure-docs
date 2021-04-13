@@ -34,7 +34,7 @@ You can configure the SNAT private IP addresses using the following methods:
 |---------|---------|---------|
 |Azure portal     | [supported](#classic-rules-3)| [supported](#firewall-policy-1)|
 |Azure PowerShell     |[configure `PrivateRange`](#classic-rules)|currently unsupported|
-|Auzure CLI|[configure `--private-ranges`](#classic-rules-1)|currently unsupported|
+|Azure CLI|[configure `--private-ranges`](#classic-rules-1)|currently unsupported|
 |ARM template     |[configure `AdditionalProperties` in firewall property](#classic-rules-2)|[configure `SNAT/privateRanges` under properties](#firewall-policy)|
 
 
