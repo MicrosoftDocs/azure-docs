@@ -15,40 +15,46 @@ In order to deploy and use Windows Virtual Desktop, you must unblock certain URL
 >[!IMPORTANT]
 >Windows Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
-## Virtual machines
+## Required URL Check Tool
 
-### Required URL Check Tool
+The Required URL Check tool will validate URLs and display whether the URLs the virtual machine needs to function are accessible. If not, then the tool will list the inaccessible URLs so you can unblock them, if needed.
 
-The Required URL Check Tool will validate URLs and display whether the required URLs, listed below, are accessible or not so that you can take action to unblock them.
+It's important to keep the following things in mind:
+- You can only use the Required URL Check tool for deployments in commercial clouds.
+- The Required URL Check tool can't check URLs with wildcards so make sure you unblock those URLs first.
 
->[!NOTE]
-> - The Required URL Check Tool can only be used for deployments in commercial clouds.
-> - URLs with wildcards cannot be checked for accessibility using the Required URL Check Tool, so be sure to unblock those URLs as well.
-
-**Requirements**
-- .NET 4.6.2 framework must be installed on your VM
+### Requirements
+You need the following things to use the Required URL Check tool:
+- Your VM must have a .NET 4.6.2 framework
 - RDAgent version 1.0.2944.400 or higher
-- The executable (WVDAgentUrlTool.exe) must be in the same folder as the configuration file (WVDAgentUrlTool.config)
+- The WVDAgentUrlTool.exe file must be in the same folder as the WVDAgentUrlTool.config file
 
-**How to use the Required URL Check Tool**
-1. Open a Command Prompt as an Administrator on your VM.
-2. Type and run the following command to change directory to the same folder as the build agent:
-```
-cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
-```
-3. Type and run the following command:
-```
-WVDAgentUrlTool.exe
-``` 
-4. After running this tool, a list of non-accessible and accessible URLs will be outputted.
+### How to use the Required URL Check tool
+To use the Required URL Check tool:
+1. Open a command prompt as an administrator on your VM.
+2. Run the following command to change the directory to the same folder as the build agent:
 
-Example of output if you need to unblock 2 of required non-wildcard URLs:
-> [!div class="mx-imgBorder"]
-> ![Screenshot of non-accessible URLs output.](media/noaccess.png)
+    ```console
+    cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
+    ```
 
-Example of output if you have unblocked all the required non-wildcard URLs:
-> [!div class="mx-imgBorder"]
-> ![Screenshot of accessible URLs output.](media/access.png)
+3. Run the following command:
+
+    ```console
+    WVDAgentUrlTool.exe
+    ```
+ 
+4. Once you run the file, you'll see a list of accessible and inaccessible URLs.
+
+    For example, the following screenshot shows a scenario where you'd need to unblock two required non-wildcard URLs:
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of non-accessible URLs output.](media/noaccess.png)
+    
+    Here's what the output should look like once you've unblocked all required non-wildcard URLs:
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of accessible URLs output.](media/access.png)
+
+## Virtual machines
 
 The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs in the Azure commercial cloud:
 
