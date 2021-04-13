@@ -1,9 +1,9 @@
-## Additional Prerequisites for Java
+## Additional prerequisites for Java
 For Java, you'll also need:
 - [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
-## Setting Up
+## Setting up
 
 ### Create a new Java application
 
@@ -92,7 +92,7 @@ As another example of using managed identities, we'll add this code which uses t
           return smsClient.send(from, to, message);
      }
 ```
-## Write the Main Method
+## Write the Main method
 
 Your `App.java` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of managed identities:
 ```java
