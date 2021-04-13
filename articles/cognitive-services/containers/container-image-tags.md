@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 03/25/2020
+ms.date: 04/12/2021
 ms.author: aahi
 ---
 
@@ -47,18 +47,24 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
+Release notes for `3.2`:
+
+* Read OCR container is now generally available.
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `3.2`                     |       |
+
+# [Previous versions](#tab/previous)
+
+
 Release notes for `3.2-preview.2`:
+
 * Distroless release
 * ReadingOrder parameter to choose between text line order in JSON response
 * Enhanced logging
 * Hotfixes to CJK model
-
-| Image Tags                    | Notes |
-|-------------------------------|:------|
-|3.2.2.014850001-49e0eac6-amd64-preview                     |       |
-
-# [Previous versions](#tab/previous)
-
+* 
 Release notes for `v2.0.013250001-amd64-preview`:
 
 * Further decrease memory usage for container.
@@ -88,6 +94,7 @@ Release notes for `1.1.013050001-amd64-preview`
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
+| `3.2.2.014850001-49e0eac6-amd64-preview` |       |
 | `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
