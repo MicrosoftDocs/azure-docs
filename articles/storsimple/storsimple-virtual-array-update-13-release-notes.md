@@ -4,7 +4,7 @@ description: Describes critical open issues and resolutions for the Azure StorSi
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 03/17/2021
+ms.date: 04/13/2021
 ms.author: alkohli
 ---
 
@@ -40,12 +40,12 @@ This update contains the following improvements:KB4540725
 
 ## Download Update 1.3
 
-To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4575898 package. This package contains the following packages:
+To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4575898 package. This package contains the following packages. Install the packages in this order:
 
-- **KB4540725**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [March monthly security rollup](https://support.microsoft.com/help/4540725).
-- **KB4565541**, which contains cumulative Windows Updates for 2012 R2 up to July 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4565541).
-- **KB4565622**, which contains cumulative.NET Framework updates up to July 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4565622).
-- **KB3011067**, which contains device software updates.
+1. **KB4540725**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [March monthly security rollup](https://support.microsoft.com/help/4540725).
+1. **KB4565541**, which contains cumulative Windows Updates for 2012 R2 up to July 2020. For more information on what is included in this rollup, go to [July monthly security rollup](https://support.microsoft.com/help/4565541).
+1. **KB4565622**, which contains cumulative.NET Framework updates up to July 2020. For more information on what is included in this rollup, go to [July monthly security rollup](https://support.microsoft.com/help/4565622).<!--The usual Help link opens this: https://support.microsoft.com/en-us/topic/security-and-quality-rollup-for-net-framework-4-6-4-6-1-4-6-2-4-7-4-7-1-4-7-2-for-windows-8-1-rt-8-1-and-windows-server-2012-r2-kb4565622-b7320848-1889-a624-da01-719f55ee8a00 instead of a monthly rollup. I can't find a July rollup for KB4565622. Is this correct? Should the description change?-->
+1. **KB3011067**, which contains device software updates.
 
 Download KB4575898, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
