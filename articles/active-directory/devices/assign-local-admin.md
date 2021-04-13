@@ -67,10 +67,6 @@ Device administrators are assigned to all Azure AD joined devices. You cannot sc
 
 ## Manage administrator privileges using Azure AD groups (preview)
 
->[!NOTE]
-> This feature is currently in preview.
-
-
 Starting with Windows 10 2004 update, you can use Azure AD groups to manage administrator privileges on Azure AD joined devices with the [Restricted Groups](/windows/client-management/mdm/policy-csp-restrictedgroups) MDM policy. This policy allows you to assign individual users or Azure AD groups to the local administrators group on an Azure AD joined device, providing you the granularity to configure distinct administrators for different groups of devices. 
 
 >[!NOTE]
