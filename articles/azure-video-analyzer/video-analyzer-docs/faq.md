@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 03/26/2021
 ---
 
-# Azure Video Analyzer FAQ
+# Frequently asked questions  
 
 This article answers commonly asked questions about Azure Video Analyzer.
 

@@ -14,12 +14,14 @@
     href: get-started-detect-motion-emit-events.md
   - name: Track objects in live videos
     href: track-objects-live-video.md
+  - name: Detect motion, record video on edge devices
+    href: detect-motion-record-video-edge-devices.md
   - name: Analyze live video
     items:
+    - name: with your own gRPC model
+      href: analyze-live-video-use-your-model-grpc.md
     - name: with your own HTTP model
       href: analyze-live-video-use-your-model-http.md
-    - name: with your own gRPC model
-      html: analyze-live-video-use-your-model-grpc.md
 - name: Tutorials
   items:
   - name: Continuous video recording and playback
@@ -35,7 +37,7 @@
   - name: Record video for playback
     href: video-recording.md    
   - name: Analyze live videos without recording
-    href: analyze-live-video.md
+    href: analyze-live-video-without-recording.md
 - name: How-to guides
   items:
   - name: Develop and deploy gRPC inference server
@@ -48,6 +50,8 @@
     href: http-extension-protocol.md
   - name: gRPC extension protocol
     href: grpc-extension-protocol.md
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md
 - name: Resources
   items:
   - name: Azure roadmap

@@ -61,6 +61,9 @@ In this quickstart, you will:
 [!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-grpc/python/sample-files.md)]
 ::: zone-end
 
+> [!NOTE]
+> Expand this and check out how the VideoAnalyzer.GrpcExtension node is implemented in the topology.
+
 ## Generate and deploy the IoT Edge deployment manifest
 
 1. Right-click the *src/edge/* deployment.grpcyolov3icpu.template.json file and then select **Generate IoT Edge Deployment Manifest**.
@@ -136,9 +139,9 @@ In this quickstart, you will:
     }
     --------------------------------------------------------------------------
     Executing operation WaitForInput
-    ```
     
     Press Enter to continue
+    ```
 1. The TERMINAL window shows the next set of direct method calls:
     
     * A call to pipelineTopologySet that uses the preceding topologyUrl
@@ -323,7 +326,7 @@ In the messages, notice the following details:
 * Try running different media graph topologies using gRPC protocol.
 * Build and run sample Azure Video Analyzer (AVA) extensions 
 
-    * [Sample YOLOv3 model]()<!--add link-->
-    * [Sample YOLOv4 model]()<!--add link-->
+    * [Sample YOLOv3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Sample YOLOv4 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
     
 

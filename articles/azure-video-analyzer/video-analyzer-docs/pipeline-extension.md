@@ -59,8 +59,6 @@ Pipeline extensions allow you to run inference models of your choice on any avai
 
 The diagram below depicts the high-level data flow:
 
-<!-- TODO: Placeholder image, needs update during finalization -->
-
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline-extension/ai-inference-results.svg" alt-text="Inferencing model":::
  

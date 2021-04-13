@@ -14,7 +14,7 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 After completing the setup steps, you'll be able to run a simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.png" alt-text="Detect motion":::
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.svg" alt-text="Detect motion":::
 
 ## Prerequisites
 

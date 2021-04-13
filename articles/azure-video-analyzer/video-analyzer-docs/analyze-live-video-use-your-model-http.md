@@ -1,6 +1,6 @@
 ---
-title: Analyze live video with your own HTTP model
-description: This quickstart describes how to analyze live video with your own HTTP model with Azure Video Analyzer.
+title: Analyze live video with your own model - HTTP
+description: This quickstart describes how to analyze live video with your own model (HTTP) with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 04/01/2021
@@ -8,7 +8,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
-# Quickstart: Analyze live video with your own HTTP model
+# Quickstart: Analyze live video with your own model - HTTP
 
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
@@ -67,14 +67,13 @@ In this quickstart, you will:
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
- 
-1. The deployment.yolov3.amd64.json manifest file is created in the src/edge/config folder.
+1. The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
 1. If you completed the [Detect motion and emit events]()<!--TODO: add a link once the topic is staged --> quickstart, then skip this step.
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Connection string":::
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
      `
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: <br/>
@@ -101,8 +100,8 @@ In this quickstart, you will:
     ```
     * The yolov3 module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
 
-      > [!div class="mx-imgBorder"]
-      > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
     
 ### Prepare to monitor events
 
@@ -110,11 +109,11 @@ In this quickstart, you will:
 1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/extension-settings.png" alt-text= "VS Extension Settings":::
+    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "VS Extension Settings":::
 1. Search and enable **Show Verbose Message**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/verbose-message.png" alt-text= "Show Verbose Message":::
+    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 1. Right-click the Azure Video Analyzer device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
     > [!div class="mx-imgBorder"]
@@ -144,8 +143,7 @@ In this quickstart, you will:
 
     Press Enter to continue
     ```    
-    
-    The **TERMINAL** window shows the next set of direct method calls:
+1. The **TERMINAL** window shows the next set of direct method calls:
     
     * A call to pipelineTopologySet that uses the preceding topologyUrl.
     * A call to livePipelineSet that uses the following body:
@@ -176,7 +174,6 @@ In this quickstart, you will:
         ```
     * A call to livePipelineActivate that starts the graph instance and the flow of video.
     * A second call to livePipelineList that shows that the graph instance is in the running state.
-    
 1. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Azure Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select Enter.
@@ -230,7 +227,7 @@ In these events, the type is set to entity to indicate it's an entity, such as a
 
 In the following example, two cars were detected in the same video frame, with varying levels of confidence.
 
-```json
+```
 [IoTHubMonitor] [1:48:04 PM] Message received from [avasample-iot-edge-device/avaedge]: 
 { 
   "timestamp": 145589011404622, 
