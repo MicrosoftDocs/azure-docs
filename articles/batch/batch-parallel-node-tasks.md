@@ -140,9 +140,9 @@ For more information on adding pools by using the REST API, see [Add a pool to a
   "vmSize":"large",
   "virtualMachineConfiguration": {
     "imageReference": {
-      "publisher": "Canonical",
-      "offer": "UbuntuServer",
-      "sku": "16.04.0-LTS"
+      "publisher": "canonical",
+      "offer": "ubuntuserver",
+      "sku": "18.04-lts"
     },
     "nodeAgentSKUId": "batch.node.ubuntu 16.04"
   },
