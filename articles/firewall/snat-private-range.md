@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 04/13/2021
 ms.author: victorh
 ---
 
@@ -27,35 +27,26 @@ If your organization uses a public IP address range for private networks, Azure 
 > [!IMPORTANT]
 > If you want to specify your own private IP address ranges, and keep the default IANA RFC 1918 address ranges, make sure your custom list still includes the IANA RFC 1918 range. 
 
-## Configure SNAT private IP address ranges for firewalls associated with Firewall Policy
+You can configure the SNAT private IP addresses using the following methods:
 
-Azure Firewalls associated with a Firewall Policy have supported SNAT private ranges since the 2020-11-01 API version. Currently, you can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **not** SNAT network traffic:
 
-```json
-{ 
+|Method            |Using classic rules  |Using firewall policy  |
+|---------|---------|---------|
+|Azure portal     | [supported](#classic-rules-3)| [supported](#firewall-policy-1)|
+|Azure PowerShell     |[configure `PrivateRange`](#classic-rules)|currently unsupported|
+|Auzure CLI|[configure `--private-ranges`](#classic-rules-1)|currently unsupported|
+|ARM template     |[configure `AdditionalProperties` in firewall property](#classic-rules-2)|[configure `SNAT/privateRanges` under properties](#firewall-policy)|
 
-            "type": "Microsoft.Network/firewallPolicies", 
-            "apiVersion": "2020-11-01", 
-            "name": "[parameters('firewallPolicies_DatabasePolicy_name')]", 
-            "location": "eastus", 
-            "properties": { 
-                "sku": { 
-                    "tier": "Standard" 
-                }, 
-                "snat": { 
-                    "privateRanges": [] 
-                } 
-            } 
-```
 
 ## Configure SNAT private IP address ranges - Azure PowerShell
+### Classic rules
 
 You can use Azure PowerShell to specify private IP address ranges for the firewall.
 
 > [!NOTE]
 > The firewall `PrivateRange` property is ignored for firewalls associated with a Firewall Policy. You must use the `SNAT` property in Firewall Policy as described in [Configure SNAT private IP address ranges for firewalls associated with Firewall Policy](#configure-snat-private-ip-address-ranges-for-firewalls-associated-with-firewall-policy).
 
-### New firewall
+#### New firewall
 
 For a new firewall using classic rules, the Azure PowerShell cmdlet is:
 
@@ -79,9 +70,9 @@ New-AzFirewall @azFw
 
 For more information, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
-### Existing firewall
+#### Existing firewall
 
-To configure an existing firewall, use the following Azure PowerShell cmdlets:
+To configure an existing firewall using classic rules, use the following Azure PowerShell cmdlets:
 
 ```azurepowershell
 $azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
@@ -90,15 +81,13 @@ Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ## Configure SNAT private IP address ranges - Azure CLI
+### Classic rules
 
-You can use Azure CLI to specify private IP address ranges for the firewall. 
-
-> [!NOTE]
-> This works for firewalls with classic rules. Firewalls associated with a Firewall Policy must use the `SNAT` property in Firewall Policy as described in [Configure SNAT private IP address ranges for firewalls associated with Firewall Policy](#configure-snat-private-ip-address-ranges-for-firewalls-associated-with-firewall-policy).
+You can use Azure CLI to specify private IP address ranges for the firewall using classic rules. 
 
 ### New firewall
 
-For a new firewall, the Azure CLI command is:
+For a new firewall using classic rules, the Azure CLI command is:
 
 ```azurecli-interactive
 az network firewall create \
@@ -115,7 +104,7 @@ az network firewall create \
 
 ### Existing firewall
 
-To configure an existing firewall, the Azure CLI command is:
+To configure an existing firewall using classic rules, the Azure CLI command is:
 
 ```azurecli-interactive
 az network firewall update \
@@ -124,7 +113,8 @@ az network firewall update \
 --private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
 
-## Configure SNAT private IP address ranges - ARM Template
+## Configure SNAT private IP address ranges - ARM template
+### Classic rules
 
 To configure SNAT during ARM Template deployment, you can add the following to the `additionalProperties` property:
 
@@ -133,8 +123,29 @@ To configure SNAT during ARM Template deployment, you can add the following to t
    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
 },
 ```
+### Firewall policy
+
+Azure Firewalls associated with a firewall policy have supported SNAT private ranges since the 2020-11-01 API version. Currently, you can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **not** SNAT network traffic:
+
+```json
+{ 
+
+            "type": "Microsoft.Network/firewallPolicies", 
+            "apiVersion": "2020-11-01", 
+            "name": "[parameters('firewallPolicies_DatabasePolicy_name')]", 
+            "location": "eastus", 
+            "properties": { 
+                "sku": { 
+                    "tier": "Standard" 
+                }, 
+                "snat": { 
+                    "privateRanges": [] 
+                } 
+            } 
+```
 
 ## Configure SNAT private IP address ranges - Azure portal
+### Classic rules
 
 You can use the Azure portal to specify private IP address ranges for the firewall.
 
@@ -147,6 +158,18 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
 1. By default, **IANAPrivateRanges** is configured.
 2. Edit the private IP address ranges for your environment and then select **Save**.
+
+### Firewall policy
+
+1.	Select your resource group, and then select your firewall policy.
+2.	Select **Private IP ranges (SNAT)** in the **Settings** column.
+
+    By default, **Use the default Azure Firewall Policy SNAT behavior** is selected. 
+3. To customize the SNAT configuration, clear the check box, and under **Perform SNAT** select the conditions to perform SNAT for your environment.
+      :::image type="content" source="media/snat-private-range/private-ip-ranges-snat.png" alt-text="Private IP ranges (SNAT)":::
+
+
+4.	 Select **Apply**.
 
 ## Next steps
 
