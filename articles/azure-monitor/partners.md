@@ -294,6 +294,14 @@ With Site24x7 Azure Monitoring, you will be able to:
 
 [SolarWinds documentation](https://www.solarwinds.com/topics/azure-monitoring)
 
+## SpearTip
+
+![SpearTip logo](./media/partners/speartip.png)
+
+SpearTip’s 24/7 security operations center continuously monitors Azure environments for cyber threats. Utilizing the ShadowSpear integration with Azure Monitor, security events are collected and analyzed for advanced threats, while SpearTip engineers investigate and respond to stop threat actors in their tracks. The integration is seamless and provides instant value once the integration is deployed.
+
+[SpearTip documentation](https://www.speartip.com/identify/)
+
 ## Splunk
 
 ![Splunk Logo](./media/partners/splunk.png)
