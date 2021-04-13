@@ -145,6 +145,7 @@ One thing to consider when choosing a new memory reservation value (**maxmemory-
 
 > [!IMPORTANT]
 > The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are only available for Standard and Premium caches.
+> Noeviction is the only Memory Policy available for Enterprise Tier cache 
 >
 >
 
