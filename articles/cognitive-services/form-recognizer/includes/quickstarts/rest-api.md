@@ -1080,30 +1080,227 @@ This JSON content has been shortened for readability. See the [full sample outpu
 
 ---
 
-## Analyze identity documents
+## Analyze ID Document
 
 ### [v2.1 preview](#tab/v2-1)
 
-To start analyzing an identity document, use the cURL command below. For more information about identity document analysis, see the [Identity documents conceptual guide](,,/,,/concept-identification-cards.md). To start analyzing a business card, you call the **[Analyze ID Document]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing an identity document, use the cURL command below. For more information about identity document analysis, see the [Identity documents conceptual guide](../../concept-identification-cards.md). To start analyzing a business card, you call the **[Analyze ID Document]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your business card URL}` with the URL address of a receipt image.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 
+### [v2.1 preview](#tab/v2-1)
+
 ```bash
 curl -i -X POST "https://{endpoint}/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
-```
-
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results.
-
-```console
-https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/documentId/analyzeResults/{resultId}
 ```
 
 ### [v2.0](#tab/v2-0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
+
+---
+
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results. In the following example, the string after `analyzeResults/` is the result ID.
+
+```console
+https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyzeResults/0c6cb19e-538f-4b8d-98b7-e105c9995ba6
+```
+
+### Get the Analyze ID Document result
+
+After you've called the **Analyze ID Document** API, call the **[Get Analyze Id Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822)** API to get the status of the operation and the extracted data.  Before you run the command, make these changes:
+
+1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{resultId}` with the operation ID from the previous step.
+1. Replace `{subscription key}` with your subscription key.
+
+### [v2.1 preview](#tab/v2-1)
+
+```bash
+curl -X GET "https://{endpoint}/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+```
+
+### Examine the response
+
+You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script until you receive  the `succeeded` value. We recommend an interval of one second or more between calls.
+
+* The `"readResults"` field contains every line of text that was extracted from the identity document.
+* The `"documentResults"` field contains an array of objects, each representing an ID document detected in the input document.
+
+Below is a sample identity document and  its corresponding JSON output
+
+* :::image type="content" source="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg" alt-text="sample drivers license":::
+
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2021-04-13T17:24:52Z",
+    "lastUpdatedDateTime": "2021-04-13T17:24:55Z",
+    "analyzeResult": {
+      "version": "2.1.0",
+      "readResults": [
+        {
+          "page": 1,
+          "angle": -0.2823,
+          "width": 450,
+          "height": 294,
+          "unit": "pixel"
+        }
+      ],
+      "documentResults": [
+        {
+          "docType": "prebuilt:idDocument:driverLicense",
+          "docTypeConfidence": 0.995,
+          "pageRange": [
+            1,
+            1
+          ],
+          "fields": {
+            "Address": {
+              "type": "string",
+              "valueString": "123 STREET ADDRESS YOUR CITY WA 99999-1234",
+              "text": "123 STREET ADDRESS YOUR CITY WA 99999-1234",
+              "boundingBox": [
+                158,
+                151,
+                326,
+                151,
+                326,
+                177,
+                158,
+                177
+              ],
+              "page": 1,
+              "confidence": 0.965
+            },
+            "Country": {
+              "type": "country",
+              "valueCountry": "USA",
+              "confidence": 0.99
+            },
+            "DateOfBirth": {
+              "type": "date",
+              "valueDate": "1958-01-06",
+              "text": "01/06/1958",
+              "boundingBox": [
+                187,
+                133,
+                272,
+                132,
+                272,
+                148,
+                187,
+                149
+              ],
+              "page": 1,
+              "confidence": 0.99
+            },
+            "DateOfExpiration": {
+              "type": "date",
+              "valueDate": "2020-08-12",
+              "text": "08/12/2020",
+              "boundingBox": [
+                332,
+                230,
+                414,
+                228,
+                414,
+                244,
+                332,
+                245
+              ],
+              "page": 1,
+              "confidence": 0.99
+            },
+            "DocumentNumber": {
+              "type": "string",
+              "valueString": "LICWDLACD5DG",
+              "text": "LIC#WDLABCD456DG",
+              "boundingBox": [
+                162,
+                70,
+                307,
+                68,
+                307,
+                84,
+                163,
+                85
+              ],
+              "page": 1,
+              "confidence": 0.99
+            },
+            "FirstName": {
+              "type": "string",
+              "valueString": "LIAM R.",
+              "text": "LIAM R.",
+              "boundingBox": [
+                158,
+                102,
+                216,
+                102,
+                216,
+                116,
+                158,
+                116
+              ],
+              "page": 1,
+              "confidence": 0.985
+            },
+            "LastName": {
+              "type": "string",
+              "valueString": "TALBOT",
+              "text": "TALBOT",
+              "boundingBox": [
+                160,
+                86,
+                213,
+                85,
+                213,
+                99,
+                160,
+                100
+              ],
+              "page": 1,
+              "confidence": 0.987
+            },
+            "Region": {
+              "type": "string",
+              "valueString": "Washington",
+              "confidence": 0.99
+            },
+            "Sex": {
+              "type": "gender",
+              "valueGender": "M",
+              "text": "M",
+              "boundingBox": [
+                226,
+                190,
+                232,
+                190,
+                233,
+                201,
+                226,
+                201
+              ],
+              "page": 1,
+              "confidence": 0.99
+            }
+          }
+        }
+      ]
+    }
+  }
+```
+
+### [v2.0](#tab/v2-0)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+---
 
 ## Train a custom model
 
@@ -1705,7 +1902,7 @@ You'll receive a `200` success response, with JSON data like the following.
 ### Delete a model from the resource account
 
 You can also delete a model from your account by referencing its ID. This command calls the **[Delete Custom Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/DeleteCustomModel)** API to delete the model used in the previous section.
-
+code
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
