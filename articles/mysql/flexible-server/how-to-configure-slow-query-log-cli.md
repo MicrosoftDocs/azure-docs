@@ -1,6 +1,6 @@
 ---
 title: Configure audit logs and slow query logs with Azure CLI - Azure Database for MySQL - Flexible Server
-description: This article describes how to configure and access the audit logs and slow query logs in Azure Database for MySQL Flexible Server from the Azure CLI.
+description: This article describes how to configure and access slow query logs in Azure Database for MySQL Flexible Server from the Azure CLI.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
