@@ -64984,6 +64984,11 @@
       "source_path": "articles/virtual-desktop/rd-gateway-role.md",
       "redirect_url": "/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
+      "redirect_document_id": false
     }
   ]
 }

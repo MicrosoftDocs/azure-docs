@@ -302,6 +302,10 @@ Before you back up VMs, make sure that:
     PS C:\Users\user>
     ```
 
+    You can also use Storage Explorer to verify that the snapshot was copied correctly to the storage account.
+
+    ![Storage Explorer showing the backup in the container in local storage account](media/azure-stack-edge-gpu-back-up-virtual-machine-disks/back-up-virtual-machine-disk-1.png)
+
 ## Download VHD to external target
 
 To move your backups to an external location, you can use Azure Storage Explorer or AzCopy.
@@ -312,7 +316,7 @@ To move your backups to an external location, you can use Azure Storage Explorer
     azcopy copy "https://<local storage account name>.blob.<device name>.<DNS domain>/<container name>/<filename><SAS query string>" <destination target>
     ```
 
-- To set up and use Azure Storage Explorer with Azure Stack Edge, see the instructions contained in [Use Storage Explorer for upload](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
+- To set up and use Azure Storage Explorer with Azure Stack Edge, see the instructions in [Use Storage Explorer for upload](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
 
 ## Next steps
 
