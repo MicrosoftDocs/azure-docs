@@ -143,7 +143,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-1. Define the users or groups that you want to provision to Jostleby selecting the desired values in **Scope** in the **Settings** section.
+1. Define the users or groups that you want to provision to Jostle by selecting the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
