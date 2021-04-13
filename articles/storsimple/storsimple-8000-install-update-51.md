@@ -122,27 +122,27 @@ You must download and install the following hotfixes to the suggested folders in
 |2.     |No KBs required.|Not applicable|Not applicable|Not applicable|
 |3.     |KB4037263|Disk firmware|Maintenance <br></br>Disruptive|~ 30 mins|ThirdOrderUpdate|
 
-There are no second-order updates in Update 5.1.
+There are no second order updates in Update 5.1.
 
-Install the third-order updates if you didn't install disk firmware updates on top of the hotfix updates when you installed Update 5.0.
+Install the third order updates if you didn't install disk firmware updates on top of the hotfix updates when you installed Update 5.0.
+
+Perform the following steps to download and install the hotfixes.
+
+#### Install and verify device updates
+
+Install the device updates in KB4542887 by following the steps in [To install and verify regular mode hotfixes](storsimple-8000-install-update-5.md#to-install-and-verify-regular-mode-hotfixes) in **Install Update 5 on your StorSimple device**.
+
+Follow the steps to install first order updates. There are no second order updates in Update 5.1.
+
+For Update 5.1, the `CisAgentVersion` will be TBD.
+
+#### Install and verify disk firmware updates
+
+If you didn't install disk firmware updates when you installed Update 5.0, install the disk firmware updates in KB4037263 by following the steps in [To install and verify regular mode hotfixes](storsimple-8000-install-update-5.md#to-install-and-verify-maintenance-mode-hotfixes) in **Install Update 5 on your StorSimple device**.
 
 You don't need to install disk firmware updates if you're running these firmware versions: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`.
 
 To verify whether you need the disk firmware updates, run the `Get-HcsFirmwareVersion` cmdlet.
-
-Perform the following steps to download and install the hotfixes.
-
-#### Install and verify device updates (regular mode)
-
-Install the device updates in KB4542887 by following the steps in [To install and verify regular mode hotfixes](storsimple-8000-install-update-5.md#to-install-and-verify-regular-mode-hotfixes).
-
-<!--RETAIN. Testing whether I can link to a subsection of an Include file, above. -[!INCLUDE [storsimple-install-update5-hotfix](../../includes/storsimple-install-update5-hotfix.md)]-->
-
-
-#### Install and verify disk firmware updates
-
-Install the disk firmware updates in KB4037263 by following the steps in [To install and verify regular mode hotfixes](storsimple-8000-install-update-5.md#to-install-and-verify-maintenance-mode-hotfixes).
-
 
 ## Next steps
 
