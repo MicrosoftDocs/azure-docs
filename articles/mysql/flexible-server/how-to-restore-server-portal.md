@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ---
 
-# Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview) using Azure Portal
+# Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview) using Azure portal
 
 
 > [!IMPORTANT]
@@ -32,12 +32,9 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 3.  From the overview page, click **Restore**.
 
-    [Placeholder]
-
 4.  Restore page will be shown with an option to choose between **Latest restore point** and Custom restore point.
 
 5.  Select **Latest restore point**.
-
 
 6.  Provide a new server name in the **Restore to new server** field.
 
@@ -54,8 +51,6 @@ Follow these steps to restore your flexible server using an earliest existing ba
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
 2.  From the overview page, click **Restore**.
-
-    [Placeholder]
 
 3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
@@ -77,10 +72,10 @@ Follow these steps to restore your flexible server using an earliest existing ba
 ## Perform post-restore tasks
 After the restore is completed, you should perform the following tasks to get your users and applications back up and running:
 
-- If the new server is meant to replace the original server, redirect clients and client applications to the new server
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server.
 - Ensure appropriate VNet rules are in place for users to connect. These rules are not copied over from the original server.
-- Ensure appropriate logins and database level permissions are in place
-- Configure alerts as appropriate for the newly restore server
+- Ensure appropriate logins and database level permissions are in place.
+- Configure alerts as appropriate for the newly restore server.
 
 
 ## Next steps
