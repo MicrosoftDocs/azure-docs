@@ -36,16 +36,15 @@
   - name: Use the Face container
     items:
     - name: Cognitive Services containers documentation
-      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
     - name: Containers overview
-      href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
+      href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
     - name: Install and run containers
       href: face-how-to-install-containers.md
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
-      maintainContext: true
-      href: ../containers/azure-container-instance-recipe.md
+      href: /azure/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
 - name: Concepts
   items:
   - name: Face detection
