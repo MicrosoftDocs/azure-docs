@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<CustomerName>-cerbyauth.auth.us-east-2.amazoncognito.com/saml2/idpresponse`
 
-	c. In the **Sign-on URL** text box, type a URL using the following pattern:
+	c. In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
     | Sign on URL |
     |--------|
