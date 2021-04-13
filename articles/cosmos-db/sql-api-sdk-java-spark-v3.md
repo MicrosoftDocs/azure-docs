@@ -35,8 +35,8 @@ ms.custom: devx-track-java
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 **Azure Cosmos DB Spark 3 OLTP connector (Preview)** provides Apache Spark v3 support for Azure Cosmos DB using 
-the [SQL API][sql_api_query].
-[Azure Cosmos DB][cosmos_introduction] is a globally-distributed database service which allows 
+the [SQL API](sql_api_query).
+[Azure Cosmos DB](cosmos_introduction) is a globally-distributed database service which allows 
 developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
 *Note that this is a Preview build.* This build has not been load or performance tested yet - and at this point is not recommended
