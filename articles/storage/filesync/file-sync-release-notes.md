@@ -77,10 +77,10 @@ The following release notes are for version 12.0.0.0 of the Azure File Sync agen
 	- Fixed a bug that can cause AFSDiag to fail to compress files if a file is larger than 2GiB.
 
 ### Evaluation Tool
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](./file-sync-files-planning.md#evaluation-cmdlet) section in the planning guide. 
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide. 
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-files-planning.md) and [How to deploy Azure File Sync](file-sync-files-deployment-guide.md).
+For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
 - A restart is required for servers that have an existing Azure File Sync agent installation.
 - The agent installation package must be installed with elevated (admin) permissions.
