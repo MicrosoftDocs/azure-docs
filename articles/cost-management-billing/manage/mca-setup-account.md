@@ -55,9 +55,9 @@ You can use the following options to start the migration experience for your EA 
 
 - Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
 
-- If you don't have the email, sign in using the following link. Replace `enrollmentNumber` with the enrollment number of your enterprise agreement that was renewed.
+- If you don't have the email, sign in using the following link.
 
-  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+  `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`
 
 If you have both the enterprise administrator and billing account owner roles or billing profile role, you see the following page in the Azure portal. You can continue setting up your EA enrollments and Microsoft Customer Agreement billing account for transition.
 
@@ -228,9 +228,9 @@ To complete the setup, you need access to both the new billing account and the E
 
 1. Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
 
-2. If you don't have the email, sign in using the following link. Replace `<enrollmentNumber>` with the enrollment number of your enterprise agreement that was renewed.
+2. If you don't have the email, sign in using the following link.
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+   `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`
 
 3. Select **Start transition** in the last step of the setup. Once you select start transition:
 
