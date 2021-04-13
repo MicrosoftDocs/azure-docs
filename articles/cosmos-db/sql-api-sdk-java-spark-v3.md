@@ -39,17 +39,18 @@ the SQL API.
 [Azure Cosmos DB](introduction.md) is a globally-distributed database service which allows 
 developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
-*Note that this is a Preview build.* This build has not been load or performance tested yet - and at this point is not recommended
-being used in production scenarios.
-
-If you have any feedback or ideas on how to improve your experience please let us know here:
-https://github.com/Azure/azure-sdk-for-java/issues/new
+> [!Note]
+> This version of Azure Cosmos DB Spark 3 OLTP connector is a Preview build.
+> This build hasn't been load or performance tested.
+> This build isn't recommended for use in production scenarios.
+>
 
 ## Documentation
 
 - [Getting started](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)
 - [Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md)
 - [Configuration Parameter Reference](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md)
+- 
 
 ## Version compatibility
 
