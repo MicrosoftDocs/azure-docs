@@ -124,6 +124,8 @@ WHERE Factory.$dtId = 'FactoryA'
 AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Relationship.managedBy)
 ```
 
+The result of this query for the scenario described above is this:
+
 | Consumer.name | Relationship.managedBy |
 | --- | --- | --- |
 | `Contoso` | `Jeff` |
