@@ -4,7 +4,7 @@ description: This article contains answers to frequently asked questions about L
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
-ms.date: 05/06/2020
+ms.date: 04/13/2021
 
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -156,7 +156,7 @@ See [Best practices for intents](luis-concept-intent.md#if-you-need-more-than-th
 
 ### I want to build an app in LUIS with more than the maximum number of entities. What should I do?
 
-See [Best practices for entities](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
+See [Best practices for entities](luis-concept-entity-types.md#exceeding-app-limits-for-entities)
 
 ### What are the limits on the number and size of phrase lists?
 For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-limits.md) reference.
