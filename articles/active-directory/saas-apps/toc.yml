@@ -303,6 +303,8 @@
         href: central-desktop-tutorial.md
       - name: Cequence Application Security Platform
         href: cequence-application-security-tutorial.md
+      - name: Cerby
+        href: cerby-tutorial.md
       - name: Ceridian Dayforce HCM
         href: ceridiandayforcehcm-tutorial.md
       - name: Cerner Central
