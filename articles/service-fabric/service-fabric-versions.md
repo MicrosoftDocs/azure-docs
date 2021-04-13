@@ -9,7 +9,8 @@ ms.date: 04/12/2021
 # Service Fabric Supported Versions
 The tables below outline the Service Fabric and platform versions actively supported.
 
-## Windows
+## Windows <br>
+
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to|Compatible SDK or NuGet package version|Supported dotnet runtimes** |OS Version |End of support |
 | --- | --- | --- | --- | --- | --- | --- |
 | 8.0 RTO | 7.1 CU10 | 7.2 | Less than or equal to version 5.0 | .Net5.0(GA), .Net Core 3.1, .Net Core 2.1, <br>All >=4.5 .Net Full Framework| [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
@@ -20,10 +21,10 @@ The tables below outline the Service Fabric and platform versions actively suppo
 ---
 ** Service Fabric does not provide a .Net Core runtime and the service author is responsible for ensuring it is <a href="https://docs.microsoft.com/dotnet/core/deploying/">available</a>
 
-### Supported Windows versions and support end date
+### Supported Windows versions and support end date<br>
 Support for SF on a specific OS ends when Support for the OS version reaches its End of Life
 
-#### Windows Server
+#### Windows Server<br>
 
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- | --- |
@@ -35,7 +36,8 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 |Version 1909 |5/11/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
 ---
 
-#### Windows 10	 
+#### Windows 10<br>
+
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- | --- |	
 |Windows 10 2019 LTSC	|1/9/2029 |<a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a>|
@@ -46,7 +48,8 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 |Version 1803	|5/11/2021	|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
 ---
 
-## Linux
+## Linux<br>
+
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to|Compatible SDK or NuGet package version|Supported dotnet runtimes** |OS Version |End of support |
 | --- | --- | --- | --- | --- | --- | --- |
 | 8.0 RTO | 7.1 CU8 | 7.2 | Less than or equal to version 5.0 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
@@ -59,7 +62,7 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 ### Supported Linux versions and support end date
 Support for SF on a specific OS ends when Support for the OS version reaches its End of Life
 
-#### Ubuntu
+#### Ubuntu<br>
 
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- | --- |
