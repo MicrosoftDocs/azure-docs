@@ -88,7 +88,7 @@ The New Schema Comparison Wizard appears.
 
     :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/schema-sync-wizard.png" alt-text="Schema sync wizard":::
 
-### Data Comparison
+### Step 3. Data Comparison
 
 1. On the Comparison menu, select New Data Comparison. The New Data Comparison Wizard appears.
 
