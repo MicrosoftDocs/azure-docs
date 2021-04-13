@@ -365,7 +365,7 @@ The body section contains information about the output location, which in this c
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-1. Locate your Video Analzyers account among the resources you have in your subscription, and open the account pane.
+1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
 1. Select **Videos** in the **Video Analyzers** list.
 
     ![Video Analyzers videos]()<!--./media/continuous-video-recording-tutorial/assets.png-->
