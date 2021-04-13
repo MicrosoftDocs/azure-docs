@@ -103,7 +103,7 @@ With pay-per-use can be daunting to customers who are new to the cloud. While yo
 |One time restore of 5 TB to on-premises over public internet   | $491.26         |
 
 > [!NOTE]
-> This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on a 32 MB sub-chunk size which generates 65,536 PUT Requests (write transactions), per day. This example may not be applicable towards your requirements.
+> This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on a 32 MB sub-chunk size which generates 65,536 PUT Requests (write transactions), per day. This example may not reflect current Azure pricing or not be applicable towards your requirements.
 
 ## Implementation guidance
 
@@ -182,7 +182,7 @@ Azure provides a robust monitoring solution in the form of [Azure Monitor](../..
 
 You can also [create log alerts](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) to track Azure Storage service health and view the [Azure status dashboard](https://status.azure.com/status) at any time.
 
-#### DobiSync Documentation
+#### DobiSync documentation
 
 For additional details regarding the configuration of DobiSync please visit the DobiSync [User Manual](https://downloads.datadobi.com/NAS/olh/latest/dobisync.html).
 
