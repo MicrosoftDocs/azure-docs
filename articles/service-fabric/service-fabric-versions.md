@@ -36,6 +36,8 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 |Version 2004 |12/14/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
 |Version 1909 |5/11/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
 
+<br>
+
 ### Windows 10
 
 | OS Version | SF support end date | OS Lifecycle link |
