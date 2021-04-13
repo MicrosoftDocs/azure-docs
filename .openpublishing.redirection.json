@@ -64986,7 +64986,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/managed-identities-azure-resources/hoto-migrate-vm-extension.md",
+      "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
       "redirect_url": "/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
     }
