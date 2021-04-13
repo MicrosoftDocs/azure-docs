@@ -126,8 +126,6 @@
     href: disaster-recovery.md
   - name: Set up the KDC proxy
     href: key-distribution-center-proxy.md
-  - name: Set up the RD Gateway role
-    href: rd-gateway-role.md
   - name: Start VM on Connect
     items:
     - name: Set up Start VM on Connect
