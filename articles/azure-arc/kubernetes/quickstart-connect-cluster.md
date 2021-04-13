@@ -5,7 +5,7 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 03/03/2021
+ms.date: 04/13/2021
 ms.custom: template-quickstart, references_regions
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
@@ -29,24 +29,29 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
-* Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
+- Install or upgrade to the latest versions of the following tools:
+    - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), version 2.19.1 or later.
+    - `kubectl` (version 1.13.2 or later), using the following command:
+        ```azurecli
+        az aks install-cli
+        ```
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
-* Install the `connectedk8s` Azure CLI extension of version >= 1.0.0:
-  
-  ```azurecli
-  az extension add --name connectedk8s
-  ```
+    - [Helm](https://helm.sh/docs/intro/install/), version 3.5.3 or later.
 
->[!TIP]
-> If the `connectedk8s` extension is already installed, update it to the latest version using the following command - `az extension update --name connectedk8s`
+- Install the `connectedk8s` Azure CLI extensions (version 1.1.0 or later):
+ 
+    ```azurecli
+    az extension add --name connectedk8s
+    ```
+    
+    If you've previously installed the `connectedk8s` extensions, update to the latest version using the following command:
 
+    ```azurecli
+    az extension update --name connectedk8s
+    ```
 
 >[!NOTE]
->The list of regions supported by Azure Arc enabled Kubernetes can be found [here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
-
->[!NOTE]
-> If you want to use custom locations on the cluster, then use East US or West Europe regions for connecting your cluster as custom locations is only available in these regions as of now. All other Azure Arc enabled Kubernetes features are available in all regions listed above.
+> For [**custom locations**](./custom-locations.md) on your cluster, use East US or West Europe regions. For all other Azure Arc enabled Kubernetes features, [select any region from this list](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 ## Meet network requirements
 
@@ -232,6 +237,8 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 
 ## Next steps
 
-Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
-> [!div class="nextstepaction"]
-> [Deploy configurations using Gitops](tutorial-use-gitops-connected-cluster.md)
+Now that you have an Azure Arc enabled Kubernetes cluster, advance to the next articles: 
+
+- Learn how to [deploy configurations to your connected Kubernetes cluster using GitOps](tutorial-use-gitops-connected-cluster.md).
+- [Create a custom location](custom-locations.md) for your newly connected cluster.
+

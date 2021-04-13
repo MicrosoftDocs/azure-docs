@@ -2,7 +2,7 @@
 title: "Custom locations on Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/05/2021
+ms.date: 04/13/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -22,9 +22,19 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0.
+- Install or upgrade to the latest versions of the following tools:
+    - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), version 2.19.1 or later.
+    - `kubectl` (version 1.13.2 or later), using the following command:
+        ```azurecli
+        az aks install-cli
+        ```
 
-- `connectedk8s` (version >= 1.1.0), `k8s-extension` (version >= 0.2.0) and `customlocation` (version >= 0.1.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
+    - [Helm](https://helm.sh/docs/intro/install/), version 3.5.3 or later.
+
+- Install the following Azure CLI extensions:
+    - `connectedk8s` (version 1.1.0 or later)
+    - `k8s-extension` (version 0.2.0 or later)
+    - `customlocation` (version 0.1.0 or later) 
   
     ```azurecli
     az extension add --name connectedk8s
@@ -32,7 +42,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     az extension add --name customlocation
     ```
     
-    If the `connectedk8s`, `k8s-extension` and `customlocation` extensions are already installed, you can update them to the latest version using the following command:
+    If you've previously installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the latest version using the following command:
 
     ```azurecli
     az extension update --name connectedk8s
@@ -40,7 +50,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     az extension update --name customlocation
     ```
 
-- Provider registration is complete for `Microsoft.ExtendedLocation`.
+- Verify completed provider registration for `Microsoft.ExtendedLocation`.
     1. Enter the following commands:
     
     ```azurecli
@@ -52,6 +62,9 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     ```azurecli
     az provider show -n Microsoft.ExtendedLocation -o table
     ```
+
+- Verify you have an existing [Azure Arc enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
 
 >[!NOTE]
 >**Supported regions for custom locations:**
@@ -72,16 +85,31 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## Create custom location
 
-1. Create an Azure Arc enabled Kubernetes cluster.
-    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+1. Deploy the Azure service cluster extension you eventually want on top of the custom location:
 
-1. Deploy the cluster extension of the Azure service whose instance you eventually want on top of the custom location:
+    * Azure Arc Data Services
 
-    ```azurecli
-    az k8s-extension create --name <extensionInstanceName> --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
-    ```
+        ```azurecli
+        az k8s-extension create --name <extensionInstanceName> --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+        ```
+    * Azure App Service on Azure Arc
 
+        ```cli
+        az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
+        ```
+
+    * Event Grid on Kubernetes
+
+        ```cli
+          az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
+        ```
+
+    * Azure API Management on Azure Arc
+
+        ```cli
+        az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.ApiManagement.Gateway --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName>  --scope cluster --release-namespace {namespace} --configuration-settings gateway.endpoint='{Configuration URL}' --configuration-settings gateway.authKey='{token}' --configuration-settings service.type='NodePort'
+        ```
+        
     > [!NOTE]
     > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
 
@@ -105,5 +133,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> Securely connect to the cluster using [Cluster Connect](cluster-connect.md)
+- Securely connect to the cluster using [Cluster Connect](cluster-connect.md)
+- Continue with [Azure App Services on Azure Arc](TODO) and create your first web, function, or logic app. 
+- [Create an Event Grid topic and an event subscription](TODO) for Event Grid on Kubernetes. 
+- [Deploy an API Management gateway to your cluster](TODO). 
