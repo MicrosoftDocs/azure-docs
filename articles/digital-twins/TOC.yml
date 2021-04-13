@@ -150,7 +150,7 @@
       - name: 403 (Forbidden)
         href: troubleshoot-error-403.md
       - name: Azure Digital Twins Explorer authentication
-        href: troubleshoot-error-adt-explorer-authentication.md
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Reference
   items:
   - name: REST API reference
