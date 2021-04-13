@@ -26,13 +26,13 @@ Use the `LivePipelineList` method call to retrieve a list of all the pipeline to
 
 1. Log into Azure portal
 1. Find the relevant resource group from your portal homepage to locate your IoT Hub, or if you know you IoT Hub, select it.
-    ![resource group in portal home page](./media/use-azure-portal-to-invoke-directs-methods/portal-rg-home.png)
+    ![resource group in portal home page](./media/use-azure-portal-to-invoke-direct-methods/portal-rg-home.png)
 1. Once on the IoT Hub page, select IoT Edge under Automatic Device Management to list the various device IDs. Select the relevant device ID to list the modules running on the device.
-    ![iot hub page](./media/use-azure-portal-to-invoke-directs-methods/iot-hub-page.png)
+    ![iot hub page](./media/use-azure-portal-to-invoke-direct-methods/iot-hub-page.png)
 1. Select the Azure Video Analyzer on IoT Edge module to bring up its configuration page.<br><br>
-    ![Select the Azure Video Analyzer on IoT Edge module to bring up its configuration page](./media/use-azure-portal-to-invoke-directs-methods/modules.png)
+    ![Select the Azure Video Analyzer on IoT Edge module to bring up its configuration page](./media/use-azure-portal-to-invoke-direct-methods/modules.png)
 1. Select on the Direct method menu option. <br><br>
-    ![Click on the Direct method menu option]./(media/use-azure-portal-to-invoke-directs-methods/module-details.png)
+    ![Click on the Direct method menu option](./media/use-azure-portal-to-invoke-direct-methods/module-details.png)
     > [!NOTE]
     > You might need to add a value in the Connection string sections as you can see on the current page. You do not need to hide or change anything in the Setting name section. It is ok to let it be public.
 
@@ -44,9 +44,9 @@ Use the `LivePipelineList` method call to retrieve a list of all the pipeline to
     }
     ```
 1. Select the **Invoke Method** button at the top of the page.<br><br>
-    ![invoke method button](./media/use-azure-portal-to-invoke-directs-methods/direct-method.png)
+    ![invoke method button](./media/use-azure-portal-to-invoke-direct-methods/direct-method.png)
 1. You should see a status 200 message in the **Result** area.<br><br>
-    ![connection timeout](./media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
+    ![connection timeout](./media/use-azure-portal-to-invoke-direct-methods/connection-timeout.png)
 
 ## Responses
 

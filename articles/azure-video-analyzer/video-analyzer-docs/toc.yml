@@ -10,6 +10,8 @@
   items:
   - name: Get started - Azure Video Analytics
     href: get-started-detect-motion-emit-events.md
+  - name: Detect motion and emit events
+    href: detect-motion-emit-events-quickstart.md
 - name: Concepts
   items:
   - name: Pipeline extension
@@ -17,7 +19,21 @@
   - name: Continuous video recording
     href: continuous-video-recording.md
   - name: Record video for playback
-    href: video-recording.md    
+    href: video-recording.md
+  - name: Scenarios 
+    items:
+    - name: Event based video recording
+      href: event-based-video-recording-concept.md 
+- name: How-to guides
+  items:
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
+  - name: Invoke direct methods with the portal
+    href: use-azure-portal-to-invoke-direct-methods.md
+- name: Reference
+  items:
+  - name: Direct methods
+    href: direct-methods.md
 - name: Resources
   items:
   - name: Azure roadmap

@@ -11,10 +11,11 @@ Follow these steps to run the sample code:
     > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. In Visual Studio Code, go to *src/cloud-to-device-console-app/operations.json*.
 1. On the **LivePipelineSet** node, make sure you see the following value:
-<!-- Below url needs to  be updated to new topology sample-->
-```
+
+    ```
     "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"
-```
+    ```
+
 1. On the **LivePipelineSet** and **LivePipelineDelete**  nodes, ensure that the value of `topologyName` matches the value of the `name` property in the graph topology:
 
     `"topologyName" : "MotionDetection"`

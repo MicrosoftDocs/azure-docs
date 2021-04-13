@@ -112,7 +112,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
     
     > [!WARNING]
-    > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.`
+    > Azure IoT Edge is case-sensitive when you make calls to modules. Make a note of the exact string you use as the module name.
 
 1. Open the **Environment Variables** tab.
    
