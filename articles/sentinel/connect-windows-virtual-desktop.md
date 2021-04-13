@@ -50,7 +50,7 @@ For example, see sample queries from the [Windows Virtual Desktop documentation]
 
 Azure Sentinel also provides built-in queries in the **General** > **Logs** > **WINDOWS VIRTUAL DESKTOP** area:
 
-[![Windows Virtual Desktop built-in queries in Azure Sentinel](media/windows-virtual-desktop-integration/windows-virtual-desktop-queries.png) ](media/windows-virtual-desktop-integration/windows-virtual-desktop-queries.png#lightbox)
+[![Windows Virtual Desktop built-in queries in Azure Sentinel.](media/windows-virtual-desktop-integration/windows-virtual-desktop-queries.png) ](media/connect-windows-virtual-desktop/windows-virtual-desktop-queries.png#lightbox)
 
 ## Next steps
 
