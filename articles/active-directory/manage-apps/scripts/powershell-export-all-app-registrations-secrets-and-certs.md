@@ -3,7 +3,7 @@ title: PowerShell sample - Export secrets and certificates for app registrations
 description: PowerShell example that exports all secrets and certificates for the specified app registrations in your Azure Active Directory tenant.
 services: active-directory
 author: iantheninja
-manager: daveba
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

@@ -3,7 +3,7 @@ title: PowerShell sample - Export apps with secrets and certificates expiring be
 description: PowerShell example that exports all apps with secrets and certificates expiring beyond the required date for the specified apps in your Azure Active Directory tenant.
 services: active-directory
 author: iantheninja
-manager: daveba
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
