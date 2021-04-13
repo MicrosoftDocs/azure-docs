@@ -146,6 +146,7 @@ Follow these steps to get started:
     - task: Npm@1
       inputs:
         command: 'install'
+        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
         verbose: true
       displayName: 'Install npm package'
     
@@ -155,6 +156,7 @@ Follow these steps to get started:
     - task: Npm@1
       inputs:
         command: 'custom'
+        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
         customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
       displayName: 'Validate'
     
@@ -164,6 +166,7 @@ Follow these steps to get started:
     - task: Npm@1
       inputs:
         command: 'custom'
+        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
         customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName "ArmTemplate"'
       displayName: 'Validate and Generate ARM template'
     
@@ -171,7 +174,7 @@ Follow these steps to get started:
     
     - task: PublishPipelineArtifact@1
       inputs:
-        targetPath: '$(Build.Repository.LocalPath)/ArmTemplate'
+        targetPath: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>/ArmTemplate' #replace with the package.json folder
         artifact: 'ArmTemplates'
         publishLocation: 'pipeline'
     ```
