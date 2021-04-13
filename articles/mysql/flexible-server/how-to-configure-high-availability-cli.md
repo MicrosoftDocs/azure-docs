@@ -11,18 +11,15 @@ ms.custom: references_regions
 
 # Manage zone redundant high availability in Azure Database for MySQL Flexible Server with Azure CLI
 
-This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
-
-High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md).
-
-> [!IMPORTANT]
+> [!NOTE]
 > Azure Database for MySQL Flexible Server is in public preview. 
-> You can only enable zone redundant high availability during flexible server creation.
 
-This page provides guidelines how you can enable or disable high availability. This operation does not change your other settings including VNET configuration, firewall settings, and backup retention. Similarly, disabling of high availability is an online operation and does not impact your application connectivity and operations.
+This articles describes how you can enable or disable zone redundant high availability configuration at the time of server creation in your flexible server. You can disable zone redundant high availability after server creation too. Enabling zone redundant high availability after server creation is not supported.
+
+High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). Enabling or disablng high availability does not change your other settings including VNET configuration, firewall settings, and backup retention. Disabling of high availability does not impact your application connectivity and operations.
 
 > [!IMPORTANT]
-> Zone redundant high availability is available in limited set of regions : Southeast Asia, WestUS 2, West Europe and East US.
+> Zone redundant high availability is available in limited set of regions. Please review the supported regions [here](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/overview#azure-regions). 
 
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
