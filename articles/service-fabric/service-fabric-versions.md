@@ -12,13 +12,13 @@ The tables below outline the Service Fabric and platform versions actively suppo
 ## Windows
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to|Compatible SDK or NuGet package version|Supported dotnet runtimes** |OS Version |End of support |
 | --- | --- |--- | --- | --- |--- |--- |
-| 8.0 RTO | 7.1 CU10 | 7.2 | Less than or equal to version 5.0 | .Net5.0(GA), .Net Core 3.1, .Net Core 2.1, <br>All >=4.5 .Net Full Framework| [See supported OS version](#Supported-Windows-versions-and-support-end-date) | Current version |
-| 7.2 CU7 | 7.0 CU9 | 7.1 | Less than or equal to version 4.2 | .Net5.0(Preview support), .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#Supported-Windows-versions-and-support-end-date) | November 30, 2021 |
-| 7.2 CU6 | 7.0 CU4 |7.1 | Less than or equal to version 4.2 | .Net5.0(Preview support), .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#Supported-Windows-versions-and-support-end-date)| November 30, 2021 |
-| 7.2 RTO-CU5 | 7.0 CU4 | 7.1 |Less than or equal to version 4.2 | .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#Supported-Windows-versions-and-support-end-date)| November 30, 2021 |
-| 7.1 |7.0 CU3 |N/A | Less than or equal to version 4.1 | .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#Supported-Windows-versions-and-support-end-date) | July 31, 2021 |
+| 8.0 RTO | 7.1 CU10 | 7.2 | Less than or equal to version 5.0 | .Net5.0(GA), .Net Core 3.1, .Net Core 2.1, <br>All >=4.5 .Net Full Framework| [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
+| 7.2 CU7 | 7.0 CU9 | 7.1 | Less than or equal to version 4.2 | .Net5.0(Preview support), .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2021 |
+| 7.2 CU6 | 7.0 CU4 |7.1 | Less than or equal to version 4.2 | .Net5.0(Preview support), .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#supported-windows-versions-and-support-end-date)| November 30, 2021 |
+| 7.2 RTO-CU5 | 7.0 CU4 | 7.1 |Less than or equal to version 4.2 | .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#supported-windows-versions-and-support-end-date)| November 30, 2021 |
+| 7.1 |7.0 CU3 |N/A | Less than or equal to version 4.1 | .Net Core 3.1, .Net Core 2.1,<br>All >= 4.5 Net Full Framework | [See supported OS version](#supported-windows-versions-and-support-end-date) | July 31, 2021 |
 ---
-** Service Fabric does not provide a .Net Core runtime and the service author is responsible for ensuring it is <a href="https://docs.microsoft.com/en-us/dotnet/core/deploying/">available</a>
+** Service Fabric does not provide a .Net Core runtime and the service author is responsible for ensuring it is <a href="https://docs.microsoft.com/dotnet/core/deploying/">available</a>
 
 ### Supported Windows versions and support end date
 Support for SF on a specific OS ends when Support for the OS version reaches its End of Life
@@ -27,34 +27,34 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- |--- |
-|Windows Server 2019 |1/9/2029 |<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-server-2019">Windows Server 2019 - Microsoft Lifecycle</a>|
-|Windows Server 2016 |1/12/2027	|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft Lifecycle</a>|
-|Windows Server 2012 R2 |10/10/2023 |<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft Lifecycle</a>|
-|Version 20H2 |5/10/2022|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
-|Version 2004 |12/14/2021|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
-|Version 1909 |5/11/2021|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
+|Windows Server 2019 |1/9/2029 |<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2019">Windows Server 2019 - Microsoft Lifecycle</a>|
+|Windows Server 2016 |1/12/2027	|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft Lifecycle</a>|
+|Windows Server 2012 R2 |10/10/2023 |<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft Lifecycle</a>|
+|Version 20H2 |5/10/2022|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
+|Version 2004 |12/14/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
+|Version 1909 |5/11/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft Lifecycle</a>|
 ---
 
 #### Windows 10	 
 | OS Version |SF support end date| OS Lifecycle link|
 | --- | --- |--- |	
-|Windows 10 2019 LTSC	|1/9/2029 |<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a>|
-|Version 20H2	|5/9/2023	|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
-|Version 2004	|12/14/2021	|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
-|Version 1909	|5/10/2022	|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycls</a>|
-|Version 1809	|5/11/2021	|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
-|Version 1803	|5/11/2021	|<a href="https://docs.microsoft.com/en-us/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
+|Windows 10 2019 LTSC	|1/9/2029 |<a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a>|
+|Version 20H2	|5/9/2023	|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
+|Version 2004	|12/14/2021	|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
+|Version 1909	|5/10/2022	|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycls</a>|
+|Version 1809	|5/11/2021	|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
+|Version 1803	|5/11/2021	|<a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a>|
 ---
 
 ## Linux
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to|Compatible SDK or NuGet package version|Supported dotnet runtimes** |OS Version |End of support |
 | --- | --- |--- | --- | --- |--- |--- |
-| 8.0 RTO | 7.1 CU8 | 7.2 | Less than or equal to version 5.0 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#Supported-Linux-versions-and-support-end-date) | Current version |
-| 7.2 CU7 | 7.0 CU9 | 7.1 | Less than or equal to version  4.2 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#Supported-Linux-versions-and-support-end-date) | November 30, 2021 |
-| 7.2 RTO-CU6 | 7.0 CU4 | 7.1 | Less than or equal to version  4.2 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#Supported-Linux-versions-and-support-end-date) | November 30, 2021 |
-| 7.1 | 7.0 CU3 | N/A | Less than or equal to version  4.1 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#Supported-Linux-versions-and-support-end-date) | July 31, 2021 |
+| 8.0 RTO | 7.1 CU8 | 7.2 | Less than or equal to version 5.0 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
+| 7.2 CU7 | 7.0 CU9 | 7.1 | Less than or equal to version  4.2 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2021 |
+| 7.2 RTO-CU6 | 7.0 CU4 | 7.1 | Less than or equal to version  4.2 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2021 |
+| 7.1 | 7.0 CU3 | N/A | Less than or equal to version  4.1 | .Net Core 3.1, .Net Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | July 31, 2021 |
 ---
-** Service Fabric does not provide a .Net Core runtime and the service author is responsible for ensuring it is <a href="https://docs.microsoft.com/en-us/dotnet/core/deploying/">available</a>
+** Service Fabric does not provide a .Net Core runtime and the service author is responsible for ensuring it is <a href="https://docs.microsoft.com/dotnet/core/deploying/">available</a>
 
 ### Supported Linux versions and support end date
 Support for SF on a specific OS ends when Support for the OS version reaches its End of Life
@@ -67,9 +67,7 @@ Support for SF on a specific OS ends when Support for the OS version reaches its
 | Ubuntu 16.04 | April 2024 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 ---
 
-# Service Fabric Version Reference
-## Service Fabric version names and version number
-
+## Service Fabric Version Name and Number Reference
 The following table lists the version names of Service Fabric and their corresponding version numbers.
 
 | Version name | Windows version number | Linux version number |
