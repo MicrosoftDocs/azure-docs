@@ -40,13 +40,13 @@ As expected, throughput is higher for smaller message payloads that can be batch
 
 #### Benchmarks
 
-Here is a [GitHub sample]() which you can run to see the expected throughput you will receive for your SB namespace. In our benchmark tests, we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+Here is a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) which you can run to see the expected throughput you will receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
 The benchmarking sample doesn't use any advanced features, so the throughput your applications observe will be different based on your scenarios.
 
 #### Compute considerations
 
-Utilizing certain features may involve compute that may decrease the expected throughput.
+Using certain Service Bus features may require compute utilization that may decrease the expected throughput. Some of these features are -
 
 1. Sessions.
 2. Fanning out to multiple subscriptions on a single topic.
@@ -54,22 +54,18 @@ Utilizing certain features may involve compute that may decrease the expected th
 4. Scheduled messages.
 5. Deferred messages.
 6. Transactions.
+7. De-duplication & look back time window.
+8. Forward to (forwarding from one entity to another).
 
 If your application leverages any of the above features and you are not receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
 
 You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md).
 
-
-#### Storage considerations
-
-While compute assigned to the namespace can be scaled up by increasing the number of messaging units provisioned for the namespace, storage processing can not be scaled. Due to this, throughput experienced by your application can be lower in case of the below symptoms.
-
-
 ### Sharding across namespaces
 
 While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. This is because of Service Bus internals (storage, network, etc.) which may be limiting the throughput.
 
-The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces.
+The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You may also consider sharding across different namespaces in different Azure regions.
 
 ## Protocols
 Service Bus enables clients to send and receive messages via one of three protocols:
