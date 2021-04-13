@@ -29,7 +29,6 @@ Azure File Sync enables business continuity and disaster recovery. Because Azure
 Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. Azure Backup automates the backup process by scheduling your backups as well as managing their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.  
 
 ## Next Steps
-* [Create Azure file Share](storage-how-to-create-file-share.md)
-* [Connect and mount an SMB share on Windows](storage-how-to-use-files-windows.md)
-* [Connect and mount an SMB share on Linux](storage-how-to-use-files-linux.md)
-* [Connect and mount an SMB share on macOS](storage-how-to-use-files-mac.md)
+* [Planning for an Azure File Sync deployment](file-sync-planning.md)
+* [Cloud tiering overview](file-sync-cloud-tiering-overview.md)
+* [Monitor Azure File Sync](file-sync-monitoring.md)
