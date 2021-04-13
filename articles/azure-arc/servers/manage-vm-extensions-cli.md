@@ -10,10 +10,10 @@ ms.custom: devx-track-azurecli
 
 This article shows you how to deploy and uninstall VM extensions, supported by Azure Arc enabled servers, to a Linux or Windows hybrid machine using the Azure CLI.
 
-[!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
 > [!NOTE]
 > Azure Arc enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
+
+[!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Install the Azure CLI extension
 
