@@ -22,8 +22,8 @@ This topic shows you how to create a managed identity for an Automation account 
 
 - If you want to execute hybrid jobs using a managed identity, update the Hybrid Runbook Worker to the latest version. The minimum required versions are:
 
-   - Windows Hybrid Runbook: version 7.3.1125.0
-   - Linux Hybrid Runbook: version 1.7.4.0
+   - Windows Hybrid Runbook Worker: version 7.3.1125.0
+   - Linux Hybrid Runbook Worker: version 1.7.4.0
 
 ## Enable system-assigned identity
 
@@ -113,7 +113,7 @@ Connect-AzAccount -Identity
 For HTTP Endpoints make sure of the following.
 - The metadata header must be present and should be set to “true”.
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
-- The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid workers. 
+- The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid Runbook Workers. 
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'. 
 
 ### Sample GET request
@@ -188,7 +188,7 @@ try {
 }
 ```
 
-### Sample Python runbook on a hybrid worker to get a token
+### Sample Python runbook on a Hybrid Runbook Worker to get a token
  
 ```python
 #!/usr/bin/env python3 
