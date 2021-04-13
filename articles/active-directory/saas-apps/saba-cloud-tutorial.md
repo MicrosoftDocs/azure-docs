@@ -75,11 +75,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `<CUSTOMER_NAME>_SPLN_PRINCIPLE`
+    a. In the **Identifier** text box, type a URL using the following pattern (you'll get this value in the Configure Saba Cloud SSO section on step 6, but it usually is in the format of `<CUSTOMER_NAME>_sp`):
+    `<CUSTOMER_NAME>_sp`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SIGN-ON URL>/Saba/saml/SSO/alias/<ENTITY_ID>`
+    b. In the **Reply URL** text box, type a URL using the following pattern (ENTITY_ID refers to the previous step, usually `<CUSTOMER_NAME>_sp`):
+    `https://<CUSTOMER_NAME>.sabacloud.com/Saba/saml/SSO/alias/<ENTITY_ID>/sp`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -94,6 +94,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. In the User Attributes & Claims section, adjust the Unique User Identifier to whatever you organization intends to use as the primary username for Saba users.
+
+   a. This step is only required if you are attempting to convert from username/password to SSO.  If this is a new Saba Cloud deployment that does not have existing usrs, you can skip this step.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
