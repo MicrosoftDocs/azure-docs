@@ -54,7 +54,7 @@ az mysql flexible-server create --name myservername --sku-name Standard-D2ds_v4 
 
 ## Disable high availability
 
-You can disable high availability for a server that was created with high avaiability only with the using [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update) command. 
+You can disable high availability with the using [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update) command. Note that disabling high availability is only supported if the server was created with high availability. 
 
 ```azurecli
 az mysql flexible-server update [--high-availability {Disabled, Enabled}]
