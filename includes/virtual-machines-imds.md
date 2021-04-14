@@ -243,6 +243,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2020-09-01
 - 2020-10-01
 - 2020-12-01
+- 2021-01-01
 
 ### Swagger
 
@@ -356,6 +357,7 @@ Schema breakdown:
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
 | `tags` | [Tags](../articles/azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
+| `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
@@ -889,6 +891,31 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "h
 
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+```
+
+---
+
+#### Sample 8: Retrieve user data
+
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. To set up user data, utilize the quickstart template [here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-userdata). The sample below shows how to retrieve this data through IMDS.
+
+> [!NOTE]
+> This feature is released with version `2021-01-01` and depends upon an update to the Azure platform, which is currently being rolled out and may not yet be available in every region.
+
+> [!NOTE]
+> Security notice: IMDS is open to all applications on the VM, sensitive data should not be placed in the user data.
+
+
+#### [Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
+```
+
+#### [Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
 ```
 
 ---
