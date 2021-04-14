@@ -42,7 +42,7 @@ articles/synapse-analytics/security/ @RonyMSFT  @nanditavalsan @meenalsri @julie
 articles/synapse-analytics/spark/ @euangms @mlee3gsd @midesa 
 articles/synapse-analytics/sql/ @filippopovic @azaricstefan @anumjs @WilliamDAssafMSFT @jovanpop-msft
 articles/synapse-analytics/sql-data-warehouse/ @anumjs @ronortloff @julieMSFT
-articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda 
+articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
 
 # Cognitive Services
 articles/cognitive-services/ @erhopf @aahill @trevorbye @patrickfarley @nitinme @mrbullwinkle @laujan
