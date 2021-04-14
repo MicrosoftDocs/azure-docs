@@ -167,13 +167,11 @@ Users get SSO from Azure AD joined devices if the device has access to a domain 
 
 ### On-premises network shares
 
-Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller.
+Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller. [Learn how this works](azuread-join-sso.md)
 
 ### Printers
 
-For printers, you need to deploy [hybrid cloud print](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) for discovering printers on Azure AD joined devices. 
-
-While printers can't be automatically discovered in a cloud only environment, your users can also use the printers’ UNC path to directly add them. 
+We recommend deploying [Universal Print](/universal-print/fundamentals/universal-print-whatis) to have a cloud based print management solution without any on-premises dependencies. 
 
 ###	On-premises applications relying on machine authentication
 
@@ -220,7 +218,7 @@ Choose your deployment approach or approaches by reviewing the table above and r
 
 ## Configure your device settings
 
-The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`.
+The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`. [Learn more](device-management-azure-portal.md)
 
 ### Users may join devices to Azure AD
 
@@ -234,11 +232,13 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
 
-### Require multi-factor Auth to join devices
+### Require multi-factor authentication (MFA) to join devices
 
 Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
+
+**Recommendation:** Use the user action [Register or join devices](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) in Conditional Access for enforcing MFA for joining devices.
 
 ## Configure your mobility settings
 

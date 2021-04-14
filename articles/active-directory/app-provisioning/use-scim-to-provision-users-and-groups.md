@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
@@ -56,7 +56,7 @@ The SCIM standard defines a schema for managing users and groups.
 The **core** user schema only requires three attributes (all other attributes are optional):
 
 - `id`, service provider defined identifier
-- `externalId`, client defined identifier
+- `userName`, a unique identifier for the user (generally maps to the Azure AD user principal name)
 - `meta`, *read-only* metadata maintained by the service provider
 
 In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application’s needs. 
@@ -162,10 +162,10 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 |--|--|
 |/User|Perform CRUD operations on a user object.|
 |/Group|Perform CRUD operations on a group object.|
-|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
-|/ResourceTypes|Specifies metadata about each resource|
 |/Schemas|The set of attributes supported by each client and service provider can vary. One service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
 |/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
+|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
+|/ResourceTypes|Specifies metadata about each resource.|
 
 **Example list of endpoints**
 
@@ -1325,9 +1325,9 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * 3 Non-expiring test credentials for your application (Required)
 > * Support the OAuth authorization code grant or a long lived token as described below (Required)
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
+> * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
 > * Document your SCIM endpoint publicly
-> * [Support schema discovery](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### Authorization to provisioning connectors in the application gallery
 The SCIM spec doesn't define a SCIM-specific scheme for authentication and authorization and relies on the use of existing industry standards.

@@ -126,8 +126,6 @@
     href: disaster-recovery.md
   - name: Set up the KDC proxy
     href: key-distribution-center-proxy.md
-  - name: Set up the RD Gateway role
-    href: rd-gateway-role.md
   - name: Start VM on Connect
     items:
     - name: Set up Start VM on Connect
@@ -214,6 +212,8 @@
     href: security-guide.md
   - name: Linux support
     href: linux-overview.md
+  - name: Azure CLI
+    href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
   - name: Estimate Azure Monitor costs
     href: azure-monitor-costs.md
   - name: Supported RDP file settings
