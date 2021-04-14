@@ -17,7 +17,7 @@ If you receive an error when configuring the Azure Arc enabled servers agent, th
 |------------|----------------|-----------------------|
 | AZCM0000 | The action was successful | N/A |
 | AZCM0001 | An unknown error occurred | Contact Microsoft Support for further assistance |
-| AZCM0011 | The user cancelled the action (CTRL+C) | Retry the previous command |
+| AZCM0011 | The user canceled the action (CTRL+C) | Retry the previous command |
 | AZCM0012 | The access token provided is invalid | Obtain a new access token and try again |
 | AZCM0013 | The tags provided are invalid | Check that the tags are enclosed in double quotes, separated by commas, and that any names or values with spaces are enclosed in single quotes: `--tags "SingleName='Value with spaces',Location=Redmond"`
 | AZCM0014 | The cloud is invalid | Specify a supported cloud: `AzureCloud` or `AzureUSGovernment` |
