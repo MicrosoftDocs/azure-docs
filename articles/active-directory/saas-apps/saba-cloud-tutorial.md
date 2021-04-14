@@ -80,6 +80,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Reply URL** text box, type a URL using the following pattern (ENTITY_ID refers to the previous step, usually `<CUSTOMER_NAME>_sp`):
     `https://<CUSTOMER_NAME>.sabacloud.com/Saba/saml/SSO/alias/<ENTITY_ID>`
+    
+    c. NOTE: If you specify the reply URL incorrectly, you may have to adjust it in the App Registration section of Azure AD, not the Enterprise Application section.  Making changes to the Basic SAML Configuration section does not always update the Reply URL as it should.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
