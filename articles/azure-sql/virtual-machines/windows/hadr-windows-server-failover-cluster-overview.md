@@ -17,6 +17,7 @@ ms.author: mathoma
 ---
 
 # Windows Server Failover Cluster with SQL Server on Azure VMs
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article provides a high-level overview of the Windows Server Failover Cluster feature when used for high availability solutions with SQL Server on Azure VMs, such as Always On availability groups and failover cluster instances. For a more detailed description, see the [Windows Server Failover Cluster documentation](/windows-server/failover-clustering/failover-clustering-overview).
@@ -33,7 +34,7 @@ By default, these checks are configured to deliver the highest levels of availab
 
 For Windows cluster on Azure Virtual Machine (Infrastructure as a Service -IaaS), participating cluster nodes may be physically separated within the same Azure region or in different regions. This can introduce network latency, much like having cluster nodes spread between locations in your own facilities would. In cloud environments, the difference is that within a region you may not be aware of the distance between nodes.  Moreover, some other factors like physical and virtual components, number of hops, etc. also can contribute to increased latency.
 
-## Azure platform maintenance 
+## Azure platform maintenance
 
 Like any other cloud service, Azure periodically updates its platform to improve the reliability, performance, and security of the host infrastructure for virtual machines. The purpose of these updates ranges from patching software components in the hosting environment to upgrading networking components or decommissioning hardware.
 
@@ -71,7 +72,7 @@ The primary settings that affect cluster heart beating and health detection betw
 | Delay | This defines the frequency at which cluster heartbeats are sent between nodes. The delay is the number of seconds before the next heartbeat is sent. Within the same cluster there can be different delays between nodes on the same subnet, between nodes that are on different subnets. |
 | Threshold | This defines the number of heartbeats which may be missed before the cluster takes recovery action. The threshold is a number of heartbeats. Within the same cluster there can be different thresholds between nodes on the same subnet, between nodes that are on different subnet. |
 
-These settings were lower in Windows Server 2012 R2 or earlier that resulted in unnecessary failure due to transient network issues. 
+These settings were lower in Windows Server 2012 R2 or earlier that resulted in unnecessary failure due to transient network issues.
 
 To be more tolerant of transient failures, it is recommended to use the more relaxed thresholds introduced in SQL Server 2016 and later versions on:
 
