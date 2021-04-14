@@ -12139,7 +12139,7 @@ Reader of the Desktop Virtualization Workspace. [Learn more](../virtual-desktop/
 
 ### Disk Backup Reader
 
-Provides permission to backup vault to perform disk backup. [Learn more](../backup/disk-backup-faq.md)
+Provides permission to backup vault to perform disk backup. [Learn more](../backup/disk-backup-faq.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
