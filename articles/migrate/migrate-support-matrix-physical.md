@@ -34,6 +34,8 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 **Permissions:**
 
 - For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
+    > [!Note]
+    > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers and the domain/local account used to access the servers is added to these groups: Performance Monitor Users, Performance Log Users and WinRMRemoteWMIUsers.
 - For Linux servers, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
 
 **Command** | **Purpose**

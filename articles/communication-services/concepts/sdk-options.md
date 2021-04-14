@@ -47,7 +47,7 @@ Publishing locations for individual SDK packages are detailed below.
 | Chat           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.nuget.org/packages/Azure.Communication.Chat)     | [PyPi](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)  | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -                              |
 | SMS            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)    | [PyPi](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
 | Calling        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
-| Reference Documentation     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
+| Reference Documentation     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.android.communication.calling)            | -                              |
 
 
 ## REST API Throttles
@@ -56,7 +56,7 @@ Certain REST APIs and corresponding SDK methods have throttle limits you should 
 | API                                                                                                                          | Throttle            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [All Search Telephone Number Plan APIs](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 requests/day      |
-| [Purchase Telephone Number Plan](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 request/day       |
+| [Purchase Telephone Number Plan](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 purchase a month  |
 | [Send SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 requests/minute |
 
 

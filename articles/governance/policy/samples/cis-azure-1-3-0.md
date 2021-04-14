@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.3.0
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.3.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -18,19 +18,19 @@ The following mappings are to the **CIS Microsoft Azure Foundations Benchmark 1.
 navigation on the right to jump directly to a specific **compliance domain**. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
-Then, find and select the **CIS Microsoft Azure Foundations Benchmark 1.3.0** Regulatory Compliance built-in
+Then, find and select the **CIS Microsoft Azure Foundations Benchmark v1.3.0** Regulatory Compliance built-in
 initiative definition.
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
 > These policies may help you [assess compliance](../how-to/get-compliance-data.md) with the
-> control; however, there often is not a 1:1 or complete match between a control and one or more
-> policies. As such, **Compliant** in Azure Policy refers only to the policy definitions themselves;
-> this doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between compliance domains, controls, and Azure Policy definitions for
-> this compliance standard may change over time. To view the change history, see the
+> control; however, there often is not a one-to-one or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policy definitions
+> themselves; this doesn't ensure you're fully compliant with all requirements of a control. In
+> addition, the compliance standard includes controls that aren't addressed by any Azure Policy
+> definitions at this time. Therefore, compliance in Azure Policy is only a partial view of your
+> overall compliance status. The associations between compliance domains, controls, and Azure Policy
+> definitions for this compliance standard may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json).
 
 ## Identity and Access Management

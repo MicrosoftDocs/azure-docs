@@ -50,7 +50,7 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
 1. Create an on-premises cloud connection. Do one of the following and then select **Create**:
 
    - Select the **ExpressRoute circuit** from the list, or
-   - If you have the circuit ID, paste it in the field and and provide the authorization key.
+   - If you have the circuit ID, paste it in the field and and provide the authorization key you just created.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Enter the ExpressRoute ID and the authorization key, and then select Create.":::   
    

@@ -118,13 +118,13 @@ The following table shows locations by service provider. If you want to view ava
 | **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Supported |Supported |Chicago, Dallas, Silicon Valley, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported |Osaka, Tokyo |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Supported |Supported |Cape Town, Johannesburg, London |
-| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supported |Supported |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, London, Marseille, Paris, Zurich |
+| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supported |Supported |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, London, Madrid, Marseille, Paris, Zurich |
 | **[IRIDEOS](https://irideos.it/)** |Supported |Supported |Milan |
 | **Iron Mountain** | Supported |Supported |Washington DC |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Supported |Supported | Amsterdam, London2, Silicon Valley, Toronto, Washington DC |
 | **Jaguar Network** |Supported |Supported |Marseille, Paris |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Supported |Supported |London, Newport(Wales) |
-| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Supported |Supported |Seoul |
+| **[KINX](https://www.kinx.net/service/cloudhub/ms-expressroute/?lang=en)** |Supported |Supported |Seoul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Supported |Supported |Auckland, Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Supported | Supported | Amsterdam |
 | **[KT](https://cloud.kt.com/)** | Supported | Supported | Seoul |
@@ -158,12 +158,12 @@ The following table shows locations by service provider. If you want to view ava
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Supported |Supported |Auckland, Sydney |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Supported | Supported | Geneva, Zurich |
-| **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Supported |Supported |Amsterdam, Chennai, Hong Kong SAR, London, Mumbai, Sao Paulo, Silicon Valley, Singapore, Washington DC |
+| **[Tata Communications](https://www.tatacommunications.com/solutions/network/cloud-ready-networks/)** |Supported |Supported |Amsterdam, Chennai, Hong Kong SAR, London, Mumbai, Sao Paulo, Silicon Valley, Singapore, Washington DC |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Supported |Supported |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supported |Supported |London, London2, Singapore2 |
 | **Telenor** |Supported |Supported |Amsterdam, London, Oslo |
 | **[Telia Carrier](https://www.teliacarrier.com/)** | Supported | Supported |Amsterdam, Chicago, Dallas, Frankfurt, Hong Kong, London, Oslo, Paris, Silicon Valley, Stockholm, Washington DC |
-| **[Telin](https://www.telin.net/)** | Supported | Supported |Jakarta |
+| **[Telin](https://www.telin.net/product/data-connectivity/telin-cloud-exchange)** | Supported | Supported |Jakarta |
 | **Telmex Uninet**| Supported | Supported | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Supported |Supported |Melbourne, Singapore, Sydney |
 | **[Telus](https://www.telus.com)** |Supported |Supported |Montreal, Seattle, Quebec City, Toronto, Vancouver |
@@ -277,7 +277,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amsterdam |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Quebec City |
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
-| **[Gulf Bridge International](https://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | Amsterdam |
+| **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
 | **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/azure/)**| Level 3 Communications |Amsterdam |
@@ -292,8 +292,9 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/ue-for-expressroute)**| Equinix | Toronto |
 | **[POST Telecom Luxembourg](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**|Equinix | Amsterdam |
 | **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | Amsterdam, Dublin, London, Paris |
-| **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
+| **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/services/cloud-connect/)** | Equinix | Amsterdam |
+| **[Tata Teleservices](https://www.tatateleservices.com/business-services/data-services/secure-cloud-connect)** | Tata Communications | Chennai, Mumbai |
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Dallas, Los Angeles, New York, Silicon Valley | 
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
