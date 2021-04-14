@@ -8,7 +8,7 @@ manager: femila
 editor: ''
 
 ms.service: azure-video-analyzer
-ms.subservice: video-indexer
+ms.subservice: azure-video-analyzer
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na

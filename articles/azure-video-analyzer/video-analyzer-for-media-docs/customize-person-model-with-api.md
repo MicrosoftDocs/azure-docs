@@ -6,7 +6,7 @@ services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.service: azure-video-analyzer
-ms.subservice: video-indexer
+ms.subservice: azure-video-analyzer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud

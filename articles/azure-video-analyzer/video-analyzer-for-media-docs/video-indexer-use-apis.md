@@ -7,7 +7,7 @@ author: Juliako
 manager: femila
 
 ms.service: azure-video-analyzer
-ms.subservice: video-indexer
+ms.subservice: azure-video-analyzer
 ms.topic: article
 ms.date: 01/07/2021
 ms.author: juliako

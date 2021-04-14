@@ -7,7 +7,7 @@ author: anikaz
 manager: johndeu
 
 ms.service: azure-video-analyzer
-ms.subservice: video-indexer
+ms.subservice: azure-video-analyzer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: kumud
