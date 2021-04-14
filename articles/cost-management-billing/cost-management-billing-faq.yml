@@ -81,7 +81,7 @@ sections:
       - question: As a CSP partner, is Cost Management supported on Classic CSP offer in Azure Plan?
         answer: |
           Given the plans to transition customers on Classic CSP to Azure Plan on the [New Commerce experience](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Azure Cost Management will be available only for the direct partners and indirect providers of customers who are on Azure Plan. 
-      - question: As a CSP partner (global admin), how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan??
+      - question: As a CSP partner (global admin), how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan?
         answer: |
           See [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) to enable the cost visibility policy for Azure consumed services at retail rates for Azure RBAC users of the subscription. As a global admin of a direct partner or an indirect provider, you can view the costs in the customer tenant regardless of the policy.
       - question: How can I charge back costs?
