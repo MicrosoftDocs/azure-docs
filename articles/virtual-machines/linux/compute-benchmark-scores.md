@@ -10,6 +10,9 @@ ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Linux VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md).
 
 ## Standard_Das_v4

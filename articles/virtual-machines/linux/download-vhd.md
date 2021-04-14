@@ -12,6 +12,8 @@ ms.author: cynthn
 
 # Download a Linux VHD from Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 In this article, you learn how to download a Linux virtual hard disk (VHD) file from Azure using the Azure portal. 
 
 ## Stop the VM

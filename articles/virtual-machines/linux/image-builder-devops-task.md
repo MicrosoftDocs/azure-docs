@@ -12,6 +12,8 @@ ms.collection: linux
 
 # Azure Image Builder Service DevOps Task
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
+
 This article shows you how to use an Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 
 ## DevOps Task versions

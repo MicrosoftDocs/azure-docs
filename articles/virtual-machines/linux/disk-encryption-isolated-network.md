@@ -14,6 +14,8 @@ ms.custom: seodec18
 ---
 # Azure Disk Encryption on an isolated network
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages such as "Extension status not available on the VM."
 
 ## Package management

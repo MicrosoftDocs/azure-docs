@@ -1,11 +1,7 @@
 ---
 title: Time sync for Linux VMs in Azure 
 description: Time sync for Linux virtual machines.
-services: virtual-machines
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
@@ -16,6 +12,8 @@ ms.author: cynthn
 ---
 
 # Time sync for Linux VMs in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
 Time sync is important for security and event correlation. Sometimes it is used for distributed transactions implementation. Time accuracy between multiple computer systems is achieved through synchronization. Synchronization can be affected by multiple things, including reboots and network traffic between the time source and the computer fetching the time. 
 
