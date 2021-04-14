@@ -3,7 +3,6 @@ title: Mapping data flows
 description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
@@ -77,6 +76,22 @@ The top bar contains actions that affect the whole data flow, like saving and va
 ## Available transformations
 
 View the [mapping data flow transformation overview](data-flow-transformation-overview.md) to get a list of available transformations.
+
+## Data flow data types
+
+array
+binary
+boolean
+complex
+decimal
+date
+float
+integer
+long
+map
+short
+string
+timestamp
 
 ## Data flow activity
 
