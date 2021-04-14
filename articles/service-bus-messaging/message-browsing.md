@@ -6,10 +6,9 @@ ms.date: 03/29/2021
 ---
 
 # Message browsing
-
 Message browsing, or peeking, enables a Service Bus client to enumerate all messages in a queue or a subscription, for diagnostic and debugging purposes.
 
-The peek operation on a queue or a subscription returns the requested number of messages. It returns all messages if there are fewer messages than the requested number of messages. Here are some important points about the peek operation:
+The peek operation on a queue or a subscription returns at most the requested number of messages. Here are some important points about the peek operation:
 
 - **Dead-lettered** messages aren't included in returned messages. 
 - **Scheduled** messages in a subscription log aren't included in returned messages. 
