@@ -203,7 +203,7 @@ The lifecycle of this type of managed identity is tied to the lifecycle of this 
 
 ### Configure application settings
 
-To make the URL of your Azure Digital Twins instance accessible to your function, you can set an *environment variable*. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+To make the URL of your Azure Digital Twins instance accessible to your function, you can set an environment variable. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 To set an environment variable with the URL of your instance, first find your instance's host name: 
 
