@@ -4,7 +4,7 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/29/2021
 ms.author: v-erkel
 ---
 
@@ -146,7 +146,10 @@ az hpc-cache nfs-storage-target update --cache-name mycache \
 
 ### Change the usage model
 
-The usage model influences how the cache retains data. Read [Choose a usage model](hpc-cache-add-storage.md#choose-a-usage-model) to learn more.
+The usage model influences how the cache retains data. Read [Understand cache usage models](cache-usage-models.md) to learn more.
+
+> [!NOTE]
+> If you change usage models, you might need to remount clients to avoid NLM errors. Read [Know when to remount clients](cache-usage-models.md#know-when-to-remount-clients-for-nlm) for details.
 
 To change the usage model for an NFS storage target, use one of these methods.
 

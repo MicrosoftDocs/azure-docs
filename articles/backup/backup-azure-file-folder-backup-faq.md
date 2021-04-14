@@ -209,7 +209,7 @@ As a safety measure, Azure Backup will preserve the most recent recovery point, 
 
 If an ongoing restore job is canceled, the restore process stops. All files restored before the cancellation stay in configured destination (original or alternate location), without any rollbacks.
 
-### Does the MARS agent backup and restore ACLs set on files, folders, and volumes?
+### Does the MARS agent back up and restore ACLs set on files, folders, and volumes?
 
 * The MARS agent backs up ACLs set on files, folders, and volumes
 * For Volume Restore recovery option, the MARS agent provides an option to skip restoring ACL permissions to the file or folder being recovered
