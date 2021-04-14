@@ -157,6 +157,123 @@ After you've added the Azure AD Conditional Access policy, enable conditional ac
 
 Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires multi-factor authentication (MFA), while the other blocks access, the user will be blocked.
 
+## Conditional Access Template 1: Sign-in risk-based Conditional Access
+
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are. 
+
+A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with P2 licenses can create Conditional Access policies incorporating Azure AD Identity Protection sign-in risk detections.
+
+These risks can be calculated in real-time or calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
+
+| Risk detection | Detection type | Description |
+| --- | --- | --- |
+| Anonymous IP address | Real-time | This risk detection type indicates sign-ins from an anonymous IP address (for example, Tor browser or anonymous VPN). These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, etc.) for potentially malicious intent. |
+| Atypical travel | Offline | This risk detection type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. Among several other factors, this machine learning algorithm takes into account the time between the two sign-ins and the time it would have taken for the user to travel from the first location to the second, indicating that a different user is using the same credentials. <br><br> The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of the earliest of 14 days or 10 logins, during which it learns a new user's sign-in behavior. |
+| Malware linked IP address | Offline | This risk detection type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This detection is determined by correlating IP addresses of the user's device against IP addresses that were in contact with a bot server while the bot server was active. |
+| Unfamiliar sign-in properties | Real-time | This risk detection type considers past sign-in history (IP, Latitude / Longitude and ASN) to look for anomalous sign-ins. The system stores information about previous locations used by a user, and considers these "familiar" locations. The risk detection is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. Newly created users will be in "learning mode" for a period of time in which unfamiliar sign-in properties risk detections will be turned off while our algorithms learn the user's behavior. The learning mode duration is dynamic and depends on how much time it takes the algorithm to gather enough information about the user's sign-in patterns. The minimum duration is five days. A user can go back into learning mode after a long period of inactivity. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. <br><br> We also run this detection for basic authentication (or legacy protocols). Because these protocols do not have modern properties such as client ID, there is limited telemetry to reduce false positives. We recommend our customers to move to modern authentication. |
+| Admin confirmed user compromised | Offline | This detection indicates an admin has selected 'Confirm user compromised' in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user's risk history (via UI or API). |
+| Malicious IP address | Offline | This detection indicates sign-in from a malicious IP address. An IP address is considered malicious based on high failure rates because of invalid credentials received from the IP address or other IP reputation sources. |
+| Password spray | Offline | A password spray attack is where multiple usernames are attacked using common passwords in a unified brute force manner to gain unauthorized access. This risk detection is triggered when a password spray attack has been performed. |
+
+Organizations should choose one of the following options to enable a sign-in risk-based Conditional Access policy requiring multi-factor authentication (MFA) when sign-in risk is medium OR high.
+
+### Enable with Conditional Access policy
+
+1. Sign in to the **Azure portal**.
+1. Browse to **Azure AD B2C** > **Security** > **Conditional Access**.
+1. Select **New policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users and groups**.
+   1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
+   1. Select **High** and **Medium**.
+   1. Select **Done**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Confirm your settings and set **Enable policy** to **On**.
+1. Select **Create** to create to enable your policy.
+
+### Enable with Conditional Access APIs
+
+The steps to create a Sign-in risk-based Conditional Access policy with Conditional Access APIs is documented in the article, [Conditional Access APIs: Sign-in risk-based Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-apis). We will use that document as a reference to create a policy called "Template 1: Require MFA for medium + sign-in risk" using the APIs.
+
+To create a Conditional Access policy, use the following `POST` operation.
+
+```http
+POST https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies
+```
+
+#### Create a POST request
+
+To create the `POST` request
+
+The following headers are required:
+
+| Request header | Description |
+| --- | --- |
+| *Content-Type:* | Required. Set to `application/json`. |
+| *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+
+For more information about how to create the request, see [Components of API request/response](https://docs.microsoft.com/rest/api/azure/#components-of-a-rest-api-requestresponse).
+
+#### Create the POST request body
+
+The following common definitions are used to build a request body:
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| displayName | true | String | Policy name |
+| state | true | String | Policy state |
+| conditions | true | [Condition Set](https://docs.microsoft.com/graph/api/resources/conditionalaccessconditionset?view=graph-rest-1.0) | Represents the type of conditions that govern when the policy applies |
+| grantControls | true | [Grant Controls Set](https://docs.microsoft.com/graph/api/resources/conditionalaccessgrantcontrols?view=graph-rest-1.0) | Represents grant controls that must be fulfilled to pass the policy |
+
+#### Example POST request body
+
+The following template is used to create a Conditional Access policy with display name "CA002: Require MFA for medium + sign-in risk".
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium + sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
+
+#### POST response
+
+A successful response for the operation to create a Conditional Access policy:
+
+| Name | Description |
+| --- | --- |
+| 201 Created | Created |
+
+For more information about REST API responses, see the article [Process the response message](https://docs.microsoft.com/rest/api/azure/#process-the-response-message).
+
 ## Enable multi-factor authentication (optional)
 
 When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can set MFA to **Always On** so that MFA is always required regardless of your Conditional Access setup. Or, you can set MFA to **Conditional** so that MFA is required only when an active Conditional Access Policy requires it.
