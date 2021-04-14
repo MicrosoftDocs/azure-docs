@@ -42,42 +42,42 @@ Claims to be used by policy authors to define authorization rules in an SGX atte
   
   When an enclave author prefers to rotate MRSIGNER for security reasons, Azure Attestation policy must be updated to support the new and old MRSIGNER values before the binaries are updated. Otherise authorization checks will fail resulting in attestation failures.
   
- Attestation policy must be updated using the below format. 
+  Attestation policy must be updated using the below format. 
  
- #### Before key rotation
+  #### Before key rotation
  
- ```
-  version= 1.0;
-  authorizationrules 
-  {
-  [ type=="x-ms-sgx-is-debuggable", value==false]&&
-  [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
-  };
-```
+   ```
+    version= 1.0;
+    authorizationrules 
+    {
+    [ type=="x-ms-sgx-is-debuggable", value==false]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    };
+  ```
 
-#### During key rotation
+ #### During key rotation
 
-```
-  version= 1.0;
-  authorizationrules 
-  {
-  [ type=="x-ms-sgx-is-debuggable", value==false]&&
-  [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
-  [ type=="x-ms-sgx-is-debuggable", value==false ]&& 
-  [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
-  };
-```
+  ```
+    version= 1.0;
+    authorizationrules 
+    {
+    [ type=="x-ms-sgx-is-debuggable", value==false]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    [ type=="x-ms-sgx-is-debuggable", value==false ]&& 
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+    };
+  ```
 
-#### After key rotation
+ #### After key rotation
 
-```
-  version= 1.0;
-  authorizationrules 
-  { 
-  [ type=="x-ms-sgx-is-debuggable", value==false]&& 
-  [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
-  };
-```
+  ```
+    version= 1.0;
+    authorizationrules 
+    { 
+    [ type=="x-ms-sgx-is-debuggable", value==false]&& 
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+    };
+  ```
 
 - **x-ms-sgx-mrenclave**: A string value, which identifies the code and data loaded in enclave memory. 
 
