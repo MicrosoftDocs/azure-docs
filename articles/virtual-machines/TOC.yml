@@ -795,6 +795,8 @@
         href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
       - name: Create a VM from Image Version
         href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+    - name: Ansible
+      href: https://docs.microsoft.com/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
       displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting
       href: troubleshooting-shared-images.md
