@@ -22,22 +22,10 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-This article covers steps required to deploy from a generalized image created from an existing VHD or VHDX. To deploy from a generalized image starting from an ISO, see [Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-generalized-image-iso.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
+This article covers steps required to deploy from a generalized image created from an existing VHD or VHDX. To deploy from a generalized image starting from an ISO, see [Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
 
 > [!IMPORTANT]
 > This procedure does not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
-
-
-## VM image workflow
-
-The high-level workflow to prepare a Windows VHD to use as a generalized image, starting from the VHD or VHDX of an existing virtual machine has the following steps:
-
-1. Convert the source VHD or VHDX to a fixed size VHD.
-1. Create a VM in Hyper-V using the fixed VHD.
-1. Start the VM, and install the Windows operating system.
-1. Generalize the VHD using the *sysprep* utility.
-1. Copy the generalized image to Blob storage.
-<!--Remove from flow. It's a next step. - 1. Use the generalized image to deploy VMs on your device. For more information, see how to [deploy a VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md) or [deploy a VM via PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).-->
 
 ## Prerequisites
 
@@ -47,11 +35,21 @@ Before you prepare a Windows VHD for use as a generalized image on Azure Stack E
 - You have access to a Windows client with Hyper-V Manager installed. 
 - You have access to an Azure Blob storage account to store your VHD after it is prepared.
 
-## Prepare a generalized Windows image from VHD
+## Workflow: Prepare generalized Windows image from VHD
 
+The high-level workflow to prepare a Windows VHD to use as a generalized image, starting from the VHD or VHDX of an existing virtual machine, has the following steps:
 
+1. Convert the source VHD or VHDX to a fixed-size VHD.
+1. Use that VHD to create a new virtual machine.<!--How close is this procedure to the same step in the companion article? Can it be generalized?-->
+1. Start the VM, and install the Windows operating system.
+1. Generalize the VHD using the *sysprep* utility.
+1. Copy the generalized image to Blob storage.
 
-## Convert source VHD to a fixed-size VHD 
+<!--## Prepare a generalized Windows image from VHD
+
+When your VM source is a VHD from an existing virtual machine, you first need to convert the VHD to a fixed-size VHD. You will use the fixed-size VHD to create a new virtual machine. Then you'll start the new VM and install the operating system.-->
+
+## Convert source VHD to a fixed-size VHD
 
 For your device, you'll need fixed-size VHDs to create VM images. You'll need to convert your source Windows VHD or VHDX to a fixed VHD. 
 
@@ -83,7 +81,7 @@ Follow these steps:
 
    ![Configure disk page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-6.png)
 
-1. Review the summary and select **Finish**. The VHD or VHDX conversion takes a few minutes. The time for conversion depends on the size of the source disk. 
+1. Review the summary and select **Finish**. The VHD or VHDX conversion takes a few minutes. The time for conversion depends on the size of the source disk.
 
 <!--
 1. Run PowerShell on your Windows client.
@@ -94,7 +92,6 @@ Follow these steps:
     ```
 -->
 You'll use this fixed-size VHD for all the subsequent steps in this article.
-
 
 ## Create a Hyper-V VM from the fixed-size VHD
 
