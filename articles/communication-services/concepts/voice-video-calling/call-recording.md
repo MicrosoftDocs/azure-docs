@@ -13,7 +13,9 @@ ms.service: azure-communication-services
 ---
 # Calling Recording overview
 
-> \* Many countries and states have laws and regulations that apply to the recording of PSTN, voice, and video calls, which often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
+> Many countries and states have laws and regulations that apply to the recording of PSTN, voice, and video calls, which often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
+
+> Regulations such as GDPR require the ability to export user data. In order to enable to support these requirements, recording meta data files include the participantId for each call participant in the participants[] array. You can cross-reference the MRIs in the participants[] array with your internal user identities to identify participants in a call. An example of an recording meta-data file is provided below for reference.
 
 Call Recording provides a set of server APIs to start, stop, pause and resume recording, which can be triggered from server-side business logic or events received from user actions. Recorded media output is in MP4 Audio+Video format (same as Teams recordings). Notifications that a recording media and meta-data files are ready for retrieval are provided via Event Grid. Recordings are stored for 48 hours on built-in temporary storage, for retrieval and movement to a long-term storage solution of choice. 
 
@@ -26,7 +28,7 @@ Call Recording provides a set of server APIs to start, stop, pause and resume re
 ## Run-time Control APIs
 ### Start Recording
 #### Request
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "request",
   "name": "start-recording"
@@ -40,7 +42,7 @@ Content-Type: application/json
   "recordingStateCallbackUri": "string"
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "request",
   "name": "start-recording"
@@ -58,8 +60,7 @@ StartRecordingResponse startRecordingResponse = await conversationClient.StartRe
 string recordingId = startRecordingResponse.RecordingId;
 ```
 #### Response
->**Note:** The response object shown here might be shortened for readability. 
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -109,7 +110,7 @@ Content-Type: application/json
   ]
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -120,7 +121,7 @@ CONTENT NEEDED
 ```
 ### Get Call Recording State
 #### Request
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "request",
   "name": "get-recording-state"
@@ -132,7 +133,7 @@ Content-Type: application/json
 {
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "request",
   "name": "start-recording"
@@ -147,8 +148,7 @@ GetCallRecordingStateResponse recordingState = await conversationClient.GetRecor
     recordingId: <recordingId>).ConfigureAwait(false);
 ```
 #### Response
->**Note:** The response object shown here might be shortened for readability. 
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -186,7 +186,7 @@ Content-Type: application/json
   ]
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -198,7 +198,7 @@ CONTENT NEEDED
 
 ### Stop Recording
 #### Request
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "request",
   "name": "stop-recording"
@@ -211,7 +211,7 @@ Content-Type: application/json
   "operationContext": "string" //WHAT IS THIS FOR?
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "request",
   "name": "start-recording"
@@ -227,8 +227,7 @@ StopRecordingResponse response = conversationClient.StopRecordingAsync(
     operationContext: "<operation-context>").ConfigureAwait(false);
 ```
 #### Response
->**Note:** The response object shown here might be shortened for readability. 
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -239,7 +238,6 @@ HTTP/1.1 200 Success
 Content-Type: application/json
 
 {
-//No Content?
 }
 
 HTTP/1.1 400 Bad request
@@ -266,7 +264,7 @@ Content-Type: application/json
   ]
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -278,7 +276,7 @@ CONTENT NEEDED
 ### Pause Recording
 Pausing and Resuming call recording enables you to skip recording a portion of a call or meeting, and resume recording to a single file. 
 #### Request
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "request",
   "name": "pause-recording"
@@ -291,7 +289,7 @@ Content-Type: application/json
   "operationContext": "string" //WHAT IS THIS FOR?
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "request",
   "name": "start-recording"
@@ -307,8 +305,7 @@ PauseRecordingResponse response = conversationClient.PauseRecordingAsync(
     operationContext: "<operation-context>").ConfigureAwait(false);
 ```
 #### Response
->**Note:** The response object shown here might be shortened for readability. 
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -319,7 +316,6 @@ HTTP/1.1 200 Success
 Content-Type: application/json
 
 {
-//No Content?
 }
 
 HTTP/1.1 400 Bad request
@@ -346,7 +342,7 @@ Content-Type: application/json
   ]
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -357,7 +353,7 @@ CONTENT NEEDED
 ```
 ### Resume Recording
 #### Request
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "request",
   "name": "resume-recording"
@@ -370,7 +366,7 @@ Content-Type: application/json
   "operationContext": "string" //WHAT IS THIS FOR?
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "request",
   "name": "start-recording"
@@ -386,8 +382,7 @@ ResumeRecordingResponse response = conversationClient.ResumeRecordingAsync(
     operationContext: "<operation-context>").ConfigureAwait(false);
 ```
 #### Response
->**Note:** The response object shown here might be shortened for readability. 
-# [HTTP](#tab/http)
+**HTTP**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -398,7 +393,6 @@ HTTP/1.1 200 Success
 Content-Type: application/json
 
 {
-//No Content?
 }
 
 HTTP/1.1 400 Bad request
@@ -425,7 +419,7 @@ Content-Type: application/json
   ]
 }
 ```
-# [C#](#tab/csharp)
+**C# SDK**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -438,52 +432,40 @@ CONTENT NEEDED
 ## Media Output Types
 Call Recording currently supports mixed audio+video MP4 output format. The output media matches meeting recordings produced via Microsoft Teams recording. Additional output formats, such as audio only MP3, are planned for future releases and will be specified as an input parameter to the Start Recording call.
 |Channel Type|Content Format|Video|Audio|Notes|
-|:---------|:--|:----------------------------------------------------------------------|:-------------------------------------------|:---------------------------------|
-|audioVideo|mp4|1080p 15 FPS video feed of all participants in default tile arrangement|14.4kHz mp4a mixed audio of all participants|**NEED TO VERIFY AUDI/VIDEO SPEC**|
+|:---------|:--|:----|:---------------------------|:--|
+|audioVideo|mp4|1920x1080 8 FPS video of all participants in default tile arrangement|16kHz mp4a mixed audio of all participants||
 
 ## Event Grid Notifications
 An Event Grid notification `Call Recording File Status Updated` is published when a recording is ready for retrieval, typically 1-2 minutes after the recording process has completed (i.e. meeting ended, recording stopped). Recording event notifications include a document ID, which can be used to retrieve both recorded media and a recording meta-data file:
 - <Azure_Communication_Service_Endpoint>/recording/download/{documentId}
 - <Azure_Communication_Service_Endpoint>/recording/download/{documentId}/metadata
 
-Sample code for handling event grid notifications and downloading recording and meta-data files can be found [here](https://github.com/microsoft/botframework-telephony/tree/main/samples/csharp_dotnetcore/05a.telephony-recording-download-function). **Link to our own sample**
+Sample code for handling event grid notifications and downloading recording and meta-data files can be found [here](../../quickstarts/voice-video-calling/download-recording-file-sample.md). 
 
-### Meta-data Files
-> \* Regulations such as GDPR require the ability to export user data. In order to enable to support these requirements, recording meta data files include the participantId for each call participant in the participants[] array. You can cross-reference the MRIs in the participants[] array with your internal user identities to identify participants in a call. An example of an recording meta-data file is provided below for reference:
-
-```json
+### Notification Schema
+```
 {
-  "resourceId": "29bd5ea9-e0fc-4d00-8f6f-339b1f0ee2e2",
-  "callId": "43563209-4ec6-4119-be5b-88398cda2caf",
-  "chunkDocumentId": "0-eus-d11-05bf22b166dfb2119e3ff85d98906121",
-  "chunkIndex": 0,
-  "chunkStartTime": "2021-03-24T18:52:14.1321393Z",
-  "chunkDuration": 15000.0,
-  "pauseResumeIntervals": [],
-  "recordingInfo": {
-    "contentType": "mixed",
-    "channelType": "audioVideo",
-    "format": "mp4",
-    "audioConfiguration": {
-        "sampleRate": "16000",
-        "bitRate": 128000,
-        "channels": 1
+    "id": string, // Unique guid for event
+    "topic": string, // Azure Communication Services resource id
+    "subject": string, // /recording/call/{call-id}
+    "data": {
+        "recordingStorageInfo": {
+            "recordingChunks": [
+                {
+                    "documentId": string, // Document id for retrieving from storage
+                    "index": int, // Index providing ordering for this chunk in the entire recording
+                    "endReason": string, // Reason for chunk ending: "SessionEnded", "ChunkMaximumSizeExceeded”, etc.
+                }
+            ]
         },
-     "videoConfiguration": {
-        "longerSideLength": 1920,
-        "shorterSideLength": 1080,
-        "framerate": 8,
-        "bitRate": 1000000
-        }
+        "recordingStartTime": string, // ISO 8601 date time for the start of the recording
+        "recordingDurationMs": int, // Duration of recording in milliseconds
+        "sessionEndReason": string // Reason for call ending: "CallEnded", "InitiatorLeft”, etc.
     },
-  "participants": [
-    {
-    "participantId": "8:acs:29bd5ea9-e0fc-4d00-8f6f-339b1f0ee2e2_00000008-6ad3-6540-99c6-593a0d00c367"
-    },
-    {
-    "participantId": "8:acs:29bd5ea9-e0fc-4d00-8f6f-339b1f0ee2e2_31d5c120-90a9-409d-8f48-a3463c35f58e"
-    }
-  ]
+    "eventType": string, // "Microsoft.Communication.RecordingFileStatusUpdated"
+    "dataVersion": string, // "1.0"
+    "metadataVersion": string, // "1"
+    "eventTime": string // ISO 8601 date time for when the event was created
 }
 ```
 ## File Download
@@ -491,7 +473,7 @@ Sample code for handling event grid notifications and downloading recording and 
 
 ### Download Recording
 #### Request
-# [HTTP](#tab/http)
+**[HTTP]**(#tab/http)
 <!-- {
   "blockType": "request",
   "name": "download-recording"
@@ -504,8 +486,7 @@ Content-Type: application/json
 }
 ```
 #### Response
->**Note:** The response object shown here might be shortened for readability. 
-# [HTTP](#tab/http)
+**[HTTP]**(#tab/http)
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -545,7 +526,7 @@ Content-Type: application/json
 ```
 ### Download Recording Meta-data
 #### Request
-# [HTTP](#tab/http)
+**[HTTP]**(#tab/http)
 <!-- {
   "blockType": "request",
   "name": "download-recording-meta-data"
@@ -558,8 +539,7 @@ Content-Type: application/json
 }
 ```
 #### Response
->**Note:** The response object shown here might be shortened for readability. 
-# [HTTP](#tab/http)
+**[HTTP]**(#tab/http)
 <!-- {
   "blockType": "response",
   "truncated": true,
