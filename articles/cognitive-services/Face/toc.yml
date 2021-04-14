@@ -53,8 +53,6 @@
     href: concepts/face-recognition.md
 - name: Tutorials
   items:
-  - name: Create a face detector app
-    href: Tutorials/FaceAPIinCSharpTutorial.md
   - name: Add users to a Face service
     items:
     - name: Best practices for adding users
