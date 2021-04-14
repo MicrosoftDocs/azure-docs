@@ -141,7 +141,7 @@ Refer to the following table for the common errors you might see when running te
 
 | Scenario | Test case | Error | Solution |
 | --- | --- | --- | --- |
-| 1 | Linux Agent version test case | The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020. | Update the Linux agent version. It should be 2.2.41 or later. For more information, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
+| 1 | Linux Agent version test case | The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020. | Update the Linux agent version. It should be 2.241 or later. For more information, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
 | 2 | Bash history test case | An error occurs if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your Bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash` history files. |
 | 3 | Required kernel parameter test case | You'll receive this error when the value for `console` isn't set to `ttyS0`. Check by running the following command: <br /> `cat /proc/cmdline` | Set the value for `console` to `ttyS0`, and resubmit the request. |
 | 4 | ClientAlive interval test case | If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`. | Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request. |
@@ -540,8 +540,8 @@ This section describes how to provide a new VM image when a vulnerability or exp
 Do one of the following actions:
 
 - If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image).
-- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [deprecate(formerly stop sell) the plan](partner-center-portal/update-existing-offer.md#deprecate(formerly stop sell)-an-offer-or-plan).
-- If you don't plan to replace the only VM image in the offer, we recommend you [deprecate(formerly stop sell) the offer](partner-center-portal/update-existing-offer.md#deprecate(formerly-stop-sell)-an-offer-or-plan).
+- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [deprecate(formerly stop sell) the plan](partner-center-portal/update-existing-offer.md#deprecateformerly-stop-sell-an-offer-or-plan).
+- If you don't plan to replace the only VM image in the offer, we recommend you [deprecate(formerly stop sell) the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### Provide a fixed VM image
 
