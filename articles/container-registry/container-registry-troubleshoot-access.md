@@ -126,7 +126,7 @@ If [collection of resource logs](container-registry-diagnostics-audit-logs.md) i
 Related links:
 
 * [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
-* [Container registry FAQ](container-registry-faq.md)
+* [Container registry FAQ](container-registry-faq.yml)
 * [Azure Security Baseline for Azure Container Registry](security-baseline.md)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 

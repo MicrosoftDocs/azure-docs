@@ -108,7 +108,7 @@ This error means that the CLI is not compatible with the currently installed ver
 
 For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
-See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
+See the [FAQ](container-registry-faq.yml) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 
