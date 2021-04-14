@@ -61,7 +61,7 @@
     - name: Develop and run applications
       items:
         - name: Deploy an application from source code
-          href: howto-s2i.md
+          href: howto-deploy-with-s2i.md
         - name: Deploy an Open Liberty/WebSphere Liberty app
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
