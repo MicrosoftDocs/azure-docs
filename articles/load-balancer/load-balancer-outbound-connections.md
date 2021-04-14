@@ -63,12 +63,8 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
 
  #### Description
 
-<<<<<<< HEAD
-
-=======
  All traffic will return to the requesting client from the virtual machine's public IP address (Instance Level IP).
  
->>>>>>> 75ab520f9f6dadd0e9b754390a9bb7670956f390
  Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
 
 
