@@ -801,6 +801,9 @@
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/
+      - name: Journey
+        tocHref: /azure/security/journey
+        topicHref: /azure/security/journey
       - name: Benchmarks
         tocHref: /azure/security/benchmarks/
         topicHref: /azure/security/benchmarks/

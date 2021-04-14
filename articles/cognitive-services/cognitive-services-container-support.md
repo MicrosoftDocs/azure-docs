@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 04/12/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
@@ -72,7 +72,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
-| [Computer Vision][cv-containers] | **Read OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/concept-recognizing-text.md). | Gated preview. [Request access][request-access]. |
+| [Computer Vision][cv-containers] | **Read OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Gated preview. [Request access][request-access]. |
 | [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Gated preview. [Request access][request-access]. |
 | [Face][fa-containers] | **Face** | Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits. | Unavailable |
 | [Form recognizer][fr-containers] | **Form Recognizer** | Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms. | Unavailable | 
@@ -144,4 +144,4 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
 [ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
-[request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u
+[request-access]: https://aka.ms/csgate
