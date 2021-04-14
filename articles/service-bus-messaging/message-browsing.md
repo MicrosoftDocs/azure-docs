@@ -10,7 +10,7 @@ Message browsing, or peeking, enables a Service Bus client to enumerate all mess
 
 The peek operation on a queue or a subscription returns at most the requested number of messages. Here are some important points about the peek operation:
 
-- **Dead-lettered** messages aren't included in returned messages. 
+- To peek into **Dead-lettered** messages, the peek operation should be made on the dead letter queue. See [accessing dead letter queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues#path-to-the-dead-letter-queue) for more details.
 - **Scheduled** messages in a subscription log aren't included in returned messages. 
 - A message in a **queue** is included even if a message isn't available for immediate acquisition. 
 - **Expired** messages may be included. Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run. This step may not necessarily occur immediately after messages expire. That's why, a peek operation may return messages that have already expired. These messages will be removed or dead-lettered when a receive operation is invoked on the queue or subscription the next time. Keep this behavior in mind when attempting to recover deferred messages from the queue. 
@@ -34,4 +34,3 @@ See samples at the following locations.
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - **browseMessages.ts** sample
 - [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - See peek methods on receiver classes in the [reference documentation](/dotnet/api/azure.messaging.servicebus).
 - [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Message Browsing (Peek)** sample 
-
