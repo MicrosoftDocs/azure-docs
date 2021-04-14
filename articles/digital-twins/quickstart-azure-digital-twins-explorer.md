@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Quickstart - Explore a sample scenario
+title: Quickstart - Get started with Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
 description: Quickstart - Use the Azure Digital Twins Explorer sample to visualize and explore a prebuilt scenario.
 author: baanders
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Quickstart - Explore a sample Azure Digital Twins scenario using Azure Digital Twins Explorer
+# Quickstart - Get started with a sample scenario in Azure Digital Twins Explorer
 
 With Azure Digital Twins, you can create and interact with live models of your real-world environments. First, you model individual elements as *digital twins*. Then you connect them into a knowledge *graph* that can respond to live events and be queried for information.
 

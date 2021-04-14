@@ -26,7 +26,7 @@ The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotn
 
 As the error text states, this error may occur if you have not provided local credentials for `DefaultAzureCredential` to pick up.
 
-For more information about using local credentials with Azure Digital Twins Explorer, see the [*Set up local Azure credentials*](quickstart-adt-explorer.md#set-up-local-azure-credentials) section of the Azure Digital Twins *Quickstart: Explore a sample scenario*.
+For more information about using local credentials with Azure Digital Twins Explorer, see the [*Set up local Azure credentials*](quickstart-adt-explorer.md#set-up-local-azure-credentials) section of the Azure Digital Twins *Quickstart: Get started with Azure Digital Twins Explorer*.
 
 ### Cause #2
 

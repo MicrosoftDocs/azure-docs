@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Explore a sample scenario
+  - name: Get started with Azure Digital Twins Explorer
     href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
