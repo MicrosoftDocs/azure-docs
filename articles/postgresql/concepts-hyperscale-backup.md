@@ -69,27 +69,11 @@ size, user roles, PostgreSQL version, and version of the Citus extension.
 Firewall settings and PostgreSQL server parameters are not preserved from the
 original server group, they are reset to default values. The firewall will
 prevent all connections. You will need to manually adjust these settings after
-restore.
-
-> [!IMPORTANT]
-> You'll need to open a support request to perform point-in-time restore of
-> your Hyperscale (Citus) cluster.
-
-### Post-restore tasks
-
-After a restore from either recovery mechanism, you should do the
-following to get your users and applications back up and running:
-
-* If the new server is meant to replace the original server, redirect clients
-  and client applications to the new server
-* Ensure appropriate server-level firewall is in place for
-  users to connect. These rules aren't copied from the original server group.
-* Adjust PostgreSQL server parameters as needed. The parameters aren't copied
-  from the original server group.
-* Ensure appropriate logins and database level permissions are in place
-* Configure alerts, as appropriate
+restore. In general, see our list of suggested [post-restore
+tasks](howto-hyperscale-restore-portal.md#post-restore-tasks).
 
 ## Next steps
 
+* See the steps to [restore a server group](howto-hyperscale-restore-portal.md)
+  in the Azure portal.
 * Learn about [Azure availability zones](../availability-zones/az-overview.md).
-* Set [suggested alerts](./howto-hyperscale-alert-on-metric.md#suggested-alerts) on Hyperscale (Citus) server groups.

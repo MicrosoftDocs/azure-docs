@@ -34,7 +34,7 @@ The quickstart contains the following major steps:
 
 The sample graph you'll be working with represents a building with two floors and two rooms. The graph will look like this image:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of a graph made of four circular nodes connected by arrows. A circle labeled 'Floor1' is connected by an arrow labeled 'contains' to a circle labeled 'Room1'. A circle labeled 'Floor0' is connected by an arrow labeled 'contains' to a circle labeled 'Room0'. 'Floor1' and 'Floor0' aren't connected.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="View of a graph made of four circular nodes connected by arrows. A circle labeled 'Floor1' is connected by an arrow labeled 'contains' to a circle labeled 'Room1'. A circle labeled 'Floor0' is connected by an arrow labeled 'contains' to a circle labeled 'Room0'. 'Floor1' and 'Floor0' aren't connected.":::
 
 ## Prerequisites
 
@@ -86,11 +86,11 @@ Open a console window to the folder location **Azure_Digital_Twins__ADT__explore
 
    After a few seconds, a browser window opens and the app appears in the browser.
 
-   :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called Azure Digital Twins Explorer and contains boxes for Query Explorer, Model View, Graph View, and Property Explorer. There's no onscreen data yet." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called Azure Digital Twins Explorer and contains boxes for Query Explorer, Model View, Graph View, and Property Explorer. There's no onscreen data yet." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
 1. Select the **Sign In** button in the upper-right corner of the window, as shown in the following image, to configure Azure Digital Twins Explorer to work with the instance you've set up.
 
-   :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Azure Digital Twins Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/quickstart-adt-explorer/sign-in.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/sign-in.png" alt-text="Azure Digital Twins Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/quickstart-azure-digital-twins-explorer/sign-in.png":::
 
 1. Enter the Azure Digital Twins instance URL that you gathered earlier in the [Set up an Azure Digital Twins instance](#set-up-an-azure-digital-twins-instance) section, in the format *https://{instance host name}*.
 
@@ -131,7 +131,7 @@ Follow these steps to upload models.
 
 1. In the **MODEL VIEW** box, select the **Upload a Model** icon.
 
-   :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/upload-model.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
 1. In the file selector box that appears, go to the **Azure_Digital_Twins__ADT__explorer/client/examples** folder in the downloaded repository.
 1. Select **Room.json** and **Floor.json**, and select **OK**. You can upload additional models if you want, but they won't be used in this quickstart.
@@ -139,14 +139,14 @@ Follow these steps to upload models.
 
 >[!NOTE]
 >If you see the following error message:
-> :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="A pop-up box reading 'Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser.' with a Close button at the bottom." border="false"::: 
+> :::image type="content" source="media/quickstart-azure-digital-twins-explorer/error-models-popup.png" alt-text="A pop-up box reading 'Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser.' with a Close button at the bottom." border="false"::: 
 > Try disabling your pop-up blocker or using a different browser.
 
 Azure Digital Twins Explorer now uploads these model files to your Azure Digital Twins instance. They should show up in the **MODEL VIEW** box and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="A view of the Model View box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="A view of the Model View box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -173,7 +173,7 @@ Follow these steps to import the graph.
 
 1. In the **GRAPH VIEW** box, select the **Import Graph** icon.
 
-   :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/import-graph.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
 
 2. In the file selector box, go to the **Azure_Digital_Twins__ADT__explorer/client/examples** folder, and select the **buildingScenario.xlsx** spreadsheet file. This file contains a description of the sample graph. Select **OK**.
 
@@ -183,7 +183,7 @@ Follow these steps to import the graph.
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -193,7 +193,7 @@ Follow these steps to import the graph.
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="A dialog box indicating graph import success. It reads 'Import successful. 4 twins imported. 2 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-success.png" alt-text="A dialog box indicating graph import success. It reads 'Import successful. 4 twins imported. 2 relationships imported.'" lightbox="media/quickstart-azure-digital-twins-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -203,7 +203,7 @@ Follow these steps to import the graph.
 
 5. The graph has now been uploaded to Azure Digital Twins Explorer. To see the graph, select the **Run Query** button in the **GRAPH EXPLORER** box, near the top of the Azure Digital Twins Explorer window.
 
-   :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="The Run Query button in the upper-right corner of the window is highlighted." lightbox="media/quickstart-adt-explorer/run-query.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="The Run Query button in the upper-right corner of the window is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 
 This action runs the default query to select and display all digital twins. Azure Digital Twins Explorer retrieves all twins and relationships from the service. It draws the graph defined by them in the **GRAPH VIEW** box.
 
@@ -211,7 +211,7 @@ This action runs the default query to select and display all digital twins. Azur
 
 Now you can see the uploaded graph of the sample scenario.
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of the Graph View box with a twin graph inside. A circle labeled 'floor1' is connected by an arrow labeled 'contains' to a circle labeled 'room1.' A circle labeled 'floor0' is connected by an arrow labeled 'contains' to a circle labeled 'room0.'":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="View of the Graph View box with a twin graph inside. A circle labeled 'floor1' is connected by an arrow labeled 'contains' to a circle labeled 'room1.' A circle labeled 'floor0' is connected by an arrow labeled 'contains' to a circle labeled 'room0.'":::
 
 The circles (graph "nodes") represent digital twins. The lines represent relationships. The **Floor0** twin contains **Room0**, and the **Floor1** twin contains **Room1**.
 
@@ -225,7 +225,7 @@ Here are the properties of Room0:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Highlight around the Property Explorer box showing properties for Room0, which include (among others) a $dtId field of Room0, a Temperature field of 70, and a Humidity field of 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Highlight around the Property Explorer box showing properties for Room0, which include (among others) a $dtId field of Room0, a Temperature field of 70, and a Humidity field of 30." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -237,7 +237,7 @@ Here are the properties of Room1:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Highlight around the Property Explorer box showing properties for Room1, which include (among others) a $dtId field of Room1, a Temperature field of 80, and a Humidity field of 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Highlight around the Property Explorer box showing properties for Room1, which include (among others) a $dtId field of Room1, a Temperature field of 80, and a Humidity field of 60." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -259,7 +259,7 @@ To see the answer, run the following query in the **QUERY EXPLORER** box.
 
 Recall from viewing the twin properties earlier that Room0 has a temperature of 70, and Room1 has a temperature of 80. For this reason, only Room1 shows up in the results here.
     
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Results of property query showing only Room1." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png" alt-text="Results of property query showing only Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > Other comparison operators (<,>, =, or !=) are also supported within the preceding query. You can try plugging these operators, different values, or different twin properties into the query to try out answering your own questions.
@@ -274,7 +274,7 @@ The properties in this list are editable. Select the temperature value of **70**
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="The Property Explorer box showing properties for Room0. The temperature value is an editable box showing 76, and there's a highlight around the Save icon." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="The Property Explorer box showing properties for Room0. The temperature value is an editable box showing 76, and there's a highlight around the Save icon." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -290,7 +290,7 @@ To verify that the graph successfully registered your update to the temperature 
 
 Now that the temperature of Room0 has been changed from 70 to 76, both twins should show up in the result.
 
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Results of property query showing both Room0 and Room1." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png" alt-text="Results of property query showing both Room0 and Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png":::
 
 ## Review and contextualize learnings
 

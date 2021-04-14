@@ -1,4 +1,4 @@
-## Setting Up
+## Setting up
 
 ### Create a new C# application
 
@@ -79,7 +79,7 @@ As another example of using managed identities, we'll add this code which uses t
      }
 ```
 
-## Write the Main Method
+## Write the Main method
 
 Your `Program.cs` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of managed identities:
 
@@ -157,7 +157,7 @@ class Program
     }
 ```
 
-## Run the Program
+## Run the program
 
 You should now be able to run your application, using `dotnet run` from your application folder. The output should resemble the following:
 ```
