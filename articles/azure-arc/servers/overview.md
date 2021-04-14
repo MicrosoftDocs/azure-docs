@@ -6,7 +6,7 @@ ms.date: 02/18/2021
 ms.topic: overview
 ---
 
-# What are Azure Arc enabled servers?
+# What is Azure Arc enabled servers?
 
 Azure Arc enabled servers enables you to manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID, is included in a resource group, and benefits from standard Azure constructs such as Azure Policy and applying tags. Service providers who manage a customer's on-premises infrastructure can manage their hybrid machines, just like they do today with native Azure resources, across multiple customer environments, using [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) with Azure Arc.
 
