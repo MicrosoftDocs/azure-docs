@@ -51,7 +51,7 @@ This guide will show you how to successfully update your dev kit's operating sys
 
 1. Extract the **Azure-Percept-DK-*&lt;version number&gt;*.raw** file from the compressed file by right clicking on **Azure-Percept-DK-*&lt;version number&gt;*.raw.xz** and selecting **7-Zip** &gt; **Extract Here**.
 
-1. Move the extracted **Azure-Percept-DK-*&lt;version number&gt;*.raw** file, **fast-hab-fw.raw**, and **emmc_full.txt** to the folder containing the UUU tool.
+1. Move the extracted **Azure-Percept-DK-*&lt;version number&gt;*.xy** file, **fast-hab-fw.raw**, and **emmc_full.txt** to the folder containing the UUU tool.
 
 ## Update your device
 
