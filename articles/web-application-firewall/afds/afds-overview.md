@@ -88,7 +88,7 @@ Azure-managed rule sets provide an easy way to deploy protection against a commo
 
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 
-For more information, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs20.md).
+For more information, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md).
 
 
 ### Bot protection rule set (preview)
