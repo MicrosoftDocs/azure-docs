@@ -1,5 +1,5 @@
 ---
-title: Prepare generalized image from a Windows VHD to deploy VMs on Azure Stack Edge Pro GPU
+title: Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU
 description: Describes how to create a generalized VM image starting from a Windows VHD or VHDX. Use this generalized VM image to deploy virtual machines on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
@@ -21,6 +21,8 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 To prepare a generalized VM image using an ISO, see [Prepare a generalized image from an ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
 
 ## About VM images
+
+A Windows VHD or VHDX can be used to create a *specialized* image or a *generalized* image. The following table summarizes key differences between the *specialized* and the *generalized* images.
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
@@ -150,4 +152,5 @@ Your VHD can now be used to create a generalized image on Azure Stack Edge.
 Depending on the nature of deployment, you can choose one of the following procedures.
 
 - [Deploy a VM from a generalized image via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
-- [Deploy a VM from a generalized image via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
+- [Prepare a generalized image from an ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
+- [Prepare a specialized image and deploy VMs using the image](azure-stack-edge-gpu-deploy-vm-specialized-image-powershell) 

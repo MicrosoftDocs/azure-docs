@@ -6,8 +6,6 @@ ms.topic: include
 ms.date: 04/14/2021
 ---
 
-The following table summarizes key differences when you deploy virtual machines using a generalized vs. a specialized image.
-
 |Image type  |Generalized  |Specialized  |
 |---------|---------|---------|
 |Target     |Deployed on any system         | Targeted to a specific system        |

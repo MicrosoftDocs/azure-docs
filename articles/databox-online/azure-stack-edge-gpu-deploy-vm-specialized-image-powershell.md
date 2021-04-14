@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/14/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -22,14 +22,7 @@ This article describes the steps required to deploy a virtual machine (VM) on yo
 
 A Windows VHD or VHDX can be used to create a *specialized* image or a *generalized* image. The following table summarizes key differences between the *specialized* and the *generalized* images.
 
-
-|Image type  |Generalized  |Specialized  |
-|---------|---------|---------|
-|Target     |Deployed on any system         | Targeted to a specific system        |
-|Setup after boot     | Setup required at first boot of the VM.          | Setup not needed. <br> Platform turns on the VM.        |
-|Configuration     |Hostname, admin-user, and other VM-specific settings required.         |Pre-configured.         |
-|Used to     |Create multiple new VMs from the same image.         |Migrate a specific machine or restoring a VM from previous backup.         |
-
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
 This article covers steps required to deploy from a specialized image. To deploy from a generalized image, see [Use generalized Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) for your device.
 
