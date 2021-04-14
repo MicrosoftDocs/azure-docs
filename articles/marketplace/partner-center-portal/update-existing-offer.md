@@ -120,7 +120,10 @@ If you have changes in preview that aren't live, you can compare new changes wit
 
 Remember to republish your offer after making updates for the changes to take effect.
 
-## deprecate(formerly stop sell) an offer or plan
+## Deprecate an offer or plan
+
+> [!IMPORTANT]
+> Stop sell has changed to deprecate.
 
 You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it, and they can download it again if needed. However, they won't get updates if you decide to republish the offer or plan at a later time.
 

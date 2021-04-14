@@ -165,9 +165,12 @@ Your offer ID is now shown on the left-navigation bar of the offer:
 
 ![Shows the Partner Center Offer ID location](media/cpp-pc-faq/offer-id.png)
 
-### deprecate(formerly stop sell) an offer
+### Deprecate an offer
 
-You can request to [deprecate(formerly stop sell) an offer](partner-center-portal/update-existing-offer.md#deprecate(formerly-stop-sell)-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
+> [!IMPORTANT]
+> Stop sell has changed to deprecate
+
+You can request to [deprecate(formerly stop sell) an offer](partner-center-portal/update-existing-offer.md#Deprecate-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
 
 [![Screenshot shows the Partner Center page to deprecate(formerly stop sell) an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to deprecate an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
