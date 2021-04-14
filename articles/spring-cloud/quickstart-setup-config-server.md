@@ -68,9 +68,9 @@ The following procedure sets up the config server using the Azure portal to depl
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI to set up the config server to deploy the [Pet Clinic sample](spring-cloud-quickstart-sample-app-introduction.md).
+The following procedure uses the Azure CLI to set up the config server to deploy the [Pet Clinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 
-Use the application.yml in the root of this project to load configuration into the Config Server in Azure Spring Cloud.
+Use the application.yml in the root of the [Pet Clinic project](https://github.com/azure-samples/spring-petclinic-microservices) to load configuration into the Config Server in Azure Spring Cloud.
 
 ```azurecli
    az spring-cloud config-server set --name <spring cloud service name> --config-file application.yml
