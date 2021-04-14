@@ -129,25 +129,22 @@ The deployment manifest defines what modules are deployed to an edge device and 
 1. Start Visual Studio Code.
 1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 
-    ![Set IoT Hub connection string]()<!--./media/quickstarts/set-iotconnection-string.png-->
+    <!-- commenting out the image for now ![Set IoT Hub connection string]()./media/quickstarts/set-iotconnection-string.png-->
     > [!NOTE]
-    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  <br/>
         ```
         Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
         ```
-
 1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
-
-   ![Generate IoT Edge deployment manifest]()<!--./media/quickstarts/generate-iot-edge-deployment-manifest.png-->
+<!-- commenting out the image for now   ![Generate IoT Edge deployment manifest]()./media/quickstarts/generate-iot-edge-deployment-manifest.png-->
 1. Right-click the src/edge/config/deployment.amd64.json file, and select **Create Deployment for Single Device**.
-
-   ![Create Deployment for Single Device]()<!--./media/quickstarts/create-deployment-single-device.png-->
+<!-- commenting out the image for now   ![Create Deployment for Single Device]()<!--./media/quickstarts/create-deployment-single-device.png-->
 1. You're then asked to **Select an IoT Hub device**. Select ava-sample-device from the drop-down list.
 1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device has the following modules deployed:
     * Azure Video Analyzer on IoT Edge (module name **avaedge**)
     * RTSP simulator (module name **rtspsim**)
  
-    ![IoT Hub]()<!--./media/continuous-video-recording-tutorial/iot-hub.png-->
+    <!-- commenting out the image for now ![IoT Hub]()./media/continuous-video-recording-tutorial/iot-hub.png-->
 
 ## Prepare to monitor the modules 
 
