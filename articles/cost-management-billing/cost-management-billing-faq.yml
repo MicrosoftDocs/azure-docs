@@ -113,7 +113,7 @@ sections:
           See [Migrate from EA reporting to Azure Resource Manager APIs](costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md).
       - question: Why do I get Usage Details API timeouts?
         answer: |
-          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](rest/api/consumption/usagedetails/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
+          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usagedetails/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
 
   - name: Azure Reservations questions
     questions:
