@@ -24,7 +24,7 @@ A Windows VHD or VHDX can be used to create a *specialized* image or a *generali
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-This article covers steps required to deploy from a specialized image. To deploy from a generalized image, see [Use generalized Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) for your device.
+This article covers steps required to deploy VMs with a specialized image. To prepare a generalized image for deploying VMs in Azure Stack Edge Pro GPU, see [Prepare generalized image from Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) or [Prepare generalized image from an ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
 
 
 ## VM image workflow
