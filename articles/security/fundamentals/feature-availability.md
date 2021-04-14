@@ -49,17 +49,18 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 
 For more information, see the [Azure Sentinel product documentation](/azure/sentinel/overview).
 
-## Combined table option
-
-The following table lists the current Sentinel feature availability between Azure and Azure Government clouds.
-
 > [!NOTE]
 > <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
 >
 > <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD services.
 >
 
-| Feature | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
+### Combined table option
+
+The following table lists the current Sentinel feature availability between Azure and Azure Government clouds.
+
+
+| Feature | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
 | ----- | ----- | ---- |
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
@@ -184,15 +185,9 @@ The following table lists the current Sentinel feature availability between Azur
 
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
-## Separate table option
+### Separate table option
 
-> [!NOTE]
-> <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
->
-> <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD services.
->
-
-| Feature | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
+| Feature | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
 | ----- | ----- | ---- |
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
