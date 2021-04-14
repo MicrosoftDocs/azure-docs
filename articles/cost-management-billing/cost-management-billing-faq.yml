@@ -69,9 +69,15 @@ sections:
       - question: How do I create a budget?
         answer: |
           See the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md) tutorial.
+      - question: How do I create a budget for a specific filter or tag?
+        answer: |
+          In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
       - question: How do I export cost management data?
         answer: |
           See the [Create and manage exported data](costs/tutorial-export-acm-data.md) tutorial.
+      - question: -	How do I export cost management data as a partner if I don't have an Azure subscription in my tenant?
+        answer: |
+          See the [Export cost data with an Azure storage account SAS key](costs/export-cost-data-storage-account-sas-key.md) article.
       - question: How can I charge back costs?
         answer: |
           You can allocate costs in Cost Management to see the costs that you distribute to subscriptions, resource groups, or tags in cost analysis. For more information, see the [Create and manage Azure cost allocation rules](costs/allocate-costs.md) article.
@@ -93,6 +99,15 @@ sections:
       - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
           <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
+      - question: -	When are the EA Reporting APIs going to be deprecated?
+        answer: |
+          The Cost Management + Billing team hasn't announced a deprecation timeline for the APIs. The APIs are no longer in active development. We recommend that you plan any needed work to migrate away from them.
+      - question: -	How do I migrate off of the EA Reporting APIs and what new APIs should I call?
+        answer: |
+          See [Migrate from EA reporting to Azure Resource Manager APIs](costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md).
+      - question: -	Why do I get Usage Details API timeouts?
+        answer: |
+          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](rest/api/consumption/usagedetails/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
 
   - name: Azure Reservations questions
     questions:
@@ -110,9 +125,18 @@ sections:
       - question: How can I find reservation costs to charge back?
         answer: |
           See [Charge back Azure Reservation costs](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json) for detailed information.
+      - question: -	How do I get a reservation details report?
+        answer: |
+          Read the API documentation to [generate a reservation details report](/rest/api/cost-management/generatereservationdetailsreport).
 
   - name: Azure Enterprise Agreement (EA) and EA portal questions
     questions:
+      - question: -	How do I assign SPN permissions to my Enrollment?
+        answer: |
+          See [Assign roles to EA SPNs](manage/assign-roles-azure-service-principals.md).
+      - question: -	How do I migrate from the EA Reporting APIs to the Microsoft Customer Agreement APIs?
+        answer: |
+          See [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](costs/migrate-cost-management-api.md).
       - question: Why didn't I receive an activation email?
         answer: |
           An activation email from the Azure EA portal is sent from *waep@microsoft.com*. If you didn't receive an activation email, check your spam or junk folder for the email. It's sent with _Invitation to View/Manage the Microsoft Azure service_subject_. It's sent to every newly added EA administrator.
