@@ -5,7 +5,7 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom:
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021

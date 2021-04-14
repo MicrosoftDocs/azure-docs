@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Explore a sample scenario
-    href: quickstart-adt-explorer.md
+    href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
   - name: Code a client app
@@ -149,6 +149,8 @@
       items:
       - name: 403 (Forbidden)
         href: troubleshoot-error-403.md
+      - name: Azure Digital Twins Explorer authentication
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Reference
   items:
   - name: REST API reference

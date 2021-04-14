@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, subject-armqs
 
 # Quickstart: Set up Azure NetApp Files and create an NFS volume
 
-This article shows you how to quickly set up Azure NetApp Files and create a volume.
+This article shows you how to quickly set up Azure NetApp Files and create an NFS volume. 
 
 In this quickstart, you will set up the following items:
 
@@ -23,6 +23,8 @@ In this quickstart, you will set up the following items:
 - An NFS volume for Azure NetApp Files
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+To see all features that you can enable for an NFS volume and relevant considerations, see [Create an NFS volume](azure-netapp-files-create-volumes.md). 
 
 ## Before you begin
 
@@ -244,7 +246,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
 ---
 
-## Create NFS volume for Azure NetApp Files
+## Create an NFS volume for Azure NetApp Files
 
 # [Portal](#tab/azure-portal)
 
