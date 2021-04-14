@@ -25,24 +25,13 @@ When called repeatedly, the peek operation enumerates all messages in the queue 
 
 You can also pass a SequenceNumber to a peek operation. It will be used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
 
-
-### [Azure.Messaging.ServiceBus](#tab/dotnet)
-The [PeekMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.peekmessageasync) and [PeekMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.peekmessagesasync) methods exist on receiver objects: `ServiceBusReceiver`, `ServiceBusSessionReceiver`. 
-
-You can populate the [fromSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.eventposition.fromsequencenumber) parameter with a SequenceNumber at which to start, and then call the method again without specifying the parameter to enumerate further. `PeekMessagesAsync` functions equivalently, but retrieves a set of messages all at once.
-
-
-### [Microsoft.Azure.ServiceBus](#tab/dotnetold)
-The [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) and [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) methods exist on receiver objects: `MessageReceiver`, `MessageSession`. Peek works on queues, subscriptions, and their respective dead-letter queues.
-
-You can use an overload of the method with a [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) at which to start, and then call the parameterless method overload to enumerate further. 
-
----
-
 ## Next steps
+See the samples at following locations. All of th
 
-To learn more about Service Bus messaging, see the following topics:
+- [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Peek at a message** sample
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/) - **receive_peek.py** sample
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/) - **browseMessages.js** sample
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - **browseMessages.ts** sample
+- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - See peek methods on receiver classes in the [reference documentation](/dotnet/api/azure.messaging.servicebus).
+- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Message Browsing (Peek)** sample 
 
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
