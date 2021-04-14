@@ -221,11 +221,12 @@ If you have 100 regions, 200 departments and 2000 customers
 Again, this limit is not for an individual metric. It’s for the sum of all such metrics across a subscription and region.  
 
 ## Design limitations
-**Do not use Application Insights for the purpose of auditing** – The Application Insights pipeline is optimized for a high volume of telemetry with a minimum of impact on your application. As such, it throttles or samples (takes a only a percentage of your telemetry and ignores the rest) if your incoming data stream becomes too large. Because of this behavior, you cannot use it for auditing purposes. 
+
+**Do not use Application Insights for the purpose of auditing** – The Application Insights pipeline uses the custom metrics API behind the scenes. The pipeline is optimized for a high volume of telemetry with a minimum of impact on your application. As such, it throttles or samples (takes a only a percentage of your telemetry and ignores the rest) if your incoming data stream becomes too large. Because of this behavior, you cannot use it for auditing purposes as some records are likely to be dropped. 
 
 **Metrics with a variable in the name** – Do not use a variable as part of the metric name, for example, a guid or a timestamp. This quickly causes you to hit the 50,000 time series limitation. 
  
-**High cardinality metric dimensions** - Metrics with too many valid values in a dimension, (have a “high cardinality”) are much more likely to hit this limit. In general, you should never use a constantly changing value in a dimension or metric name. Timestamp, for example, should NEVER be a dimension. Server, customer or productid could be used, but only if you have a smaller number of each of those types. As a test, ask yourself if you would every chart such data on a graph.  If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1000, the resulting graph would likely be difficult if not impossible to read. 
+**High cardinality metric dimensions** - Metrics with too many valid values in a dimension (a “high cardinality”) are much more likely to hit the 50k limit. In general, you should never use a constantly changing value in a dimension or metric name. Timestamp, for example, should NEVER be a dimension. Server, customer or productid could be used, but only if you have a smaller number of each of those types. As a test, ask yourself if you would every chart such data on a graph.  If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1000, the resulting graph would likely be difficult if not impossible to read. Best practice is to keep it to fewer to 100 valid values. Up to 300 is a grey area.  If you need to go over this amount, use Azure Monitor custom logs instead.   
 
 ## Next steps
 Use custom metrics from different services: 
