@@ -3,18 +3,23 @@ title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/14/2021
 ---
 
 # Create a dashboard in the Azure portal
 
 Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can monitor resources and quickly launch tasks for day-to-day operations. Build custom dashboards based on projects, tasks, or user roles, for example.
 
-The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard and create and customize additional dashboards. This article describes how to create a new dashboard and customize it. For information on sharing dashboards, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
+The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard and create and customize additional dashboards.
+
+> [!NOTE]
+> Each user can create up to 100 private dashboards. If you [publish and share the dashboard](azure-portal-dashboard-share-access.md), it will be implemented as an Azure resource in your subscription and won’t count towards this limit.
+
+This article describes how to create a new dashboard and customize it. For information on sharing dashboards, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
 
 ## Create a new dashboard
 
-In this example, we create a new private dashboard and assign a name. Follow these steps to get started:
+This example shows how to create a new private dashboard with an assigned name. All dashboards are private when created, although you can choose to publish and share your dashboard with other users in your organization if you'd like.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
