@@ -73,7 +73,8 @@ Content-Type: application/json
 {
   "recordingInstanceId": "string"
 }
-
+```
+```
 HTTP/1.1 400 Bad request
 Content-Type: application/json
 
@@ -85,7 +86,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 404 Not found
 Content-Type: application/json
 
@@ -97,7 +99,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
@@ -161,7 +164,8 @@ Content-Type: application/json
 {
   "recordingState": "active"
 }
-
+```
+```
 HTTP/1.1 400 Bad request
 Content-Type: application/json
 
@@ -173,7 +177,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
@@ -239,7 +244,8 @@ Content-Type: application/json
 
 {
 }
-
+```
+```
 HTTP/1.1 400 Bad request
 Content-Type: application/json
 
@@ -251,7 +257,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
@@ -317,7 +324,8 @@ Content-Type: application/json
 
 {
 }
-
+```
+```
 HTTP/1.1 400 Bad request
 Content-Type: application/json
 
@@ -329,7 +337,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
@@ -394,7 +403,8 @@ Content-Type: application/json
 
 {
 }
-
+```
+```
 HTTP/1.1 400 Bad request
 Content-Type: application/json
 
@@ -406,7 +416,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
@@ -497,9 +508,10 @@ HTTP/1.1 200 Success
 Content-Type: video/mp4
 
 {
-string
+string // Recording file bytes
 }
-
+```
+```
 HTTP/1.1 400 Bad request
 Content-Type: application/json
 
@@ -511,7 +523,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
