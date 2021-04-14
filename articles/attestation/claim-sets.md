@@ -40,7 +40,7 @@ Claims to be used by policy authors to define authorization rules in an SGX atte
 
   MRSIGNER is the hash of the enclave author’s public key which is used to sign the enclave binary. By validating MRSIGNER via an attestation policy, customers can verify if trusted binaries are running inside an enclave. When the policy claim does not match the enclave author’s MRSIGNER, it implies that the enclave binary is not signed by a trusted source and the attestation fails.
   
-  When an enclave author prefers to rotate MRSIGNER for security reasons, Azure Attestation policy must be updated to support the new and old MRSIGNER values before the binaries are updated. Otherise authorization checks will fail resulting in attestation failures.
+  When an enclave author prefers to rotate MRSIGNER for security reasons, Azure Attestation policy must be updated to support the new and old MRSIGNER values before the binaries are updated. Otherwise authorization checks will fail resulting in attestation failures.
   
   Attestation policy must be updated using the below format. 
  
