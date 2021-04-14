@@ -49,7 +49,7 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 
 For more information, see the [Azure Sentinel product documentation](/azure/sentinel/overview).
 
-### [Combined table option](#tab/combined-table-option)
+## [Combined table option](#tab/combined-table-option)
 
 The following table lists the current Sentinel feature availability between Azure and Azure Government clouds.
 
@@ -185,7 +185,7 @@ The following table lists the current Sentinel feature availability between Azur
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
 
-### [Separate table option](#separate-table-option)
+## [Separate table option](#separate-table-option)
 
 > [!NOTE]
 > <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
