@@ -388,7 +388,7 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. Select **Videos** in the **Video Analyzers** list.
 
     ![Video Analyzers videos]()<!--./media/event-based-video-recording-tutorial/videos.png-->
-1. You'll find a video listed with the name `sample-cvr-video`. This is the name chosen in your pipeline topology file.
+1. You'll find a video listed with the name `sample-evr-video`. This is the name chosen in your pipeline topology file.
 1. Select the video.
 1. On the video details page, select playback option <!-- TODO: fix this-->
 
