@@ -8,7 +8,7 @@ ms.date: 04/08/2021
 ms.topic: conceptual
 ---
 
-# Automation account authentication overview
+# Azure Automation account authentication overview
 
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
 
@@ -49,7 +49,7 @@ An Automation account can be granted two types of identities:
 >[!NOTE]
 > User assigned identities are not supported yet.
 
-For details on using managed identities, see [Enable managed identity for Automation](enable-managed-identity-for-automation.md).
+For details on using managed identities, see [Enable managed identity for Azure Automation](enable-managed-identity-for-automation.md).
 
 ## Run As accounts
 

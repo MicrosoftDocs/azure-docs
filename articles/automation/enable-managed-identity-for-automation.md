@@ -1,24 +1,22 @@
 ---
-title: Enable and use managed identity for Automation
+title: Enable a managed identity for your Azure Automation account
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/09/2021
 ms.topic: conceptual
 ---
-# Enable and use managed identity for Automation
+# Enable a managed identity for your Azure Automation account
 
-This topic shows you how to create a managed identity for an Automation account and how to use it to access other resources. For more information on how managed identity works with Azure automation, see [Managed identities](automation-security-overview.md#managed-identities).
+This topic shows you how to create a managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identity works with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Both the managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
 
-- The latest version of Automation account modules.
+- The latest version of Azure Automation account modules.
 
-- To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need to be an owner for the target resource in the corresponding Azure AD tenant.
-
-- A target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the Automation runbook authenticate access to the target resource.
+- An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
 
 - If you want to execute hybrid jobs using a managed identity, update the Hybrid Runbook Worker to the latest version. The minimum required versions are:
 
@@ -30,7 +28,7 @@ This topic shows you how to create a managed identity for an Automation account 
 >[!NOTE]
 >User-assigned identities are not supported yet.
 
-Setting up system-assigned identities for Automation can be done one of two ways. You can either use the Azure portal, or the Azure REST API.
+Setting up system-assigned identities for Azure Automation can be done one of two ways. You can either use the Azure portal, or the Azure REST API.
 
 ### Enable system-assigned identity in Azure portal
 
@@ -208,6 +206,6 @@ print(response.text)
 
 ## Next steps
 
-- If you need to disable a managed identity, see [Disable managed identity for Automation](disable-managed-identity-for-automation.md).
+- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity](disable-managed-identity-for-automation.md).
 
-- For an overview of Automation account security, see [Automation account authentication overview](automation-security-overview.md).
+- For an overview of Azure Automation account security, see [Automation account authentication overview](automation-security-overview.md).
