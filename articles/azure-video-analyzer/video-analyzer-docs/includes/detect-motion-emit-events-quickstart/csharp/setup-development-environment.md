@@ -1,3 +1,10 @@
+---
+author: fvneerden
+ms.topic: include
+ms.date: 03/18/2021
+ms.author: faneerde
+---
+
 1. Clone the repo from this location: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
 1. In Visual Studio Code, open the folder where the repo has been downloaded.
 1. In Visual Studio Code, go to the *src/cloud-to-device-console-app* folder. There, create a file and name it *appsettings.json*. This file will contain the settings needed to run the program.
