@@ -11,9 +11,6 @@ manager: femila
 
 This topic will walk you through how to set up PowerShell scripts for MSIX app attach.
 
->[!IMPORTANT]
->Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
-
 ## Install certificates
 
 You must install certificates on all session hosts in the host pool that will host the apps from your MSIX app attach packages.

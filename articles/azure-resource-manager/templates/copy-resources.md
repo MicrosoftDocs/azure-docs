@@ -41,7 +41,7 @@ Loops can be used declare multiple resources by:
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
 - Iterating over the elements of an array
@@ -50,7 +50,7 @@ Loops can be used declare multiple resources by:
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
 - Using loop index
@@ -59,7 +59,7 @@ Loops can be used declare multiple resources by:
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
     <resource-properties>
-  }
+  }]
   ```
 
 ---
