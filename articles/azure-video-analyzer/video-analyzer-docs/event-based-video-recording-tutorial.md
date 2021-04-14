@@ -61,7 +61,7 @@ Event-based video recording refers to the process of recording video triggered b
 Alternatively, you can trigger recording only when an inferencing service detects that a specific event has occurred. In this tutorial, you'll use a video of vehicles moving on a freeway and record video clips whenever a truck is detected.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="Pipeline":::
+> :::image type="content" source="./media/event-based-video-recording/overview.svg" alt-text="Pipeline":::
 
 The diagram is a pictorial representation of a [pipeline]() <!--concept-pipeline --> and additional modules that accomplish the desired scenario. Four IoT Edge modules are involved:
 
