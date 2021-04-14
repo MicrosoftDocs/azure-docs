@@ -79,6 +79,4 @@ You add upto 50000 QnA pairs to a single knowledgebase. If your data exceeds 50,
 
 ### Create a separate knowledge base for each domain
 
-You can also create a separate knowledge base for each domain, however you will then have to write some logic to decide which KB answers the user query. [All APIs](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) require for the user to pass on the Knowledgebase ID. As you can see in the Generate Answer API above, the KB id is passed on in the endpoint, and the user will have to pass that on along with the user query. Hence, we advise you to instead add all content in the same knowledgebase using metadata, instead of creating multiple knowledgebases.
-
-
+You can also create a separate knowledge base for each domain and maintain the knowledgebases separately. [All APIs](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) require for the user to pass on the Knowledgebase ID when making any updates to the knowledgebase or fetch an answer to the user's question. You would have to write a logic to direct the user queries to the relevant knowledgebase. You can update and track the content in each knowledgebase separately. When the user question is receieved by the service, you would need to pass on the KB id in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase.
