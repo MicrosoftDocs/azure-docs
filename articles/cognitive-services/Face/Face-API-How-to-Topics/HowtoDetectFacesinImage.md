@@ -76,7 +76,7 @@ To learn more about each of the attributes, see the [Face detection and attribut
 
 In this guide, you learned how to use the various functionalities of face detection. Next, integrate these features into an app to add face data from users.
 
-- [Tutorial: Add users to a Face service](../Tutorials/enrollment-overview.md)
+- [Tutorial: Add users to a Face service](../enrollment-overview.md)
 
 ## Related topics
 
