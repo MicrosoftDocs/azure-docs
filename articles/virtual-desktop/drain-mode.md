@@ -6,14 +6,14 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 04/14/2021
 ms.author: helohr
 manager: femila
 ---
 
 # Set drain mode
 
-You can turn on drain mode to isolate a session host to apply patches and perform maintenance without disrupting user sessions. When isolated, the session host won't accept new user sessions. Any new connections will be redirected to another available session host. Existing connections in the session host will continue working until the user signs out or the administrator ends the session. Administrators can also remotely connect to the server without going through the Windows Virtual Desktop service while the session host is in drain mode. You can apply this setting to both pooled and personal desktops.
+Drain mode isolates a session host when you want to apply patches and do maintenance without disrupting user sessions. When isolated, the session host won't accept new user sessions. Any new connections will be redirected to the next available session host. Existing connections in the session host will keep working until the user signs out or the administrator ends the session. When the session host is in drain mode, admins can also remotely connect to the server without going through the Windows Virtual Desktop service. You can apply this setting to both pooled and personal desktops.
 
 ## Set drain mode using the Azure portal
 
@@ -29,7 +29,7 @@ To turn on drain mode in the Azure portal:
 
 ## Set drain mode using PowerShell
 
-You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhostCmdlet](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost?view=azps-5.4.0#code-try-2) command.
+You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost?view=azps-5.8.0&preserve-view=true) command.
 
 Run this cmdlet to enable drain mode:
 
@@ -48,6 +48,6 @@ Update-AzWvdSessionHost -ResourceGroupName <resourceGroupName> -HostPoolName <ho
 
 ## Next steps
 
-If you want to learn more about the Azure portal for Windows Virtual Desktop, check out [our tutorials](create-host-pools-azure-marketplace.md). If you're already familiar with the basics, check out our documentation about other settings you can configure in the Azure portal like [MSIX app attach](app-attach-azure-portal.md) and [Azure Advisor](azure-advisor.md).
+If you want to learn more about the Azure portal for Windows Virtual Desktop, check out [our tutorials](create-host-pools-azure-marketplace.md). If you're already familiar with the basics, check out some of the other features you can use with the Azure portal, such as [MSIX app attach](app-attach-azure-portal.md) and [Azure Advisor](azure-advisor.md).
 
 If you're using the PowerShell method and want to see what else the module can do, check out [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md) and our [PowerShell reference](/powershell/module/az.desktopvirtualization/).
