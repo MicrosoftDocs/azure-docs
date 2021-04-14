@@ -4,7 +4,7 @@ description: This tutorial shows how to unlock new experiences and monetization 
 author: anzaman
 manager: johndeu
 ms.author: alzam
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial #Required
 ms.date: 09/21/2020

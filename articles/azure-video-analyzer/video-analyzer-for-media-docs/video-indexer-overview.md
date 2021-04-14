@@ -2,11 +2,11 @@
 title: What is Azure Video Analyzer for Media (former Video Indexer)?
 titleSuffix: Azure Media Services
 description: This article gives an overview of the Azure Video Analyzer for Media (former Video Indexer) service.
-services: azure-video-analyzer
+services: media-services
 author: Juliako
 manager: femila
 
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/05/2021

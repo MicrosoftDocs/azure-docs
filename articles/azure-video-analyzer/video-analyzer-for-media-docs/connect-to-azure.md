@@ -2,10 +2,10 @@
 title: Create a Azure Video Analyzer for Media (former Video Indexer) account connected to Azure
 titleSuffix: Azure Media Services
 description: Learn how to create a Azure Video Analyzer for Media (former Video Indexer) account connected to Azure.
-services: azure-video-analyzer
+services: media-services
 author: Juliako
 manager: femila
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article 
 ms.date: 01/14/2021

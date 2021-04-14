@@ -1,13 +1,13 @@
 ---
 title: Manage multiple tenants with Azure Video Analyzer for Media (former Video Indexer) - Azure 
 description: This article suggests different integration options for managing multiple tenants with Azure Video Analyzer for Media (former Video Indexer).
-services: azure-video-analyzer
+services: media-services
 documentationcenter: ''
 author: ika-microsoft
 manager: femila
 editor: ''
 
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: 
 ms.topic: article

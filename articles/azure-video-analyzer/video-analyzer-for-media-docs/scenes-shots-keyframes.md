@@ -2,11 +2,11 @@
 title: Azure Video Analyzer for Media (former Video Indexer) scenes, shots, and keyframes 
 titleSuffix: Azure Media Services
 description: This topic gives an overview of the Azure Video Analyzer for Media (former Video Indexer) scenes, shots, and keyframes.
-services: azure-video-analyzer
+services: media-services
 author: Juliako
 manager: femila
 
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019

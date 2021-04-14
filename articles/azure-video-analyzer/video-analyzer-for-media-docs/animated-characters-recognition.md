@@ -2,10 +2,10 @@
 title: Animated character detection with Azure Video Analyzer for Media (former Video Indexer)
 titleSuffix: Azure Media Services
 description: This topic demonstrates how to use animated character detection with Azure Video Analyzer for Media (former Video Indexer).
-services: azure-video-analyzer
+services: media-services
 author: Juliako
 manager: femila
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019

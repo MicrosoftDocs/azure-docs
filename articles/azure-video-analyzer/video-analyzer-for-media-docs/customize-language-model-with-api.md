@@ -2,10 +2,10 @@
 title: Customize a Language model with Azure Video Analyzer for Media (former Video Indexer) API
 titlesuffix: Azure Media Services
 description: Learn how to customize a Language model with the Azure Video Analyzer for Media (former Video Indexer) API.
-services: azure-video-analyzer
+services: media-services
 author: anikaz
 manager: johndeu
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020

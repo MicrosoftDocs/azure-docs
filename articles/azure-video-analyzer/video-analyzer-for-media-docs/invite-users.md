@@ -2,11 +2,11 @@
 title: Invite users to Azure Video Analyzer for Media (former Video Analyzer for Media) - Azure  
 titleSuffix: Azure Media Services
 description: This article shows how to invite users to Azure Video Analyzer for Media (former Video Analyzer for Media).
-services: azure-video-analyzer
+services: media-services
 author: Juliako
 manager: femila
 
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 02/03/2021

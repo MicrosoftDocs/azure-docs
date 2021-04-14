@@ -2,11 +2,11 @@
 title: Customizing content models in Azure Video Analyzer for Media (former Video Indexer)
 titleSuffix: Azure Media Services
 description: This article gives links to the conceptual articles that explain the benefits of each type of customization. This article also links to how-to guides that show how you can implement the customization of each model.
-services: azure-video-analyzer
+services: media-services
 author: anikaz
 manager: johndeu
 
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019

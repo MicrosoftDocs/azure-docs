@@ -2,11 +2,11 @@
 title: Use the Azure Video Analyzer for Media (former Video Indexer) API
 titleSuffix: Azure Media Services
 description: This article describes how to get started with Azure Video Analyzer for Media (former Video Indexer) API.
-services: azure-video-analyzer
+services: media-services
 author: Juliako
 manager: femila
 
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/07/2021

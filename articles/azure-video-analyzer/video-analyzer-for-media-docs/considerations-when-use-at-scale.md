@@ -2,11 +2,11 @@
 title: Things to consider when using Azure Video Analyzer for Media (former Video Indexer) at scale - Azure
 titleSuffix: Azure Media Services
 description: This topic explains what things to consider when using Azure Video Analyzer for Media (former Video Indexer) at scale.
-services: azure-video-analyzer
+services: media-services
 author: Juliako
 manager: femila
 
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020

@@ -2,10 +2,10 @@
 title: Customize a Brands model with Azure Video Analyzer for Media (former Video Indexer) API
 titleSuffix: Azure Media Services
 description: Learn how to customize a Brands model with the Azure Video Analyzer for Media (former Video Indexer) API.
-services: azure-video-analyzer
+services: media-services
 author: anikaz
 manager: johndeu
-ms.service: azure-video-analyzer
+ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
