@@ -90,8 +90,8 @@ back up and running:
 
 ## Next steps
 
-* Learn about [backup and restore](concepts-hyperscale-backup.md) in Hyperscale
-  (Citus).
+* Learn more about [backup and restore](concepts-hyperscale-backup.md) in
+  Hyperscale (Citus).
 * Set [suggested
   alerts](./howto-hyperscale-alert-on-metric.md#suggested-alerts) on Hyperscale
-(Citus) server groups.
+  (Citus) server groups.
