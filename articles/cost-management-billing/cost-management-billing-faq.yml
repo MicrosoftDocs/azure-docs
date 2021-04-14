@@ -131,16 +131,16 @@ sections:
       - question: How can I find reservation costs to charge back?
         answer: |
           See [Charge back Azure Reservation costs](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json) for detailed information.
-      - question: -	How do I get a reservation details report?
+      - question: How do I get a reservation details report?
         answer: |
           Read the API documentation to [generate a reservation details report](/rest/api/cost-management/generatereservationdetailsreport).
 
   - name: Azure Enterprise Agreement (EA) and EA portal questions
     questions:
-      - question: -	How do I assign SPN permissions to my Enrollment?
+      - question: How do I assign SPN permissions to my Enrollment?
         answer: |
           See [Assign roles to EA SPNs](manage/assign-roles-azure-service-principals.md).
-      - question: -	How do I migrate from the EA Reporting APIs to the Microsoft Customer Agreement APIs?
+      - question: How do I migrate from the EA Reporting APIs to the Microsoft Customer Agreement APIs?
         answer: |
           See [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](costs/migrate-cost-management-api.md).
       - question: Why didn't I receive an activation email?
