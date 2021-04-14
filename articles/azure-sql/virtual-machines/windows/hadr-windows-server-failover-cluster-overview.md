@@ -80,7 +80,7 @@ To be more tolerant of transient failures, it is recommended to use the more rel
 * Windows Server 2012
 * Windows Server 2012 R2
 
-To learn more about tuning these parameters, see [Cluster Best Practices](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
+To learn more about tuning these parameters, see [Cluster Best Practices](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
 
 ## Resource limits
 
