@@ -84,7 +84,7 @@ To proceed with Azure Digital Twins Explorer, first download the sample applicat
 
 To get the sample, see [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Download ZIP** button to download a .zip file of this sample code to your machine as **Azure_Digital_Twins__ADT__explorer.zip**. Unzip the file.
 
-Next, set up and configure permissions for Azure Digital Twins Explorer. Follow the instructions in the [Set up Azure Digital Twins and Azure Digital Twins Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
+Next, set up and configure permissions for Azure Digital Twins Explorer. Follow the instructions in the [Set up Azure Digital Twins and Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
 
 1. Set up an Azure Digital Twins instance. You can skip this part because you already have an instance.
 1. Set up local Azure credentials to provide access to your instance.

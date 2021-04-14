@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 # Blob versioning
 
-You can enable Blob storage versioning to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
+You can enable Blob storage versioning to automatically maintain previous versions of an object. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -31,21 +31,21 @@ To learn more about Microsoft's recommendations for data protection, see [Data p
 
 ## How blob versioning works
 
-A version captures the state of a blob at a given point in time. When blob versioning is enabled for a storage account, Azure Storage automatically creates a new version of a blob each time that blob is modified.
+A version captures the state of a blob at a given point in time. Each version is identified with a version ID. When blob versioning is enabled for a storage account, Azure Storage automatically creates a new version with a unique ID when a blob is first created and each time that the blob is subsequently modified.
 
-When you create a blob with versioning enabled, the new blob is the current version of the blob (or the base blob). If you subsequently modify that blob, Azure Storage creates a version that captures the state of the blob before it was modified. The modified blob becomes the new current version. A new version is created each time you modify the blob.
+A version ID can identify the current version or a previous version. A blob can have only one current version at a time.
+
+When you create a new blob, a single version exists, and that version is the current version. When you modify an existing blob, the current version becomes a previous version. A new version is created to capture the updated state, and that new version is the current version. When you delete a blob, the current version of the blob becomes a previous version, and there is no longer a current version. Any previous versions of the blob persist.
 
 The following diagram shows how versions are created on write operations, and how a previous version may be promoted to be the current version:
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram showing how blob versioning works":::
 
-When you delete a blob with versioning enabled, the current version of the blob becomes a previous version, and there is no longer a current version. Any previous versions of the blob persist.
-
 Blob versions are immutable. You cannot modify the content or metadata of an existing blob version.
 
 Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md).
 
-Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
+Blob versioning is available for standard general-purpose v2, premium block blob, and legacy Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
@@ -54,9 +54,9 @@ Version 2019-10-10 and higher of the Azure Storage REST API supports blob versio
 
 ### Version ID
 
-Each blob version is identified by a version ID. The value of the version ID is the timestamp at which the blob was updated. The version ID is assigned at the time that the version is created.
+Each blob version is identified by a unique version ID. The value of the version ID is the timestamp at which the blob was updated. The version ID is assigned at the time that the version is created.
 
-You can perform read or delete operations on a specific version of a blob by providing its version ID. If you omit the version ID, the operation acts against the current version (the base blob).
+You can perform read or delete operations on a specific version of a blob by providing its version ID. If you omit the version ID, the operation acts against the current version.
 
 When you call a write operation to create or modify a blob, Azure Storage returns the *x-ms-version-id* header in the response. This header contains the version ID for the current version of the blob that was created by the write operation.
 
@@ -66,11 +66,9 @@ The version ID remains the same for the lifetime of the version.
 
 When blob versioning is turned on, each write operation to a blob creates a new version. Write operations include [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Copy Blob](/rest/api/storageservices/copy-blob), and [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata).
 
-If the write operation creates a new blob, then the resulting blob is the current version of the blob. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which is the current version, and Azure Storage creates a version that saves the blob's previous state.
+If the write operation creates a new blob, then the resulting blob is the current version of the blob. If the write operation modifies an existing blob, then the current version becomes a previous version, and a new current version is created to capture the updated blob.
 
-For simplicity, the diagrams shown in this article display the version ID as a simple integer value. In reality, the version ID is a timestamp. The current version is shown in blue, and previous versions are shown in gray.
-
-The following diagram shows how write operations affect blob versions. When a blob is created, that blob is the current version. When the same blob is modified, a new version is created to save the blob's previous state, and the updated blob becomes the current version.
+The following diagram shows how write operations affect blob versions. For simplicity, the diagrams shown in this article display the version ID as a simple integer value. In reality, the version ID is a timestamp. The current version is shown in blue, and previous versions are shown in gray.
 
 :::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram showing how write operations affect versioned blobs.":::
 
