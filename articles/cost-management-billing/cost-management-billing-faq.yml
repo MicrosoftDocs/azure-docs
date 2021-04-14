@@ -39,6 +39,7 @@ sections:
       - question: How do I cancel my Azure subscription?
         answer: |
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
+
   - name: Cost Management questions
     questions:
       - question: How can I enable access to view costs?
@@ -56,17 +57,6 @@ sections:
       - question: How do I see my invoice costs?
         answer: |
           In the Azure portal, navigate to Cost analysis for the scope associated with the invoice that you're analyzing. Select the **Invoice details** view. Invoice details show you the charges as shown on your invoice.
-      - question: How do I view reservation charges?
-        answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**. Under Scope and next to the cost shown, select the down arrow symbol, and then select either **Actual cost** or **Amortized cost** metric.
-      - question: How do I see reservation savings?
-        answer: |
-          There are a couple of ways to view your savings.
-          -  If you're an EA customer, you can use the Azure Cost Management Power BI App for EA to view the [RI Savings report](/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md).
-          -  Use the Usage + Charges data file to manually [determine reservation savings](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings).
-      - question: How do I view reservation underutilization?
-        answer: |
-          Sign in to the Azure portal. Then select All services > **Reservations** and note the **Utilization (%)** for a reservation. Select a reservation. Review the reservation use trend over time. For more information, see [View reservation use in the Azure portal](reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json#view-reservation-use-in-the-azure-portal). You can also [View unused reservation costs in cost analysis](costs/cost-analysis-common-uses.md#view-unused-ri-costs-in-cost-analysis).
       - question: How do I view costs for a tag?
         answer: |
           In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Group by** for your tag. Tags aren't available for: purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, or classic resources. Some services don't include tags in usage data. For more information, see [Tag support for Azure resources](../azure-resource-manager/management/tag-support.md).
@@ -103,6 +93,21 @@ sections:
       - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
           <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
+
+  - name: Azure Reservations questions
+    questions:
+      - question: How do I view reservation charges?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**. Under Scope and next to the cost shown, select the down arrow symbol, and then select either **Actual cost** or **Amortized cost** metric.
+      - question: How do I see reservation savings?
+        answer: |
+          There are a couple of ways to view your savings.
+          -  If you're an EA customer, you can use the Azure Cost Management Power BI App for EA to view the [RI Savings report](/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md).
+          -  Use the Usage + Charges data file to manually [determine reservation savings](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings).
+      - question: How do I view reservation underutilization?
+        answer: |
+          Sign in to the Azure portal. Then select All services > **Reservations** and note the **Utilization (%)** for a reservation. Select a reservation. Review the reservation use trend over time. For more information, see [View reservation use in the Azure portal](reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json#view-reservation-use-in-the-azure-portal). You can also [View unused reservation costs in cost analysis](costs/cost-analysis-common-uses.md#view-unused-ri-costs-in-cost-analysis).
+
 
   - name: Azure Enterprise Agreement (EA) and EA portal questions
     questions:
