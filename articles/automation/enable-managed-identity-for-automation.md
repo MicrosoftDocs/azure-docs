@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Enable a managed identity for your Azure Automation account (Preview)
 
-This topic shows you how to create a managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identity works with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
+This topic shows you how to create a managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identity works with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-(preview)).
 
 ## Prerequisites
 
