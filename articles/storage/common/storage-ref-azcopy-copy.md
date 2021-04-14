@@ -33,9 +33,9 @@ For more information, see the examples section of this article.
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Tutorial: Migrate on-premises data to cloud storage with AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Advanced
 
