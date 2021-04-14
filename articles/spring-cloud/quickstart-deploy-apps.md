@@ -286,8 +286,8 @@ We need a way to access the application via a web browser. Our gateway applicati
     ```txt
         Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
-    api-gateway        eastus      yuchensp         default                  https://yuchensp-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
-    customers-service  eastus      yuchensp         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
+    api-gateway        eastus      yuchensp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
+    customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
     ```
 
 1. Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of **https://\<service name\>-api-gateway.azuremicroservices.io**.
