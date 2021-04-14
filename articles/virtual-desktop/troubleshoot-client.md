@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Troubleshoot the Remote Desktop client
 

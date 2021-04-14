@@ -2,7 +2,7 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 04/12/2021
 ---
 # Create Resource Manager parameter file
 
@@ -204,6 +204,8 @@ For more information, see [Deploy resources with ARM templates and Azure PowerSh
 
 > [!NOTE]
 > It's not possible to use a parameter file with the custom template blade in the portal.
+
+If you're using the [Azure Resource Group project in Visual Studio](create-visual-studio-deployment-project.md), make sure the parameter file has its **Build Action** set to **Content**.
 
 ## File name
 

@@ -12,6 +12,10 @@ items:
     href: create-catalog-portal.md
   - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
+  - name: Create a Purview account - .NET SDK
+    href: create-purview-dotnet.md
+  - name: Create a Purview account - Python
+    href: create-purview-python.md
 - name: Tutorials
   items:
   - name: Starter kit
@@ -79,6 +83,8 @@ items:
         href: purview-connector-overview.md
       - name: Azure Multiple Source
         href: register-scan-azure-multiple-sources.md
+      - name: Azure Synapse Analytics (Workspace)
+        href: register-scan-synapse-workspace.md
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
         displayName: Register and scan azure blob storage
@@ -100,7 +106,7 @@ items:
       - name: Azure SQL Database Managed Instance
         href: register-scan-azure-sql-database-managed-instance.md
         displayName: Register and scan Azure SQL DB Managed Instance
-      - name: Azure Synapse Analytics
+      - name: Azure Dedicated SQL pool (formerly SQL DW)
         href: register-scan-azure-synapse-analytics.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
