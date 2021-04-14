@@ -105,6 +105,9 @@ sections:
       - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
           <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
+
+  - name: Cost Management + Billing API questions
+    questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
           The Cost Management + Billing team hasn't announced a deprecation timeline for the APIs. The APIs are no longer in active development. We recommend that you plan any needed work to migrate away from them.
@@ -114,6 +117,9 @@ sections:
       - question: Why do I get Usage Details API timeouts?
         answer: |
           The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usagedetails/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
+      - question: How do I migrate from the EA Reporting APIs to the Microsoft Customer Agreement APIs?
+        answer: |
+          See [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](costs/migrate-cost-management-api.md).
 
   - name: Azure Reservations questions
     questions:
@@ -140,9 +146,6 @@ sections:
       - question: How do I assign SPN permissions to my Enrollment?
         answer: |
           See [Assign roles to EA SPNs](manage/assign-roles-azure-service-principals.md).
-      - question: How do I migrate from the EA Reporting APIs to the Microsoft Customer Agreement APIs?
-        answer: |
-          See [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](costs/migrate-cost-management-api.md).
       - question: Why didn't I receive an activation email?
         answer: |
           An activation email from the Azure EA portal is sent from *waep@microsoft.com*. If you didn't receive an activation email, check your spam or junk folder for the email. It's sent with _Invitation to View/Manage the Microsoft Azure service_subject_. It's sent to every newly added EA administrator.
