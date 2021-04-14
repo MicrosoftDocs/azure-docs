@@ -115,7 +115,7 @@ Azure Digital Twins is a service that only supports one  [Azure Active Directory
 
 [!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
 
-If you need to access your Azure Digital Twins instance using a service principal or user account that lives in a different from the instance, you can have each federated identity from another tenant request a **token** from the Azure Digital Twins instance's "home" tenant. 
+If you need to access your Azure Digital Twins instance using a service principal or user account that lives in a different tenant from the instance, you can have each federated identity from another tenant request a **token** from the Azure Digital Twins instance's "home" tenant. 
 
 [!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
 

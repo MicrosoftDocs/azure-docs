@@ -73,7 +73,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     ---
 
     >[!NOTE]
-    > If you need to access your Azure Digital Twins instance using a service principal or user account that lives in a different from the instance, you'll need to request a **token** from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [*How-to: Write app authentication code*](how-to-authenticate-client.md#authenticate-across-tenants).
+    > If you need to access your Azure Digital Twins instance using a service principal or user account that lives in a different tenant from the instance, you'll need to request a **token** from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [*How-to: Write app authentication code*](how-to-authenticate-client.md#authenticate-across-tenants).
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 

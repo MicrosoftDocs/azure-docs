@@ -7,7 +7,7 @@ ms.date: 4/13/2021
 ms.author: baanders
 ---
 
-One way to do this is with the following CLI command:
+One way to do this is with the following CLI command, where `<home-tenant-ID>` is the ID of the Azure AD tenant that contains the Azure Digital Twins instance:
 
 ```azurecli-interactive
 az account get-access-token --tenant <home-tenant-ID> --resource https://digitaltwins.azure.net
