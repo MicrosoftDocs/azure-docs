@@ -41,7 +41,18 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
    > [!NOTE] 
    > Be sure to check the box under "Terms" before proceeding.
-   >
+   > The current list of Redis Enterprise supported regions are :
+   > 	• Australia East
+	> 	• East US
+	> 	• East US 2
+	> 	• North Europe
+	> 	• South Central US
+	> 	• Southeast Asia
+	> 	• UK South
+	> 	• West Europe
+	> 	• West US
+	> 	• West US 2
+   >  Redis DRAM and Flash tiers won't show up in the list if you pick a region not supported by Redis Enterprise.
 
 1. Select **Next: Networking** and skip.
 
