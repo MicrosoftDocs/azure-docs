@@ -108,7 +108,7 @@ You'll need the files for these steps:
     ```
     IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
     AVA_PROVISIONING_TOKEN="<device provisioning token>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/avaedgeuser/samples/input"  
     VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/azurevideoanalyzer"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
