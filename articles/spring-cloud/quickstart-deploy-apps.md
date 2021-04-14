@@ -253,38 +253,61 @@ We need a way to access the application via a web browser. Our gateway applicati
 
 ### Clone and build the sample application repository
 
-1. Clone the Git repository by running the following command:
+1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project. 
 
-    ```
-    git clone https://github.com/Azure-Samples/piggymetrics
-    ```
-  
-1. Change directory and build the project by running the following command:
-
-    ```
-    cd piggymetrics
-    mvn clean package -DskipTests
+    ```azurecli
+    git clone https://github.com/azure-samples/spring-petclinic-microservices
+    cd spring-petclinic-microservices
+    mvn clean package -DskipTests -Denv=cloud
     ```
 
-### Generate configurations and deploy to the Azure Spring Cloud
+### Create and deploy apps on Azure Spring Cloud
 
-1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+1. Create the 2 core microservices for PetClinic: API gateway and customer-service.
 
+    ```azurecli
+    az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --is-public
+    az spring-cloud app create --name customers-service --instance-count 1 --memory 2
     ```
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
-    ```
-    
-    You will be asked to select:
-    * **Modules:** Select `gateway`,`auth-service`, and `account-service`.
-    * **Subscription:** This is your subscription used to create an Azure Spring Cloud instance.
-    * **Service Instance:** This is the name of your Azure Spring Cloud instance.
-    * **Public endpoint:** In the list of provided projects, enter the number that corresponds with `gateway`.  This gives it public access.
 
-1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command. 
+1. Deploy the JAR files built in the previous step.
 
+    ```azurecli
+    az spring-cloud app deploy --name api-gateway --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
+    az spring-cloud app deploy --name customers-service --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
     ```
-    mvn azure-spring-cloud:deploy
+
+1. Query app status after deployments with the following command.
+
+    ```azurecli
+    az spring-cloud app list -o table
     ```
+
+    ```txt
+        Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
+    -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
+    api-gateway        eastus      yuchensp         default                  https://yuchensp-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
+    customers-service  eastus      yuchensp         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
+    ```
+
+1. Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of **https://\<service name\>-api-gateway.azuremicroservices.io**.
+
+    ![Access petclinic customers service](media/build-and-deploy/access-customers-service.png)
+
+> [!TIP]
+> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring-cloud app logs --name <app name> -f`.
+
+### Deploy extra apps
+
+To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other apps with following commands:
+
+```azurecli
+az spring-cloud app create --name admin-server --instance-count 1 --memory 2 --is-public
+az spring-cloud app create --name vets-service --instance-count 1 --memory 2
+az spring-cloud app create --name visits-service --instance-count 1 --memory 2
+az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 
 #### [IntelliJ](#tab/IntelliJ)
 

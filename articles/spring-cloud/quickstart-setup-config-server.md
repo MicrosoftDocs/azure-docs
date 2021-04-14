@@ -68,12 +68,12 @@ The following procedure sets up the config server using the Azure portal to depl
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-sample-app-introduction.md).
+The following procedure uses the Azure CLI to set up the config server to deploy the [Pet Clinic sample](spring-cloud-quickstart-sample-app-introduction.md).
 
-Set up your config-server with the location of the git repository for the project:
+Use the application.yml in the root of this project to load configuration into the Config Server in Azure Spring Cloud.
 
 ```azurecli
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
+   az spring-cloud config-server set --name <spring cloud service name> --config-file application.yml
 ```
 ---
 ::: zone-end
