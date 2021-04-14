@@ -26,7 +26,7 @@ The Automation resources for each Automation account are associated with a singl
 
 All tasks that you create against resources using Azure Resource Manager and the PowerShell cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory (Azure AD) organizational identity credential-based authentication.
 
-## Managed identities (Preview)
+## Managed identities
 
 A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -49,7 +49,7 @@ An Automation account can be granted two types of identities:
 >[!NOTE]
 > User assigned identities are not supported yet.
 
-For details on using managed identities, see [Enable managed identity for Azure Automation (Preview)](enable-managed-identity-for-automation.md).
+For details on using managed identities, see [Enable managed identity for Azure Automation (preview)](enable-managed-identity-for-automation.md).
 
 ## Run As accounts
 
