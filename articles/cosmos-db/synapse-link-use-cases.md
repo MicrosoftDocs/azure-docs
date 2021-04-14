@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
+ms.custom: synapse-cosmos-db
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases

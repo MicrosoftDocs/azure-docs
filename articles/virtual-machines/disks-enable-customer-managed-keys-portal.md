@@ -28,8 +28,6 @@ For now, customer-managed keys have the following restrictions:
 
     - For Windows: [Copy a managed disk](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
 
-- Only [software and HSM RSA keys](../key-vault/keys/about-keys.md) of sizes 2,048-bit, 3,072-bit and 4,096-bit are supported, no other keys or sizes.
-    - [HSM](../key-vault/keys/hsm-protected-keys.md) keys require the **premium** tier of Azure Key vaults.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 The following sections cover how to enable and use customer-managed keys for managed disks:

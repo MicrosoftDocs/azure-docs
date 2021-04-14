@@ -44,6 +44,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Concurrent number of data flows per integration runtime | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent number of data flow debug sessions per user per factory | 3 | 3 |
 | Data Flow Azure IR TTL limit | 4 hrs |  4 hrs |
+| Meta Data Entity Size limit in a factory | 2 GB | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> The data integration unit (DIU) is used in a cloud-to-cloud copy operation, learn more from [Data integration units (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). For information on billing, see [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/).
 

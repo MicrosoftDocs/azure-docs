@@ -183,6 +183,9 @@
       href: howto-restore-server-cli.md
     - name: Azure PowerShell
       href: howto-restore-server-powershell.md
+  - name: Restore a deleted server
+    href: howto-restore-dropped-server.md
+    displayName: restore server,dropped, deleted, recover
 - name: Monitor and tune
   items:
   - name: Concepts
@@ -201,6 +204,8 @@
     href: concepts-query-performance-insight.md
   - name: Performance Recommendations
     href: concepts-performance-recommendations.md
+  - name: Azure Advisor recommendations
+    href: concepts-azure-advisor-recommendations.md
 - name: Replication
   items:
   - name: Data-in replication

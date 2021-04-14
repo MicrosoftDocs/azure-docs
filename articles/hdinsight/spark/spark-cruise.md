@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
 
-#customer intent: As an Apache Spark developer, I would like to learn about the tools and features to optimize my Spark workloads on Azure HDInsight.
+# Customer intent: As an Apache Spark developer, I would like to learn about the tools and features to optimize my Spark workloads on Azure HDInsight.
 ---
 # SparkCruise on Azure HDInsight
 

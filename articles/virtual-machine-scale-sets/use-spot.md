@@ -40,8 +40,8 @@ Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
 -	Enterprise Agreement
--	Pay-as-you-go offer code 003P
--	Sponsored
+-	Pay-as-you-go offer code (003P)
+-	Sponsored (0036P and 0136P)
 - For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 ## Eviction policy
@@ -166,7 +166,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## Resource Manager templates

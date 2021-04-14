@@ -4,7 +4,7 @@ description: The Container Instances security baseline provides procedural guida
 author: msmbaldwin
 ms.service: container-instances
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,17 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Container Instances
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Container Instances. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Container Instances. **Controls** not applicable to Container Instances have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Container Instances. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Container Instances. **Controls** not applicable to Container Instances, or for which the responsibility is Microsoft's, have been excluded.
 
- 
-To see how Container Instances completely maps to the Azure
-Security Benchmark, see the [full Container Instances security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Container Instances completely maps to the Azure Security Benchmark, see the [full Container Instances security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
@@ -258,9 +250,9 @@ You can use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 If using a cloud-based private registry like Azure container registry with Azure Container Instances, for each Azure container registry, track whether the built-in admin account is enabled or disabled. Disable the account when not in use.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
@@ -298,7 +290,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 **Guidance**: Wherever possible, use Azure Active Directory (Azure AD) SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-If using a cloud-based private registry like Azure container registry with Azure Container Instances, for individual access to the container registry, use individual sign ins integrated with Azure AD.
+If using a cloud-based private registry like Azure container registry with Azure Container Instances, for individual access to the container registry, use individual sign inintegrated with Azure AD.
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -608,7 +600,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -732,7 +724,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
-- [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [For example, how to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Responsibility**: Customer
 
@@ -806,9 +798,9 @@ If using a cloud-based private registry like Azure Container Registry (ACR) with
 
 **Guidance**: If using custom Azure policy definitions, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/)
 
 **Responsibility**: Customer
 
@@ -968,7 +960,7 @@ Back up customer-managed keys in Azure Key Vault using Azure command-line tools 
 
 - [Import container images to a container registry](../container-registry/container-registry-import-images.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 - [Encrypting deployment data with Container Instances](container-instances-encrypt-data.md)
 
@@ -980,7 +972,7 @@ Back up customer-managed keys in Azure Key Vault using Azure command-line tools 
 
 **Guidance**: Test restoration of backed up customer-managed keys in Azure Key Vault using Azure command-line tools or SDKs.
 
-- [How to restore Azure Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore Azure Key Vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsibility**: Customer
 

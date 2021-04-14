@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 03/30/2021
 ms.author: justinha
 ---
 
@@ -50,7 +50,7 @@ The following example shows a managed domain with three replica sets to further 
 
 The default SKU for a managed domain is the *Enterprise* SKU, which supports multiple replica sets. To create additional replica sets if you changed to the *Standard* SKU, [upgrade the managed domain](change-sku.md) to *Enterprise* or *Premium*.
 
-The supported maximum number of replica sets is four, including the first replica created when you created the managed domain.
+The supported maximum number of replica sets is five, including the first replica created when you created the managed domain.
 
 Billing for each replica set is based on the domain configuration SKU. For example, if you have a managed domain that uses the *Enterprise* SKU and you have three replica sets, your subscription is billed per hour for each of the three replica sets.
 
@@ -62,7 +62,7 @@ No. Replica sets must be in the same subscription as the managed domain.
 
 ### How many replica sets can I create?
 
-You can create a maximum of four replica sets—the initial replica set for the managed domain, plus three additional replica sets.
+You can create a maximum of five replica sets—the initial replica set for the managed domain, plus four additional replica sets.
 
 ### How does user and group information get synchronized to my replica sets?
 

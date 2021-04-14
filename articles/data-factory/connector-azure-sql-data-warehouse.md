@@ -5,7 +5,7 @@ ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/17/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
@@ -385,6 +385,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure Synapse Analytics in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 #### Azure Synapse Analytics sink example
 
@@ -610,7 +611,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ### Best practices for using PolyBase
 
-The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### Required database permission
 

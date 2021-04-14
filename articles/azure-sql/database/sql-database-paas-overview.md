@@ -29,7 +29,7 @@ If you're new to Azure SQL Database, check out the *Azure SQL Database Overview*
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 > [!TIP]
-> How can we make Azure SQL better? [Take the survey](https://aka.ms/AzureSQLSurvey).
+> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## Deployment models
 

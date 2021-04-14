@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
 ---
 
@@ -38,7 +38,7 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 1. Access the web enrollment site on the Root CA, usually `https://<servername>/certsrv` and select **Request a Certificate**.
 1. Select **Advanced Certificate Request**.
 1. Select **Create and Submit a Request to this CA**.
-1. Fill out the form using the Subordinate Certification Authority template as shown:
+1. Fill out the form using the Subordinate Certification Authority template.
 1. Submit the request and install the certificate.
 1. Assuming this request is made from a Windows Server using Internet Explorer, open **Internet Options**.
 1. Navigate to the **Content** tab and select **Certificates**.

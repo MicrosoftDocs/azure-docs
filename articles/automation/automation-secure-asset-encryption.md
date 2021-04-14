@@ -136,18 +136,21 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 Request body:
 
 ```json
- {
-    "properties": {
-      "encryption": {
-        "keySource": "Microsoft.Keyvault",
-        "keyvaultProperties": {
-          "keyName": "sample-vault-key",
-          "keyvaultUri": "https://sample-vault-key12.vault.azure.net",
-          "keyVersion": "7c73556c521340209371eaf623cc099d"
-        }
-      }
-    }
-  }
+{
+	"identity": {
+	"type": "SystemAssigned"
+	},
+	"properties": {
+		"encryption": {
+			"keySource": "Microsoft.Keyvault",
+			"keyvaultProperties": {
+				"keyName": "sample-vault-key",
+				"keyvaultUri": "https://sample-vault-key12.vault.azure.net",
+				"keyVersion": "7c73556c521340209371eaf623cc099d"
+			}
+		}
+	}
+}
 ```
 
 Sample response

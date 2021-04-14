@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Connect to Windows Virtual Desktop with the web client
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/01/2020
+ms.date: 03/09/2021
 ms.author: aahi
 ---
 
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/)
+[v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/)
 
 # [Version 3.0](#tab/version-3)
 
@@ -54,10 +54,10 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 #### [version 3.1-preview](#tab/version-3-1)
 
 > [!NOTE]
-> The below example includes a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+> The below example includes a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about assessments (adjectives) related to targets (nouns) in the text.
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/sentiment?opinionMining=true \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/sentiment?opinionMining=true \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", text: "The customer service here is really good."}]}'
@@ -87,7 +87,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
                "offset":0,
                "length":41,
                "text":"The customer service here is really good.",
-               "aspects":[
+               "targets":[
                   {
                      "sentiment":"positive",
                      "confidenceScores":{
@@ -99,13 +99,13 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
                      "text":"customer service",
                      "relations":[
                         {
-                           "relationType":"opinion",
-                           "ref":"#/documents/0/sentences/0/opinions/0"
+                           "relationType":"assessment",
+                           "ref":"#/documents/0/sentences/0/assessments/0"
                         }
                      ]
                   }
                ],
-               "opinions":[
+               "assessments":[
                   {
                      "sentiment":"positive",
                      "confidenceScores":{
@@ -184,7 +184,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/sen
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/languages/ \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/languages/ \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", text: "This is a document written in English."}]}'
@@ -200,7 +200,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
          "detectedLanguage":{
             "name":"English",
             "iso6391Name":"en",
-            "confidenceScore":0.99
+            "confidenceScore":1.0
          },
          "warnings":[
             
@@ -210,7 +210,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
    "errors":[
       
    ],
-   "modelVersion":"2020-09-01"
+   "modelVersion":"2021-01-05"
 }
 ```
 
@@ -257,7 +257,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/lan
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/entities/recognition/general \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/recognition/general \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'
@@ -273,19 +273,12 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
          "id":"1",
          "entities":[
             {
-               "text":"trip",
-               "category":"Event",
-               "offset":18,
-               "length":4,
-               "confidenceScore":0.61
-            },
-            {
                "text":"Seattle",
                "category":"Location",
                "subcategory":"GPE",
                "offset":26,
                "length":7,
-               "confidenceScore":0.82
+               "confidenceScore":0.99
             },
             {
                "text":"last week",
@@ -304,7 +297,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
    "errors":[
       
    ],
-   "modelVersion":"2020-04-01"
+   "modelVersion":"2021-01-15"
 }
 
 ```
@@ -314,7 +307,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
 ```bash
-curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/entities/recognition/pii \
+curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/recognition/pii \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "Call our office at 312-555-1234, or send an email to support@contoso.com"}]}'
@@ -326,15 +319,22 @@ curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-prev
 {
    "documents":[
       {
-         "redactedText":"Insurance policy for *** on file 123-12-1234 is here by approved.",
+         "redactedText":"Call our office at ************, or send an email to *******************",
          "id":"1",
          "entities":[
             {
-               "text":"SSN",
-               "category":"Organization",
-               "offset":21,
-               "length":3,
-               "confidenceScore":0.45
+               "text":"312-555-1234",
+               "category":"PhoneNumber",
+               "offset":19,
+               "length":12,
+               "confidenceScore":0.8
+            },
+            {
+               "text":"support@contoso.com",
+               "category":"Email",
+               "offset":53,
+               "length":19,
+               "confidenceScore":0.8
             }
          ],
          "warnings":[
@@ -345,7 +345,7 @@ curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-prev
    "errors":[
       
    ],
-   "modelVersion":"2020-07-01"
+   "modelVersion":"2021-01-15"
 }
 ```
 
@@ -412,7 +412,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/entities/linking \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/linking \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975."}]}'
@@ -606,10 +606,10 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/keyPhrases \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/keyPhrases \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", language:"en", text: "Hello world. This is some input text that I love."}]}'
+-d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'
 ```
 
 ```json
