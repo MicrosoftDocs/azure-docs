@@ -130,7 +130,7 @@ On the **Intents** page for `HomeAutomation.AddDeviceAlias`, add the following e
 
 Labeling your utterances is needed because you added an ML entity. Labeling is need by your application in order to learn how to extract the ML entities you created.
 
-[!INCLUDE [how-to-label](./how-to-label.md)]
+[!INCLUDE [how-to-label](./includes/how-to-label.md)]
 
 ## Create Prediction resource
 At this point, you have completed authoring your application. You need to create a prediction resource to publish your application in order to receive predictions in a chat bot or other client application through the prediction endpoint
