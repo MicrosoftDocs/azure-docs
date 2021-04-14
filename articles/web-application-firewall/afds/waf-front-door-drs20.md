@@ -84,6 +84,15 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[MS-ThreatIntel-SQLI](#drs99031-20)**|Protect against SQLI attacks|
 |**[MS-ThreatIntel-CVEs](#drs99001-20)**|Protect against CVE attacks|
 
+### DRS 1.1
+|Rule group|Description|
+|---|---|
+|**[PROTOCOL-ATTACK](#drs921-11)**|Protection against protocol attacks|
+
+### DRS 1.0
+
+### Bot rules
+
 
 The following rule groups and rules are available when using Web Application Firewall on Azure 
 Front Door.
@@ -331,6 +340,21 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+
+# [DRS 1.1](#tab/drs11)
+
+## <a name="drs11"></a> 1.1 rule sets
+
+### <a name="drs921-11"></a> <p x-ms-format-detection="none">PROTOCOL-ATTACK</p>
+|RuleId|Description|
+|---|---|
+|921110|HTTP Request Smuggling Attack|
+|921120|HTTP Response Splitting Attack|
+|921130|HTTP Response Splitting Attack|
+|921140|HTTP Header Injection Attack via headers|
+|921150|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921151|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
 ---
 
