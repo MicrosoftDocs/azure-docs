@@ -112,6 +112,14 @@
       href: message-counters.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
+    - name: Geo-disaster recovery and geo-replication
+      href: service-bus-geo-dr.md
+    - name: Asynchronous messaging and high availability
+      href: service-bus-async-messaging.md
+    - name: Handling outages and disasters
+      href: service-bus-outages-disasters.md
+    - name: Throttling
+      href: service-bus-throttling.md
   - name: Federation 
     items:
       - name: Message replication and cross-region federation
@@ -128,14 +136,6 @@
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
       - name: Acquire messages from Event Hubs
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
-  - name: Geo-disaster recovery and geo-replication
-    href: service-bus-geo-dr.md
-  - name: Asynchronous messaging and high availability
-    href: service-bus-async-messaging.md
-  - name: Handling outages and disasters
-    href: service-bus-outages-disasters.md
-  - name: Throttling
-    href: service-bus-throttling.md
   - name: Security
     items:
     - name: Security baseline
