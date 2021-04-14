@@ -26,7 +26,13 @@ Claims generated in the process of attesting enclaves using Microsoft Azure Atte
 
 Claims to be used by policy authors to define authorization rules in an SGX attestation policy:
 
-- **x-ms-sgx-is-debuggable**: A Boolean, which indicates whether or not the enclave has debugging enabled or not
+- **x-ms-sgx-is-debuggable**: 
+  A boolean value, which indicates whether enclave debugging is enabled or not.
+  
+  SGX enclaves can be loaded with debugging disabled, or enabled. When the flag is set to true in the enclave, it enables debugging features for the enclave code. This includes   the ability to access enclave’s memory. Hence it is recommended to set the flag to true only for development purposes. If enabled in production environment, SGX security        guarantees will not be retained.
+  
+Azure Attestation users can use the attestation policy to verify if debugging is disabled for the SGX enclave. Once the policy rule is added, attestation will fail when a malicious user turns on the debugging support to gain access to the enclave content.
+
 - **x-ms-sgx-product-id**: Product ID value of the SGX enclave 
 - **x-ms-sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
 - **x-ms-sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
