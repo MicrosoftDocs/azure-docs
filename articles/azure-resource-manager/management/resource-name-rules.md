@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/08/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -164,7 +164,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
-> | disks | resource group | 1-80 | Alphanumerics and underscores. |
+> | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications/versions | application | 32-bit integer | Numbers and periods. |
@@ -172,8 +172,8 @@ In the following tables, the term alphanumeric refers to:
 > | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Windows VMs can't include period or end with hyphen.<br><br>Linux VMs can't end with period or hyphen. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VMs can't include period or end with hyphen.<br><br>Linux VMs can't end with period or hyphen. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 
 > [!NOTE]
 > Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.

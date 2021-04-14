@@ -258,6 +258,8 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 ```
 It may take a few minutes for the VMs to deploy.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create a public IP address - Standard
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
@@ -777,6 +779,8 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     --no-wait
 ```
 It may take a few minutes for the VMs to deploy.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create a public IP address - Basic
 
