@@ -69,7 +69,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
     You can obtain metadata value based on user input in the following ways: 
 
-    * Explicitly take the domain as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions. We use [Bot Framework](https://dev.botframework.com/) samples to create a bot for you from the portal. You can edit the Bot code to pass on metadata filter. You can refer the [bot sample](https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/49.qnamaker-all-features) to understand the underlying bot structure.
+    * Explicitly take the domain as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions.
     * Identify domain based on any other input. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
     * Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
 
