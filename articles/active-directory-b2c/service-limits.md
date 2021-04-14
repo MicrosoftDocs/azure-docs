@@ -59,6 +59,7 @@ The following table lists the administrative configuration limits in the Azure A
 |Maximum policy file size      |Custom policy|400 KB          |
 |Number of B2C tenants per subscription      |Azure Subscription|20         |
 |Number of policies per Azure AD B2C tenant      | Tenant|200          |
+
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
