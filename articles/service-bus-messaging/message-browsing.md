@@ -26,7 +26,7 @@ When called repeatedly, the peek operation enumerates all messages in the queue 
 You can also pass a SequenceNumber to a peek operation. It will be used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
 
 ## Next steps
-See the samples at following locations. All of th
+See samples at the following locations. 
 
 - [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Peek at a message** sample
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/) - **receive_peek.py** sample
