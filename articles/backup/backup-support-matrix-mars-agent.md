@@ -230,9 +230,9 @@ By using the [Instant Restore](backup-instant-restore-capability.md) feature of 
 
 Backups can't be restored to a target machine that's running an earlier version of the operating system. For example, a backup taken from a computer that's running Windows 7 can be restored on Windows 8 or later. But a backup taken from a computer that's running Windows 8 can't be restored on a computer that's running Windows 7.
 
-## Supported previous versions
+## Previous MARS agent versions
 
-Azure Backup supports the following versions of MARS agent:
+The following table lists the previous versions of the agent with their download links. We recommend you to upgrade the agent version to the latest, so you can leverage the latest features and optimal performance.
 
 **Versions** | **KB Articles**
 --- | ---
@@ -251,7 +251,7 @@ Azure Backup supports the following versions of MARS agent:
 [2.0.9207.0](https://download.microsoft.com/download/b/5/a/b5a29638-1cef-4906-b704-4d3d914af76e/MARSAgentInstaller.exe) | [5001305](https://support.microsoft.com/help/5001305)
 
 >[!NOTE]
->KB articles are available for the versions as listed above.
+>A few versions only have minor internal reliability and performance improvements. So, the versions do not have a KB article.
 
 ## Next steps
 
