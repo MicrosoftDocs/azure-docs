@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
