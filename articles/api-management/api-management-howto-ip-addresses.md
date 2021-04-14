@@ -98,4 +98,4 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * Azure Virtual Network is added to or removed from the service.
 * API Management service is switched between External and Internal VNet deployment mode.
 
-In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated. The regional IP address also changes when you enable, add, or remove [availability zones](zone-redundancy.md.
+In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated. The regional IP address also changes when you enable, add, or remove [availability zones](zone-redundancy.md).
