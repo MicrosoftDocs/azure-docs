@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 04/13/2021
+ms.date: 04/14/2021
 ms.custom: contperf-fy21q2
 ---
 
