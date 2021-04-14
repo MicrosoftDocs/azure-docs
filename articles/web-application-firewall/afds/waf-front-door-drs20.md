@@ -88,6 +88,8 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[PROTOCOL-ATTACK](#drs921-11)**|Protection against protocol attacks|
+|**[LFI](#drs930-11)**|Need description here|
+|**[RFI](#drs931-11)**|Protection against remote file inclusion attacks|
 
 ### DRS 1.0
 
@@ -355,6 +357,23 @@ Front Door.
 |921150|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921151|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
+
+### <a name="drs930-11"></a> <p x-ms-format-detection="none">LFI</p>
+|RuleId|Description|
+|---|---|
+|930100|Path Traversal Attack (/../)|
+|930110|Path Traversal Attack (/../)|
+|930120|OS File Access Attempt|
+|930130|Restricted File Access Attempt|
+
+### <a name="drs931-11"></a> <p x-ms-format-detection="none">RFI</p>
+|RuleId|Description|
+|---|---|
+|931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
+|931110|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
+|931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
+|931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+
 
 ---
 
