@@ -9,9 +9,9 @@ ms.author: danlep
 
   * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
-  * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance. 
+  * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 
   * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different public IP address. 
 
   > [!IMPORTANT]
-  > Currently, the Azure portal uses API version 2021-01-01 preview when creating or updating an API Management instance. You can also specify this API version using an Azure Resource Manager template or the API Management REST API. The Azure CLI and Azure PowerShell currently support API version 2020-12-01.
+  > Currently, the Azure portal uses API version 2021-01-01 preview when creating or updating an API Management instance. You can specify this API version using an Azure Resource Manager template or the API Management REST API. The Azure CLI and Azure PowerShell currently support API version 2020-12-01.
