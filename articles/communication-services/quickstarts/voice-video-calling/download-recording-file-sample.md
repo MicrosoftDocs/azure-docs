@@ -95,6 +95,7 @@ The maximum recording file size is currently 1.5GB. After that point, recorder w
 Client should be able to download a recording file with a single request. If there is an issue, the client can retry with a range header to avoid redownloading the whole thing.
 
 Download call recording file: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}?api-version=2021-04-15-preview1
+
 Download call recording meta-data: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}/metadata?api-version=2021-04-15-preview1
 
 ### Authentication
