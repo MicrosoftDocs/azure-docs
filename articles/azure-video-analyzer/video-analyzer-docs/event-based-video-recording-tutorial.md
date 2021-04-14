@@ -194,7 +194,7 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
     `"topologyName" : "EVRtoVideosOnObjDetect"`
-1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/cvr-video/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-evr-video`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.
+1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/evr-video/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-evr-video`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.
 1. 
 1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
 1. The operations.json file starts off with calls to pipelineTopologyList and livePipelineList. If you've cleaned up resources after previous quickstarts or tutorials, this action returns empty lists and then pauses for you to select **Enter**, as shown:
