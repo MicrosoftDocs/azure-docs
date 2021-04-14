@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 04/14/2021
+  ms.date: 12/14/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -295,20 +295,6 @@ conceptualContent:
         url: ./roles/index.yml
         text: See more
 
-    - title: Verifiable credentials
-      links:
-        - url: ./verifiable-credentials/
-          itemType: how-to-guide
-          text:  Customize your verifiable credentials
-        - url: ./verifiable-credentials/credentil-design.md
-          itemType: how-to-guide
-          text:  Link your Domain to your decentralized identifier
-        - url: ./verifiable-credentials/how-to-dnsbind.md
-          itemType: how-to-guide
-          text:  Revoke a Verifiable Credential
-      footerLink:
-        url: ./verifiable-credentials/index.yml
-        text: See more
 
     - title: Third-party applications
       links:
