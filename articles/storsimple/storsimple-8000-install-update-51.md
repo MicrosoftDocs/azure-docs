@@ -23,7 +23,7 @@ This tutorial explains how to install Update 5.1 on a StorSimple device running 
 
 Update 5.1 includes non-disruptive security updates that can be applied through the Azure portal or by the hotfix method.
 
-If you apply Update 5.1 from the Azure portal, a set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only when you apply the updates from the Azure portal.
+If you apply Update 5.1 from the Azure portal, manual and automatic pre-checks are done to determine the device health in terms of hardware state and network connectivity. These pre-checks occur only when you apply the updates from the Azure portal.
 
 If you'd rather use the hotfix method, we strongly recommend that you install Update 5 first using the instructions in [Install Update 5 on your StorSimple device](storsimple-8000-install-update-5.md). Then follow the steps in [Install Update 5.1 as a hotfix](#install-update-51-as-a-hotfix), below, to install Update 5.1.
 
@@ -111,7 +111,7 @@ You must download and install the following hotfixes to the suggested folders in
 
 <sup>1</sup> There are no second order updates in Update 5.1.
 
-<sup>2</sup> Install the third order updates if you didn't install disk firmware updates on top of the hotfix updates when you installed Update 5.
+<sup>2</sup> Install the third order updates if you didn't install disk firmware updates on top of the hotfix updates for Update 5.
 
 Perform the following steps to download and install the hotfixes.
 
