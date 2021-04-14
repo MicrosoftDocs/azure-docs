@@ -19,7 +19,6 @@ There are two types of URL ping test you can create, basic and standard ping tes
 Basic vs Standard:
 
 - Basic is restricted to five locations per test.
-- Standard tests can be triggered on a faster frequency.
 - Standard tests can have custom headers or request body.
 - Standard tests can use any HTTP request method while basic can only use `GET`.
 - SSL certificate lifetime check alerts you of a set period time before your certificate expires.
@@ -34,7 +33,7 @@ In order to create an availability test, you need use an existing Application In
 
 To create your first availability request, open the Availability pane and select Create Test & choose your test SKU.
 
-![Screenshot of create a basic url ping test in Azure Portal](./media/monitor-web-app-availability/create-basic-test.png)
+:::image type="content" source="./media/monitor-web-app-availability/create-basic-test.png" alt-text="Screenshot of create a basic url ping test in Azure Portal":::
 
 
 |Setting | Explanation |
@@ -54,7 +53,7 @@ To create your first availability request, open the Availability pane and select
 
 ## Standard Test
 
-![Screenshot of standard test info tab](./media/monitor-web-app-availability/standard-test-post.png)
+:::image type="content" source="./media/monitor-web-app-availability/standard-test-post.png" alt-text="Screenshot of standard test info tab." border="false":::
 
 |Setting | Explanation |
 |--------|-------------|
@@ -118,11 +117,11 @@ Availability test results can be visualized with both line and scatter plot view
 
 After a few minutes, click **Refresh** to see your test results.
 
-![Screenshot shows the Availability page with the Refresh button highlighted.](./media/monitor-web-app-availability/availability-refresh-002.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-refresh-002.png" alt-text="Screenshot shows the Availability page with the Refresh button highlighted.":::
 
 The scatterplot view shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test, test name, and location.
 
-![Line view](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-scatter-plot-003.png" alt-text="Line view." border="false":::
 
 Select a particular test, location, or reduce the time period to see more results around the time period of interest. Use Search Explorer to see results from all executions, or use Analytics queries to run custom reports on this data.
 
@@ -130,7 +129,7 @@ Select a particular test, location, or reduce the time period to see more result
 
 To edit, temporarily disable, or delete a test click the ellipses next to a test name. It may take up to 20 minutes for configuration changes to propagate to all test agents after a change is made.
 
-![View test details. Edit and Disable a web test](./media/monitor-web-app-availability/edit.png)
+:::image type="content" source="./media/monitor-web-app-availability/edit.png" alt-text="View test details. Edit and Disable a web test." border="false":::
 
 You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
 
@@ -138,7 +137,7 @@ You might want to disable availability tests or the alert rules associated with 
 
 Select a red dot.
 
-![Screenshot of end-to-end transaction details tab](./media/monitor-web-app-availability/end-to-end.png)
+:::image type="content" source="./media/monitor-web-app-availability/end-to-end.png" alt-text="Screenshot of end-to-end transaction details tab." border="false":::
 
 From an availability test result, you can see the transaction details across all components. Here you can:
 
@@ -152,7 +151,7 @@ To learn more about the end to end transaction diagnostics experience visit the 
 
 Click on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code level diagnostics.
 
-![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
+:::image type="content" source="./media/monitor-web-app-availability/open-instance-4.png" alt-text="Server-side diagnostics.":::
 
 In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../essentials/metrics-getting-started.md):
 
