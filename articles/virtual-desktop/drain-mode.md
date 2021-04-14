@@ -29,7 +29,7 @@ To turn on drain mode in the Azure portal:
 
 ## Set drain mode using PowerShell
 
-You can set drain mode in Powershell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhostCmdlet](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost?view=azps-5.4.0#code-try-2) command.
+You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhostCmdlet](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost?view=azps-5.4.0#code-try-2) command.
 
 Run this cmdlet to enable drain mode:
 
@@ -45,3 +45,9 @@ Update-AzWvdSessionHost -ResourceGroupName <resourceGroupName> -HostPoolName <ho
 
 >[!IMPORTANT]
 >You'll need to run this command for every session host you're applying the setting to.
+
+## Next steps
+
+If you want to learn more about the Azure portal for Windows Virtual Desktop, check out [our tutorials](create-host-pools-azure-marketplace.md). If you're already familiar with the basics, check out our documentation about other settings you can configure in the Azure portal like [MSIX app attach](app-attach-azure-portal.md) and [Azure Advisor](azure-advisor.md).
+
+If you're using the PowerShell method and want to see what else the module can do, check out [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md) and our [PowerShell reference](/powershell/module/az.desktopvirtualization/).
