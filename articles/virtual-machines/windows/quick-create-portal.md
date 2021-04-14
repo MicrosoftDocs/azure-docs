@@ -52,7 +52,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Screenshot showing the next step of going to the resource](./media/quick-create-portal/next-steps.png)
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to virtual machine
 

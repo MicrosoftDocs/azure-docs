@@ -167,7 +167,7 @@ New-AzVM `
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to the VM
 

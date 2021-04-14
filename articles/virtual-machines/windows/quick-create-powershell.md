@@ -50,7 +50,7 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to virtual machine
 
