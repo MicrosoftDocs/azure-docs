@@ -26,7 +26,7 @@ earliest existing backup.
 2.  Click **Overview** from the left panel and click **Restore**.
 
 	> [!IMPORTANT]
-	> If the **Restore* button is not yet present for your server group,
+	> If the **Restore** button is not yet present for your server group,
 	> please open an Azure support request.
 
 3.  The restore page will ask you to choose between the **Earliest** and a
@@ -55,7 +55,7 @@ and time of your choosing.
 2.  Click **Overview** from the left panel and click **Restore**
 
 	> [!IMPORTANT]
-	> If the **Restore* button is not yet present for your server group,
+	> If the **Restore** button is not yet present for your server group,
 	> please open an Azure support request.
 
 3.  The restore page will ask you to choose between the **Earliest** and a
