@@ -49,7 +49,7 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 
 For more information, see the [Azure Sentinel product documentation](/azure/sentinel/overview).
 
-## [Combined table option](#tab/combined-table-option)
+# [Combined table option](#tab/combined-table-option)
 
 The following table lists the current Sentinel feature availability between Azure and Azure Government clouds.
 
@@ -74,7 +74,7 @@ The following table lists the current Sentinel feature availability between Azur
 | - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | Public Preview | Not Available |
 | - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | GA | Not Available |
 | - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | Not Available |
-|**Detection support** | | | | | |
+|**Detection support** | | |
 | - [Anomalous Windows File Share Access Detection](/azure/sentinel/fusion)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
@@ -179,13 +179,12 @@ The following table lists the current Sentinel feature availability between Azur
 | - WireX Network Forensics Platform                | Public Preview | Public Preview |
 | - Zimperium Mobile Threat Defense                  | Public Preview | Not Available      |
 | - Zscaler                                         | GA             | GA             |
-| | | | |
+| | |
 
 
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
-
-## [Separate table option](#separate-table-option)
+# [Separate table option](#separate-table-option)
 
 > [!NOTE]
 > <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
