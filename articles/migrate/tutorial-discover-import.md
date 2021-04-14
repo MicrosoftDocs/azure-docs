@@ -84,7 +84,9 @@ Set up a new Azure Migrate project if you don't have one.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
-   ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)
+   ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)  
+    > [!Note]
+    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](how-to-use-azure-migrate-with-private-endpoints.md#Create-a-project-with-private-endpoint-connectivity)
 
 7. Select **Create**.
 8. Wait a few minutes for the Azure Migrate project to deploy.

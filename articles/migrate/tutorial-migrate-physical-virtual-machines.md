@@ -129,7 +129,7 @@ The first step of migration is to set up the replication appliance. To set up th
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region. 
     > [!NOTE]
-    > If you selected private endpoint as the connectivity method for the Azure Migrate project when it was created, the Recovery Services vault will also be configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance: [Learn more](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+    > If you selected private endpoint as the connectivity method for the Azure Migrate project when it was created, the Recovery Services vault will also be configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
 
 6. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
 7. In **Download and install the replication appliance software**, download the appliance installer, and the registration key. You need to the key in order to register the appliance. The key is valid for five days after it's downloaded.
@@ -230,8 +230,8 @@ Now, select machines for migration.
     > [!NOTE]
     >
     > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
-    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
-)  
+    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+  
 11. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.

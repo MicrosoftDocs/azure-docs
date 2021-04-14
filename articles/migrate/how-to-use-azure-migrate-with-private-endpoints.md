@@ -20,7 +20,7 @@ The private endpoint connectivity method is recommended when there is an organiz
 
 ### Required permissions
 
- _Contributor + User Access Administrator_ or _Owner_ permissions on the subscription. 
+**Contributor + User Access Administrator** or **Owner** permissions on the subscription. 
 
 ### Supported scenarios and tools
 
@@ -332,7 +332,7 @@ If the DNS resolution is incorrect, follow these steps:
 - If you use Azure-provided DNS servers, refer to the below section for further troubleshooting.  
 
 > [!Tip]
-You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses. This option is recommended only for testing. <br/>  
+> You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses. This option is recommended only for testing. <br/>  
 
 
 ### Validate the Private DNS Zone   
