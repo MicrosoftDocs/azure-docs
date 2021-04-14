@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Quickstart - Explore a sample Azure Digital Twins scenario using Azure Digital Twins Explorer
 
-With Azure Digital Twins, you can create and interact with live models of your real-world environments. First, you model individual elements as *digital twins*. Then you connect them into a knowledge *graph* that can respond to live events and be queried for information.
+With Azure Digital Twins, you can create and interact with live models of your real-world environments. First, you model individual elements as **digital twins**. Then you connect them into a knowledge **graph** that can respond to live events and be queried for information.
 
 In this quickstart, you'll explore a prebuilt Azure Digital Twins graph, with the help of a sample application called [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). You use Azure Digital Twins Explorer to:
 
@@ -42,7 +42,11 @@ You'll need an Azure subscription to complete this quickstart. If you don't have
 
 You'll also need **Node.js** on your machine. To get the latest version, see [Node.js](https://nodejs.org/).
 
-Finally, you'll also need to download the sample to use during the quickstart. The sample application is **Azure Digital Twins Explorer**. This sample contains the app you use in the quickstart to load and explore an Azure Digital Twins scenario. It also contains the sample scenario files. To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Download ZIP** button to download a .zip file of this sample code to your machine. Unzip the **Azure_Digital_Twins__ADT__explorer.zip** folder, and extract the files.
+Finally, you'll also need to download the sample to use during the quickstart. The sample application is **Azure Digital Twins Explorer**. This sample contains the app you use in the quickstart to load and explore an Azure Digital Twins scenario. It also contains the sample scenario files. To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file. 
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
+
+Unzip the **digital-twins-explorer-main.zip** folder, and extract the files.
 
 ## Set up Azure Digital Twins and Azure Digital Twins Explorer
 
@@ -58,7 +62,7 @@ The rest of this section walks you through these steps.
 
 The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more information on different ways a client app can authenticate with Azure Digital Twins, see [Write app authentication code](how-to-authenticate-client.md).
 
-With this type of authentication, Azure Digital Twins Explorer will search for credentials within your local environment, such as an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli) or in Visual Studio or Visual Studio Code. For this reason, you should *sign in to Azure locally* through one of these mechanisms to set up credentials for the Azure Digital Twins Explorer app.
+With this type of authentication, Azure Digital Twins Explorer will search for credentials within your local environment, such as an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli) or in Visual Studio or Visual Studio Code. For this reason, you should **sign in to Azure locally** through one of these mechanisms to set up credentials for the Azure Digital Twins Explorer app.
 
 If you're already signed in to Azure through one of these ways, you can skip to the [next section](#run-and-configure-azure-digital-twins-explorer).
 
@@ -77,8 +81,8 @@ You can close the authentication console window if you want. Or, you can keep it
 
 Next, run the Azure Digital Twins Explorer application and configure it for your Azure Digital Twins instance.
 
-1. Go to the downloaded and unzipped **Azure_Digital_Twins__ADT__explorer** folder.
-Open a console window to the folder location **Azure_Digital_Twins__ADT__explorer/client/src**.
+1. Go to the downloaded and unzipped **digital-twins-explorer-main** folder.
+Open a console window to the folder location **digital-twins-explorer-main/client/src**.
 
 1. Run `npm install` to download all the required dependencies.
 
@@ -92,7 +96,7 @@ Open a console window to the folder location **Azure_Digital_Twins__ADT__explore
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/sign-in.png" alt-text="Azure Digital Twins Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/quickstart-azure-digital-twins-explorer/sign-in.png":::
 
-1. Enter the Azure Digital Twins instance URL that you gathered earlier in the [Set up an Azure Digital Twins instance](#set-up-an-azure-digital-twins-instance) section, in the format *https://{instance host name}*.
+1. Enter the Azure Digital Twins instance URL that you gathered earlier in the [Set up an Azure Digital Twins instance](#set-up-an-azure-digital-twins-instance) section, in the format *https://<instance-host-name>*.
 
 > [!TIP]
 > If a `SignalRService.subscribe` error message appears when you connect, make sure that your Azure Digital Twins URL begins with *https://*.
@@ -106,13 +110,13 @@ If you see a **Permissions requested** pop-up window from Microsoft, grant conse
 
 ## Add the sample data
 
-Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is also located in the **Azure_Digital_Twins__ADT__explorer** folder you downloaded earlier.
+Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is also located in the **digital-twins-explorer-main** folder you downloaded earlier.
 
 ### Models
 
 The first step in an Azure Digital Twins solution is to define the vocabulary for your environment. You'll create custom [models](concepts-models.md) that describe the types of entity that exist in your environment.
 
-Each model is written in a language like JSON-LD called Digital Twin Definition Language (DTDL). Each model describes a single type of entity in terms of its *properties*, *telemetry*, *relationships*, and *components*. Later, you'll use these models as the basis for digital twins that represent specific instances of these types.
+Each model is written in a language like JSON-LD called Digital Twin Definition Language (DTDL). Each model describes a single type of entity in terms of its **properties**, **telemetry**, **relationships**, and **components**. Later, you'll use these models as the basis for digital twins that represent specific instances of these types.
 
 Typically, when you create a model, you'll complete three steps:
 
@@ -133,7 +137,7 @@ Follow these steps to upload models.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
-1. In the file selector box that appears, go to the **Azure_Digital_Twins__ADT__explorer/client/examples** folder in the downloaded repository.
+1. In the file selector box that appears, go to the **digital-twins-explorer-main/client/examples** folder in the downloaded repository.
 1. Select **Room.json** and **Floor.json**, and select **OK**. You can upload additional models if you want, but they won't be used in this quickstart.
 1. Follow the pop-up dialog box that asks you to sign in to your Azure account.
 
@@ -158,7 +162,7 @@ Azure Digital Twins Explorer now uploads these model files to your Azure Digital
 
 Now that some models have been uploaded to your Azure Digital Twins instance, you can add [digital twins](concepts-twins-graph.md) that follow the model definitions.
 
-Digital twins represent the actual entities within your business environment. They can be things like sensors on a farm, lights in a car, or—in this quickstart—rooms on a building floor. You can create many twins of any given model type, such as multiple rooms that all use the *Room* model. You connect them with relationships into a *twin graph* that represents the full environment.
+Digital twins represent the actual entities within your business environment. They can be things like sensors on a farm, lights in a car, or—in this quickstart—rooms on a building floor. You can create many twins of any given model type, such as multiple rooms that all use the *Room* model. You connect them with relationships into a **twin graph** that represents the full environment.
 
 In this section, you'll upload precreated twins that are connected into a precreated graph. The graph contains two floors and two rooms, connected in the following layout:
 
@@ -175,7 +179,7 @@ Follow these steps to import the graph.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
 
-2. In the file selector box, go to the **Azure_Digital_Twins__ADT__explorer/client/examples** folder, and select the **buildingScenario.xlsx** spreadsheet file. This file contains a description of the sample graph. Select **OK**.
+2. In the file selector box, go to the **digital-twins-explorer-main/client/examples** folder, and select the **buildingScenario.xlsx** spreadsheet file. This file contains a description of the sample graph. Select **OK**.
 
    After a few seconds, Azure Digital Twins Explorer opens an **Import** view that shows a preview of the graph to be loaded.
 
@@ -249,7 +253,7 @@ Room1 has a temperature of 80.
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment.
 
-One way to query the twins in your graph is by their *properties*. Querying based on properties can help answer a variety of questions. For example, you can find outliers in your environment that might need attention.
+One way to query the twins in your graph is by their **properties**. Querying based on properties can help answer a variety of questions. For example, you can find outliers in your environment that might need attention.
 
 In this section, you'll run a query to answer the question of how many twins in your environment have a temperature above 75.
 
