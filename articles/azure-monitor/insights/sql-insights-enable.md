@@ -170,7 +170,7 @@ Get the details from the **Connection strings** menu item for the database.
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="SQL database connection string" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary and the collected data will be tagged to reflect Primary or Secondary. 
+To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring a single secondary. The collected data will be tagged to reflect primary or secondary. 
 
 
 #### Azure virtual machines running SQL Server 
