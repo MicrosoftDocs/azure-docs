@@ -124,6 +124,7 @@ available to the basic tier node.
 Hyperscale (Citus) server groups are available in the following Azure regions:
 
 * Americas:
+	* Brazil South
 	* Canada Central
 	* Central US
 	* East US *
@@ -136,6 +137,7 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 	* Korea Central
 	* Southeast Asia
 * Europe:
+	* France Central
 	* North Europe
 	* UK South
 	* West Europe

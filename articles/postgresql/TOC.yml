@@ -32,8 +32,6 @@
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
-  - name: Performance recommendations
-    href: concepts-azure-advisor-recommendations.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -217,6 +215,8 @@
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
         displayName: query store, performance, optimize, recommendations
+      - name: Azure Advisor recommendations
+        href: concepts-azure-advisor-recommendations.md
     - name: App Development
       items:
       - name: Best practices
@@ -684,6 +684,10 @@
       - name: Access database logs
         href: howto-hyperscale-logging.md
         displayName: log, hyperscale
+    - name: Restore server group
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-restore-portal.md
     - name: Major version upgrades
       href: howto-hyperscale-upgrade.md
     - name: Troubleshoot

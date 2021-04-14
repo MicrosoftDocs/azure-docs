@@ -167,6 +167,8 @@ New-AzVM `
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
 ## Connect to the VM
 
 Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:

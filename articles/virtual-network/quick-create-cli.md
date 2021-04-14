@@ -79,6 +79,8 @@ az vm create \
   --generate-ssh-keys
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ### Azure CLI output message
 
 The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI returns output like this:
