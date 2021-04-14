@@ -17,8 +17,8 @@ ms.service: digital-twins
 
 # Connect function apps in Azure for processing data
 
-Digital twins can be updated based on data by using [*event routes*](concepts-route-events.md) through compute resources. For example, a function that's made by using [Azure Functions](../azure-functions/functions-overview.md) can update a digital twin in response to:
-* Device telemetry data from IoT Hub.
+Digital twins can be updated based on data by using [event routes](concepts-route-events.md) through compute resources. For example, a function that's made by using [Azure Functions](../azure-functions/functions-overview.md) can update a digital twin in response to:
+* Device telemetry data from Azure IoT Hub.
 * A property change or other data from another digital twin within the twin graph.
 
 This article shows you how to create a function in Azure for use with Azure Digital Twins. To create a function, you'll follow these basic steps:
@@ -70,7 +70,7 @@ Next, in Visual Studio Solution Explorer, open the _Function1.cs_ file that incl
 
 Now declare class-level variables and add authentication code that will allow the function to access Azure Digital Twins. Add the variables and code to your function in the _Function1.cs_ file.
 
-* **Code to read the Azure Digital Twins service URL as an *environment variable*.** It's a good practice to read the service URL from an environment variable rather than hard-coding it in the function. You'll set the value of this environment variable [later in this article](#set-up-security-access-for-the-function-app). For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
+* **Code to read the Azure Digital Twins service URL as an environment variable.** It's a good practice to read the service URL from an environment variable rather than hard-coding it in the function. You'll set the value of this environment variable [later in this article](#set-up-security-access-for-the-function-app). For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -153,10 +153,10 @@ To make sure the bearer token is passed, set up [managed identities](../active-d
 
 ### Configure application settings
 
-Make the URL of your instance accessible to your function by setting an *environment variable* for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+Make the URL of your instance accessible to your function by setting an environment variable for it. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's *host name*. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's host name. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive	
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
@@ -203,7 +203,7 @@ The lifecycle of this type of managed identity is tied to the lifecycle of this 
 
 ### Configure application settings
 
-To make the URL of your Azure Digital Twins instance accessible to your function, you can set an *environment variable*. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+To make the URL of your Azure Digital Twins instance accessible to your function, you can set an *environment variable*. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 To set an environment variable with the URL of your instance, first find your instance's host name: 
 
