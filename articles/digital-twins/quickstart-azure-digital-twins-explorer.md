@@ -63,7 +63,7 @@ Next, navigate to **Azure Digital Twins Explorer** in the [Azure portal](https:/
 
 ## Add the sample data
 
-Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is located in the ***digital-twins-explorer-main** folder you downloaded in the [Prerequisites](#prerequisites) section.
+Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is located in the **digital-twins-explorer-main** folder you downloaded in the [Prerequisites](#prerequisites) section.
 
 ### Models
 
@@ -245,7 +245,7 @@ Now that the temperature of Room0 has been changed from 70 to 76, both twins sho
 
 ## Review and contextualize learnings
 
-In this quickstart, you created an Azure Digital Twins instance, connected it to Azure Digital Twins Explorer, and populated it with a sample scenario.
+In this quickstart, you created an Azure Digital Twins instance and used Azure Digital Twins Explorer to populate it with a sample scenario.
 
 You then explored the graph, by:
 
