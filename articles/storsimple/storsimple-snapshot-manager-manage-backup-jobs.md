@@ -3,18 +3,18 @@ title: StorSimple Snapshot Manager backup jobs | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage scheduled, currently running, and completed backup jobs.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: timlt
 editor: ''
 
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: alkohli
 
 ---
 # Use StorSimple Snapshot Manager to view and manage backup jobs

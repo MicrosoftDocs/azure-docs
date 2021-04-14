@@ -1,20 +1,8 @@
 ---
-title: Introduction to Azure Advisor | Microsoft Docs
+title: Introduction to Azure Advisor
 description: Use Azure Advisor to optimize your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
-
-ms.assetid: 
-ms.service: advisor
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
-ms.author: kumud
+ms.date: 09/27/2020
 ---
 
 # Introduction to Azure Advisor
@@ -22,26 +10,24 @@ ms.author: kumud
 Learn about the key capabilities of Azure Advisor and get answers to frequently asked questions.
 
 ## What is Advisor?
-Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
+Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, Reliability (formerly called High availability), and security of your Azure resources.
 
 With Advisor, you can:
 * Get proactive, actionable, and personalized best practices recommendations. 
-* Improve the performance, security, and high availability of your resources, as you identify opportunities to reduce your overall Azure spend.
+* Improve the performance, security, and reliability of your resources, as you identify opportunities to reduce your overall Azure spend.
 * Get recommendations with proposed actions inline.
 
-You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **More services** menu.
+You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **All services** menu.
 
-The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into four categories: 
+The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into five categories: 
 
-* **High Availability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor High Availability recommendations](advisor-high-availability-recommendations.md).
+* **Reliability (formerly called High Availability)**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-high-availability-recommendations.md).
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
+* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. . For more information, see [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md).
 
   ![Advisor recommendation types](./media/advisor-overview/advisor-dashboard.png)
-
-> [!NOTE]
-> To use Azure Advisor with a subscription, a subscription *Owner* must launch the Advisor dashboard.  This action registers the subscription with Advisor.  From that point on, any subscription *Owner*, *Contributor*, or *Reader* can access the Advisor recommendations for the subscription. 
 
 You can click a category to display the list of recommendations within that category, and select a recommendation to learn more about it.  You can also learn about actions that you can perform to take advantage of an opportunity or resolve an issue.
 
@@ -49,33 +35,37 @@ You can click a category to display the list of recommendations within that cate
 
 Select the recommended action for a recommendation to implement the recommendation.  A simple interface will open that enables you to implement the recommendation or refer you to documentation that assists you with implementation.  Once you implement a recommendation, it can take up to a day for Advisor to recognize that.
 
-If you do not intend to take immediate action on a recommendation, you can snooze it for a specified time period or dismiss it.  If you do not want to receive recommendations for a specific subscription or resource group, you can configure Advisor to only generate recommendations for specified subscriptions and resource groups.
+If you do not intend to take immediate action on a recommendation, you can postpone it for a specified time period or dismiss it.  If you do not want to receive recommendations for a specific subscription or resource group, you can configure Advisor to only generate recommendations for specified subscriptions and resource groups.
 
 ## Frequently asked questions
 
 ### How do I access Advisor?
-You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **More services** menu.
+You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **All services** menu.
 
 You can also view Advisor recommendations through the virtual machine resource interface. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
 
 ### What permissions do I need to access Advisor?
-
-To obtain Advisor recommendations for a subscription, you must first register your subscription with Advisor. A subscription is registered when a subscription *Owner* launches the Advisor dashboard. This is a one-time operation. After the subscription is registered, you can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of a subscription.
+ 
+You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of a subscription, Resource Group or Resource.
 
 ### What resources does Advisor provide recommendations for?
 
-Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, SQL databases, and Redis Cache.
+Advisor provides recommendations for Application Gateway, App Services, availability sets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public IP addresses, Azure Synapse Analytics, SQL servers, storage accounts, Traffic Manager profiles, and virtual machines.
 
-### Can I snooze or dismiss a recommendation?
+Azure Advisor also includes your recommendations from [Azure Security Center](../security-center/security-center-recommendations.md) which may include recommendations for additional resource types.
 
-To snooze or dismiss a recommendation, click the **Snooze** link. You can specify a snooze time period or select **Never** to dismiss the recommendation.
+### Can I postpone or dismiss a recommendation?
+
+To postpone or dismiss a recommendation, click the **Postpone** link. You can specify a postpone period or select **Never** to dismiss the recommendation.
 
 ## Next steps
 
 To learn more about Advisor recommendations, see:
 
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor score](azure-advisor-score.md)
+* [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)

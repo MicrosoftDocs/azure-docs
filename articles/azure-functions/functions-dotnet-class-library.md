@@ -1,466 +1,683 @@
 ---
-title: Using .NET class libraries with Azure Functions | Microsoft Docs
-description: Learn how to author .NET class libraries for use with Azure Functions
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
+title: Develop C# class library functions using Azure Functions
+description: Understand how to use C# to develop and publish code as class libraries that runs in-process with the Azure Functions runtime.
 
-ms.assetid: 9f5db0c2-a88e-4fa8-9b59-37a7096fc828
-ms.service: functions
-ms.devlang: multiple
-ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 10/10/2017
-ms.author: glenga
+ms.topic: conceptual
+ms.custom: devx-track-csharp
+ms.date: 07/24/2020
 
 ---
-# Using .NET class libraries with Azure Functions
+# Develop C# class library functions using Azure Functions
 
-In addition to script files, Azure Functions supports publishing a class library as the implementation for one or more functions. We recommend that you use the [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-## Prerequisites 
+This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
-This article has the following prerequisites:
+>[!IMPORTANT]
+>This article supports .NET class library functions that run in-process with the runtime. Functions also supports .NET 5.x by running your C# functions out-of-process and isolated from the runtime. To learn more, see [.NET isolated process functions](dotnet-isolated-process-guide.md).
 
-- [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/), or a later version.
-- Install the **Azure development** workload.
+As a C# developer, you may also be interested in one of the following articles:
+
+| Getting started | Concepts| Guided learning/samples |
+|--| -- |--| 
+| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
+Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
+
+## Supported versions
+
+Versions of the Functions runtime work with specific versions of .NET. To learn more about Functions versions, see [Azure Functions runtime versions overview](functions-versions.md)
+
+The following table shows the highest level of .NET Core or .NET Framework that can be used with a specific version of Functions. 
+
+| Functions runtime version | Max .NET version |
+| ---- | ---- |
+| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
+| Functions 2.x | .NET Core 2.2<sup>2</sup> |
+| Functions 1.x | .NET Framework 4.7 |
+
+<sup>1</sup> Must run [out-of-process](dotnet-isolated-process-guide.md).  
+<sup>2</sup> For details, see [Functions v2.x considerations](#functions-v2x-considerations).   
+
+For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
+
+### Functions v2.x considerations
+
+Function apps that target the latest 2.x version (`~2`) are automatically upgraded to run on .NET Core 3.1. Because of breaking changes between .NET Core versions, not all apps developed and compiled against .NET Core 2.2 can be safely upgraded to .NET Core 3.1. You can opt out of this upgrade by pinning your function app to `~2.0`. Functions also detects incompatible APIs and may pin your app to `~2.0` to prevent incorrect execution on .NET Core 3.1. 
+
+>[!NOTE]
+>If your function app is pinned to `~2.0` and you change this version target to `~2`, your function app may break. If you deploy using ARM templates, check the version in your templates. If this occurs, change your version back to target `~2.0` and fix compatibility issues. 
+
+Function apps that target `~2.0` continue to run on .NET Core 2.2. This version of .NET Core no longer receives security and other maintenance updates. To learn more, see [this announcement page](https://github.com/Azure/app-service-announcements/issues/266). 
+
+You should work to make your functions compatible with .NET Core 3.1 as soon as possible. After you've resolved these issues, change your version back to `~2` or upgrade to `~3`. To learn more about targeting versions of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+
+When running on Linux in a Premium or dedicated (App Service) plan, you pin your version by instead targeting a specific image by setting the `linuxFxVersion` site config setting to `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` To learn how to set `linuxFxVersion`, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
 ## Functions class library project
 
-From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](functions-host-json.md). 
+In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
 
-The file *local.settings.json* stores app settings, connection strings, and settings for Azure Functions Core Tools. To learn more about its structure, see [Code and test Azure functions locally](functions-run-local.md#local-settings).
+* [host.json](functions-host-json.md) - stores configuration settings that affect all functions in the project when running locally or in Azure.
+* [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
 
-### FunctionName attribute
+When you build the project, a folder structure that looks like the following example is generated in the build output directory:
 
-The attribute [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) marks a method as a function entry point. It must be used with exactly one trigger and 0 or more input and output bindings.
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
 
-### Conversion to function.json
+This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-bindings-register.md#vs).
 
-When you build an Azure Functions project, a *function.json* file is created in the function's directory. The directory name is the same as the function name that the `[FunctionName]` attribute specifies. The *function.json* file contains triggers and bindings and points to the project assembly file.
+> [!IMPORTANT]
+> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md).
 
-This conversion is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+## Methods recognized as functions
+
+In a class library, a function is a static method with a `FunctionName` and a trigger attribute, as shown in the following example:
+
+```csharp
+public static class SimpleExample
+{
+    [FunctionName("QueueTrigger")]
+    public static void Run(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        ILogger log)
+    {
+        log.LogInformation($"C# function processed: {myQueueItem}");
+    }
+} 
+```
+
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
+
+The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
+
+## Method signature parameters
+
+The method signature may contain parameters other than the one used with the trigger attribute. Here are some of the other parameters that you can include:
+
+* [Input and output bindings](functions-triggers-bindings.md) marked as such by decorating them with attributes.  
+* An `ILogger` or `TraceWriter` ([version 1.x-only](functions-versions.md#creating-1x-apps)) parameter for [logging](#logging).
+* A `CancellationToken` parameter for [graceful shutdown](#cancellation-tokens).
+* [Binding expressions](./functions-bindings-expressions-patterns.md) parameters to get trigger metadata.
+
+The order of parameters in the function signature doesn't matter. For example, you can put trigger parameters before or after other bindings, and you can put the logger parameter before or after trigger or binding parameters.
+
+### Output bindings
+
+A function can have zero or one output bindings defined by using output parameters. 
+
+The following example modifies the preceding one by adding an output queue binding named `myQueueItemCopy`. The function writes the contents of the message that triggers the function to a new message in a different queue.
+
+```csharp
+public static class SimpleExampleWithOutput
+{
+    [FunctionName("CopyQueueMessage")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source")] string myQueueItem, 
+        [Queue("myqueue-items-destination")] out string myQueueItemCopy,
+        ILogger log)
+    {
+        log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
+        myQueueItemCopy = myQueueItem;
+    }
+}
+```
+
+Values assigned to output bindings are written when the function exits. You can use more than one output binding in a function by simply assigning values to multiple output parameters. 
+
+The binding reference articles ([Storage queues](functions-bindings-storage-queue.md), for example) explain which parameter types you can use with trigger, input, or output binding attributes.
+
+### Binding expressions example
+
+The following code gets the name of the queue to monitor from an app setting, and it gets the queue message creation time in the `insertionTime` parameter.
+
+```csharp
+public static class BindingExpressionsExample
+{
+    [FunctionName("LogQueueMessage")]
+    public static void Run(
+        [QueueTrigger("%queueappsetting%")] string myQueueItem,
+        DateTimeOffset insertionTime,
+        ILogger log)
+    {
+        log.LogInformation($"Message content: {myQueueItem}");
+        log.LogInformation($"Created at: {insertionTime}");
+    }
+}
+```
+
+## Autogenerated function.json
+
+The build process creates a *function.json* file in a function folder in the build folder. As noted earlier, this file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. 
+
+The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the Consumption plan](event-driven-scaling.md). For this reason, the file only has trigger info, not input/output bindings.
+
+The generated *function.json* file includes a `configurationSource` property that tells the runtime to use .NET attributes for bindings, rather than *function.json* configuration. Here's an example:
+
+```json
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "queueName": "%input-queue-name%",
+      "name": "myQueueItem"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "..\\bin\\FunctionApp1.dll",
+  "entryPoint": "FunctionApp1.QueueTrigger.Run"
+}
+```
+
+## Microsoft.NET.Sdk.Functions
+
+The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks with the same `Sdk` package:
+
+# [v2.x+](#tab/v2)
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+# [v1.x](#tab/v1)
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+---
+
+
+Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 2.x triggers and bindings target .NET Core.
+
+The `Sdk` package also depends on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), and indirectly on [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). These dependencies make sure that your project uses the versions of those packages that work with the Functions runtime version that the project targets. For example, `Newtonsoft.Json` has version 11 for .NET Framework 4.6.1, but the Functions runtime that targets .NET Framework 4.6.1 is only compatible with `Newtonsoft.Json` 9.0.1. So your function code in that project also has to use `Newtonsoft.Json` 9.0.1.
+
+The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+## Runtime version
+
+Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects. The Core Tools is a command-line interface for the Functions runtime.
+
+If you install the Core Tools by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
+
+## ReadyToRun
+
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+
+ReadyToRun is available in .NET 3.0 and requires [version 3.0 of the Azure Functions runtime](functions-versions.md).
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <PublishReadyToRun>true</PublishReadyToRun>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+</PropertyGroup>
+```
+
+> [!IMPORTANT]
+> ReadyToRun currently doesn't support cross-compilation. You must build your app on the same platform as the deployment target. Also, pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](/dotnet/core/rid-catalog).
+
+You can also build your app with ReadyToRun from the command line. For more information, see the `-p:PublishReadyToRun=true` option in [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
+
+## Supported types for bindings
+
+Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob-trigger.md#usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
+
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## Binding to method return value
+
+You can use a method return value for an output binding, by applying the attribute to the method return value. For examples, see [Triggers and bindings](./functions-bindings-return-value.md). 
+
+Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
+
+## Writing multiple output values
+
+To write multiple values to an output binding, or if a successful function invocation might not result in anything to pass to the output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
+
+This example writes multiple queue messages into the same queue using `ICollector`:
+
+```csharp
+public static class ICollectorExample
+{
+    [FunctionName("CopyQueueMessageICollector")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
+        [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
+        ILogger log)
+    {
+        log.LogInformation($"C# function processed: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 1: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 2: {myQueueItem}");
+    }
+}
+```
+
+## Async
+
+To make a function [asynchronous](/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
+
+```csharp
+public static class AsyncExample
+{
+    [FunctionName("BlobCopy")]
+    public static async Task RunAsync(
+        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
+        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+        CancellationToken token,
+        ILogger log)
+    {
+        log.LogInformation($"BlobCopy function processed.");
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+}
+```
+
+You can't use `out` parameters in async functions. For output bindings, use the [function return value](#binding-to-method-return-value) or a [collector object](#writing-multiple-output-values) instead.
+
+## Cancellation tokens
+
+A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+
+The following example shows how to check for impending function termination.
+
+```csharp
+public static class CancellationTokenExample
+{
+    public static void Run(
+        [QueueTrigger("inputqueue")] string inputText,
+        TextWriter logger,
+        CancellationToken token)
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            if (token.IsCancellationRequested)
+            {
+                logger.WriteLine("Function was cancelled at iteration {0}", i);
+                break;
+            }
+            Thread.Sleep(5000);
+            logger.WriteLine("Normal processing for queue message={0}", inputText);
+        }
+    }
+}
+```
+
+## Logging
+
+In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Version 1.x of the Functions runtime used `TraceWriter`, which also writes to Application Insights, but doesn't support structured logging. Don't use `Console.Write` to write your logs, since this data isn't captured by Application Insights. 
+
+### ILogger
+
+In your function definition, include an [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) parameter, which supports [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+
+With an `ILogger` object, you call `Log<level>` [extension methods on ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. The following code writes `Information` logs with category `Function.<YOUR_FUNCTION_NAME>.User.`:
+
+```cs
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
+{
+    logger.LogInformation("Request for item with key={itemKey}.", id);
+```
+
+To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data). Categories prefixed with `Function` assume you are using an `ILogger` instance. If you choose to instead use an `ILogger<T>`, the category name may instead be based on `T`.  
+
+### Structured logging
+
+The order of placeholders, not their names, determines which parameters are used in the log message. Suppose you have the following code:
+
+```csharp
+string partitionKey = "partitionKey";
+string rowKey = "rowKey";
+logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionKey, rowKey);
+```
+
+If you keep the same message string and reverse the order of the parameters, the resulting message text would have the values in the wrong places.
+
+Placeholders are handled this way so that you can do structured logging. Application Insights stores the parameter name-value pairs and the message string. The result is that the message arguments become fields that you can query on.
+
+If your logger method call looks like the previous example, you can query the field `customDimensions.prop__rowKey`. The `prop__` prefix is added to ensure there are no collisions between fields the runtime adds and fields your function code adds.
+
+You can also query on the original message string by referencing the field `customDimensions.prop__{OriginalFormat}`.  
+
+Here's a sample JSON representation of `customDimensions` data:
+
+```json
+{
+  "customDimensions": {
+    "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
+    "Category":"Function",
+    "LogLevel":"Information",
+    "prop__message":"c9519cbf-b1e6-4b9b-bf24-cb7d10b1bb89"
+  }
+}
+```
+
+### <a name="log-custom-telemetry-in-c-functions"></a>Log custom telemetry
+
+There is a Functions-specific version of the Application Insights SDK that you can use to send custom telemetry data from your functions to Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Use the following command from the command prompt to install this package:
+
+# [Command](#tab/cmd)
+
+```cmd
+dotnet add package Microsoft.Azure.WebJobs.Logging.ApplicationInsights --version <VERSION>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VERSION>
+```
+
+---
+
+In this command, replace `<VERSION>` with a version of this package that supports your installed version of [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/). 
+
+The following C# examples uses the [custom telemetry API](../azure-monitor/app/api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+
+# [v2.x+](#tab/v2)
+
+Version 2.x and later versions of the runtime use newer features in Application Insights to automatically correlate telemetry with the current operation. There's no need to manually set the operation `Id`, `ParentId`, or `Name` fields.
+
+```cs
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public class HttpTrigger2
+    {
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
+
+        [FunctionName("HttpTrigger2")]
+        public Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Write an event to the customEvents table.
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            this.telemetryClient.TrackEvent(evt);
+
+            // Generate a custom metric, in this case let's use ContentLength.
+            this.telemetryClient.GetMetric("contentLength").TrackValue(req.ContentLength);
+
+            // Log a custom dependency in the dependencies table.
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            this.telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
+
+When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-run-local.md#local-settings-file) file.
+
+
+# [v1.x](#tab/v1)
+
+```cs
+using System;
+using System.Net;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Azure.WebJobs;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        private static string key = TelemetryConfiguration.Active.InstrumentationKey = 
+            System.Environment.GetEnvironmentVariable(
+                "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
+
+        private static TelemetryClient telemetryClient = 
+            new TelemetryClient() { InstrumentationKey = key };
+
+        [FunctionName("HttpTrigger2")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+            HttpRequestMessage req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.GetQueryNameValuePairs()
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Get request body
+            dynamic data = await req.Content.ReadAsAsync<object>();
+
+            // Set name to query string or body data
+            name = name ?? data?.name;
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+        }
+        
+        // Correlate all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
+}
+```
+---
+
+Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
+
+Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
+
+
+## Environment variables
+
+To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
+
+```csharp
+public static class EnvironmentVariablesExample
+{
+    [FunctionName("GetEnvironmentVariables")]
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
+    {
+        log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    }
+
+    private static string GetEnvironmentVariable(string name)
+    {
+        return name + ": " +
+            System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+    }
+}
+```
+
+App settings can be read from environment variables both when developing locally and when running in Azure. When developing locally, app settings come from the `Values` collection in the *local.settings.json* file. In both environments, local and Azure, `GetEnvironmentVariable("<app setting name>")` retrieves the value of the named app setting. For instance, when you're running locally, "My Site Name" would be returned if your *local.settings.json* file contains `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+
+The [System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
+
+## Binding at runtime
+
+In C# and other .NET languages, you can use an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) binding pattern, as opposed to the [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) bindings in attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. With this pattern, you can bind to supported input and output bindings on-the-fly in your function code.
+
+Define an imperative binding as follows:
+
+- **Do not** include an attribute in the function signature for your desired imperative bindings.
+- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs)
+  or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Use the following C# pattern to perform the data binding.
+
+  ```cs
+  using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+  {
+      ...
+  }
+  ```
+
+  `BindingTypeAttribute` is the .NET attribute that defines your binding, and `T` is an input or output type that's supported by that binding type. `T` cannot be an `out` parameter type (such as `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [IAsyncCollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) with imperative binding.
+
+### Single attribute example
+
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
+with blob path that's defined at run time, then writes a string to the blob.
+
+```cs
+public static class IBinderExample
+{
+    [FunctionName("CreateBlobUsingBinder")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
+        IBinder binder,
+        ILogger log)
+    {
+        log.LogInformation($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
+                    $"samples-output/{myQueueItem}", FileAccess.Write)))
+        {
+            writer.Write("Hello World!");
+        };
+    }
+}
+```
+
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)
+defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
+[TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
+
+### Multiple attributes example
+
+The preceding example gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the
+[StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+and passing the attribute array into `BindAsync<T>()`. Use a `Binder` parameter, not `IBinder`.  For example:
+
+```cs
+public static class IBinderExampleMultipleAttributes
+{
+    [FunctionName("CreateBlobInDifferentStorageAccount")]
+    public async static Task RunAsync(
+            [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
+            Binder binder,
+            ILogger log)
+    {
+        log.LogInformation($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        var attributes = new Attribute[]
+        {
+        new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),
+        new StorageAccountAttribute("MyStorageAccount")
+        };
+        using (var writer = await binder.BindAsync<TextWriter>(attributes))
+        {
+            await writer.WriteAsync("Hello World!!");
+        }
+    }
+}
+```
 
 ## Triggers and bindings 
 
-The following table lists the triggers and bindings that are available in an Azure Functions class library project. All attributes are in the namespace `Microsoft.Azure.WebJobs`.
-
-| Binding | Attribute | NuGet package |
-|------   | ------    | ------        |
-| [Blob storage trigger, input, output](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Blob storage] |
-| [Cosmos DB trigger](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
-| [Cosmos DB input and output](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
-| [Event Hubs trigger and output](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
-| [External file input and output](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
-| [HTTP and webhook trigger](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
-| [Mobile Apps input and output](#mobile-apps) | [MobileTableAttribute] | [Microsoft.Azure.WebJobs.Extensions.MobileApps] | 
-| [Notification Hubs output](#nh) | [NotificationHubAttribute] | [Microsoft.Azure.WebJobs.Extensions.NotificationHubs] | 
-| [Queue storage trigger and output](#queue) | [QueueAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [SendGrid output](#sendgrid) | [SendGridAttribute] | [Microsoft.Azure.WebJobs.Extensions.SendGrid] | 
-| [Service Bus trigger and output](#service-bus) | [ServiceBusAttribute], [ServiceBusAccountAttribute] | [Microsoft.Azure.WebJobs.ServiceBus]
-| [Table storage input and output](#table) | [TableAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [Timer trigger](#timer) | [TimerTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions] | 
-| [Twilio output](#twilio) | [TwilioSmsAttribute] | [Microsoft.Azure.WebJobs.Extensions.Twilio] | 
-
-<a name="blob-storage"></a>
-
-### Blob storage trigger, input bindings, and output bindings
-
-Azure Functions supports trigger, input, and output bindings for Azure Blob storage. For more information on binding expressions and metadata, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
-
-A blob trigger is defined with the `[BlobTrigger]` attribute. You can use the attribute `[StorageAccount]` to define the app setting name that contains the connection string to the storage account that is used by an entire function or class.
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-[FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
-{
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-}
-```
-
-Blob input and output are defined using the `[Blob]` attribute, along with a `FileAccess` parameter indicating read or write. The following example uses a blob trigger and blob output binding.
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```        
-
-<a name="cosmos-db"></a>
-
-### Cosmos DB trigger, input bindings, and output bindings
-
-Azure Functions supports triggers and input and output bindings for Cosmos DB. To learn more about the features of the Cosmos DB binding, see [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md).
-
-To trigger from a Cosmos DB document, use the attribute `[CosmosDBTrigger]` in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. The following example triggers from a specific `database` and `collection`. The setting `myCosmosDB` contains the connection to the Cosmos DB instance. 
-
-```csharp
-[FunctionName("DocumentUpdates")]
-public static void Run(
-    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-IReadOnlyList<Document> documents, TraceWriter log)
-{
-        log.Info("Documents modified " + documents.Count);
-        log.Info("First document Id " + documents[0].Id);
-}
-```
-
-To bind to a Cosmos DB document, use the attribute `[DocumentDB]` in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. The following example has a queue trigger and a DocumentDB API output binding.
-
-```csharp
-[FunctionName("QueueToDocDB")]        
-public static void Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
-{
-    document = new { Text = myQueueItem, id = Guid.NewGuid() };
-}
-
-```
-
-<a name="event-hub"></a>
-
-### Event Hubs trigger and output
-
-Azure Functions supports trigger and output bindings for Event Hubs. For more information, see  [Azure Functions Event Hub bindings](functions-bindings-event-hubs.md).
-
-The types `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` and `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` are defined in the NuGet package [Microsoft.Azure.WebJobs.ServiceBus]. 
-
-The following example uses an Event Hub trigger:
-
-```csharp
-[FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
-{
-    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-}
-```
-
-The following example has an Event Hub output, using the method return value as the output:
-
-```csharp
-[FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
-public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    return $"{DateTime.Now}";
-}
-```
-
-<a name="api-hub"></a>
-
-### External file input and output
-
-Azure Functions supports trigger, input, and output bindings for external files, such as Google Drive, Dropbox, and OneDrive. To learn more, see [Azure Functions External File bindings](functions-bindings-external-file.md). The attributes `[ExternalFileTrigger]` and `[ExternalFile]` are defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.ApiHub].
-
-The following C# example demonstrates an external file input and output binding. The code copies the input file to the output file.
-
-```csharp
-[StorageAccount("MyStorageConnection")]
-[FunctionName("ExternalFile")]
-[return: ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}-Copy", FileAccess.Write)]
-public static string Run([QueueTrigger("myqueue-items")] string myQueueItem, 
-    [ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}", FileAccess.Read)] string myInputFile, 
-    TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    return myInputFile;
-}
-```
-
-<a name="http"></a>
-
-### HTTP and webhooks
-
-Use the `HttpTrigger` attribute to define an HTTP trigger or webhook. This attribute is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.Http]. You can customize the authorization level, webhook type, route, and methods. The following example defines an HTTP trigger with anonymous authentication and _genericJson_ webhook type.
-
-```csharp
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-<a name="mobile-apps"></a>
-
-### Mobile Apps input and output
-
-Azure Functions supports input and output bindings for Mobile Apps. To learn more, see [Azure Functions Mobile Apps bindings](functions-bindings-mobile-apps.md). The attribute `[MobileTable]` is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.MobileApps].
-
-The following example demonstrates a Mobile Apps output binding:
-
-```csharp
-[FunctionName("MobileAppsOutput")]        
-[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
-public static object Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, TraceWriter log)
-{
-    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
-}
-```
-
-<a name="nh"></a>
-
-### Notification Hubs output
-
-Azure Functions supports an output binding for Notification Hubs. To learn more, see [Azure Functions Notification Hub output binding](functions-bindings-notification-hubs.md). The attribute `[NotificationHub]` is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.NotificationHubs].
-
-<a name="queue"></a>
-
-### Queue storage trigger and output
-
-Azure Functions supports trigger and output bindings for Azure queues. For more information, see [Azure Functions Queue Storage bindings](functions-bindings-storage-queue.md).
-
-The following example shows how to use the function return type with a queue output binding, using the `[Queue]` attribute. 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // HTTP trigger with queue output binding
-    [FunctionName("QueueOutput")]
-    [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
-    {
-        log.Info($"C# function processed: {input.Text}");
-        return input.Text;
-    }
-}
-
-```
-
-To define a queue trigger, use the `[QueueTrigger]` attribute.
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // Queue trigger
-    [FunctionName("QueueTrigger")]
-    [StorageAccount("AzureWebJobsStorage")]
-    public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-
-```
-
-
-<a name="sendgrid"></a>
-
-### SendGrid output
-
-Azure Functions supports a SendGrid output binding for sending email programmatically. To learn more, see [Azure Functions SendGrid bindings](functions-bindings-sendgrid.md).
-
-The attribute `[SendGrid]` is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.SendGrid]. A SendGrid binding requires an application setting named `AzureWebJobsSendGridApiKey`, which contains your SendGrid API key. This is the default setting name for your SendGrid API key. If you need to have more than one SendGrid key or choose a different setting name, you can set this name using the `ApiKey` property of the `SendGrid` binding attribute, as in the following example:
-
-    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
-
-The following is an example of using a Service Bus queue trigger and a SendGrid output binding using `SendGridMessage`:
-
-```csharp
-[FunctionName("SendEmail")]
-public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
-    [SendGrid] out SendGridMessage message)
-{
-    message = new SendGridMessage();
-    message.AddTo(email.To);
-    message.AddContent("text/html", email.Body);
-    message.SetFrom(new EmailAddress(email.From));
-    message.SetSubject(email.Subject);
-}
-
-public class OutgoingEmail
-{
-    public string To { get; set; }
-    public string From { get; set; }
-    public string Subject { get; set; }
-    public string Body { get; set; }
-}
-```
-Note that this example requires the SendGrid API key to be storage in an application setting named `AzureWebJobsSendGridApiKey`.
-
-<a name="service-bus"></a>
-
-### Service Bus trigger and output
-
-Azure Functions supports trigger and output bindings for Service Bus queues and topics. For more information on configuring bindings, see [Azure Functions Service Bus bindings](functions-bindings-service-bus.md).
-
-The attributes `[ServiceBusTrigger]` and `[ServiceBus]` are defined in the NuGet package [Microsoft.Azure.WebJobs.ServiceBus]. 
-
-The following is an example of a Service Bus queue trigger:
-
-```csharp
-[FunctionName("ServiceBusQueueTriggerCSharp")]                    
-public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] string myQueueItem, TraceWriter log)
-{
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-}
-```
-
-The following is an example of a Service Bus output binding, using the method return type as the output:
-
-```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
-{
-    log.Info($"C# function processed: {input.Text}");
-    return input.Text;
-}
-```        
-
-<a name="table"></a>
-
-### Table storage input and output
-
-Azure Functions supports input and output bindings for Azure Table storage. To learn more, see [Azure Functions Table storage bindings](functions-bindings-storage-table.md).
-
-The following example is a class with two functions, demonstrating table storage output and input bindings. 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public class TableStorage
-{
-    public class MyPoco
-    {
-        public string PartitionKey { get; set; }
-        public string RowKey { get; set; }
-        public string Text { get; set; }
-    }
-
-    [FunctionName("TableOutput")]
-    [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
-    {
-        log.Info($"C# http trigger function processed: {input.Text}");
-        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
-    }
-
-    // use the metadata parameter "queueTrigger" to bind the queue payload
-    [FunctionName("TableInput")]
-    public static void TableInput([QueueTrigger("table-items")] string input, [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, TraceWriter log)
-    {
-        log.Info($"C# function processed: {poco.Text}");
-    }
-}
-
-```
-
-<a name="timer"></a>
-
-### Timer trigger
-
-Azure Functions has a timer trigger binding that lets you run your function code based on a defined schedule. To learn more about the features of the binding, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).
-
-On the Consumption plan, you can define schedules with a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression). If you're using an App Service Plan, you can also use a TimeSpan string. 
-
-The following example defines a timer trigger that runs every five minutes:
-
-```csharp
-[FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-}
-```
-
-<a name="twilio"></a>
-
-### Twilio output
-
-Azure Functions supports Twilio output bindings to enable your functions to send SMS text messages. To learn more, see [Send SMS messages from Azure Functions using the Twilio output binding](functions-bindings-twilio.md). 
-
-The attribute `[TwilioSms]` is defined in the package [Microsoft.Azure.WebJobs.Extensions.Twilio].
-
-The following C# example uses a queue trigger and a Twilio output binding:
-
-```csharp
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
-public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {order}");
-
-    var message = new SMSMessage()
-    {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
-    };
-
-    return message;
-}
-```
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## Next steps
 
-For more information on using Azure Functions in C# scripting, see [Azure Functions C\# script developer reference](functions-reference-csharp.md).
+> [!div class="nextstepaction"]
+> [Learn more about triggers and bindings](functions-triggers-bindings.md)
 
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-<!-- NuGet packages --> 
-[Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.SendGrid]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.Http]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http/1.0.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.BotFramework]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.BotFramework/1.0.15-beta
-[Microsoft.Azure.WebJobs.Extensions.ApiHub]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApiHub/1.0.0-beta4
-[Microsoft.Azure.WebJobs.Extensions.Twilio]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/2.1.0-beta1
-
-
-<!-- Links to source --> 
-[DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
-[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
-[EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
-[EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
-[MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
-[NotificationHubAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs 
-[ServiceBusAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs
-[ServiceBusAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs
-[QueueAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs
-[StorageAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs
-[BlobAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs
-[TableAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs
-[TwilioSmsAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs
-[SendGridAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs
-[HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
-[ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
-[TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+> [!div class="nextstepaction"]
+> [Learn more about best practices for Azure Functions](functions-best-practices.md)

@@ -1,63 +1,68 @@
 ---
-title: Manage an App Service plan in Azure | Microsoft Docs
-description: Learn how to App Service plans perform different tasks to manage an App Service plan.
+title: Manage App Service plan
+description: Learn how to perform different tasks to manage an App Service plan, such as create, move, scale, and delete.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
-ms.author: cephalin
+ms.date: 10/24/2019
+ms.custom: seodec18
 
 ---
 # Manage an App Service plan in Azure
 
-An [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources an App Service app needs to run. This how-to guide shows how to manage an App Service plan. 
+An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 
 > [!TIP]
 > If you have an App Service Environment, see [Create an App Service plan in an App Service Environment](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-You can create an empty App Service plan or as part of app creation.
+You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-In the [Azure portal](https://portal.azure.com), click **New** > **Web + mobile**, and then select **Web App** or other App Service app kind.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 
-![Create an app in the Azure portal.][createWebApp]
+   ![Create a resource in the Azure portal.][createResource] 
 
-You can then select an existing App Service plan or create a plan for the new app.
+1. Select **New** > **Web App** or another kind of App service app.
 
- ![Create an App Service plan.][createASP]
+   ![Create an app in the Azure portal.][createWebApp] 
 
-To create an App Service plan, click **[+] Create New**, type the **App Service plan** name, and then select an appropriate **Location**. Click **Pricing tier**, and then select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. 
+2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** determines where your App Service plan is created. 
+   
+3. In the **App Service Plan** section, select an existing plan, or create a plan by selecting **Create new**.
 
-After you have selected the pricing tier, click the **Select** button.
+   ![Create an App Service plan.][createASP] 
+
+4. When creating a plan, you can select the pricing tier of the new plan. In **Sku and size**, select **Change size** to change the pricing tier. 
 
 <a name="move"></a>
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan as long as the source plan and the target plan are in the _same resource group and geographical region_.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region_.
 
-To move an app to another plan, navigate to the app that you want to move in the [Azure portal](https://portal.azure.com).
+> [!NOTE]
+> Azure deploys each new App Service plan into a deployment unit, internally called a webspace. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment is an isolated webspace, so apps can be moved between plans in the same App Service Environment, but not between plans in different App Service Environments.
+>
+> You can’t specify the webspace you want when creating a plan, but it’s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group and region combination are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they’re created, so you can’t move a plan into “the same webspace” as another plan by moving it to another resource group.
+> 
 
-In the **Menu**, look for the **App Service Plan** section.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App services** and select the app that you want to move.
 
-Select **Change App Service plan** to start the process.
+2. From the left menu, select **Change App Service plan**.
 
-**Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. Only plans in the same resource group and region are displayed. If you just created an App Service plan in the same resource group and region, but it is not displayed in the list, try refreshing your browser page.
+3. In the **App Service plan** dropdown, select an existing plan to move the app to. The dropdown shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **Create new**.
 
-![App Service plan selector.][change]
+4. If you create a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select the existing tier to change it. 
+   
+   > [!IMPORTANT]
+   > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
+   >
+   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
-Each plan has its own pricing tier. For example, moving a site from a **Free** tier to a **Standard** tier, enables all apps assigned to it to use the features and resources of the **Standard** tier. However, moving an app from a higher tiered plan to a lower tiered plan means that you no longer have access to certain features. If your app uses a feature that is not available in the target plan, you get an error that shows which feature is in use that is not available. For example, if one of your apps uses SSL certificates, you might see the error message: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`In this case, you need to scale up the pricing tier of the target plan to **Basic** or higher, or you need to remove all SSL connections to your app, before you can move the app to the target plan.
+5. When finished, select **OK**.
+   
+   ![App Service plan selector.][change] 
 
 ## Move an app to a different region
 
@@ -66,28 +71,29 @@ The region in which your app runs is the region of the App Service plan it's in.
 You can find **Clone App** in the **Development Tools** section of the menu.
 
 > [!IMPORTANT]
-> Cloning has some limitations that you can read about at [Azure App Service App cloning](app-service-web-app-cloning.md).
+> Cloning has some limitations. You can read about them in [Azure App Service App cloning](app-service-web-app-cloning.md).
 
 ## Scale an App Service plan
 
-To scale up ah App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
+To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
+To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="delete"></a>
 
 ## Delete an App Service plan
 
-To avoid unexpected charges, when you delete the last app in an App Service plan, App Service also deletes the plan by default. If choose to keep the plan instead, you should change the plan to **Free** tier so that you don't get charged.
+To avoid unexpected charges, when you delete the last app in an App Service plan, App Service also deletes the plan by default. If you choose to keep the plan instead, you should change the plan to **Free** tier so you're not charged.
 
 > [!IMPORTANT]
-> **App Service plans** that have no apps associated to them still incur charges since they continue to reserve the configured VM instances.
+> App Service plans that have no apps associated with them still incur charges because they continue to reserve the configured VM instances.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Scale up an app in Azure](web-sites-scale.md)
+> [Scale up an app in Azure](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

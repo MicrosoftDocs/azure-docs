@@ -1,23 +1,14 @@
 ---
-title: Monitor and manage data pipelines - Azure | Microsoft Docs
+title: Monitor and manage data pipelines - Azure 
 description: Learn how to use the Monitoring and Management app to monitor and manage Azure data factories and pipelines.
-services: data-factory
-documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
-
-ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2017
-ms.author: spelluru
-
-robots: noindex
+ms.topic: conceptual
+ms.date: 01/10/2018
 ---
+
 # Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management app
 > [!div class="op_single_selector"]
 > * [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
@@ -26,9 +17,9 @@ robots: noindex
 >
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [monitor and manage Data Factory pipelines in](../monitor-visually.md).
 
-This article describes how to use the Monitoring and Management app to monitor, manage, and debug your Data Factory pipelines. It also provides information on how to create alerts to get notified on failures. You can get started with using the application by watching the following video:
+This article describes how to use the Monitoring and Management app to monitor, manage, and debug your Data Factory pipelines. You can get started with using the application by watching the following video:
 
 > [!NOTE]
 > The user interface shown in the video may not exactly match what you see in the portal. It's slightly older, but concepts remain the same. 
@@ -123,7 +114,7 @@ You can click an activity window to see details for it in the **Properties** win
 
 In the right pane, switch to the **Activity Window Explorer** tab to see more details.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Screenshot that shows how to access the Activity Window Explorer tab.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 You also see **resolved variables** for each run attempt for an activity in the **Attempts** section.
 
@@ -216,7 +207,7 @@ Activity windows can be in one of the following statuses:
 
 When you click an activity window in the list, you see details about it in the **Activity Windows Explorer** or the **Properties** window on the right.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Screenshot that shows how to view details about an activity window.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### Refresh activity windows
 The details aren't automatically refreshed, so use the refresh button (the second button) on the command bar to manually refresh the activity windows list.  
@@ -294,42 +285,3 @@ You can also select multiple activity windows in the list and rerun them at the 
 You can multiselect two or more pipelines by using the Ctrl key. You can use the command bar buttons (which are highlighted in the red rectangle in the following image) to pause/resume them.
 
 ![Pause/resume on the command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## Create alerts
-The **Alerts** page lets you create an alert and view/edit/delete existing alerts. You can also disable/enable an alert. To see the Alerts page, click the **Alerts** tab.
-
-![Alerts tab](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### To create an alert
-1. Click **Add Alert** to add an alert. You see the **Details** page.
-
-    ![Create Alerts - Details page](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Specify the **Name** and **Description** for the alert, and click **Next**. You should see the **Filters** page.
-
-    ![Create Alerts - Filters page](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Select the **event**, **status**, and **substatus** (optional) that you want to create a Data Factory service alert for, and click **Next**. You should see the **Recipients** page.
-
-    ![Create Alerts - Recipients page](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Select the **Email subscription admins** option and/or enter an **additional administrator email**, and click **Finish**. You should see the alert in the list.
-
-    ![Alerts list](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-In the Alerts list, use the buttons that are associated with the alert to edit/delete/disable/enable an alert.
-
-### Event/status/substatus
-The following table provides the list of available events and statuses (and substatuses).
-
-| Event name | Status | Substatus |
-| --- | --- | --- |
-| Activity Run Started |Started |Starting |
-| Activity Run Finished |Succeeded |Succeeded |
-| Activity Run Finished |Failed |Failed Resource Allocation<br/><br/>Failed Execution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
-| On-Demand HDI Cluster Create Started |Started |-|
-| On-Demand HDI Cluster Created Successfully |Succeeded |-|
-| On-Demand HDI Cluster Deleted |Succeeded |-|
-
-### To edit, delete, or disable an alert
-
-Use the following buttons (highlighted in red) to edit, delete, or disable an alert.
-
-![Alerts buttons](./media/data-factory-monitor-manage-app/AlertButtons.png)

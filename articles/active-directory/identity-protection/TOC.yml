@@ -1,0 +1,70 @@
+- name: Identity Protection Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Identity Protection?
+    href: overview-identity-protection.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Security overview
+    href: concept-identity-protection-security-overview.md
+  - name: What are risks?
+    href: concept-identity-protection-risks.md
+  - name: Identity Protection policies
+    href: concept-identity-protection-policies.md
+  - name: What is the sign-in experience?
+    href: concept-identity-protection-user-experience.md
+  - name: Identity Protection and B2B users
+    href: concept-identity-protection-b2b.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Configure notifications
+    href: howto-identity-protection-configure-notifications.md
+  - name: Policy configuration
+    items:
+    - name: Configure the MFA registration policy
+      href: howto-identity-protection-configure-mfa-policy.md
+    - name: Configure risk policies
+      href: howto-identity-protection-configure-risk-policies.md
+  - name: Simulate risk detections
+    href: howto-identity-protection-simulate-risk.md
+  - name: Investigate and remediate
+    items:
+    - name: Investigate risk
+      href: howto-identity-protection-investigate-risk.md
+    - name: Remediate risk detections and unblock
+      href: howto-identity-protection-remediate-unblock.md
+    - name: Use the Microsoft Graph API
+      href: howto-identity-protection-graph-api.md
+  - name: Provide feedback on risk detections
+    href: howto-identity-protection-risk-feedback.md
+  - name: FAQs
+    href: troubleshooting-identity-protection-faq.md
+- name: Reference
+  items:
+  - name: Graph APIs
+    items: 
+    - name: riskDetection API
+      href: /graph/api/resources/riskdetection?view=graph-rest-v1.0
+    - name: riskyUsers API
+      href: /graph/api/resources/riskyuser?view=graph-rest-v1.0
+    - name: signIn API
+      href: /graph/api/resources/signin?view=graph-rest-v1.0
+  - name: Glossary
+    href: reference-identity-protection-glossary.md
+- name: Resources
+  items:
+  - name: Azure feedback forum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-active-directory.html
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Service updates
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

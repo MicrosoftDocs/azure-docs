@@ -1,0 +1,86 @@
+### YamlMime:Landing
+
+title: Azure Remote Rendering documentation
+summary: Azure Remote Rendering (ARR) is a service that enables you to render highly complex 3D models in real time on devices such as HoloLens 2.
+
+metadata:
+  title: Azure Remote Rendering documentation
+  description: Learn how to use the Azure Remote Rendering (ARR) service to render highly complex 3D models remotely in real time and display the result on devices such as HoloLens 2.
+  ms.service: azure-remote-rendering
+  ms.topic: landing-page
+  author: florianborn71
+  ms.author: flborn
+  ms.date: 03/26/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Remote Rendering
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Remote Rendering?
+            url: overview/about.md
+          - text: System requirements
+            url: overview/system-requirements.md
+          - text: Create an Azure Remote Rendering account
+            url: how-tos/create-an-account.md
+
+  # Card
+  - title: Learn key concepts to get started with Azure Remote Rendering
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Configure authentication
+            url: how-tos/authentication.md
+          - text: Remote Rendering Sessions
+            url: concepts/sessions.md
+          - text: Entities
+            url: concepts/entities.md
+          - text: Components
+            url: concepts/components.md
+          - text: Models
+            url: concepts/models.md
+          - text: Convert models
+            url: how-tos/conversion/model-conversion.md
+
+  # Card
+  - title: Convert and render your first model
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Render a model with Unity
+            url: quickstarts/render-model.md
+          - text: Deploy Unity sample to HoloLens
+            url: quickstarts/deploy-to-hololens.md
+          - text: Deploy Unity sample to Desktop
+            url: quickstarts/deploy-to-desktop.md
+          - text: Deploy native C++ sample to HoloLens
+            url: quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md
+          - text: Convert a model for rendering
+            url: quickstarts/convert-model.md
+
+  # Card
+  - title: Learn how to build your own app
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Overview
+            url: tutorials/unity/tutorial-landing.md
+          - text: Viewing a remotely rendered model
+            url: tutorials/unity/view-remote-models/view-remote-models.md
+          - text: Loading custom models
+            url: tutorials/unity/custom-models/custom-models.md
+          - text: Manipulating models
+            url: tutorials/unity/manipulate-models/manipulate-models.md
+          - text: Refining materials, lighting, and effects
+            url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+          - text: Securing Azure Remote Rendering and model storage
+            url: tutorials/unity/security/security.md
+          - text: Creating a commercial ready Azure Remote Rendering application
+            url: tutorials/unity/commercial-ready/commercial-ready.md
+          - text: "Native C++: Integrate Remote Rendering into a HoloLens Holographic App"
+            url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

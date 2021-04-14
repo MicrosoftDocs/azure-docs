@@ -1,4 +1,10 @@
-<!--author=SharS last changed: 06/22/2016-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 ### To configure and register the device
 1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
@@ -6,7 +12,7 @@
 3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press **Enter**.
    
     ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. In the serial console menu that is presented, choose option 1 to log on with full access.
+4. In the serial console menu that is presented, choose option 1, **Log in with full access**.
    
     ![StorSimple register device 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
 5. Perform the following steps to configure the minimum required network settings for your device.
@@ -32,7 +38,7 @@
    4. Optionally, configure your web proxy server.
       
       > [!IMPORTANT]
-      > Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-8000-configure-web-proxy.md).
      
 6. Press Ctrl + C to exit the setup wizard.
 8. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
@@ -68,11 +74,10 @@
 15. Return to the Azure Government Portal, and complete the following steps:
     
     1. Go to your StorSimple Device Manager service.
-    2. Click **Devices**. From the list of devices, identify the device that you are ddeploying. Verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+    2. Click **Devices**. From the list of devices, identify the device that you are deploying. Verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
             
         If the device status is **Offline**, wait for a couple of minutes for the device to come online.
        
         If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-8000-system-requirements.md).
        
         Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Device Manager Service-to-device communication.
-

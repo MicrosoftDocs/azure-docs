@@ -1,171 +1,185 @@
 ---
-title: Deploy containers with Helm in Kubernetes on Azure | Microsoft Docs
-description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in AKS
+title: Install existing applications with Helm in AKS
+description: Learn how to use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-documentationcenter: ''
-author: neilpeterson
-manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: ''
-
-ms.service: container-service
-ms.devlang: na
+author: zr-msft
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2017
-ms.author: nepeters
-ms.custom: mvc
+ms.date: 12/07/2020
+ms.author: zarhoads
 
+#Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
 ---
-# Use Helm with Azure Container Service (AKS)
 
-[Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
+# Install existing applications with Helm in Azure Kubernetes Service (AKS)
 
-This document steps through configuring and using Helm in a Kubernetes cluster on AKS.
+[Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
+
+This article shows you how to configure and use Helm in a Kubernetes cluster on AKS.
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS quickstart](./kubernetes-walkthrough.md).
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-## Install Helm CLI
+You also need the Helm CLI installed, which is the client that runs on your development system. It allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform, see [Installing Helm][helm-install].
 
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
+> [!IMPORTANT]
+> Helm is intended to run on Linux nodes. If you have Windows Server nodes in your cluster, you must ensure that Helm pods are only scheduled to run on Linux nodes. You also need to ensure that any Helm charts you install are also scheduled to run on the correct nodes. The commands in this article use [node-selectors][k8s-node-selector] to make sure pods are scheduled to the correct nodes, but not all Helm charts may expose a node selector. You can also consider using other options on your cluster, such as [taints][taints].
 
-If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+## Verify your version of Helm
+
+Use the `helm version` command to verify you have Helm 3 installed:
 
 ```console
-brew install kubernetes-helm
+helm version
 ```
 
-Output:
+The following example shows Helm version 3.0.0 installed:
 
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
+```console
+$ helm version
+
+version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6e2a28b6", GitTreeState:"clean", GoVersion:"go1.13.4"}
 ```
 
-## Configure Helm
+## Install an application with Helm v3
 
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Helm is pre-installed in AKS clusters, so only the client-side configuration is needed. Run the following command to configure the Helm client.
+### Add Helm repositories
 
-```azurecli-interactive
-helm init --client-only
+Use the [helm repo][helm-repo-add] command to add the *ingress-nginx* repository.
+
+```console
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ```
 
-Output:
+### Find Helm charts
 
-```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Not installing Tiller due to 'client-only' flag having been set
-Happy Helming!
-```
+Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search][helm-search] command:
 
-## Find Helm charts
-
-Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search](https://docs.helm.sh/helm/#helm-search) command.
-
-```azurecli-interactive
-helm search
+```console
+helm search repo ingress-nginx
 ```
 
-The output looks similar to the following, however with many more charts.
+The following condensed example output shows some of the Helm charts available for use:
 
-```
-NAME                         	VERSION	DESCRIPTION
-stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools
-stable/artifactory           	6.1.0  	Universal Repository Manager supporting all maj...
-stable/aws-cluster-autoscaler	0.3.1  	Scales worker nodes within autoscaling groups.
-stable/buildkite             	0.2.0  	Agent for Buildkite
-stable/centrifugo            	2.0.0  	Centrifugo is a real-time messaging server.
-stable/chaoskube             	0.5.0  	Chaoskube periodically kills random pods in you...
-stable/chronograf            	0.3.0  	Open-source web application written in Go and R...
-stable/cluster-autoscaler    	0.2.0  	Scales worker nodes within autoscaling groups.
-stable/cockroachdb           	0.5.0  	CockroachDB is a scalable, survivable, strongly...
-stable/concourse             	0.7.0  	Concourse is a simple and scalable CI system.
-stable/consul                	0.4.1  	Highly available and distributed service discov...
-stable/coredns               	0.5.0  	CoreDNS is a DNS server that chains middleware ...
-stable/coscale               	0.2.0  	CoScale Agent
-stable/dask-distributed      	2.0.0  	Distributed computation in Python
-stable/datadog               	0.8.0  	DataDog Agent
-...
+```console
+$ helm search repo ingress-nginx
+
+NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+ingress-nginx/ingress-nginx     2.12.0          0.34.1          Ingress controller for Kubernetes using NGINX a...
 ```
 
-To update the list of charts, use the [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) command.
+To update the list of charts, use the [helm repo update][helm-repo-update] command.
 
-```azurecli-interactive
+```console
 helm repo update
 ```
 
-Output:
+The following example shows a successful repo update:
 
-```
+```console
+$ helm repo update
+
 Hang tight while we grab the latest from your chart repositories...
-...Skip local chart repository
-...Successfully got an update from the "stable" chart repository
+...Successfully got an update from the "ingress-nginx" chart repository
 Update Complete. ⎈ Happy Helming!⎈
 ```
 
-## Run Helm charts
+### Run Helm charts
 
-To deploy an NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
+To install charts with Helm, use the [helm install][helm-install-command] command and specify a release name and the name of the chart to install. To see installing a Helm chart in action, let's install a basic nginx deployment using a Helm chart.
 
-```azurecli-interactive
-helm install stable/nginx-ingress
+```console
+helm install my-nginx-ingress ingress-nginx/ingress-nginx \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-The output looks similar to the following, but includes additional information such as instructions on how to use the Kubernetes deployment.
+The following condensed example output shows the deployment status of the Kubernetes resources created by the Helm chart:
 
-```
-NAME:   tufted-ocelot
-LAST DEPLOYED: Thu Oct  5 00:48:04 2017
+```console
+$ helm install my-nginx-ingress ingress-nginx/ingress-nginx \
+>     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+>     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+
+NAME: my-nginx-ingress
+LAST DEPLOYED: Fri Nov 22 10:08:06 2019
 NAMESPACE: default
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/ConfigMap
-NAME                                    DATA  AGE
-tufted-ocelot-nginx-ingress-controller  1     5s
-
-==> v1/Service
-NAME                                         CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-tufted-ocelot-nginx-ingress-controller       10.0.140.10  <pending>    80:30486/TCP,443:31358/TCP  5s
-tufted-ocelot-nginx-ingress-default-backend  10.0.34.132  <none>       80/TCP                      5s
-
-==> v1beta1/Deployment
-NAME                                         DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-tufted-ocelot-nginx-ingress-controller       1        1        1           0          5s
-tufted-ocelot-nginx-ingress-default-backend  1        1        1           1          5s
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The nginx-ingress controller has been installed.
+It may take a few minutes for the LoadBalancer IP to be available.
+You can watch the status by running 'kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller'
 ...
 ```
 
-For more information on using an NGINX ingress controller with Kubernetes, see [NGINX Ingress Controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx).
+Use the `kubectl get services` command to get the *EXTERNAL-IP* of your service.
 
-## List Helm charts
+```console
+kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
+```
 
-To see a list of charts installed on your cluster, use the [helm list](https://docs.helm.sh/helm/#helm-list) command.
+For example, the below command shows the *EXTERNAL-IP* for the *my-nginx-ingress-ingress-nginx-controller* service:
 
-```azurecli-interactive
+```console
+$ kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
+
+NAME                                        TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)                      AGE   SELECTOR
+my-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.2.237   <EXTERNAL-IP>    80:31380/TCP,443:32239/TCP   72s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=my-nginx-ingress,app.kubernetes.io/name=ingress-nginx
+```
+
+### List releases
+
+To see a list of releases installed on your cluster, use the `helm list` command.
+
+```console
 helm list
 ```
 
-Output:
+The following example shows the *my-nginx-ingress* release deployed in the previous step:
 
+```console
+$ helm list
+
+NAME            	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART               	APP VERSION
+my-nginx-ingress	default  	1       	2019-11-22 10:08:06.048477 -0600 CST	deployed	nginx-ingress-1.25.0	0.26.1 
 ```
-NAME         	REVISION	UPDATED                 	STATUS  	CHART              	NAMESPACE
-bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	default
+
+### Clean up resources
+
+When you deploy a Helm chart, a number of Kubernetes resources are created. These resources include pods, deployments, and services. To clean up these resources, use the [helm uninstall][helm-cleanup] command and specify your release name, as found in the previous `helm list` command.
+
+```console
+helm uninstall my-nginx-ingress
+```
+
+The following example shows the release named *my-nginx-ingress* has been uninstalled:
+
+```console
+$ helm uninstall my-nginx-ingress
+
+release "my-nginx-ingress" uninstalled
 ```
 
 ## Next steps
 
-For more information about managing Kubernetes charts, see the Helm documentation.
+For more information about managing Kubernetes application deployments with Helm, see the Helm documentation.
 
 > [!div class="nextstepaction"]
-> [Helm documentation](https://github.com/kubernetes/helm/blob/master/docs/index.md)
+> [Helm documentation][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-cleanup]: https://helm.sh/docs/intro/using_helm/#helm-uninstall-uninstalling-a-release
+[helm-documentation]: https://helm.sh/docs/
+[helm-install]: https://helm.sh/docs/intro/install/
+[helm-install-command]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
+[helm-repo-add]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
+[helm-search]: https://helm.sh/docs/intro/using_helm/#helm-search-finding-charts
+[helm-repo-update]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+            
+<!-- LINKS - internal -->
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[taints]: operator-best-practices-advanced-scheduler.md

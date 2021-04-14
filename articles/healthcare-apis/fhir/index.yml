@@ -1,0 +1,61 @@
+### YamlMime:Landing
+
+title: Azure API for FHIR Documentation
+summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+
+metadata:
+  title: Azure API for FHIR Documentation - tutorials, how-to guides
+  description: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: matjazl
+  ms.author: matjazl
+  ms.date: 08/13/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: Start with Azure API for FHIR
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure API for FHIR?
+            url: overview.md
+          - text: What is Azure IoT Connector for FHIR (preview)?
+            url: overview.md#azure-iot-connector-for-fhir-preview
+      - linkListType: quickstart
+        links:
+          - text: Deploy API Server for FHIR
+            url: fhir-paas-portal-quickstart.md
+          - text: Deploy Azure IoT Connector for FHIR (preview)
+            url: iot-fhir-portal-quickstart.md 
+
+  - title: Set-up tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy javascript app to read data from FHIR service
+            url: tutorial-web-app-fhir-server.md
+          - text: Access FHIR API with Postman
+            url: access-fhir-postman-tutorial.md
+          - text: SMART integration for third-party apps & medical records
+            url: use-smart-on-fhir-proxy.md
+          - text: Receive device data through Azure IoT Hub
+            url: device-data-through-iot-hub.md
+
+  - title: Register apps for AD authentication
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Register a resource app
+            url: register-resource-azure-ad-client-app.md
+          - text: Register a confidential client app
+            url: register-confidential-azure-ad-client-app.md
+          - text: Register a public client app
+            url: register-public-azure-ad-client-app.md
+          - text: Register a service client app
+            url: register-service-azure-ad-client-app.md       

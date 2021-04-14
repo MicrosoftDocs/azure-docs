@@ -1,0 +1,58 @@
+### YamlMime:Landing
+
+title: Save with Azure reservations
+summary: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+metadata:
+  title: Save with Azure reservations
+  description: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+  ms.service: cost-management-billing
+  ms.subservice: reservations
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 03/01/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Buy reservations
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What are Azure reservations?
+        url: save-compute-costs-reservations.md
+    - linkListType: how-to-guide
+      links:
+      - text: Buy a reservation
+        url: prepare-buy-reservation.md
+      - text: Renew reservations
+        url: reservation-renew.md
+
+  # Card (optional)
+  - title: Learn how discounts are applied
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: How a reservation discount is applied
+        url: reservation-discount-application.md
+
+  # Card (optional)
+  - title: Manage reservations
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Manage reservations
+        url: manage-reserved-vm-instance.md
+      - text: View reservations and manage permissions
+        url: view-reservations.md
+      - text: Exchange and refund reservations
+        url: exchange-and-refund-azure-reservations.md
+
+    - linkListType: reference
+      links:
+      - text: Reservation APIs
+        url: reservation-apis.md

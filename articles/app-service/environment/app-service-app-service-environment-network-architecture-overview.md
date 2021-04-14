@@ -1,24 +1,16 @@
 ---
-title: Network Architecture Overview of App Service Environments
-description: Architectural overview of network topology ofApp Service Environments.
-services: app-service
-documentationcenter: ''
+title: Network architecture v1
+description: Architectural overview of network topology of App Service Environments. This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
-manager: erikre
-editor: ''
 
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Network Architecture Overview of App Service Environments
-## Introduction
 App Service Environments are always created within a subnet of a [virtual network][virtualnetwork] - apps running in an App Service Environment can communicate with private endpoints located within the same virtual network topology.  Since customers may lock down parts of their virtual network infrastructure, it is important to understand the types of network communication flows that occur with an App Service Environment.
 
 ## General Network Flow
@@ -82,7 +74,7 @@ Details on inbound ports used by App Service Environments and using network secu
 Details on using user defined routes to grant outbound Internet access to App Service Environments is available in this [article][ExpressRoute]. 
 
 <!-- LINKS -->
-[virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [controllinginboundtraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [ExpressRoute]:  app-service-app-service-environment-network-configuration-expressroute.md
 

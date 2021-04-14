@@ -1,156 +1,244 @@
 ---
-title: Adaptive Application Controls in Azure Security Center | Microsoft Docs
-description: This document helps you to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs.
-services: security-center
-documentationcenter: na
-author: YuriDio
-manager: mbaldwin
-editor: ''
-
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
+title: Adaptive application controls in Azure Security Center
+description: This document helps you use adaptive application control in Azure Security Center to allow list applications running in Azure machines.
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/18/2017
-ms.author: yurid
+ms.topic: how-to
+ms.date: 02/07/2021
+ms.author: memildin
 
 ---
-# Adaptive Application Controls in Azure Security Center (Preview)
-Learn how to configure application control in Azure Security Center using this walkthrough.
+# Use adaptive application controls to reduce your machines' attack surfaces
 
-## What are adaptive application controls in Security Center?
-Adaptive application controls help control which applications can run on your VMs located in Azure, which among other benefits helps harden your VMs against malware. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence. This capability greatly simplifies the process of configuring and maintaining application whitelists, enabling you to:
+Learn about the benefits of Azure Security Center's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
 
-- Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions
-- Comply with your organization's security policy that dictates the use of only licensed software.
-- Avoid unwanted software to be used in your environment.
-- Avoid old and unsupported apps to run.
-- Prevent specific software tools that are not allowed in your organization.
-- Enable IT to control the access to sensitive data through app usage.
 
-> [!NOTE]
-> Adaptive application controls are available to Azure Security Center Standard customers as a limited public preview. Send an email with your subscription IDs to [us](mailto:ASC_appcontrol@microsoft.com) to join the preview.
+## What are Security Center's adaptive application controls?
 
-## How to enable adaptive application controls?
-Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups. This feature is only available for Windows machines (all versions, classic, or Azure Resource Manager). The following steps can be used to configure application whitelisting in Security Center:
+Adaptive application controls are an intelligent and automated solution for defining allow lists of known-safe applications for your machines. 
 
-1.	Open **Security Center** dashboard, and click **Overview**.
-2.	Under **Advanced cloud defense**, the **Adaptive application controls** tile shows how many VMs currently have the control in place compared to all the VMs. It also shows the number of issues that were found in last week: 
+Often, organizations have collections of machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
 
-	![Adaptive application controls](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
 
-3. Click on the **Adaptive application controls** tile for more options.
 
-	![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
+## What are the benefits of adaptive application controls?
 
-4. The Resource Groups section contains three tabs:
-	* **Recommended**:  list of resource groups for which application control is recommended. Security Center uses machine learning to identify VMs that are good candidates for application control based on whether the VMs consistently run the same applications.
-	* **Configured**: list of resource groups containing the VMs that were configured with application control. 
-	* **No recommendation**: list of resource groups containing VMs without any application control recommendations. For example, VMs on which applications are always changing, and haven’t reached a steady state.
+By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple hardening goals:
 
-### Configure a new application control policy
-Click on the **Recommended** tab for a list of resource groups with application control recommendations:
+- Identify potential malware, even any that might be missed by antimalware solutions
+- Improve compliance with local security policies that dictate the use of only licensed software
+- Avoid running old or unsupported applications
+- Prevent specific software that's banned by your organization
+- Increase oversight of apps that access sensitive data
 
-![Recommended](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
 
-The list includes:
-- **NAME**: the name of the subscription and resource group
-- **VMs**: the number of virtual machines in the resource group
-- **STATE**: the state of the recommendations, which in most cases will be open
-- **SEVERITY**: the severity level of the recommendations
+## Availability
 
-Select a resource group to open the **Create application control rules** option:
+|Aspect|Details|
+|----|:----|
+|Release state:|General Availability (GA)|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
+|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) machines|
+|Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
-![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply application control to. In the **Select processes for whitelisting rules**, review the list of recommended applications, and uncheck any you do not want to apply. The list includes:
 
-- **NAME**: the full application path
-- **PROCESSES**: how many applications reside within every path
-- **COMMON**: true indicates that these processes have been executed on most VMs in this resource group.
-- **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval. 
+## Enable application controls on a group of machines
 
-Once you finish your selections, click **Create** button. By default, Security Center always enables application control in *Audit* mode. After validating that the whitelist has not had any adverse effects on your workload, you can change to *Enforce* mode.
+If Security Center has identified groups of machines in your subscriptions that consistently run a similar set of applications, you'll be prompted with the following recommendation: **Adaptive application controls for defining safe applications should be enabled on your machines**.
 
-Security Center is relying on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. New customers of Security Center standard tier should expect a behavior in which at first their groups of VMs will appear under the *no recommendation* tab.
+Select the recommendation, or open the adaptive application controls page to view the list of suggested known-safe applications and groups of machines.
 
-> [!NOTE]
-> As a security best practice, Security Center will always try to create a publisher rule for the applications that should be whitelisted, and only if an application doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
->   
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
-### Editing and monitoring a group configured with application control
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
-To edit, and monitoring a group configured with application control click **CONFIGURED** under **Resource Groups**:
+    The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
-![Resource groups](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+    - **Configured** - Groups of machines that already have a defined allow list of applications. For each group, the configured tab shows:
+        - the number of machines in the group
+        - recent alerts
 
-The list includes:
+    - **Recommended** - Groups of machines that consistently run the same applications, and don't have an allow list configured. We recommend that you enable adaptive application controls for these groups.
+    
+      > [!TIP]
+      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with a a partially consistent list of applications. Security Center can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#edit-a-groups-adaptive-application-controls-rule).
+      >
+      > You can also move machines from this group to other groups as described in [Move a machine from one group to another](#move-a-machine-from-one-group-to-another).
 
-- **NAME**: the name of the subscription and resource group
-- **VMs**: the number of virtual machines in the resource group
-- **MODE**: Audit mode will log attempts to run non-whitelisted applications; Block will not allow non-whitelisted applications to run
-- **SEVERITY**: the severity level of the recommendations
+    - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
+      - It's missing a Log Analytics agent
+      - The Log Analytics agent isn't sending events
+      - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
 
-Select a resource group to make changes in the **Edit application control policy** page.
+      > [!TIP]
+      > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with Azure Defender, will appear under the **No recommendation** tab.
 
-![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
-Under **Protection Mode**, you have the option to select between the following options:
-- **Audit**: in this mode, the application control solution will not enforce the rules, and only audit the activity on the protected VMs. This is recommended for scenarios where you want to first observe the overall behavior before blocking an app to run in the target VM.
-- **Enforce**: in this mode, the application control solution will enforce the rules, and make sure that applications that are not allowed to run are blocked. 
+1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.
 
-As previously mentioned, by default a new application control policy will always be configured in *Audit* mode. Under **Policy extension**, you can add your own application paths that you want to whitelist. Once you add these paths, Security Center will create the proper rules for these applications, in addition to the rules that are already in place. In the **Issues** section, any current violations are listed.
+   ![Recommended tab](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
-![Issues](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
+1. Select a group. 
 
-This list includes:
+1. To configure your new rule, review the various sections of this **Configure application control rules** page and the contents, which will be unique to this specific group of machines:
 
-- **ISSUES**: any violations that were logged, which can include the following:
-	- **ViolationsBlocked**: when the solution is turned on Enforce mode, and an application that is not whitelisted tries to execute.
-	- **ViolationsAudited**: when the solution is turned on Audit mode, and an application that is not whitelisted executes.
-	- **RulesViolatedManually**: when a user tried to manually configure rules on the VMs and not via the ASC management portal.
-- **NO. OF VMS**: the number of virtual machines with this issue type.
+   ![Configure a new rule](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
-If you click on each one of those lines, you will be redirected to [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) page where you can see information about all VMs with this type of violation. If you click on the three dots at the end of each line you will be able to delete that particular entry. The **Configured virtual machines** section lists the VMs to which these rules apply. 
+   1. **Select machines** - By default, all machines in the identified group are selected. Unselect any to removed them from this rule.
+   
+   1. **Recommended applications** - Review this list of applications that are common to the machines within this group, and recommended to be allowed to run.
+   
+   1. **More applications** - Review this list of applications that are either seen less frequently on the machines within this group, or are known to be exploitable. A warning icon indicates that a specific application could be used by an attacker to bypass an application allow list. We recommend that you carefully review these applications.
 
-![Configured virtual machines](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
+      > [!TIP]
+      > Both application lists include the option to restrict a specific application to certain users. Adopt the principle of least privilege whenever possible.
+      > 
+      > Applications are defined by their publishers, if an application doesn't have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
 
-**Publisher whitelisting rules** list the applications for which a publisher rule was created based on the certificate information that was found for each application. See [Understanding Publisher Rules in Applocker](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker) for more information.
+   1. To apply the rule, select **Audit**. 
 
-![Whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-If you click on the three dots at the end of each line you will be able to delete that specific rule. The **Path whitelisting rules** list the entire application path (including the executable) for the applications that are not signed with a digital certificate, but are still current in the whitelisting rules. 
 
-> [!NOTE]
-> By default, as a security best practice, Security Center will always try to create a publisher rule for the EXEs that should be whitelisted, and only if an EXE doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
 
-![Path whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
+## Edit a group's adaptive application controls rule
 
-The list contains:
-- **NAME**: the full patch of the executable
-- **EXPLOITABLE**: true indicates that applications could be used by an attacker to bypass application whitelisting.  
+You might decide to edit the allow list for a group of machines because of known changes in your organization. 
 
-If you click on the three dots at the end of each line you will be able to delete that specific rule. After making the changes you can click the **Save** button, or if you decide to not apply the changes click in **Discard**.
+To edit the rules for a group of machines:
 
-### Not recommended list
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
-Security Center will only recommend application whitelisting for virtual machines running a stable set of applications. Recommendations will not be created if applications on the associated VMs keep changing. 
+1. From the **Configured** tab, select the group with the rule you want to edit.
 
-![Recommendation](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
+1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-application-controls-on-a-group-of-machines).
 
-The list contains:
-- **NAME**: the name of the subscription and resource group.
-- **VMs**: the number of virtual machines in the resource group.
+1. Optionally, add one or more custom rules:
+
+   1. Select **Add rule**.
+
+      ![Add a custom rule](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
+
+   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
+   
+      > [!TIP]
+      > Some scenarios for which wildcards in a path might be useful:
+      > 
+      > * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders.
+      > * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (for example, personal user folders containing a known executable, automatically generated folder names, etc).
+  
+   1. Define the allowed users and protected file types.
+
+   1. When you've finished defining the rule, select **Add**.
+
+1. To apply the changes, select **Save**.
+
+
+## Review and edit a group's settings
+
+1. To view the details and settings of your group, select **Group settings**
+
+    This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+1. Optionally, modify the group's name or file type protection modes.
+
+1. Select **Apply** and **Save**.
+
+
+
+## Respond to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
+
+You'll see this recommendation when Security Center's machine learning identifies potentially legitimate behavior that hasn't previously been allowed. The recommendation suggests new rules for your existing definitions to reduce the number of false positive alerts.
+
+To remediate the issues:
+
+1. From the recommendations page, select the **Allowlist rules in your adaptive application control policy should be updated** recommendation to see groups with newly identified, potentially legitimate behavior.
+
+1. Select the group with the rule you want to edit.
+
+1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-application-controls-on-a-group-of-machines).
+
+1. To apply the changes, select **Audit**.
+
+
+
+
+## Audit alerts and violations
+
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
+
+1. To see groups with machines that have recent alerts, review the groups listed in the **Configured** tab.
+
+1. To investigate further, select a group.
+
+   ![Recent alerts](./media/security-center-adaptive-application/recent-alerts.png)
+
+1. For further details, and the list of affected machines, select an alert.
+
+    The alerts page shows the more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the ":::
+
+    > [!NOTE]
+    > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.
+
+
+## Move a machine from one group to another
+
+When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group, doing so removes any application control rules that were applied to the machine.
+
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
+
+1. From the **Adaptive application controls** page, from the **Configured** tab, select the group containing the  machine to be moved.
+
+1. Open the list of  **Configured machines**.
+
+1. Open the machine's menu from three dots at the end of the row, and select **Move**. The **Move machine to a different group** pane opens.
+
+1. Select the destination group, and select **Move machine**.
+
+1. To save your changes, select **Save**.
+
+
+
+
+
+## Manage application controls via the REST API 
+
+To manage your adaptive application controls programatically, use our REST API. 
+
+The relevant API documentation is available in [the Adaptive Application Controls section of Security Center's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
+
+Some of the functions that are available from the REST API:
+
+* **List** retrieves all your group recommendations and provides a JSON with an object for each group.
+
+* **Get** retrieves the JSON with the full recommendation data (that is, list of machines, publisher/path rules, and so on).
+
+* **Put** configures your rule (use the JSON you retrieved with **Get** as the body for this request).
+ 
+   > [!IMPORTANT]
+   > The **Put** function expects fewer parameters than the JSON returned by the Get command contains.
+   >
+   > Remove the following properties before using the JSON in the Put request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
+
+
+## FAQ - Adaptive application controls
+
+### Are there any options to enforce the application controls?
+No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
+
+ 
 
 ## Next steps
-In this document, you learned how to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs. To learn more about Azure Security Center, see the following:
+In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:
 
-* [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
-
+* [Understanding just-in-time (JIT) VM access](just-in-time-explained.md)
+* [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)

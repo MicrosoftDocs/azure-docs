@@ -13,14 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 4 release notes
-> [!NOTE]
-> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
-
 
 ## Overview
 
@@ -46,7 +43,7 @@ The following key improvements and bug fixes have been made in Update 4.
 
     A new feature is implemented in Update 4 that tracks frequently accessed data to create a heatmap when the device is in use prior to DR (Most used data chunks have high heat whereas less used chunks have low heat). After DR, StorSimple uses the heatmap to automatically restore and rehydrate the data from the cloud. 
 
-    All the restores are now heatmap based restores. For more information on how to query and cancel heatmap based restore and rehydration jobs, go to [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx).
+    All the restores are now heatmap based restores. For more information on how to query and cancel heatmap based restore and rehydration jobs, go to [Windows PowerShell for StorSimple cmdlet reference](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 * **StorSimple Diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released to allow for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. This tool is run via the Windows PowerShell for StorSimple. For more information, go to [troubleshoot using StorSimple Diagnostics tool](storsimple-8000-diagnostics.md).
 
@@ -56,9 +53,9 @@ The following key improvements and bug fixes have been made in Update 4.
 
 * **Update changes** - In this release, bugs related to update failures have been fixed.
 
-* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release. If you encounter this alert, contact Microsoft Support to ship a replacement disk. For more information, go to [hardware alerts on your StorSimple device](storsimple-manage-alerts.md#hardware-alerts).
+* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release. If you encounter this alert, contact Microsoft Support to ship a replacement disk. For more information, go to [hardware alerts on your StorSimple device](storsimple-8000-manage-alerts.md#hardware-alerts).
 
-* **Controller replacement changes** - A cmdlet that allows the user to query the status of the controller replacement process is added in this release. For more information, go to the [cmdlet to query controller replacement status](https://technet.microsoft.com/library/dn688168.aspx).
+* **Controller replacement changes** - A cmdlet that allows the user to query the status of the controller replacement process is added in this release. For more information, go to the [cmdlet to query controller replacement status](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 
 ## Issues fixed in Update 4
@@ -81,7 +78,7 @@ There are no new known issues in Update 4. For a list of issues carried over to 
 
 ## Serial-attached SCSI (SAS) controller and firmware updates in Update 4
 
-This release has SAS controller and LSI driver and firmware updates. For more information on how to install these updates, see [install Update 4](storsimple-install-update-4.md) on your StorSimple device.
+This release has SAS controller and LSI driver and firmware updates. For more information on how to install these updates, see [install Update 4](./storsimple-8000-install-update-4.md) on your StorSimple device.
 
 ## Virtual device updates in Update 4
 
@@ -89,5 +86,4 @@ This update cannot be applied to the StorSimple Cloud Appliance (also known as t
 
 ## Next step
 
-Learn how to [install Update 4](storsimple-install-update-4.md) on your StorSimple device.
-
+Learn how to [install Update 4](./storsimple-8000-install-update-4.md) on your StorSimple device.

@@ -1,27 +1,21 @@
 ---
 title: Azure CLI samples for Blob storage | Microsoft Docs
-description: Azure CLI samples for working with Azure Blob Storage
-services: storage
-documentationcenter: na
-author: mmacy
-manager: timlt
-editor: tysonn
+description: See links to Azure CLI samples for working with Azure Blob Storage, such as creating a storage account, deleting containers with a specific prefix, and more.
+author: twooley
 
-ms.assetid:
-ms.custom: mvc
-ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: sample
+ms.author: twooley
 ms.date: 06/13/2017
-ms.author: marsma
+ms.service: storage
+ms.subservice: blobs
+ms.topic: sample 
+ms.custom: devx-track-azurecli
 ---
+
 # Azure CLI samples for Azure Blob storage
 
 The following table includes links to Bash scripts built using the Azure CLI that create and manage Azure Storage.
 
-| | |
+| Script | Description |
 |---|---|
 |**Storage accounts**||
 | [Create a storage account and retrieve/rotate the access keys](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure Storage account and retrieves and rotates its access keys. |

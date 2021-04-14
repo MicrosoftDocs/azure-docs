@@ -1,26 +1,16 @@
 ---
-title: Copy data easily with Copy Wizard - Azure | Microsoft Docs
+title: Copy data easily with Copy Wizard - Azure 
 description: Learn about how to use the Data Factory Copy Wizard to copy data from supported data sources to sinks.
-services: data-factory
-documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
-
-ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
+author: linda33wj
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
-ms.author: spelluru
-
+ms.topic: conceptual
+ms.date: 01/22/2018
+ms.author: jingwang
 robots: noindex
 ---
 # Copy or move data easily with Azure Data Factory Copy Wizard
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
 
 
 The Azure Data Factory Copy Wizard is to ease the process of ingesting data, which is usually a first step in an end-to-end data integration scenario. When going through the Azure Data Factory Copy Wizard, you do not need to understand any JSON definitions for linked services, datasets, and pipelines. However, after you complete all the steps in the wizard, the wizard automatically creates a pipeline to copy data from the selected data source to the selected destination. In addition, the Copy Wizard helps you to validate the data being ingested at the time of authoring, which saves much of your time, especially when you are ingesting data for the first time from the data source. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
@@ -64,16 +54,18 @@ You can use variables in the folder path to copy data from a folder that is dete
 
 Suppose that you have input folders in the following format:
 
-    2016/03/01/01
-    2016/03/01/02
-    2016/03/01/03
-    ...
+```text
+2016/03/01/01
+2016/03/01/02
+2016/03/01/03
+...
+```
 
 Click the **Browse** button for **File or folder**, browse to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see `2016/03/01/02` in the text box. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press Tab. You should see drop-down lists to select the format for these four variables:
 
 ![Using system variables](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press Tab to see the text box where you can type the format string.     
+As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press Tab to see the text box where you can type the format string.     
 
 ![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -91,4 +83,3 @@ A one-time copy operation enables data movement from a source to a destination o
 
 ## Next steps
 For a quick walkthrough of using the Data Factory Copy Wizard to create a pipeline with Copy Activity, see [Tutorial: Create a pipeline using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
-

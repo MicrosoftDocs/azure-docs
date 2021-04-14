@@ -1,6 +1,12 @@
-## Help & Support
+---
+author: CelesteDG
+ms.service: active-directory
+ms.subservice: develop
+ms.topic: include
+ms.date: 05/13/2019
+ms.author: celested
+---
 
-If you need help, report an issue or need to know about your support options, please see the article below:
+## Help and support
 
-> [!div class="nextstepaction"]
-> [Help and Support for Developers](../articles/active-directory/develop/active-directory-develop-help-support.md)
+If you need help, want to report an issue, or want to learn about your support options, see [Help and support for developers](../articles/active-directory/develop/developer-support-help-options.md).

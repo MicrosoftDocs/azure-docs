@@ -1,146 +1,367 @@
 ---
-title: Create, link, delete, or move an integration account in Azure logic apps | Microsoft Docs
-description: How to create an integration account, and link it to your logic apps
+title: Create or manage B2B integration accounts
+description: Create, link, and manage integration accounts for enterprise integration with Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
-editor: 
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
+ms.topic: conceptual
+ms.date: 11/04/2020
+---
 
-ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2017
-ms.author: LADocs; mandia
+# Create and manage integration accounts for B2B enterprise integrations in Azure Logic Apps
+
+Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to create an integration account, which is a separate Azure resource that provides a secure, scalable, and manageable container for the integration artifacts that you define and use with your logic app workflows.
+
+For example, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations. Also, before your logic app can work with these artifacts and use the Logic Apps B2B connectors, you must [link your integration account](#link-account) to your logic app. Both your integration account and logic app must exist in the *same* location or region.
+
+> [!IMPORTANT]
+> Based on the integration account type that you select, creating an integration account incurs costs. 
+> For more information, see [Logic Apps pricing and billing models](logic-apps-pricing.md#integration-accounts) 
+> and [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+This topic shows you how to perform these tasks:
+
+* Create your integration account.
+
+  > [!TIP]
+  > To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+  > see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+
+* Link your integration account to a logic app.
+
+* Change the pricing tier for your integration account.
+
+* Unlink your integration account from a logic app.
+
+* Move your integration account to another Azure resource group or subscription.
+
+* Delete your integration account.
+
+## Prerequisites
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+## Create integration account
+
+### [Portal](#tab/azure-portal)
+
+For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount), or [Azure CLI](/cli/azure/resource#az-resource-create).
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+
+1. On the main Azure menu, select **Create a resource**. In the search box, enter "integration account" as your filter, and select **Integration Account**.
+
+   ![Create new integration account](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+
+1. Under **Integration Account**, select **Create**.
+
+   ![Choose "Add" to create integration account](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
+
+1. Provide this information about your integration account:
+
+   ![Provide integration account details](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "Fabrikam-Integration". |
+   | **Subscription** | Yes | <*Azure-subscription-name*> | The name for your Azure subscription |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) to use for organizing related resources. For this example, create a new resource group with the name "FabrikamIntegration-RG". |
+   | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, see these topics: <p>- [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Location** | Yes | <*Azure-region*> | The region where to store your integration account metadata. Either select the same location as your logic app, or create your logic apps in the same location as your integration account. For this example, use "West US". <p>**Note**: To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Log Analytics** | No | Off, On | Keep the **Off** setting for this example. |
+   |||||
+
+1. When you're finished, select **Create**.
+
+   After deployment completes, Azure opens your integration account.
+
+   ![Azure opens integration account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
+
+1. Before your logic app can use your integration account, follow the next steps to link your integration account and logic app together.
+
+### [Azure CLI](#tab/azure-cli)
+
+You can create an integration account by using the Azure CLI commands in this section.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### Create an integration account
+
+Use these commands to create an integration account.
+
+1. To add the [az logic integration-account](/cli/azure/ext/logic/logic/integration-account) extension, use the [az extension add](/cli/azure/extension#az_extension_add) command:
+
+   ```azurecli
+   az extension add –-name logic
+   ```
+
+1. To create a resource group or use an existing resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+
+   ```azurecli
+   az group create --name myresourcegroup --location westus
+   ```
+
+   To list the integration accounts for a resource group, use the [az logic integration-account list](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list) command:
+
+   ```azurecli
+   az logic integration-account list --resource-group myresourcegroup
+   ```
+
+1. To create an integration account, run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command:
+
+   ```azurecli
+   az logic integration-account create --resource-group myresourcegroup \
+       --name integration_account_01 --location westus --sku name=Standard
+   ```
+
+   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
+
+   > [!TIP]
+   > To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+
+   To view a specific integration account, use the [az logic integration-account show](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show) command:
+
+   ```azurecli
+   az logic integration-account show --name integration_account_01 --resource-group myresourcegroup
+   ```
+
+   You can change your SKU, or pricing tier, by using the [az logic integration-account update](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_update) command:
+
+   ```azurecli
+   az logic integration-account update --sku name=Basic --name integration_account_01 \
+       --resource-group myresourcegroup
+   ```
+
+   For more information about pricing, see these resources:
+
+   * [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts)
+   * [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
+   * [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+
+To import an integration account by using a JSON file, use the [az logic integration-account import](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import) command:
+
+```azurecli
+az logic integration-account import --name integration_account_01 \
+    --resource-group myresourcegroup --input-path integration.json
+```
+
+You can delete an integration account by using the [az logic integration-account delete](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_delete) command:
+
+```azurecli
+az logic integration-account delete --name integration_account_01 --resource-group myresourcegroup
+```
+
+Before your logic app can use your integration account, link your integration account and logic app together. The next section describes linking.
+
+---
+<a name="link-account"></a>
+
+## Link to logic app
+
+To give your logic apps access to an integration account that contains your B2B artifacts, you must first link your integration account to your logic app. Both logic app and integration account must exist in the same region. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
+
+1. In the Azure portal, find and open your logic app.
+
+1. In the [Azure portal](https://portal.azure.com), open an existing logic app or create a new logic app.
+
+1. On your logic app's menu, under **Settings**, select **Workflow settings**. Under **Integration account**, open the **Select an Integration account** list. Select the integration account to link to your logic app.
+
+   ![Select your integration account](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
+
+1. To finish linking, select **Save**.
+
+   ![Screenshot that shows where to select Save to choose your integration account.](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
+
+   After your integration account is successfully linked, Azure shows a confirmation message.
+
+   ![Azure confirms successful link](./media/logic-apps-enterprise-integration-create-integration-account/link-confirmation.png)
+
+Now your logic app can use the artifacts in your integration account plus the B2B connectors, such as XML validation and flat file encoding or decoding.  
+
+<a name="change-pricing-tier"></a>
+
+## Change pricing tier
+
+To increase the [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) for an integration account, you can [upgrade to a higher pricing tier](#upgrade-pricing-tier), if available. For example, you can upgrade from the Free tier to the Basic tier or Standard tier. You can also [downgrade to a lower tier](#downgrade-pricing-tier), if available. For more information pricing information, see these topics:
+
+* [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+* [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts)
+
+<a name="upgrade-pricing-tier"></a>
+
+### Upgrade pricing tier
+
+To make this change, you can use either the Azure portal or the Azure CLI.
+
+#### [Portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+
+1. In the main Azure search box, enter "integration accounts" as your filter, and select **Integration accounts**.
+
+   ![Find integration account](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
+
+   Azure shows all the integration accounts in your Azure subscriptions.
+
+1. Under **Integration accounts**, select the integration account that you want to move. On your integration account menu, select **Overview**.
+
+   ![On integration account menu, select "Overview"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+
+1. On the Overview pane, select **Upgrade pricing tier**, which lists any available higher tiers. When you select a tier, the change immediately takes effect.
+
+<a name="upgrade-tier-azure-cli"></a>
+
+#### [Azure CLI](#tab/azure-cli)
+
+1. If you haven't done so already, [install the Azure CLI prerequisites](/cli/azure/get-started-with-azure-cli).
+
+1. In the Azure portal, open the [Azure Cloud Shell](../cloud-shell/overview.md) environment.
+
+   ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
+
+1. At the command prompt, enter the [**az resource** command](/cli/azure/resource#az-resource-update), and set `skuName` to the higher tier that you want.
+
+   ```azurecli
+   az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
+   ```
+  
+   For example, if you have the Basic tier, you can set `skuName` to `Standard`:
+
+   ```azurecli
+   az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
+   ```
 
 ---
 
-# What is an integration account?
+<a name="downgrade-pricing-tier"></a>
 
-An integration account allows enterprise integration apps to manage artifacts, 
-including schemas, maps, certificates, partners and agreements. 
-Any integration app you create uses an integration account to access these schemas, 
-maps, certificates, and so on.
+### Downgrade pricing tier
 
-## Create an integration account
+To make this change, use the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
-1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
-From the left menu, select **More services**.
+1. If you haven't done so already, [install the Azure CLI prerequisites](/cli/azure/get-started-with-azure-cli).
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+1. In the Azure portal, open the [Azure Cloud Shell](../cloud-shell/overview.md) environment.
 
-2. In the search box, type "integration" for your filter. 
-In the results list, select **Integration Accounts**.
+   ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
+1. At the command prompt, enter the [**az resource** command](/cli/azure/resource#az-resource-update) and set `skuName` to the lower tier that you want.
 
-3. At the top of the page, choose **Add**.
+   ```azurecli
+   az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
+   ```
+  
+   For example, if you have the Standard tier, you can set `skuName` to `Basic`:
 
-	![Choose Add](./media/logic-apps-enterprise-integration-accounts/account-3.png)
+   ```azurecli
+   az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
+   ```
 
-4. Name your integration account and select the Azure subscription that you want to use. 
-You can either create a new **Resource group** or select an existing resource group. 
-Then select a **Location** for hosting your integration account and a **Pricing Tier**. 
+## Unlink from logic app
 
-	When you're ready, choose **Create**.
+If you want to link your logic app to another integration account, or no longer use an integration account with your logic app, delete the link by using Azure Resource Explorer.
 
-	![Provide details for your integration account](./media/logic-apps-enterprise-integration-accounts/account-4.png)
+1. Open your browser window, and go to [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com). Sign in with the same Azure account credentials.
 
-	Azure provisions your integration account 
-	in the selected location, which should complete within 1 minute.
+   ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
-5. Refresh the page. You see your new integration account listed.
+1. In the search box, enter your logic app's name so that you can find and select your logic app.
 
-	![Your new integration account appears](./media/logic-apps-enterprise-integration-accounts/account-5.png) 
+   ![Find and select logic app](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-find-logic-app.png)
 
-Next, link the integration account that you created to your logic app. 
+1. On the explorer title bar, select **Read/Write**.
 
-## Link an integration account to a logic app
+   ![Turn on "Read/Write" mode](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-read-write.png)
 
-To give your logic apps access to maps, schemas, agreements, and other artifacts in your integration account, 
-link the integration account to your logic app.
+1. On the **Data** tab, select **Edit**.
 
-### Prerequisites
+   ![On "Data" tab, select "Edit"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-* An integration account
-* A logic app
+1. In the editor, find the `integrationAccount` object, and delete that property, which has this format:
 
-> [!NOTE] 
-> Make sure your integration account and logic app are in the *same Azure location* before you begin.
+   ```json
+   {
+      // <other-attributes>
+      "integrationAccount": {
+         "name": "<integration-account-name>",
+         "id": "<integration-account-resource-ID>",
+         "type": "Microsoft.Logic/integrationAccounts"  
+   },
+   ```
 
+   For example:
 
-1. In the Azure portal, select your logic app, and check your logic app's location.
+   ![Find "integrationAccount" object](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
-	![Select your logic app, check location](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)
+1. On the **Data** tab, select **Put** to save your changes.
 
-2. Under **Settings**, select **Integration Account**.
+   ![To save changes, select "Put"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
 
-	![Select "Integration Account"](./media/logic-apps-enterprise-integration-accounts/linkaccount-2.png)
+1. In the Azure portal, find and select your logic app. Under your app's **Workflow settings**, check that the **Integration account** property now appears empty.
 
-3. From the **Select an Integration account** list, 
-select the integration account you want to link to your logic app. 
-To finish linking, choose **Save**.
+   ![Check that integration account is not linked](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
 
-	![Select your integration account](./media/logic-apps-enterprise-integration-accounts/linkaccount-3.png)
+## Move integration account
 
-	You get a notification that shows your integration account is linked to your logic app, 
-	and that all artifacts in your integration account are now available to your logic app.
+You can move your integration account to another Azure resource group or Azure subscription. When you move resources, Azure creates new resource IDs, so make sure that you use the new IDs instead and update any scripts or tools associated with the moved resources. If you want to change the subscription, you must also specify an existing or new resource group.
 
-	![Your logic app is linked to your integration account](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)
+For this task, you can use either the Azure portal by following the steps in this section or the [Azure CLI](/cli/azure/resource#az-resource-move).
 
-Now that your integration account is linked to your logic app, 
-you can use the B2B connectors in your logic apps. 
-Some common B2B connectors include XML validation and flat file encode/decode.  
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
-## Delete your integration account
+1. In the main Azure search box, enter "integration accounts" as your filter, and select **Integration accounts**.
 
-1. Select **More services**.
+   ![Find integration account](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+   Azure shows all the integration accounts in your Azure subscriptions.
 
-2. In the search box, type "integration" for your filter. 
-In the results list, select **Integration Accounts**.
+1. Under **Integration accounts**, select the integration account that you want to move. On your integration account menu, select **Overview**.
 
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
+   ![On integration account menu, select "Overview"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
-3. Select the integration account that you want to delete.
+1. Next to either **Resource group** or **Subscription name**, select **change**.
 
-	![Select integration account to delete](./media/logic-apps-enterprise-integration-accounts/account-5.png)
+   ![Change resource group or subscription](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
 
-4. On the menu, choose **Delete**.
+1. Select any related resources that you also want to move.
 
-	![Choose "Delete"](./media/logic-apps-enterprise-integration-accounts/delete.png)
+1. Based on your selection, follow these steps to change the resource group or subscription:
 
-5. Confirm your choice to delete the integration account.
+   * Resource group: From the **Resource group** list, select the destination resource group. Or, to create a different resource group, select **Create a new resource group**.
 
-## Move your integration account
+   * Subscription: From the **Subscription** list, select the destination subscription. From the **Resource group** list, select the destination resource group. Or, to create a different resource group, select **Create a new resource group**.
 
-To move an integration account to another Azure subscription or resource group, follow these steps.
+1. To acknowledge your understanding that any scripts or tools associated with the moved resources won't work until you update them with the new resource IDs, select the confirmation box, and then select **OK**.
 
-> [!IMPORTANT]
-> You must update all scripts to use the new resource IDs after you move an integration account.
+1. After you finish, make sure that you update any and all scripts with the new resource IDs for your moved resources.  
 
-1. Select **More services**.
+## Delete integration account
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](/cli/azure/resource#az-resource-delete), or [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
-2. In the search box, type "integration" for your filter. 
-In the results list, select **Integration Accounts**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)
+1. In the main Azure search box, enter "integration accounts" as your filter, and select **Integration accounts**.
 
-3. Select the integration account that you want to move. 
-Under **Settings**, choose **Properties**.
+   ![Find integration account](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
 
-	![Select integration account to move. Under Settings, choose Properties](./media/logic-apps-enterprise-integration-accounts/move.png)
+   Azure shows all the integration accounts in your Azure subscriptions.
 
-5. Change the resource group or Azure subscription that's associated with your integration account.
+1. Under **Integration accounts**, select the integration account that you want to delete. On your integration account menu, select **Overview**.
 
-	![Choose Change resource group or Change subscription](./media/logic-apps-enterprise-integration-accounts/move-2.png)
+   ![On integration account menu, select "Overview"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
-## Next Steps
-* [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+1. On the Overview pane, select **Delete**.
 
+   ![On "Overview" pane, select "Delete"](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+
+1. To confirm that you want to delete your integration account, select **Yes**.
+
+   ![To confirm delete, select "Yes"](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
+
+## Next steps
+
+* [Create trading partners in your integration account](../logic-apps/logic-apps-enterprise-integration-partners.md)
+* [Create agreements between partners in your integration account](../logic-apps/logic-apps-enterprise-integration-agreements.md)

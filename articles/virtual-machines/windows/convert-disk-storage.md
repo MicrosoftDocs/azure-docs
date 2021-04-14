@@ -1,38 +1,30 @@
 ---
-title: Convert Azure managed disks storage from standard to premium, and vice versa | Microsoft Docs
-description: How to convert Azure managed disks from standard to premium, and vice versa, by using Azure PowerShell.
-services: virtual-machines-windows
-documentationcenter: ''
-author: ramankum
-manager: kavithag
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2017
-ms.author: ramankum
+title: Convert managed disks storage between different disk types by using Azure PowerShell
+description: How to convert Azure managed disks between the different disks types by using Azure PowerShell.
+author: roygara
+ms.service: virtual-machines
+ms.subservice: disks
+ms.topic: how-to
+ms.date: 02/13/2021
+ms.author: albecker
 ---
 
-# Convert Azure managed disks storage from standard to premium, and vice versa
+# Update the storage type of a managed disk
 
-Managed disks offers two storage options: [Premium](premium-storage.md) (SSD-based) and [Standard](standard-storage.md) (HDD-based). It allows you to easily switch between the two options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.
+There are four disk types of Azure managed disks: Azure ultra disks, premium SSD, standard SSD, and standard HDD. You can switch between premium SSD, standard SSD, and standard HDD based on your performance needs. You are not yet able to switch from or to an ultra disk, you must deploy a new one.
 
-This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure PowerShell. If you need to install or upgrade it, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
+This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
+
+
 
 ## Before you begin
 
-* The conversion requires a restart of the VM, so schedule the migration of your disks storage during a pre-existing maintenance window. 
-* If you are using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) to use this article to switch between the two storage options. 
+* Because conversion requires a restart of the virtual machine (VM), you should schedule the migration of your disk storage during a pre-existing maintenance window.
+* If your disk is unmanaged, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) so you can switch between storage options.
 
+## Switch all managed disks of a VM between from one account to another
 
-## Convert all the managed disks of a VM from standard to premium, and vice versa
-
-In the following example, we show how to switch all the disks of a VM from standard to premium storage. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
+This example shows how to convert all of a VM's disks to premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](../sizes.md) that supports Premium storage. This example also switches to a size that supports premium storage:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -41,75 +33,90 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+# Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
+$storageType = 'Premium_LRS'
 
 # Premium capable size
-# Required only if converting storage from standard to premium
+# Required only if converting storage from Standard to Premium
 $size = 'Standard_DS2_v2'
-$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
 # Stop and deallocate the VM before changing the size
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+$vm = Get-AzVM -Name $vmName -resourceGroupName $rgName
+
+# Change the VM size to a size that supports Premium storage
+# Skip this step if converting storage from Premium to Standard
 $vm.HardwareProfile.VmSize = $size
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Get all disks in the resource group of the VM
-$vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName 
+$vmDisks = Get-AzDisk -ResourceGroupName $rgName 
 
-# For disks that belong to the selected VM, convert to premium storage
+# For disks that belong to the selected VM, convert to Premium storage
 foreach ($disk in $vmDisks)
 {
-	if ($disk.OwnerId -eq $vm.Id)
+	if ($disk.ManagedBy -eq $vm.Id)
 	{
-		$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
-		Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-		-DiskName $disk.Name
+		$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+		$disk | Update-AzDisk
 	}
 }
 
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
-## Convert a managed disk from standard to premium, and vice versa
 
-For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your cost. You can accomplish it by upgrading to premium storage, only the disks that require better performance. In the following example, we show how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
+## Switch individual managed disks between Standard and Premium
+
+For your dev/test workload, you might want a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](../sizes.md) that supports Premium storage. This example also shows how to switch to a size that supports Premium storage:
 
 ```azurepowershell-interactive
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
-# Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+# Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
+$storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 
-$disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
+$disk = Get-AzDisk -DiskName $diskName -ResourceGroupName $rgName
 
-# Get the ARM resource to get name and resource group of the VM
-$vmResource = Get-AzureRmResource -ResourceId $disk.diskId
-$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
+# Get parent VM resource
+$vmResource = Get-AzResource -ResourceId $disk.ManagedBy
 
 # Stop and deallocate the VM before changing the storage type
-Stop-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force
+Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+$vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
+
+# Change the VM size to a size that supports Premium storage
+# Skip this step if converting storage from Premium to Standard
 $vm.HardwareProfile.VmSize = $size
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
-Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
+Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
+
+## Switch managed disks from one disk type to another
+
+Follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the VM from the list of **Virtual machines**.
+3. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
+4. In the pane for the VM, select **Disks** from the menu.
+5. Select the disk that you want to convert.
+6. Select **Configuration** from the menu.
+7. Change the **Account type** from the original disk type to the desired disk type.
+8. Select **Save**, and close the disk pane.
+
+The disk type conversion is instantaneous. You can start your VM after the conversion.
 
 ## Next steps
 
-Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
-
+Make a read-only copy of a VM by using a [snapshot](snapshot-copy-managed-disk.md).

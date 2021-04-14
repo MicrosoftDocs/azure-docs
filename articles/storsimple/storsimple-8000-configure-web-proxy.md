@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
@@ -64,7 +64,7 @@ Use the setup wizard to guide you through the steps for web proxy configuration.
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     By default, TCP port number 8080 is specified.
-4. Choose the authentication type as **NTLM**, **Basic**, or **None**. Basic is the least secure authentication for the proxy server configuration. NT LAN Manager (NTLM) is a highly secure and complex authentication protocol that uses a three-way messaging system (sometimes four if additional integrity is required) to authenticate a user. The default authentication is NTLM. For more information, see [Basic](http://hc.apache.org/httpclient-3.x/authentication.html) and [NTLM authentication](http://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Choose the authentication type as **NTLM**, **Basic**, or **None**. Basic is the least secure authentication for the proxy server configuration. NT LAN Manager (NTLM) is a highly secure and complex authentication protocol that uses a three-way messaging system (sometimes four if additional integrity is required) to authenticate a user. The default authentication is NTLM. For more information, see [Basic](https://hc.apache.org/httpclient-3.x/authentication.html) and [NTLM authentication](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **In the StorSimple Device Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. For the monitoring charts to work, you need to ensure that authentication is set to NONE.**
@@ -150,6 +150,5 @@ If the web proxy settings are configured incorrectly, error messages are display
 > * Errors related to web proxy settings will not be displayed in the Azure portal in your StorSimple Device Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the classic portal.|
 
 ## Next Steps
-* If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device deployment](storsimple-troubleshoot-deployment.md).
+* If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device deployment](./storsimple-8000-troubleshoot-deployment.md).
 * To learn how to use the StorSimple Device Manager service, go to [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-

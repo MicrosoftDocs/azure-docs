@@ -4,80 +4,86 @@ title: Upgrade and scale an Azure API Management instance | Microsoft Docs
 description: This topic describes how to upgrade and scale an Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: anneta
 editor: ''
 
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 04/20/2020
 ms.author: apimpm
 ---
 
-# Upgrade and scale an API Management instance 
+# Upgrade and scale an Azure API Management instance  
 
-Customers can scale an API Management (APIM) instance by adding and removing units. A **unit** is comprised of dedicated Azure resources and has a certain load-bearing capacity expressed as a number of API calls per month. Actual throughput and latency will vary broadly depending on on factors such as number and rate of concurrent connections, the kind and number of configured policies, request and response sizes and backend latency. 
+Customers can scale an Azure API Management instance by adding and removing units. A **unit** is composed of dedicated Azure resources and has a certain load-bearing capacity expressed as a number of API calls per month. This number does not represent a call limit, but rather a maximum throughput value to allow for rough capacity planning. Actual throughput and latency vary broadly depending on factors such as number and rate of concurrent connections, the kind and number of configured policies, request and response sizes, and backend latency.
 
-Capacity and price of each unit depends on a **tier** in which the unit exists. You can choose between three tiers: **Developer**, **Standard**, **Premium**. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your APIM instance does not allow adding more units, you need to upgrade to a higher-level tier. 
+Capacity and price of each unit depends on the **tier** in which the unit exists. You can choose between four tiers: **Developer**, **Basic**, **Standard**, **Premium**. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your API Management instance does not allow adding more units, you need to upgrade to a higher-level tier.
 
-The price of each unit, the ability to add/remove units, whether or not you have certain features (for example, multi-region deployment) depends on the tier that you chose for your APIM instance. The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article, explains what price per unit and features you get in each tier. 
+The price of each unit and the available features (for example, multi-region deployment) depends on the tier that you chose for your API Management instance. The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article, explains the price per unit and features you get in each tier. 
 
 >[!NOTE]
->The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article shows approximate numbers of unit capacity in each tier. To get more accurate numbers, you need to look at a realistic scenario for your APIs. See the "How to plan for capacity" section that follows.
+>The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article shows approximate numbers of unit capacity in each tier. To get more accurate numbers, you need to look at a realistic scenario for your APIs. See the [Capacity of an Azure API Management instance](api-management-capacity.md) article.
 
 ## Prerequisites
 
-To perform the steps described in this article, you must have:
+To follow the steps from this article, you must:
 
-+ An active Azure subscription.
++ Have an active Azure subscription.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Have an API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-## How to plan for capacity?
++ Understand the concept of [Capacity of an Azure API Management instance](api-management-capacity.md).
 
-To find out if you have enough units to handle your traffic, test on workloads that you expect. 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-As mentioned above, the number of requests per second APIM can process depends on many variables. For example, the connection pattern, the size of the request and response, policies that are configured on each API, number of clients that are sending requests.
+## Upgrade and scale  
 
-Use **Metrics** (uses Azure Monitor capabilities) to understand how much capacity is used at any given time.
+You can choose between four tiers: **Developer**, **Basic**,  **Standard**, and **Premium**. The **Developer** tier should be used to evaluate the service; it should not be used for production. The **Developer** tier does not have SLA and you cannot scale this tier (add/remove units). 
 
-### Use the Azure portal to examine metrics 
+**Basic**, **Standard**, and **Premium** are production tiers that have SLA and can be scaled. The **Basic** tier is the cheapest tier with an SLA and it can be scaled up to two units, **Standard** tier can be scaled to up to four units. You can add any number of units to the **Premium** tier.
 
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Metrics**.
-3. Select **Capacity** metric from **Available metrics**. 
+The **Premium** tier enables you to distribute a single Azure API Management instance across any number of desired Azure regions. When you initially create an Azure API Management service, the instance contains only one unit and resides in a single Azure region. The initial region is designated as the **primary** region. Additional regions can be easily added. When adding a region, you specify the number of units you want to allocate. For example, you can have one unit in the **primary** region and five units in some other region. You can tailor the number of units to the traffic you have in each region. For more information, see [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md).
 
-    The capacity metric, gives you some idea of how much capacity is being used in your tenant. You can test by putting more and more load and see what is your pick load. You can set a metric alert to let you know when something that is not expected is happening. For example, your APIM instance accedes capacity for over 5 min. 
+You can upgrade and downgrade to and from any tier. Upgrading or downgrading can remove some features - for example, VNETs or multi-region deployment, when downgrading to Standard or Basic from the Premium tier.
 
-    >[!TIP]
-    > You can configure alert to let you know when your service running low on capacity or make it call into a logic app that will automatically scale by adding a unit..
+> [!NOTE]
+> The upgrade or scale process can take from 15 to 45 minutes to apply. You get notified when it is done.
 
-## Upgrade and scale 
+> [!NOTE]
+> API Management service in the **Consumption** tier scales automatically based on the traffic.
 
-As mentioned previously, you can choose between three tiers: **Developer**, **Standard**, **Premium**. The **Developer** tier should be used to evaluate the service; it should not be used for production. The **Developer** tier does not have SLA and you cannot scale this tier (add/remove units). 
+## Scale your API Management service
 
-**Standard** and **Premium** are production tiers have SLA and can be scaled. The **Standard** tier can be scaled to up to four units. You can add any number of units to the **Premium** tier. 
+![Scale API Management service in Azure portal](./media/upgrade-and-scale/portal-scale.png)
 
-The **Premium** tier enables you to distribute a single API management instance across any number of desired Azure regions. When you initially create an API Management service, the instance contains only one unit and resides in a single Azure region. The initial region is designated as the **primary** region. Additional regions can be easily added. When adding a region, you specify the number of units you want to allocate. For example, you can have one unit in the **primary** region and five units in some other region. You can tailor to whatever traffic you have in each region. For more information, see [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md).
+1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
+2. Select **Locations** from the menu.
+3. Click on the row with the location you want to scale.
+4. Specify the new number of **units** - either use the slider or type the number.
+5. Click **Apply**.
 
-You can upgrade and downgrade to and from any tier. Please note that downgrading can remove some features, for example, VNETs or multi-region deployment, when downgrading to Standard from the Premium tier.
+## Change your API Management service tier
 
->[!NOTE]
->The upgrade or scale process can take from 15 to 30 minutes to apply. You get notification when it is done.
+1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
+2. Click on the **Pricing tier** in the menu.
+3. Select the desired service tier from the dropdown. Use the slider to specify the scale of your API Management service after the change.
+4. Click **Save**.
 
-### Use the Azure portal to upgrade and scale
+## Downtime during scaling up and down
+If you are scaling from or to the Developer tier, there will be downtime. Otherwise, there is no downtime. 
 
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Scale and pricing**.
-3. Pick the desired tier.
-4. Specify the number of **units** you want to add. You can either use the slider or type the number of units.<br/>
-    If you choose the **Premium** tier, you first need to select a region.
-5. Press **Save**
+## Compute isolation
+If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, please [create a support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+
+
 
 ## Next steps
 
-[How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
-
+- [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
+- [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
+- [Plan and manage costs for API Management](plan-manage-costs.md)
+- [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)

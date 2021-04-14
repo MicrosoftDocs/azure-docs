@@ -1,64 +1,98 @@
 ---
-title: Create a VM with a static public IP address - Azure portal | Microsoft Docs
+title: Create a VM with a static public IP address - Azure portal
 description: Learn how to create a VM with a static public IP address using the Azure portal.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
-ms.devlang: na
-ms.topic: article
+ms.subservice: ip-services
+ms.devlang:
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2016
-ms.author: jdial
-ms.custom: H1Hack27Feb2017
+ms.date: 11/12/2020
+ms.author: allensu
 
 ---
-# Create a VM with a static public IP address using the Azure portal
+# Create a virtual machine with a static public IP address using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Template](virtual-network-deploy-static-pip-arm-template.md)
-> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+A public IP address enables you to communicate to a virtual machine from the internet. 
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+Assign a static public IP address, rather than a dynamic address, to ensure that the address never changes.   
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
+## Sign in to Azure
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a VM with a static public IP
+## Create a virtual machine
 
-To create a VM with a static public IP address in the Azure portal, complete the following steps:
-
-1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. On the top left hand corner of the portal, click **New**>>**Compute**>**Windows Server 2012 R2 Datacenter**.
-3. In the **Select a deployment model** list, select **Resource Manager** and click **Create**.
-4. In the **Basics** blade, enter the VM information as shown below, and then click **OK**.
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
    
-    ![Azure portal - Basics](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. In the **Choose a size** blade, click **A1 Standard** as shown below, and then click **Select**.
-   
-    ![Azure portal - Choose a size](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. In the **Settings** blade, click **Public IP address**, then in the **Create public IP address** blade, under **Assignment**, click **Static** as shown below. And then click **OK**.
-   
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
-7. In the **Settings** blade, click **OK**.
-8. Review the **Summary** blade, as shown below, and then click **OK**.
-   
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
-9. Notice the new tile in your dashboard.
-   
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. Once the VM is created, the **Settings** blade will be displayed as shown below
-    
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription |
+    | Resource Group | Select **Create new**. </br> In **Name**, enter **myResourceGroup**. </br> Select **OK**. |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVM** |
+    | Region | Select **East US** |
+    | Availability Options | Select **No infrastructure redundancy required** |
+    | Image | Select **Windows Server 2019 Datacenter - Gen1** |
+    | Azure Spot instance | Select **No** |
+    | Size | Choose VM size or take default setting |
+    | **Administrator account** |  |
+    | Username | Enter a username |
+    | Password | Enter a password |
+    | Confirm password | Reenter password |
+
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the Networking tab, select or enter:
+
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Accept the default network name. |
+    | Subnet | Accept the default subnet configuration. |
+    | Public IP | Select **Create new**. </br> In **Create public IP address**, in name enter **myPublicIP**. </br> For **SKU**, select **Standard**. </br> **Assignment**, select **Static**. </br> Select **OK**.  |
+    | NIC network security group | Select **Basic**|
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **RDP (3389)** |
+
+    > [!WARNING]
+    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../bastion/bastion-overview.md)**
+   
+5. Select **Review + create**. 
+  
+6. Review the settings, and then select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+## Clean up resources
+
+When no longer needed, delete the resource group and all of the resources it contains:
+
+1. Enter **myResourceGroup** in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+2. Select **Delete resource group**.
+3. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+
+## Next steps
+
+See [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md):
+
+* To change a public IP address from dynamic to static.
+* Work with private IP addresses.
+
+Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses). There's a [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
+
+The SKU of the virtual machine's public IP address must match the public IP SKU of Azure Load Balancer when added to a backend pool. For details, see [Azure Load Balancer](../load-balancer/skus.md).
+
+You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
+
+- Learn more about [static public IP addresses](./public-ip-addresses.md#allocation-method).
+- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
+- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Learn more about [private IP addresses](./private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.

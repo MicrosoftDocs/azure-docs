@@ -1,87 +1,111 @@
 ---
-title: Domain-joined Azure HDInsight architecture | Microsoft Docs
-description: Learn how to plan domain-joined HDInsight.
-services: hdinsight
-documentationcenter: ''
-author: saurinsh
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
+title: Azure HDInsight architecture with Enterprise Security Package
+description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
+ms.reviewer: omidm
 ms.service: hdinsight
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 09/21/2017
-ms.author: saurinsh
-
+ms.date: 03/11/2020
 ---
-# Plan Azure domain-joined Hadoop clusters in HDInsight
 
-The traditional Hadoop is a single-user cluster. It is suitable for most companies that have smaller application teams building large data workloads. As Hadoop gains popularity, many enterprises are moving toward a model in which clusters are managed by IT teams and multiple application teams share clusters. Thus, functionalities involving multiuser clusters are among the most requested functionalities in Azure HDInsight.
+# Use Enterprise Security Package in HDInsight
 
-Instead of building its own multiuser authentication and authorization, HDInsight relies on the most popular identity provider--Active Directory (AD). The powerful security functionality in AD can be used to manage multiuser authorization in HDInsight. By integrating HDInsight with AD, you can communicate with the clusters by using your AD credentials. HDInsight maps an AD user to a local Hadoop user, so all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, and others) work seamlessly for the authenticated user.
+The standard Azure HDInsight cluster is a single-user cluster. It's suitable for most companies that have smaller application teams building large data workloads. Each user can create a dedicated cluster on demand and destroy it when it's not needed anymore.
+
+Many enterprises have moved toward a model in which IT teams manage clusters, and multiple application teams share clusters. These larger enterprises need multiuser access to each cluster in Azure HDInsight.
+
+HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), you can access the clusters by using your domain credentials.
+
+The virtual machines (VMs) in HDInsight are domain joined to your provided domain. So, all the services running on HDInsight (Apache Ambari, Apache Hive server, Apache Ranger, Apache Spark thrift server, and others) work seamlessly for the authenticated user. Administrators can then create strong authorization policies by using Apache Ranger to provide role-based access control for resources in the cluster.
 
 ## Integrate HDInsight with Active Directory
 
-When you integrate HDInsight with Active Directory, the HDInsight cluster nodes are domain-joined to an AD domain. HDInsight creates service principals for the Hadoop services running on the cluster and places them within a specified organizational unit (OU) in the domain. HDInsight also creates reverse DNS mappings in the domain for the IP addresses of the nodes that are joined to the domain.
+Open-source Apache Hadoop relies on the Kerberos protocol for authentication and security. Therefore, HDInsight cluster nodes with Enterprise Security Package (ESP) are joined to a domain that's managed by Azure AD DS. Kerberos security is configured for the Hadoop components on the cluster.
 
-There are two deployment options for Active Directory:
-* **[Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md):** This service provides a managed Active Directory domain which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the AD domain. You can deploy your cluster without worrying about maintaining domain controllers. Users, groups and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials.
+The following things are created automatically:
 
-* **Windows Server Active Directory domain on Azure IaaS VMs:** In this option, you deploy and manage your own Windows Server Active Directory domain on Azure IaaS VMs. 
+- A service principal for each Hadoop component
+- A machine principal for each machine that's joined to the domain
+- An Organizational Unit (OU) for each cluster to store these service and machine principals
 
-You can achieve this setup by using multiple architectures. You can choose from the following architectures.
+To summarize, you need to set up an environment with:
 
+- An Active Directory domain (managed by Azure AD DS). **The domain name must be 39 characters or less to work with Azure HDInsight.**
+- Secure LDAP (LDAPS) enabled in Azure AD DS.
+- Proper networking connectivity from the HDInsight virtual network to the Azure AD DS virtual network, if you choose separate virtual networks for them. A VM inside the HDInsight virtual network should have a line of sight to Azure AD DS through virtual network peering. If HDInsight and Azure AD DS are deployed in the same virtual network, the connectivity is automatically provided, and no further action is needed.
 
-### HDInsight integrated with an Azure AD Domain Services managed AD domain
-You can deploy an [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS) managed domain. Azure AD DS provides a managed AD domain in Azure, which is managed, updated and monitored by Microsoft. It creates two domain controllers for high availability and includes DNS services. You can then integrate the HDInsight cluster with this managed domain. With this deployment option, you do not need to worry about managing, patching, updating and monitoring domain controllers.
+## Set up different domain controllers
 
-![Domain-join HDInsight cluster topology](./media/apache-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
+HDInsight currently supports only Azure AD DS as the main domain controller that the cluster uses for Kerberos communication. But other complex Active Directory setups are possible, as long as such a setup leads to enabling Azure AD DS for HDInsight access.
 
-Prerequisites for integrating with Azure AD Domain Services:
+### Azure Active Directory Domain Services
 
-* [Provision an Azure AD Domain Services managed domain](../../active-directory-domain-services/active-directory-ds-getting-started.md).
-* Create an [organizational unit](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), within which you place the HDInsight cluster VMs and the service principals used by the cluster.
-* Setup [LDAPS](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md), when you configure Azure AD DS. The certificate used to set up LDAPS must be issued by a public certificate authority (not a self-signed certificate).
-* Create reverse DNS zones on the managed domain for the IP address range of the HDInsight subnet (for example, 10.2.0.0/24 in the previous picture).
-* Configure [synchronization of password hashes required for NTLM and Kerberos authentication](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) from Azure AD to the Azure AD DS managed domain.
-* A service account or a user account is needed. Use this account to create the HDInsight cluster. This account must have the following permissions:
+[Azure AD DS](../../active-directory-domain-services/overview.md) provides a managed domain that's fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the domain in a highly available (HA) setup. You can deploy your cluster without worrying about maintaining domain controllers.
 
-    - Permissions to create service principal objects and machine objects within the organizational unit
-    - Permissions to create reverse DNS proxy rules
-    - Permissions to join machines to the Azure AD domain
+Users, groups, and passwords are synchronized from Azure AD. The one-way sync from your Azure AD instance to Azure AD DS enables users to sign in to the cluster by using the same corporate credentials.
 
+For more information, see [Configure HDInsight clusters with ESP using Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
 
-### HDInsight integrated with Windows Server AD running on Azure IaaS
+### On-premises Active Directory or Active Directory on IaaS VMs
 
-You can deploy the Windows Server Active Directory Domain Services role on one (or multiple) virtual machines (VMs) in Azure and promote them to be domain controllers. These domain controller VMs can be deployed using the resource manager deployment model into the same virtual network as the HDInsight cluster. If the domain controllers are deployed into a different virtual network, you need to peer these virtual networks by using [VNet-to-VNet peering](../../virtual-network/virtual-network-create-peering.md). 
+If you have an on-premises Active Directory instance or more complex Active Directory setups for your domain, you can sync those identities to Azure AD by using Azure AD Connect. You can then enable Azure AD DS on that Active Directory tenant.
 
-[More information - deploying Windows Server Active Directory on Azure VMs](../../active-directory/virtual-networks-windows-server-active-directory-virtual-machines.md)
+Because Kerberos relies on password hashes, you must [enable password hash sync on Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md).
 
-![Domain-join HDInsight cluster topology](./media/apache-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
+If you're using federation with Active Directory Federation Services (AD FS), you must enable password hash sync. (For a recommended setup, see [this video](https://youtu.be/qQruArbu2Ew).) Password hash sync helps with disaster recovery in case your AD FS infrastructure fails, and it also helps provide leaked-credential protection. For more information, see [Enable password hash sync with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
-> [!NOTE]
-> In this architecture, you cannot use Azure Data Lake Store with the HDInsight cluster.
+Using on-premises Active Directory or Active Directory on IaaS VMs alone, without Azure AD and Azure AD DS, isn't a supported configuration for HDInsight clusters with ESP.
 
+If federation is being used and password hashes are synced correctly, but you're getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Azure AD tenant. To check and set the HRD policy:
 
-Prerequisites for integrating with Windows Server Active Directory on Azure VMs:
+1. Install the preview [Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 
-* An [organizational unit](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) must be created, within which you place the HDInsight cluster VMs and the service principals used by the cluster.
-* [Lightweight Directory Access Protocols](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) must be set up for communicating with AD. The certificate used to set up LDAPS must be a real certificate (not a self-signed certificate).
-* Reverse DNS zones must be created on the domain for the IP address range of the HDInsight subnet (for example, 10.2.0.0/24 in the previous picture).
-* A service account or a user account is needed. Use this account to create the HDInsight cluster. This account must have the following permissions:
+   ```powershell
+   Install-Module AzureAD
+   ```
 
-    - Permissions to create service principal objects and machine objects within the organizational unit
-    - Permissions to create reverse DNS proxy rules
-    - Permissions to join machines to the Active Directory domain
+2. Connect using global administrator (tenant administrator) credentials.
 
+   ```powershell
+   Connect-AzureAD
+   ```
+
+3. Check if the Microsoft Azure PowerShell service principal has already been created.
+
+   ```powershell
+   Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```
+
+4. If it doesn't exist, then create the service principal.
+
+   ```powershell
+   $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+   ```
+
+5. Create and attach the policy to this service principal.
+
+   ```powershell
+    # Determine whether policy exists
+    Get-AzureADPolicy | Where {$_.DisplayName -eq "EnableDirectAuth"}
+
+    # Create if not exists
+    $policy = New-AzureADPolicy `
+        -Definition @('{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}') `
+        -DisplayName "EnableDirectAuth" `
+        -Type "HomeRealmDiscoveryPolicy"
+
+    # Determine whether a policy for the service principal exist
+    Get-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId
+
+    # Add a service principal policy if not exist
+    Add-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId `
+        -refObjectID $policy.ID
+   ```
 
 ## Next steps
-* To configure a domain-joined HDInsight cluster, see [Configure domain-joined HDInsight clusters](apache-domain-joined-configure.md).
-* To manage domain-joined HDInsight clusters, see [Manage domain-joined HDInsight clusters](apache-domain-joined-manage.md).
-* To configure Hive policies and run Hive queries, see [Configure Hive policies for domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
-* To run Hive queries by using SSH on domain-joined HDInsight clusters, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+- [Configure HDInsight clusters with ESP](apache-domain-joined-configure-using-azure-adds.md)
+- [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md)
+- [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md)

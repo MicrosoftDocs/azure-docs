@@ -1,10 +1,10 @@
 ---
-title: Overview of reverse DNS in Azure | Microsoft Docs
-description: Learn how reverse DNS works and how it can be used in Azure
+title: Overview of reverse DNS in Azure - Azure DNS
+description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: rohinkoul
+manager: KumuD
 
 ms.service: dns
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
+ms.author: rohink
 ---
 
 # Overview of reverse DNS and support in Azure
@@ -31,7 +31,7 @@ Reverse DNS records are hosted in special DNS zones, known as 'ARPA' zones.  The
 
 For example, the DNS record 'www.contoso.com' is implemented using a DNS 'A' record with the name 'www' in the zone 'contoso.com'.  This A record points to the corresponding IP address, in this case 64.4.6.100.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
 
-When an organization is assigned an IP address block, they also acquire the right to manage the corresponding ARPA zone. The ARPA zones corresponding to the IP address blocks used by Azure are hosted and managed by Microsoft. Your ISP may host the ARPA zone for your own IP addresses for you, or may allow to you host the ARPA zone in a DNS service of your choice, such as Azure DNS.
+When an organization is assigned an IP address block, they also acquire the right to manage the corresponding ARPA zone. The ARPA zones corresponding to the IP address blocks used by Azure are hosted and managed by Microsoft. Your ISP may host the ARPA zone for your own IP addresses for you, or may allow you to host the ARPA zone in a DNS service of your choice, such as Azure DNS.
 
 > [!NOTE]
 > Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it is hosted in the ARPA zone for the corresponding IP address block. Separate zones are used for IPv4 and IPv6 address blocks.
@@ -87,7 +87,7 @@ A reverse lookup for the IP address '192.0.2.129' queries for a PTR record named
 The name of an IPv6 reverse lookup zone should be in the following form:
 `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-For example,. When creating a reverse zone to host records for hosts with IPs that are in the 2001:db8:1000:abdc::/64 prefix, the zone name would be created by isolating the network prefix of the address (2001:db8:abdc::). Next expand the IPv6 network prefix to remove [zero compression](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), if it was used to shorten the IPv6 address prefix (2001:0db8:abdc:0000::). Reverse the order, using a period as the delimiter between each hexadecimal number in the prefix, to build the reversed network prefix (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) and add the suffix `.ip6.arpa`.
+For example,. When creating a reverse zone to host records for hosts with IPs that are in the 2001:db8:1000:abdc::/64 prefix, the zone name would be created by isolating the network prefix of the address (2001:db8:abdc::). Next expand the IPv6 network prefix to remove [zero compression](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10)), if it was used to shorten the IPv6 address prefix (2001:0db8:abdc:0000::). Reverse the order, using a period as the delimiter between each hexadecimal number in the prefix, to build the reversed network prefix (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) and add the suffix `.ip6.arpa`.
 
 
 |Network prefix  |Expanded and reversed network prefix |Standard suffix |Reverse zone name  |
@@ -107,9 +107,8 @@ Azure DNS can be used to [host your reverse lookup zones and manage the PTR reco
 
 ## Next steps
 
-For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
 <br>
 Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
-

@@ -1,19 +1,24 @@
 ---
-title: Upgrade Bing Spell Check API v5 to v7 | Microsoft Docs
-description: Identifies the parts of your application that you need to update to use version 7.
+title: Upgrade Bing Spell Check API v5 to v7
+titleSuffix: Azure Cognitive Services
+description: Identifies the parts of your Bing Spell Check application that you need to update to use version 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: nitinme
 
-ms.assetid: 7DC8FB29-4732-47D8-824B-CF2D7AEBA07B
 ms.service: cognitive-services
-ms.technology: bing-spell-check
-ms.topic: article
-ms.date: 06/21/2016
+ms.subservice: bing-spell-check
+ms.topic: conceptual
+ms.date: 02/20/2019
 ms.author: scottwhi
 ---
 
 # Spell Check API upgrade guide
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Spell Check API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
@@ -21,7 +26,7 @@ This upgrade guide identifies the changes between version 5 and version 7 of the
 
 ### Endpoints
 
-- The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/spellcheck.
+- The endpoint's version number changed from v5 to v7. For example, `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### Error response objects and error codes
 
@@ -36,11 +41,11 @@ This upgrade guide identifies the changes between version 5 and version 7 of the
   
 |Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returns ServerError whenever any of the sub-code conditions occur. The response includes these errors if the HTTP status code is 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|Bing returns InvalidRequest whenever any part of the request is not valid. For example, a required parameter is missing or a parameter value is not valid.<br/><br/>If the error is ParameterMissing or ParameterInvalidValue, the HTTP status code is 400.<br/><br/>If the error is HttpNotAllowed, the HTTP status code 410.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returns ServerError whenever any of the subcode conditions occur. The response includes these errors if the HTTP status code is 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|Bing returns InvalidRequest whenever any part of the request isn't valid. For example, a required parameter is missing or a parameter value isn't valid.<br/><br/>If the error is ParameterMissing or ParameterInvalidValue, the HTTP status code is 400.<br/><br/>If the error is HttpNotAllowed, the HTTP status code 410.
 |RateLimitExceeded||Bing returns RateLimitExceeded whenever you exceed your queries per second (QPS) or queries per month (QPM) quota.<br/><br/>Bing returns HTTP status code 429 if you exceeded QPS and 403 if you exceeded QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returns InvalidAuthorization when Bing cannot authenticate the caller. For example, the `Ocp-Apim-Subscription-Key` header is missing or the subscription key is not valid.<br/><br/>Redundancy occurs if you specify more than one authentication method.<br/><br/>If the error is InvalidAuthorization, the HTTP status code is 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returns InsufficientAuthorization when the caller does not have permissions to access the resource. This can occur if the subscription key has been disabled or has expired. <br/><br/>If the error is InsufficientAuthorization, the HTTP status code is 403.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returns InvalidAuthorization when Bing can't authenticate the caller. For example, the `Ocp-Apim-Subscription-Key` header is missing or the subscription key isn't valid.<br/><br/>Redundancy occurs if you specify more than one authentication method.<br/><br/>If the error is InvalidAuthorization, the HTTP status code is 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returns InsufficientAuthorization when the caller doesn't have permissions to access the resource. This can occur if the subscription key has been disabled or has expired. <br/><br/>If the error is InsufficientAuthorization, the HTTP status code is 403.
 
 - The following maps the previous error codes to the new codes. If you've taken a dependency on v5 error codes, update your code accordingly.  
   
@@ -68,4 +73,4 @@ Blocked|InvalidRequest.Blocked
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use and display requirements](./UseAndDisplayRequirements.md)
+> [Use and display requirements](../bing-web-search/use-display-requirements.md)

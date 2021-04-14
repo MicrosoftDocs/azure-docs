@@ -1,20 +1,13 @@
 ---
-title: Autoscaling and App Service Environment v1
-description: Autoscaling and App Service Environment
-services: app-service
-documentationcenter: ''
+title: Autoscaling v1
+description: Autoscaling and App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: btardif
-manager: erikre
-editor: ''
 
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Autoscaling and App Service Environment v1
@@ -58,7 +51,7 @@ Autoscale of an App Service environment can best be illustrated by walking throu
 This article explains all the necessary considerations when you set up autoscale. The article walks you through the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
 
 ### Scenario introduction
-Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that he manages to an App Service environment.
+Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that they manage to an App Service environment.
 
 The App Service environment is configured to manual scale as follows:
 
@@ -71,7 +64,7 @@ Worker pool 1 is used for production workloads, while worker pool 2 and worker p
 
 The App Service plans for QA and dev are configured to manual scale. The production App Service plan is set to autoscale to deal with variations in load and traffic.
 
-Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
+Frank is very familiar with the application. They know that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
 
 ![Specific settings for LOB app.][asp-scale]
 
