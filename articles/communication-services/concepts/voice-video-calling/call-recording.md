@@ -33,12 +33,12 @@ Call Recording provides a set of server APIs to start, stop, pause and resume re
   "blockType": "request",
   "name": "start-recording"
 }-->
-```http
+```
 POST /calling/conversations/{conversationId}/Recordings
 Content-Type: application/json
 
 {
-  "operationContext": "string",
+  "operationContext": "string", // developer provided string for correlation context on each of the operation
   "recordingStateCallbackUri": "string"
 }
 ```
@@ -54,7 +54,7 @@ ConversationClient conversationClient = new ConversationClient(connectionString)
 /// start call recording
 StartRecordingResponse startRecordingResponse = await conversationClient.StartRecordingAsync(
     conversationId: "<conversation-id>"
-    operationContext: "<operation-context>",
+    operationContext: "<operation-context>", /// developer provided string for correlation context on each of the operation
     recordingStateCallbackUri: "<recording-state-callback-uri>").ConfigureAwait(false);
 
 string recordingId = startRecordingResponse.RecordingId;
@@ -208,12 +208,12 @@ CONTENT NEEDED
   "blockType": "request",
   "name": "stop-recording"
 }-->
-```http
+```
 DELETE /calling/conversations/{conversationId}/recordings/{recordingId}
 Content-Type: application/json
 
 {
-  "operationContext": "string" //WHAT IS THIS FOR?
+  "operationContext": "string" // developer provided string for correlation context on each of the operation
 }
 ```
 **C# SDK**
@@ -288,12 +288,12 @@ Pausing and Resuming call recording enables you to skip recording a portion of a
   "blockType": "request",
   "name": "pause-recording"
 }-->
-```http
+```
 POST /calling/conversations/{conversationId}/recordings/{recordingId}/Pause
 Content-Type: application/json
 
 {
-  "operationContext": "string" //WHAT IS THIS FOR?
+  "operationContext": "string" // developer provided string for correlation context on each of the operation
 }
 ```
 **C# SDK**
@@ -367,12 +367,12 @@ CONTENT NEEDED
   "blockType": "request",
   "name": "resume-recording"
 }-->
-```http
+```
 POST /calling/conversations/{conversationId}/recordings/{recordingId}/Resume
 Content-Type: application/json
 
 {
-  "operationContext": "string" //WHAT IS THIS FOR?
+  "operationContext": "string" // developer provided string for correlation context on each of the operation
 }
 ```
 **C# SDK**
@@ -480,11 +480,12 @@ Sample code for handling event grid notifications and downloading recording and 
 }
 ```
 ## File Download
-> \* Azure Communication Services provides short term media storage for recordings. **Export any recorded content you wish to preserve within 48 hours.** After 48 hours, recordings will no longer be available.
+
+> Azure Communication Services provides short term media storage for recordings. **Export any recorded content you wish to preserve within 48 hours.** After 48 hours, recordings will no longer be available.
 
 ### Download Recording
 #### Request
-**[HTTP]**(#tab/http)
+**HTTP**
 <!-- {
   "blockType": "request",
   "name": "download-recording"
@@ -497,13 +498,13 @@ Content-Type: application/json
 }
 ```
 #### Response
-**[HTTP]**(#tab/http)
+**HTTP**
 <!-- {
   "blockType": "response",
   "truncated": true,
 } -->
 
-```http
+```
 HTTP/1.1 200 Success
 Content-Type: video/mp4
 
@@ -539,7 +540,7 @@ Content-Type: application/json
 ```
 ### Download Recording Meta-data
 #### Request
-**[HTTP]**(#tab/http)
+**HTTP**
 <!-- {
   "blockType": "request",
   "name": "download-recording-meta-data"
@@ -552,7 +553,7 @@ Content-Type: application/json
 }
 ```
 #### Response
-**[HTTP]**(#tab/http)
+**HTTP**
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -597,7 +598,8 @@ Content-Type: application/json
     }
   ]
 }
-
+```
+```
 HTTP/1.1 400 Bad request
 Content-Type: application/json
 
@@ -609,7 +611,8 @@ Content-Type: application/json
     null
   ]
 }
-
+```
+```
 HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
