@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Gateway** field, select the Security Gateway, which needs to perform the SAML authentication.
 
-    b. In the **Service** field, select the Identity Awareness from the dropdown.
+    b. In the **Service** field, select the **Identity Awareness** from the dropdown.
 
     c. Copy **Identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
 
