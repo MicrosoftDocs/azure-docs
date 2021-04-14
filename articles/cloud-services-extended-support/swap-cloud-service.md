@@ -1,6 +1,6 @@
 ---
-title: Swap deployments in Azure Cloud Services (extended support)
-description: Learn how to swap between deployments in Azure Cloud Services (extended support).
+title: Swap or switch deployments in Azure Cloud Services (extended support)
+description: Learn how to swap or switch between deployments in Azure Cloud Services (extended support).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -10,7 +10,7 @@ ms.date: 04/01/2021
 ms.custom: 
 ---
 
-# Swap deployments in Azure Cloud Services (extended support)
+# Swap or switch deployments in Azure Cloud Services (extended support)
 
 You can swap between two independent cloud service deployments in Azure Cloud Services (extended support). Unlike in Azure Cloud Services (classic), the Azure Resource Manager model in Azure Cloud Services (extended support) doesn't use deployment slots. In Azure Cloud Services (extended support), when you deploy a new release of a cloud service, you can make the cloud service “swappable” with an existing cloud service in Azure Cloud Services (extended support).
 
