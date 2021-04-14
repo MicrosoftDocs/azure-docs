@@ -1,5 +1,5 @@
 ---
-title: Create VM images from a generalized image of a Windows VHD for your Azure Stack Edge Pro GPU device
+title: Prepare generalized image from a Windows VHD to deploy VMs on Azure Stack Edge Pro GPU
 description: Describes how to create a generalized VM image starting from a Windows VHD or VHDX. Use this generalized VM image to deploy virtual machines on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
@@ -12,22 +12,22 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro device.
 ---
 
-# Prepare a generalized image from a Windows VHD for deploying VMs on your Azure Stack Edge Pro device
+# Prepare a generalized image from a Windows VHD to deploy VMs on Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps to prepare a Windows VHD or VHDX to create a generalized image. This generalized image is then used to create a VM image for your Azure Stack Edge Pro device.<!--These images are uploaded to the cloud so they can be used to deploy VMs on an Azure Stack Edge Pro device? The Azure Stack Edge Pro "device" is hardware? Just want to make sure I understand the context.-->
+To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes how to prepare a generalized image from a Windows VHD or VHDX, which you can use to deploy virtual machines on Windows Stack Edge Pro GPU devices.
+
+To prepare a generalized VM image using an ISO, see [Prepare a generalized image from an ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
 
 ## About VM images
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-This article covers steps required to deploy from a generalized image created from a Windows VHD or VHDX. To deploy from a generalized image starting from an ISO, see [Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
+<!--MOVED TO TASK 1 - >> [!IMPORTANT]
+> These procedures do not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).-->
 
-> [!IMPORTANT]
-> This procedure does not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
-
-## Workflow: Prepare generalized Windows image from VHD
+## Workflow
 
 The high-level workflow to prepare a Windows VHD to use as a generalized image, starting from the VHD or VHDX of an existing virtual machine, has the following steps:
 
@@ -49,6 +49,9 @@ Before you prepare a Windows VHD for use as a generalized image on an Azure Stac
 ## Prepare source VM from Windows VHD
 
 When your VM source is a Windows VHD or VHDX, you first need to convert the Windows VHD to a fixed-size VHD. You will use the fixed-size VHD to create a new virtual machine.
+
+> [!IMPORTANT]
+> These procedures do not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
 #### Convert source VHD to a fixed-size VHD
 
