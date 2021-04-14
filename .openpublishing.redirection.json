@@ -19280,6 +19280,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/quickstart-adt-explorer.md",
+      "redirect_url": "/azure/digital-twins/quickstart-azure-digital-twins-explorer",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
       "redirect_url": "/azure/digital-twins/concepts-event-notifications",
       "redirect_document_id": false
