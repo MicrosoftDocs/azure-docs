@@ -14,7 +14,7 @@ The name "URL ping test" is a bit of a misnomer. To be clear, these tests are no
 There are two types of URL ping test you can create, basic and standard ping tests.
 
 > [!NOTE]
-> Standard ping tests is currently in public preview.  This preview version is provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
+> Basic and Standard ping tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
 Basic vs Standard:
 
@@ -34,7 +34,6 @@ In order to create an availability test, you need use an existing Application In
 To create your first availability request, open the Availability pane and select Create Test & choose your test SKU.
 
 :::image type="content" source="./media/monitor-web-app-availability/create-basic-test.png" alt-text="Screenshot of create a basic url ping test in Azure Portal":::
-
 
 |Setting | Explanation |
 |--------|-------------|
