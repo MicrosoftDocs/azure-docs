@@ -124,11 +124,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
     a. In the **Name** textbox, type a name for your configuration.
    
-    b. In **Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure Portal. 
+    b. In **Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal. 
    
-    c. In **Single Sign-On Service URL** textbox, paste the value of **Login URL** which you have copied from Azure Portal.
+    c. In **Single Sign-On Service URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
    
-    d. In **Name ID Format** textbox, paste the value of **Name Identifier Format** which you have copied from Azure Portal.
+    d. In **Name ID Format** textbox, paste the value of **Name Identifier Format** which you have copied from Azure portal.
    
     e. Open your base-64 encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox.
    
