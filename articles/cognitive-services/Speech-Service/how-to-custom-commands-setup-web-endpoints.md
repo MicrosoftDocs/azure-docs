@@ -128,8 +128,8 @@ In this case you can set the output format to suit your client's need.
     1. Open the downloaded solution in VS 2019. In file **Connections.json**, replace **STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** value to the copied secret from *step a*.
 1.  Download the **DeviceStateAzureFunction** code.
 1. [Deploy](../../azure-functions/index.yml) the Functions App to azure.
- 1.From the Azure portal here, **Get function URL**.
-    1.  Wait for deployment to succeed and go the deployed resource on Azazureure Portal. 
+    
+    1.  Wait for deployment to succeed and go the deployed resource on Azure Portal. 
     1. Select **Functions** in the left pane, and then select **DeviceState**.
     1.  In the new window, select **Code + Test** and then select **Get function URL**.
  
