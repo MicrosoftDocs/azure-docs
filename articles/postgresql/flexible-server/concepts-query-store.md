@@ -9,7 +9,9 @@ ms.date: 04/01/2021
 ---
 # Monitor Performance with Query Store
 **Applies to:** Azure Database for PostgreSQL - Flex Server versions 11 and above
+
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
+
 > [!IMPORTANT]
 > Do not modify the **azure_sys** database or its schema. Doing so will prevent Query Store and related performance features from functioning correctly.
 ## Enabling Query Store
@@ -39,6 +41,7 @@ SELECT * FROM query_store.qs_view;
 ## Configuration options
 When Query Store is enabled it saves data in 15-minute aggregation windows, up to 500 distinct queries per window. 
 The following options are available for configuring Query Store parameters.
+
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Sets which statements are tracked. | none | none, top, all |
@@ -86,6 +89,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 	
 ### query_store.query_texts_view
 This view returns query text data in Query Store. There is one row for each distinct query_text.
+
 | **Name** | **Type** | **Description** |
 |--|--|--|
 | query_text_id | bigint | ID for the query_texts table |
