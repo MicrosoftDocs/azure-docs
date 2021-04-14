@@ -22,7 +22,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | [Memory optimized](#memory-optimized) | [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute) [Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [Msv2](#msv2-high-memory) [Ms](#m-series-medium-memory)  |
 | [Storage optimized](#storage-optimized) | [Lsv2](#lsv2---storage-optimized)  |
 
-# azure (Coremark)
+
 ## Compute optimized
 ### Fsv2 - Compute + Premium Storage
 (10/10/2020 PBIID:7668456)
