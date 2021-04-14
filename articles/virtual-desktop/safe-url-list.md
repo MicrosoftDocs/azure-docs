@@ -24,13 +24,16 @@ It's important to keep the following things in mind:
 - The Required URL Check tool can't check URLs with wildcards so make sure you unblock those URLs first.
 
 ### Requirements
+
 You need the following things to use the Required URL Check tool:
 - Your VM must have a .NET 4.6.2 framework
 - RDAgent version 1.0.2944.400 or higher
 - The WVDAgentUrlTool.exe file must be in the same folder as the WVDAgentUrlTool.config file
 
 ### How to use the Required URL Check tool
+
 To use the Required URL Check tool:
+
 1. Open a command prompt as an administrator on your VM.
 2. Run the following command to change the directory to the same folder as the build agent:
 
@@ -47,10 +50,12 @@ To use the Required URL Check tool:
 4. Once you run the file, you'll see a list of accessible and inaccessible URLs.
 
     For example, the following screenshot shows a scenario where you'd need to unblock two required non-wildcard URLs:
+
     > [!div class="mx-imgBorder"]
     > ![Screenshot of non-accessible URLs output.](media/noaccess.png)
     
     Here's what the output should look like once you've unblocked all required non-wildcard URLs:
+
     > [!div class="mx-imgBorder"]
     > ![Screenshot of accessible URLs output.](media/access.png)
 
