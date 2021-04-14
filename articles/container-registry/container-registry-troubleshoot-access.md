@@ -2,11 +2,7 @@
 title: Troubleshoot network issues with registry
 description: Symptoms, causes, and resolution of common problems when accessing an Azure container registry in a virtual network or behind a firewall
 ms.topic: article
-<<<<<<< HEAD
-ms.date: 04/01/2021
-=======
 ms.date: 03/30/2021
->>>>>>> 28ecf09565d9c9be04a53388c783b0e7d38a1ca3
 ---
 
 # Troubleshoot network issues with registry
