@@ -63908,6 +63908,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial.md",
+      "redirect_url": "/azure/cognitive-services/Face/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/LUIS/encrypt-data-at-rest",
       "redirect_document_id": false

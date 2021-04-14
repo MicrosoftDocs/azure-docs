@@ -1,14 +1,14 @@
 ---
-title: Enable a managed identity for your Azure Automation account
+title: Enable a managed identity for your Azure Automation account (Preview)
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/09/2021
 ms.topic: conceptual
 ---
-# Enable a managed identity for your Azure Automation account
+# Enable a managed identity for your Azure Automation account (Preview)
 
-This topic shows you how to create a managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identity works with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
+This topic shows you how to create a managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identity works with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
 
 ## Prerequisites
 
@@ -186,7 +186,7 @@ try {
 }
 ```
 
-### Sample Python runbook on a Hybrid Runbook Worker to get a token
+### Sample Python runbook to get a token
  
 ```python
 #!/usr/bin/env python3 
@@ -206,6 +206,6 @@ print(response.text)
 
 ## Next steps
 
-- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity](disable-managed-identity-for-automation.md).
+- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity (Preview)](disable-managed-identity-for-automation.md).
 
 - For an overview of Azure Automation account security, see [Automation account authentication overview](automation-security-overview.md).

@@ -204,7 +204,8 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emits the values of `op` as **Add**, **Replace**, and **Remove**.
 * Microsoft AAD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
-* Support HTTPS on your SCIM endpoint
+* The entitlements attribute is not supported.
+* Support HTTPS on your SCIM endpoint.
 * [Schema discovery](#schema-discovery)
   * Schema discovery is not currently supported on the custom application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the primary method to add additional attributes to a connector. 
   * If a value is not present, do not send null values.
