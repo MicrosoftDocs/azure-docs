@@ -53,15 +53,15 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
     # [No Framework](#tab/vanilla-javascript)
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
 
-    Enter **./** as the location for the application files
+    Enter **./** as the location for the application files.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location":::
 
-    Select **Skip for now** as the location for the Azure Functions api
+    Select **Skip for now** as the location for the Azure Functions API.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
 
-    Enter **./** as the build output location
+    Enter **./** as the build output location.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Application build output location":::
 
@@ -71,15 +71,15 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: Angular":::
 
-    Enter **./** as the location for the application files
+    Enter **./** as the location for the application files.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location: Angular":::
 
-    Select **Skip for now** as the location for the Azure Functions api
+    Select **Skip for now** as the location for the Azure Functions API.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location: Angular":::
 
-    Enter **dist/angular-basic** as the build output location
+    Enter **dist/angular-basic** as the build output location.
 
     :::image type="content" source="media/getting-started/extension-angular.png" alt-text="Application build output location: Angular":::
 
