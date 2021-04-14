@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Migrate the sample schema using mysqldump utility.
+> * Migrate database schema using mysqldump utility.
 > * Create an instance of Azure Database Migration Service.
 > * Create a migration project by using Azure Database Migration Service.
 > * Run the migration.
@@ -56,12 +56,7 @@ To complete this tutorial, you need to:
 * Azure Database for MySQL supports only InnoDB tables. To convert MyISAM tables to InnoDB, see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html)
 * The user must have the privileges to read data on the source database.
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
-
-## Migrate the sample schema
+## Migrate database schema
 
 To transfer all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the target database. To extract schema, you can use mysqldump with the `--no-data` parameter. For this you need a machine which can connect to both the source MySQL database and the target Azure Database for MySQL.
 
@@ -274,3 +269,4 @@ If you're not going to continue to use the Database Migration Service, then you 
 * For troubleshooting source database connectivity issues while using DMS, see the article [Issues connecting source databases](./known-issues-troubleshooting-dms-source-connectivity.md).
 * For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 * For information about Azure Database for MySQL, see the article [What is Azure Database for MySQL?](../mysql/overview.md).
+* For guidance about using DMS via PowerShell, see the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL](./howto-mysql-to-azure-mysql-powershell.md)
