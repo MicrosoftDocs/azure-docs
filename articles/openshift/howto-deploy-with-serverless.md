@@ -9,7 +9,7 @@ ms.date: 4/5/2020
 keywords: aro, openshift, red hat, serverless
 ---
 
-# Deploy an application using OpenShift Serverless
+# Deploy an application to Azure Red Hat OpenShift using OpenShift Serverless
 
 In this article, you deploy an application to an Azure Red Hat OpenShift cluster using [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless). OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand, eliminating resource consumption when not in use.
 
