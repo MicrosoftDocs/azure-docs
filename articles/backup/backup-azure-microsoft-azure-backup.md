@@ -36,8 +36,8 @@ Azure Backup Server inherits much of the workload backup functionality from Data
 
 The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
-* To protect on-premises workloads, the MABS server must be located on-premises, and connected to the domain.
-* To protect workloads running on Azure VMs, the MABS server must be located in Azure, running as an Azure VM, and connected to the domain.
+* To protect on-premises workloads, the MABS server must be located on-premises, and connected to a domain.
+* To protect workloads running on Azure VMs, the MABS server must be located in Azure, running as an Azure VM, and connected to a domain.
 
 ### Using a server in Azure
 
