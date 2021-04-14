@@ -19,6 +19,7 @@ Azure ultra disks offer high throughput, high IOPS, and consistent low latency d
 ## GA scope and limitations
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
++ Currently Disk export is not supported on Ultra SSD+
 
 ## Determine VM size and region availability
 
