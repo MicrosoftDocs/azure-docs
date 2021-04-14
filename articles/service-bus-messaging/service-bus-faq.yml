@@ -46,7 +46,7 @@ sections:
           
            Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
           
-      - question: <a name="in-region-data-residency"></a>Where does Azure Service Bus store data?
+      - question: Where does Azure Service Bus store data?
         answer: |
           Azure Service Bus standard tier utilizes Azure SQL Database for its backend storage layer. For all regions except Brazil South and Southeast Asia, the database backup is hosted in a different region (usually the Azure paired region). For the Brazil south and Southeast Asia regions, database backups are stored in the same region to accommodate data-residency requirements for these regions.
           
@@ -212,6 +212,15 @@ sections:
           The following sequence of PowerShell commands moves a namespace from one Azure subscription to another. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an administrator on both the source and target subscriptions.
           
           ```powershell
+          # Create a new resource group in target subscription
+          Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+          New-AzResourceGroup -Name 'targetRG' -Location 'East US'
+
+          # Move namespace from source subscription to target subscription
+          Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+          $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+          Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+          ```
       - question: |
           Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
         answer: |
