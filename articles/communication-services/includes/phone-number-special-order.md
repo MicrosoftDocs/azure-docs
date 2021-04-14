@@ -9,4 +9,5 @@ ms.custom: references_regions
 
 
 > [!IMPORTANT]
-> To acquire a large quantity of phone numbers, complete **[this form](https://github.com/Azure/Communication/blob/977afecaf27a9de094d8ab6b4009a27470cb87a3)** and email it to gcstnmsd@microsoft.com with a subject line beginning with "ACS Number Request:".
+> To acquire a large quantity of phone numbers, complete **[this form](https://github.com/Azure/Communication/blob/master/Forms/ACS%20-%20Bulk%20Number%20Acquisition.docx)** and email it to gcstnmsd@microsoft.com with a subject line beginning with "ACS Number Request:".
+
