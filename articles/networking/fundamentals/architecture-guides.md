@@ -45,6 +45,7 @@ The following table includes articles that describe how to deploy your applicati
 |[IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   Describes how to use resources spread across multiple zones to provide a high availability architecture for hosting an Infrastructure as a Service (IaaS) web application and SQL Server database.     |
 |[Sharing location in real time using low-cost serverless Azure services](/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Uses Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.      |
 |[Highly available network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha)     | Shows how to deploy a set of network virtual appliances (NVAs) for high availability in Azure.        |
+|[Multi-region load balancing with Traffic Manager and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)     | Describes how to deploy resilient multi-tier applications in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure.        |
 
 ## Secure your network resources
 
