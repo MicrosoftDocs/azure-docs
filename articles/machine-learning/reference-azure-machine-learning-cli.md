@@ -35,7 +35,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ## Full reference docs
 
-Find the [full reference docs for the azure-cli-ml extension of Azure CLI](/cli/azure/ext/azure-cli-ml/).
+Find the [full reference docs for the azure-cli-ml extension of Azure CLI](/cli/azure/ml/).
 
 ## Connect the CLI to your Azure subscription
 
