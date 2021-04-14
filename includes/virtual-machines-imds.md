@@ -329,7 +329,7 @@ Schema breakdown:
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
-| `customData` | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+| `customData` | This feature is deprecated and disabled. It has been superseded by `userData` | 2019-02-01
 | `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
@@ -909,7 +909,7 @@ When creating a new VM, you can specify a set of data to be used during or after
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
 ```
 
 #### [Linux](#tab/linux/)
