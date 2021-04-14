@@ -25,8 +25,6 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### **C#**
 
-#### Updates
-
 * **New methods to analyze data from identity documents**:
 
    **[StartRecognizeIdDocumentsFromUriAsync](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizeiddocumentsasync?view=azure-dotnet-preview&preserve-view=true)**
@@ -59,8 +57,6 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 * **[StartRecognizeCustomForms](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecustomforms?view=azure-dotnet-preview&preserve-view=true#Azure_AI_FormRecognizer_FormRecognizerClient_StartRecognizeCustomForms_System_String_System_IO_Stream_Azure_AI_FormRecognizer_RecognizeCustomFormsOptions_System_Threading_CancellationToken_)** method now throws a `RequestFailedException()` when an invalid file is passed.
 
 ### **Java**
-
-#### Updates
 
 * **New methods to analyze data from identity documents**:
 
@@ -120,8 +116,6 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 * Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
 
 ### **Python**
-
-#### Updates
 
 * **New methods to analyze data from identity documents**:
 
