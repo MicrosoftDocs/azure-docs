@@ -541,7 +541,7 @@ Do one of the following actions:
 
 - If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image).
 - If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [deprecate(formerly stop sell) the plan](partner-center-portal/update-existing-offer.md#deprecateformerly-stop-sell-an-offer-or-plan).
-- If you don't plan to replace the only VM image in the offer, we recommend you [deprecate(formerly stop sell) the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+- If you don't plan to replace the only VM image in the offer, we recommend you [deprecate(formerly stop sell) the offer](partner-center-portal/update-existing-offer.md##deprecateformerly-stop-sell-an-offer-or-plan).
 
 ### Provide a fixed VM image
 
