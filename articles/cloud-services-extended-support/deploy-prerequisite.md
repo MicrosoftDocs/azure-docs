@@ -12,11 +12,6 @@ ms.custom:
 
 # Prerequisites for deploying Azure Cloud Services (extended support)
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 To ensure a successful Cloud Services (extended support) deployment review the below steps and complete each item prior to attempting any deployments. 
 
 ## Required Service Configuration (.cscfg) file updates

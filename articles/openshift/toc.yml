@@ -26,6 +26,8 @@
           href: howto-create-private-cluster-4x.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
+        - name: Restrict egress traffic
+          href: howto-restrict-egress.md
     - name: Storage
       items:
         - name: Encrypt PVCs with customer-managed key (preview)
@@ -44,7 +46,7 @@
           href: configure-azure-ad-ui.md
         - name: Update pull secret for an ARO cluster
           href: howto-add-update-pull-secret.md
-    - name: Backup and restore
+    - name: Back up and restore
       items:
         - name: Create a backup of a cluster application with Velero
           href: howto-create-a-backup.md
@@ -107,6 +109,8 @@
       href: /cli/azure/aro
     - name: Azure Red Hat OpenShift REST APIs
       href: /rest/api/openshift
+    - name: Azure CLI
+      href: /cli/azure/openshift
 - name: Resources
   items:
     - name: Frequently asked questions
@@ -117,6 +121,8 @@
       href: support-policies-v4.md
     - name: Support lifecycle for ARO 4 
       href: support-lifecycle.md
+    - name: Responsibility matrix
+      href: responsibility-matrix.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Red Hat OpenShift 4 documentation

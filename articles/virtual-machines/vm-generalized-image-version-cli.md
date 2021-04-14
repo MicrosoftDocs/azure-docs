@@ -11,7 +11,7 @@ ms.author: cynthn
 ms.custom: devx-track-azurecli
 #PMcontact: akjosh
 ---
-# Create a VM from a generalized image version using the CLI
+# Create a VM from a generalized image version using the Azure CLI
 
 Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version-powershell.md). 
 

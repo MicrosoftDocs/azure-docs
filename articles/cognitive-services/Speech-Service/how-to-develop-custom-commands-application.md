@@ -629,7 +629,7 @@ Another way to customize Custom Commands responses is to select an output voice.
 > ![Screenshot showing sample sentences and parameters.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#standard-and-neural-voices).
+> For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#neural-and-standard-voices).
 >
 > You can create custom voices on the **Custom Voice** project page. For more information, see [Get started with Custom Voice](./how-to-custom-voice.md).
 
