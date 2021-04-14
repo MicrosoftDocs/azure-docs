@@ -132,7 +132,7 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
   "identity": {
   "type": "UserAssigned",
     "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
       }
   }
   ```
