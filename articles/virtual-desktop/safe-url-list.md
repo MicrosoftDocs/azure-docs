@@ -15,7 +15,7 @@ In order to deploy and use Windows Virtual Desktop, you must unblock certain URL
 >[!IMPORTANT]
 >Windows Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
-## Required URL Check Tool
+## Required URL Check tool
 
 The Required URL Check tool will validate URLs and display whether the URLs the virtual machine needs to function are accessible. If not, then the tool will list the inaccessible URLs so you can unblock them, if needed.
 
