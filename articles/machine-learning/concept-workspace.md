@@ -102,7 +102,8 @@ When you create a new workspace, it automatically creates several Azure resource
   
   > [!IMPORTANT]
   > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
-  > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
+  > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2. 
+  > The storage accoount cannot be of type "BlobStorage".
 
   To use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
