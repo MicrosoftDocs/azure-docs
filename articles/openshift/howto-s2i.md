@@ -288,3 +288,5 @@ In this guide, you learned how to:
 > * Deploy an application from source code using the web console
 > * Deploy an application from source code using the OpenShift command-line
 > * Trigger a binary build using the OpenShift command-line
+
+Learn more about how to build and deploy applications using source-to-image and [other build strategies](https://docs.openshift.com/container-platform/4.6/builds/understanding-image-builds.html).
