@@ -55,7 +55,7 @@ Request parameters passed on the query string are:
   </tr>  
   <tr>
     <td>textType</td>
-    <td><em>Optional parameter</em>.<br/>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. When translating HTML text, the output text has the following special characters in escaped form: ‘&’, ‘<’, and ‘>’. This is irrespective of whether the input HTML text has the characters escaped. Possible values are: <code>plain</code> (default) or <code>html</code>.</td>
+    <td><em>Optional parameter</em>.<br/>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: <code>plain</code> (default) or <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
