@@ -1,6 +1,6 @@
 ---
-title: Use a generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device
-description: Describes how to create a generalized VM image starting from an ISO. Use this generalized image to create virtual machines on your Azure Stack Edge Pro device.
+title: Prepare a generalized image using an ISO for deploying virtual machines on your Azure Stack Edge Pro GPU device
+description: Describes how to create a generalized Windows VM image starting from an ISO. Use this generalized image to deploy virtual machines on your Azure Stack Edge Pro GPU device.
 
 services: databox
 author: alkohli
@@ -8,47 +8,52 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/14/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to be able to quickly create multiple new virtual machines with a common profile.
+#Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro device, and I want to use an ISO image for OS installation.
 ---
 
-# Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device 
+# Prepare a generalized image using an ISO for deploying VMs on your Azure Stack Edge Pro device 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes how to create a VM image starting from ISO installation media and then generalize that image so you can use it to deploy multiple new virtual machines (VMs) on your Azure Stack Edge device.
+To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom virtual machine (VM) images that you can use to create VMs.<!--This first sentence tends to hide the differences between the related two how-tos. Perhaps it could move to the "About VM images" section?--> This article describes how to prepare a Windows VM image using ISO installation media, and then generalize that image so you can use it to deploy multiple new VMs on your Azure Stack Edge Pro device.
 
 ## About VM images
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-This article covers steps required to deploy from a generalized image starting from an ISO. To deploy from a generalized image created from an existing VHD or VHDX, see [Use generalized image from a Windows VHD to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
+This article covers steps required to deploy from a generalized image starting from an ISO. To deploy from a generalized image created from an existing Windows VHD or VHDX, see [Use generalized image from a Windows VHD to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
 
 <!--To avoid having an overview within an overview, I suggest switching the order of Prerequisites and Task Flow, and using the Task Flow heading to differentiate between the two flows. This also avoids the existential question: when is an image considered "prepared"?-->
-
-## Prerequisites 
-
-Before you can create a generalized Windows VHD by using an ISO image, make sure that:
-
-- You have an ISO image for the supported Windows version that you want to turn into a generalized VHD. Windows ISO images can be downloaded from the Microsoft Evaluation Center.
-
-- You have access to a Windows client with Hyper-V Manager installed.
-
-- You have access to an Azure blob storage account to store your VHD after it is prepared.
 
 ## Workflow: Prepare generalized Windows image using an ISO 
 
 The high-level workflow to create a generalized Windows VHD starting from an ISO is:
 
-1. Create a new, blank, fixed-size VHD in Hyper-V Manager.<!--Parallel step in the other article would be to make a copy of the System VHD in the existing VM, and configure it as a fixed-size VHD?-->
-1. Use that VHD to create a new virtual machine.<!--How close is this procedure to the same step in the companion article? Can it be generalized?-->
-1. Mount the ISO image on the DVD drive of the new VM.
+1. Prepare the source VM using an ISO image:
+   1. Create a new, blank, fixed-size VHD in Hyper-V Manager.
+   1. Use that VHD to create a new virtual machine.<!--How close is this procedure to the same step in the companion article? Can it be generalized?-->
+   1. Mount your ISO image on the DVD drive of the new VM.
 1. Start the VM, and install the Windows operating system.
 1. Generalize the VHD using the *sysprep* utility.
 1. Copy the generalized image to Azure Blob storage.
 
-## Create new VHD in Hyper-V Manager
+## Prerequisites 
+
+Before you can create a generalized Windows VHD by using an ISO image, make sure that:
+
+- You have an ISO image for the supported Windows version that you want to turn into a generalized VHD. Windows ISO images can be downloaded from the [Microsoft Evaluation Center](https://www.microsoft.com/en-us/evalcenter/).
+
+- You have access to a Windows client with Hyper-V Manager installed.
+
+- You have access to an Azure blob storage account to store your VHD after it is prepared.
+
+## Prepare source VM using an ISO
+
+When you use an ISO image to install the operating system on your VM image, you start by creating a blank, fixed-size VHD in Hyper-V Manager. You then use that VHD to create a virtual machine. Then you attach the ISO image to the VM.
+
+#### Create new VHD in Hyper-V Manager
 
 Your first step is to create a new Generation 1 VHD in Hyper-V Manager, which will be the source VHD for a new virtual machine.
 
@@ -78,11 +83,11 @@ To create the VHD, follow these steps:
 
    ![Summary of VHD settings](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-06.png)
 
-## Create Hyper-V VM from VHD
+#### Create Hyper-V VM from VHD
 
-Next, use the VHD you just created to create a new virtual machine.
+Now you'll use the VHD you just created to create a new virtual machine.
 
-To create your new virtual machine, do these steps:<!--Compare with same tasks in companion article. Are the steps identical, or close enough to generalize?-->
+To create your new virtual machine, follow these steps:<!--Compare with same procedure in the companion article. Are the steps identical, or close enough to generalize?-->
 
 1. Open Hyper-V Manager on your Windows client.
 
@@ -112,7 +117,7 @@ To create your new virtual machine, do these steps:<!--Compare with same tasks i
 
 8. Review the summary, and select **Finish** to create the virtual machine. 
 
-## Mount ISO image on DVD drive of VM
+#### Mount ISO image on DVD drive of VM
 
 After creating the new virtual machine, follow these steps to mount your ISO image on the DVD drive of the virtual machine:
 

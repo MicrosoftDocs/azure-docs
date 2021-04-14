@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 04/13/2021
+ms.date: 04/14/2021
 ---
 
 A Windows VHD or VHDX can be used to create a *generalized image* or a *specialized image*: 
@@ -21,8 +21,8 @@ The following table summarizes key differences when you deploy virtual machines 
 |Configuration     |Hostname, admin-user, and other VM-specific settings required.         |Completely pre-configured.         |
 |Used when     |Creating multiple new VMs from the same image.         |Migrating a specific machine or restoring a VM from previous backup.         |
 
-There are two ways to create a generalized image:
+There are two ways to create a generalized image:<!--I added this to associate the conceptual section with the two how-tos for generalized images.-->
 
- * You can generalize the system VHD or VHDX from an existing virtual machine.
+ * You can generalize an existing Windows VHD or VHDX.
 
- * You can start fresh with a new Generation 1 VHD, and use an ISO image to provide the VM configuration.
+ * You can start fresh with a new virtual machine and use an ISO image to install the operating system.
