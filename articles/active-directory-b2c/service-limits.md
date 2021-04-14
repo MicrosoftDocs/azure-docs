@@ -22,38 +22,38 @@ This article contains the usage constraints and other service limits for the Azu
 
 The following end-user related service limits apply to all authentication requests to Azure AD B2C. Below illustrates the peak token issuances per journey type.
 
-|Journey Type      | Limit    |
+|User Journey      | Limit    |
 |---------|---------|
 |Sign in  | 12,000/min |
 |Sign up  | 7,680/min |
 |Password reset  | 12,000/min|
 |Profile edit  | 12,000/min|
 
-When multiple journey type's are in use, they contribute to the overall limits below.
+When multiple User Journey's are in use, they contribute to the overall limits below.
 
 |Category     | Limit    |
 |---------|---------|
 |Number of requests per IP address per Azure AD B2C tenant     |1,200/min          |
 |Total number of requests per Azure AD B2C tenant   |12,000/min          |
 
-As an example, when performing Sign Up at a rate of 7,000/min, you will be able to perform Sign In's at a rate of 5,000/min for a total token issuance rate of 12,000/min, assuming all authentications are coming from a different client IP address.
+As an example, when performing Sign Up at a rate of 7,000/min, you will be able to perform Sign In's at a rate of 5,000/min. This will reach the total token issuance rate of 12,000/min, assuming all authentications are coming from a different client IP address. This example can be applied to the **Combined Sign up or Sign in** user journey.
 
 ## Azure AD B2C configuration limits
 
 The following table lists the administrative configuration limits in the Azure AD B2C service.
 
-|Category  |Limit  |
-|---------|---------|
-|Number of scopes per application        |1000          |
-|Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |100         |
-|Number of redirect URLs per application       |100         |
-|Number of sign out URLs per application        |1          |
-|String Limit per Attribute      |250 Chars          |
-|Number of B2C tenants per subscription      |20         |
-|Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
-|Number of policies per Azure AD B2C tenant      |200          |
-|Maximum policy file size      |400 KB          |
-
+|Category  |Type  |Limit  |
+|---------|---------|---------|
+|String Limit per Attribute      |User|250 Chars          |
+|Maximum number of `Identities` in a User Create operation      | User|7          |
+|Number of scopes per application        |Application|1000          |
+|Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |Application|100         |
+|Number of redirect URLs per application       |Application|100         |
+|Number of sign out URLs per application        |Application|1          |
+|Levels of policy [inheritance](custom-policy-overview.md#inheritance-model)     |Custom policy|10         |
+|Maximum policy file size      |Custom policy|400 KB          |
+|Number of B2C tenants per subscription      |Azure Subscription|20         |
+|Number of policies per Azure AD B2C tenant      | Tenant|200          |
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
