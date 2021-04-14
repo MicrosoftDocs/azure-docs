@@ -1,14 +1,29 @@
+---
+title: Label an entity using the LUIS portal
+description: include file
+services: cognitive-services
+manager: nitinme
+ms.custom: seodec18
+ms.author: aahi
+author: aahill
+ms.service: cognitive-services
+ms.date: 04/14/2021
+ms.subservice: language-understanding
+ms.topic: include
+
+---
+
 To label your utterances, you have two options
 
 **Entity Palette Labeling**
 When you click on the **@** icon on top right, the entity palette open in the right side of the page.
 
-::image type="content" source="../media/how-to-label-entity-palette.png" alt-text="how-to-label-entity-palette" lightbox="../media/how-to-label-entity-palette.png"::
+:::image type="content" source="../media/how-to-label-entity-palette.png" alt-text="labelling an entity using the entity palette" lightbox="../media/how-to-label-entity-palette.png":::
 
 1. Select the entity you want to start labeling
 2. Highlight the text you want to label with this entity
 
-    ::image type="content" source="../media/how-to-label-entity-palette-2.png" alt-text="how-to-label-entity-palette" lightbox="../media/how-to-label-entity-palette-2.png"::
+:::image type="content" source="../media/how-to-label-entity-palette-2.png" alt-text="label an entity using the entity palette" lightbox="../media/how-to-label-entity-palette-2.png":::
 
 **Inline labeling**
 
