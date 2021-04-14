@@ -17,6 +17,7 @@ In this quickstart, create a LUIS app using the prebuilt domain `HomeAutomation`
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## Create a new app
+
 You can create and manage your applications on **My Apps**.
 
 ### Create an application
