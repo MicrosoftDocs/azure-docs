@@ -30,7 +30,7 @@ These are the service limits of Azure Digital Twins.
 
 ## Working with limits
 
-When a limit is reached, the service throttles additional requests. This will result in a 404 error response from these requests.
+When a limit is reached, the service throttles additional requests. This will result in a 429 error response from these requests.
 
 To manage this, here are some recommendations for working with limits.
 * **Use retry logic.** The [Azure Digital Twins SDKs](how-to-use-apis-sdks.md) implement retry logic for failed requests, so if you are working with a provided SDK, this is already built-in. Otherwise, consider implementing retry logic in your own application. The service sends back a `Retry-After` header in the failure response, which you can use to determine how long to wait before retrying.
