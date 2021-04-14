@@ -1,3 +1,10 @@
+---
+author: fvneerden
+ms.topic: include
+ms.date: 03/18/2021
+ms.author: faneerde
+---
+
 This tutorial requires the following Azure resources:
 
 * IoT Hub
@@ -39,7 +46,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
      
     You'll need these files when you set up your development environment in Visual Studio Code in the next section. You might want to copy them into a local file for now.
     
-    ![App settings](../../../media/quickstarts/clouddrive.png)
+    ![App settings](../../../media/quickstarts/cloud-drive.png)
 
 > [!TIP]
 > If you run into issues with Azure resources that get created, please view our **[troubleshooting guide]()** to resolve some commonly encountered issues.

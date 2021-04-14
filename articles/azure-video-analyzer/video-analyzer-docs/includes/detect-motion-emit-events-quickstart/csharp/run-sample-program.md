@@ -1,3 +1,10 @@
+---
+author: fvneerden
+ms.topic: include
+ms.date: 03/18/2021
+ms.author: faneerde
+---
+
 Follow these steps to run the sample code:
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
