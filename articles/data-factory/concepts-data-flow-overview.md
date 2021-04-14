@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/11/2021
+ms.date: 04/14/2021
 ---
 
 # Mapping data flows in Azure Data Factory
