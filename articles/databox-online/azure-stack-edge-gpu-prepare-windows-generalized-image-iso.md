@@ -19,17 +19,25 @@ ms.author: alkohli
 
 This article describes how to create a VM image starting from ISO installation media and then generalize that image so you can use it to create multiple new virtual machines (VMs) on multiple systems in Azure Stack Edge.
 
-When you use a generalized image to create a VM, you complete the setup on first boot of the machine, configuring the hostname, admin user, other settings specific to that virtual machine.
+When you use a *generalized image* to create a VM, you complete the setup on first boot of the machine, configuring the hostname, admin user, other settings specific to that virtual machine. 
 
-Describes how to create VM images from generalized images starting from a Windows VHD or a VHDX. Use this generalized image to create VM images to use with VMs deployed on your Azure Stack Edge Pro GPU device.
+By contrast, you can use a *specialized image* to create a fully pre-configured VM targeted to a specific system.
 
 > [!NOTE]
-> By contrast, you can use a *specialized image* to create a fully pre-configured VM targeted to a specific system. To compare use of the two image types in Azure Stack Edge, see [About preparing a Windows VHD](./azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md#about-preparing-windows-vhd).
+>  To compare use of the two image types in Azure Stack Edge, see [About preparing a Windows VHD](./azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md#about-preparing-windows-vhd).
+
+To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps required to prepare a Windows VHD or VHDX to create a generalized image. This generalized image is then used to create a VM image for your Azure Stack Edge Pro device. 
+
+## About VM images
+
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
+
+This article covers steps required to deploy from a generalized image starting from an ISO. To deploy from a generalized image created from an existing VHD or VHDX, see [Use generalized image from a Windows VHD to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
 
 
-## Workflow 
+## VM image workflow 
 
-The high-level workflow to create a generalized Windows VHD from an ISO is:
+The high-level workflow to create a generalized Windows VHD starting from an ISO is:
 
 1. Create a new, blank, fixed-size VHD in Hyper-V Manager.
 1. Create a new VM in Hyper-V using the VHD.

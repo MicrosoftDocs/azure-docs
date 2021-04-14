@@ -12,26 +12,17 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
 
-# Use generalized image from Windows VHD to create a VM image for your Azure Stack Edge Pro device
+# Use generalized image from a Windows VHD to create a VM image for your Azure Stack Edge Pro device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps required to prepare a Windows VHD or VHDX to create a generalized image. This generalized image is then used to create a VM image for your Azure Stack Edge Pro device. 
 
-## About preparing Windows VHD
+## About VM images
 
-A Windows VHD or VHDX can be used to create a *generalized* image or a *specialized* image. The following table summarizes key differences between the *generalized* and the *specialized* images.
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-
-|Image type  |Generalized  |Specialized  |
-|---------|---------|---------|
-|Target     |Deployed on any system         | Targeted to a specific system        |
-|Setup after boot     | Setup required at first boot of the VM.          | Setup not needed. <br> Platform turns the VM on.        |
-|Configuration     |Hostname, admin-user, and other VM-specific settings required.         |Completely pre-configured.         |
-|Used when     |Creating multiple new VMs from the same image.         |Migrating a specific machine or restoring a VM from previous backup.         |
-
-
-This article covers steps required to deploy from a generalized image. To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
+This article covers steps required to deploy from a generalized image created from an existing VHD or VHDX. To deploy from a generalized image starting from an ISO, see [Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-generalized-image-iso.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
 
 > [!IMPORTANT]
 > This procedure does not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
@@ -39,7 +30,7 @@ This article covers steps required to deploy from a generalized image. To deploy
 
 ## VM image workflow
 
-The high-level workflow to prepare a Windows VHD for use as a generalized image has the following steps:
+The high-level workflow to prepare a Windows VHD to use as a generalized image, starting from the VHD or VHDX of an existing virtual machine has the following steps:
 
 1. Convert the source VHD or VHDX to a fixed size VHD.
 1. Create a VM in Hyper-V using the fixed VHD.
@@ -58,9 +49,13 @@ Before you prepare a Windows VHD for use as a generalized image on Azure Stack E
 
 ## Prepare a generalized Windows image from VHD
 
-## Convert to a fixed VHD 
 
-For your device, you'll need fixed-size VHDs to create VM images. You'll need to convert your source Windows VHD or VHDX to a fixed VHD. Follow these steps:
+
+## Convert source VHD to a fixed-size VHD 
+
+For your device, you'll need fixed-size VHDs to create VM images. You'll need to convert your source Windows VHD or VHDX to a fixed VHD. 
+
+Follow these steps:
 
 1. Open Hyper-V Manager on your client system. Go to **Edit Disk**.
 
@@ -80,16 +75,13 @@ For your device, you'll need fixed-size VHDs to create VM images. You'll need to
 
    ![Choose disk format page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-4.png)
 
-
 1. On the **Choose disk type** page, choose **Fixed size** and select **Next>**.
 
    ![Choose disk type page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-5.png)
 
-
 1. On the **Configure disk** page, browse to the location and specify a name for the fixed size VHD disk. Select **Next>**.
 
    ![Configure disk page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-6.png)
-
 
 1. Review the summary and select **Finish**. The VHD or VHDX conversion takes a few minutes. The time for conversion depends on the size of the source disk. 
 
@@ -101,10 +93,10 @@ For your device, you'll need fixed-size VHDs to create VM images. You'll need to
     Convert-VHD -Path <source VHD path> -DestinationPath <destination-path.vhd> -VHDType Fixed 
     ```
 -->
-You'll use this fixed VHD for all the subsequent steps in this article.
+You'll use this fixed-size VHD for all the subsequent steps in this article.
 
 
-## Create a Hyper-V VM from fixed VHD
+## Create a Hyper-V VM from the fixed-size VHD
 
 1. In **Hyper-V Manager**, in the scope pane, right-click your system node to open the context menu, and then select **New** > **Virtual Machine**.
 
