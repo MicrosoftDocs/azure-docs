@@ -4847,6 +4847,14 @@ workflow().<property>
 | --------- | -------- | ---- | ----------- |
 | <*property*> | No | String | The name for the workflow property whose value you want <p><p>By default, a workflow object has these properties: `name`, `type`, `id`, `location`, `run`, and `tags`. <p><p>- The `run` property value is a JSON object that includes these properties: `name`, `type`, and `id`. <p><p>- The `tags` property is a JSON object that includes [tags that are associated with your logic app in Azure Logic Apps or flow in Power Automate](../azure-resource-manager/management/tag-resources.md) and the values for those tags. For more information about tags in Azure resources, review [Tag resources, resource groups, and subscriptions for logical organization in Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Note**: By default, a logic app has no tags, but a Power Automate flow has the `flowDisplayName` and `environmentName` tags. |
 |||||
+  
+> [!NOTE]
+> The last feature that we added is a new output property called tags to the workflow() expression.
+> The tags contain properties such as **flowDisplayName** and **environmentName**. 
+> This means that, from the flow itself, you can send custom email notifications that link back to the flow. 
+> For example, this will create an HTML link back to the flow, with the display name of the flow in the title.
+>```<a href="https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details">Open flow @{workflow()['tags']['flowDisplayName']}</a>```
+
 
 *Example 1*
 
