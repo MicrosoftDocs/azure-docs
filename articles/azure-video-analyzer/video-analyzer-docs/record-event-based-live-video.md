@@ -73,14 +73,11 @@ The diagram is a pictorial representation of a [pipeline]() <!--concept-pipeline
 As the diagram shows, you'll use an [RTSP source]() <!--concept-pipeline --> node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
 
 * The first path is to a HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
-* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink]() <!--concept-pipeline --> node to an [video](terminology.md#video) in your Azure Video Analyzer account.
+* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink]() <!--concept-pipeline --> node to an [video](terminology.md#video) in your Azure Video Analyzer account.
 
 ## Set up your development environment
 
 Before you begin, check that you've completed the third bullet in [Prerequisites](#prerequisites). After the deployment template finishes, locate the following settings. <!-- TODO: need a way to get these properties out of the ARM template -->
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="App settings":::
 
 Of interest in this tutorial are the files:
 
