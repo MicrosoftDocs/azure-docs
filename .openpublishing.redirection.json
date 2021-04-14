@@ -1,10 +1,5 @@
 {
   "redirections": [
-    {
-      "source_path": "articles/backup/backup-azure-backup-faq.md",
-      "redirect_url": "/azure/backup/backup-azure-backup-faq",
-      "redirect_document_id": false
-    },
    {
       "source_path": "articles/backup/backup-azure-file-folder-backup-faq.md",
       "redirect_url": "/azure/backup/backup-azure-file-folder-backup-faq",
