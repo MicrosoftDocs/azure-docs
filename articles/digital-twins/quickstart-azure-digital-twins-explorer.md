@@ -42,7 +42,11 @@ You'll need an Azure subscription to complete this quickstart. If you don't have
 
 You'll also need **Node.js** on your machine. To get the latest version, see [Node.js](https://nodejs.org/).
 
-Finally, you'll also need to download the sample to use during the quickstart. The sample application is **Azure Digital Twins Explorer**. This sample contains the app you use in the quickstart to load and explore an Azure Digital Twins scenario. It also contains the sample scenario files. To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Download ZIP** button to download a .zip file of this sample code to your machine. Unzip the **Azure_Digital_Twins__ADT__explorer.zip** folder, and extract the files.
+Finally, you'll also need to download the sample to use during the quickstart. The sample application is **Azure Digital Twins Explorer**. This sample contains the app you use in the quickstart to load and explore an Azure Digital Twins scenario. It also contains the sample scenario files. To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the samples. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file. 
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
+
+Unzip the **digital-twins-explorer-main.zip** folder, and extract the files.
 
 ## Set up Azure Digital Twins and Azure Digital Twins Explorer
 
@@ -77,8 +81,8 @@ You can close the authentication console window if you want. Or, you can keep it
 
 Next, run the Azure Digital Twins Explorer application and configure it for your Azure Digital Twins instance.
 
-1. Go to the downloaded and unzipped **Azure_Digital_Twins__ADT__explorer** folder.
-Open a console window to the folder location **Azure_Digital_Twins__ADT__explorer/client/src**.
+1. Go to the downloaded and unzipped **digital-twins-explorer-main** folder.
+Open a console window to the folder location **digital-twins-explorer-main/client/src**.
 
 1. Run `npm install` to download all the required dependencies.
 
@@ -106,7 +110,7 @@ If you see a **Permissions requested** pop-up window from Microsoft, grant conse
 
 ## Add the sample data
 
-Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is also located in the **Azure_Digital_Twins__ADT__explorer** folder you downloaded earlier.
+Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is also located in the **digital-twins-explorer-main** folder you downloaded earlier.
 
 ### Models
 
@@ -133,7 +137,7 @@ Follow these steps to upload models.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
-1. In the file selector box that appears, go to the **Azure_Digital_Twins__ADT__explorer/client/examples** folder in the downloaded repository.
+1. In the file selector box that appears, go to the **digital-twins-explorer-main/client/examples** folder in the downloaded repository.
 1. Select **Room.json** and **Floor.json**, and select **OK**. You can upload additional models if you want, but they won't be used in this quickstart.
 1. Follow the pop-up dialog box that asks you to sign in to your Azure account.
 
@@ -175,7 +179,7 @@ Follow these steps to import the graph.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
 
-2. In the file selector box, go to the **Azure_Digital_Twins__ADT__explorer/client/examples** folder, and select the **buildingScenario.xlsx** spreadsheet file. This file contains a description of the sample graph. Select **OK**.
+2. In the file selector box, go to the **digital-twins-explorer-main/client/examples** folder, and select the **buildingScenario.xlsx** spreadsheet file. This file contains a description of the sample graph. Select **OK**.
 
    After a few seconds, Azure Digital Twins Explorer opens an **Import** view that shows a preview of the graph to be loaded.
 
