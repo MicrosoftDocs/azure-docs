@@ -13,7 +13,7 @@ ms.reviewer: davberg
 # Compute benchmark scores for Linux VMs
 The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu 18.04. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md).
 
-## azure (Coremark) TOC
+## Azure (Coremark) TOC
 | Type | Families |
 | ---- | -------- |
 | [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage)  |
