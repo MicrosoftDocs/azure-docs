@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/05/2021
+ms.date: 04/11/2021
 ms.author: memildin
 
 ---
@@ -24,9 +24,43 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 ## April 2021
 
 Updates in April include:
+- [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
+- [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
+- [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
+### Recently pulled container registry images are now rescanned weekly (General Availability)
+
+Azure Defender for container registries includes a built-in vulnerability scanner. This scanner immediately scans any image you push to your registry and any image pulled within the last 30 days.
+
+New vulnerabilities are discovered every day. With this update, container images that were pulled from your registries during the last 30 days will be **rescanned** every week. This ensures that newly discovered vulnerabilities are identified in your images.
+
+Scanning is charged on a per image basis, so there's no additional charge for these rescans.
+
+Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
+
+
+### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)
+
+Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md). 
+
+When you've enabled Azure Arc on your non-Azure Kubernetes clusters, a new recommendation from Azure Security Center offers to deploy the Azure Defender extension to them with only a few clicks.
+
+Use the recommendation (**Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed**) and the extension to protect Kubernetes clusters deployed in other cloud providers, although not on their managed Kubernetes services.
+
+This integration between Azure Security Center, Azure Defender, and Azure Arc enabled Kubernetes brings:
+
+- Easy provisioning of the Azure Defender extension to unprotected Azure Arc enabled Kubernetes clusters (manually and at-scale)
+- Monitoring of the Azure Defender extension and its provisioning state from the Azure Arc Portal
+- Security recommendations from Security Center are reported in the new Security page of the Azure Arc Portal
+- Identified security threats from Azure Defender are reported in the new Security page of the Azure Arc Portal
+- Azure Arc enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
+
+Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
+
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 ### Four new recommendations related to guest configuration (preview)
 
@@ -44,6 +78,23 @@ We've added four new recommendations to Security Center to make the most of this
 
 Learn more in [Understand Azure Policy's Guest Configuration](../governance/policy/concepts/guest-configuration.md).
 
+### CMK recommendations moved to best practices security control
+
+Every organization's security program includes data encryption requirements. By default, Azure customers' data is encrypted at rest with service-managed keys. However, customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs let you encrypt your data with an [Azure Key Vault](../key-vault/general/overview.md) key created and owned by you. This gives you full control and responsibility for the key lifecycle, including rotation and management.
+
+Azure Security Center's security controls are logical groups of related security recommendations, and reflect your vulnerable attack surfaces. Each control has a maximum number of points you can add to your secure score if you remediate all of the recommendations listed in the control, for all of your resources. The **Implement security best practices** security control is worth zero points. So recommendations in this control don't affect your secure score.
+
+The recommendations listed below are being moved to the **Implement security best practices** security control to better reflect their optional nature. This move ensures that these recommendations are in the most appropriate control to meet their objective.
+
+- Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
+- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)
+- Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)
+- Container registries should be encrypted with a customer-managed key (CMK)
+- SQL managed instances should use customer-managed keys to encrypt data at rest
+- SQL servers should use customer-managed keys to encrypt data at rest
+- Storage accounts should use customer-managed key (CMK) for encryption
+
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 
 ### 11 Azure Defender alerts deprecated
@@ -75,6 +126,17 @@ The eleven Azure Defender alerts listed below have been deprecated.
  
     > [!TIP]
     > These nine IPC alerts were never Security Center alerts. They’re part of the Azure Active Directory (AAD) Identity Protection connector (IPC) that was sending them to Security Center. For the last two years, the only customers who’ve been seeing those alerts are organizations who configured the export (from the connector to ASC) in 2019 or earlier. AAD IPC has continued to show them in its own alerts systems and they’ve continued to be available in Azure Sentinel. The only change is that they’re no longer appearing in Security Center.
+
+### Two recommendations from "Apply system updates" security control were deprecated 
+
+The following two recommendations were deprecated and the changes might result in a slight impact on your secure score:
+
+- **Your machines should be restarted to apply system updates**
+- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**
+
+We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
+
+Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
 
 
 ## March 2021
@@ -540,7 +602,7 @@ Updates in December include:
 Azure Security Center offers two Azure Defender plans for SQL Servers:
 
 - **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers 
-- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multicloud, and on-premises environments
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
 
 With this announcement, **Azure Defender for SQL** now protects your databases and their data wherever they're located.
 
