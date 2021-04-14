@@ -197,7 +197,7 @@ Organizations should choose one of the following options to enable a sign-in ris
 
 ### Enable with Conditional Access APIs
 
-The steps to create a Sign-in risk-based Conditional Access policy with Conditional Access APIs is documented in the article, [Conditional Access APIs: Sign-in risk-based Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-apis). We will use that document as a reference to create a policy called "Template 1: Require MFA for medium + sign-in risk" using the APIs.
+The steps to create a Sign-in risk-based Conditional Access policy with Conditional Access APIs is documented in the article, [Conditional Access APIs: Sign-in risk-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis). We will use that document as a reference to create a policy called "Template 1: Require MFA for medium + sign-in risk" using the APIs.
 
 To create a Conditional Access policy, use the following `POST` operation.
 
