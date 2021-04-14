@@ -193,18 +193,12 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 ### Build the microservices applications locally
 
-1. Clone the sample app repository to your Azure Cloud account.  
+1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project. 
 
     ```azurecli
-    git clone https://github.com/Azure-Samples/piggymetrics
-    ```
-
-2. Change directory and build the project.
-
-    ```azurecli
-    cd piggymetrics
-    mvn clean package -DskipTests
-    ```
+    git clone https://github.com/azure-samples/spring-petclinic-microservices
+    cd spring-petclinic-microservices
+    mvn clean package -DskipTests -Denv=cloud
 
 Compiling the project takes about 5 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
 
