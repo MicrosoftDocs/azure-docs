@@ -189,10 +189,7 @@ Advantage of this approach is that failover can happen at the application layer 
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
  
 ## Next steps
-See the following samples or reference documentation. 
-
-| Language/package | Samples location | 
-| ---------------- | ---------------- | 
+Review the following samples or reference documentation. 
 - [.NET GeoDR sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/DotNet/GeoDRClient) 
 - [Java GeoDR sample](https://github.com/Azure-Samples/eventhub-java-manage-event-hub-geo-disaster-recovery)
 - [.NET - Azure.Messaging.EventHubs samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
