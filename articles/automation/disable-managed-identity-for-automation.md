@@ -3,7 +3,7 @@ title: Disable your Azure Automation account managed identity (preview)
 description: This article explains how to disable and remove a managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
 ---
 
