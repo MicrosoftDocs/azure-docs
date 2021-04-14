@@ -117,7 +117,7 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 
 :::image type="content" source="media/example-d365-business-central.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
-#### Call-out descriptions
+### Call-out descriptions
 
 1. Logo
 2. Products
@@ -169,7 +169,7 @@ Provide logos and images that will be used when showing your offer to customers.
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
->If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+>If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
 
 #### Logos
 
