@@ -4,6 +4,7 @@ description: This article describes how to perform restore operations in Azure D
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 04/13/2021
 ---
