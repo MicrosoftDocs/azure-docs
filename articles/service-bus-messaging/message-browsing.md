@@ -8,22 +8,15 @@ ms.date: 03/29/2021
 # Message browsing
 Message browsing, or peeking, enables a Service Bus client to enumerate all messages in a queue or a subscription, for diagnostic and debugging purposes.
 
-The Peek operation on a queue or a subscription returns at most the requested number of messages. 
+The Peek operation on a queue or a subscription returns at most the requested number of messages. The following table shows the types of messages that are returned by the Peek operation. 
 
-Peek operation on a queue returns messages including scheduled and locked messages. It doesn't return dead-lettered messages, but may return expired messages if they aren't dead-lettered yet.
-
-Peek operation on a subscription returns messages including locked messages. It doesn't return scheduled and dead-lettered messages, but may return expired messages if they aren't dead-lettered yet.
-
-
-The following table shows what type of messages are returned by the Peek operation. 
-
-| Type of messages | Queue | Subscription | 
-| ---------------- | ----- | ------------ | 
-| Active messages | Included | Included |
-| Scheduled messages | Included | Not included |
-| Dead-lettered messages | Not included  | Not included | 
-| Locked messages | Included | Included |
-| Expired messages |  May be included before they are dead-lettered | May be included before they are dead-lettered |
+| Type of messages | Included? | 
+| ---------------- | ----- | 
+| Active messages | Yes |
+| Dead-lettered messages | No | 
+| Locked messages | Yes |
+| Expired messages |  May be (before they are dead-lettered) |
+| Scheduled messages | Yes for queues. No for subscriptions |
 
 ## Dead-lettered messages
 To peek into **Dead-lettered** messages of a queue or subscription, the peek operation should be run on the dead letter queue associated with the queue or subscription. For more information, see [accessing dead letter queues](service-bus-dead-letter-queues.md#path-to-the-dead-letter-queue).
