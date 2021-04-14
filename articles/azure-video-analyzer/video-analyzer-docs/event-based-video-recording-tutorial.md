@@ -1,0 +1,408 @@
+---
+title: Event-based video recording to the cloud and playback from the cloud tutorial - Azure
+description: In this tutorial, you'll learn how to use Azure Video Analyzer to record an event-based video recording to the cloud and play it back from the cloud.
+ms.topic: tutorial
+ms.date: 04/13/2021
+
+---
+# Tutorial: Event-based video recording and playback
+
+In this tutorial, you'll learn how to use Azure Video Analyzer to selectively record portions of a live video source to Azure Video Analyzer in the cloud. This use case is referred to as [event-based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Video Analyzer. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
+
+In this tutorial, you will:
+
+> [!div class="checklist"]
+> * Set up the relevant resources.
+> *	Examine the code that performs EVR.
+> *	Run the sample code.
+> *	Examine the results, and view the video.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## Suggested pre-reading  
+
+Read these articles before you begin:
+
+* [Azure Video Analyzer on IoT Edge overview](overview.md)
+* [Azure Video Analyzer on IoT Edge terminology](terminology.md)
+* [Video Analyzer Pipeline concepts](pipeline.md) 
+* [Event-based video recording]() <!—event-based-video-concept -->	
+* [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
+* [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
+* Section on [how to declare routes in IoT Edge deployment manifest](../../iot-edge/module-composition.md#declare-routes)
+
+## Prerequisites
+
+Prerequisites for this tutorial are:
+
+* [Visual Studio Code](https://code.visualstudio.com/) on your development machine with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions.
+
+    > [!TIP]
+    > You might be prompted to install Docker. Ignore this prompt.
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
+* Run the [Azure Video Analyzer deployment template]()<!--https://github.com/Azure/azure-video-analyzer/tree/master/setup/deploy.json-->.
+
+At the end of these steps, you'll have relevant Azure resources deployed in your Azure subscription:
+
+* Azure IoT Hub
+* Azure Storage account
+* Azure Video Analyzer account
+* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
+
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide]()<!--troubleshoot-how-to.md#common-error-resolutions-->** to resolve some commonly encountered issues.
+
+## Concepts
+
+Event-based video recording refers to the process of recording video triggered by an event. That event could be generated from:
+- Processing of the video signal itself, for example, upon detecting a moving object in the video.
+- An independent source, for example, the opening of a door. 
+
+Alternatively, you can trigger recording only when an inferencing service detects that a specific event has occurred. In this tutorial, you'll use a video of vehicles moving on a freeway and record video clips whenever a truck is detected.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="Pipeline":::
+
+The diagram is a pictorial representation of a [pipeline]() <!--concept-pipeline --> and additional modules that accomplish the desired scenario. Four IoT Edge modules are involved:
+
+* Video Analyzer on an IoT Edge module.
+* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects.
+* A custom module to count and filter objects, which is referred to as an Object Counter in the diagram. You'll build an Object Counter and deploy it in this tutorial.
+* An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera.
+    
+As the diagram shows, you'll use an [RTSP source]() <!--concept-pipeline --> node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
+
+* The first path is to a HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
+* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink]() <!--concept-pipeline --> node to an [video](terminology.md#video) in your Azure Video Analyzer account.
+
+## Set up your development environment
+
+Before you begin, check that you've completed the third bullet in [Prerequisites](#prerequisites). After the deployment template finishes, locate the following settings. <!-- TODO: need a way to get these properties out of the ARM template -->
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="App settings":::
+
+Of interest in this tutorial are the files:
+
+* **.env**: Contains properties that Visual Studio Code uses to deploy modules to an edge device.
+* **appsettings.json**: Used by Visual Studio Code for running the sample code.
+
+You'll need the files for these steps:
+
+1. Clone the repo from the GitHub link https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this -->.
+1. Start Visual Studio Code, and open the folder where you downloaded the repo.
+1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
+1. Copy the contents from the arm-template/appsettings.json file. The text should look like: <!--TODO: replace this -->
+    ```
+    {  
+        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+        "deviceId" : "ava-sample-device",  
+        "moduleId" : "avaedge"  
+    }
+    ```
+    The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub.
+    
+1. Next, browse to the src/edge folder and create a file named **.env**.
+1. Copy the contents from the arm-template/.env file. The text should look like: <!--TODO: replace this -->
+
+    ```
+    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
+    AVA_PROVISIONING_TOKEN="<device provisioning token>"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
+    APPDATA_FOLDER_ON_DEVICE="/var/local/azurevideoanalyzer"
+    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
+    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
+    ```
+
+## Examine the sample files
+
+In Visual Studio Code, open src/edge/deployment.template.json. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). There are two entries under the **modules** section with the following names:
+
+* **avaedge**: This is the Azure Video Analyzer on IoT Edge module.
+* **rtspsim**: This is the RTSP simulator.
+
+Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
+
+* **c2d-console-app.csproj**: The project file for Visual Studio Code.
+* **operations.json**: This file lists the different operations that you would run.
+* **Program.cs**: The sample program code, which:
+    * Loads the app settings.
+    * Invokes direct methods exposed by the Azure Video Analyzer on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods]()<!--direct-methods.md-->.
+    * Pauses for you to examine the output from the program in the **TERMINAL** window and the events generated by the module in the **OUTPUT** window.
+    * Invokes direct methods to clean up resources.
+
+## Generate and deploy the IoT Edge deployment manifest 
+
+The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
+
+1. Start Visual Studio Code.
+1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
+
+    ![Set IoT Hub connection string]()<!--./media/quickstarts/set-iotconnection-string.png-->
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
+1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
+
+   ![Generate IoT Edge deployment manifest]()<!--./media/quickstarts/generate-iot-edge-deployment-manifest.png-->
+1. Right-click the src/edge/config/deployment.amd64.json file, and select **Create Deployment for Single Device**.
+
+   ![Create Deployment for Single Device]()<!--./media/quickstarts/create-deployment-single-device.png-->
+1. You're then asked to **Select an IoT Hub device**. Select ava-sample-device from the drop-down list.
+1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device has the following modules deployed:
+    * Azure Video Analyzer on IoT Edge (module name **avaedge**)
+    * RTSP simulator (module name **rtspsim**)
+ 
+    ![IoT Hub]()<!--./media/event-based-video-recording-tutorial/iot-hub.png-->
+
+## Prepare for monitoring events
+
+When you use the Azure Video Analyzer on IoT Edge module to record the live video stream, it sends events to IoT Hub. To see these events, follow these steps:
+
+1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
+1. Expand the **Devices** node.
+1. Right-click the ava-sample-device file, and select **Start Monitoring Built-in Event Endpoint**.
+
+    ![Start Monitoring Built-in Event Endpoint]()<!--./media/quickstarts/start-monitoring-iothub-events.png-->
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+    
+## Run the program
+
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::<!--TODO: replace this with ./media/run-program/extensions-tab.png-->
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::<!--TODO: replace this -->
+1. Go to src/cloud-to-device-console-app/operations.json.
+1. Under the **pipelineTopologySet** node, edit the following:
+
+    `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/evr-hubMessage-videos/topology.json" `
+    
+1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
+
+    `"topologyName" : "EVRtoVideosOnObjDetect"`
+1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/cvr-video/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-evr-video`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.
+1. 
+1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
+1. The operations.json file starts off with calls to pipelineTopologyList and livePipelineList. If you've cleaned up resources after previous quickstarts or tutorials, this action returns empty lists and then pauses for you to select **Enter**, as shown:
+    ```
+    --------------------------------------------------------------------------
+    Executing operation pipelineTopologyList
+    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: pipelineTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls is made:
+   * A call to pipelineTopologySet by using the previous topologyUrl
+   * A call to livePipelineSet by using the following body
+     
+        ```
+        {
+          "@apiVersion": "1.0",
+          "name": "Sample-Pipeline-1",
+          "properties": {
+            "topologyName": "EVRtoVideosOnObjDetect",
+            "description": "Sample graph description",
+            "parameters": [
+              {
+                "name": "rtspUrl",
+                "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+              },
+              {
+                "name": "rtspUserName",
+                "value": "testuser"
+              },
+              {
+                "name": "rtspPassword",
+                "value": "testpassword"
+              }
+            ]
+          }
+        }
+        ```
+    
+   * A call to livePipelineActivate to start the live pipeline and to start the flow of video
+   * A second call to livePipelineList to show that the live pipeline is in the running state 
+     
+1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
+1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Azure Video Analyzer on IoT Edge module.
+
+   These messages are discussed in the following section.
+1. The live pipeline continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
+
+   * A call to livePipelineDeactivate to deactivate the live pipeline.
+   * A call to livePipelineDelete to delete the instance.
+   * A call to pipelineTopologyDelete to delete the topology.
+   * A final call to pipelineTopologyList to show that the list is now empty.
+
+## Interpret the results 
+
+When you run the live pipeline, the Azure Video Analyzer on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+
+In the following messages, the application properties and the content of the body are defined by the Azure Video Analyzer module.
+
+## Diagnostics events
+
+### MediaSessionEstablished event 
+
+When the live pipeline is activated, the RTSP source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it prints this event:
+
+```
+[IoTHubMonitor] [9:42:18 AM] Message received from [ava-sample-device/avaadge]:
+{
+  "body": {
+    "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 XXX.XX.XX.XX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
+  },
+  "applicationProperties": {
+    "dataVersion": "1.0",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/videoanalyzers/hubname",
+    "subject": "/livePipelines/Sample-Pipeline-1/sources/rtspSource",
+    "eventType": "Microsoft.VideoAnalyzers.Diagnostics.MediaSessionEstablished",
+    "eventTime": "2021-04-09T09:42:18.1280000Z"
+  }
+}
+```
+
+
+* The message is a Diagnostics event (MediaSessionEstablished). It indicates that the RTSP source node (the subject) established a connection with the RTSP simulator and began to receive a (simulated) live feed.
+* The subject section in applicationProperties references the node in the pipeline topology from which the message was generated. In this case, the message originates from the RTSP source node.
+* The eventType section in applicationProperties indicates that this is a Diagnostics event.
+* The eventTime section indicates the time when the event occurred.
+* The body section contains data about the Diagnostics event, which in this case is the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
+
+## Operational events
+
+After the pipeline runs for a while, eventually you'll get an event from the objectCounter module. 
+
+```
+[IoTHubMonitor] [5:53:44 PM] Message received from [ava-sample-device/objectCounter]:
+{
+  "body": {
+    "count": 2
+  },
+  "applicationProperties": {
+    "eventTime": "2020-05-17T17:53:44.062Z"
+  }
+}
+```
+
+The applicationProperties section contains the event time. This is the time when the objectCounter module observed that the results from the yolov3 module contained objects of interest (trucks).
+
+You might see more of these events show up as other trucks are detected in the video.
+
+### RecordingStarted event
+
+Almost immediately after the Object Counter sends the event, you'll see an event of type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStarted**:
+
+```
+[IoTHubMonitor] [5:53:46 PM] Message received from [ava-sample-device/avaedge]:
+{
+  "body": {
+    "outputType": "videoName",
+    "outputLocation": "sample-evr-video"
+  },
+  "applicationProperties": {
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "subject": "/livePipelines/Sample-Pipeline-1/sinks/videoSink",
+    "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStarted",
+    "eventTime": "2021-04-09T09:42:38.1280000Z",
+    "dataVersion": "1.0"
+  }
+}
+```
+
+The subject section in applicationProperties references the video sink node in the graph, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer video resource into which video is recorded.
+
+### RecordingAvailable event
+
+As the name suggests, the RecordingStarted event is sent when recording has started, but media data might not have been uploaded to the video resource yet. When the video sink node has uploaded media, it emits an event of type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable**:
+
+```
+[IoTHubMonitor] [[9:43:38 AM] Message received from [ava-sample-device/avaedge]:
+{
+  "body": {
+    "outputType": "videoName",
+    "outputLocation": "sample-evr-video"
+  },
+  "applicationProperties": {
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "subject": "/livePipelines/Sample-Pipeline-1/sinks/videoSink",
+    "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable",
+    "eventTime": "2021-04-09T09:43:38.1280000Z",
+    "dataVersion": "1.0"
+  }
+}
+```
+
+This event indicates that enough data was written to the video resource for players or clients to start playback of the video. The subject section in applicationProperties references the video sink node in the graph, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer resource into which video is recorded.
+
+### RecordingStopped event
+
+When you deactivate the live pipeline, the video sink node stops recording media. It emits this event of type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped**:
+
+```
+[IoTHubMonitor] [11:33:31 PM] Message received from [ava-sample-device/avaedge]:
+{
+  "body": {
+    "outputType": "videoName",
+    "outputLocation": "sample-evr-video"
+  },
+  "applicationProperties": {
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "subject": "/livePipelines/Sample-Pipeline-1/sinks/videoSink",
+    "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped",
+    "eventTime": "2021-04-10T11:33:31.051Z",
+    "dataVersion": "1.0"
+  }
+}
+```
+
+This event indicates that recording has stopped. The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer resource into which video is recorded.
+
+## Video Analyzer video resource
+
+You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
+1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+1. Locate your Video Analzyer account among the resources you have in your subscription, and open the account pane.
+1. Select **Videos** in the **Video Analyzers** list.
+
+    ![Video Analyzers videos]()<!--./media/event-based-video-recording-tutorial/videos.png-->
+1. You'll find a video listed with the name `sample-cvr-video`. This is the name chosen in your pipeline topology file.
+1. Select the video.
+1. On the video details page, select playback option <!-- TODO: fix this-->
+
+    ![VIdeo playback]()<!--TODO: new screenshot is needed here-->
+
+1. For more information on scrubbing the video to see the entire recording, see [video playback]()<!--video-playback-concept.md-->.
+
+> [!NOTE]
+> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it. To see how to browse a multiday recording and view portions of that archive, see the [Playback of multi-day recordings]()<!--playback-multi-day-recordings-tutorial.md--> tutorial. In that tutorial, you also can see the time stamps in the video displayed onscreen.
+## Clean up resources
+
+If you intend to try the other tutorials, hold on to the resources you created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this tutorial, and delete the resource group.
+
+## Next steps
+
+* Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.
