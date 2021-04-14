@@ -22,6 +22,8 @@ In this article, you learn how to associate a public IP address to an existing v
 
 You can use the [Azure portal](#azure-portal), the Azure [command-line interface](#azure-cli) (CLI), or [PowerShell](#powershell) to associate a public IP address to a VM.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

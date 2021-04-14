@@ -684,6 +684,10 @@
       - name: Access database logs
         href: howto-hyperscale-logging.md
         displayName: log, hyperscale
+    - name: Restore server group
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-restore-portal.md
     - name: Major version upgrades
       href: howto-hyperscale-upgrade.md
     - name: Troubleshoot
