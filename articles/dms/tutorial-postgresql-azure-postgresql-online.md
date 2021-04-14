@@ -150,7 +150,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 6. If there are ENUM data type in any tables, it's recommended that you temporarily update it to a ‘character varying’ datatype in the target table. After data replication is done, revert the datatype to ENUM.
 
-## Provisioning an instance of DMS using the CLI
+## Provisioning an instance of DMS using the Azure CLI
 
 1. Install the dms sync extension:
    * Sign in to Azure by running the following command:
