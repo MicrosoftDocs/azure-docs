@@ -1620,6 +1620,8 @@
         href: screensteps-tutorial.md
       - name: SD Elements
         href: sd-elements-tutorial.md
+      - name: SDS & Chemical Information Management
+        href: sds-chemical-information-management-tutorial.md
       - name: Secret Server (On-Premises)
         href: secretserver-on-premises-tutorial.md
       - name: Sectigo Certificate Manager
