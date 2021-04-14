@@ -20,12 +20,14 @@ In order to deploy and use Windows Virtual Desktop, you must unblock certain URL
 The Required URL Check tool will validate URLs and display whether the URLs the virtual machine needs to function are accessible. If not, then the tool will list the inaccessible URLs so you can unblock them, if needed.
 
 It's important to keep the following things in mind:
+
 - You can only use the Required URL Check tool for deployments in commercial clouds.
 - The Required URL Check tool can't check URLs with wildcards so make sure you unblock those URLs first.
 
 ### Requirements
 
 You need the following things to use the Required URL Check tool:
+
 - Your VM must have a .NET 4.6.2 framework
 - RDAgent version 1.0.2944.400 or higher
 - The WVDAgentUrlTool.exe file must be in the same folder as the WVDAgentUrlTool.config file
