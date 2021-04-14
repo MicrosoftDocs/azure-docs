@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/14/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -24,7 +24,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as  security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
-The Face service provides several different facial analysis functions which are each outlined in the following sections.
+The Face service enables several different facial analysis scenarios which are outlined in the following sections.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -43,13 +43,10 @@ The Detect API detects human faces in an image and returns the rectangle coordin
 
 For more information on face detection, see the [Face detection](concepts/face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
-## Face verification
 
-The Verify API builds on Detection and addresses the question, “Are these two images the same person?”. Verification is also called “one-to-one” matching because the probe image is compared to only one enrolled template. Verification can be used in identity verification or access control scenarios to verify a picture matches a previously captured image (such as from a photo from a government issued ID card). For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
+## Identity verification
 
-## Face identification
-
-The Identify API also starts with Detection and answers the question, “Can this detected face be matched to any enrolled face in a database?” Because it's like face recognition search, is also called “one-to-many” matching. Candidate matches are returned based on how closely the probe template with the detected face matches each of the enrolled templates.
+Identity verification answers the question, "Can this face be matched to any enrolled face in a database?" It can be thought of as "one-to-many" matching. Candidate matches are returned based on how closely the probe face template matches each of the enrolled face templates.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
@@ -58,6 +55,12 @@ The following image shows an example of a database named `"myfriends"`. Each gro
 After you create and train a database, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
 For more information about person identification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
+
+### Face verification
+
+The verification operation answers the question, "Do these two faces belong to the same person?". Verification is also called "one-to-one" matching because the probe template is compared to only a single enrolled template. Verification is used in the identification scenario to double-check that a given match is accurate. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
+
+
 
 ## Find similar faces
 
