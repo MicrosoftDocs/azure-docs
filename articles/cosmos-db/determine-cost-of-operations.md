@@ -34,11 +34,13 @@ Depending on protocol, Cosmos will index all properties. You should avoid runnin
 
 ## Measuring Cost
 
-There are some key concepts to measuring cost, as described in [request unit considerations](request-units.md#request-unit-considerations).
+There are some key concepts when measuring cost:
 
-- Use representative documents and representative queries. These are documents and queries that you think are close to what the operational system will encounter.
+- Consider all factors that affect RU usage, as described in [request unit considerations](request-units.md#request-unit-considerations).
+- Use representative documents and representative queries
+  - These are documents and queries that you think are close to what the operational system will encounter.
   - The best way to get these representative documents and queries is to instrument the usage of your application. It is always better to make this a data-driven decision.
-- Measure costs periodically (e.g., monthly).
+- Measure cost periodically
   - Index changes, the size of indexes, and the number of partitions can affect the cost. The volume of data can also have an affect in some cases, for example, if you pack lots of documents into a single logical partition.
   - It will be helpful to create some repeatable (maybe even automated) test of the representative documents and queries.
   - Ensure your representative documents and queries are still representative.
