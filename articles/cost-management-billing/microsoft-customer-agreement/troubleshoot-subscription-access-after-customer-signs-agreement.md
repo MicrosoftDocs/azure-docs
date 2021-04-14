@@ -25,16 +25,16 @@ If you have trouble viewing your billing account and you have multiple tenants, 
 
 1. In the upper right of the Azure portal, select your Azure account.
 1. Select Switch directory.  
-    :::image type="content" source="./media/troubleshoot-subscription-access-after-signing-microsoft-customer-agreement/switch-directory.png" alt-text="Screenshot showing the Switch directory option." lightbox="./media/troubleshoot-subscription-access-after-signing-microsoft-customer-agreement/switch-directory.png" :::
+    :::image type="content" source="./media/troubleshoot-subscription-access/switch-directory.png" alt-text="Screenshot showing the Switch directory option." lightbox="./media/troubleshoot-subscription-access/switch-directory.png" :::
 1. In the Directory + subscription window, select the other directory to switch to it.  
-    :::image type="content" source="./media/troubleshoot-subscription-access-after-signing-microsoft-customer-agreement/select-directory.png" alt-text="Screenshot showing where to select another directory." lightbox="./media/troubleshoot-subscription-access-after-signing-microsoft-customer-agreement/select-directory.png" :::
+    :::image type="content" source="./media/troubleshoot-subscription-access/select-directory.png" alt-text="Screenshot showing where to select another directory." lightbox="./media/troubleshoot-subscription-access/select-directory.png" :::
 
 ## Troubleshoot account access
 
 You could have multiple accounts with Microsoft that use the same email address. You might have a personal account and a work account. The Microsoft Customer Agreement uses your work or school account. For more information, see [Ensure you sign in with your Work or school Account](https://support.microsoft.com/office/which-account-do-you-want-to-use-2b5bbd7a-7df6-4283-beff-8015e28eb7b9).
 
 - Sign in with your Work or school account.  
-    :::image type="content" source="./media/troubleshoot-subscription-access-after-signing-microsoft-customer-agreement/two-accounts.png" alt-text="Screenshot showing work or school account selection." lightbox="./media/troubleshoot-subscription-access-after-signing-microsoft-customer-agreement/two-accounts.png" :::
+    :::image type="content" source="./media/troubleshoot-subscription-access/two-accounts.png" alt-text="Screenshot showing work or school account selection." lightbox="./media/troubleshoot-subscription-access/two-accounts.png" :::
 
 ## Next steps
 

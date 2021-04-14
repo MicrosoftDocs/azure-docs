@@ -42,7 +42,7 @@ landingContent:
       - text: Create new subscriptions
         url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Troubleshoot subscription access
-        url: troubleshoot-subscription-access-after-signing-microsoft-customer-agreement.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 
 
 

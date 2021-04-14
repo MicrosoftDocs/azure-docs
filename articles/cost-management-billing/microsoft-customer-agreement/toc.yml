@@ -57,4 +57,4 @@
   - name: Troubleshoot
     items:
     - name: Subscription access
-      href: troubleshoot-subscription-access-after-signing-microsoft-customer-agreement.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      href: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
