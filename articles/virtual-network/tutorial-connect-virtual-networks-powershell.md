@@ -151,6 +151,8 @@ New-AzVm `
 
 The VM takes a few minutes to create. Do not continue with later steps until Azure creates the VM and returns output to PowerShell.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Communicate between VMs
 
 You can connect to a VM's public IP address from the internet. Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. The following example returns the public IP address of the *myVm1* VM:
