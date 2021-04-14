@@ -15,8 +15,8 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
 
 ## Prerequisites
 
-* [Connect your Kubernetes cluster](./azure-arc/kubernetes/quickstart-connect-cluster.md). 
-* [Create a custom location](./azure-arc/kubernetes/custom-location.md) on your connected cluster.
+* [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md). 
+* [Create a custom location](../azure-arc/kubernetes/custom-locations.md) on your connected cluster.
 * [Create an Azure API Management instance](./get-started-create-service-instance.md).
 * [Provision a gateway resource in your Azure API Management instance](./api-management-howto-provision-self-hosted-gateway.md).
 
