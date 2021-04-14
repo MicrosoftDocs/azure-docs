@@ -52,14 +52,13 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
 
 Now once you have a Web hook, we need to subscribe it to the recording event.
 1. Click on Events under the newly created ACS resource and then click on event subscription as shown below.
-[image1]
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the create new New Project window within Xcode.":::
+![Screenshot showing event grid UI](./media/call-recording/image1-event-grid.png)
 
 2. Now configure the event subscription and select the appropriate Event Type as Call Recording File Status Update, and Endpoint type as Web hook. We are using web hook as an example to get notification once the recording event is invoked.
-[image2]
+![Create Event Subscription](./media/call-recording/image2-create-subscription.png)
 
 3. Now subscribe to the recording event by adding the URL for the web hook as the Subscriber Endpoint.
-[image3]
+![Subscribe to Event](./media/call-recording/image3-subscribe-to-event.png)
 
 ## Notification Schema
 Once the recoding is available to download the recording service will send an notification on the Recording event with the following schema:
