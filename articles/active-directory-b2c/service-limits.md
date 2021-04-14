@@ -36,7 +36,12 @@ When multiple User Journey's are in use, they contribute to the overall limits b
 |Number of requests per IP address per Azure AD B2C tenant     |1,200/min          |
 |Total number of requests per Azure AD B2C tenant   |12,000/min          |
 
-As an example, when performing Sign Up at a rate of 7,000/min, you will be able to perform Sign In's at a rate of 5,000/min. This will reach the total token issuance rate of 12,000/min, assuming all authentications are coming from a different client IP address. This example can be applied to the **Combined Sign up or Sign in** user journey.
+Using the above limits, you can arrive at the following throughput for the **Combined Sign up or Sign in policy**:
+- Perform Sign up's at a rate of 7,000/min
+- Perform Sign in's at a rate of 5,000/min
+- All authentications originate from a unique client IP address
+- This will reach the total token issuance rate of 12,000/min
+
 
 ## Azure AD B2C configuration limits
 
@@ -49,7 +54,7 @@ The following table lists the administrative configuration limits in the Azure A
 |Number of scopes per application        |Application|1000          |
 |Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |Application|100         |
 |Number of redirect URLs per application       |Application|100         |
-|Number of sign out URLs per application        |Application|1          |
+|Number of sign-out URLs per application        |Application|1          |
 |Levels of policy [inheritance](custom-policy-overview.md#inheritance-model)     |Custom policy|10         |
 |Maximum policy file size      |Custom policy|400 KB          |
 |Number of B2C tenants per subscription      |Azure Subscription|20         |
