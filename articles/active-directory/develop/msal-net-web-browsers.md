@@ -60,11 +60,11 @@ By default, MSAL.NET supports the system web browser on Xamarin.iOS, Xamarin.And
 
 Using the system browser has the significant advantage of sharing the SSO state with other applications and with web applications without needing a broker (Company portal / Authenticator). The system browser was used, by default, in MSAL.NET for the Xamarin iOS and Xamarin Android platforms because, on these platforms, the system web browser occupies the whole screen, and the user experience is better. The system web view isn't distinguishable from a dialog. On iOS, though, the user might have to give consent for the browser to call back the application, which can be annoying.
 
-## System browser experience on .NET Core
+## System browser experience on .NET 
 
 On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the Uri.
 
-You can also configure apps written for .NET Classic to use this browser, by specifying
+You can also configure apps written for .NET Classic or .NET 5 to use this browser by specifying:
 
 ```csharp
 await pca.AcquireTokenInteractive(s_scopes)

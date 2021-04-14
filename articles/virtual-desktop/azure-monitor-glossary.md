@@ -8,7 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Azure Monitor for Windows Virtual Desktop glossary
 
@@ -180,10 +180,10 @@ To learn more about Windows Event Logs, see [Windows Event records properties](.
 
 ## Next steps
 
-To get started with Azure Monitor for Windows Virtual Desktop, check out these articles:
+- To get started, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
 
-- [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md)
-- [Azure Monitor for Windows Virtual Desktop troubleshooting](troubleshoot-azure-monitor.md)
 
 You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Use Azure Advisor with Windows Virtual Desktop](azure-advisor.md).
 

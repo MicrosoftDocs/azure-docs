@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to connect virtual networks with vi
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+# Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -125,6 +125,8 @@ Complete steps 1-6 again, with the following changes:
 |Virtual network | myVirtualNetwork2|
 
 The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Communicate between VMs
 

@@ -17,7 +17,8 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 :::image type="content" source="./media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="./media/overview/functional-model-big.png":::
 
-This image shows how Event Grid connects sources and handlers, and isn't a comprehensive list of supported integrations.
+> [!NOTE]
+> This image shows how Event Grid connects sources and handlers, and isn't a comprehensive list of supported integrations. For a list of all supported event sources, see the following section. 
 
 ## Event sources
 

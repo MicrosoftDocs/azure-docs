@@ -26,7 +26,7 @@ For more information about installing modules, see [Install Azure PowerShell](/p
 
 ## Install Azure CLI module
 
-To use what-if in Azure CLI, you must have Azure CLI 2.5.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
+To use what-if in Azure CLI, you must have Azure CLI 2.14.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
 
 ## See results
 
@@ -111,10 +111,10 @@ If you want to return the results without colors, open your [Azure CLI configura
 
 For REST API, use:
 
-* [Deployments - What If](/rest/api/resources/resources/deployments/whatif) for resource group deployments
-* [Deployments - What If At Subscription Scope](/rest/api/resources/resources/deployments/whatifatsubscriptionscope) for subscription deployments
-* [Deployments - What If At Management Group Scope](/rest/api/resources/resources/deployments/whatifatmanagementgroupscope) for management group deployments
-* [Deployments - What If At Tenant Scope](/rest/api/resources/resources/deployments/whatifattenantscope) for tenant deployments.
+* [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
+* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription deployments
+* [Deployments - What If At Management Group Scope](/rest/api/resources/deployments/whatifatmanagementgroupscope) for management group deployments
+* [Deployments - What If At Tenant Scope](/rest/api/resources/deployments/whatifattenantscope) for tenant deployments.
 
 ## Change types
 
