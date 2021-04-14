@@ -22,112 +22,112 @@ Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March
 
 **Updated articles**
 
-- [Configure data collection for the Azure Monitor agent (preview)](/azure/azure-monitoragents/data-collection-rule-azure-monitor-agent.md)
-- [Overview of Azure Monitor agents](/azure/azure-monitoragents/agents-overview.md)
-- [Collect Windows and Linux performance data sources with Log Analytics agent](/azure/azure-monitoragents/data-sources-performance-counters.md)
+- [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md)
+- [Overview of Azure Monitor agents](agents/agents-overview.md)
+- [Collect Windows and Linux performance data sources with Log Analytics agent](agents/data-sources-performance-counters.md)
 
 ## Alerts
 
 **Updated articles**
 
-- [Action rules (preview)](/azure/azure-monitoralerts/alerts-action-rules.md)
-- [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitoralerts/alerts-log.md)
-- [Troubleshoot problems in IT Service Management Connector](/azure/azure-monitoralerts/itsmc-troubleshoot-overview.md)
+- [Action rules (preview)](alerts/alerts-action-rules.md)
+- [Create, view, and manage log alerts using Azure Monitor](alerts/alerts-log.md)
+- [Troubleshoot problems in IT Service Management Connector](alerts/itsmc-troubleshoot-overview.md)
 
 ## Application Insights
 
 **New articles**
 
-- [Sampling overrides (preview) - Azure Monitor Application Insights for Java](/azure/azure-monitorapp/java-standalone-sampling-overrides.md)
-- [Configuring JMX metrics](/azure/azure-monitorapp/java-jmx-metrics-configuration.md)
+- [Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)
+- [Configuring JMX metrics](app/java-jmx-metrics-configuration.md)
 
 **Updated articles**
 
-- [Application Insights for web pages](/azure/azure-monitorapp/javascript.md)
-- [Configuration options - Azure Monitor Application Insights for Java](/azure/azure-monitorapp/java-standalone-config.md)
-- [Quickstart: Start monitoring your website with Azure Monitor Application Insights](/azure/azure-monitorapp/website-monitoring.md)
-- [Visualizations for Application Change Analysis (preview)](/azure/azure-monitorapp/change-analysis-visualizations.md)
-- [Use Application Change Analysis (preview) in Azure Monitor](/azure/azure-monitorapp/change-analysis.md)
-- [Application Insights API for custom events and metrics](/azure/azure-monitorapp/api-custom-events-metrics.md)
-- [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitorapp/java-in-process-agent.md)
-- [Enable Snapshot Debugger for .NET apps in Azure App Service](/azure/azure-monitorapp/snapshot-debugger-appservice.md)
-- [Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions](/azure/azure-monitorapp/snapshot-debugger-function-app.md)
-- [<a id=troubleshooting></a> Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/azure/azure-monitorapp/snapshot-debugger-troubleshoot.md)
-- [Release notes for Azure Web App extension for Application Insights](/azure/azure-monitorapp/web-app-extension-release-notes.md)
-- [Set up Azure Monitor for your Python application](/azure/azure-monitorapp/opencensus-python.md)
-- [Upgrading from Application Insights Java 2.x SDK](/azure/azure-monitorapp/java-standalone-upgrade-from-2x.md)
-- [Use Stream Analytics to process exported data from Application Insights](/azure/azure-monitorapp/export-stream-analytics.md)
-- [Troubleshooting guide: Azure Monitor Application Insights for Java](/azure/azure-monitorapp/java-standalone-troubleshoot.md)
+- [Application Insights for web pages](app/javascript.md)
+- [Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)
+- [Quickstart: Start monitoring your website with Azure Monitor Application Insights](app/website-monitoring.md)
+- [Visualizations for Application Change Analysis (preview)](app/change-analysis-visualizations.md)
+- [Use Application Change Analysis (preview) in Azure Monitor](app/change-analysis.md)
+- [Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)
+- [Java codeless application monitoring Azure Monitor Application Insights](app/java-in-process-agent.md)
+- [Enable Snapshot Debugger for .NET apps in Azure App Service](app/snapshot-debugger-appservice.md)
+- [Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions](app/snapshot-debugger-function-app.md)
+- [<a id=troubleshooting></a> Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](app/snapshot-debugger-troubleshoot.md)
+- [Release notes for Azure Web App extension for Application Insights](app/web-app-extension-release-notes.md)
+- [Set up Azure Monitor for your Python application](app/opencensus-python.md)
+- [Upgrading from Application Insights Java 2.x SDK](app/java-standalone-upgrade-from-2x.md)
+- [Use Stream Analytics to process exported data from Application Insights](app/export-stream-analytics.md)
+- [Troubleshooting guide: Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md)
 
 ## Containers
 
 **Updated articles**
 
-- [Troubleshooting Container insights](/azure/azure-monitorcontainers/container-insights-troubleshoot.md)
-- [How to view Kubernetes logs, events, and pod metrics in real-time](/azure/azure-monitorcontainers/container-insights-livedata-overview.md)
-- [How to query logs from Container insights](/azure/azure-monitorcontainers/container-insights-log-search.md)
-- [Configure PV monitoring with Container insights](/azure/azure-monitorcontainers/container-insights-persistent-volumes.md)
-- [Monitor your Kubernetes cluster performance with Container insights](/azure/azure-monitorcontainers/container-insights-analyze.md)
-- [Configure Azure Red Hat OpenShift v3 with Container insights](/azure/azure-monitorcontainers/container-insights-azure-redhat-setup.md)
-- [Configure Azure Red Hat OpenShift v4.x with Container insights](/azure/azure-monitorcontainers/container-insights-azure-redhat4-setup.md)
-- [Enable monitoring of Azure Arc enabled Kubernetes cluster](/azure/azure-monitorcontainers/container-insights-enable-arc-enabled-clusters.md)
-- [Configure hybrid Kubernetes clusters with Container insights](/azure/azure-monitorcontainers/container-insights-hybrid-setup.md)
-- [Recommended metric alerts (preview) from Container insights](/azure/azure-monitorcontainers/container-insights-metric-alerts.md)
-- [Enable Container insights](/azure/azure-monitorcontainers/container-insights-onboard.md)
-- [Container insights overview](/azure/azure-monitorcontainers/container-insights-overview.md)
-- [Configure scraping of Prometheus metrics with Container insights](/azure/azure-monitorcontainers/container-insights-prometheus-integration.md)
+- [Troubleshooting Container insights](containers/container-insights-troubleshoot.md)
+- [How to view Kubernetes logs, events, and pod metrics in real-time](containers/container-insights-livedata-overview.md)
+- [How to query logs from Container insights](containers/container-insights-log-search.md)
+- [Configure PV monitoring with Container insights](containers/container-insights-persistent-volumes.md)
+- [Monitor your Kubernetes cluster performance with Container insights](containers/container-insights-analyze.md)
+- [Configure Azure Red Hat OpenShift v3 with Container insights](containers/container-insights-azure-redhat-setup.md)
+- [Configure Azure Red Hat OpenShift v4.x with Container insights](containers/container-insights-azure-redhat4-setup.md)
+- [Enable monitoring of Azure Arc enabled Kubernetes cluster](containers/container-insights-enable-arc-enabled-clusters.md)
+- [Configure hybrid Kubernetes clusters with Container insights](containers/container-insights-hybrid-setup.md)
+- [Recommended metric alerts (preview) from Container insights](containers/container-insights-metric-alerts.md)
+- [Enable Container insights](containers/container-insights-onboard.md)
+- [Container insights overview](containers/container-insights-overview.md)
+- [Configure scraping of Prometheus metrics with Container insights](containers/container-insights-prometheus-integration.md)
 
 ## Essentials
 
 **Updated articles**
 
-- [Advanced features of the Azure metrics explorer](/azure/azure-monitoressentials/metrics-charts.md)
-- [Application Insights log-based metrics](/azure/azure-monitoressentials/app-insights-metrics.md)
-- [Getting started with Azure Metrics Explorer](/azure/azure-monitoressentials/metrics-getting-started.md)
+- [Advanced features of the Azure metrics explorer](essentials/metrics-charts.md)
+- [Application Insights log-based metrics](essentials/app-insights-metrics.md)
+- [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md)
 
 
 ## Insights
 
 **Updated articles**
 
-- [Azure Monitor Network Insights](/azure/azure-monitorinsights/network-insights-overview.md)
-- [Wire Data 2.0 (Preview) solution in Azure Monitor (Retired)](/azure/azure-monitorinsights/wire-data.md)
-- [Monitor your SQL deployments with SQL insights (preview)](/azure/azure-monitorinsights/sql-insights-overview.md)
+- [Azure Monitor Network Insights](insights/network-insights-overview.md)
+- [Wire Data 2.0 (Preview) solution in Azure Monitor (Retired)](insights/wire-data.md)
+- [Monitor your SQL deployments with SQL insights (preview)](insights/sql-insights-overview.md)
 
 ## Logs
 
 **Updated articles**
 
-- [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitorlogs/quick-create-workspace.md)
-- [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitorlogs/manage-cost-storage.md)
-- [Log data ingestion time in Azure Monitor](/azure/azure-monitorlogs/data-ingestion-time.md)
+- [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md)
+- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
+- [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md)
 
 ## Virtual Machines
 
 **New articles**
 
-- [Troubleshoot VM insights](/azure/azure-monitorvm/vminsights-troubleshoot.md)
+- [Troubleshoot VM insights](vm/vminsights-troubleshoot.md)
 
 **Updated articles**
 
-- [Create interactive reports VM insights with workbooks](/azure/azure-monitorvm/vminsights-workbooks.md)
-- [Enable VM insights overview](/azure/azure-monitorvm/vminsights-enable-overview.md)
-- [Troubleshoot Azure Monitor for VMs guest health (preview)](/azure/azure-monitorvm/vminsights-health-troubleshoot.md)
-- [Monitoring Azure virtual machines with Azure Monitor](/azure/azure-monitorvm/monitor-vm-azure.md)
-- [Integrate System Center Operations Manager with VM insights Map feature](/azure/azure-monitorvm/service-map-scom.md)
-- [How to create alerts from VM insights](/azure/azure-monitorvm/vminsights-alerts.md)
-- [Configure Log Analytics workspace for VM insights](/azure/azure-monitorvm/vminsights-configure-workspace.md)
-- [Enable VM insights by using Azure Policy](/azure/azure-monitorvm/vminsights-enable-policy.md)
-- [Enable VM insights using Resource Manager templates](/azure/azure-monitorvm/vminsights-enable-resource-manager.md)
-- [VM insights Generally Available (GA) Frequently Asked Questions](/azure/azure-monitorvm/vminsights-ga-release-faq.md)
-- [Enable VM insights guest health (preview)](/azure/azure-monitorvm/vminsights-health-enable.md)
-- [Disable monitoring of your VMs in VM insights](/azure/azure-monitorvm/vminsights-optout.md)
-- [Overview of VM insights](/azure/azure-monitorvm/vminsights-overview.md)
-- [How to chart performance with VM insights](/azure/azure-monitorvm/vminsights-performance.md)
+- [Create interactive reports VM insights with workbooks](vm/vminsights-workbooks.md)
+- [Enable VM insights overview](vm/vminsights-enable-overview.md)
+- [Troubleshoot Azure Monitor for VMs guest health (preview)](vm/vminsights-health-troubleshoot.md)
+- [Monitoring Azure virtual machines with Azure Monitor](vm/monitor-vm-azure.md)
+- [Integrate System Center Operations Manager with VM insights Map feature](vm/service-map-scom.md)
+- [How to create alerts from VM insights](vm/vminsights-alerts.md)
+- [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md)
+- [Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)
+- [Enable VM insights using Resource Manager templates](vm/vminsights-enable-resource-manager.md)
+- [VM insights Generally Available (GA) Frequently Asked Questions](vm/vminsights-ga-release-faq.md)
+- [Enable VM insights guest health (preview)](vm/vminsights-health-enable.md)
+- [Disable monitoring of your VMs in VM insights](vm/vminsights-optout.md)
+- [Overview of VM insights](vm/vminsights-overview.md)
+- [How to chart performance with VM insights](vm/vminsights-performance.md)
 
 ## Visualizations
 
 **Updated articles**
 
-- [Programmatically manage workbooks](/azure/azure-monitorvisualize/workbooks-automate.md)
+- [Programmatically manage workbooks](visualize/workbooks-automate.md)
 
