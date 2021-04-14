@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -22,9 +22,9 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files.
 
 ## Networking FAQs
 
-### Does the NFS data path go over the Internet?  
+### Does the data path for NFS or SMB go over the Internet?  
 
-No. The NFS data path does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
+No. The data path for NFS or SMB does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
 
 See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for details.  
 

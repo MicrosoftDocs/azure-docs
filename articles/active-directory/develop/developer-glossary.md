@@ -242,7 +242,7 @@ Use the following comments section to provide feedback and help to refine and sh
 [AAD-Tokens-Claims]:access-tokens.md
 [AZURE-portal]: https://portal.azure.com
 [AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
-[JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+[JWT]: https://tools.ietf.org/html/rfc7519
 [Microsoft-Graph]: https://developer.microsoft.com/graph
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
