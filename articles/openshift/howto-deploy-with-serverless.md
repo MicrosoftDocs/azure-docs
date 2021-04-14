@@ -1,5 +1,5 @@
 ---
-title: Deploy an application using OpenShift Serverless
+title: Deploy an application to Azure Red Hat OpenShift using OpenShift Serverless
 description: Learn how to deploy an application to Azure Red Hat OpenShift using OpenShift Serverless
 author: sabbour
 ms.author: asabbour
@@ -19,7 +19,7 @@ Managing all aspects of deploying any container in a serverless fashion is built
 
 ## Before you begin
 
-[!INCLUDE [aro-howto-beforeyoubegin](includes/aro-howto-beforeyoubegin.md)]
+[!INCLUDE [aro-howto-beforeyoubegin](includes/aro-howto-before-you-begin.md)]
 
 ### Install the Knative command-line tool (kn)
 
