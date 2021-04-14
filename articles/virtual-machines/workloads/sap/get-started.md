@@ -69,7 +69,7 @@ High Availability of SAP application layer and DBMS is documented into the detai
 
 
 ## Integrate Azure AD with SAP Services
-In this section you can find information in how to configure SSO with most of the SAP SaaS and PaaS services, NetWeaver and Fiori 
+In this section, you can find information in how to configure SSO with most of the SAP SaaS and PaaS services, NetWeaver, and Fiori 
 
 
 
@@ -87,7 +87,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - 04/07/2021: added support for Oracle DBMS support on ANF in [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - 03/17/2021: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md), [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) and [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to add instructions for HANA Active/Read-enabled system replication in Pacemaker cluster
 - 03/15/2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md),[Install SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-installation-wsfc-file-share.md) and [SAP ASCS/SCS multi-SID with WSFC and file share](./sap-ascs-ha-multi-sid-wsfc-file-share.md) to clarify that the SAP ASCS/SCS instances and the SOFS share must be deployed in separate clusters
-- 03/03/2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a cautionary statement that elevated privileges are required for the the user running SWPM, during the installation of the SAP system
+- 03/03/2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a cautionary statement that elevated privileges are required for the user running SWPM, during the installation of the SAP system
 - 02/11/2021: Changes in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) to amend pacemaker cluster commands for RHEL 8.x
 - 02/03/2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to update  pcmk_host_map in the stonith create command
 - 02/03/2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to add pcmk_host_map in the stonith create command 
@@ -113,7 +113,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - 09/29/2020: Making restrictions and recommendations around usage of PPG more obvious in the article [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md) 
 - 09/28/2020: Adding a new storage operation guide for SAP HANA using Azure NetApp Files with the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - 09/23/2020: Add new certified SKUs for HLI in [Available SKUs for HLI](./hana-available-skus.md) 
-- 09/20/2020: Changes in documents [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md), [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md), [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md), [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md) to adapt to new configuration suggestion that recommend separation of DBMS binaries and SAP binaries into different Azure disks. Also adding Ultra disk recommendations to the different guides.
+- 09/20/2020: Changes in documents [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md), [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md), [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md), [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md) to adapt to new configuration suggestion that recommends separation of DBMS binaries and SAP binaries into different Azure disks. Also adding Ultra disk recommendations to the different guides.
 - 09/08/2020: Change in [High availability of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) to clarify stonith definitions
 - 09/03/2020: Change in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) to adapt to minimal 2 IOPS per 1 GB capacity with Ultra disk
 - 09/02/2020: Change in [Available SKUs for HLI](./hana-available-skus.md) to get more transparent in what SKUs are HANA certified
