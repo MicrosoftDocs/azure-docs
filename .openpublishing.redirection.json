@@ -1,40 +1,5 @@
 {
   "redirections": [
-   {
-      "source_path": "articles/backup/backup-azure-file-folder-backup-faq.md",
-      "redirect_url": "/azure/backup/backup-azure-file-folder-backup-faq",
-      "redirect_document_id": false
-    },
-   {
-      "source_path": "articles/backup/backup-azure-files-faq.md",
-      "redirect_url": "/azure/backup/backup-azure-files-faq",
-      "redirect_document_id": false
-    },
-   {
-      "source_path": "articles/backup/faq-backup-sql-server.md",
-      "redirect_url": "/azure/backup/faq-backup-sql-server",
-      "redirect_document_id": false
-    },
-   {
-      "source_path": "articles/backup/backup-azure-dpm-azure-server-faq.md",
-      "redirect_url": "/azure/backup/backup-azure-dpm-azure-server-faq",
-      "redirect_document_id": false
-    },
-   {
-      "source_path": "articles/backup/backup-azure-monitor-alert-faq.md",
-      "redirect_url": "/azure/backup/backup-azure-monitor-alert-faq",
-      "redirect_document_id": false
-    },
-   {
-      "source_path": "articles/backup/sap-hana-faq-backup-azure-vm.md",
-      "redirect_url": "/azure/backup/sap-hana-faq-backup-azure-vm",
-      "redirect_document_id": false
-    },
-   {
-      "source_path": "articles/backup/disk-backup-faq.md",
-      "redirect_url": "/azure/backup/disk-backup-faq",
-      "redirect_document_id": false
-    },    
 	{
       "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
