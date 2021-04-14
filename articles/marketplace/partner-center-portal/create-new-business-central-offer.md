@@ -220,6 +220,8 @@ Select **Save draft** before continuing.
 
 This page defines the technical details used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it.
 
+It is required that the extensions submitted for your offer meet the requirements specifed in the [Technical Validation Checklist](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-checklist-submission).
+
 ### File upload
 
 If you previously selected **Add On**, where you'll upload your offer's package file, along with the package files for any extension on which it has dependencies.
