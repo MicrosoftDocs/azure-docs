@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started to integrate with pipelines' 
+title: 'Tutorial: Get started integrate with pipelines' 
 description: In this tutorial, you'll learn how to integrate pipelines and activities using Synapse Studio.
 services: synapse-analytics
 author: saveenr
@@ -33,10 +33,11 @@ In this tutorial, you'll learn how to integrate pipelines and activities using S
 1. Select **Publish All**. 
 
 
-## Monitor pipeline
+## Monitor pipeline execution
 
 1. Once the pipeline is published, to make the pipeline run immediately, without waiting for the next hour, select **Add trigger** > **Trigger now**.
-1. In Synapse Studio, go to the **Monitor** hub, and select **Pipeline runs** to monitor pipeline execution progress.
+1. In Synapse Studio, go to the **Monitor** hub.
+1. Select **Pipeline runs** to monitor pipeline execution progress.
 
 
 

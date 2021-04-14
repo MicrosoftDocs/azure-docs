@@ -2,18 +2,14 @@
 title: How to configure self-service application assignment | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
-ms.assetid: 
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
 ---
 

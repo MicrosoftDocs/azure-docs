@@ -148,6 +148,8 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 - Achieving the optimal performance documented requires Accelerated Networking. In some cases, you must explicitly enable Accelerated Networking for [Windows](create-vm-accelerated-networking-powershell.md) or [Linux](create-vm-accelerated-networking-cli.md) virtual machines.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Next steps
 
 To create a VM with multiple network interfaces or IP addresses, see:

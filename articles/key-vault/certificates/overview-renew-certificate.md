@@ -78,7 +78,7 @@ Azure Key Vault also handles autorenewal of self-signed certificates. To learn m
 
 **How can I test the autorotation feature of the certificate?**
 
-Create a certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. This setting will rotate the certificate every 7.2 hours.
+Create a self-signed certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
   
 **Will the tags be replicated after autorenewal of the certificate?**
 
