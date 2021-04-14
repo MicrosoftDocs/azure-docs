@@ -23,7 +23,7 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-This article covers steps required to deploy from a generalized image starting from an ISO. To deploy from a generalized image created from an existing Windows VHD or VHDX, see [Use generalized image from a Windows VHD to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
+This article covers steps required to deploy from a generalized image starting from an ISO. To deploy from a generalized image created from a Windows VHD or VHDX, see [Use generalized image from a Windows VHD to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
 
 <!--To avoid having an overview within an overview, I suggest switching the order of Prerequisites and Task Flow, and using the Task Flow heading to differentiate between the two flows. This also avoids the existential question: when is an image considered "prepared"?-->
 

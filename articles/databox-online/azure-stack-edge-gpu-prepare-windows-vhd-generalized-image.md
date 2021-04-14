@@ -22,7 +22,7 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-This article covers steps required to deploy from a generalized image created from an existing VHD or VHDX. To deploy from a generalized image starting from an ISO, see [Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
+This article covers steps required to deploy from a generalized image created from a Windows VHD or VHDX. To deploy from a generalized image starting from an ISO, see [Use generalized image from an ISO to create a VM image for your Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md). To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
 
 > [!IMPORTANT]
 > This procedure does not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
