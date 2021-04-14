@@ -7,6 +7,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: apimpm
+ms.custom: references_regions
 
 ---
 
