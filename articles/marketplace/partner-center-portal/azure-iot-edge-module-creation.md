@@ -46,7 +46,7 @@ The **Offer overview** page shows a visual representation of the steps required 
 This page includes links to perform operations on this offer based on the selection you make. For example:
 
 - If the offer is a draft - Delete draft offer
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is live - [Deprecate (formerly stop sell) the offer](update-existing-offer.md#deprecate-an-offer-or-plan)
 - If the offer is in preview - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
 - If you haven't completed publisher sign-out - [Cancel publishing.](../review-publish-offer.md#cancel-publishing)
 
