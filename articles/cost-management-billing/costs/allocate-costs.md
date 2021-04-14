@@ -100,6 +100,19 @@ Here's a video that demonstrates how to create a cost allocation rule.
 
 You can edit a cost allocation rule to change the source or the target or if you want to update the prefilled percentage for either compute, storage, or network options. Edit the rules in the same way you create them. Modifying existing rules can take up to two hours to reprocess.
 
+## Current limitations
+
+Currently, cost allocation is supported in Cost Management by Cost analysis, budgets, and forecast views. Allocated costs are also shown in the subscriptions list and on the Subscriptions overview page.
+
+The following items are currently unsupported by the cost allocation public preview:
+
+- Scheduled [Exports](tutorial-export-acm-data.md)
+- Data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API
+- Billing subscriptions area
+- [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
+- [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
+
+
 ## Next steps
 
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about cost allocation.
