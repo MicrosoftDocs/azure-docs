@@ -14,10 +14,10 @@ An entity is an item or an element that is relevant to the user's intent. Entiti
 |Utterance|Intent predicted|Entities extracted|Explanation|
 |--|--|--|--|
 |Hello, how are you?|Greeting|-|Nothing to extract.|
-|I want to order a small pizza|orderPizza|`small`|`Size` entity is extracted as `small` .|
-|Turn off bedroom light|turnOff|`bedroom`|`Room` entity is extracted as `bedroom` .|
-|Check balance in my savings account ending in 4406|checkBalance|`savings`, `4406`|`acccountType` entity is extracted as `savings` and `accountNumber` entity is extracted as `4406`.|
-|Buy 3 tickets to New York|buyTickets|`3`, `New York`|`ticketsCount` entity is extracted as `3` and `Destination` entity is extracted as `New York`.|
+|I want to order a small pizza|orderPizza| "small" | "Size" entity is extracted as "small" .|
+|Turn off bedroom light|turnOff| "bedroom" | "Room" entity is extracted as "bedroom" .|
+|Check balance in my savings account ending in 4406|checkBalance| "savings", "4406" | "accountType" entity is extracted as "savings" and "accountNumber" entity is extracted as "4406".|
+|Buy 3 tickets to New York|buyTickets| "3", "New York" | "ticketsCount" entity is extracted as "3" and "Destination" entity is extracted as "New York".|
 
 Entities are optional but recommended. You don't need to create entities for every concept in your app, only for those where:
 
@@ -84,9 +84,9 @@ Machine learned entity uses context to extract entities based on labeled example
 
 |Example utterance|Extracted *product* entity|
 |--|--|
-|I want to buy a book.|`book`|
-|Can I get these shoes please?|`shoes`|
-|Add those shorts to my basket.|`shorts`|
+|I want to buy a book.|"book"|
+|Can I get these shoes please?|"shoes"|
+|Add those shorts to my basket.|"shorts"|
 
 You can learn more about Machine learned entities [here](./reference-entity-machine-learned-entity.md).
 
@@ -96,12 +96,12 @@ See the [machine learned entities reference article](./reference-entity-pattern-
 
 An ML entity can be composed of smaller sub-entities, each of which can have its own properties. For example, *Address* could have the following structure:
 
-* Address `4567 Main Street, NY, 98052, USA`
-    * Building Number: `4567`
-    * Street Name: `Main Street`
-    * State: `NY`
-    * Zip Code: `98052`
-    * Country: `USA`
+* Address: 4567 Main Street, NY, 98052, USA
+    * Building Number: 4567
+    * Street Name: Main Street
+    * State: NY
+    * Zip Code: 98052
+    * Country: USA
 
 
 ### Building effective ML entities
