@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
 
 ---
@@ -21,170 +21,153 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 ## April 2021
 <!-- markdownlint-disable MD029 -->
 
-### SDK updates
+### Preview SDK updates
 
 ### **C#**
 
 #### Updates
 
- 1. **New methods to recognize data from identity documents**:
+* **New methods to analyze data from identity documents**:
 
-**Recognize ID documents from a URI**
+   **[StartRecognizeIdDocumentsFromUriAsync](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizeiddocumentsasync?view=azure-dotnet-preview)**
 
-```console
-StartRecognizeIdDocumentsFromUriAsync(<sourceUri>)
-```
+   **[StartRecognizeIdDocumentsAsync](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizeiddocumentsasync?view=azure-dotnet-preview)**
 
-**Recognize ID documents from a given file**
+   For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
-```console
-StartRecognizeIdDocumentsAsync(<sourcePath>)
-```
+* Expanded the set of document languages that can be provided to the **[StartRecognizeContent](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecontent?view=azure-dotnet-preview)** method.
 
-For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+* **New property `Pages`  supported by the following classes**:
 
-2. Expanded the set of document languages that can be provided to the `StartRecognizeContent()` method.
+   **[RecognizeBusinessCardsOptions](/dotnet/api/azure.ai.formrecognizer.recognizebusinesscardsoptions?view=azure-dotnet-preview)**</br>
+   **[RecognizeCustomFormsOptions](/dotnet/api/azure.ai.formrecognizer.recognizecustomformsoptions?view=azure-dotnet-preview)**</br>
+   **[RecognizeInvoicesOptions](/dotnet/api/azure.ai.formrecognizer.recognizeinvoicesoptions?view=azure-dotnet-preview)**</br>
+   **[RecognizeReceiptsOptions](/dotnet/api/azure.ai.formrecognizer.recognizereceiptsoptions?view=azure-dotnet-preview)**</br>
 
-3. **New property `Pages`  supported by the following methods**:
+   The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the p    age numbers and ranges separated by commas: `2, 5-7`.    
 
-`RecognizeBusinessCardsOptions()`
-`RecognizeCustomFormsOptions()`
-`RecognizeInvoicesOptions()`
-`RecognizeReceiptsOptions()`
+* **New property `ReadingOrder` supported for the following class**:
 
-The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+   **[RecognizeContentOptions](/dotnet/api/azure.ai.formrecognizer.recognizecontentoptions?view=azure-dotnet-preview)**
 
-4. **New property `ReadingOrder` supported for the following methods**:
-
-* `RecognizeContentOptions()`
-
-The `ReadingOrder` property is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+  The `ReadingOrder` property is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
 #### Breaking changes
 
-1. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
+* The client defaults to the latest supported service version, which is currently **2.1-preview.3**.
 
-1. `StartRecognizeCustomForms()` now throws a `RequestFailedException()` when an invalid file is passed.
+* **[StartRecognizeCustomForms](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecustomforms?view=azure-dotnet-preview#Azure_AI_FormRecognizer_FormRecognizerClient_StartRecognizeCustomForms_System_String_System_IO_Stream_Azure_AI_FormRecognizer_RecognizeCustomFormsOptions_System_Threading_CancellationToken_)** method now throws a `RequestFailedException()` when an invalid file is passed.
 
 ### **Java**
 
 #### Updates
 
-1. **New methods to recognize data from identity documents**:
+* **New methods to analyze data from identity documents**:
 
-**Recognize ID documents from a URI**
+  **[beginRecognizeIdDocumentsFromUrl](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizeiddocumentsfromurl?view=azure-java-preview)**
 
-```console
-beginRecognizeIdDocumentsFromUrl(<sourceURL>)
-```
+  **[beginRecognizeIdDocuments](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizeiddocuments?view=azure-java-preview)**
 
-**Recognize ID documents from a given file**
+   For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
-```console
-beginRecognizeIdDocuments(<sourcePath>)
-```
-
-For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
-
-2. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
+* **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
 
 * `image/bmp`
 
-3. **New property `Pages`  supported by the following methods**:
+* **New property `Pages`  supported by the following classes**:
 
-`RecognizeBusinessCardsOptions()`
-`RecognizeCustomFormOptions()`
-`RecognizeInvoicesOptions()`
-`RecognizeReceiptsOptions()`
+   **[RecognizeBusinessCardsOptions](/java/api/com.azure.ai.formrecognizer.models.recognizebusinesscardsoptions?view=azure-java-preview)**</br>
+   **[RecognizeCustomFormOptions](/java/api/com.azure.ai.formrecognizer.models.recognizecustomformsoptions?view=azure-java-preview)**</br>
+   **[RecognizeInvoicesOptions](/java/api/com.azure.ai.formrecognizer.models.recognizeinvoicesoptions?view=azure-java-preview)**</br>
+   **[RecognizeReceiptsOptions](/java/api/com.azure.ai.formrecognizer.models.recognizereceiptsoptions?view=azure-java-preview)**</br>
 
-The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+  The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-4. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
+* **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview#fields) fields**:
 
-* `image/bmp`
+  `image/bmp`
 
-5. **New keyword argument `ReadingOrder` supported for the following methods**:
+* **New keyword argument `ReadingOrder` supported for the following methods**:
 
-* `beginRecognizeContent()` / `beginRecognizeContentFromUrl()`
+* **[beginRecognizeContent](https://docs.microsoft.com/en-us/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontent?view=azure-java-preview)**</br>
+**[beginRecognizeContentFromUrl](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontentfromurl?view=azure-java-preview)**</br>
 
-The `ReadingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+   The `ReadingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-6. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
+* The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
 
 ### **JavaScript**
 
-1. **New methods to recognize data from identity documents**:
+* **New methods to analyze data from identity documents**:
 
-**Recognize ID documents from a URL**
+    **[beginRecognizeIdDocumentsFromUrl](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&branch=main#beginRecognizeIdDocumentsFromUrl_string__BeginRecognizeIdDocumentsOptions_)**
 
-```console
-beginRecognizeIdDocumentsFromUrl(<sourceURL>)
-```
+    **[beginRecognizeIdDocuments](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&branch=main#beginRecognizeIdDocuments_FormRecognizerRequestBody__BeginRecognizeIdDocumentsOptions_)**
 
-**Recognize ID documents from a given file**
+    For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
-```console
-beginRecognizeIdDocuments(<sourcePath>)
-```
+* **New field values added to the FieldValue interface**:
 
-For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+    `gender`—possible values are `M` `F` or `X`.</br>
+   `country`—possible values follow [ISO alpha-3](https://www.iso.org/obp/ui/#search) three-letter country code string.
 
-2. **New field values added to the FieldValue interface**:
+* **New option `pages` supported by all form recognition methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-* `gender`—possible values are `M` `F` or `X`.
-* `country`—possible values follow [ISO alpha-3](https://www.iso.org/obp/ui/#search) three-letter country code string.
+* Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/readingorder?view=azure-node-preview)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-3. **New option `pages` supported by all form recognition methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+* Split **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview)** type into several different interfaces. This should not cause any API compatibility issues except in certain edge cases (undefined valueType).
 
-1. Added support for a readingOrder option to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
-
-1. Split `FormField` into several different interfaces. This should not cause any API compatibility issues except in certain edge cases (undefined valueType).
-
-1. Migrated to the 2.1-preview.3 Form Recognizer service endpoint for all REST API calls.
+* Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
 
 ### **Python**
 
 #### Updates
 
-1. **New methods to recognize data from identity documents**:
+* **New methods to analyze data from identity documents**:
 
-**Recognize ID documents from a URL**
+  **[begin_recognize_id_documents_from_url](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python)**
 
-```console
-begin_recognize_id_documents_from_url(<sourceURL>)
-```
+  **[begin_recognize_id_documents](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python)**
 
-**Recognize ID documents from a given file**
+  For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
-```console
-begin_recognize_id_documents(<sourcePath>)
-```
+* **New field values added to the [FieldValueType](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.fieldvaluetype?view=azure-python-preview) enum**:
 
-For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+   gender—possible values are `M` `F` or `X`.
 
-2. **New field values added to the `FieldValueType `enum**:
+  country—possible values follow [ISO alpha-3 Country Codes](https://www.iso.org/obp/ui/#search).
 
-* `gender`—possible values are `M` `F` or `X`.
-* `country`—possible values follow [ISO alpha-3 Country Codes](https://www.iso.org/obp/ui/#search).
+* **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formcontenttype?view=azure-python-preview) enum**:
 
-3. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
+    image/bmp
 
-* `image/bmp`
+* **New keyword argument `pages`  supported by the following methods**:
 
- 4. **New keyword argument `pages`  supported by the following methods**:
+    **[begin_recognize_receipts](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview&branch=main#begin-recognize-receipts-receipt----kwargs-)**
 
-* `begin_recognize_receipts()`  / `begin_recognize_receipts_from_url()`
-* `begin_recognize_business_cards()`/ `begin_recognize_business_cards_from_url()`
-* `begin_recognize_invoices()`/ `begin_recognize_invoices_from_url()`
-* `begin_recognize_content()`/ `begin_recognize_content_from_url()`
+    **[begin_recognize_receipts_from_url](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-receipts-from-url-receipt-url----kwargs-)**
 
-The `pages` keyword argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+   **[begin_recognize_business_cards](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-business-cards-business-card----kwargs-)**
 
-5. **New keyword argument `readingOrder` supported for the following methods**:
+   **[begin_recognize_business_cards_from_url](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-business-cards-from-url-business-card-url----kwargs-)**
 
-* `begin_recognize_content()`/ `begin_recognize_content_from_url()`
+   **[begin_recognize_invoices](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-invoices-invoice----kwargs-)**
 
-The `readingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+   **[begin_recognize_invoices_from_url](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-invoices-from-url-invoice-url----kwargs-)**
+
+   **[begin_recognize_content](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-content-form----kwargs-)**
+
+  **[begin_recognize_content_from_url](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-content-from-url-form-url----kwargs-)**
+
+   The `pages` keyword argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+
+* **New keyword argument `readingOrder` supported for the following methods**:
+
+   **[begin_recognize_content](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-content-form----kwargs-)**
+
+   **[begin_recognize_content_from_url](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview#begin-recognize-content-from-url-form-url----kwargs-)**
+
+   The `readingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
 ## March 2021
 
