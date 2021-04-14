@@ -8,7 +8,7 @@ manager: femila
 editor: ''
 
 ms.service: azure-video-analyzer
-ms.subservice: azure-video-analyzer
+ms.subservice: video-indexer
 ms.workload: 
 ms.topic: article
 ms.custom: 
