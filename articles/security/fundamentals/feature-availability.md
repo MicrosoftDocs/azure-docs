@@ -5,7 +5,7 @@ author: batamig #Required; your GitHub user alias, with correct capitalization.
 ms.author: bagol #Required; Microsoft alias of author; optional team alias.
 ms.service: security #Required; service per approved list. service slug assigned to your service by ACOM.
 ms.topic: conceptual #Required
-ms.date: 04/13/2021 #Required; mm/dd/yyyy format.
+ms.date: 04/14/2021 #Required; mm/dd/yyyy format.
 ---
 
 <!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
@@ -49,15 +49,15 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 
 For more information, see the [Azure Sentinel product documentation](/azure/sentinel/overview).
 
-The following tables list the current Sentinel feature availability between our public and US sovereign clouds.
+# [Combined table option](#tab/combined-table-option)
+
+The following table lists the current Sentinel feature availability between Azure and Azure Government clouds.
 
 > [!NOTE]
 > <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
 >
 > <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD services.
 >
-
-# [Simplest](#tab/simplest)
 
 | Feature | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
 | ----- | ----- | ---- |
@@ -78,6 +78,27 @@ The following tables list the current Sentinel feature availability between our 
 | - [Anomalous Windows File Share Access Detection](/azure/sentinel/fusion)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
+|**Microsoft 365 data connectors for Azure Sentinel** | | |
+| - Azure Active Directory                |    GA          |   GA            |
+| - Azure ADIP                          |     GA         |    GA                  |
+| - Azure DDoS Protection             |    GA          |        GA              |
+| - Azure Defender                     |     GA         |           GA           |
+| - Azure Defender for IoT             |       GA       |     Not Available        |
+| - Azure Firewall                       |  GA            |          GA            |
+| - Azure Information Protection              |    Public Preview          |      Not Available                |
+| - Azure Key Vault                           |     Public Preview         |      Not Available                |
+| - Azure Kubernetes Services (AKS)           |     Public Preview         |      Not Available                |
+| - Azure SQL Databases                        |    GA          |      GA                |
+| - Azure WAF                                  |   GA           |      GA                |
+| - Dynamics365                               |    Public Preview          |    Not Available                  |
+| - Microsoft 365 Defender                             |    Public Preview          |   Not Available                   |
+| - Microsoft Cloud App Support (MCAS)                                      |   GA           |       GA               |
+| - Microsoft Cloud App Support (MCAS) <br>Shadow IT logs                |   Public Preview           |         Public Preview             |
+| - Microsoft Cloud App Support (MCAS)          <br>Alerts           |     Public Preview         |     Public Preview                 |
+| - Microsoft Defender for Entity                               |       GA       |       Not Available                |
+| - Microsoft Defender for Identity                            |    Public Preview          |    Not Available                  |
+| - Microsoft Defender for Office 365               |     Public Preview         |      Not Available                |
+| - Office 365                                     |      GA        |       GA               |
 | **External Azure Sentinel connectors**| | |
 | - Agari Phising Defense and Brand Protection       | Public Preview | Public Preview |
 | - AI Analyst Darktrace                            | Public Preview | Public Preview |
@@ -158,34 +179,19 @@ The following tables list the current Sentinel feature availability between our 
 | - WireX Network Forensics Platform                | Public Preview | Public Preview |
 | - Zimperium Mobile Threat Defense                  | Public Preview | Not Available      |
 | - Zscaler                                         | GA             | GA             |
-| | | |
-| **Azure Active Directory**                |    GA          |   GA            |
-| **Azure ADIP**                          |     GA         |    GA                  |
-| **Azure DDoS Protection**                |    GA          |        GA              |
-| **Azure Defender**                       |     GA         |           GA           |
-| **Azure Defender for IoT**               |       GA       |     Not Available        |
-| **Azure Firewall**                        |  GA            |          GA            |
-| **Azure Information Protection**              |    Public Preview          |      Not Available                |
-| **Azure Key Vault**                           |     Public Preview         |      Not Available                |
-| **Azure Kubernetes Services (AKS)**           |     Public Preview         |      Not Available                |
-| **Azure SQL Databases**                        |    GA          |      GA                |
-| **Azure WAF**                                  |   GA           |      GA                |
-| **Dynamics365**                               |    Public Preview          |    Not Available                  |
-| **Microsoft 365 Defender**                             |    Public Preview          |   Not Available                   |
-| **Microsoft Cloud App Support (MCAS)**                                      |   GA           |       GA               |
-| **Microsoft Cloud App Support (MCAS)** <br>Shadow IT logs                |   Public Preview           |         Public Preview             |
-| **Microsoft Cloud App Support (MCAS)**          <br>Alerts           |     Public Preview         |     Public Preview                 |
-| **Microsoft Defender for Entity**                               |       GA       |       Not Available                |
-| **Microsoft Defender for Identity**                            |    Public Preview          |    Not Available                  |
-| **Microsoft Defender for Office 365**               |     Public Preview         |      Not Available                |
-| **Office 365**                                      |      GA        |       GA               |
 | | | | |
 
 
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
 
-# [GCC/GCC-H/DoD](#tab/gcc-gcch-dod)
+# [Separate table option](#separate-table-option)
+
+> [!NOTE]
+> <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
+>
+> <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD services.
+>
 
 | Feature | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
 | ----- | ----- | ---- |
