@@ -20,7 +20,7 @@ This article contains the usage constraints and other service limits for the Azu
 
 ## End user/consumption related limits
 
-The following end-user related service limits apply to all authentication requests to Azure AD B2C. Below illustrates the peak token issuances per journey type.
+The following end-user related service limits apply to all authentication requests to Azure AD B2C. The table below illustrates the peak token issuances per journey type.
 
 |User Journey      | Limit    |
 |---------|---------|
@@ -29,7 +29,7 @@ The following end-user related service limits apply to all authentication reques
 |Password reset  | 12,000/min|
 |Profile edit  | 12,000/min|
 
-When multiple User Journey's are in use, they contribute to the overall limits below.
+When multiple user journeys are in use, they contribute to the overall limits below.
 
 |Category     | Limit    |
 |---------|---------|
@@ -49,8 +49,8 @@ The following table lists the administrative configuration limits in the Azure A
 
 |Category  |Type  |Limit  |
 |---------|---------|---------|
-|String Limit per Attribute      |User|250 Chars          |
-|Maximum number of `Identities` in a User Create operation      | User|7          |
+|Maximum string length per attribute      |User|250 Chars          |
+|Maximum number of `Identities` in a user create operation      | User|7          |
 |Number of scopes per application        |Application|1000          |
 |Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |Application|100         |
 |Number of redirect URLs per application       |Application|100         |
