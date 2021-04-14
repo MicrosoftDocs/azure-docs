@@ -19280,6 +19280,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/quickstart-adt-explorer.md",
+      "redirect_url": "/azure/digital-twins/quickstart-azure-digital-twins-explorer",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
       "redirect_url": "/azure/digital-twins/concepts-event-notifications",
       "redirect_document_id": false
@@ -63903,6 +63908,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial.md",
+      "redirect_url": "/azure/cognitive-services/Face/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/LUIS/encrypt-data-at-rest",
       "redirect_document_id": false
@@ -65038,6 +65048,11 @@
     {
       "source_path": "articles/virtual-desktop/rd-gateway-role.md",
       "redirect_url": "/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
     }
   ]
