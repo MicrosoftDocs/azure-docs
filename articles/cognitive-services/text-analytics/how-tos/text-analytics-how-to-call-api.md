@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 04/14/2021
 ms.author: aahi
 ms.custom: references_regions
 ---
@@ -247,16 +247,16 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
-| Submit analysis job | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
-| Get analysis status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
+| Submit analysis job | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze` |
+| Get analysis status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>` |
 
 ### Endpoints for sending asynchronous requests to the `/health` endpoint
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
-| Submit Text Analytics for health job  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
-| Get job status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
-| Cancel job | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Submit Text Analytics for health job  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs` |
+| Get job status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
+| Cancel job | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -292,9 +292,9 @@ Submit the API request. If you made the call to a synchronous endpoint, the resp
 If you made the call to the asynchronous `/analyze` or `/health` endpoints, check that you received a 202 response code. you will need to get the response to view the results:
 
 1. In the API response, find the `Operation-Location` from the header, which identifies the job you sent to the API. 
-2. Create a GET request for the endpoint you used. refer to the [table above](#set-up-a-request) for the endpoint format, and review the [API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). For example:
+2. Create a GET request for the endpoint you used. refer to the [table above](#set-up-a-request) for the endpoint format, and review the [API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/AnalyzeStatus). For example:
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>`
 
 3. Add the `Operation-Location` to the request.
 
