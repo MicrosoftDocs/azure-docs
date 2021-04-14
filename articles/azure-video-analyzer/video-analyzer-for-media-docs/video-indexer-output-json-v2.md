@@ -1,38 +1,38 @@
 ---
-title: Examine the  Video Indexer output produced by v2 API - Azure
+title: Examine the  Azure Video Analyzer for Media (former Video Indexer) output produced by v2 API - Azure
 titleSuffix: Azure Media Services
-description: This topic examines the Azure Media Services Video Indexer output produced by v2 API.
-services: media-services
+description: This topic examines the Azure Video Analyzer for Media (former Video Indexer) output produced by v2 API.
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 
-ms.service: media-services
+ms.service: azure-video-analyzer
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
 ---
 
-# Examine the Video Indexer output
+# Examine the Video Analyzer for Media output
 
-When a video is indexed, Video Indexer produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Video Analyzer for Media produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. 
+You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Analyzer for Media](https://www.videoindexer.ai/) website. 
 
 You can also use the API by calling the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content.
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-This article examines the Video Indexer output (JSON content). <br/>For information about what features and insights are available to you, see [Video Indexer insights](video-indexer-overview.md#video-insights).
+This article examines the Video Analyzer for Media output (JSON content). <br/>For information about what features and insights are available to you, see [Video Analyzer for Media insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
-> Expiration of all the access tokens in Video Indexer is one hour.
+> Expiration of all the access tokens in Video Analyzer for Media is one hour.
 
 ## Get the insights
 
 ### Insights/output produced in the website/portal
 
-1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+1. Browse to the [Video Analyzer for Media](https://www.videoindexer.ai/) website and sign in.
 1. Find a video the output of which you want to examine.
 1. Press **Play**.
 1. Select the **Insights** tab (summarized insights) or the **Timeline** tab (allows to filter the relevant insights).
@@ -328,9 +328,9 @@ Example:
 
 #### faces/animatedCharacters
 
-`animatedCharacters` element replaces `faces` in case the video was indexed with an animated characters model. This is done using a custom model in Custom Vision, Video Indexer runs it on keyframes.
+`animatedCharacters` element replaces `faces` in case the video was indexed with an animated characters model. This is done using a custom model in Custom Vision, Video Analyzer for Media runs it on keyframes.
 
-If faces (not animated characters) are present, Video Indexer uses Face API on all the video’s frames to detect faces and celebrities.
+If faces (not animated characters) are present, Video Analyzer for Media uses Face API on all the video’s frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|
@@ -527,7 +527,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |referenceUrl | The brand’s Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|The brands description.|
 |tags|A list of predefined tags that were associated with this brand.|
-|confidence|The confidence value of the Video Indexer brand detector (0-1).|
+|confidence|The confidence value of the Video Analyzer for Media brand detector (0-1).|
 |instances|A list of time ranges of this brand. Each instance has a brandType, which indicates whether this brand appeared in the transcript or in OCR.|
 
 ```json
@@ -654,7 +654,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 
 #### visualContentModeration
 
-The visualContentModeration block contains time ranges which Video Indexer found to potentially have adult content. If visualContentModeration is empty, there is no adult content that was identified.
+The visualContentModeration block contains time ranges which Video Analyzer for Media found to potentially have adult content. If visualContentModeration is empty, there is no adult content that was identified.
 
 Videos that are found to contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content, in which case the IsAdult attribute will contain the result of the human review.
 
@@ -702,7 +702,7 @@ Videos that are found to contain adult or racy content might be available for pr
 
 #### emotions
 
-Video Indexer identifies emotions based on speech and audio cues. The identified emotion could be: joy, sadness, anger, or fear.
+Video Analyzer for Media identifies emotions based on speech and audio cues. The identified emotion could be: joy, sadness, anger, or fear.
 
 |Name|Description|
 |---|---|
@@ -792,7 +792,7 @@ Video Indexer identifies emotions based on speech and audio cues. The identified
 
 #### topics
 
-Video Indexer makes inference of main topics from transcripts. When possible, the 2nd-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
+Video Analyzer for Media makes inference of main topics from transcripts. When possible, the 2nd-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
 
 |Name|Description|
 |---|---|
@@ -802,7 +802,7 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 |confidence|The confidence score in the range [0,1]. Higher is more confident.|
 |language|The language used in the topic.|
 |iptcName|The IPTC media code name, if detected.|
-|instances |Currently, Video Indexer does not index a topic to time intervals, so the whole video is used as the interval.|
+|instances |Currently, Video Analyzer for Media does not index a topic to time intervals, so the whole video is used as the interval.|
 
 ```json
 "topics": [{
@@ -873,7 +873,7 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 ```
 ## Next steps
 
-[Video Indexer Developer Portal](https://api-portal.videoindexer.ai)
+[Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai)
 
-For information about how to embed widgets in your application, see [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
+For information about how to embed widgets in your application, see [Embed Video Analyzer for Media widgets into your applications](video-indexer-embed-widgets.md). 
 

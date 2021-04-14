@@ -1,6 +1,6 @@
 ---
 author: Juliako
-ms.service: media-services 
+ms.service: azure-video-analyzer 
 ms.topic: include
 ms.date: 11/13/2020
 ms.author: juliako

@@ -1,12 +1,12 @@
 ---
-title: Use Video Indexer to auto identify spoken languages  - Azure
+title: Use Azure Video Analyzer for Media (former Video Indexer) to auto identify spoken languages  - Azure
 titleSuffix: Azure Media Services
-description: This article describes how the Video Indexer language identification model is used to automatically identifying the spoken language in a video.
-services: media-services
+description: This article describes how the Azure Video Analyzer for Media (former Video Indexer) language identification model is used to automatically identifying the spoken language in a video.
+services: azure-video-analyzer
 author: juliako
 manager: femila
 
-ms.service: media-services
+ms.service: azure-video-analyzer
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
@@ -15,7 +15,7 @@ ms.author: ellbe
 
 # Automatically identify the spoken language with language identification model
 
-Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
+Video Analyzer for Media supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
 
 Currently LID supports: English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese (Brazilian). 
 
@@ -25,13 +25,13 @@ Make sure to review the [Guidelines and limitations](#guidelines-and-limitations
 
 When indexing or [re-indexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) a video using the API, choose the `auto detect` option in the `sourceLanguage` parameter.
 
-When using portal, go to your **Account videos** on the [Video Indexer](https://www.videoindexer.ai/) home page and hover over the name of the video that you want to re-index. On the right-bottom corner click the re-index button. In the **Re-index video** dialog, choose *Auto detect* from the **Video source language** drop-down box.
+When using portal, go to your **Account videos** on the [Video Analyzer for Media](https://www.videoindexer.ai/) home page and hover over the name of the video that you want to re-index. On the right-bottom corner click the re-index button. In the **Re-index video** dialog, choose *Auto detect* from the **Video source language** drop-down box.
 
 ![auto detect](./media/language-identification-model/auto-detect.png)
 
 ## Model output
 
-Video Indexer transcribes the video according to the most likely language if the confidence for that language is `> 0.6`. If the language cannot be identified with confidence, it assumes the spoken language is English. 
+Video Analyzer for Media transcribes the video according to the most likely language if the confidence for that language is `> 0.6`. If the language cannot be identified with confidence, it assumes the spoken language is English. 
 
 Model dominant language is available in the insights JSON as the `sourceLanguage` attribute (under root/videos/insights). A corresponding confidence score is also available under the `sourceLanguageConfidence` attribute.
 
@@ -52,9 +52,9 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 * Automatic language identification (LID) supports the following languages: 
 
     English, Spanish, French, German, Italian, Mandarin Chines, Japanese, Russian, and Portuguese (Brazilian).
-* Even though Video Indexer supports Arabic (Modern Standard and Levantine), Hindi, and Korean, these languages are not supported in LID.
+* Even though Video Analyzer for Media supports Arabic (Modern Standard and Levantine), Hindi, and Korean, these languages are not supported in LID.
 * If the audio contains languages other than the supported list above, the result is unexpected.
-* If Video Indexer cannot identify the language with a high enough confidence (`>0.6`), the fallback language is English.
+* If Video Analyzer for Media cannot identify the language with a high enough confidence (`>0.6`), the fallback language is English.
 * There is no current support for file with mixed languages audio. If the audio contains mixed languages, the result is unexpected. 
 * Low-quality audio may impact the model results.
 * The model requires at least one minute of speech in the audio.

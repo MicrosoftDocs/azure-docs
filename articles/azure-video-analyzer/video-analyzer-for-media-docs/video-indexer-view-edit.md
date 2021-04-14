@@ -1,24 +1,24 @@
 ---
-title: View and edit Video Indexer insights
+title: View and edit Azure Video Analyzer for Media (former Video Indexer) insights
 titlesuffix: Azure Media Services
-description: This article demonstrates how to view and edit Azure Media Services Video Indexer insights.
-services: media-services
+description: This article demonstrates how to view and edit Azure Video Analyzer for Media (former Video Indexer) insights.
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 
-ms.service: media-services
+ms.service: azure-video-analyzer
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ---
 
-# View and edit Video Indexer insights
+# View and edit Video Analyzer for Media insights
 
-This topic shows you how to view and edit the Video Indexer insights of a video.
+This topic shows you how to view and edit the Video Analyzer for Media insights of a video.
 
-1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-2. Find a video from which you want to create your Video Indexer insights. For more information, see [Find exact moments within videos](video-indexer-search.md).
+1. Browse to the [Video Analyzer for Media](https://www.videoindexer.ai/) website and sign in.
+2. Find a video from which you want to create your Video Analyzer for Media insights. For more information, see [Find exact moments within videos](video-indexer-search.md).
 3. Press **Play**.
 
 	The page shows the video's summarized insights. 
@@ -37,5 +37,5 @@ This topic shows you how to view and edit the Video Indexer insights of a video.
 
 ## See also
 
-[Video Indexer overview](video-indexer-overview.md)
+[Video Analyzer for Media overview](video-indexer-overview.md)
 
