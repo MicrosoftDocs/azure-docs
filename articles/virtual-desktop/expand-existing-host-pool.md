@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Expand an existing host pool with new session hosts
 

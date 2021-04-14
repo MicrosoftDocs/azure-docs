@@ -79,13 +79,12 @@
         href: tokens-overview.md
       - name: Request access token
         href: access-tokens.md
-  - name: Policy keys
-    href: policy-keys-overview.md
-  - name: User flow and policy
+  - name: User experience
+    expanded: true
     items:
-    - name: User flows
+    - name: User flows and custom policies
       href: user-flow-overview.md
-    - name: Custom policies
+    - name: Custom policy overview
       href: custom-policy-overview.md
   - name: User accounts
     href: user-overview.md
@@ -93,6 +92,8 @@
     href: user-profile-attributes.md
   - name: Identity Protection and Conditional Access
     href: conditional-access-identity-protection-overview.md
+  - name: Policy keys
+    href: policy-keys-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -120,6 +121,9 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
+    - name: Secure API Management API
+      href: secure-api-management.md
+      displayName: apim, api management, migrate, b2clogin.com
   - name: Create a flow
     items:
     - name: Sign-up or sign-in policy
@@ -221,6 +225,15 @@
       href: password-complexity.md
     - name: Disable email verification
       href: disable-email-verification.md
+    - name: Custom email verification
+      items:
+      - name: Mailjet
+        href: custom-email-mailjet.md
+        displayName: Custom email, Custom verification email, Verification email
+      - name: SendGrid
+        href: custom-email-sendgrid.md
+        displayName: Custom email, Custom verification email, Verification email
+      displayName: verification
     - name: Enable MFA
       items:
       - name: Multi-factor authentication
@@ -268,19 +281,6 @@
       href: add-api-connector.md
   - name: Custom policy
     items:
-    - name: Custom policy overview
-      href: custom-policy-trust-frameworks.md
-    - name: Get started with custom policies
-      href: custom-policy-get-started.md
-    - name: Custom email verification
-      items:
-      - name: Mailjet
-        href: custom-email-mailjet.md
-        displayName: Custom email, Custom verification email, Verification email
-      - name: SendGrid
-        href: custom-email-sendgrid.md
-        displayName: Custom email, Custom verification email, Verification email
-      displayName: verification
     - name: Add your own business logic
       items:
       - name: Integrate REST API
@@ -298,104 +298,8 @@
       - name: Collect logs using Application Insights
         href: troubleshoot-with-application-insights.md
         displayName: troubleshooting, app insights
-      - name: Policy validation
+      - name: Troubleshooting custom policies
         href: troubleshoot-custom-policies.md
-        displayName: troubleshooting
-    - name: Reference
-      items:
-      - name: TrustFrameworkPolicy
-        href: trustframeworkpolicy.md
-      - name: BuildingBlocks
-        href: buildingblocks.md
-        items:
-        - name: ClaimsSchema
-          href: claimsschema.md
-        - name: ClaimsTransformations
-          href: claimstransformations.md
-          items:
-          - name: Boolean
-            href: boolean-transformations.md
-          - name: Date
-            href: date-transformations.md
-          - name: General
-            href: general-transformations.md
-          - name: Integer
-            href: integer-transformations.md
-          - name: JSON
-            href: json-transformations.md
-          - name: Phone number
-            href: phone-number-claims-transformations.md
-          - name: External accounts
-            href: social-transformations.md
-          - name: StringCollection
-            href: stringcollection-transformations.md
-          - name: String
-            href: string-transformations.md
-        - name: Predicates
-          href: predicates.md
-        - name: ContentDefinitions
-          href: contentdefinitions.md
-        - name: Localization
-          href: localization.md
-          items:
-          - name: Localization string IDs
-            href: localization-string-ids.md
-        - name: DisplayControls
-          href: display-controls.md
-          items:
-          - name: Verification
-            href: display-control-verification.md
-      - name: ClaimsProviders
-        href: claimsproviders.md
-        items:
-        - name: Technical Profiles
-          href: technicalprofiles.md
-          items:
-          - name: About validation technical profiles
-            href: validation-technical-profile.md
-          - name: Azure Active Directory
-            href: active-directory-technical-profile.md
-          - name: Azure AD Multi-Factor Authentication
-            href: multi-factor-auth-technical-profile.md
-            displayName: mfa
-          - name: Azure AD SSPR
-            href: aad-sspr-technical-profile.md
-          - name: Claims transformation
-            href: claims-transformation-technical-profile.md
-          - name: ID token hint
-            href: id-token-hint.md
-          - name: JWT token issuer
-            href: jwt-issuer-technical-profile.md
-          - name: OAuth1
-            href: oauth1-technical-profile.md
-          - name: OAuth2
-            href: oauth2-technical-profile.md
-          - name: One-time password
-            href: one-time-password-technical-profile.md
-            displayName: otp
-          - name: OpenID Connect
-            href: openid-connect-technical-profile.md
-          - name: Phone factor
-            href: phone-factor-technical-profile.md
-          - name: REST
-            href: restful-technical-profile.md
-          - name: SAML identity provider
-            href: saml-identity-provider-technical-profile.md
-          - name: SAML token issuer
-            href: saml-issuer-technical-profile.md
-          - name: Self-asserted
-            href: self-asserted-technical-profile.md
-          - name: SSO session
-            href: custom-policy-reference-sso.md
-            displayName: single sign-on
-      - name: UserJourneys
-        href: userjourneys.md
-      - name: SubJourneys
-        href: subjourneys.md
-      - name: RelyingParty
-        href: relyingparty.md
-      - name: Claim resolvers
-        href: claim-resolver-overview.md
   - name: UserInfo endpoint
     href: userinfo-endpoint.md
   - name: Partner integration
@@ -460,15 +364,15 @@
     - name: Azure portal
       href: manage-users-portal.md
       displayName: create users, add users, delete users
+    - name: Migrate users
+      href: user-migration.md
+      displayName: bulk import
     - name: Partner integration
       items:
       - name: N8identity
         href: partner-n8identity.md
       - name: Saviynt 
         href: partner-saviynt.md
-  - name: Secure API Management API
-    href: secure-api-management.md
-    displayName: apim, api management, migrate, b2clogin.com
   - name: Logs and monitoring
     items:
     - name: Audit logs
@@ -491,12 +395,105 @@
     - name: User data
       href: manage-user-data.md
       displayName: GDPR
-  - name: Migration
-    items:
-    - name: Migrate users
-      href: user-migration.md
 - name: Reference
   items:
+  - name: Custom policy schema
+    items:
+    - name: TrustFrameworkPolicy
+      href: trustframeworkpolicy.md
+    - name: BuildingBlocks
+      href: buildingblocks.md
+      items:
+      - name: ClaimsSchema
+        href: claimsschema.md
+      - name: ClaimsTransformations
+        href: claimstransformations.md
+        items:
+        - name: Boolean
+          href: boolean-transformations.md
+        - name: Date
+          href: date-transformations.md
+        - name: General
+          href: general-transformations.md
+        - name: Integer
+          href: integer-transformations.md
+        - name: JSON
+          href: json-transformations.md
+        - name: Phone number
+          href: phone-number-claims-transformations.md
+        - name: External accounts
+          href: social-transformations.md
+        - name: StringCollection
+          href: stringcollection-transformations.md
+        - name: String
+          href: string-transformations.md
+      - name: Predicates
+        href: predicates.md
+      - name: ContentDefinitions
+        href: contentdefinitions.md
+      - name: Localization
+        href: localization.md
+        items:
+        - name: Localization string IDs
+          href: localization-string-ids.md
+      - name: DisplayControls
+        href: display-controls.md
+        items:
+        - name: Verification
+          href: display-control-verification.md
+    - name: ClaimsProviders
+      href: claimsproviders.md
+      items:
+      - name: Technical Profiles
+        href: technicalprofiles.md
+        items:
+        - name: About validation technical profiles
+          href: validation-technical-profile.md
+        - name: Azure Active Directory
+          href: active-directory-technical-profile.md
+        - name: Azure AD Multi-Factor Authentication
+          href: multi-factor-auth-technical-profile.md
+          displayName: mfa
+        - name: Azure AD SSPR
+          href: aad-sspr-technical-profile.md
+        - name: Claims transformation
+          href: claims-transformation-technical-profile.md
+        - name: ID token hint
+          href: id-token-hint.md
+        - name: JWT token issuer
+          href: jwt-issuer-technical-profile.md
+        - name: OAuth1
+          href: oauth1-technical-profile.md
+        - name: OAuth2
+          href: oauth2-technical-profile.md
+        - name: One-time password
+          href: one-time-password-technical-profile.md
+          displayName: otp
+        - name: OpenID Connect
+          href: openid-connect-technical-profile.md
+        - name: Phone factor
+          href: phone-factor-technical-profile.md
+        - name: REST
+          href: restful-technical-profile.md
+        - name: SAML identity provider
+          href: saml-identity-provider-technical-profile.md
+        - name: SAML token issuer
+          href: saml-issuer-technical-profile.md
+        - name: Self-asserted
+          href: self-asserted-technical-profile.md
+        - name: SSO session
+          href: custom-policy-reference-sso.md
+          displayName: single sign-on
+    - name: UserJourneys
+      href: userjourneys.md
+    - name: SubJourneys
+      href: subjourneys.md
+    - name: RelyingParty
+      href: relyingparty.md
+    - name: Claim resolvers
+      href: claim-resolver-overview.md
+  - name: Custom policy release notes
+    href: custom-policy-developer-notes.md
   - name: Service limits and restrictions
     href: service-limits.md
   - name: App registrations
@@ -512,8 +509,6 @@
     href: error-codes.md
   - name: Extensions app
     href: extensions-app.md
-  - name: Custom policy (IEF) release notes
-    href: custom-policy-developer-notes.md
   - name: Page layout versions
     href: page-layout.md
     displayName: Page version

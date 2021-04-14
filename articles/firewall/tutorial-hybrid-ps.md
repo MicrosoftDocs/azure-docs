@@ -446,6 +446,8 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Test the firewall
 
 First, get and then note the private IP address for **VM-spoke-01** virtual machine.

@@ -15,11 +15,11 @@
   href: /samples/browse/?products=azure&term=face
 - name: How-to guides
   items:
-  - name: Detect faces
+  - name: Detect and analyze faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Specify a face recognition model
+  - name: Specify a face recognition model version
     href: Face-API-How-to-Topics/specify-recognition-model.md
-  - name: Specify a face detection model
+  - name: Specify a face detection model version
     href: Face-API-How-to-Topics/specify-detection-model.md
   - name: Add faces to a group
     href: Face-API-How-to-Topics/how-to-add-faces.md
@@ -33,22 +33,18 @@
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
   - name: Migrate face data
     href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-  - name: Deploy the Face service
+  - name: Use the Face container
     items:
-    - name: Containers
-      expanded: true
-      items:
-      - name: Cognitive Services containers documentation
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
-      - name: Containers overview
-        href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
-      - name: Install and run containers
-        href: face-how-to-install-containers.md
-      - name: Configure containers
-        href: face-resource-container-config.md
-      - name: Use container instances
-        maintainContext: true
-        href: ../containers/azure-container-instance-recipe.md
+    - name: Cognitive Services containers documentation
+      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
+    - name: Containers overview
+      href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
+    - name: Install and run containers
+      href: face-how-to-install-containers.md
+    - name: Configure containers
+      href: face-resource-container-config.md
+    - name: Use container instances
+      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
 - name: Concepts
   items:
   - name: Face detection
@@ -57,13 +53,11 @@
     href: concepts/face-recognition.md
 - name: Tutorials
   items:
-  - name: Create a face detector app
-    href: Tutorials/FaceAPIinCSharpTutorial.md
-  - name: Face enrollment tutorial
+  - name: Add users to a Face service
     items:
-    - name: Face enrollment overview
+    - name: Best practices for adding users
       href: enrollment-overview.md
-    - name: Build an enrollment app with React
+    - name: Build a React app to add users
       href: build-enrollment-app.md
 - name: Reference
   items:
