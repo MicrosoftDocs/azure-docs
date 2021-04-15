@@ -50,15 +50,13 @@ Azure Synapse contains the same Data Integration engine and experiences as Azure
 * Code-Free ETL with Data flow activities
 * Orchestrate notebooks, Spark jobs, stored procedures, SQL scripts, and more
 
-## Unified management, monitoring, and security
-
+## Unified experience 
 Azure Synapse provides a single way for enterprises to manage analytics resources, monitor usage and activity, and enforce security.
 
 * Assign users to Role to simplify access to analytics resources
 * Fine-grained access control on data and code
 * A single dashboard to monitor resources, usage, and users across SQL and Spark
 
-## Unified experience
 
 **Synapse Studio** is the user experience that ties everything together for data engineers. It allows them to do every task they need to build a complete analytics solution.
 
