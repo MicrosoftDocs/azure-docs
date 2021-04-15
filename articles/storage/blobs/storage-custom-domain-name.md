@@ -409,7 +409,7 @@ If you don't need users to access your blob or web content by using HTTPS, then 
 
    * [HTTP-to-HTTPS redirection with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Pricing and billing when using Blob Storage with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
+   * [Pricing and billing when using Blob Storage with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#pricing-and-billing).
 
 ## Next steps
 

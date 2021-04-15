@@ -34,6 +34,35 @@ Sign in to the Azure portal at https://portal.azure.com
 
 ## Configure providers
 
+### SAP NetWeaver provider
+
+#### Prerequisites for adding NetWeaver provider
+
+The “SAP start service” provides a host of services including monitoring the SAP system. We are leveraging the “SAPControl” which is a SOAP web service interface that exposes these capabilities. This SAPControl webservice Interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) webservice methods. To be able to fetch specific metrics, you will need to unprotect some methods. To unprotect the required methods for the current release, please follow the steps below for each SAP system:
+
+1. Open an SAP GUI connection to the SAP server
+2. Login using an administrative account
+3. Execute transaction RZ10
+4. Select the appropriate Profile (DEFAULT.PFL)
+5. Select 'Extended Maintenance' and click Change 
+6. Modify the value of the affected parameter “service/protectedwebmethods” to "SDEFAULT -GetQueueStatistic –ABAPGetWPTable –EnqGetStatistic –GetProcessList" to the recommended setting and click Copy
+7. Go back and select Profile->Save
+8. Restart system for parameter to take effect
+
+>[!Tip]
+> Use an Access Control List (ACL) to filter the access to a server port. Refer to his [SAP note](https://launchpad.support.sap.com/#/notes/1495075)
+
+#### Installing NetWeaver provider on the Azure portal
+1.	Make sure that the pre-requisite steps have been completed and server has been restarted
+2.	On the Azure portal, under AMS, select Add provider and choose SAP NetWeaver from the drop down
+3.	Input the hostname of the SAP system and Subdomain (if applicable)
+4.	Enter the Instance number corresponding to the hostname entered 
+5.	Enter the System ID (SID)
+6.	When finished, select Add provider
+7.	Continue to add additional providers as needed or select Review + create to complete the deployment
+
+![image](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+
 ### SAP HANA provider 
 
 1. Select the **Provider** tab to add the providers you want to configure. You can add multiple providers one after another or add them after deploying the monitoring resource. 
@@ -56,51 +85,7 @@ Sign in to the Azure portal at https://portal.azure.com
 7. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image of configuration options when adding provider information." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
-
-### High-availability cluster (Pacemaker) provider
-
-1. Select **High-availability cluster (Pacemaker)** from the drop-down. 
-
-   > [!IMPORTANT]
-   > To configure the High-availability cluster (Pacemaker) provider, ensure that ha_cluster_provider is installed in each node. For more information see [HA cluster exporter](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
-
-2. Input the Prometheus endpoint in the form of http://IP:9664/metrics. 
- 
-3. Input the System ID (SID), hostname and cluster name.
-
-4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment.
-
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image shows options related to the HA cluster Pacemaker provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
-
-
-### OS (Linux) provider 
-
-1. Select OS (Linux) from the drop-down 
-
->[!IMPORTANT]
-> To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Use this [link] (https://prometheus.io/download/#node_exporter) to find latest version. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
-
-2. Input a name, which will be the identifier for the BareMetal Instance.
-3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
-
->[!IMPORTANT]
-> Please use private IP address of linux host. Please ensure that host and AMS resource are in the same VNET. 
-
->[!Note]
-> Firewall port “9100” should be opened on the linux host.
->If using firewall-cmd: 
-   >firewall-cmd --permanent --add-port=9100/tcp
-   >firewall-cmd --reload
->If using ufw:
-     >ufw allow 9100/tcp
-     >ufw reload
-
->[!Tip]
-> If linux host is an Azure VM, please ensure that all applicable NSGs allow inbound traffic at port 9100 from "VirtualNetwork" as the source.
- 
-5. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
-
-
+   
 ### Microsoft SQL Server provider
 
 1. Before adding the Microsoft SQL Server provider, you should run the following script in SQL Server Management Studio to create a user with the appropriate permissions needed to configure the provider.
@@ -138,31 +123,48 @@ Sign in to the Azure portal at https://portal.azure.com
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image shows information related to adding the Microsoft SQL Server Provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
-### SAP NetWeaver provider
+### High-availability cluster (Pacemaker) provider
 
-#### Pre-requisites for adding NetWeaver provider
+1. Select **High-availability cluster (Pacemaker)** from the drop-down. 
 
-The “SAP start service” provides a host of services including monitoring the SAP system. We are leveraging the “SAPControl” which is a SOAP web service interface that exposes these capabilities. This SAPControl webservice Interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) webservice methods. To be able to fetch specific metrics, you will need to unprotect some methods. To unprotect the required methods for the current release, please follow the steps below for each SAP system:-
+   > [!IMPORTANT]
+   > To configure the High-availability cluster (Pacemaker) provider, ensure that ha_cluster_provider is installed in each node. For more information see [HA cluster exporter](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
 
-1. Open an SAP GUI connection to the SAP server
-2. Login using an administrative account
-3. Execute transaction RZ10
-4. Select the appropriate Profile (DEFAULT.PFL)
-5. Select 'Extended Maintenance' and click Change 
-6. Modify the value of the affected parameter “service/protectedwebmethods” to "SDEFAULT -GetQueueStatistic –ABAPGetWPTable –EnqGetStatistic –GetProcessList" to the recommended setting and click Copy
-7. Go back and select Profile->Save
-8. Restart system for parameter to take effect
+2. Input the Prometheus endpoint in the form of http://IP:9664/metrics. 
+ 
+3. Input the System ID (SID), hostname and cluster name.
 
-#### Installing NetWeaver provider on the Azure portal
-1.	Make sure that the pre-requisite steps have been completed and server has been restarted
-2.	On the Azure portal, under AMS, select Add provider and choose SAP NetWeaver from the drop down
-3.	Input the hostname of the SAP system and Subdomain (if applicable)
-4.	Enter the Instance number corresponding to the hostname entered 
-5.	Enter the System ID (SID)
-6.	When finished, select Add provider
-7.	Continue to add additional providers as needed or select Review + create to complete the deployment
+4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment.
 
-![image](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image shows options related to the HA cluster Pacemaker provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+### OS (Linux) provider 
+
+1. Select OS (Linux) from the drop-down 
+
+   >[!IMPORTANT]
+   > To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Use this [link](https://prometheus.io/download/#node_exporter) to find latest version. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
+
+2. Input a name, which will be the identifier for the BareMetal Instance.
+3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
+
+   >[!IMPORTANT]
+   >Please use private IP address of linux host. Please ensure that host and AMS resource are in the same VNET. 
+
+   >[!Note]
+   > Firewall port “9100” should be opened on the linux host.
+   >If using firewall-cmd: 
+    >firewall-cmd --permanent --add-port=9100/tcp
+    >firewall-cmd --reload
+   >If using ufw:
+     >ufw allow 9100/tcp
+     >ufw reload
+
+    >[!Tip]
+    > If linux host is an Azure VM, please ensure that all applicable NSGs allow inbound traffic at port 9100 from "VirtualNetwork" as the source.
+ 
+5. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
+
 
 ## Next steps
 
