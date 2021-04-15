@@ -9,9 +9,9 @@ ms.date: 04/01/2021
 
 # Record an object to Media Services asset using AI models
 
-Certain customer scenarios require that video be analyzed with multiple AI models. Such models can be either [augmenting each other]() <!--<link to chained>--> or [working independently in parallel]()<!-- <link to parallel>--> on the [same video stream or a combination]() <!--<link to complex combo>--> of such augmented and independently parallel models can be acting on the same video stream to derive actionable insights.
+Certain customer scenarios require that video be analyzed with multiple AI models. Such models can be either [augmenting each other](ai-composition-overview.md#sequential-ai-composition) or [working independently in parallel](ai-composition-overview.md#parallel-ai-composition) on the [same video stream or a combination](ai-composition-overview.md#combined-ai-composition) of such augmented and independently parallel models can be acting on the same video stream to derive actionable insights.
 
-Azure Video Analyzer supports such scenarios via a feature called [AI Composition]() <!--<link to AI Composition concept page which holds the above 3 sub concepts in>-->. This guide shows you how you can apply multiple models in an augmented fashion on the same video stream. It uses a Tiny(Light) Yolo and a regular Yolo  model in parallel, to detect an object of interest. The Tiny Yolo model is computationally lighter but less accurate than the YOLO model and is called first. If the object detected passes a specific confidence threshold, then the sequentially staged regular Yolo model is not invoked, thus utilizing the underlying resources efficiently.
+Azure Video Analyzer supports such scenarios via a feature called [AI Composition](ai-composition-overview.md). This guide shows you how you can apply multiple models in an augmented fashion on the same video stream. It uses a Tiny(Light) Yolo and a regular Yolo  model in parallel, to detect an object of interest. The Tiny Yolo model is computationally lighter but less accurate than the YOLO model and is called first. If the object detected passes a specific confidence threshold, then the sequentially staged regular Yolo model is not invoked, thus utilizing the underlying resources efficiently.
 
 After completing the steps in this guide, you'll be able to run a simulated live video stream through a pipeline with AI composability and extend it to your specific scenarios. The following diagram graphically represents that pipeline.
 
@@ -40,7 +40,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
 <!--add a video-->
 
-Follow the guidelines in [Create and Deploy the media graph]()<!--analyze-live-video-use-your-grpc-model-quickstart#create-and-deploy-the-media-graph--> section of the quickstart you just finished. Be sure to make the following adjustments as you continue with the steps. These steps help to ensure that the correct body for the direct method calls are used.
+Follow the guidelines in [Create and deploy the media graph]()<!--analyze-live-video-use-your-grpc-model-quickstart#create-and-deploy-the-media-graph--> section of the quickstart you just finished. Be sure to make the following adjustments as you continue with the steps. These steps help to ensure that the correct body for the direct method calls are used.
 
 Edit the *operations.json* file:
 
