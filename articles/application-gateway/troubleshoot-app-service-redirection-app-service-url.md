@@ -78,15 +78,13 @@ In the previous example, notice that the response header has a status code of 30
 Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. If you use v1 SKU, we recommend that you [migrate from v1 to v2](./migrate-v1-v2.md). You want to use rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
+> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
 
 ## Alternate solution: Use a custom domain name
 
-If you use v1 SKU, you can't rewrite the location header. This capability is only available for v2 SKU. To resolve the redirection issue, pass the same host name that the application gateway receives to the app service as well, instead of doing a host override.
+Using App Service's Custom Domain feature is another solution to always redirect the traffic to Application Gateway's domain name (www.contoso.com in our example). This configuration also serves as a solution for the ARR Affinity cookie problem. As stated above, the ARRAffinity cookie domain is set to the App Service's default host name (example.azurewebsites.net) instead of the Application Gateway domain name. The browser in this case will reject the cookie due to the difference in the domain names of the request and the cookie.
 
-The app service now does the redirection (if any) on the same original host header that points to the application gateway and not its own.
-
-You must own a custom domain and follow this process:
+You must own a custom domain to follow this process:
 
 - Register the domain to the custom domain list of the app service. You must have a CNAME in your custom domain that points to the app service's FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
