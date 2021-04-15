@@ -2,7 +2,7 @@
 title: Tutorial - add modules to Azure Resource Manager Bicep file
 description: Use modules to encapsulate complex details of the raw resource declaration.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -123,4 +123,4 @@ Congratulations, you've finished this introduction to deploying Bicep files to A
 The next tutorial series goes into more detail about deploying templates.
 
 > [!div class="nextstepaction"]
-> [Add modules](./bicep-tutorial-add-modules.md)
+> [Deploy a local template](./deployment-tutorial-local-template.md)

@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 02/01/2021
+ms.date: 03/31/2021
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
@@ -21,13 +21,12 @@ The following limits are common across all tiers.
 | Number of Event Hubs namespaces per subscription |- |100 |
 | Number of event hubs per namespace | Subsequent requests for creation of a new event hub are rejected. |10 |
 | Size of an event hub name |- | 256 characters |
-| Size of a consumer group name |- | 256 characters |
+| Size of a consumer group name | Kafka protocol doesn't require the creation of a consumer group. | <p>Kafka: 256 characters</p><p>AMQP: 50 characters |
 | Number of non-epoch receivers per consumer group |- |5 |
 | Number of authorization rules per namespace | Subsequent requests for authorization rule creation are rejected.|12 |
 | Number of calls to the GetRuntimeInformation method |  - | 50 per second | 
 | Number of virtual networks (VNet) | - | 128 | 
 | Number of IP Config rules | - | 128 | 
-
 
 ### Basic vs. standard tiers
 The following table shows limits that may be different for basic and standard tiers. 

@@ -1,8 +1,8 @@
 ---
 title: Server parameters - Azure Database for MySQL - Flexible Server
 description: This topic provides guidelines for configuring server parameters in Azure Database for MySQL - Flexible Server.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
@@ -33,9 +33,11 @@ Refer to the following sections below to learn more about the limits of the seve
 
 ### log_bin_trust_function_creators
 
-In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
+In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers. 
 
-The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely set [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to **TRUE**.
+The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely allow [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to remain **ON**.
+
+If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
 
 ### innodb_buffer_pool_size
 

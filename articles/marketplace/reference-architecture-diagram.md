@@ -3,6 +3,7 @@ title: Reference architecture diagram | Azure Marketplace
 description: How to create a reference architecture diagram for an offer in the Microsoft commercial marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
+ms.reviewer: stmummer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference

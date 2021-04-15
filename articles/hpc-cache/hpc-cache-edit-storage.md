@@ -4,7 +4,7 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/29/2021
 ms.author: v-erkel
 ---
 
@@ -71,7 +71,7 @@ Use the **Namespace** page for your Azure HPC Cache. The namespace page is descr
 
 Click the name of the path that you want to change, and create the new path in the edit window that appears.
 
-![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right](media/edit-namespace-blob.png)
+![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right](media/update-namespace-blob.png)
 
 After making changes, click **OK** to update the storage target, or click **Cancel** to discard changes.
 
@@ -146,7 +146,10 @@ az hpc-cache nfs-storage-target update --cache-name mycache \
 
 ### Change the usage model
 
-The usage model influences how the cache retains data. Read [Choose a usage model](hpc-cache-add-storage.md#choose-a-usage-model) to learn more.
+The usage model influences how the cache retains data. Read [Understand cache usage models](cache-usage-models.md) to learn more.
+
+> [!NOTE]
+> If you change usage models, you might need to remount clients to avoid NLM errors. Read [Know when to remount clients](cache-usage-models.md#know-when-to-remount-clients-for-nlm) for details.
 
 To change the usage model for an NFS storage target, use one of these methods.
 

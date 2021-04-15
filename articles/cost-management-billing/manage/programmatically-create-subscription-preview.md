@@ -360,7 +360,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | `skuId` | Yes      | String | The sku ID that determines the type of Azure plan. |
 | `owners`      | No       | String | The Object ID of any user or service principal to add as an Azure RBAC Owner on the subscription when it's created.  |
 | `costCenter` | No      | String | The cost center associated with the subscription. It shows up in the usage CSV file. |
-| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](/rest/api/resources/managementgroups/list). Use the ID of a management group from the API. |
+| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](/rest/api/managementgroups/entities/list). Use the ID of a management group from the API. |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object returns a `subscriptionLink` object, which has the subscription ID.
 

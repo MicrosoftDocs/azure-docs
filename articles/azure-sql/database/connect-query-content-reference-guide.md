@@ -11,7 +11,7 @@ ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 05/29/2020
+ms.date: 03/17/2021
 ---
 # Azure SQL Database and Azure SQL Managed Instance connect and query articles
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,6 @@ The following document includes links to Azure examples showing how to connect a
 |[PHP](connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to a database and use Transact-SQL statements to query data.|
 |[Python](connect-query-python.md)|This quickstart demonstrates how to use Python to connect to a database and use Transact-SQL statements to query data. |
 |[Ruby](connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database and use Transact-SQL statements to query data.|
-|[R](connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
 |||
 
 ## Get server connection information
@@ -115,6 +114,7 @@ The following table lists examples of object-relational mapping (ORM) frameworks
   - [Connect and query using Java](connect-query-java.md)
   - [Connect and query using Python](connect-query-python.md)
   - [Connect and query using Ruby](connect-query-ruby.md)
+  - [Install sqlcmd and bcp the SQL Server command-line tools on Linux](/sql/linux/sql-server-linux-setup-tools) - For Linux users, try connecting to Azure SQL Database or Azure SQL Managed Instance using [sqlcmd](/sql/ssms/scripting/sqlcmd-use-the-utility).
 - Retry logic code examples:
   - [Connect resiliently with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Connect resiliently with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
