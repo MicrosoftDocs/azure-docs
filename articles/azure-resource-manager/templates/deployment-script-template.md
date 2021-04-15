@@ -307,7 +307,7 @@ You can control how PowerShell responds to non-terminating errors by using the `
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`.
 
-### Configure environment variables
+### Use environment variables
 
 Deployment script uses these environment variables:
 
