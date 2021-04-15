@@ -137,8 +137,12 @@ The AppNamePrefix to use in the NetQosPolicy is "GatewayWindowsService.exe". You
 New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
 ```
 
-In order to increase and decrease replication bandwidth based on a schedule, you can leverage Windows scheduled task to scale the bandwidth as needed. One task will be used to decrease the bandwidth, and another task will be used to increase the bandwidth.
-[!NOTE] You need to create the NetQosPolicy, outlined above, prior to executing the commands below.
+To increase and decrease replication bandwidth based on a schedule, you can use a Windows scheduled task to scale the bandwidth as needed. One task will be used to decrease the bandwidth and another task will be used to increase the bandwidth.
+
+> [!NOTE]
+> Before you run the following commands, you must create NetQosPolicy as described in this section.
+> 
+
 ```powershell
 #Replace with an account part of the local Administrators group
 $User = "localVmName\userName"
