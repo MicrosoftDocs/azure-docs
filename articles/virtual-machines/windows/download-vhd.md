@@ -51,8 +51,8 @@ Take a snapshot of the disk to download.
 
 Your snapshot will be created shortly, and may then be used to download or create another VM from.
 
-> [NOTE!]
->  If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running a the time were not crash resistant.
+> [!NOTE]
+> If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running a the time were not crash resistant.
 >  
 > This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
 
