@@ -29,7 +29,7 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
 1. Create a new SQL script.
 1. Paste the following code into the script.
 
-    ```
+    ```sql
     SELECT
         TOP 100 *
     FROM
@@ -45,15 +45,15 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
 You can browse the content of the files directly via `master` database. For some simple data exploration scenarios you don't need to create a separate database.
 However, as you continue data exploration, you might want to create some utility objects, such as:
 - External data sources that represent the named references for storage accounts.
-- Database scoped credentials that enable you to specify how to authenticate to external data surce.
+- Database scoped credentials that enable you to specify how to authenticate to external data source.
 - Database users with the permissions to access some data sources or database objects.
-- Utility views, procedures, and functions that you cna use in the queries.
+- Utility views, procedures, and functions that you can use in the queries.
 
 You need to create a separate database to use these objects. Custom database objects, cannot be created in the `master` database.
 
-```sql
-CREATE DATABASE DataExplorationDB COLLATE Latin1_General_100_BIN2_UTF8
-```
+    ```sql
+    CREATE DATABASE DataExplorationDB COLLATE Latin1_General_100_BIN2_UTF8
+    ```
 
 > [!IMPORTANT]
 > Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
