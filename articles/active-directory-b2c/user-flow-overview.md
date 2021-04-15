@@ -9,11 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-<<<<<<< HEAD
-ms.date: 03/23/2021
-=======
 ms.date: 04/08/2021
->>>>>>> 38f3c769b413f5d389340c7ea1fd6144fd0d0641
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
