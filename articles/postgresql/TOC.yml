@@ -486,6 +486,16 @@
         displayName: monitor, server logs
       - name: Audit logs
         href: flexible-server/concepts-audit.md
+      - name: Intelligent Performance
+        items:
+        - name: Query Store overview
+          href: flexible-server/concepts-query-store.md
+          displayName: performance, optimize, query store
+        - name: Query Store usage scenarios
+          href: flexible-server/concepts-query-store-scenarios.md
+          displayName: query store, performance, optimize
+        - name: Query Store best practices
+          href: flexible-server/concepts-query-store-best-practices.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding

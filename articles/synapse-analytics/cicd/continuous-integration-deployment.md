@@ -1,9 +1,9 @@
 ---
 title: Continuous integration and delivery for Synapse workspace  
 description: Learn how to use continuous integration and delivery to deploy changes in workspace from one environment (development, test, production) to another.
-services: synapse-analytics 
 author: liud
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
+ms.subservice: 
 ms.topic: conceptual 
 ms.date: 11/20/2020
 ms.author: liud 
