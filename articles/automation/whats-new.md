@@ -23,7 +23,7 @@ This page is updated monthly, so revisit it regularly.
 
 ### New Azure Automation built-in policies
 
-**Type:** New policy
+**Type:** New feature
 
 Azure Automation has added 5 new built-in policies:
 
@@ -33,7 +33,7 @@ Azure Automation has added 5 new built-in policies:
 - Configure private endpoint connections on Azure Automation accounts
 - Private endpoint connections on Automation Accounts should be enabled.
 
-See the [policy reference](https://docs.microsoft.com/azure/automation/policy-reference) article for more details.
+See the [policy reference](./policy-reference) article for more details.
 
 ### Support for Automation and State Configuration declared GA in South India
 
@@ -63,25 +63,25 @@ See more information on the [Data residency page](https://azure.microsoft.com/gl
 
 **Type:** New feature
 
-Two new scripts have been added to the [azureautomation GitHub repository](https://nam06.safelinks.protection.outlook.com/?url=https://github.com/azureautomation/&data=04%7c01%7cjaspkaur%40microsoft.com%7cefca6a0a96b444783d0408d8d8934532%7c72f988bf86f141af91ab2d7cd011db47%7c1%7c0%7c637497474872386508%7cUnknown%7cTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7c1000&sdata=xnVJ2iAWe779/oMIMg%2BQyAY9p/%2BO7B7uSjaubOjbO08%3D&reserved=0) addressing one of Azure Automation's key scenarios of setting up a hybrid worker on either a Windows or a Linux machine. The script creates a new VM or uses an existing one, creates a Log Analytics (LA) workspace, installs the Microsoft Monitoring Agent, and registers the machine to LA workspace. The Windows script is name **Create Automation Windows HybridWorker** and the Linux script is **Create Automation Linux HybridWorker**.
+Two new scripts have been added to the Azure Automation [GitHub repository](https://github.com/azureautomation) addressing one of Azure Automation's key scenarios of setting up a Hybrid Runbook Worker on either a Windows or a Linux machine. The script creates a new VM or uses an existing one, creates a Log Analytics workspace if needed, installs the Log Analytics agent for Windows or Log Analytics agent for Linux, and registers the machine to the Log Analytics workspace. The Windows script is named **Create Automation Windows HybridWorker** and the Linux script is **Create Automation Linux HybridWorker**.
 
-### Azure Automation runbook can be invoked through an Azure Resource Manager (ARM) template webhook
+### Invoke runbook through an Azure Resource Manager template webhook
 
 **Type:** New feature
 
-See [Use a webhook from an ARM template](https://docs.microsoft.com/azure/automation/automation-webhooks#use-a-webhook-from-an-arm-template) for more details.
+See [Use a webhook from an ARM template](./automation-webhooks#use-a-webhook-from-an-arm-template) for more details.
 
 ### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 
 **Type:** New feature
 
-See the [full list](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview#linux) of supported Linux operating systems for more details.
+See the [full list](./update-management/overview.md#supported-operating-systems) of supported Linux operating systems for more details.
 
 ### In-region data residency support for Brazil South and South East Asia 
 
 **Type:** New feature
 
-In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#geo-replication-in-azure-automation) for more details.
+In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](./automation-managing-data#geo-replication-in-azure-automation) for more details.
 
 ## February 2021
 
