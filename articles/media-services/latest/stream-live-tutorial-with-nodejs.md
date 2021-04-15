@@ -42,12 +42,12 @@ The tutorial shows you how to:
 The following items are required to complete the tutorial:
 
 - Install [Node.js](https://nodejs.org/en/download/)
-- Install [Typescript](https://www.typescriptlang.org/)
+- Install [TypeScript](https://www.typescriptlang.org/)
 - [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API and configure your environment variables file.
 - Walk through the [Configure and Connect with Node.js](./configure-connect-nodejs-howto.md) how-to first to understand how to use the Node.js client SDK
 - Install Visual Studio Code or Visual Studio.
-- [Setup your Visual Studio Code environment](https://code.visualstudio.com/Docs/languages/typescript) to support the Typescript language.
+- [Setup your Visual Studio Code environment](https://code.visualstudio.com/Docs/languages/typescript) to support the TypeScript language.
 
 ## Additional settings for live streaming software
 
@@ -88,14 +88,13 @@ The [.env file](https://github.com/Azure-Samples/media-services-v3-node-tutorial
 > [!IMPORTANT]
 > This sample uses a unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you'll end up with multiple Live Events in your account. <br/>Make sure to stop the running Live Events. Otherwise, you'll be **billed**! Run the program all the way through to completion to clean-up resources automatically. If the program crashes, or you inadvertently stop the debugger and break out of the program execution, you should double check the portal to confirm that you have not left any live events in the Running or Stand-by states that would result in unwanted billing charges.
 
-## Examine the Typescript code that performs live streaming
+## Examine the TypeScript code for live streaming
 
 This section examines functions defined in the [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/Live/index.ts) file of the *Live* project.
 
 The sample creates a unique suffix for each resource so that you don't have name collisions if you run the sample multiple times without cleaning up.
 
-
-### Start using Media Services APIs with Node.js
+### Start using Media Services SDK for Node.js with TypeScript
 
 To start using Media Services APIs with Node.js, you need to first add the [@azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices) SDK module using the npm package manager
 
@@ -103,7 +102,7 @@ To start using Media Services APIs with Node.js, you need to first add the [@azu
 npm install @azure/arm-mediaservices
 ```
 
-In the package.json, this is already configured for you, so you just need to run *npm install* to load the modules and dependencies. 
+In the package.json, this is already configured for you, so you just need to run *npm install* to load the modules and dependencies.
 
 1. Open a **command prompt**, browse to the sample's directory.
 1. Change directory into the AMSv3Samples folder.
@@ -130,11 +129,10 @@ While in the *index.ts* file, press F5 to launch the debugger.
 
 ### Create the Media Services client
 
-The following code snippet shows how to create the Media Services client in Node.JS. 
-Notice that in this code we are first setting the longRunningOperationRetryTimeout property of the AzureMediaServicesOptions to 2 seconds to reduce the time it takes to poll for the status of a long running operation on the Azure Resource Management(ARM) endpoint.  Since most of the operations on Live Events are going to be asynchronous, and could take some time to complete, you should reduce this polling interval on the SDK from the default value of 30 seconds to speed up the time it takes to complete major operations like creating Live Events, Starting and Stopping which are all asynchronous calls. Two seconds is the recommended value for most use case scenarios.
+The following code snippet shows how to create the Media Services client in Node.JS.
+Notice that in this code we are first setting the **longRunningOperationRetryTimeout** property of the AzureMediaServicesOptions to 2 seconds to reduce the time it takes to poll for the status of a long running operation on the Azure Resource Management(ARM) endpoint.  Since most of the operations on Live Events are going to be asynchronous, and could take some time to complete, you should reduce this polling interval on the SDK from the default value of 30 seconds to speed up the time it takes to complete major operations like creating Live Events, Starting and Stopping which are all asynchronous calls. Two seconds is the recommended value for most use case scenarios.
 
 [!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateMediaServicesClient)]
-
 
 ### Create a live event
 
@@ -150,13 +148,12 @@ There are also standby modes available to start the Live Event in a lower cost '
 
 [!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateLiveEvent)]
 
-### Create an Asset to record and archive the live event to
+### Create an Asset to record and archive the live event
 
 In this block of code, you will create an empty Asset to use as the "tape" to record your live event archive to.
 When learning these concepts, it is best to think of the "Asset" object as the tape that you would insert into a video tape recorder in the old days. The "Live Output" is the tape recorder machine. The "Live Event" is just the video signal coming into the back of the machine.
 
 Keep in mind tha the Asset, or "tape", can be created at any time. It is just an empty "Asset" that you will hand to the Live Output object, the tape recorder in this analogy.
-
 
 [!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateAsset)]
 
@@ -195,7 +192,7 @@ You first create the signal by creating the "Live Event".  The signal is not flo
 
 To stop the "tape recorder", you call delete on the LiveOutput. This does not actually delete the **contents** of your archive on the tape "Asset", it only deletes the "tape recorder" and stops the archiving. The Asset is always kept with the archived video content until you call delete explicitly on the Asset itself. As soon as you delete the liveOutput, the recorded content of the "Asset" is still available to play back through any already published Streaming Locator URLs. If you wish to remove the ability for a customer to play back the archived content you would first need to remove all locators from the asset and also flush the CDN cache on the URL path if you are using a CDN for delivery. Otherwise the content will live in the CDN's cache for the standard time-to-live setting on the CDN (which could be up to 72 hours.)
 
-#### Create a Streaming Locator
+#### Create a Streaming Locator to publish HLS and DASH manifests
 
 > [!NOTE]
 > When your Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](encode-dynamic-packaging-concept.md) and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
@@ -210,34 +207,17 @@ The method BuildManifestPaths in the sample shows how to deterministically creat
 
 [!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#BuildManifestPaths)]
 
-### Cleaning up resources in your Media Services account
-
-If you're done streaming events and want to clean up the resources provisioned earlier, follow the following procedure:
-
-* Stop pushing the stream from the encoder.
-* Stop the Live Event. Once the Live Event is stopped, it won't incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
-* You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the Live Event is in a stopped state, it won't incur any charges.
-
-In  the sample code, refer to the **cleanUpResources** method for details.
-
 ## Watch the event
 
 To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator. You can use a media player of your choice. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) is available to test your stream at https://ampdemo.azureedge.net.
 
 Live Event automatically converts events to on-demand content when stopped. Even after you stop and delete the event, users can stream your archived content as a video on demand for as long as you don't delete the asset. An asset can't be deleted if it's used by an event; the event must be deleted first.
 
-
-## Clean up resources
+### Cleaning up resources in your Media Services account
 
 If you run the application all the way through, it will automatically clean up all of the resources used in the function called "cleanUpResources". Make sure that the application or debugger runs all the way to completion or you may leak resources and end up with running live events in your account. Double check in the Azure portal to confirm that all resources are cleaned up in your Media Services account.  
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier.
-
-Execute the following CLI command:
-
-```azurecli-interactive
-az group delete --name amsResourceGroup
-```
+In the sample code, refer to the **cleanUpResources** method for details.
 
 > [!IMPORTANT]
 > Leaving the Live Event running incurs billing costs. Be aware, if the project/program crashes or is closed out for any reason, it could leave the Live Event running in a billing state.
