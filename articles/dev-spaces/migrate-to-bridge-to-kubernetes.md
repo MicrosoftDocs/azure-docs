@@ -140,7 +140,6 @@ Learn more about how Bridge to Kubernetes works.
 > [How Bridge to Kubernetes works][how-it-works-bridge-to-kubernetes]
 
 
-[azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
 [btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes

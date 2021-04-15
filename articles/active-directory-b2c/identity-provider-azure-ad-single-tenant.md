@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -102,6 +102,8 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Select **Save**.
 
 ## Add Azure AD identity provider to a user flow 
+
+At this point, the Azure AD identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Azure AD identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Azure AD identity provider.
@@ -224,7 +226,7 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Contoso Employee** to sign in with Azure AD Contoso account.
 

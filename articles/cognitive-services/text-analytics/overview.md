@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
@@ -22,13 +22,19 @@ The API is a part of [Azure Cognitive Services](../index.yml), a collection of m
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
+This documentation contains the following types of articles:
+* [Quickstarts](./quickstarts/client-libraries-rest-api.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* [How-to guides](./how-tos/text-analytics-how-to-call-api.md) contain instructions for using the service in more specific or customized ways.
+* [Concepts](text-analytics-user-scenarios.md) provide in-depth explanations of the service's functionality and features.
+* [Tutorials](./tutorials/tutorial-power-bi-key-phrases.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Sentiment analysis
 
 Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) and find out what people think of your brand or topic by mining the text for clues about positive or negative sentiment. 
 
 The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises [using a container](how-tos/text-analytics-how-to-install-containers.md).
 
-Starting in the v3.1 preview, opinion mining is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+Starting in the v3.1 preview, opinion mining is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
 
 ## Key phrase extraction
 

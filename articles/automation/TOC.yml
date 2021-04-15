@@ -78,6 +78,12 @@
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
           href: automation-use-azure-ad.md
+        - name: Managed identity
+          items:
+            - name: Enable managed identity for Automation
+              href: enable-managed-identity-for-automation.md
+            - name: Disable managed identity for Automation
+              href: disable-managed-identity-for-automation.md
         - name: Manage DNS records used by Automation
           href: how-to/automation-region-dns-records.md
         - name: Connect privately to Automation account
@@ -86,6 +92,8 @@
           href: automation-role-based-access-control.md
         - name: Move Automation account to another subscription
           href: how-to/move-account.md
+        - name: Delete Automation account
+          href: delete-account.md
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
     - name: Shared resources
@@ -114,7 +122,7 @@
           href: troubleshoot/shared-resources.md
     - name: Process automation
       items:
-        - name: Use runbooks and modules in PowerShell Gallery
+        - name: Use existing runbooks and modules
           href: automation-runbook-gallery.md
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
@@ -332,6 +340,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/automation/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation
   - name: Azure PowerShell AzureRM

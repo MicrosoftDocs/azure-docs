@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/29/2021
 ms.author: victorh
 ---
 
@@ -61,7 +61,7 @@ Easily route traffic to your secured hub for filtering and logging without the n
 
 This feature is available only with secured virtual hub deployments.
 
-You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). You can also use third-party providers for V2I traffic filtering as long as Azure Firewall isn't required for B2V or V2V. 
+You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). 
 
 ## Region availability
 
@@ -83,7 +83,6 @@ Azure Firewall Manager has the following known issues:
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
 |DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
 |Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
-|Configuring SNAT private IP address ranges|[Private IP range settings](../firewall/snat-private-range.md) are ignored if Azure Firewall policy is configured. The default Azure Firewall behavior is used, where it doesn’t SNAT Network rules when the destination IP address is in a private IP address range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigating|
 |Some firewall settings are not migrated when the firewall is migrated to use Firewall Policy|Availability Zones and SNAT private addresses are not migrated when you migrate to Azure Firewall Policy.|Investigating| 
 
 ## Next steps

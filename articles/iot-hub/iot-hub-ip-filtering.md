@@ -5,7 +5,7 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/22/2021
 ms.author: jlian
 ---
 
@@ -27,11 +27,11 @@ By default, the **IP Filter** grid in the portal for an IoT hub is empty. This d
 
 ## Add or edit an IP filter rule
 
-To add an IP filter rule, select **+ Add IP Filter Rule**.
+To add an IP filter rule, select **+ Add IP Filter Rule**. To quickly add your computer's IP address, click the **Add your client IP address**. 
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT hub":::
 
-After selecting **Add IP Filter Rule**, fill in the fields.
+After selecting **Add IP Filter Rule**, fill in the fields. These fields are pre-filled for you if you selected to add your client IP address.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule":::
 
@@ -83,7 +83,7 @@ For example, if you want to accept addresses in the range `192.168.100.0/22` and
 
 ### Azure portal 
 
-IP filter rules are also applied when using IoT Hub through Azure portal. This is because API calls to the IoT Hub service are made directly using your browser with your credentials, which is consistent with other Azure services. To access IoT Hub using Azure portal when IP filter is enabled, add your computer's IP address to the allow list. 
+IP filter rules are also applied when using IoT Hub through Azure portal. This is because API calls to the IoT Hub service are made directly using your browser with your credentials, which is consistent with other Azure services. To access IoT Hub using Azure portal when IP filter is enabled, add your computer's IP address to the allowlist. 
 
 ## Retrieve and update IP filters using Azure CLI
 

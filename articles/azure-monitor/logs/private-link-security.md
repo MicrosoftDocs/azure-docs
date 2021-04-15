@@ -46,7 +46,7 @@ Some Azure Monitor services use global endpoints, meaning they serve requests ta
 When you set up a Private Link connection, your DNS is updated to map Azure Monitor endpoints to private IP addresses from your VNet's IP range. This change overrides any previous mapping of these endpoints, which can have meaningful implications, reviewed below. 
 
 ### Azure Monitor Private Link applies to all Azure Monitor resources - it's All or Nothing
-Since some Azure Monitor endpoints are global, it's impossible to create a Private Link connection for a specific component or workspace. Instead, when you set up a Private Link to a single Application Insights component, your DNS records are updated for **all** Application Insights component. Any attempt to ingest or query a component will go through the Private Link, and possibly fail. Similarly, setting up a Private Link to a single workspace will cause all Log Analytics queries to go through the Private Link query endpoint (but not ingestion requests, which have workspace-specific endpoints).
+Since some Azure Monitor endpoints are global, it's impossible to create a Private Link connection for a specific component or workspace. Instead, when you set up a Private Link to a single Application Insights component or Log Analytics workspace, your DNS records are updated for **all** Application Insights components. Any attempt to ingest or query a component will go through the Private Link, and possibly fail. With regard to Log Analytics, ingestion and configuration endpoints are workspace-specific, meaning the Private-link setup will only apply for the specified workspaces. Ingestion and configuration of other workspaces will be directed to the default public Log Analytics endpoints.
 
 ![Diagram of DNS overrides in a single VNet](./media/private-link-security/dns-overrides-single-vnet.png)
 
@@ -54,7 +54,9 @@ That's true not only for a specific VNet, but for all VNets that share the same 
 
 > [!NOTE]
 > To conclude: 
-> Once your setup a Private Link connection to a single resource, it applies to all Azure Monitor resources in your network - it's All or Nothing. That effectively means you should add all Azure Monitor resources in your network to your AMPLS, or none of them.
+> Once your setup a Private Link connection to a single resource, it applies to Azure Monitor resources across your network. For Application Insights resources, that's 'All or Nothing'. That effectively means you should add all Application Insights resources in your network to your AMPLS, or none of them.
+> 
+> To handle data exfiltration risks, our recommendation is to add all Application Insights and Log Analytics resources to your AMPLS, and block your networks egress traffic as much as possible.
 
 ### Azure Monitor Private Link applies to your entire network
 Some networks are composed of multiple VNets. If the VNets use the same DNS server, they will override each other's DNS mappings and possibly break each other's communication with Azure Monitor (see [The issue of DNS overrides](#the-issue-of-dns-overrides)). Ultimately, only the last VNet will be able to communicate with Azure Monitor, since the DNS will map Azure Monitor endpoints to private IPs from this VNets range (which may not be reachable from other VNets).
@@ -225,7 +227,7 @@ Restricting access as explained above doesn't apply to the Azure Resource Manage
 
 ### Log Analytics solution packs download
 
-To allow the Log Analytics Agent to download solution packs, add the appropriate fully qualified domain names to your firewall allow list. 
+To allow the Log Analytics Agent to download solution packs, add the appropriate fully qualified domain names to your firewall allowlist. 
 
 
 | Cloud environment | Agent Resource | Ports | Direction |
@@ -233,6 +235,10 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 |Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
+
+
+>[!NOTE]
+> Starting April 19, 2021 the above setting won't be required, and you'll be able to reach the solution packs storage account through the private link. The new capability requires re-creating the AMPLS (on April 19th, 2021 or later) and the Private Endpoint connected to it. It will not apply to existing AMPLSs and Private Endpints.
 
 ## Configure Application Insights
 
@@ -242,7 +248,7 @@ Go to the Azure portal. In your Azure Monitor Application Insights component res
 
 First, you can connect this Application Insights resource to Azure Monitor Private Link scopes that you have access to. Select **Add** and select the **Azure Monitor Private Link Scope**. Select Apply to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). 
 
-Second, you can control how this resource can be reached from outside of the private link scopes (AMPLS) listed previously. If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes can't upload data to this component. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes can't access data in this Application Insights resource. That data includes access to APM logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. 
+Then, you can control how this resource can be reached from outside of the private link scopes (AMPLS) listed previously. If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes can't upload data to this component. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes can't access data in this Application Insights resource. That data includes access to APM logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. 
 
 > [!NOTE]
 > Non-portal consumption experiences must also run on the private-linked VNET that includes the monitored workloads.

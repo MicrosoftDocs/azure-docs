@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -60,6 +60,8 @@ To enable sign-in for users with an Amazon account in Azure Active Directory B2C
 1. Select **Save**.
 
 ## Add Amazon identity provider to a user flow 
+
+At this point, the Amazon identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Amazon identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Amazon identity provider.
@@ -169,7 +171,7 @@ You can define an Amazon account as a claims provider by adding it to the **Clai
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Amazon** to sign in with Amazon account.
 

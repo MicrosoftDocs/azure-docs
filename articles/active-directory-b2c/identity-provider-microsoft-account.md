@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -64,6 +64,8 @@ To enable sign-in for users with a Microsoft account in Azure Active Directory B
 1. Select **Save**.
 
 ## Add Microsoft identity provider to a user flow 
+
+At this point, the Microsoft identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Microsoft identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Microsoft identity provider.
@@ -190,7 +192,7 @@ You've now configured your policy so that Azure AD B2C knows how to communicate 
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Microsoft** to sign in with Microsoft account.
 

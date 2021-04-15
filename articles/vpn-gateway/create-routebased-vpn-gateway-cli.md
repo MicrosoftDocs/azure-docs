@@ -70,7 +70,7 @@ az network public-ip create \
 
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group) command.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway) command.
 
 If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It does not mean that the VPN gateway is created immediately.
 

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device builder, I want to understand the IoT Plug and Play bridge, learn how to extend it, and learn how to run it on IoT devices, gateways, and as an IoT Edge module.
+#Customer intent: As a device builder, I want to understand the IoT Plug and Play bridge, learn how to extend it, and learn how to run it on IoT devices, gateways, and as an IoT Edge module.
 ---
 
 # Build and deploy the IoT Plug and Play bridge

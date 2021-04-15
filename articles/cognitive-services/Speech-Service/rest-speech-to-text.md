@@ -46,7 +46,8 @@ See the full Speech-to-text REST API v3.0 Reference [here](https://centralus.dev
 
 ## Speech-to-text REST API for short audio
 
-As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert Speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API for short audio is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
+As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert Speech-to-text using a REST API.
+The REST API for short audio is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
 
 Before using the Speech-to-text REST API for short audio, consider the following:
 
@@ -147,7 +148,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 We strongly recommend streaming (chunked) uploading while posting the audio data, which can significantly reduce the latency. See [sample code in different programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) for how to enable streaming.
 
 >[!NOTE]
->The pronunciation assessment feature is currently only available on `en-US` language.
+> The pronunciation assessment feature currently supports `en-US` language, which is available on all [speech-to-text regions](regions.md#speech-to-text). The support for `en-GB` and `zh-CN` languages is under preview, which is available on `westus`, `eastasia` and `centralindia` regions.
 
 ### Sample request
 
@@ -336,3 +337,4 @@ A typical response for recognition with pronunciation assessment:
 - [Customize acoustic models](./how-to-custom-speech-train-model.md)
 - [Customize language models](./how-to-custom-speech-train-model.md)
 - [Get familiar with Batch transcription](batch-transcription.md)
+

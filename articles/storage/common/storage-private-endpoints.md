@@ -3,12 +3,12 @@ title: Use private endpoints
 titleSuffix: Azure Storage
 description: Overview of private endpoints for secure access to storage accounts from virtual networks.
 services: storage
-author: santoshc
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.author: santoshc
+ms.date: 03/16/2021
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ---
@@ -49,6 +49,16 @@ You can secure your storage account to only accept connections from your VNet, b
 
 ## Creating a private endpoint
 
+To create a private endpoint by using the Azure Portal, see [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/tutorial-private-endpoint-storage-portal.md).
+
+To create a private endpoint by using PowerShell or the Azure CLI, see either of these articles. Both of them feature an Azure web app as the target service, but the steps to create a private link are the same for an Azure Storage account.
+
+- [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
+
+- [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 When you create a private endpoint, you must specify the storage account and the storage service to which it connects. 
 
 You need a separate private endpoint for each storage resource that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md). On the private endpoint, these storage services are defined as the **target sub-resource** of the associated storage account. 
@@ -60,13 +70,6 @@ If you create a private endpoint for the Data Lake Storage Gen2 storage resource
 > Make sure to create a general-purpose v2(Standard or Premium) storage account.
 
 For read access to the secondary region with a storage account configured for geo-redundant storage, you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover. For more information about storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
-
-For more detailed information on creating a private endpoint for your storage account, refer to the following articles:
-
-- [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Create a private endpoint using the Private Link Center in the Azure portal](../../private-link/create-private-endpoint-portal.md)
-- [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
-- [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 
@@ -135,7 +138,7 @@ Keep in mind the following known issues about private endpoints for Azure Storag
 
 ### Storage access constraints for clients in VNets with private endpoints
 
-Clients in VNets with existing private endpoints face constraints when accessing other storage accounts that have private endpoints. For instance, suppose a VNet N1 has a private endpoint for a storage account A1 for Blob storage. If storage account A2 has a private endpoint in a VNet N2 for Blob storage, then clients in VNet N1 must also access Blob storage in account A2 using a private endpoint. If storage account A2 does not have any private endpoints for Blob storage, then clients in VNet N1 can access Blob storage in that account without a private endpoint.
+Clients in VNets with existing private endpoints face constraints when accessing other storage accounts that have private endpoints. For example, suppose a VNet N1 has a private endpoint for a storage account A1 for Blob storage. If storage account A2 has a private endpoint in a VNet N2 for Blob storage, then clients in VNet N1 must also access Blob storage in account A2 using a private endpoint. If storage account A2 does not have any private endpoints for Blob storage, then clients in VNet N1 can access Blob storage in that account without a private endpoint.
 
 This constraint is a result of the DNS changes made when account A2 creates a private endpoint.
 

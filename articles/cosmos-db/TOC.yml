@@ -126,6 +126,8 @@
       items:
         - name: Compliance
           href: compliance.md
+        - name: Data residency
+          href: data-residency.md
     - name: Automatic recommendations
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -150,6 +152,8 @@
               href: create-sql-api-java.md
             - name: Spring Data app
               href: create-sql-api-spring-data.md
+            - name: Spark v3 app
+              href: create-sql-api-spark.md              
             - name: Node.js app
               href: create-sql-api-nodejs.md
             - name: Python app
@@ -755,6 +759,8 @@
                   href: troubleshoot-unauthorized.md
                 - name: Troubleshoot forbidden
                   href: troubleshoot-forbidden.md
+                - name: Troubleshoot bad request
+                  href: troubleshoot-bad-request.md
                 - name: Availability issues in multiregional environments
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -831,7 +837,7 @@
               href: visualize-qlik-sense.md
         - name: Built-in analytics with Apache Spark
           items:
-            - name: Azure Databricks Spark connector
+            - name: Azure Databricks Spark 2 OLTP connector
               href: spark-connector.md
             - name: Streaming with Apache Kafka and Cosmos DB
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -880,9 +886,9 @@
             - name: Azure Event Hubs and Azure Storage
               href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
             - name: Use Spring Boot Starter
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Spring Data developer guide
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: ODBC driver
               href: odbc-driver.md
     - name: Reference
@@ -911,10 +917,14 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: Spring Data Connector v3
               href: sql-api-sdk-java-spring-v3.md
-            - name: Spark Connector
+            - name: Spark 3 OLTP Connector (Preview)
+              href: sql-api-sdk-java-spark-v3.md              
+            - name: Spark 2 OLTP Connector
               href: sql-api-sdk-java-spark.md
             - name: Java bulk executor library v2
               href: sql-api-sdk-bulk-executor-java.md
+        - name: Azure CLI
+          href: /cli/azure/cosmosdb
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -1003,7 +1013,7 @@
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-cassandra.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Troubleshoot common issues
           href: cassandra-troubleshoot.md
         - name: Cassandra and Spark
@@ -1157,7 +1167,7 @@
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1238,7 +1248,7 @@
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
           href: templates-samples-gremlin.md
           displayName: ARM
@@ -1411,6 +1421,8 @@
           href: how-to-restrict-user-data.md
         - name: Configure customer-managed keys
           href: how-to-setup-cmk.md
+        - name: Use a managed identity
+          href: how-to-setup-managed-identity.md
     - name: Enterprise readiness
       items:
         - name: Request quota increase

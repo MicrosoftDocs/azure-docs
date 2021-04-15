@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild web ser
 description: Rebuild Studio (classic) web services as pipeline endpoints in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: xiaoharper
