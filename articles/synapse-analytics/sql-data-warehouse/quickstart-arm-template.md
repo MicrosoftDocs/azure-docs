@@ -4,11 +4,14 @@ description: Learn how to create an Azure Synapse Analytics SQL pool by using Az
 services: azure-resource-manager
 author: julieMSFT
 ms.service: azure-resource-manager
-ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
+ms.topic: quickstart
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) by using an ARM template
