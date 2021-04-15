@@ -28,12 +28,11 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-automl-runtime**
     + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
   + **azureml-core**
-    + Users can now override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable
-    + Fixed bug where docker settings in Environment object are not respected.
+    + Added the ability to override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable.
+    + Fixed a bug where docker settings in Environment object are not respected.
     + Allowing a user to partition data to the destination specified by target
-    + Adding a custom mode to the OutputDatasetConfig and enabling a user to pass through created Datasets in pipelines through a link function. File path destinations support placeholders. These support the enhancements made to enable Tabular Partitioning for PRS.
-    + Addition of new KubernetesCompute compute type to azureml-core.
-    + Fix the additional period in experimental doc link. The additional period causes the link navigation to fail.
+    + Added a custom mode to the OutputDatasetConfig to enable passing created Datasets in pipelines through a link function. These support enhancements made to enable Tabular Partitioning for PRS.
+    + Added a new KubernetesCompute compute type to azureml-core.
   + **azureml-pipeline-core**
     + Adding a custom mode to the OutputDatasetConfig and enabling a user to pass through created Datasets in pipelines through a link function. File path destinations support placeholders. These support the enhancements made to enable Tabular Partitioning for PRS.
     + Addition of new KubernetesCompute compute type to azureml-core.
