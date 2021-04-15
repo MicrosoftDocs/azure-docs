@@ -37,6 +37,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     - `customlocation` (version 0.1.0 or later) 
   
     ```azurecli
+    az extension add --name appservice_kube
     az extension add --name connectedk8s
     az extension add --name k8s-extension
     az extension add --name customlocation
@@ -45,6 +46,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     If you've previously installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the latest version using the following command:
 
     ```azurecli
+    az extension update --name appservice_kube
     az extension update --name connectedk8s
     az extension update --name k8s-extension
     az extension update --name customlocation
@@ -94,19 +96,19 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         ```
     * Azure App Service on Azure Arc
 
-        ```cli
+        ```azurecli
         az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
         ```
 
     * Event Grid on Kubernetes
 
-        ```cli
+        ```azurecli
           az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
         ```
 
     * Azure API Management on Azure Arc
 
-        ```cli
+        ```azurecli
         az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.ApiManagement.Gateway --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName>  --scope cluster --release-namespace {namespace} --configuration-settings gateway.endpoint='{Configuration URL}' --configuration-settings gateway.authKey='{token}' --configuration-settings service.type='NodePort'
         ```
         
