@@ -77,7 +77,7 @@ items:
       href: troubleshoot-connections.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
-    - name: Source
+    - name: Sources
       items:
       - name: Manage data sources
         href: manage-data-sources.md

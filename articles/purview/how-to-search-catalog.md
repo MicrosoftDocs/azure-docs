@@ -51,7 +51,7 @@ Below are the operators that can be used to compose a search query. Operators ca
 | () | Groups a set of keywords and operators together. When combining multiple operators, parenthesis specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
 | "" | Specifies exact content in a phrase that the query must match to. | The query `"hive database"` returns assets that contain the phrase "hive database" in their properties |
 | * | A wildcard that matches on one to many characters. Can't be the first character in a keyword. | The query `dat*` returns assets that have properties that starts with 'dat' such as 'data' or 'database'. |
-| ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query `dat?` returns assets that have properties that start with 'dat' and are four letters such as 'date' or 'dataa'. |
+| ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query `dat?` returns assets that have properties that start with 'dat' and are four letters such as 'date' or 'data'. |
 
 > [!Note]
 > Always specify Boolean operators (**AND**, **OR**, **NOT**) in all caps. Otherwise, case doesn't matter, nor do extra spaces.
