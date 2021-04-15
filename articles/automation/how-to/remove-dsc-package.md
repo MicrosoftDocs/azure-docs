@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # How to remove a DSC package
 
-This article provides a step-by-step guide for safely removing a desired state configuration (DSC) from the Automation State Configuration (DSC) managed nodes. For both Windows and Linux nodes, you need to [delete the configuration](#delete-a-configuration-from-the-Azure-portal) and [unregister the node](#unregister-a-node). For Linux nodes only, you can optionally [remove the DSC and OMI packages](#remove-the-DSC-package-from-a-Linux-node) as well.
+This article provides a step-by-step guide for safely removing a desired state configuration (DSC) from the Automation State Configuration (DSC) managed nodes. For both Windows and Linux nodes, you need to [delete the configuration](#delete-a-configuration-from-the-azure-portal) and [unregister the node](#unregister-a-node). For Linux nodes only, you can optionally [remove the DSC and OMI packages](#remove-the-dsc-package-from-a-linux-node) as well.
 
 ## Delete a configuration from the Azure portal
 
@@ -70,4 +70,4 @@ dpkg -P <package name>
 
 - If you want to re-register the node, or register a new one, see [Register a VM to be managed by State Configuration](/azure/automation/tutorial-configure-servers-desired-state#register-a-vm-to-be-managed-by-state-configuration).
 
-- If you want to add the configuration back and recompile, see [Compile DSC configurations in Azure Automation State Configuration](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+- If you want to add the configuration back and recompile, see [Compile DSC configurations in Azure Automation State Configuration](/azure/automation/automation-dsc-compile).
