@@ -5,10 +5,8 @@ services: azure-resource-manager
 author: julieMSFT
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.topic: quickstart
 ms.custom:
   - subject-armqs
   - mode-arm

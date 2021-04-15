@@ -4,7 +4,6 @@ description: Lists of third-party machine learning and artificial intelligence p
 author: periclesrocha
 manager: charlesf
 ms.service: synapse-analytics
-ms.subservice: sql-dw
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 06/22/2020

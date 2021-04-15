@@ -6,7 +6,6 @@ author: djpmsft
 ms.service: synapse-analytics
 ms.subservice: pipeline 
 ms.topic: conceptual
-ms.subservice: pipeline 
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
