@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/14/2021
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -133,8 +133,10 @@ You can programmatically retrieve the current list of service tags together with
 - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
-> While it's in public preview, the Discovery API might return information that's less current than information returned by the JSON downloads. (See the next section.)
+> It takes up to 4 weeks for new Service Tag data to propagate in the API results. The change number in the response metadata will be incremented when this happens. There may be temporary differences in results when different location values are specified. When using the results to create NSG rules, you should set the location paramater to match the NSG's region. 
 
+> [!NOTE]
+> The API data will represent those tags which can be used with NSG rules, a subset of the tags currently in the downloadable JSON file. While in public preview, we do not guarantee that the data will remain the same from one update to the next. 
 
 ### Discover service tags by using downloadable JSON files 
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
