@@ -4,7 +4,7 @@ description: This article  provides information on Web Application Firewall DRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/24/2021
+ms.date: 04/15/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -730,6 +730,7 @@ Front Door.
 |Bot300500|Site health monitoring services|
 |Bot300600|Unknown bots detected by threat intelligence|
 |Bot300700|Other bots|
+
 ---
 
 
