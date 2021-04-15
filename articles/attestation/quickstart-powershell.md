@@ -116,6 +116,11 @@ $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
+ > [!NOTE]
+   > Once an attestation provider is created in this resource group, an Azure AD user must have "Attestation Contributor" role on the provider to perform operations like policy configuration/ policy signer certificates management. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
+   > Please refer [examples of unauthorized exception scenarios with trouble shooting steps](/azure/attestation/troubleshoot-guide#1-http401--unauthorized-exception) for more information
+
+
 ## Create and manage an attestation provider
 
 New-AzAttestation creates an attestation provider.
