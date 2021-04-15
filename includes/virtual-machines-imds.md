@@ -422,7 +422,7 @@ Data | Description |
 
 ### Get user data
 
-When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. To set up user data, utilize the quickstart template [here](aka.ms/ImdsUserDataArmTemplate). The sample below shows how to retrieve this data through IMDS.
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. To set up user data, utilize the quickstart template [here](https://aka.ms/ImdsUserDataArmTemplate). The sample below shows how to retrieve this data through IMDS.
 
 > [!NOTE]
 > This feature is released with version `2021-01-01` and depends upon an update to the Azure platform, which is currently being rolled out and may not yet be available in every region.
