@@ -130,13 +130,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Gateway** field, select the Security Gateway, which needs to perform the SAML authentication.
 
-    b. In the **Service** field, select the service, through which to authenticate (Identity Awareness).
+    b. In the **Service** field, select **Remote Access VPN** from the dropdown.
 
     c. Copy **Identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
 
     d. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    e. Select **Import the Metadata File** to upload the downloaded **Certificate (Base64)** from the Azure portal.
+    e. Select **Import Metadata File** to upload the downloaded **Certificate (Base64)** from the Azure portal.
 
     > [!NOTE]
     > Alternatively you can also select **Insert Manually** to paste manually the **Entity ID** and **Login URL** values into the corresponding fields, and to upload the **Certificate File** from the Azure portal.
