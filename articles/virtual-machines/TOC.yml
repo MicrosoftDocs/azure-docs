@@ -251,6 +251,8 @@
         href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
+    - name: States and billing
+      href: states-billing.md
     - name: vCPU quotas
       items:
       - name: CLI
@@ -946,8 +948,6 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
-  - name: States and billing
-    href: states-billing.md
   - name: Azure Regions
     href: regions.md
 - name: Disks
