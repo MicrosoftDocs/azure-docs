@@ -36,9 +36,9 @@ Sign in to the Azure portal at https://portal.azure.com
 
 ### SAP NetWeaver provider
 
-#### Pre-requisites for adding NetWeaver provider
+#### Prerequisites for adding NetWeaver provider
 
-The “SAP start service” provides a host of services including monitoring the SAP system. We are leveraging the “SAPControl” which is a SOAP web service interface that exposes these capabilities. This SAPControl webservice Interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) webservice methods. To be able to fetch specific metrics, you will need to unprotect some methods. To unprotect the required methods for the current release, please follow the steps below for each SAP system:-
+The “SAP start service” provides a host of services including monitoring the SAP system. We are leveraging the “SAPControl” which is a SOAP web service interface that exposes these capabilities. This SAPControl webservice Interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) webservice methods. To be able to fetch specific metrics, you will need to unprotect some methods. To unprotect the required methods for the current release, please follow the steps below for each SAP system:
 
 1. Open an SAP GUI connection to the SAP server
 2. Login using an administrative account
@@ -143,7 +143,7 @@ The “SAP start service” provides a host of services including monitoring the
 1. Select OS (Linux) from the drop-down 
 
    >[!IMPORTANT]
-   > To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Use this [link] (https://prometheus.io/download/#node_exporter) to find latest version. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
+   > To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Use this [link](https://prometheus.io/download/#node_exporter) to find latest version. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
 
 2. Input a name, which will be the identifier for the BareMetal Instance.
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
