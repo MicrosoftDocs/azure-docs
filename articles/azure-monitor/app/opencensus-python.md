@@ -5,6 +5,8 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
+author: lzchen
+ms.author: lechen
 ---
 
 # Set up Azure Monitor for your Python application
