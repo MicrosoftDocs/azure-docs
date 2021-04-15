@@ -44,6 +44,8 @@
     href: how-to-edit-published-device.md
   - name: How to certify a indirectly connected device
     href: how-to-indirectly-connected-devices.md
+  - name: How to troubleshoot your IoT Plug and Play device
+    href: how-to-troubleshoot-pnp.md
   - name: How to use the components feature
     href: how-to-using-the-components-feature.md
 - name: Resources

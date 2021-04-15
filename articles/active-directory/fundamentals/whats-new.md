@@ -206,7 +206,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** MS Graph  
 **Product capability:** B2B/B2C
 
-[MS Graph API for the Company Branding](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties?view=graph-rest-1.0)  is available for the Azure AD or Microsoft 365 login experience to allow the management of the branding parameters programmatically.
+[MS Graph API for the Company Branding](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties)  is available for the Azure AD or Microsoft 365 login experience to allow the management of the branding parameters programmatically.
 
 ---
 
@@ -304,7 +304,7 @@ Customers can now reinvite existing external guest users to reset their redempti
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -902,7 +902,7 @@ Cloud provisioning agent has been released in public preview and is now availabl
  
 Previously, you could recover BitLocker keys via the /bitlocker endpoint. We'll eventually be deprecating this endpoint, and customers should begin consuming the API that now falls under /informationProtection. 
 
-See [BitLocker recovery API](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) for updates to the documentation to reflect these changes.
+See [BitLocker recovery API](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) for updates to the documentation to reflect these changes.
 
 ---
 
@@ -1070,7 +1070,7 @@ The Integration Assistant (preview) experience is now available for Azure AD B2C
 
 You can now view the template ID of each Azure AD role in the Azure portal. In Azure AD, select  **description** of the selected role. 
 
-It's recommended that customers use role template IDs in their PowerShell script and code, instead of the display name. Role template ID is supported for use to [directoryRoles](/graph/api/resources/directoryrole) and [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) objects. For more information on role template IDs, see [Azure AD built-in roles](../roles/permissions-reference.md).
+It's recommended that customers use role template IDs in their PowerShell script and code, instead of the display name. Role template ID is supported for use to [directoryRoles](/graph/api/resources/directoryrole) and [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta&preserve-view=true) objects. For more information on role template IDs, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
 ---
 
