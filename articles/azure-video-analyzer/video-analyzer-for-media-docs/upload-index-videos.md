@@ -23,8 +23,8 @@ When uploading videos with Video Analyzer for Media API, you have the following 
 
 The article shows how to upload and index your videos with these options:
 
-* [The Video Analyzer for Media website](#upload-and-index-a-video-using-the-video-indexer-website) 
-* [The Video Analyzer for Media APIs](#upload-and-index-with-api)
+* The Video Analyzer for Media website 
+* The Video Analyzer for Media APIs 
 
 ## Supported file formats for Video Analyzer for Media
 

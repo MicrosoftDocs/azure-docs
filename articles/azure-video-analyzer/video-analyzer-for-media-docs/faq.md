@@ -69,7 +69,7 @@ For the comprehensive list, see [Uploading considerations and limitations](uploa
 
 ### How long does it take Video Analyzer for Media to extract insights from media?
 
-The amount of time it takes to index a video or audio file, both using the Video Analyzer for Media API and the Video Analyzer for Media web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](../previous/media-services-scale-media-processing-overview.md) available, and whether the [streaming endpoint](../previous/media-services-streaming-endpoints-overview.md) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
+The amount of time it takes to index a video or audio file, both using the Video Analyzer for Media API and the Video Analyzer for Media web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](../../media-services/previous/media-services-scale-media-processing-overview.md) available, and whether the [streaming endpoint](../../media-services/previous/media-services-streaming-endpoints-overview.md) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
 
 ### Can I create customized workflows to automate processes with Video Analyzer for Media?
 

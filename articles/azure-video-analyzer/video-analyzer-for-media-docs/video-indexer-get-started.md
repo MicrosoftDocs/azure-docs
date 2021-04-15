@@ -23,7 +23,7 @@ To start developing with Video Analyzer for Media, browse to the [Video Analyzer
 Once you start using Video Analyzer for Media, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
 
 > [!NOTE]
-> Review [planned Video Analyzer for Media website authenticatication changes](release-notes.md#planned-video-indexer-website-authenticatication-changes).
+> Review [planned Video Analyzer for Media website authenticatication changes](./release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## Upload a video using the Video Analyzer for Media website
 
