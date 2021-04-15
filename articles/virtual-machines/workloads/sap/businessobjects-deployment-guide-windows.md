@@ -58,18 +58,18 @@ In this section, we'll create two virtual machines (VMs) with Windows operating 
 
 4. Create Virtual Machine 1 **(azuswinboap1).**
 
-   - You can either use custom image or choose an image from Azure Marketplace. Refer to [Deploying a VM from the Azure Marketplace for SAP](deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap) based on your need.
+   - You can either use custom image or choose an image from Azure Marketplace. Refer to [Deploying a VM from the Azure Marketplace for SAP](../sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](../sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap) based on your need.
 
 5. Create Virtual Machine 2 **(azuswinboap2).**
 6. Add one Premium SSD disk. It will be used as SAP BOBI Installation directory.
 
 ## Provision Azure Premium Files
 
-Before you continue with the setup for Azure Files, familiarize yourself with the [Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) documentation.
+Before you continue with the setup for Azure Files, familiarize yourself with the [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) documentation.
 
 Azure Files offers standard file shares hosted on hard disk-based (HDD-based) hardware, and premium file shares hosted on solid-state disk-based (SSD-based) hardware. For SAP BusinessObjects file store, we recommend using Azure premium files.
 
-Azure premium file shares are available with local and zone redundancy in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure storage redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=/azure/storage/files/toc.json).
+Azure premium file shares are available with local and zone redundancy in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=/azure/storage/files/toc.json).
 
 ### Deploy Azure Files storage account and NFS shares
 
@@ -80,7 +80,7 @@ Azure file shares are deployed into storage accounts, which are top-level object
 
 The storage account will be accessed via [private end point](../../../storage/files/storage-files-networking-endpoints.md), deployed in the same virtual network of SAP BOBI Platform. With this setup, the traffic form your SAP system never leaves the virtual network security boundaries. SAP systems often contain sensitive and business critical data and staying within the boundaries of the virtual network is important security consideration for many customers.
 
-If you need to access the storage account from different virtual network, then you can use [Azure VNET peering](../../../virtual-network/virtual-network-peering-overview).
+If you need to access the storage account from different virtual network, then you can use [Azure VNET peering](../../../virtual-network/virtual-network-peering-overview.md).
 
 #### Azure Files storage account
 
@@ -96,11 +96,11 @@ If you need to access the storage account from different virtual network, then y
 
    - For Replication label, choose redundancy level. Select **Locally redundant storage (LRS)**.
 
-     For Premium FileStorage, local-redundant storage (LRS) and zone-redundant storage (ZRS) are the only options available. So based on your deployment strategy (availability set or availability zone), choose the appropriate redundancy level. For more information, See [Azure storage redundancy](../../../storage/common/storage-redundancy).
+     For Premium FileStorage, local-redundant storage (LRS) and zone-redundant storage (ZRS) are the only options available. So based on your deployment strategy (availability set or availability zone), choose the appropriate redundancy level. For more information, See [Azure storage redundancy](../../../storage/common/storage-redundancy.md).
 
    - Select Next.
 
-3. On **Networking** tab, select [private endpoint](../../../storage/files/storage-files-networking-endpoints) as connectivity method. Refer [Azure Files networking considerations](../../../storage/files/storage-files-networking-overview.md) for detailed information.
+3. On **Networking** tab, select [private endpoint](../../../storage/files/storage-files-networking-endpoints.md) as connectivity method. Refer [Azure Files networking considerations](../../../storage/files/storage-files-networking-overview.md) for detailed information.
 
    - Select **Add** in the private endpoint section.
    - Select **Subscription**, **Resource group**, and **Location**.
@@ -111,7 +111,7 @@ If you need to access the storage account from different virtual network, then y
    - Select your **private DNS zone** from the drop-down.
    - Select **OK**, to go back to the Networking tab in create storage account.
 
-4. On **Data protection** tab, configure the soft-delete policy for Azure file shares in your storage account. By default, soft-delete functionality is turned off. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](../../../storage/files/storage-files-prevent-file-share-deletion).
+4. On **Data protection** tab, configure the soft-delete policy for Azure file shares in your storage account. By default, soft-delete functionality is turned off. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](../../../storage/files/storage-files-prevent-file-share-deletion.md).
 
 5. On **Advanced** tab, check different security options.
 
@@ -123,7 +123,7 @@ For details on how to create storage account, see [Create FileStorage Storage Ac
 
 #### Create Azure File Shares
 
-Next step is to create Azure Files in the storage account. Azure files use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the storage requirement to Azure files services rather than being billed based on what you use. To understand more on this model, see [Provisioned model](../../../storage/files/understanding-billing#provisioned-model). In this example, we create two Azure Files - frsinput (256 GB) and frsoutput (256 GB) for SAP BOBI file store.
+Next step is to create Azure Files in the storage account. Azure files use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the storage requirement to Azure files services rather than being billed based on what you use. To understand more on this model, see [Provisioned model](../../../storage/files/understanding-billing.md#provisioned-model). In this example, we create two Azure Files - frsinput (256 GB) and frsoutput (256 GB) for SAP BOBI file store.
 
 Navigate to storage account **azusbobi** > **File shares**
 
@@ -145,16 +145,16 @@ SAP BusinessObjects BI application requires a partition on which its binaries ca
 
 In this example, SAP BOBI application will be installed on separate partition (F: ). Initialize the premium SSD disk that you've attached during virtual machine provisioning.
 
-1. **[A]** In case, no data disk is attached to virtual machine (azuswinboap1 and azuswinboap2), follow the steps mentioned in [Add a disk disk](../../windows/attach-managed-disk-portal#add-a-data-disk) to attach a new managed data disk.
-2. **[A]** After managed disk is attached to virtual machine, initialize the disk by following the steps mentioned in [Initialize a new data disk](../../windows/attach-managed-disk-portal#initialize-a-new-data-disk) document.
+1. **[A]** In case, no data disk is attached to virtual machine (azuswinboap1 and azuswinboap2), follow the steps mentioned in [Add a disk disk](../../windows/attach-managed-disk-portal.md#add-a-data-disk) to attach a new managed data disk.
+2. **[A]** After managed disk is attached to virtual machine, initialize the disk by following the steps mentioned in [Initialize a new data disk](../../windows/attach-managed-disk-portal.md#initialize-a-new-data-disk) document.
 
 ### Mount Azure Premium Files
 
 To use Azure files as file store you must mount it, which means assigning it a drive letter or mount point path.
 
-1. **[A]** To mount Azure file share, follow the steps described in [Mount the Azure file share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows#mount-the-azure-file-share) document.
+1. **[A]** To mount Azure file share, follow the steps described in [Mount the Azure file share](../../../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) document.
 
-To mount Azure file share on windows server, ensure port 445 is open. The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if the firewall is blocking port 445 with the `Test-NetConnection` cmdlet mentioned in [troubleshooting](../../../storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked) guide.
+To mount Azure file share on windows server, ensure port 445 is open. The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if the firewall is blocking port 445 with the `Test-NetConnection` cmdlet mentioned in [troubleshooting](../../../storage/files/storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) guide.
 
 ## Configure CMS database - Azure SQL
 
@@ -186,8 +186,8 @@ After provisioning SQL database server, browse to the resource **azussqlbodb** a
 1. On azussqlbodb **Overview** page, select **Create database**.
 2. On **Basics** tab, complete all required fields -
    - Enter **Database name** (for example, bocms or boaudit).
-   - On **Compute + storage** option, select **Configure database** and choose the appropriate model based on your sizing result. Refer [Sizing models for Azure SQL database](businessobjects-deployment-guide#sizing-models-for-azure-sql-database) to get insight on the options. 
-3. On **Networking** tab, select [private endpoint](../../../private-link/tutorial-private-endpoint-sql-portal) for connectivity method. The private endpoint will be used to access Azure SQL database within the configured virtual network. 
+   - On **Compute + storage** option, select **Configure database** and choose the appropriate model based on your sizing result. Refer [Sizing models for Azure SQL database](businessobjects-deployment-guide.md#sizing-models-for-azure-sql-database) to get insight on the options. 
+3. On **Networking** tab, select [private endpoint](../../../private-link/tutorial-private-endpoint-sql-portal.md) for connectivity method. The private endpoint will be used to access Azure SQL database within the configured virtual network. 
    - Select **Add private endpoint**.
    - Select **Subscription**, **Resource group**, and **Location**.
    - Enter the **Name** of private endpoint (for example, azusbodb-pe).
@@ -206,7 +206,7 @@ Similarly, you can create **Audit** database (for example, boaudit).
 For SAP BOBI application servers to access CMS or audit database, it requires database client/drivers. Microsoft ODBC driver is used to access CMS and Audit databases running on Azure SQL database. This section provides instructions on how to download and set up ODBC driver on Windows. 
 
 1. Refer to **CMS + Audit repository support by OS** section in [Product Availability Matrix (PAM) for SAP BusinessObjects BI Platform](https://support.sap.com/pam) to find out the database connectors that are compatible with Azure SQL database.
-2. Download ODBC driver version from the [link](https://docs.microsoft.com/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15). In this example, we're downloading ODBC driver [13.1](https://docs.microsoft.com/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15#131).
+2. Download ODBC driver version from the [link](https://docs.microsoft.com/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15&preserve-view=true). In this example, we're downloading ODBC driver [13.1](https://docs.microsoft.com/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15#131&preserve-view=true).
 3. Install the ODBC driver on all BI servers (azuswinboap1 and azuswinboap2).
 4. After installing driver in **azuswinboap1**, navigate to **Start** > **Windows Administrative Tools** > **ODBC Data Sources (64-bit)**.  
 5. Navigate to **System DSN** tab. 
@@ -219,7 +219,7 @@ For SAP BOBI application servers to access CMS or audit database, it requires da
 9. Select “**With SQL server authentication using a login ID and password entered by user**” to verify authenticity to SQL server. Enter the user credential that has been created at the time of Azure SQL database server creation (for example, boadmin) and select **Next**.
 10. **Change the default database** to **bocms** and keep everything else as default. Select **Next**.
 11. Check **Use strong encryption for data** and keep everything else as default. Select **Finish**.
-12. Data source to CMS database has been created and now you can select **Test Data Source** to validate the connection to CMS database from BI application. It should be completed successfully. If it fails, [troubleshoot](../../../azure-sql/database/troubleshoot-common-errors-issues) the connectivity issue.
+12. Data source to CMS database has been created and now you can select **Test Data Source** to validate the connection to CMS database from BI application. It should be completed successfully. If it fails, [troubleshoot](../../../azure-sql/database/troubleshoot-common-errors-issues.md) the connectivity issue.
 
 >[!Note]
 >Azure SQL Database communicates over port 1433. So outbound traffic over port 1433 should be allowed from your SAP BOBI application servers.
@@ -265,7 +265,7 @@ For multi-instance deployment, run the installation setup on second host (azuswi
 > [!IMPORTANT]
 > The database engine version numbers for SQL Server and Azure SQL Database are not comparable with each other, and rather are internal build numbers for these separate products. The database engine for Azure SQL Database is based on the same code base as the SQL Server database engine. Most importantly, the database engine in Azure SQL Database always has the newest SQL database engine bits. Version 12 of Azure SQL Database is newer than version 15 of SQL Server.
 
-To find out the current Azure SQL database version, you can either check in the settings of Central Management Console (CMC) or you can run below query using [sqlcmd](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15) or [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15). The alignment of SQL versions to default compatibility can be found in [database compatibility level](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15) article.
+To find out the current Azure SQL database version, you can either check in the settings of Central Management Console (CMC) or you can run below query using [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?view=sql-server-ver15&preserve-view=true) or [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15&preserve-view=true). The alignment of SQL versions to default compatibility can be found in [database compatibility level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15&preserve-view=true) article.
 
 ![Database information in CMC](media/businessobjects-deployment-guide/businessobjects-deployment-windows-sql-cmc.PNG)
 
@@ -369,24 +369,24 @@ Following section describes how to implement backup and restore strategy for eac
 
 ### Backup & restore for SAP BOBI installation directory
 
-In Azure, the simplest way to back up virtual machines including all the attached disks is by using [Azure VM backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction) Service. It provides an independent and isolated backup to guard unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized and can be restored easily when needed.
+In Azure, the simplest way to back up virtual machines including all the attached disks is by using [Azure VM backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) Service. It provides an independent and isolated backup to guard unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized and can be restored easily when needed.
 
-As part of backup process snapshot is taken, and the data is transferred to the Recovery Service vault with no effect on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. Azure backup also offers side-by-side support for backup of managed disks using [Azure Disk backup](https://docs.microsoft.com/en-us/azure/backup/disk-backup-overview) in addition to [Azure VM backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction) solution. It is useful when you need consistent backups of virtual machines once a day and more frequent backups of OS disks, or a specific data disk that are crash consistent. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md), [Azure Disk backup](../../../backup/disk-backup-overview), and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
+As part of backup process snapshot is taken, and the data is transferred to the Recovery Service vault with no effect on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. Azure backup also offers side-by-side support for backup of managed disks using [Azure Disk backup](https://docs.microsoft.com/azure/backup/disk-backup-overview) in addition to [Azure VM backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) solution. It is useful when you need consistent backups of virtual machines once a day and more frequent backups of OS disks, or a specific data disk that are crash consistent. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md), [Azure Disk backup](../../../backup/disk-backup-overview.md), and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
 
 ### Backup & restore for Filestore
 
 Based on your deployment, filestore of SAP BOBI platform can be on Azure NetApp Files or Azure Files. Choose from the following options for backup and restore based on the storage you use for filestore.
 
 1. For **Azure NetApp Files**, you can create an on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
-2. **Azure Files** backup is integrated with native [Azure Backup](../../../backup/backup-overview.md) service, which centralizes the backup and restore function along with VMs backup and simplifies operation work. For more information, see [Azure File Share backup](../../../backup/azure-file-share-backup-overview.md) and [FAQs - Back up Azure Files](../../../backup/backup-azure-files-faq.md).
+2. **Azure Files** backup is integrated with native [Azure Backup](../../../backup/backup-overview.md) service, which centralizes the backup and restore function along with VMs backup and simplifies operation work. For more information, see [Azure File Share backup](../../../backup/azure-file-share-backup-overview.md) and [FAQs - Back up Azure Files](../../../backup/backup-azure-files-faq.yml).
 
 If you have created separate NFS server, make sure you implement the back and restore strategy for the same.
 
 ### Backup & restore for CMS and Audit database
 
-For SAP BOBI Platform running on Windows virtual machines, the CMS and audit database can run on any of the supported databases as described in the [support matrix](businessobjects-deployment-guide#support-matrix) of SAP BusinessObjects BI platform planning and implementation guide on Azure. So it's important that you adopt the backup and restore strategy based on the database used for CMS and audit data store.
+For SAP BOBI Platform running on Windows virtual machines, the CMS and audit database can run on any of the supported databases as described in the [support matrix](businessobjects-deployment-guide.md#support-matrix) of SAP BusinessObjects BI platform planning and implementation guide on Azure. So it's important that you adopt the backup and restore strategy based on the database used for CMS and audit data store.
 
-1. **Azure SQL database** use SQL server technology to create [full backups](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/full-database-backups-sql-server?view=sql-server-ver15) every week, [differential backups](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/differential-backups-sql-server?view=sql-server-ver15) every 12-24 hours, and [transaction log](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/transaction-log-backups-sql-server?view=sql-server-ver15) backups every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity. User can choose an option to configure backup storage redundancy between locally redundant, zone-redundant, or geo-redundant storage blobs. Storage redundancy mechanisms store multiple copies of your data to protect from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. By default, Azure SQL database stores backup in geo-redundant [storage blobs](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) that are replicated to a [paired region](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). It can be changed based on the business requirement to either locally redundant or zone-redundant storage blobs. For more up-to-date information on Azure SQL database backup scheduling, retention and storage consumption, see [Automated backups - Azure SQL Database & SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database)
+1. **Azure SQL database** use SQL server technology to create [full backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server?view=sql-server-ver15&preserve-view=true) every week, [differential backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server?view=sql-server-ver15&preserve-view=true) every 12-24 hours, and [transaction log](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server?view=sql-server-ver15&preserve-view=true) backups every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity. User can choose an option to configure backup storage redundancy between locally redundant, zone-redundant, or geo-redundant storage blobs. Storage redundancy mechanisms store multiple copies of your data to protect from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. By default, Azure SQL database stores backup in geo-redundant [storage blobs](../../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../../best-practices-availability-paired-regions.md). It can be changed based on the business requirement to either locally redundant or zone-redundant storage blobs. For more up-to-date information on Azure SQL database backup scheduling, retention and storage consumption, see [Automated backups - Azure SQL Database & SQL Managed Instance](../../../azure-sql/database/automated-backups-overview.md)
 
 2. **Azure Database of MySQL** automatically creates server backups and stores in user configured locally redundant or geo-redundant storage. Azure Database of MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4-TB max storage servers) or snapshot backup (up to 16-TB max storage servers). These backups allow you to restore a server at any point-in-time within your configured backup retention period. The default backup retention period is seven days, which you can [optionally configure it](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption. These backup files aren't user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](../../../mysql/concepts-migrate-dump-restore.md) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](../../../mysql/concepts-backup.md).
 
@@ -405,9 +405,9 @@ Following section describes how to achieve high availability on each component o
 
 ### High availability for application servers
 
-For BI and Web Application Servers whether they're installed separately or together, doesn’t need a specific high availability solution. You can achieve high availability by redundancy, that is by configuring multiple instances of BI and web servers in various Azure virtual machines. You can deploy this virtual machine in either [Availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios#multiple-instances-of-virtual-machines-in-the-same-availability-set) or [Availability zones](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios#azure-availability-zones) based on business required RTO. For deployment across Availability Zones, make sure all other components in SAP BOBI Platform are designed to be zone redundant as well.
+For BI and Web Application Servers whether they're installed separately or together, doesn’t need a specific high availability solution. You can achieve high availability by redundancy, that is by configuring multiple instances of BI and web servers in various Azure virtual machines. You can deploy this virtual machine in either [Availability sets](sap-high-availability-architecture-scenarios.md#multiple-instances-of-virtual-machines-in-the-same-availability-set) or [Availability zones](sap-high-availability-architecture-scenarios.md#azure-availability-zones) based on business required RTO. For deployment across Availability Zones, make sure all other components in SAP BOBI Platform are designed to be zone redundant as well.
 
-Currently not all Azure regions offer availability zones, so you need to adopt the deployment strategy based on your region. The Azure regions that offer zones are listed in [Azure Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview).
+Currently not all Azure regions offer availability zones, so you need to adopt the deployment strategy based on your region. The Azure regions that offer zones are listed in [Azure Availability Zones](../../../availability-zones/az-overview.md).
 
 > [!Important]
 > The concepts of Azure Availability Zones and Azure availability sets are mutually exclusive. That means, you can either deploy a pair or multiple VMs into a specific Availability Zone or an Azure availability set. But not both.
@@ -463,7 +463,7 @@ In this guide, we'll talk about second option to implement DR environment. It wo
 
 This reference architecture is running multi-instance deployment of SAP BOBI Platform with redundant application servers. For disaster recovery, you should fail over all the components of SAP BOBI platform to a secondary region. In below figure, Azure Premium Files is used as filestore, Azure SQL database as CMS/audit repository, and Azure Application Gateway to load balance traffic. The strategy to achieve diaster recovery protection for each component is different, which is described in details in following section.
 
-![SAP BusinessObjects BI Platform Disaster Recovery](media\businessobjects-deployment-guide\businessobjects-deployment-windows-disaster-recovery.png)
+![SAP BusinessObjects BI Platform Disaster Recovery for Windows](media\businessobjects-deployment-guide\businessobjects-deployment-windows-disaster-recovery.png)
 
 ### Load balancer
 
@@ -477,7 +477,7 @@ Load Balancer is used to distribute traffic across Web Application Servers of SA
 
 Filestore is a disk directory where the actual files like reports, BI documents are stored. It's important that all the files in the filestore are in sync to DR region. Based on the type of file share service you use for SAP BOBI Platform running on windows, necessary DR strategy needs to adopted to sync the content.
 
-- **Azure premium files** only support locally redundant (LRS) and zone redundant storage (ZRS). For Azure Premium Files DR strategy, you can use [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.storage/?view=azps-5.8.0) to copy your files to another storage account in a different region. For more information, see [Disaster recovery and storage account failover](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Azure premium files** only support locally redundant (LRS) and zone redundant storage (ZRS). For Azure Premium Files DR strategy, you can use [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-5.8.0&preserve-view=true) to copy your files to another storage account in a different region. For more information, see [Disaster recovery and storage account failover](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 - **Azure NetApp Files** provides NFS and SMB volumes, so any file-based copy tool can be used to replicate data between Azure regions. For more information on how to copy ANF volume in another region, see [FAQs About Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)
 
@@ -506,7 +506,7 @@ For [Azure SQL Database](../../../azure-sql/database/business-continuity-high-av
 
    In figure below, auto failover group for Azure SQL server (azussqlbodb) running on East US 2 region is replicated to East US secondary region (DR site). The read/write listener endpoint is maintained as a listener in ODBC connection for BI application server running on Windows. After failover, the endpoint will remain same and no manual intervention is required to connect BI application to Azure SQL database on secondary region.
 
-   ![SAP BusinessObjects BI Platform Disaster Recovery](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failovergroup.png)
+   ![Azure SQL database auto failover groups](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failovergroup.png)
 
    This option provides a lower RTO and RPO than option 1. For more information about this option, see [Use auto failover groups to enable transparent and coordinated failover of multiple databases](../../../azure-sql/database/auto-failover-group-overview.md)
 
