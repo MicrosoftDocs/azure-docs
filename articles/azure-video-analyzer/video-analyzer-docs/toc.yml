@@ -36,6 +36,8 @@
     href: video-recording.md    
   - name: Analyze live videos without recording
     href: analyze-live-video-without-recording.md
+  - name: AI composition overview
+    href: ai-composition-overview.md
   - name: Scenarios 
     items:
     - name: Event based video recording
