@@ -46,6 +46,21 @@ The Computer Vision [Read API](https://centraluseuap.dev.cognitive.microsoft.com
 
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
+### Key features
+
+The Read API includes the following features. 
+
+* Print text extraction in 73 languages
+* Handwritten text extraction in English
+* Text lines and words with location and confidence scores
+* No language identification required
+* Support for mixed languages, mixed mode (print and handwritten)
+* Select pages and page ranges from large, multi-page documents
+* Natural reading order for text lines
+* Handwriting classification for text lines
+* Available as Distroless Docker container for on-premise deployment
+
+Learn [how to use the OCR features](./vision-api-how-to-topics/call-read-api).
 
 ## Use the cloud API or deploy on-premise
 The Read 3.x cloud APIs are the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
