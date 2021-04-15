@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 08/07/2020
+ms.date: 04/15/2021
 ---
 
 # Create an IoT Edge module offer

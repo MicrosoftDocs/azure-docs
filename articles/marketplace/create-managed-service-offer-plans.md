@@ -40,7 +40,7 @@ You can configure each plan to be visible to everyone (public) or to only a spec
 > Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 > [!IMPORTANT]
-> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can deprecate(formerly stop sell) the plan completely if you choose to do so). You can remove access to a delegation after a customer accepts an offer only if you included an Authorization with the Role Definition set to Managed Services Registration Assignment Delete Role when you published the offer. You can also reach out to the customer and ask them to remove your access.
+> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can deprecate (formerly stop sell) the plan completely if you choose to do so). You can remove access to a delegation after a customer accepts an offer only if you included an Authorization with the Role Definition set to Managed Services Registration Assignment Delete Role when you published the offer. You can also reach out to the customer and ask them to remove your access.
 
 ## Make your plan public
 

@@ -68,7 +68,7 @@ Depending on the transaction option used, subscription charges are as follows:
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [deprecate(formerly stop sell) an offer or plan](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
+Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [deprecate (formerly stop sell) an offer or plan](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
 
 ### Free, Contact me, and bring-your-own-license (BYOL) pricing
 

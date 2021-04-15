@@ -48,7 +48,7 @@ The **Offer overview** page shows a visual representation of the steps required 
 This page shows different links based on the current status of the offer. For example:
 
 - If the offer is a draft - Delete draft offer
-- If the offer is live - [deprecate(formerly stop sell) the offer](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan)
+- If the offer is live - [deprecate (formerly stop sell) the offer](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan)
 - If the offer is in preview - [Go-live](review-publish-offer.md#previewing-and-approving-your-offer)
 - If you haven't completed publisher sign-out - [Cancel publishing.](review-publish-offer.md#cancel-publishing)
 
