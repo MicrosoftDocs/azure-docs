@@ -124,7 +124,7 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 Follow the step-by-step instructions to install the [OE SDK](https://github.com/openenclave/openenclave) on your DCsv2-Series virtual machine running an Ubuntu 18.04 LTS Gen 2 image. 
 
-If your virtual machine runs on Ubuntu 16.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md). 
+If your virtual machine runs on Ubuntu 18.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md). 
 
 #### 1. Configure the Intel and Microsoft APT Repositories
 

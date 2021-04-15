@@ -17,14 +17,19 @@ ms.collection: M365-identity-device-management
 The following document describes how to replicate a synchronization profile from scratch using only MSGraph APIs.  
 The structure of how to do this consists of the following steps.  They are:
 
-- [Basic setup](#basic-setup)
-- [Create Service Principals](#create-service-principals)
-- [Create Sync Job](#create-sync-job)
-- [Update targeted domain](#update-targeted-domain)
-- [Enable sync password hashes](#enable-sync-password-hashes-on-configuration-blade)
-- [Accidental deletes](#accidental-deletes)
-- [Start sync job](#start-sync-job)
-- [Review status](#review-status)
+- [How to programmatically configure cloud sync using MS Graph API](#how-to-programmatically-configure-cloud-sync-using-ms-graph-api)
+  - [Basic setup](#basic-setup)
+    - [Enable tenant flags](#enable-tenant-flags)
+  - [Create service principals](#create-service-principals)
+  - [Create sync job](#create-sync-job)
+  - [Update targeted domain](#update-targeted-domain)
+  - [Enable Sync password hashes on configuration blade](#enable-sync-password-hashes-on-configuration-blade)
+  - [Accidental deletes](#accidental-deletes)
+    - [Enabling and setting the threshold](#enabling-and-setting-the-threshold)
+    - [Allowing deletes](#allowing-deletes)
+  - [Start sync job](#start-sync-job)
+  - [Review status](#review-status)
+  - [Next steps](#next-steps)
 
 Use these [Microsoft Azure Active Directory Module for Windows PowerShell](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a pre-requisite for being able to call the Administration Web Service for that tenant.
 
@@ -39,7 +44,7 @@ Use these [Microsoft Azure Active Directory Module for Windows PowerShell](/powe
 The first of those two commands, require Azure Active Directory credentials. These commandlets implicitly identify the tenant and enable it for synchronization.
 
 ## Create service principals
-Next, we need to create the [AD2AAD application/ service principal](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
+Next, we need to create the [AD2AAD application/ service principal](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http&preserve-view=true)
 
 You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The displayName is the AD domain url, if used in the portal (for example, contoso.com), but it may be named something else.
 
@@ -55,7 +60,7 @@ You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The di
 ## Create sync job
 The output of the above command will return the objectId of the service principal that was created. For this example, the objectId is 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Use Microsoft Graph to add a synchronizationJob to that service principal.  
 
-Documentation for creating a sync job can be found [here](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta).
+Documentation for creating a sync job can be found [here](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true).
 
 If you did not record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
  
@@ -281,11 +286,11 @@ The job can be retrieved again via the following command:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
-Documentation for retrieving jobs can be found [here](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta). 
+Documentation for retrieving jobs can be found [here](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta&preserve-view=true). 
  
 To start the job, issue this request, using the objectId of the service principal created in the first step, and the job identifier returned from the request that created the job.
 
-Documentation for how to start a job can be found [here](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
+Documentation for how to start a job can be found [here](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/start
@@ -294,7 +299,7 @@ Documentation for how to start a job can be found [here](/graph/api/synchronizat
 The expected response is … 
 HTTP 204/No content.
 
-Other commands for controlling the job are documented [here](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta).
+Other commands for controlling the job are documented [here](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta&preserve-view=true).
  
 To restart a job, one would use …
 
@@ -320,4 +325,4 @@ Look under the 'status' section of the return object for relevant details
 
 - [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
-- [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

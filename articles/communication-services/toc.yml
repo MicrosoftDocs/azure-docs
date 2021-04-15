@@ -112,17 +112,6 @@
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
         href: concepts/ui-framework/ui-sdk-features.md
-  - name: Data and Operations
-    items:
-      - name: Service Events (EventGrid)
-        href: ../event-grid/event-schema-communication-services.md
-        maintainContext: true
-      - name: Logging and diagnostics
-        href: concepts/logging-and-diagnostics.md
-      - name: Metrics
-        href: concepts/metrics.md
-      - name: Troubleshooting
-        href: concepts/troubleshooting-info.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md 
   - name: Client and server architecture
@@ -139,6 +128,15 @@
     href: concepts/notifications.md
   - name: Teams interoperability
     href: concepts/teams-interop.md
+  - name: Service Events (EventGrid)
+    href: ../event-grid/event-schema-communication-services.md
+    maintainContext: true
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
 - name: Samples
   items:
   - name: Overview
