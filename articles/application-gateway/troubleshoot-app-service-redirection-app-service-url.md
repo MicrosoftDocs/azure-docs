@@ -86,14 +86,14 @@ Using App Service's Custom Domain feature is another solution to always redirect
 
 You can follow the given method for both the Redirection and ARRAffinity's cookie domain mismatch issues. This method will need you to have your custom domain's DNS zone access.
 
-**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
+**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 The records would look similar to
--  www.contoso.com IN CNAME contoso.azurewebsite.net
--  asuid.www.contoso.com IN TXT "<verification id string>"
+-  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
+-  `asuid.www.contoso.com` IN TXT "`\<verification id string\>`"
 
 
-**Step2**: The CNAME record in the previous step was only needed for the domain verification. Ultimately, as we need the traffic to route via Application Gateway, you can now modify www.contoso.com's CNAME to point to Application Gateway's FQDN. You can set this FQDN for your Application Gateway by navigating to its Public IP address resource and assigning a "DNS Name label" for it. The updated CNAME record would now look like 
--  www.contoso.com IN CNAME contoso.eastus.cloudapp.azure.com
+**Step2**: The CNAME record in the previous step was only needed for the domain verification. Ultimately, we need the traffic to route via Application Gateway. You can thus modify `www.contoso.com`'s CNAME now to point to Application Gateway's FQDN. To set a FQDN for your Application Gateway, navigate to its Public IP address resource and assign a "DNS Name label" for it. The updated CNAME record should now look as 
+-  `www.contoso.com` IN CNAME `contoso.eastus.cloudapp.azure.com`
 
 
 **Step3**: Disable "Pick Hostname from Backend Address" for the associated HTTP Setting.
