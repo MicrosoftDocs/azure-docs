@@ -89,6 +89,9 @@ In this tutorial, you learn to:
       vmImage: ubuntu-latest​
     ​
     steps:​
+      - checkout: self
+        submodules: true
+
       - task: AzureStaticWebApp@0​
         inputs:​
           app_location: "/" ​

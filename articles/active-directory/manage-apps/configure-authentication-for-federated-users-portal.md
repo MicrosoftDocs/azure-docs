@@ -2,17 +2,14 @@
 title: Configure sign-in auto-acceleration using Home Realm Discovery
 description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
-documentationcenter: 
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ---
@@ -224,7 +221,7 @@ To apply the HRD policy after you have created it, you can assign it to multiple
 
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.
 
-You can use the portal, or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
+You can use the portal, or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
 
 Because you are using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 
