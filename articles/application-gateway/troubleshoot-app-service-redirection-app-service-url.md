@@ -89,7 +89,7 @@ You can follow the given method for both the Redirection and ARRAffinity's cooki
 **Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 The records would look similar to
 -  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
--  `asuid.www.contoso.com` IN TXT "`\<verification id string\>`"
+-  `asuid.www.contoso.com` IN TXT "`<verification id string>`"
 
 
 **Step2**: The CNAME record in the previous step was only needed for the domain verification. Ultimately, we need the traffic to route via Application Gateway. You can thus modify `www.contoso.com`'s CNAME now to point to Application Gateway's FQDN. To set a FQDN for your Application Gateway, navigate to its Public IP address resource and assign a "DNS Name label" for it. The updated CNAME record should now look as 
