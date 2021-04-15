@@ -16,7 +16,7 @@ You can view reservation utilization percentage and the resources that used the 
 
 ## View utilization in the Azure portal with RBAC access
 
-If you have RBAC Access on the reservation
+If you have RBAC Access on the reservation or you have elevated access to manage all Azure subscriptions and management groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
@@ -33,7 +33,7 @@ Enterprise agreement (EA) and Microsoft customer agreement (MCA) billing adminis
 1. Go to Cost Management + Billing > Reservations
 1. Click on the utilization percentage to see the utilization history and details.
  
-
+ 
 ## Get reservations and utilization using APIs, PowerShell, and CLI
 
 You can get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API.
