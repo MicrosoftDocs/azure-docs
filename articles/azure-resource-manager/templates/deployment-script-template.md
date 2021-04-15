@@ -312,6 +312,7 @@ The script service sets the resource provisioning state to **Failed** when the s
 Deployment script uses these environment variables:
 
 |Environment variable|Default value|System reserved|
+|--------------------|-------------|---------------|
 |AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|N|
 |AZ_SCRIPTS_CLEANUP_PREFERENCE|OnExpiration|N|
 |AZ_SCRIPTS_OUTPUT_PATH|<AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY>/<AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME>|Y|
