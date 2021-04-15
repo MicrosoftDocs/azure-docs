@@ -70,7 +70,7 @@ You can invite external users to your tenant as a guest user. A typical scenario
 
 When you invite a guest user to your tenant, you provide the email address of the recipient and a message describing the invitation. The invitation link takes the user to the consent page. If an inbox isn't attached to the email address, the user can navigate to the consent page by going to a Microsoft page using the invited credentials. The user is then forced to redeem the invitation the same way as clicking on the link in the email. For example: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-You can also use the [Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta) to invite a guest user.
+You can also use the [Microsoft Graph API](/graph/api/invitation-post) to invite a guest user.
 
 ## Consumer user
 

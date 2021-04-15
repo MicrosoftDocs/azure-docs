@@ -6,10 +6,10 @@
     - name: What is Anomaly Detector (multivariate)?
       href: overview-multivariate.md
     - name: What is Anomaly Detector (univariate)? 
-      href: overview.md  
-    - name: Pricing and limits
+      href: overview.md
+    - name: Pricing
       href: https://aka.ms/adpricing
-- name: Anomaly Detector quickstarts
+- name: Quickstarts
   items:
     - name: Multivariate client libraries
       href: ./quickstarts/client-libraries-multivariate.md
@@ -43,6 +43,12 @@
               displayName: docker, container, apikey, billing, log, mount, run, pull, port
             - name: Use container instances
               href: how-to/deploy-anomaly-detection-on-container-instances.md
+    - name: Enterprise readiness
+      items:
+        - name: Set up Virtual Networks
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/anomaly-detector/context/context
+        - name: Use Azure AD authentication
+          href: ../authentication.md?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Concepts
   items: 
     - name: Anomaly Detector API best practices (multivariate)
@@ -61,7 +67,6 @@
   items:
     - name: Visualize anomalies as a batch using Power BI
       href: tutorials/batch-anomaly-detection-powerbi.md
-
 - name: Reference
   items:
     - name: Anomaly Detector REST API
@@ -76,20 +81,22 @@
       href: https://go.microsoft.com/fwlink/?linkid=2090788
 - name: Resources
   items:
-    - name: Region support
-      href: https://aka.ms/adregion
-    - name: Learn modules
-      href: https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/
-    - name: Support & help
+    - name: Enterprise readiness
+      items:
+        - name: Region support
+          href: https://aka.ms/adregion
+        - name: Compliance and certification
+          href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
+    - name: Microsoft Learn modules
+      href: https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/
     - name: User-generated content
       href: user-generated-content.md
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
-    - name: Compliance
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Azure updates
       href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
     - name: Technical blogs
