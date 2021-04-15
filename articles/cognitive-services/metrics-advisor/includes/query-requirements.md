@@ -11,4 +11,4 @@ ms.date: 09/30/2020
 ms.author: mbullwin
 ---
 
-When editing the query, use the `@StartTime` and `@EndTime` parameters to specify a slice of data for a single timestamp (this timestamp means an interval corresponding to the `Granularity` you set). Metrics Advisor will replace the parameters automatically with a `yyyy-MM-ddTHH:mm:ssZ` format string when it runs the query, and in the first round query, the `@StartTime` will be the `@Ingest data since (UTC)` you set; in the second round query, the `@StartTime` will be the beginning of next interval, etc.
+When editing the query, use the `@IntervalStart` and `@IntervalEnd` parameters to specify a slice of data for a single timestamp (this timestamp means an interval corresponding to the `Granularity` you set). Metrics Advisor will replace the parameters automatically with a `yyyy-MM-ddTHH:mm:ssZ` format string when it runs the query, and in the first round query, the `@IntervalStart` will be the `@Ingest data since (UTC)` you set; in the second round query, the `@IntervalStart` will be the beginning of next interval, etc.
