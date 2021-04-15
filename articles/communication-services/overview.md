@@ -14,11 +14,11 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
-Azure Communication Services allows you to easily add real-time voice, video, and telephone communication to your applications. Communication Services SDKs also allow you to add SMS functionality to your communications solutions. Azure Communication Services is identity agnostic and you have complete control over how end-users are identified and authenticated. You can connect humans to the communication data plane or services (bots).
+Azure Communication Services allows you to easily add real-time voice, video, and telephone communication to your applications. Communication Services SDKs also allow you to add SMS functionality to your communications solutions. Azure Communication Services is identity agnostic and you have complete control over how end users are identified and authenticated. You can connect humans to the communication data plane or services (bots).
 
 Applications include:
 
-- **Business to Consumer (B2C).** A business' employees and services can interact with consumers using voice, video, and rich text chat in a custom browser or mobile application. An organization can send and receive SMS messages, or operate a interactive voice response system (IVR) using a phone number you acquire through Azure. [Integration with Microsoft Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md) allows consumers to join Teams meetings hosted by employees; ideal for remote healthcare, banking, and product support scenarios where employees might already be familiar with Teams.
+- **Business to Consumer (B2C).** A business' employees and services can interact with consumers using voice, video, and rich text chat in a custom browser or mobile application. An organization can send and receive SMS messages, or operate an interactive voice response system (IVR) using a phone number you acquire through Azure. [Integration with Microsoft Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md) allows consumers to join Teams meetings hosted by employees; ideal for remote healthcare, banking, and product support scenarios where employees might already be familiar with Teams.
 - **Consumer to Consumer.** Build engaging social spaces for consumer-to-consumer interaction with voice, video, and rich text chat. Any type of user interface can be built on Azure Communication Services SDKs, but complete application samples and UI assets are available to help you get started quickly.
 
 To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com/watch?v=apBX7ASurgM) or the resources linked below.
@@ -33,7 +33,7 @@ To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com
 |**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|You can use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
 |**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS SDK is used send and receive SMS messages from service applications.|
 
-After creating an Communication Services resource you can start building client scenarios, such as voice and video calling or text chat:
+After creating a Communication Services resource you can start building client scenarios, such as voice and video calling or text chat:
 
 | Resource                               |Description                           |
 |---                                    |---                                   |
@@ -55,7 +55,7 @@ The following samples demonstrate end-to-end usage of the Azure Communication Se
 
 ## Platforms and SDK libraries
 
-Learn more about about the Azure Communication Services SDKs with the resources below. REST APIs are available for most functionality if you want to build your own clients or otherwise access the service over the Internet.
+Learn more about the Azure Communication Services SDKs with the resources below. REST APIs are available for most functionality if you want to build your own clients or otherwise access the service over the Internet.
 
 | Resource                               | Description                           |
 |---                                    |---                                   |
@@ -66,7 +66,7 @@ Learn more about about the Azure Communication Services SDKs with the resources 
 
 ## Other Microsoft Communication Services
 
-There are two other Microsoft communication products you may consider leveraging that are not directly interoperable with Communication Services at this time:
+There are two other Microsoft communication products you may consider using that are not directly interoperable with Communication Services at this time:
 
  - [Microsoft Graph Cloud Communication APIs](/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Azure Active Directory users with Microsoft 365 licenses. This is ideal for applications tied to Azure Active Directory or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
