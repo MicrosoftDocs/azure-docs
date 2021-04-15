@@ -56,9 +56,7 @@ Next you'll input a set of parameters to connect your time-series data source.
 Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
 #### 3.Specify Query for a single timestamp
-Next, you'll need to [write a valid query](../tutorial/write-a-valid-query.md) to convert the data into the required schema. 
-
-[!INCLUDE [query requirements](../includes/query-requirements.md)]
+Next, you'll need to specify a query to convert the data into the required schema, see [how to write a valid query](../tutorial/write-a-valid-query.md) for more information. 
 
 For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
