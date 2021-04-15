@@ -25,7 +25,7 @@ You can run the tool from any computer on the network where you'll deploy the Az
 
 ## About the tool
 
-The Azure Stack Network Readiness Checker can check whether a network meets the following prerequisites:
+<!--Add subheadings?-->The Azure Stack Network Readiness Checker can check whether a network meets the following prerequisites:
 
 - The Domain Name System (DNS) server is available and functioning.
 
@@ -39,6 +39,14 @@ The Azure Stack Network Readiness Checker can check whether a network meets the 
 
 - DNS resource records registration for Azure Stack Edge is functioning correctly.
 
+The report file, AzsReadinessCheckerReport.json, has detailed diagnostics that are collected during each test. These may be helpful if you need to contact Support.
+
+For example, the report provides:
+ * A list of network adapters on the machine used to run the tests, with their driver versions, MAC addresses, and connection state
+ * The IP configuration of the machine used to run the tests
+ * Detailed DNS response properties returned by the DNS server for each test
+ * Detailed HTTP response for all URL tests
+ * Network route trace for each of the tests
 
 <!--The Network Readiness Checker includes the following tests. You can choose which tests to run.
 
@@ -94,9 +102,9 @@ When you run the Azure Stack Network Readiness Checker tool, you'll need to prov
 
 To run a network readiness check, do these steps:
 
-1. Open PowerShell 7.0 on a client computer running on the network where you'll deploy the Azure Stack Edge device.<!--PowerShell version to be verified.-->
+1. Open PowerShell on a client computer running on the network where you'll deploy the Azure Stack Edge device.
 
-1.  Run a network readiness check by entering the following command:
+1.  Run a network readiness check by entering the following command:<!--Add new parameters.-->
 
     ```powershell
     Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [-WindowsUpdateServer <uri[]>] [-SkipTests {LinkLayer | IPConfig | DnsServer | TimeServer | DuplicateIP | AzureEndpoint] |
@@ -111,10 +119,10 @@ To run a network readiness check, do these steps:
     |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.| 
     |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
     |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
-    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)<!--Add to example-->|
+    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)<!--Get entry format. Add to example-->|
     |`-WindowsUpdateServer`|URIs for one or more Windows Update Servers or Windows Update for Business Servers. (Optional)|
     |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.<!--Add to example-->|    
-    |`AzureEnvironment`|Indicates the Azure environment if the device is deployed to an environment other than the Azure public cloud. For example, Azure Gov or Azure Germany. (Optional)<!--Get parameters.-->| 
+    |`AzureEnvironment`|Indicates the Azure environment if the device is deployed to an environment other than the Azure public cloud. For example, Azure Gov or Azure Germany. (Optional)<!--Get entry format.-->| 
     |`-SkipTests`|Can be used to exclude tests. (Optional)<br> Separate test names with a comma. For a list of test names, see [Network tests](#about-the-tool), above.|
     |`CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
     |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the log and report from the previous run.| 
