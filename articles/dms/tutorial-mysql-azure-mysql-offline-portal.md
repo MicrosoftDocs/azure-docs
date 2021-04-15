@@ -84,27 +84,7 @@ For example:
 mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p migtestdb < d:\migtestdb.sql
  ```
 
-If you have foreign keys in your schema, the parallel data load during migration will fail.  Execute the following script in MySQL Workbench on the target database to extract the drop foreign key script and add foreign key script.
-
-```sql
-SET group_concat_max_len = 8192;
-SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
-FROM
-    (SELECT
-    KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-    KCU.TABLE_NAME,
-    KCU.COLUMN_NAME,
-    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
-    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
-    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-    WHERE
-      KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-      AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-  AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
-  GROUP BY SchemaName;
- ```
-
-Run the generated drop foreign key query (DropQuery column) in the result to drop foreign keys in the target database. The add foreign key query can be saved, to be used post data migration completion.
+If you have foreign keys in your schema, the parallel data load during migration will be handled by the migration task. There is no need to drop foreign keys during schema migration.
 
 If you have triggers in the database (insert or update triggers), it will enforce data integrity in the target ahead of full data migration from the source. The recommendation is to disable triggers on all the tables in the target during migration, and then enable the triggers after migration is done.
 
@@ -244,8 +224,7 @@ Migration cutover in an offline migration is a application dependent process whi
 
 1. Migrate/Create logins, roles and permissions as oer the application requirements.
 2. Recreate all the triggers on the target database as extracted during the pre-migration step.
-3. Recreate all the foreign keys on the target database as extracted during the pre-migration step.
-4. Perform sanity testing of the application against the target database to certify the migration. 
+3. Perform sanity testing of the application against the target database to certify the migration. 
 
 ## Clean up resources
 

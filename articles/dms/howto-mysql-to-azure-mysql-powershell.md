@@ -20,6 +20,9 @@ In this article, you migrate a MySQL database restored to an on-premises instanc
 
 The article helps to automate the scenario where source and target database names can be different and as part of migration either all or few of the tables in the target database need to be migrated which have the same name and table structure.
 
+>[!IMPORTANT]
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../includes/dms-boilerplate-preview.md)]
+
 In this article, you learn how to:
 > [!div class="checklist"]
 >
@@ -97,27 +100,7 @@ For example:
 mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p migtestdb < d:\migtestdb.sql
  ```
 
-If you have foreign keys in your schema, the parallel data load during migration will fail.  Execute the following script in MySQL Workbench on the target database to extract the drop foreign key script and add foreign key script.
-
-```sql
-SET group_concat_max_len = 8192;
-SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
-FROM
-    (SELECT
-    KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-    KCU.TABLE_NAME,
-    KCU.COLUMN_NAME,
-    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
-    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
-    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-    WHERE
-      KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-      AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-  AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
-  GROUP BY SchemaName;
- ```
-
-Run the generated drop foreign key query (DropQuery column) in the result to drop foreign keys in the target database. The add foreign key query can be saved, to be used post data migration completion.
+If you have foreign keys in your schema, the parallel data load during migration will be handled by the migration task. There is no need to drop foreign keys during schema migration.
 
 If you have triggers in the database (insert or update triggers), it will enforce data integrity in the target ahead of full data migration from the source. The recommendation is to disable triggers on all the tables in the target during migration, and then enable the triggers after migration is done.
 
@@ -338,8 +321,8 @@ The following script takes the names of the source and target databases and then
 ```powershell
 # Run scenario to get the tables from the target database to build
 # the migration table mapping
-[string] $TargetDatabaseName = "migtestdb"
-[string] $SourceDatabaseName = "migtestdb"
+[string] $TargetDatabaseName = "migtargetdb"
+[string] $SourceDatabaseName = "migsourcedb"
 
 function RunScenario([object] $MigrationService, 
     [object] $MigrationProject, 
@@ -364,7 +347,7 @@ function RunScenario([object] $MigrationService,
         -Properties $TaskProperties `
         -Force | Out-Null;
     
-    LogMessage -Message "Waiting for  scenario to complete..." -IsProcessing $true
+    LogMessage -Message "Waiting for $ScenarioTaskName scenario to complete..." -IsProcessing $true
     if ($WaitForScenario) {
         $progressCounter = 0;
         do {
@@ -381,7 +364,7 @@ function RunScenario([object] $MigrationService,
                 -Expand `
                 -ErrorAction Ignore;
 
-            Write-Progress -Activity "Scenario Run $ScenarioTaskName (Marquee Progress Bar)" `
+            Write-Progress -Activity "Scenario Run $ScenarioTaskName  (Marquee Progress Bar)" `
                 -Status $scenarioTask.ProjectTask.Properties.State `
                 -PercentComplete $progressCounter
             
@@ -468,10 +451,12 @@ $targetTables = $getTargetTablesTask.Output.DatabasesToTables."$TargetDatabaseNa
 $sourceTables = $getSourceTablesTask.Output.DatabasesToTables."$SourceDatabaseName";
 $tableMap = New-Object 'system.collections.generic.dictionary[string,string]';
 
-foreach ($userTable in $targetTables) {
-
-    $nameParts = $userTable -split "\."
-    $tableName = $nameParts[1]
+$schemaPrefixLength = $($TargetDatabaseName + ".").Length;
+foreach ($tgtTable in $targetTables) {
+    # Removing the database name prefix from the table name so that comparison
+    # can be done in cases where database name given are different
+    $tableName = $tgtTable.Name.Substring($schemaPrefixLength, `
+            $tgtTable.Name.Length - $schemaPrefixLength)
 
     # Check if the table exists in the source
     $sourceExists = $false
@@ -491,7 +476,7 @@ foreach ($userTable in $targetTables) {
 
         # Check if this table is on the selected list
         foreach ($nextSelectedTable in $SelectedTables) {
-            $isSelected = $userTable.Name -eq $nextSelectedTable;
+            $isSelected = $tgtTable.Name -ieq $nextSelectedTable;
 
             if ($isSelected) {
                 break;
@@ -634,12 +619,21 @@ $summary = @{
 Write-Host "Job Summary:" -ForegroundColor Yellow
 Write-Host $(ConvertTo-Json $summary) -ForegroundColor Yellow
 
-$migrationRsult = RunScenario -MigrationService $dmsService `
+$migrationResult = RunScenario -MigrationService $dmsService `
     -MigrationProject $dmsProject `
     -ScenarioTaskName $TaskName `
     -TaskProperties $offlineMigTaskProperties
 
 LogMessage -Message "Migration completed with status - $($migrationRsult.state)"
+#Checking for any errors or warnings captured by the task during migration
+$dbLevelResult = $migrationResult.output | Where-Object { $_.resultType -eq "DatabaseLevelOutput" } 
+$migrationLevelResult = $migrationResult.output | Where-Object { $_.resultType -eq "MigrationLevelOutput" }
+if ($dbLevelResult.exceptionsAndWarnings) {
+    Write-Host "Following database errors were captured: $($dbLevelResult.exceptionsAndWarnings)" -ForegroundColor Red
+}
+if ($migrationLevelResult.exceptionsAndWarnings) {
+    Write-Host "Following migration errors were captured: $($migrationLevelResult.exceptionsAndWarnings)" -ForegroundColor Red
+}
 ```
 
 ## Step 12: Deleting the Database Migration Service
