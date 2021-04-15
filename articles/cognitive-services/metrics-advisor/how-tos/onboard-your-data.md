@@ -56,21 +56,9 @@ Next you'll input a set of parameters to connect your time-series data source.
 Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
 #### 3.Specify Query for a single timestamp
-Next, you'll need to specify custom queries to convert the data into the required schema. Metrics Advisor runs the query every time to fetch metric data for each interval (equals to metric granularity). Please use @IntervalStart and @IntervalEnd in your query to limit query results. Also, please aggregate your metric data by its dimensions, and ensure there's no duplicate values for each dimension combination within each interval. 
-
-Note that the query should return at most one record for each dimension combination at a given timestamp (which means every dimension combination can only returen 1 metric value after one query execution). All records returned must have the same timestamp.
+Next, you'll need to [write a valid query](../tutorial/write-a-valid-query.md) to convert the data into the required schema. Metrics Advisor runs the query every time to fetch metric data for each interval (equals to metric granularity). Please use @IntervalStart and @IntervalEnd in your query to limit query results. Also, please aggregate your metric data by its dimensions, and ensure there's no duplicate values for each dimension combination within each interval. 
 
 [!INCLUDE [query requirements](../includes/query-requirements.md)]
-
-Take SQL query for example, for a metric you can create a query like this: 
- 
-`select [TimestampColumn], [Dimension1Column], [Dimension2Column], [MetricColumn] from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd`
-
-Be sure to use the correct granularity for your time series. Note that these queries only return data at a single timestamp, and contain all of the dimension combinations to be ingested by Metrics Advisor. 
-
-Here is an example showing what you get after one query execution. The table on the right contains data for all dimension combinations at a single timestamp(with no duplicate records).
-
-:::image type="content" source="media/query-result.png" alt-text="A query result with one timestamp" lightbox="media/query-result.png":::
 
 For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
