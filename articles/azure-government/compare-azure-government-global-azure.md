@@ -165,7 +165,7 @@ This section outlines variations and considerations when using Analytics service
 
 The following Data Factory **features are not currently available** in Azure Government:
 
-- [Mapping data flows](../data-factory/concepts-data-flow-overview.md#available-regions)
+- Mapping data flows
 
 ### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
 
