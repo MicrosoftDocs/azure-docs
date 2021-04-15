@@ -122,5 +122,5 @@ To configure an OS (Linux) provider, two primary steps are involved:
 
 ## Next steps
 
-- Refer [onboarding stpes](./azure-monitor-sap-quickstart.md) and create your first Azure Monitor for SAP solutions resource.
+- Refer [onboarding steps](./azure-monitor-sap-quickstart.md) and create your first Azure Monitor for SAP solutions resource.
 - Do you have questions about Azure Monitor for SAP Solutions? Check the [FAQ](./azure-monitor-faq.md) section
