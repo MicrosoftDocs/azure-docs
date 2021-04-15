@@ -107,14 +107,14 @@ Creating new service:
 ```posh
 New-ServiceFabricService -ApplicationName fabric:/HelloWorld -ServiceName fabric:/HelloWorld/svc1 -ServiceTypeName HelloWorldStateful -Stateful -PartitionSchemeSingleton -TargetReplicaSetSize 5 -MinReplicaSetSize 3 -TagsRequiredToRun @("SampleTag1") - TagsRequiredToPlace @("SampleTag2")
 ```
-This command creates a service which requires "SampleTag2" to be present on a node in order for the service to be placed there, and "SampleTag1" to be present in order for the service to continue running on that node.
+This command creates a service, which requires "SampleTag2" to be present on a node in order for the service to be placed there, and "SampleTag1" to be present in order for the service to continue running on that node.
 
 Updating existing service:
 
 ```posh
 Update-ServiceFabricService -Stateful -ServiceName fabric:/myapp/test -TagsRequiredToRun @("SampleTag1") -TagsRequiredToPlace @("SampleTag2")
 ```
-This command updates a service which requires "SampleTag2" to be present on a node in order for the service to be placed there, and "SampleTag1" to be present in order for the service to continue running on that node.
+This command updates a service, which requires "SampleTag2" to be present on a node in order for the service to be placed there, and "SampleTag1" to be present in order for the service to continue running on that node.
 
 ### Using C# APIs
 
