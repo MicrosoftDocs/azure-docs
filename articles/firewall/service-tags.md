@@ -21,7 +21,7 @@ See [Virtual network service tags](../virtual-network/service-tags-overview.md#a
 
 ## Configuration
 
-Azure Firewall supports configuration of Service Tags via PowerShell, Azure CLI, or the Azure Portal.
+Azure Firewall supports configuration of Service Tags via PowerShell, Azure CLI, or the Azure portal.
 
 ### Configure via Azure PowerShell
 
