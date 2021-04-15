@@ -36,7 +36,9 @@ If a user wants to sign in using a different email:
 3. Use one of the methods below to reset the user's redemption status.
 
 > [!NOTE]
->During public preview, when you're resetting the user's email address, we recommend setting the `mail` property to the new email address. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
+>During public preview, we have two recommendations:
+>- When you're resetting the user's email address to a new address, we recommend setting the `mail` property. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
+>- When you're resetting the status for a B2B guest user, be sure to do so under the user context. App-only calls are currently not supported.
 >
 ## Use PowerShell to reset redemption status
 
