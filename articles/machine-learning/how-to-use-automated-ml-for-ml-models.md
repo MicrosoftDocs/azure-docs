@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
