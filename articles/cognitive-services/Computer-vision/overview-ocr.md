@@ -60,7 +60,7 @@ The Read API includes the following features.
 * Handwriting classification for text lines
 * Available as Distroless Docker container for on-premise deployment
 
-Learn [how to use the OCR features](./vision-api-how-to-topics/call-read-api).
+Learn [how to use the OCR features](./vision-api-how-to-topics/call-read-api.md).
 
 ## Use the cloud API or deploy on-premise
 The Read 3.x cloud APIs are the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
