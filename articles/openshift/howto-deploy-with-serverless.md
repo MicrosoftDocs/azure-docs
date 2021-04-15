@@ -5,7 +5,7 @@ author: sabbour
 ms.author: asabbour
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 4/5/2020
+ms.date: 4/5/2021
 keywords: aro, openshift, red hat, serverless
 ---
 
