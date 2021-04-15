@@ -50,6 +50,8 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
 ## Connect to virtual machine
 
 After the deployment has completed, RDP to the VM. To see your VM in action, the IIS web server is then installed.

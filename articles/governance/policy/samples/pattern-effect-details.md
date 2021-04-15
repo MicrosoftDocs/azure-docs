@@ -1,14 +1,14 @@
 ---
 title: "Pattern: Effects of a policy definition"
 description: This Azure Policy pattern provides example of how to use the different effects of a policy definition.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: effects
 
-Azure Policy has a number of [effects](../concepts/effects.md) that determine how the service reacts
-to non-compliant resources. Some effects are simple and require no additional properties in the
-policy definition while others require several properties.
+Azure Policy has many [effects](../concepts/effects.md) that determine how the service reacts to
+non-compliant resources. Some effects are simple and require no additional properties in the policy
+definition while others require several properties.
 
 ## Sample 1: Simple effect
 

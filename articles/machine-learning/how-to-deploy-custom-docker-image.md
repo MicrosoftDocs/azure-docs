@@ -10,7 +10,7 @@ author: saachigopal
 ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.custom: how-to, devx-track-python, deploy
 ---
 
 # Deploy a model using a custom Docker base image
@@ -67,7 +67,7 @@ The information in this section assumes that you are using an Azure Container Re
 Azure Machine Learning only supports Docker images that provide the following software:
 * Ubuntu 16.04 or greater.
 * Conda 4.5.# or greater.
-* Python 3.5+.
+* Python 3.6+.
 
 To use Datasets, please install the libfuse-dev package. Also make sure to install any user space packages you may need.
 
