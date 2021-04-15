@@ -58,7 +58,7 @@ In this section, we'll create two virtual machines (VMs) with Windows operating 
 
 4. Create Virtual Machine 1 **(azuswinboap1).**
 
-   - You can either use custom image or choose an image from Azure Marketplace. Refer to [Deploying a VM from the Azure Marketplace for SAP](../sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](../sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap) based on your need.
+   - You can either use custom image or choose an image from Azure Marketplace. Refer to [Deploying a VM from the Azure Marketplace for SAP](deployment-guide.md) or [Deploying a VM with a custom image for SAP](deployment-guide.md) based on your need.
 
 5. Create Virtual Machine 2 **(azuswinboap2).**
 6. Add one Premium SSD disk. It will be used as SAP BOBI Installation directory.
