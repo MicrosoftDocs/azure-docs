@@ -43,6 +43,8 @@ landingContent:
             url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
           - text: Notifications
             url: concepts/notifications.md
+          - text: Troubleshooting
+            url: concepts/troubleshooting-info.md
   - title: Voice and video calling
     linkLists:
       - linkListType: quickstart
