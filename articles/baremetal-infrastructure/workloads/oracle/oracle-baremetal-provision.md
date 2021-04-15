@@ -68,4 +68,4 @@ For volumes, we follow Oracle's [Optimal Flexible Architecture (OFA) standard](h
 Learn more about BareMetal Infrastructure for Oracle.
 
 > [!div class="nextstepaction"]
-> [What is BareMetal Infrastructure on Azure?](concepts-baremetal-infrastructure-overview.md)
+> [What is BareMetal Infrastructure on Azure?](../../concepts-baremetal-infrastructure-overview.md)
