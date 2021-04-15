@@ -61,9 +61,9 @@ To complete these steps, you need:
 * The user must have the privileges to read data on the source database.
 * The guide uses PowerShell v7.1 with PSEdition Core which can be installed as per the [installation guide](/powershell/scripting/install/installing-powershell?view=powershell-7.1)
 * Download and install following modules from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](/powershell/module/powershellget/Install-Module); be sure to open the PowerShell command window using run as an Administrator:
-* *Az.Resources
-* *Az.Network
-* *Az.DataMigration
+    *Az.Resources
+    *Az.Network
+    *Az.DataMigration
 
 ```powershell
 Install-Module Az.Resources
