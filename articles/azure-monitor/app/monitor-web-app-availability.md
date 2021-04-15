@@ -2,7 +2,7 @@
 title: Monitor availability and responsiveness of any web site - Azure Monitor 
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/15/2021
 
 ms.reviewer: sdash
 ---
@@ -162,11 +162,9 @@ In addition to the raw results, you can also view two key Availability metrics i
 * [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../alerts/alerts-webhooks.md) that is called when an alert is raised.
 
-## Troubleshooting
-
-Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 ## Next steps
 
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
+* [Troubleshooting](troubleshoot-availability.md)
