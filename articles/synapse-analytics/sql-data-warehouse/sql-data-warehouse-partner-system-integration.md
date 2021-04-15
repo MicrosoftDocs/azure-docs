@@ -5,7 +5,7 @@ services: synapse-analytics
 author: periclesrocha
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw
 ms.date: 11/24/2020 
 ms.author: procha 
 ms.reviewer: jrasnick

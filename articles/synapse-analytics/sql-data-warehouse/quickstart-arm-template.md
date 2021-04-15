@@ -4,6 +4,7 @@ description: Learn how to create an Azure Synapse Analytics SQL pool by using Az
 services: azure-resource-manager
 author: julieMSFT
 ms.service: azure-resource-manager
+ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
