@@ -26,6 +26,8 @@ For more information about the available Azure AD roles, see [Assigning administ
 
 A common way to assign Azure AD roles to a user is on the **Assigned roles** page for a user. You can also configure the user eligibility to be elevated just-in-time into a role using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](../privileged-identity-management/index.yml).
 
+If a directory role is assigned to a guest user, the guest user will be granted with additional permissions that come with the role, including basic read permissions. See [Azure AD built-in roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+
 > [!Note]
 > If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../roles/manage-roles-portal.md). This feature is currently limited to assigning only one role at a time. You can't currently select multiple roles and assign them to a user all at once.
 >

@@ -58,11 +58,11 @@ See the [input container/file formats](../latest/encode-media-encoder-standard-f
 
 ## Upload and index with API
 
-Use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
+Use the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
 
 ### Configurations and params
 
-This section describes some of the optional parameters and when you would want to set them. For the most up to date params info, see the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API.
+This section describes some of the optional parameters and when you would want to set them. For the most up to date params info, see the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API.
 
 #### externalID 
 
@@ -106,7 +106,7 @@ Videos are indexed by Video Indexer according to their priority. Use the **prior
 
 Once your video has been uploaded, Video Indexer, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Indexer is done analyzing, you will get a notification with the video ID.  
 
-When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
+When using the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) or [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
 For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Indexer encodes it as 1280x720. Otherwise, as 640x468.
 The Default setting is [content aware encoding](../latest/encode-content-aware-concept.md).
