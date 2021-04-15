@@ -40,6 +40,63 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
     ```
 1. Click **Run**
 
+## Create data exploration database
+
+You can browse the content of the files directly via `master` database. For some simple data exploration scenarios you don't need to create a separate database.
+However, as you continue data exploration, you might want to create some utility objects, such as:
+- External data sources that represent the named references for storage accounts.
+- Database scoped credentials that enable you to specify how to authenticate to external data surce.
+- Database users with the permissions to access some data sources or database objects.
+- Utility views, procedures, and functions that you cna use in the queries.
+
+You need to create a separate database to use these objects. Custom database objects, cannot be created in the `master` database.
+
+```sql
+CREATE DATABASE DataExplorationDB COLLATE Latin1_General_100_BIN2_UTF8
+```
+
+> [!IMPORTANT]
+> Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
+> the best performance in the queries that read data from Parquet files and cosmos Db containers.
+
+1. Switch to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
+
+    ```sql
+    CREATE EXTERNAL DATA SOURCE ContosoLake
+    WITH ( LOCATION = 'https://contosolake.dfs.core.windows.net')
+    ```
+
+> [!NOTE]
+> An external data source can be created without credential. In that case, the caller's identity will be used to acces external data source.
+
+2. Optionally, you can create database  to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
+
+
+    ```sql
+    CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
+    ```
+
+    Create a database user in `DataexplorationDB` for the login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
+    ```sql
+    CREATE USER data_explorer FROM LOGIN = 'data_explorer';
+    GO
+    GRANT ADMINISTER DATABASE BULK OPERATIONS TO USER = 'data_explorer';
+    GO
+    ```
+
+3. Explore the content of the file using the relative path and the data source:
+
+    ```
+    SELECT
+        TOP 100 *
+    FROM
+        OPENROWSET(
+                BULK '/users/NYCTripSmall.parquet',
+                DATA_SOURCE = 'ContosoLake'
+                FORMAT='PARQUET'
+        ) AS [result]
+    ```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
