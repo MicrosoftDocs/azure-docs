@@ -12,7 +12,7 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro device.
 ---
 
-# Prepare a generalized image from a Windows VHD to deploy VMs on Azure Stack Edge Pro GPU
+# Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 

@@ -12,7 +12,7 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro device, and I want to use an ISO image for OS installation.
 ---
 
-# Prepare a generalized image from an ISO to deploy VMs on Azure Stack Edge Pro GPU 
+# Prepare generalized image from ISO to deploy VMs on Azure Stack Edge Pro GPU 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
