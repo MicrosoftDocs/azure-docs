@@ -318,7 +318,7 @@
             - name: Using Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: restore server, backup, geo-restore powershell
-       - name: Restore a dropped server
+       - name: Restore a deleted server
          href: howto-restore-dropped-server.md
          displayName: restore server,dropped, recover
   - name: Replication
@@ -376,6 +376,8 @@
        - name: Performance recommendations
          href: concepts-performance-recommendations.md
          displayName:  recommendation
+       - name: Azure Advisor recommendations
+         href: concepts-azure-advisor-recommendations.md
   - name: Best Practices
     items:
        - name: Monitoring best practices
@@ -464,6 +466,8 @@
         href: flexible-server/how-to-stop-start-server-portal.md
       - name: Restart server using Azure portal
         href: flexible-server/how-to-restart-server-portal.md
+      - name: Start/Stop/Restart with Azure CLI
+        href: flexible-server/how-to-restart-stop-start-server-cli.md
   - name: Networking
     items:
       - name: Concepts 
@@ -495,6 +499,8 @@
         href: flexible-server/concepts-high-availability.md
       - name: Configure High Availability using Azure portal
         href: flexible-server/how-to-configure-high-availability.md
+      - name: Configure high availability with Azure CLI
+        href: flexible-server/how-to-configure-high-availability-cli.md
   - name: Monitoring & Logs
     items:
       - name: Concepts
@@ -503,14 +509,18 @@
         items:
           - name: Concepts
             href: flexible-server/concepts-slow-query-logs.md
-          - name: Configure Slow query logs using Azure portal
+          - name: Configure slow query logs using Azure portal
             href: flexible-server/how-to-configure-slow-query-logs-portal.md
+          - name: Configure slow query logs with Azure CLI
+            href: flexible-server/how-to-configure-slow-query-log-cli.md
       - name: Audit logs
         items:
           - name: Concepts
             href: flexible-server/concepts-audit-logs.md
-          - name: Configure Audit logs
+          - name: Configure audit logs
             href: flexible-server/how-to-configure-audit-logs-portal.md
+          - name: Configure audit logs with Azure CLI
+            href: flexible-server/how-to-configure-audit-log-cli.md
   - name: Replication
     items:
       - name: Read replicas
@@ -526,7 +536,9 @@
       - name: Concepts
         href: flexible-server/concepts-backup-restore.md
       - name: Restore a server using Azure portal
-        href: flexible-server/how-to-restore-server-portal.md    
+        href: flexible-server/how-to-restore-server-portal.md  
+      - name: Restore a server using Azure CLI
+        href: flexible-server/how-to-restore-server-cli.md
   - name: Troubleshooting
     items:
       - name: Troubleshoot Connection errors

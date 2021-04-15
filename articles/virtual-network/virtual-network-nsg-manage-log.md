@@ -23,7 +23,7 @@ When you enable logging for an NSG, you can gather the following types of resour
 
 Resource logs are only available for NSGs deployed through the Azure Resource Manager deployment model. You cannot enable resource logging for NSGs deployed through the classic deployment model. For a better understanding of the two models, see [Understanding Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Resource logging is enabled separately for *each* NSG you want to collect diagnostic data for. If you're interested in activity (operational) logs instead, see Azure [activity logging](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Resource logging is enabled separately for *each* NSG you want to collect diagnostic data for. If you're interested in activity (operational) logs instead, see Azure [activity logging](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you're interested in IP traffic flowing through NSGs see Azure Network Watcher [NSG Flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md) 
 
 ## Enable logging
 
