@@ -49,14 +49,14 @@ In order to manage policies, an Azure AD user requires the following permissions
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
+  To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
 
 In order to read policies, an Azure AD user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. The read permission can be also be inherited with roles such as "Reader" (wildcard permissions) on  the subscription/ resource group.  
+  To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. The read permission can be also be inherited with roles such as "Reader" (wildcard permissions) on  the subscription/ resource group.  
 
-To verify the roles in PowerShell, run below:
+To verify the roles in PowerShell, run the below steps:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
