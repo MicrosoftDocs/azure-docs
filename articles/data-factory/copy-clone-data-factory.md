@@ -4,7 +4,7 @@ description: Learn how to copy or clone a data factory in Azure Data Factory
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 06/30/2020
 ---

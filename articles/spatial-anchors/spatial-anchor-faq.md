@@ -49,6 +49,10 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 **A:** All data is stored encrypted with a Microsoft managed data encryption key and all data is stored regionally for each of the resources.
 
+**Q: Where does Azure Spatial Anchors store data?**
+
+**A:** Azure Spatial Anchors accounts allow you to specify the region where your data will be stored. Microsoft may replicate data to other regions for resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Spatial Anchors account is configured. For example, if the account is registered in the East US region, this data is stored in the East US region but may be replicated to another region in the North America geography to ensure resiliency.
+
 **Q: What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?**
 
 **A**: When creating or locating anchors, pictures of the environment are processed on the device into a derived format. This derived format is transmitted to and stored on the service.
@@ -76,7 +80,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: Do you have any throttling limits in place?**
 
-**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrs@microsoft.com) to discuss. 
+**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrscontact@microsoft.com) to discuss.
 
 **Q: In what regions is Azure Spatial Anchors available?**
 

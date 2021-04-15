@@ -63,11 +63,23 @@ For security reasons, this is a hard requirement and we will not support wildcar
 
 ### DNS updates
 
-When using custom domains, you need to create a DNS entry with a CNAME record for the external URL (for example,  `*.adventure-works.com`) pointing to the external URL of the application proxy endpoint.For wildcard applications, the CNAME record needs to point to the relevant external URLs:
+When using custom domains, you need to create a DNS entry with a CNAME record for the external URL (for example,  `*.adventure-works.com`) pointing to the external URL of the application proxy endpoint. For wildcard applications, the CNAME record needs to point to the relevant external URL:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
 To confirm that you have configured your CNAME correctly, you can use [nslookup](/windows-server/administration/windows-commands/nslookup) on one of the target endpoints, for example, `expenses.adventure-works.com`.  Your response should include the already mentioned alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+
+### Using connector groups assigned to an App Proxy cloud service region other than the default region
+If you have connectors installed in regions different from your default tenant region, it may be beneficial to change which region your connector group is optimized for to improve performance accessing these applications. To learn more see, [Optimize connector groups to use closest Application Proxy cloud service](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
+ 
+If the connector group assigned to the wildcard application uses a **different region than your default region**, you will need to update the CNAME record to point to a regional specific external URL. Use the following table to determine the relevant URL:
+
+| Connector Assigned Region | External URL |
+| ---   | ---         |
+| Asia | `<yourAADTenantId>.asia.tenant.runtime.msappproxy.net`|
+| Australia  | `<yourAADTenantId>.aus.tenant.runtime.msappproxy.net` |
+| Europe  | `<yourAADTenantId>.eur.tenant.runtime.msappproxy.net`|
+| North America  | `<yourAADTenantId>.nam.tenant.runtime.msappproxy.net` |
 
 ## Considerations
 

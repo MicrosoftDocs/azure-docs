@@ -30,11 +30,11 @@ For example, you can [ensure the same set of policies are applied across custome
 
 ## Manage hybrid Kubernetes clusters at scale with Azure Arc enabled Kubernetes
 
-You can manage Kubernetes clusters that have been [connected to a customer's subscription with Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), just as if they were running in Azure.
+You can manage Kubernetes clusters that have been [connected to a customer's subscription with Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), just as if they were running in Azure.
 
 If your customer has created a [service principal account to onboard Kubernetes clusters to Azure Arc](../../azure-arc/kubernetes/create-onboarding-service-principal.md), you can access this service principal account to onboard and manage clusters. This can be done by users in the managing tenant who were granted the "Kubernetes Cluster - Azure Arc Onboarding" Azure built-in role when the subscription containing the service principal account was [onboarded to Azure Lighthouse](onboard-customer.md).
 
-You can deploy [configurations](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) and [Helm charts](../../azure-arc/kubernetes/use-gitops-with-helm.md) using GitOps for connected clusters.
+You can deploy [configurations](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) and [Helm charts](../../azure-arc/kubernetes/use-gitops-with-helm.md) using GitOps for connected clusters.
 
 You can also monitor connected clusters with Azure Monitor, and [use Azure Policy to apply cluster configurations at scale](../../azure-arc/kubernetes/use-azure-policy.md).
 

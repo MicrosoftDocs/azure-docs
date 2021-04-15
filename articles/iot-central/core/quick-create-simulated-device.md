@@ -9,7 +9,7 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 
-# As a builder, I want to try out creating a device template and adding a simulated device to my IoT Central application.
+#Customer intent: As a builder, I want to try out creating a device template and adding a simulated device to my IoT Central application.
 ---
 
 # Quickstart: Add a simulated device to your IoT Central application

@@ -343,7 +343,7 @@ For ASP.NET SignalR, a known issue was fixed in SDK 1.6.0. Upgrade your SDK to n
 
 ## Thread pool starvation
 
-If your server is starving, that means no threads are working on message processing. All threads are hanging in a certain method.
+If your server is starving, that means no threads are working on message processing. All threads are not responding in a certain method.
 
 Normally, this scenario is caused by async over sync or by `Task.Result`/`Task.Wait()` in async methods.
 
