@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to integrate pipelines and activities using S
 1. In Synapse Studio, go to the **Integrate** hub.
 1. Select **+** > **Pipeline** to create a new pipeline. Click on the new pipeline object to open the Pipeline designer.
 1. Under **Activities**, expand the **Synapse** folder, and drag a **Notebook** object into the designer.
-1. Select the **Settings** tab of the Notebook activity properties. Use the drop-down list to select any notebook from your current Synapse workspace.
+1. Select the **Settings** tab of the Notebook activity properties. Use the drop-down list to select a notebook from your current Synapse workspace.
 
 ## Schedule the pipeline to run every hour
 
@@ -36,7 +36,7 @@ In this tutorial, you'll learn how to integrate pipelines and activities using S
 ## Monitor pipeline execution
 
 1. Once the pipeline is published, to make the pipeline run immediately, without waiting for the next hour, select **Add trigger** > **Trigger now**.
-1. In Synapse Studio, go to the **Monitor** hub.
+1. Go to the **Monitor** hub.
 1. Select **Pipeline runs** to monitor pipeline execution progress.
 
 
