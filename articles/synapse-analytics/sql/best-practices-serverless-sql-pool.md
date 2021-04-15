@@ -131,10 +131,10 @@ After you know the inferred data types for the query, you can specify appropriat
 
 ```sql  
 SELECT
-    vendor_id, pickup_datetime, passenger_count
+    vendorID, tpepPickupDateTime, passengerCount
 FROM 
 	OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+		BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=2018/puMonth=*/*.snappy.parquet',
 		FORMAT='PARQUET'
     ) 
 	WITH (

@@ -231,6 +231,11 @@ For frequently asked questions about the client agent, see [Agent FAQ](sql-data-
 
 Yes, you must manually approve the service managed private endpoint, in the Private endpoint connections page of the Azure portal during the sync group deployment or by using PowerShell.
 
+**Why do I get a firewall error when the Sync job is provisioning my Azure database?**
+
+This may happen because Azure resources are not allowed to access your server. Ensure that the firewall on the Azure database has "Allow Azure services and resources to access this server” setting set to "Yes".
+
+
 ## Next steps
 
 Congratulations. You've created a sync group that includes both a SQL Database instance and a SQL Server database.

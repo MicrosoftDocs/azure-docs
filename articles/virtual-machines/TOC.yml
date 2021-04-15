@@ -1199,13 +1199,13 @@
     - name: Windows
       displayName: detach a disk
       href: ./windows/detach-disk.md
-  - name: Expand OS disk
+  - name: Expand a disk
     items:
     - name: Linux
-      displayName: Expand OS disk
+      displayName: Expand a disk - Linux
       href: ./linux/expand-disks.md
     - name: Windows
-      displayName: Expand OS disk
+      displayName: Expand a disk - Windows
       href: ./windows/expand-os-disk.md
   - name: Manage storage
     items:
