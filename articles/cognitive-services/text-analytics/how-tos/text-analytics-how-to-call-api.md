@@ -65,8 +65,8 @@ See the table below to see which features can be used asynchronously. Note that 
 | Feature | Synchronous | Asynchronous |
 |--|--|--|
 | Language detection | ✔ |  |
-| Sentiment analysis | ✔ |  |
-| Opinion mining | ✔ |  |
+| Sentiment analysis | ✔ | ✔ |
+| Opinion mining | ✔ | ✔ |
 | Key phrase extraction | ✔ | ✔* |
 | Named Entity Recognition (including PII and PHI) | ✔ | ✔* |
 | Entity linking | ✔ | ✔* |
@@ -125,6 +125,8 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 * Key Phrase Extraction 
 * Named Entity Recognition (including PII and PHI)
 * Entity Linking
+* Sentiment Analysis
+* Opinion Mining
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
@@ -235,7 +237,7 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 |--|--|--|
 | Language detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | Sentiment analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
+| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.4/sentiment?opinionMining=true` |
 | Key phrase extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | Named entity recognition - general | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
 | Named entity recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
