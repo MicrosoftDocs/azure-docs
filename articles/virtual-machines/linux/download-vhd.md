@@ -16,7 +16,7 @@ In this article, you learn how to download a Linux virtual hard disk (VHD) file 
 
 ## Stop the VM
 
-A VHD can’t be downloaded from Azure if it's attached to a running VM. You need to stop the VM to download the VHD. 
+A VHD can’t be downloaded from Azure if it's attached to a running VM. You need to stop the VM to download a VHD (or make a snapshot and download the snapshot). 
 
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
 2.	On the left menu, select **Virtual Machines**.
@@ -24,6 +24,12 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 4.	On the page for the VM, select **Stop**.
 
     :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="Shows the menu button to stop the VM.":::
+
+### Alternative: Snapshot the VM disk
+
+Bring up the VM with the disk to download in the Azure portal, click on "Disks" to see the list of disks, then click on the disk name you wish to snapshot.  The details of the disk will be displayed.  Click on "Create Snapshot" and then enter a name and type (full or incremental) for the disk snapshot.  Your snapshot will be created shortly, and may then be used to download or create another VM from.
+
+Note that if you don't stop the VM first, your snapshot will not be clean, but rather in the same state as if the VM had been powercycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the applications running at the time were not crash resistent.
 
 ## Generate SAS URL
 
