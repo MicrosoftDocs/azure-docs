@@ -342,7 +342,6 @@ You can connect your devices to IoT Central, export the device data to a compute
 
 You can use the [IoT Central device bridge](https://github.com/Azure/iotc-device-bridge) as compute engine to transform data exported from IoT Central.
 
-<!-- To Do - you can control and manage downstream devices through an IoT Edge gateway -->
 An advantage of transforming data at egress is that your devices connect directly to IoT Central, making it easy to send commands to devices or update device properties. However, with this method, you may use more messages than your monthly allotment and increase the cost of using Azure IoT Central.
 
 ### Use the IoT Central device bridge to transform device data
@@ -392,25 +391,46 @@ The device bridge then sends the transformed data to IoT Central in the followin
 
 The following steps show you how to set up and configure this scenario:
 
+### Retrive your IoT Central connection settings
+
+Before you set up this scenario, you need to get some connection settings from your IoT Central application:
+
+1. Sign in to your IoT Central application.
+
+1. Navigate to **Administration > Device connection**.
+
+1. Make a note of the **ID scope**. You use this value later.
+
+1. Select the **SaS-IoT-Devices** enrollment group. Make a note of the shared access signature primary key. You use this value later.
+
 ### Set-up a compute engine
 
-<!-- To do: Add steps to get Scope ID and primary group SAS key -->
-To deploy the device bridge, select [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json). To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge/blob/master/README.md).
+This scenario uses the same Azure Functions deployment as the IoT Central device bridge. To deploy the device bridge, select the **Deploy to Azure** button below and use the information in the following table to complete the **Custom deployment** form:
+
+| Field | Value |
+| ----- | ----- |
+| Resource group | Create a new resource group called `egress-scenario` |
+| Region | Select the region closes to you. |
+| Scope ID | Use the **ID scope** you made a note of previously. |
+| IoT Central SAS Key | Use the shared access signature primary key for the **SaS-IoT-Devices** enrollment group. You made a note of this previously. |
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json).
+
+Select **Review + Create**, and then **Create**. It takes a couple of minutes to create the Azure function and related resources in the **egress-scenario** resource group.
 
 ### Transform device data in the device bridge
 
 To configure the device bridge to transform the exported device data:
 
-1. Obtain an application API key from the Open Weather service. This is free with limited usage of the service. To create an application API key, create an account in [Open Weather service portal](https://openweathermap.org/) and follow the instructions. You use your Open Weather API key later.
+1. Obtain an application API key from the Open Weather service. This is free with limited usage of the service. To create an application API key, create an account in the [Open Weather service portal](https://openweathermap.org/) and follow the instructions. You use your Open Weather API key later.
 
-1. In the Azure Portal, navigate to Function App that was deployed with the device bridge.
+1. In the Azure Portal, navigate to Function App in the **egress-scenario** resource group.
 
-1. In the left-navigation, in **Development Tools**, select **App Service Editor (Preview)**.
+1. In the left navigation, in **Development Tools**, select **App Service Editor (Preview)**.
 
 1. Select "Go -&gt;" to open the **App Service Editor** page. Make the following changes:
 
-    1. Open the *wwwroot/IoTCIntegration/index.js* file. Delete all the code in this file. Replace the code with the code in [index.js](https://github.com/iot-for-all/iot-central-compute/blob/main/Azure_function/index.js).
-    <!-- to do : get raw link -->
+    1. Open the *wwwroot/IoTCIntegration/index.js* file. Replace all the code in this file with the code in [index.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/index.js).
 
     1. In the new *index.js*, update the `openWeatherAppId` variable file with Open Weather API key you obtained previously.
 
@@ -418,58 +438,89 @@ To configure the device bridge to transform the exported device data:
         const openWeatherAppId = '<Your Open Weather API Key>'
         ```
 
-    1. Add a message property to the data sent by the device bridge to IoT Central. IoT Central uses this property to prevent exporting the transformed data. To make this change, open the *wwwroot/IoTCIntegrationlib/engine.js* file. Add the following code in the section that creates the message to send from from the device bridge:
+    1. Add a message property to the data sent by the function to IoT Central. IoT Central uses this property to prevent exporting the transformed data. To make this change, open the *wwwroot/IoTCIntegration/lib/engine.js* file. Locate the following code:
+
+        ```javascript
+        if (timestamp) {
+          message.properties.add('iothub-creation-time-utc', timestamp);
+        }
+        ```
+
+        Add the following code just after the code in the previous snippet:
 
         ```javascript
         // add a message property that we can look for in data export to not re-compute computed telemetry
         message.properties.add('computed', true);
         ```
 
-        For reference you can view a example ** [engine.js](https://github.com/iot-for-all/iot-central-compute/blob/main/Azure_function/lib/engine.js)file.
+        For reference you can view a completed example of the [engine.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/lib/engine.js) file.
+
+1. In the **App Service Editor**, select **Console** in the left navigation. Run the following commands to install the required packages:
+
+    ```bash
+    cd IoTCIntegration
+    npm install
+    ```
+
+    This command may take a few minutes to run.
 
 1. Return to the **Azure Function Overview** page and restart the function:
 
     :::image type="content" source="media/howto-transform-data/azure-function.png" alt-text="Restart the function":::
 
-<!-- To DO - more detail about how to get function URL -->
+1. Select **Functions** in the left navigation. Then select **IoTCIntegration**. Select **Code + Test**.
+
 1. Make a note of the function URL, you need this later:
 
     :::image type="content" source="media/howto-transform-data/get-function-url.png" alt-text="Get the function URL":::
 
 ### Enable data flow from IoT Central to the device bridge
 
-To set up the Azure IoT Central application:
+This section describes how to set up the Azure IoT Central application.
 
-1. To add a device template to your IoT Central application, navigate to your IoT Central application and then:
+First, save the [device model](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/model.json) file to your local machine.
 
-    1. Create a device template and import the model publish here. See [Set up a device template](howto-set-up-template.md) for more information.
+To add a device template to your IoT Central application, navigate to your IoT Central application and then:
 
-    1. Publish the model so it can be used in your application.
+1. Sign in to your IoT Central application and navigate to the **Device templates** page.
 
-1. Setup the data export to send data to your Device bridge:
+1. Select **+ New**, select **IoT Device**, select **Next: Customize**, enter *Compute model* as the template name. Select **Next: Review**. Then select **Create**.
 
-    1. In your IoT Central application, select **Data export**.
+1. Select **Import a model** and browse to the *model.json* file you downloaded previously.
 
-    1. Select **+ New destination** to create a destination to use with the device bridge. Call the destination *Compute function*, for **Destination type** select **Webhook**. For the Callback URL select paste in the function URL you made a note of previously. Leave the **Authorization** as **No Auth**.
+1. After the model is imported, select **Publish** to publish the **Compute model** device template.
 
-    1. Save the changes.
+To setup the data export to send data to your Device bridge:
 
-    1. Select the **+ New export** and create a data export called *Compute export*.
+1. In your IoT Central application, select **Data export**.
 
-    1. Add a filter to only export device data for the device template you're using. Select **+ Filter**, select item **Device template**, select the operator **Equals**, and select the name of the device template you just created.
+1. Select **+ New destination** to create a destination to use with the device bridge. Call the destination *Compute function*, for **Destination type** select **Webhook**. For the Callback URL select paste in the function URL you made a note of previously. Leave the **Authorization** as **No Auth**.
 
-    1. Add a message filter to differentiate between transformed and un-transformed data. This prevents sending transformed values back to the device bridge. Select **+ Message property filter** and enter the name value *computed*, then select the operator **Does not exist**. The string `computed` is used as a keyword in the device bridge example code.
+1. Save the changes.
 
-    1. For the destination, select the **Compute function** destination you created previously.
+1. Select the **+ New export** and create a data export called *Compute export*.
 
-    1. Save the changes. After a minute or so, the **Export status** shows as **Healthy**.
+1. Add a filter to only export device data for the device template you're using. Select **+ Filter**, select item **Device template**, select the operator **Equals**, and select the **Compute model** device template you just created.
+
+1. Add a message filter to differentiate between transformed and un-transformed data. This prevents sending transformed values back to the device bridge. Select **+ Message property filter** and enter the name value *computed*, then select the operator **Does not exist**. The string `computed` is used as a keyword in the device bridge example code.
+
+1. For the destination, select the **Compute function** destination you created previously.
+
+1. Save the changes. After a minute or so, the **Export status** shows as **Healthy**.
 
 ### Verify
 
-<!-- to do - does the device really send CSV? -->
-Download a [sample device](https://github.com/iot-for-all/iot-central-compute/tree/main/device). The device code can be found in the file *device/device.js*. The sample device sends random CSV formatted data to IoT Central. To run the sample device:
+The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and NPM installed on your local machine. If you don't want to install these prerequisites, use the[Azure Cloud Shell](https://shell.azure.com/) which has them preinstalled.
 
-1. To connect the sample device to your IoT Central application, edit the connection settings in the *device.js* file. Replace the scope ID and group SAS key with the values you made a note of previously:
+To run a sample device that tests the scenario:
+
+1. To clone the GitHub repository that contains the sample code, run the following command:
+
+    ```bash
+    git clone https://github.com/iot-for-all/iot-central-compute
+    ```
+
+1. To connect the sample device to your IoT Central application, edit the connection settings in the *iot-central-compute/device/device.js* file. Replace the scope ID and group SAS key with the values you made a note of previously:
 
     ```javascript
     // These values need to be filled in from your Azure IoT Central application
@@ -481,12 +532,11 @@ Download a [sample device](https://github.com/iot-for-all/iot-central-compute/tr
 
     Save the changes.
 
-<!-- to do - get rid of this by collecting this data at the start -->
-1. The Scope Id and the Group SAS key can be found in the IoT Central application by clicking the Administration -&gt; Device connection in the left hand navigation. Copy the ID Scope value and the "SAS-IoT-Devices" primary key into the code in the device.js file by replacing the place holder text. Save the file and from the command line in the "iot-central-compute\\device" directory.
-
-1. Use the following command to run the device:
+1. Use the following commands to install the required packages and run the device:
 
     ```bash
+    cd ~/iot-central-compute/device
+    npm install
     node device.js
     ```
 
@@ -504,7 +554,6 @@ Download a [sample device](https://github.com/iot-for-all/iot-central-compute/tr
     send status: MessageEnqueued [{"data":"40.5, 36.41, 14.6043, 14.079"}]
     ```
 
-<!-- to do - should be the **overview** page to see the plot -->
 1. In your IoT Central application navigate to the device called **computeDevice**. On the **Raw data** view there are two different telemetry lines one after the other showing up around every five seconds. These lines show the original device data and the transformed data.
 
 ## Next Steps
