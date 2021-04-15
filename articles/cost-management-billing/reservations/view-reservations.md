@@ -47,6 +47,8 @@ Add a user as billing administrator to an Enterprise Agreement or a Microsoft Cu
 
 ## View reservations with RBAC access
 
+If you purchased the reservation or were added to a reservation, follow steps below to view and manage reservations
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Services** > **Reservation** to list reservations that you have access to.
 
