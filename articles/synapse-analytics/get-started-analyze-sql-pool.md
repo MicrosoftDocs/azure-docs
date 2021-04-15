@@ -73,12 +73,13 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 		)
 	GO
 
-	--Uncomment the 4 lines below to create a stored procedure for data pipeline orchestration​
-	--CREATE PROC bulk_load_NYCTaxiTripSmall
-	--AS
-	--BEGIN
 	COPY INTO dbo.NYCTaxiTripSmall
-	(DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5, PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, TotalAmount 23)
+	(DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5,
+	PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, 
+	PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, 
+	PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, 
+	FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, 
+	TotalAmount 23)
 	FROM 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet'
 	WITH
 	(
