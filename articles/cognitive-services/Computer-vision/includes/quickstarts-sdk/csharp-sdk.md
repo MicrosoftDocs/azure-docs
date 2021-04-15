@@ -36,7 +36,7 @@ Using Visual Studio, create a new .NET Core application.
 
 ### Install the client library 
 
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `6.0.0-preview.1`, and then **Install**. 
+Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `7.0.0`, and then **Install**. 
 
 #### [CLI](#tab/cli)
 
@@ -67,7 +67,7 @@ Build succeeded.
 Within the application directory, install the Computer Vision client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 ```
 
 ---
@@ -124,7 +124,7 @@ In a new method in the **Program** class, instantiate a client with your endpoin
 
 ## Read printed and handwritten text
 
-The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../overview-ocr.md) overview. The code in this section uses the latest [Computer Vision SDK release for Read 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) and defines a method, `BatchReadFileUrl`, which uses the client object to detect and extract text in the image.
+The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../overview-ocr.md) overview. The code in this section uses the latest [Computer Vision SDK release for Read 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) and defines a method, `BatchReadFileUrl`, which uses the client object to detect and extract text in the image.
 
 > [!TIP]
 > You can also extract text from a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **ReadInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) for scenarios involving local images.
@@ -178,8 +178,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
+In this quickstart, you learned how to install the OCR client library and use the Read API. Next, learn more about the Read API features.
+
 > [!div class="nextstepaction"]
->[Computer Vision API reference (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision)
+>[Call the Read API](../../Vision-API-How-to-Topics/call-read-api.md)
 
 * [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

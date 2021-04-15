@@ -5,7 +5,7 @@
   items:
   - name: Language Support
     href: language-support.md
-  - name: Pricing and limits
+  - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator 
 - name: Text Translation
   expanded: true
@@ -161,17 +161,26 @@
       - name: Get operations
         href: document-translation/reference/get-operations.md
       - name: Cancel operation
-        href: document-translation/reference/cancel-operation.md      
+        href: document-translation/reference/cancel-operation.md
+- name: How-to guides
+  items:
+  - name: Enterprise readiness
+    items:
+    - name: Set up Virtual Networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
+    - name: Use customer-managed keys
+      href: encrypt-data-at-rest.md
 - name: Resources
   items:
-  - name: Support & help options
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-  - name: Compliance
-    href: https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy
-  - name:  Encryption
-    href:  encrypt-data-at-rest.md   
   - name: Code samples on GitHub
     href: https://aka.ms/TranslatorGitHub
   - name: Privacy and cookies 
-    href: https://privacy.microsoft.com/en-US/privacystatement    
-
+    href: https://privacy.microsoft.com/en-US/privacystatement

@@ -2,14 +2,14 @@
 title: Plan an Azure Active Directory single sign-on deployment
 description: Guide to help you plan, deploy, and manage SSO in your organization.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: baselden
+ms.author: iangithinji
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref

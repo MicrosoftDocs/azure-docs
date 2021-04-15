@@ -234,6 +234,8 @@
         href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
       - name: NP-series
         href: np-series.md
+      - name: FPGA Attestation Service
+        href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute
       items:
       - name: Overview
@@ -428,6 +430,10 @@
         href: ./extensions/features-windows.md
       - name: Windows VM Agent
         href: ./extensions/agent-windows.md
+    - name: Azure Backup for SQL Server
+      items:
+      - name: Azure Backup for SQL Server
+        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
     - name: Azure Disk Encryption
       items:
       - name: Linux
@@ -444,10 +450,8 @@
       - name: Windows
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
-    - name: Azure Backup for SQL Server
-      items:
-      - name: Azure Backup for SQL Server
-        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+    - name: Azure Policy Guest Configuration
+      href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
       - name: Linux - version 2
@@ -1195,13 +1199,13 @@
     - name: Windows
       displayName: detach a disk
       href: ./windows/detach-disk.md
-  - name: Expand OS disk
+  - name: Expand a disk
     items:
     - name: Linux
-      displayName: Expand OS disk
+      displayName: Expand a disk - Linux
       href: ./linux/expand-disks.md
     - name: Windows
-      displayName: Expand OS disk
+      displayName: Expand a disk - Windows
       href: ./windows/expand-os-disk.md
   - name: Manage storage
     items:
@@ -1303,6 +1307,8 @@
       href: ./windows/nsg-quickstart-portal.md
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+  - name: Use a custom domain name
+    href: custom-domain.md
   - name: Use multiple NICs
     items:
     - name: Linux using CLI
