@@ -14,6 +14,8 @@
     href: get-started-detect-motion-emit-events.md
   - name: Track objects in live videos
     href: track-objects-live-video.md
+  - name: Detect motion and emit events
+    href: detect-motion-emit-events-quickstart.md
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-edge-devices.md
   - name: Analyze live video
@@ -34,6 +36,10 @@
     href: video-recording.md    
   - name: Analyze live videos without recording
     href: analyze-live-video-without-recording.md
+  - name: Scenarios 
+    items:
+    - name: Event based video recording
+      href: event-based-video-recording-concept.md 
 - name: How-to guides
   items:
   - name: Develop and deploy gRPC inference server
@@ -42,6 +48,10 @@
     href: manage-retention-policy-how-to.md
   - name: AI Composition
     href: ai-composition.md
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
+  - name: Invoke direct methods with the portal
+    href: use-azure-portal-to-invoke-direct-methods.md
 - name: Reference 
   items:
   - name: HTTP extension protocol 
@@ -50,6 +60,8 @@
     href: grpc-extension-protocol.md
   - name: Inference metadata schema
     href: inference-metadata-schema.md
+  - name: Direct methods
+    href: direct-methods.md
 - name: Resources
   items:
   - name: Azure roadmap
@@ -60,4 +72,3 @@
     href: faq.md
   - name: Quotas and limitations
     href: quotas-limitations.md
-
