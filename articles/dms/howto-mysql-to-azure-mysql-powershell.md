@@ -20,8 +20,7 @@ In this article, you migrate a MySQL database restored to an on-premises instanc
 
 The article helps to automate the scenario where source and target database names can be different and as part of migration either all or few of the tables in the target database need to be migrated which have the same name and table structure.
 
->[!IMPORTANT]
-> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../includes/dms-boilerplate-preview.md)]
+> [!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
 In this article, you learn how to:
 > [!div class="checklist"]
