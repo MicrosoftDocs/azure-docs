@@ -3,7 +3,7 @@ title: Monitor Batch with Azure Application Insights
 description: Learn how to instrument an Azure Batch .NET application using the Azure Application Insights library.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 03/25/2021
+ms.date: 04/13/2021
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights
@@ -306,7 +306,13 @@ CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+    imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+    nodeAgentSkuId: "batch.node.windows amd64");
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance

@@ -76,8 +76,25 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 
 1. Follow the instructions to [Install and provision the Azure IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
 
-1. Then install the Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) and you are now ready to start the Device Update agent on your IoT Edge device.
+1. Install the Device Update image update agent
+    - We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) to try image update rollouts to different versions using a base image (adu-base-image) and one update image (adu-update-image). See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
 
+1. Install the Device Update package update agent  
+    - For latest agent versions from packages.miscrosoft.com: Update package lists on your device and install the Device Update agent package and its dependencies using:	
+	```shell
+	sudo apt-get update
+	```
+	
+	```shell
+	sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
+	```
+	
+    - For upcoming release candidate versions from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) : Download the .dep file to the machine you want to install the Device Update agent on, then:
+	 ```shell
+	Sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
+	 ```
+	
+1. You are now ready to start the Device Update agent on your IoT Edge device. 
 
 ### On non-Edge IoT Linux devices
 
@@ -125,14 +142,15 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     sudo aziotctl config apply
     ```
     
-1.	Finally install the Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) and you are now ready to start the Device Update agent on your IoT Edge device.
+1.	Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) to try image update rollouts to different versions using a base image (adu-base-image) and one update image (adu-update-image). See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
+1.	You are now ready to start the Device Update agent on your IoT device. 
 
 ### Other IoT devices
 
 The Device Update agent can also be configured without the IoT Identity service for testing or on constrained devices. Follow the below steps to provision the Device Update agent using a connection string (from the Module or Device).
 
-1.	Install Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases).
+1.	We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) to try image update rollouts to different versions using a base image (adu-base-image) and one update image (adu-update-image). See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
 1.	Log onto the machine or IoT Edge device/IoT device.
 	
@@ -145,16 +163,17 @@ The Device Update agent can also be configured without the IoT Identity service 
        
     1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     
-    1. In the terminal, replace <your-connection-string> with the connection string of the device for your instance of Device Update agent.
+    1. In the terminal, replace "<your-connection-string>" with the connection string of the device for your instance of Device Update agent.
     
         > [!Important]
         > Do not add quotes around the connection string.
-        
-        - connection_string=<your-connection-string>
+        ```shell
+        connection_string=<ADD CONNECTION STRING HERE>
+        ```
        
     1. Enter and save.
     
-1.	Now you are now ready to start the Device Update agent on your IoT Edge device. 
+1.	Now you are now ready to start the Device Update agent on your IoT device. 
 
 
 ## How to start the Device Update Agent
@@ -187,7 +206,7 @@ You can also build and modify your own customer Device Update agent.
 Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent
 from source.
 
-Once the agent is successfully building, it's time [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
+Once the agent is successfully building, it's time to [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
 the agent.
 
 Now, make the changes needed to incorporate the agent into your image.  Look at how to

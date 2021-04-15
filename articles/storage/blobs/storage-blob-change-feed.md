@@ -62,8 +62,8 @@ Here's a few things to keep in mind when you enable the change feed.
 Enable change feed on your storage account by using Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), select your storage account.
-1. Navigate to the **Data protection** option under **Blob service**.
-1. Under **Tracking**, select **Turn on blob change feed**.
+1. Navigate to the **Data protection** option under **Data Management**.
+1. Under **Tracking**, select **Enable blob change feed**.
 1. Choose the **Save** button to confirm your data protection settings.
 
     :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot showing how to enable change feed in Azure portal":::
