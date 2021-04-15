@@ -40,7 +40,7 @@ Azure AD allows you to protect a group assigned to a role by using a new propert
 >[!Important]
 >For privileged access groups used for elevating into Azure AD roles, Microsoft recommends that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from another administrator with permission to reset an eligible user's passwords.
 
-We designed how groups are assigned to roles to prevent that sort of potential breach from happening:
+We designed how groups are assigned to roles to help prevent potential breaches from happening:
 
 - Only Global admins and Privileged role admins can create a role-assignable group (with the "isAssignableToRole" property enabled).
 - It can't be an Azure AD dynamic group; that is, it must have a membership type of "Assigned." Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
