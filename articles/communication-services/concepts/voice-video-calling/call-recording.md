@@ -50,7 +50,7 @@ ConversationId is returned in the CallEstablished event sent to <recording-state
                                                             
 #### Getting Conversation ID from a user triggered event on the client
 From the Javascript `@azure/communication-calling` library, after establishing a call invoke `let result = call.info.getConversationUrl()` to get the conversationUrl, then 
-**Base64Url encoded the conversationUrl to get the `{conversationId}` for use in the run-time control APIs**.
+**Base64Url encoded the conversationUrl to get the `{conversationId}` for use in the run-time control APIs**. Encoding can be done either on the client before sending the event ot the server, or server side.
 > Note that the conversationUrl must be Base64Url encoded, not to be confused with just Base64 encoding (i.e. btoa).                                                            
 
 ### Start Recording
