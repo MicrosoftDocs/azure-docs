@@ -350,11 +350,11 @@ An advantage of transforming data at egress is that your devices connect directl
 
 In this scenario, a compute engine transforms device data exported from IoT Central before sending it back to your IoT Central application. At a high level, the steps to configure this scenario are:
 
-1. **Set-up the compute engine:** Create an IoT Central device bridge to act as a compute engine for data transformation.
+1. **Set up the compute engine:** Create an IoT Central device bridge to act as a compute engine for data transformation.
 
 1. **Transform device data in the device bridge:** Transform data in the device bridge by modifying the device bridge function code for your data transformation use case.
 
-1. **Enable data flow from IoT Central to the device bridge:** Export the data from IoT Central to device bridge for transformation. Then, forward the transformed data back to IoT Central. When you create the data export, use message property filters to only export un-transformed data.
+1. **Enable data flow from IoT Central to the device bridge:** Export the data from IoT Central to device bridge for transformation. Then, forward the transformed data back to IoT Central. When you create the data export, use message property filters to only export untransformed data.
 
 1. **Verify**: Connect your device to the IoT Central app and check for both raw device data and transformed data in IoT Central.
 
@@ -391,7 +391,7 @@ The device bridge then sends the transformed data to IoT Central in the followin
 
 The following steps show you how to set up and configure this scenario:
 
-### Retrive your IoT Central connection settings
+### Retrieve your IoT Central connection settings
 
 Before you set up this scenario, you need to get some connection settings from your IoT Central application:
 
@@ -403,7 +403,7 @@ Before you set up this scenario, you need to get some connection settings from y
 
 1. Select the **SaS-IoT-Devices** enrollment group. Make a note of the shared access signature primary key. You use this value later.
 
-### Set-up a compute engine
+### Set up a compute engine
 
 This scenario uses the same Azure Functions deployment as the IoT Central device bridge. To deploy the device bridge, select the **Deploy to Azure** button below and use the information in the following table to complete the **Custom deployment** form:
 
@@ -412,7 +412,7 @@ This scenario uses the same Azure Functions deployment as the IoT Central device
 | Resource group | Create a new resource group called `egress-scenario` |
 | Region | Select the region closes to you. |
 | Scope ID | Use the **ID scope** you made a note of previously. |
-| IoT Central SAS Key | Use the shared access signature primary key for the **SaS-IoT-Devices** enrollment group. You made a note of this previously. |
+| IoT Central SAS Key | Use the shared access signature primary key for the **SaS-IoT-Devices** enrollment group. You made a note of this value previously. |
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json).
 
@@ -422,9 +422,9 @@ Select **Review + Create**, and then **Create**. It takes a couple of minutes to
 
 To configure the device bridge to transform the exported device data:
 
-1. Obtain an application API key from the Open Weather service. This is free with limited usage of the service. To create an application API key, create an account in the [Open Weather service portal](https://openweathermap.org/) and follow the instructions. You use your Open Weather API key later.
+1. Obtain an application API key from the Open Weather service. An account is free with limited usage of the service. To create an application API key, create an account in the [Open Weather service portal](https://openweathermap.org/) and follow the instructions. You use your Open Weather API key later.
 
-1. In the Azure Portal, navigate to Function App in the **egress-scenario** resource group.
+1. In the Azure portal, navigate to Function App in the **egress-scenario** resource group.
 
 1. In the left navigation, in **Development Tools**, select **App Service Editor (Preview)**.
 
@@ -453,7 +453,7 @@ To configure the device bridge to transform the exported device data:
         message.properties.add('computed', true);
         ```
 
-        For reference you can view a completed example of the [engine.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/lib/engine.js) file.
+        For reference, you can view a completed example of the [engine.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/lib/engine.js) file.
 
 1. In the **App Service Editor**, select **Console** in the left navigation. Run the following commands to install the required packages:
 
@@ -470,7 +470,7 @@ To configure the device bridge to transform the exported device data:
 
 1. Select **Functions** in the left navigation. Then select **IoTCIntegration**. Select **Code + Test**.
 
-1. Make a note of the function URL, you need this later:
+1. Make a note of the function URL, you need this value later:
 
     :::image type="content" source="media/howto-transform-data/get-function-url.png" alt-text="Get the function URL":::
 
@@ -490,11 +490,11 @@ To add a device template to your IoT Central application, navigate to your IoT C
 
 1. After the model is imported, select **Publish** to publish the **Compute model** device template.
 
-To setup the data export to send data to your Device bridge:
+To set up the data export to send data to your Device bridge:
 
 1. In your IoT Central application, select **Data export**.
 
-1. Select **+ New destination** to create a destination to use with the device bridge. Call the destination *Compute function*, for **Destination type** select **Webhook**. For the Callback URL select paste in the function URL you made a note of previously. Leave the **Authorization** as **No Auth**.
+1. Select **+ New destination** to create a destination to use with the device bridge. Call the destination *Compute function*, for **Destination type** select **Webhook**. For the Callback URL, select paste in the function URL you made a note of previously. Leave the **Authorization** as **No Auth**.
 
 1. Save the changes.
 
@@ -502,7 +502,7 @@ To setup the data export to send data to your Device bridge:
 
 1. Add a filter to only export device data for the device template you're using. Select **+ Filter**, select item **Device template**, select the operator **Equals**, and select the **Compute model** device template you just created.
 
-1. Add a message filter to differentiate between transformed and un-transformed data. This prevents sending transformed values back to the device bridge. Select **+ Message property filter** and enter the name value *computed*, then select the operator **Does not exist**. The string `computed` is used as a keyword in the device bridge example code.
+1. Add a message filter to differentiate between transformed and untransformed data. This filter prevents sending transformed values back to the device bridge. Select **+ Message property filter** and enter the name value *computed*, then select the operator **Does not exist**. The string `computed` is used as a keyword in the device bridge example code.
 
 1. For the destination, select the **Compute function** destination you created previously.
 
@@ -510,7 +510,7 @@ To setup the data export to send data to your Device bridge:
 
 ### Verify
 
-The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and NPM installed on your local machine. If you don't want to install these prerequisites, use the[Azure Cloud Shell](https://shell.azure.com/) which has them preinstalled.
+The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and NPM installed on your local machine. If you don't want to install these prerequisites, use the[Azure Cloud Shell](https://shell.azure.com/) that has them preinstalled.
 
 To run a sample device that tests the scenario:
 
@@ -540,7 +540,7 @@ To run a sample device that tests the scenario:
     node device.js
     ```
 
-1. The output looks like the following:
+1. The result of this command looks like the following output:
 
     ```output
     registration succeeded
@@ -554,7 +554,7 @@ To run a sample device that tests the scenario:
     send status: MessageEnqueued [{"data":"40.5, 36.41, 14.6043, 14.079"}]
     ```
 
-1. In your IoT Central application navigate to the device called **computeDevice**. On the **Raw data** view there are two different telemetry lines one after the other showing up around every five seconds. These lines show the original device data and the transformed data.
+1. In your IoT Central application, navigate to the device called **computeDevice**. On the **Raw data** view there are two different telemetry lines one after the other showing up around every five seconds. These lines show the original device data and the transformed data.
 
 ## Next Steps
 
