@@ -15,10 +15,6 @@ ms.custom: data4ml
 
 Learn how to create and run projects to label images or label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
-> [!IMPORTANT]
-> Features marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Data labeling capabilities
 
@@ -69,6 +65,11 @@ To create a project, select **Add project**. Give the project an appropriate nam
 * Select **Next** when you're ready to continue.
 
 ### Text labeling project (preview)
+
+> [!IMPORTANT]
+> Text labeling is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Select **Text** to create a text labeling project.
 
@@ -156,9 +157,11 @@ For bounding boxes, important questions include:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
-## Use ML-assisted data labeling 
+## Use ML-assisted data labeling
 
-The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
+The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. It is only available for image labeling.
+
+At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
 

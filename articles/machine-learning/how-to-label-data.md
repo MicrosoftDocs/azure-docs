@@ -20,10 +20,6 @@ After your project administrator [creates a data labeling project](./how-to-crea
 > * The labeling tools
 > * How to use the tools for specific labeling tasks
 
-> [!IMPORTANT]
-> Features listed with (preview) are in public preview.   
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -52,9 +48,9 @@ In all data labeling tasks, you choose an appropriate tag or tags from a set tha
 
 Machine learning algorithms may be triggered during your labeling. If these algorithms are enabled in your project, you may see the following:
 
-* After some amount of images have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
+* For images, after some amount of data have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
 
-* At a later point, you may see **Tasks prelabeled** next to the project name.  Images will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.  
+* At a later point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.  
 
 * For object identification models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
 
@@ -150,6 +146,11 @@ To delete *all* polygons in the current image, select the **Delete all regions**
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
 ## Annotate text (preview)
+
+> [!IMPORTANT]
+> Text leabeling is in public preview.   
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When annotating text, use the toolbar to:
 
