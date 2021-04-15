@@ -46,6 +46,8 @@
     href: develop-deploy-grpc-inference-srv.md
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
+  - name: AI Composition
+    href: ai-composition.md
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
   - name: Invoke direct methods with the portal
