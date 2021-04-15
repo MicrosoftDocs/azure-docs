@@ -84,9 +84,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Check Point Remote Access VPN Client support team](mailto:support@checkpoint.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up Check Point Remote Access VPN** section, copy the appropriate URL(s) based on your requirement.
 
@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    e. Select **Import Metadata File** to upload the downloaded **Certificate (Base64)** from the Azure portal.
+    e. Select **Import Metadata File** to upload the downloaded **Federation Metadata XML** from the Azure portal.
 
     > [!NOTE]
     > Alternatively you can also select **Insert Manually** to paste manually the **Entity ID** and **Login URL** values into the corresponding fields, and to upload the **Certificate File** from the Azure portal.
@@ -157,7 +157,7 @@ In this section, you create a user called Britta Simon in Check Point Remote Acc
 
     ![screenshot for selecting site.](./media/check-point-remote-access-vpn-tutorial/site.png)
 
-1. Sign in to the result page using Azure AD credentials, which you have created in the **Create an Azure AD test user** section.
+1. In Azure AD login pop up, sign in using Azure AD credentials which you have created in the **Create an Azure AD test user** section.
 
 ## Next steps
 
