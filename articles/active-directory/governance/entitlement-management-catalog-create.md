@@ -51,11 +51,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 ### Creating a catalog programmatically
 
-<<<<<<< HEAD
 You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
-=======
-You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post).
->>>>>>> fd3b4db89a4d (Resolve preserve-view-not-set warnings for Graph links)
 
 ## Add resources to a catalog
 
@@ -93,11 +89,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 ### Adding a resource to a catalog programmatically
 
-<<<<<<< HEAD
 You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true).
-=======
-You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post).
->>>>>>> fd3b4db89a4d (Resolve preserve-view-not-set warnings for Graph links)
 
 ## Remove resources from a catalog
 
@@ -118,7 +110,7 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 ## Add additional catalog owners
 
-The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management responsibilities. 
+The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helpshare the catalog management responsibilities. 
 
 Follow these steps to assign a user to the catalog owner role:
 
@@ -170,11 +162,7 @@ You can delete a catalog, but only if it does not have any access packages.
 
 ### Deleting a catalog programmatically
 
-<<<<<<< HEAD
 You can also delete a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta&preserve-view=true).
-=======
-You can also delete a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete).
->>>>>>> fd3b4db89a4d (Resolve preserve-view-not-set warnings for Graph links)
 
 ## Next steps
 
