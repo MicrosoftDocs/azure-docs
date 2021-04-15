@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -58,7 +58,7 @@ To get this script:
 1. Select **File shares**.
 1. Select the file share you'd like to mount.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Screenshot of file shares blade, file share is highlighted.":::
 
 1. Select **Connect**.
 
@@ -67,7 +67,7 @@ To get this script:
 1. Select the drive letter to mount the share to.
 1. Copy the provided script.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Example text":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
 
 1. Paste the script into a shell on the host you'd like to mount the file share to, and run it.
 
