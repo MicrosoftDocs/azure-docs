@@ -32,10 +32,12 @@ In this tutorial, you'll learn how to integrate pipelines and activities using S
 1. Select **OK**. 
 1. Select **Publish All**. 
 
+## Forcing a pipeline to run immediately
+
+1. Once the pipeline is published, to make the pipeline run immediately, without waiting for the next hour, select **Add trigger** > **Trigger now**.
 
 ## Monitor pipeline execution
 
-1. Once the pipeline is published, to make the pipeline run immediately, without waiting for the next hour, select **Add trigger** > **Trigger now**.
 1. Go to the **Monitor** hub.
 1. Select **Pipeline runs** to monitor pipeline execution progress.
 
