@@ -1,17 +1,17 @@
 ---
-title: Throttling Cosmos DB requests in your custom application
+title: Throttling Azure Cosmos DB requests in your custom application
 description: This article provides developers with a methodology to throttle requests to Cosmos to reduce errors and improve throughput.
 author: pelasne
 
 ---
 
-# Throttling Cosmos requests in your custom application
+# Throttling Azure Cosmos DB requests in your custom application
 
 This article provides developers with a methodology to throttle requests to Cosmos to reduce errors and improve throughput.
 
-Requests that exceed your provisioned throughput in Cosmos DB can result in transient faults like TooManyRequests, Timeout, and ServiceUnavailable. Typically you would retry these requests when capacity is available and be successful. However, this approach can result in a very large number of requests following the error path in your code and typically results in reduced throughput.
+Requests that exceed your provisioned throughput in Azure Cosmos DB can result in transient faults like [TooManyRequests](troubleshoot-request-rate-too-large.md), [Timeout](troubleshoot-request-timeout.md), and [ServiceUnavailable](troubleshoot-service-unavailable.md). Typically you would retry these requests when capacity is available and be successful. However, this approach can result in a very large number of requests following the error path in your code and typically results in reduced throughput.
 
-Consider the following scenario. You provision Cosmos DB with 20K RU. Your application processes an ingestion job that contains 10K records, each of which costs 10 RU. The total capacity required to complete this job is 100K RU. If you simply send the entire job to Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. Instead if you spread those requests evenly across 5 seconds, you should expect no faults and overall faster throughput. Spreading the requests across a period of time can be accomplished by introducing a throttling mechanism in your code.
+Consider the following scenario. You provision Azure Cosmos DB with 20K RU. Your application processes an ingestion job that contains 10K records, each of which costs 10 RU. The total capacity required to complete this job is 100K RU. If you simply send the entire job to Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. Instead if you spread those requests evenly across 5 seconds, you should expect no faults and overall faster throughput. Spreading the requests across a period of time can be accomplished by introducing a throttling mechanism in your code.
 
 ## Workflow
 
@@ -94,8 +94,3 @@ Your application will still need transient fault handling even if you implement 
 - Transient faults can occur for reasons other than TooManyRequests.
 
 However, properly implementing a throttling mechanism in your application will substantially reduce the number of transient faults.
-
-## Related Links
-
-- [Diagnose and troubleshoot Azure Cosmos DB request rate too large exceptions](troubleshoot-request-rate-too-large.md)
-- [Diagnose and troubleshoot Azure Cosmos DB request timeout exceptions](troubleshoot-request-timeout.md)
