@@ -23,8 +23,6 @@ To download the container for another language, replace `en` with one of the lan
 
 | Text Analytics Container | Language code |
 |--|--|
-| Language              | Language code |
-|:----------------------|:-------------:|
 | Chinese-Simplified    |   `zh-hans`   |
 | Chinese-Traditional   |   `zh-hant`   |
 | Dutch                 |     `nl`      |
