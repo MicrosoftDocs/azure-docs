@@ -36,12 +36,12 @@ If you are a billing administratos use following steps to view and manage all re
 ### How to add billing administrators
 
 Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
-   - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Enterprise administrators can view and manage reservations in **Cost Management + Billing**. 
-   - Users with the _Enterprise Administrator (read only)_ role can only view the reservation from **Cost Management + Billing**. 
-   - Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
+1. For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Enterprise administrators can view and manage reservations in **Cost Management + Billing**. 
+1. Users with the _Enterprise Administrator (read only)_ role can only view the reservation from **Cost Management + Billing**. 
+1. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
 
         _Enterprise Administrators can take ownership of a reservation order and they can add other users to a reservation using Access control (IAM)._
-    - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations.
+1. For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations.
     For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## Give users RBAC access to individual reservations
