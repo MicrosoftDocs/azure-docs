@@ -54,9 +54,6 @@ In this tutorial, you learn to:
 
 1. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your Azure DevOps repository.
 
-    > [!NOTE]
-    > The functionality to select _Other_ is currently rolling out and may not be available yet in all Azure subscriptions.
-
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
 1. Once the deployment is successful, navigate to the new Static Web Apps resource.
@@ -92,6 +89,9 @@ In this tutorial, you learn to:
       vmImage: ubuntu-latest​
     ​
     steps:​
+      - checkout: self
+        submodules: true
+
       - task: AzureStaticWebApp@0​
         inputs:​
           app_location: "/" ​

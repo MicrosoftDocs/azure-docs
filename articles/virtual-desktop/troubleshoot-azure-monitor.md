@@ -1,18 +1,15 @@
 ---
-title: Troubleshoot Monitor Windows Virtual Desktop preview - Azure
+title: Troubleshoot Monitor Windows Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Troubleshoot Azure Monitor for Windows Virtual Desktop (preview)
+# Troubleshoot Azure Monitor for Windows Virtual Desktop
 
->[!IMPORTANT]
->Azure Monitor for Windows Virtual Desktop is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article presents known issues and solutions for common problems in Azure Monitor for Windows Virtual Desktop (preview).
+This article presents known issues and solutions for common problems in Azure Monitor for Windows Virtual Desktop.
 
 ## Issues with configuration and setup
 
@@ -78,4 +75,6 @@ The following are issues and limitations we're aware of and working to fix:
 
 ## Next steps
 
-If you're unsure how to interpret the data or want to learn more about common terms, check out the [Azure Monitor for Windows Virtual Desktop glossary](azure-monitor-glossary.md). If you want to learn how to set up and use Azure Monitor for Windows Virtual Desktop, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).
+- To get started, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
+- Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.

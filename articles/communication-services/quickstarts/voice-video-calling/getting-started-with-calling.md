@@ -13,9 +13,6 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Quickstart: Add voice calling to your app
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add voice and video calling to your app.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]

@@ -36,7 +36,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | identityCertLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | identityCertLocWin | Directory path | Absolute source path of the identity certificate in Windows for provisioning an IoT Edge device (**X509** or **symmetric**). |
-| identityPkLocVm |  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| identityPkLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | identityPkLocWin | Directory path | Absolute source path of the identity private key in Windows for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | vmSizeDefintion | No longer than 30 characters | Definition of the number of cores and available RAM for the virtual machine. **Default value**: Standard_K8S_v1. |
 | vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk. **Default value**: 16 GB. |
@@ -69,7 +69,7 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DPS**). |
 | identityCertLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
 | identityCertLocWin | Directory path | Absolute source path of the identity certificate in Windows for provisioning an IoT Edge device (**dps**, **X509**). |
-| identityPkLocVm |  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
+| identityPkLocVm  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
 | identityPkLocWin | Directory path | Absolute source path of the identity private key in Windows for provisioning an IoT Edge device (**dps**, **X509**). |
 
 ## Get-EflowVmName

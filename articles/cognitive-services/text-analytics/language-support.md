@@ -19,9 +19,11 @@ ms.author: aahi
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chinese-Simplified    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` also accepted |
 | Chinese-Traditional   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Dutch                 |     `nl`      |     ✓      |         2019-10-01        |                    |
 | English               |     `en`      |     ✓      |         2019-10-01         |                    |
 | French                |     `fr`      |     ✓      |         2019-10-01         |                    |
 | German                |     `de`      |     ✓      |         2019-10-01         |                    |
+| Hindi                 |    `hi`       |     ✓      |         2020-04-01         |                    |
 | Italian               |     `it`      |     ✓      |         2019-10-01         |                    |
 | Japanese              |     `ja`      |     ✓      |         2019-10-01         |                    |
 | Korean                |     `ko`      |    ✓      |         2019-10-01         |                    |

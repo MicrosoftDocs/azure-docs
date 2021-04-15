@@ -67,6 +67,9 @@
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
+      - name: Verifiable credentials
+        tocHref: /azure/active-directory/verifiable-credentials/
+        topicHref: /azure/active-directory/verifable-credentials/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -248,6 +251,9 @@
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
+      - name: Azure Certified Device
+        tocHref: /azure/certification/
+        topicHref: /azure/certification/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -678,6 +684,8 @@
     tocHref: /azure/networking/
     topicHref: /azure/networking/
     items:
+      - name: Fundamentals
+        tocHref: /azure/networking/fundamentals
       - name: Application Gateway
         tocHref: /azure/application-gateway/
         topicHref: /azure/application-gateway/
@@ -796,6 +804,9 @@
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/
+      - name: Journey
+        tocHref: /azure/security/journey
+        topicHref: /azure/security/journey
       - name: Benchmarks
         tocHref: /azure/security/benchmarks/
         topicHref: /azure/security/benchmarks/
