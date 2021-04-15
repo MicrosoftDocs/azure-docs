@@ -20,7 +20,7 @@ After completing the steps in this guide, you'll be able to run a simulated live
  
 ## Prerequisites
 
-* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) if you don't already have one.
+* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 
     > [!NOTE]
     > You will need an Azure subscription with permissions for creating service principals (owner role provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
@@ -33,22 +33,27 @@ After completing the steps in this guide, you'll be able to run a simulated live
 >
 > If you run into issues with Azure resources that get created, please view our [troubleshooting guide]()<!--/troubleshoot-how-to#common-error-resolutions--> to resolve some commonly encountered issues.
 
-## Review the Video Sample
+## Review the video sample
 
 When you set up the Azure resources, a short video of people walking in hallway is copied to the Linux VM in Azure that you're using as the IoT Edge device. This guide uses the video file to simulate a live stream.
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [sample video (.mkv)](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)<!--<need correct link>--> to start playback. You see the footage of people in hallway.
 
 <!--add a video-->
 
-Follow the guidelines in [Create and Deploy the media graph]()<!--analyze-live-video-use-your-grpc-model-quickstart#create-and-deploy-the-media-graph--> section of the quickstart you just finished. Ensure to make the following adjustments as you follow the steps. This will ensure the right body for the direct method calls are used.
+Follow the guidelines in [Create and Deploy the media graph]()<!--analyze-live-video-use-your-grpc-model-quickstart#create-and-deploy-the-media-graph--> section of the quickstart you just finished. Be sure to make the following adjustments as you continue with the steps. These steps help to ensure that the correct body for the direct method calls are used.
 
-1.	Ensure to edit the *operations.json* file as follows:
+Edit the *operations.json* file:
+
+1. Change the link to the graph topology:
+   `"topologyUrl" : " https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/ai-composition/2.0/topology.json"`
+
+1. Under `GraphInstanceSet`, edit the name of the graph topology to match the value in the preceding link:
+   `"topologyName" : " AIComposition"`
+
+1. Under `GraphTopologyDelete`, edit the name:
+   `"name" : " AIComposition"`
     
-    * Change the link to the graph topology:<br/>` "topologyUrl" : " https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/ai-composition/2.0/topology.json"`
-    * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:<br/>` "topologyName" : " AIComposition"`
-    * Under GraphTopologyDelete, edit the name:<br/>`"name" : " AIComposition"`
-    
-Follow [interpret the results]()<!--analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp#interpret-results--> section. In addition to the analytics events on the hub and the diagnostic events, the topology that you have used also creates a relevant video clip on the cloud that is triggered by the AI signal-based activation of the signal gate. This clip is also accompanied with [operational events]()<!--event-based-video-recording-tutorial#operational-events--> on the hub for downstream workflows to take. You can [examine and play]()<!--event-based-video-recording-tutorial#media-services-asset> the video clip by logging into portal 
+For details, see the [interpret the results]()<!--analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp#interpret-results--> section. In addition to the analytics events on the hub and the diagnostic events, the topology that you have used also creates a relevant video clip on the cloud that is triggered by the AI signal-based activation of the signal gate. This clip is also accompanied with [operational events]()<!--event-based-video-recording-tutorial#operational-events--> on the hub for downstream workflows to take. You can [examine and play]()<!--event-based-video-recording-tutorial#media-services-asset--> the video clip by logging into the Azure portal.
 
 ## Clean up
 
