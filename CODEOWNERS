@@ -30,6 +30,20 @@ articles/active-directory/app-provisioning/ @CelesteDG
 articles/active-directory/develop/ @mmacy
 articles/active-directory/manage-apps/ @CelesteDG
 
+# Azure Synapse Analytics
+articles/synapse-analytics/ @julieMSFT synapsecontent@microsoft.com @ryanmajidi @saveenr 
+articles/synapse-analytics/backuprestore/ @joannapea @julieMSFT
+articles/synapse-analytics/catalog-governance/@djpmsft @chanuengg 
+articles/synapse-analytics/ccid/ @liudan66 @julieMSFT
+articles/synapse-analytics/data-integration/ @kromerm @jonburchel 
+articles/synapse-analytics/machine-learning/ @garyericson @NelGson @midesa 
+articles/synapse-analytics/metadata/@MikeRys @julieMSFT @jocaplan
+articles/synapse-analytics/security/ @RonyMSFT  @nanditavalsan @meenalsri @julieMSFT
+articles/synapse-analytics/spark/ @euangms @mlee3gsd @midesa 
+articles/synapse-analytics/sql/ @filippopovic @azaricstefan @anumjs @WilliamDAssafMSFT @jovanpop-msft
+articles/synapse-analytics/sql-data-warehouse/ @anumjs @ronortloff @julieMSFT
+articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
+
 # Cognitive Services
 articles/cognitive-services/ @erhopf @aahill @trevorbye @patrickfarley @nitinme @mrbullwinkle @laujan
 

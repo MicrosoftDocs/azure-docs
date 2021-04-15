@@ -61,4 +61,4 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md).
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).

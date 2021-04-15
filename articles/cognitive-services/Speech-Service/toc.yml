@@ -470,7 +470,7 @@
     - name: Configure RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
-    - name: Containers
+    - name: Use containers
       items:
         - name: Install and run Speech containers
           displayName: 'containers,install container,run container'
@@ -497,6 +497,12 @@
           href: how-to-migrate-from-bing-speech.md
         - name: From the Translator Speech API
           href: how-to-migrate-from-translator-speech-api.md
+    - name: Enterprise readiness
+      items:
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+      - name: Use customer-managed keys
+        href: speech-encryption-of-data-at-rest.md
 - name: Devices
   items:
     - name: Speech devices documentation
@@ -582,7 +588,13 @@
           href: https://speech.microsoft.com
         - name: Create a Custom Commands app with Speech Studio
           href: ./quickstart-custom-commands-application.md
-    - name: Support & help options
+    - name: Enterprise readiness
+      items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Swagger documentation
       href: swagger-documentation.md
@@ -591,10 +603,6 @@
       href: sovereign-clouds.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
-    - name: Compliance
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-    - name: Encryption
-      href: speech-encryption-of-data-at-rest.md
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
     - name: Privacy and cookies
