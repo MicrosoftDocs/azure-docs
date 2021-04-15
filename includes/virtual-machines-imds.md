@@ -420,6 +420,31 @@ Data | Description |
 | `ipv6.ipAddress` | Local IPv6 address of the VM | 2017-04-02
 | `macAddress` | VM mac address | 2017-04-02
 
+### Get user data
+
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. To set up user data, utilize the quickstart template [here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-userdata). The sample below shows how to retrieve this data through IMDS.
+
+> [!NOTE]
+> This feature is released with version `2021-01-01` and depends upon an update to the Azure platform, which is currently being rolled out and may not yet be available in every region.
+
+> [!NOTE]
+> Security notice: IMDS is open to all applications on the VM, sensitive data should not be placed in the user data.
+
+
+#### [Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
+```
+
+#### [Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
+```
+
+---
+
 
 #### Sample 1: Tracking VM running on Azure
 
@@ -895,31 +920,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 ---
 
-#### Sample 8: Retrieve user data
-
-When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. To set up user data, utilize the quickstart template [here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-userdata). The sample below shows how to retrieve this data through IMDS.
-
-> [!NOTE]
-> This feature is released with version `2021-01-01` and depends upon an update to the Azure platform, which is currently being rolled out and may not yet be available in every region.
-
-> [!NOTE]
-> Security notice: IMDS is open to all applications on the VM, sensitive data should not be placed in the user data.
-
-
-#### [Windows](#tab/windows/)
-
-```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
-```
-
-#### [Linux](#tab/linux/)
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
-```
-
----
-
 ## Attested data
 
 ### Get Attested data
@@ -1172,6 +1172,9 @@ If there is a data element not found or a malformed request, the Instance Metada
 
 - I created my VM through Azure Resource Manager some time ago. Why am I not seeing compute metadata information?
   - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+
+- Is user data the same as custom data?
+  - User data offers the similar functionality to custom data, allowing you to pass your own metadata to the VM instance. The difference is, user data is retrieved through IMDS, and is persistent throughout the lifetime of the VM instance. Existing custom data feature will continue to work as described in [this article](https://docs.microsoft.com/en-us/azure/virtual-machines/custom-data). However you can only get custom data through local system folder, not through IMDS.
 
 - Why am I not seeing all data populated for a new version?
   - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
