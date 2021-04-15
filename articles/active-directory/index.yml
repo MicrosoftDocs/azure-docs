@@ -27,9 +27,9 @@ highlightedContent:
     - title: Secure your remote workforce
       itemType: get-started
       url: /enterprise-mobility-security/remote-work/
-    - title: Assign roles to users
-      itemType: how-to-guide
-      url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
+    - title: Verifiable credentials
+      itemType: overview
+      url: ./verifiable-credentials/decentralized-identifier-overview.md
     - title: Azure AD deployment checklist
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
