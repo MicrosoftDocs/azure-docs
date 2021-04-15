@@ -49,7 +49,7 @@ However, as you continue data exploration, you might want to create some utility
 - Database users with the permissions to access some data sources or database objects.
 - Utility views, procedures, and functions that you can use in the queries.
 
-1. You need to create a separate database to use these objects. Custom database objects, cannot be created in the `master` database.
+1. Create a separate database to use these objects. Custom database objects, cannot be created in the `master` database.
 
     ```sql
     CREATE DATABASE DataExplorationDB 
@@ -70,16 +70,15 @@ However, as you continue data exploration, you might want to create some utility
 > [!NOTE]
 > An external data source can be created without credential. In that case, the caller's identity will be used to acces external data source.
 
-3. Optionally, you can create database  to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
-
+3. Optionally, create a login for a user in `DataExplorationDB` that will access external data:
 
     ```sql
     CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
     ```
 
-    Create a database user in `DataexplorationDB` for the login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
+    Create a database user in `DataExplorationDB` for the login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
     ```sql
-    CREATE USER data_explorer FROM LOGIN = 'data_explorer';
+    CREATE USER data_explorer FOR LOGIN data_explorer;
     GO
     GRANT ADMINISTER DATABASE BULK OPERATIONS TO data_explorer;
     GO
