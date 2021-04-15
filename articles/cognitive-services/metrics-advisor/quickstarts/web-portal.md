@@ -32,8 +32,6 @@ When you provision a Metrics Advisor instance, you can use the APIs and web-base
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
 > * If you'd like to use the REST API to interact with the service, you will need the key and endpoint from the resource you create. You can find them in the  **Keys and endpoints** tab in the created resource.
 
-* Your data should avoid duplicate rows, and the type of timestamp column can be 'Datetime' or 'String' .
-
 
 This document uses a SQL Database as an example for creating your first monitor.
 
