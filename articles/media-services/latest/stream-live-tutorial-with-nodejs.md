@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-nodejs"
-ms.date: 06/13/2019
+ms.date: 04/15/2021
 ms.author: inhenkel
 
 ---
 
-# Tutorial: Stream live with Media Services
+# Tutorial: Stream live with Media Services using Node.JS and TypeScript
 
 > [!NOTE]
 > Even though the tutorial uses Node.JS examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks). 
@@ -40,7 +40,6 @@ The tutorial shows you how to:
 ## Prerequisites
 
 The following items are required to complete the tutorial:
-## Prerequisites
 
 - Install [Node.js](https://nodejs.org/en/download/)
 - Install [Typescript](https://www.typescriptlang.org/)
@@ -100,31 +99,31 @@ The sample creates a unique suffix for each resource so that you don't have name
 
 To start using Media Services APIs with Node.js, you need to first add the [@azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices) SDK module using the npm package manager
 
-    ```bash
-    npm install @azure/arm-mediaservices
-    ```
+```bash
+npm install @azure/arm-mediaservices
+```
 
 In the package.json, this is already configured for you, so you just need to run *npm install* to load the modules and dependencies. 
 
 1. Open a **command prompt**, browse to the sample's directory.
 1. Change directory into the AMSv3Samples folder.
 
-    ```bash
-    cd AMSv3Samples
-    ```
+```bash
+cd AMSv3Samples
+```
 
 1. Install the packages used in the *packages.json* file.
 
-    ```bash
-    npm install 
-    ```
+```bash
+npm install 
+```
 
 1. Launch Visual Studio Code from the *AMSv3Samples* Folder. (This is required to launch from the folder where the *.vscode* folder and *tsconfig.json* files are located.)
 
-    ```bash
-    cd ..
-    code .
-    ```
+```bash
+cd ..
+code .
+```
 
 Open the folder for *Live*, and open the *index.ts* file in the Visual Studio Code editor.
 While in the *index.ts* file, press F5 to launch the debugger.
