@@ -112,7 +112,7 @@ However, if you'd prefer to opt out of the feature and allow it to be automatica
 
 ## Note for Azure US Government customers
 
-The email one-time passcode feature is disabled by default in the Azure US Government cloud and your partners will dead-end unless the feature is enabled. Unlike the commercial cloud, the Azure US Government cloud does not support your partners to redeem invitations with self-service Azure Active Directory accounts.
+The email one-time passcode feature is disabled by default in the Azure US Government cloud. Your partners will be unable to sign in unless this feature is enabled. Unlike the Azure public cloud, the Azure US Government cloud doesn't support redeeming invitations with self-service Azure Active Directory accounts.
 
  ![Email one-time passcode disabled](media/one-time-passcode/enable-email-otp-disabled.png)
 
