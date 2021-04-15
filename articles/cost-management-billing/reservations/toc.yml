@@ -106,6 +106,8 @@
     items:
     - name: Permissions to view and manage
       href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: View reservation utilization
+      href: reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: View reservations as a CSP
       href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Manage reservations
