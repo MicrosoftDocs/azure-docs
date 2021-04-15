@@ -139,7 +139,7 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 ## Managing a connected organization programmatically
 
-You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
+You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true) objects and set sponsors for them.
 
 ## State properties of connected organizations
 

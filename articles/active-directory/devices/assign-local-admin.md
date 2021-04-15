@@ -75,7 +75,7 @@ Starting with Windows 10 version 2004, you can use Azure AD groups to manage adm
 
 Currently, there's no UI in Intune to manage these policies and they need to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for using either of these policies: 
 
-- Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group?view=graph-rest-beta). The SID is defined by the property `securityIdentifier` in the API response.
+- Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group). The SID is defined by the property `securityIdentifier` in the API response.
 - When Restricted Groups policy is enforced, any current member of the group that is not on the Members list is removed. So enforcing this policy with new members or groups will remove the existing administrators namely user who joined the device, the Device administrator role and Global administrator role from the device. To avoid removing existing members, you need to configure them as part of the Members list in the Restricted Groups policy. This limitation is addressed if you use the Local Users and Groups policy that allows incremental updates to group membership
 - Administrator privileges using both policies are evaluated only for the following well-known groups on a Windows 10 device - Administrators, Users, Guests, Power Users, Remote Desktop Users and Remote Management Users. 
 - Managing local administrators using Azure AD groups is not applicable to Hybrid Azure AD joined or Azure AD Registered devices.
