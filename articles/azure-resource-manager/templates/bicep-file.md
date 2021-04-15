@@ -23,6 +23,21 @@ param <parameter-name> <parameter-data-type> = <default-value>
 
 var <variable-name> = <variable-value>
 
+resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
+  <resource-properties>
+}
+
+// conditional deployment
+resource <resource-symbolic-name> '<resource-type>@<api-version>' = if (<condition-to-deploy>) {
+  <resource-properties>
+}
+
+// iterative deployment
+@<decorator>(<argument>)
+resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
+  <resource-properties>
+}]
+
 module <module-symbolic-name> '<path-to-file>' = {
   name: '<linked-deployment-name>'
   params: {
@@ -30,13 +45,21 @@ module <module-symbolic-name> '<path-to-file>' = {
   }
 }
 
-resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
-  <resource-properties>
+// conditional deployment
+module <module-symbolic-name> '<path-to-file>' = if (<condition-to-deploy>) {
+  name: '<linked-deployment-name>'
+  params: {
+    <parameter-names-and-values>
+  }
 }
 
-resource <resource-symbolic-name> '<resource-type>@<api-version>' = if (<condition-to-deploy>) {
-  <resource-properties>
-}
+// iterative deployment
+module <module-symbolic-name> '<path-to-file>' = [for <item> in <collection>: {
+  name: '<linked-deployment-name>'
+  params: {
+    <parameter-names-and-values>
+  }
+}]
 
 output <output-name> <output-data-type> = <output-value>
 ```
@@ -141,24 +164,6 @@ You don't specify a [data type](data-types.md) for a variable. Instead, the data
 
 For more information, see [Variables in templates](template-variables.md).
 
-## Modules
-
-Use modules to link to other Bicep files that contain code you want to reuse. The module contains one or more resources to deploy. Those resources are deployed along with any other resources in your Bicep file.
-
-```bicep
-module webModule './webApp.bicep' = {
-  name: 'webDeploy'
-  params: {
-    skuName: 'S1'
-    location: location
-  }
-}
-```
-
-The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value.
-
-For more information, see [Use Bicep modules](bicep-modules.md).
-
 ## Resource
 
 Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource.
@@ -181,11 +186,13 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 In your resource declaration, you include properties for the resource type. These properties are unique to each resource type.
 
-To [conditionally deploy a resource](conditional-resource-deployment.md), add an `if` statement.
+For more information, see [Resource declaration in templates](resource-declaration.md).
+
+To [conditionally deploy a resource](conditional-resource-deployment.md), add an `if` expression.
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
-   name: uniqueStorageName
+  name: uniqueStorageName
   location: location
   sku: {
     name: storageSKU
@@ -197,7 +204,56 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 }
 ```
 
-For more information, see [Resource declaration in templates](resource-declaration.md).
+To [deploy more than one instance](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) of a resource type, add a `for` expression. The expression can iterate over members of an array.
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
+  name: storageName
+  location: location
+  sku: {
+    name: storageSKU
+  }
+  kind: 'StorageV2'
+  properties: {
+    supportsHttpsTrafficOnly: true
+  }
+}]
+```
+
+## Modules
+
+Use modules to link to other Bicep files that contain code you want to reuse. The module contains one or more resources to deploy. Those resources are deployed along with any other resources in your Bicep file.
+
+```bicep
+module webModule './webApp.bicep' = {
+  name: 'webDeploy'
+  params: {
+    skuName: 'S1'
+    location: location
+  }
+}
+```
+
+The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value.
+
+Like resources, you can conditionally or iteratively deploy a module. The syntax is the same for modules as resources.
+
+For more information, see [Use Bicep modules](bicep-modules.md).
+
+## Resource and module decorators
+
+You can add a decorator to a resource or module definition. The only supported decorator is `batchSize(int)`. You can only apply it to a resource or module definition that uses a `for` expression.
+
+By default, resources are deployed in parallel. You don't know the order in which they finish. When you add the `batchSize` decorator, you deploy instances serially. Use the integer argument to specify the number of instances to deploy in parallel.
+
+```bicep
+@batchSize(3)
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
+  ...
+}]
+```
+
+For more information, see [Serial or Parallel](copy-resources.md#serial-or-parallel).
 
 ## Outputs
 

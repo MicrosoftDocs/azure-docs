@@ -26,9 +26,6 @@ Get started with Azure Load Balancer by using the Azure CLI to create an interna
 
 This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
->[!NOTE]
->Azure Load Balancer Standard is the recommended choice for production workloads. This article contains information about Azure Load Balancer Standard, as well as Azure Load Balancer Basic. For more information about SKUs, see [Azure Load Balancer SKUs](skus.md).
-
 ## Create a resource group
 
 An Azure resource group is a logical container into which you deploy and manage your Azure resources.
@@ -42,7 +39,11 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 ```
 
-## Azure Load Balancer Standard
+---
+# [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
+
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
@@ -224,6 +225,9 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create). Spe
 
 It can take a few minutes for the VMs to deploy.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+
 ### Create the load balancer
 
 This section details how you can create and configure the following components of the load balancer:
@@ -330,7 +334,10 @@ Add the virtual machines to the back-end pool with [az network nic ip-config add
 
 ```
 
-## Azure Load Balancer Basic
+# [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
+
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. When you create an internal load balancer, a virtual network is configured as the network for the load balancer. The following diagram shows the resources created in this quickstart:
 
@@ -529,6 +536,9 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create). Spe
 ```
 It can take a few minutes for the VMs to deploy.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+
 ### Create the load balancer
 
 This section details how you can create and configure the following components of the load balancer:
@@ -631,7 +641,7 @@ Add the virtual machines to the back-end pool with [az network nic ip-config add
   done
 
 ```
-
+---
 ## Test the load balancer
 
 Create the network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create). Specify the following:

@@ -327,7 +327,7 @@ $getJobParams = @{
     ResourceGroupName     = 'MyResourceGroup'
     Runbookname           = 'Test-Runbook'
 }
-$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate –Desc)[0]
+$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate -Desc)[0]
 $job | Select-Object JobId, Status, JobParameters
 
 $getOutputParams = @{

@@ -13,8 +13,6 @@
   items:
   - name: Portal
     items:
-    - name: Create a service
-      href: search-create-service-portal.md
     - name: Create an index
       href: search-get-started-portal.md
     - name: Create a demo app
@@ -138,20 +136,30 @@
       href: security-baseline.md
 - name: How-to guides
   items:
-  - name: Planning
+  - name: Management
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Estimate and manage capacity
+    - name: Plan capacity
       href: search-capacity-planning.md
-    - name: Estimate costs
-      href: search-sku-manage-costs.md
+    - name: Create a service
+      href: search-create-service-portal.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Scale for performance
+    - name: Manage costs
+      href: search-sku-manage-costs.md
+    - name: Availability and recovery
       href: search-performance-optimization.md
-    - name: Multitenant architecture
+    - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
+    - name: Manage in the portal
+      href: search-manage.md
+    - name: Manage with PowerShell
+      href: search-manage-powershell.md
+    - name: Manage with Azure CLI
+      href: search-manage-azure-cli.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
   - name: Development
     items:
     - name: API versions
@@ -276,6 +284,10 @@
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Azure SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: Troubleshoot indexer issues
+      href: search-indexer-troubleshooting.md
+    - name: Troubleshoot indexer errors and warnings
+      href: cognitive-search-common-errors-warnings.md
   - name: Skillsets
     items:
     - name: Attach a Cognitive Services resource
@@ -376,8 +388,30 @@
       href: semantic-ranking.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
+  - name: Performance and monitoring
+    items:
+    - name: Performance analysis
+      href: search-performance-analysis.md
+    - name: Performance benchmarks
+      href: performance-benchmarks.md
+    - name: Tips for better performance
+      href: search-performance-tips.md
+    - name: Diagnostic logging
+      href: search-monitor-logs.md
+    - name: Visualize diagnostic logs
+      href: search-monitor-logs-powerbi.md
+    - name: Monitoring overview
+      href: search-monitor-usage.md
+    - name: Monitor queries
+      href: search-monitor-queries.md
+    - name: Monitor indexer-based indexing
+      href: search-howto-monitor-indexers.md
+    - name: Monitor client-side interactions
+      href: search-traffic-analytics.md
   - name: Security
     items:
+    - name: Admin rights
+      href: search-security-rbac.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
@@ -386,7 +420,7 @@
         href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
-      - name: API access keys
+      - name: API key authentication
         href: search-security-api-keys.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
@@ -406,38 +440,6 @@
         href: search-security-trimming-for-azure-search.md
       - name: Filter on user identities
         href: search-security-trimming-for-azure-search-with-aad.md
-  - name: Manage
-    items:
-    - name: Portal
-      href: search-manage.md
-    - name: PowerShell
-      href: search-manage-powershell.md
-    - name: Azure CLI
-      href: search-manage-azure-cli.md
-    - name: Move service across regions
-      href: search-howto-move-across-regions.md
-    - name: Role-based admin access
-      href: search-security-rbac.md
-  - name: Monitor
-    items:
-    - name: Overview
-      href: search-monitor-usage.md
-    - name: Diagnostic logging
-      href: search-monitor-logs.md
-    - name: Visualize diagnostic logs
-      href: search-monitor-logs-powerbi.md
-    - name: Monitor query activity
-      href: search-monitor-queries.md
-    - name: Monitor indexers
-      href: search-howto-monitor-indexers.md
-    - name: Search traffic analytics
-      href: search-traffic-analytics.md
-  - name: Troubleshoot
-    items:
-    - name: Indexer issues
-      href: search-indexer-troubleshooting.md
-    - name: Indexer errors and warnings
-      href: cognitive-search-common-errors-warnings.md
 - name: Reference
   items:
   - name: Azure CLI

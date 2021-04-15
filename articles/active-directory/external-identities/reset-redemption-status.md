@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 04/06/2021
 
 ms.author: mimart
 author: msmimart
@@ -16,7 +16,7 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Reset redemption status for a guest user
+# Reset redemption status for a guest user (Preview)
 
 After a guest user has redeemed your invitation for B2B collaboration, there might be times when you'll need to update their sign-in information, for example when:
 
