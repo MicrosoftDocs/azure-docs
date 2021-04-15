@@ -21,7 +21,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 
 ## PyTorch
 - AzureML-Pytorch1.7-Cuda11-OpenMpi4.1.0-py36
-     - Description: 
+     - An environment for deep learning with PyTorch containing the Azure ML SDK and additional python packages.
      - PyTorch version: 1.7
      - Python version: 3.6.9
      - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
@@ -30,6 +30,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 
 ## Scikit
 - AzureML-Scikit-learn0.20.4-Cuda11-OpenMpi4.1.0-py36
+     - An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the Azure ML SDK and additional python packages.
      - Scikit-learn version: 20.4
      - Python version: 3.6.9
      - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
@@ -38,6 +39,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 
 ## TensorFlow
 - AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36
+     - An environment for deep learning with Tensorflow containing the Azure ML SDK and additional python packages.
      - Tensorflow version: 2.4
      - Python version: 3.6.9
      - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
