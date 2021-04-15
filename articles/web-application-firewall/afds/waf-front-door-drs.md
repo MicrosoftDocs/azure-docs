@@ -88,14 +88,14 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[PROTOCOL-ATTACK](#drs921-11)**|Protect against header injection, request smuggling, and response splitting|
-|**[LFI](#drs930-11)**|Protect against file and path attacks|
-|**[RFI](#drs931-11)**|Protection against remote file inclusion attacks|
-|**[RCE](#drs932-11)**|Protection against remote command execution|
-|**[PHP](#drs933-11)**|Protect against PHP-injection attacks|
-|**[XSS](#drs941-11)**|Protect against cross-site scripting attacks|
-|**[SQLI](#drs942-11)**|Protect against SQL-injection attacks|
-|**[FIX](#drs943-11)**|Protect against session-fixation attacks|
-|**[JAVA](#drs944-11)**|Protect against JAVA attacks|
+|**[APPLICATION-ATTACK-LFI](#drs930-11)**|Protect against file and path attacks|
+|**[APPLICATION-ATTACK-RFI](#drs931-11)**|Protection against remote file inclusion attacks|
+|**[APPLICATION-ATTACK-RCE](#drs932-11)**|Protection against remote command execution|
+|**[APPLICATION-ATTACK-PHP](#drs933-11)**|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-XSS](#drs941-11)**|Protect against cross-site scripting attacks|
+|**[APPLICATION-ATTACK-SQLI](#drs942-11)**|Protect against SQL-injection attacks|
+|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-11)**|Protect against session-fixation attacks|
+|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-11)**|Protect against JAVA attacks|
 |**[MS-ThreatIntel-WebShells](#drs9905-11)**|Protect against Web shell attacks|
 |**[MS-ThreatIntel-AppSec](#drs9903-11)**|Protect against AppSec attacks|
 |**[MS-ThreatIntel-SQLI](#drs99031-11)**|Protect against SQLI attacks|
@@ -107,9 +107,24 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[PROTOCOL-ATTACK](#drs921-10)**|Protect against header injection, request smuggling, and response splitting|
+|**[APPLICATION-ATTACK-LFI](#drs930-10)**|Protect against file and path attacks|
+|**[APPLICATION-ATTACK-RFI](#drs931-10)**|Protection against remote file inclusion attacks|
+|**[APPLICATION-ATTACK-RCE](#drs932-10)**|Protection against remote command execution|
+|**[APPLICATION-ATTACK-PHP](#drs933-10)**|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-SQLI](#drs942-10)**|Protect against SQL-injection attacks|
+|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)**|Protect against session-fixation attacks|
+|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)**|Protect against JAVA attacks|
+
 
 
 ### Bot rules
+
+|Rule group|Description|
+|---|---|
+|**[BadBots](#bot100)**|Protect against bad bots|
+|**[GoodBots](#bot200)**|Identify good bots|
+|**[UnknownBots](#bot300)**|Identify unknown bots|
+
 
 
 The following rule groups and rules are available when using Web Application Firewall on Azure 
@@ -374,7 +389,7 @@ Front Door.
 |921151|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
-### <a name="drs930-11"></a> <p x-ms-format-detection="none">LFI</p>
+### <a name="drs930-11"></a> <p x-ms-format-detection="none">LFI - Local File Inclusion</p>
 |RuleId|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
@@ -382,7 +397,7 @@ Front Door.
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="drs931-11"></a> <p x-ms-format-detection="none">RFI</p>
+### <a name="drs931-11"></a> <p x-ms-format-detection="none">RFI - Remote File Inclusion</p>
 |RuleId|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
@@ -390,7 +405,7 @@ Front Door.
 |931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
-### <a name="drs932-11"></a> <p x-ms-format-detection="none">RCE</p>
+### <a name="drs932-11"></a> <p x-ms-format-detection="none">RCE - Remote Command Execution</p>
 |RuleId|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
@@ -406,7 +421,7 @@ Front Door.
 |932171|Remote Command Execution: Shellshock (CVE-2014-6271)|
 |932180|Restricted File Upload Attempt|
 
-### <a name="drs933-11"></a> <p x-ms-format-detection="none">PHP</p>
+### <a name="drs933-11"></a> <p x-ms-format-detection="none">PHP Attacks</p>
 |RuleId|Description|
 |---|---|
 |933100|PHP Injection Attack: PHP Open Tag Found|
@@ -420,7 +435,7 @@ Front Door.
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="drs941-11"></a> <p x-ms-format-detection="none">XSS</p>
+### <a name="drs941-11"></a> <p x-ms-format-detection="none">XSS - Cross-site Scripting</p>
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
@@ -451,7 +466,7 @@ Front Door.
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
-### <a name="drs942-11"></a> <p x-ms-format-detection="none">SQLI</p>
+### <a name="drs942-11"></a> <p x-ms-format-detection="none">SQLI - SQL Injection</p>
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
@@ -492,14 +507,14 @@ Front Door.
 |942470|SQL Injection Attack|
 |942480|SQL Injection Attack|
 
-### <a name="drs943-11"></a> <p x-ms-format-detection="none">FIX</p>
+### <a name="drs943-11"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
 |RuleId|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
-### <a name="drs944-11"></a> <p x-ms-format-detection="none">JAVA</p>
+### <a name="drs944-11"></a> <p x-ms-format-detection="none">JAVA Attacks</p>
 |RuleId|Description|
 |---|---|
 |944100|Remote Command Execution: Suspicious Java class detected|
@@ -550,7 +565,171 @@ Front Door.
 |921151|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
+### <a name="drs930-10"></a> <p x-ms-format-detection="none">LFI - Local File Inclusion</p>
+|RuleId|Description|
+|---|---|
+|930100|Path Traversal Attack (/../)|
+|930110|Path Traversal Attack (/../)|
+|930120|OS File Access Attempt|
+|930130|Restricted File Access Attempt|
 
+### <a name="drs931-10"></a> <p x-ms-format-detection="none">RFI - Remote File Inclusion</p>
+|RuleId|Description|
+|---|---|
+|931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
+|931110|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
+|931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
+|931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+
+### <a name="drs932-10"></a> <p x-ms-format-detection="none">RCE - Remote Command Execution</p>
+|RuleId|Description|
+|---|---|
+|932100|Remote Command Execution: Unix Command Injection|
+|932105|Remote Command Execution: Unix Command Injection|
+|932110|Remote Command Execution: Windows Command Injection|
+|932115|Remote Command Execution: Windows Command Injection|
+|932120|Remote Command Execution: Windows PowerShell Command Found|
+|932130|Remote Command Execution: Unix Shell Expression Found|
+|932140|Remote Command Execution: Windows FOR/IF Command Found|
+|932150|Remote Command Execution: Direct Unix Command Execution|
+|932160|Remote Command Execution: Unix Shell Code Found|
+|932170|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932171|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932180|Restricted File Upload Attempt|
+
+### <a name="drs933-10"></a> <p x-ms-format-detection="none">PHP Attacks</p>
+|RuleId|Description|
+|---|---|
+|933100|PHP Injection Attack: Opening/Closing Tag Found|
+|933110|PHP Injection Attack: PHP Script File Upload Found|
+|933120|PHP Injection Attack: Configuration Directive Found|
+|933130|PHP Injection Attack: Variables Found|
+|933131|PHP Injection Attack: Variables Found|
+|933140|PHP Injection Attack: I/O Stream Found|
+|933150|PHP Injection Attack: High-Risk PHP Function Name Found|
+|933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
+|933160|PHP Injection Attack: High-Risk PHP Function Call Found|
+|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
+|933170|PHP Injection Attack: Serialized Object Injection|
+|933180|PHP Injection Attack: Variable Function Call Found|
+
+### <a name="drs941-10"></a> <p x-ms-format-detection="none">XSS - Cross-site Scripting</p>
+|RuleId|Description|
+|---|---|
+|941100|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection.|
+|941110|XSS Filter - Category 1: Script Tag Vector|
+|941120|XSS Filter - Category 2: Event Handler Vector|
+|941130|XSS Filter - Category 3: Attribute Vector|
+|941140|XSS Filter - Category 4: JavaScript URI Vector|
+|941150|XSS Filter - Category 5: Disallowed HTML Attributes|
+|941160|NoScript XSS InjectionChecker: HTML Injection|
+|941170|NoScript XSS InjectionChecker: Attribute Injection|
+|941180|Node-Validator Blacklist Keywords|
+|941190|XSS Using style sheets|
+|941200|XSS using VML frames|
+|941210|XSS using obfuscated JavaScript|
+|941220|XSS using obfuscated VB Script|
+|941230|XSS using 'embed' tag|
+|941240|XSS using 'import' or 'implementation' attribute|
+|941250|IE XSS Filters - Attack Detected.|
+|941260|XSS using 'meta' tag|
+|941270|XSS using 'link' href|
+|941280|XSS using 'base' tag|
+|941290|XSS using 'applet' tag|
+|941300|XSS using 'object' tag|
+|941310|US-ASCII Malformed Encoding XSS Filter - Attack Detected.|
+|941320|Possible XSS Attack Detected - HTML Tag Handler|
+|941330|IE XSS Filters - Attack Detected.|
+|941340|IE XSS Filters - Attack Detected.|
+|941350|UTF-7 Encoding IE XSS - Attack Detected.|
+
+### <a name="drs942-10"></a> <p x-ms-format-detection="none">SQLI - SQL Injection</p>
+|RuleId|Description|
+|---|---|
+|942100|SQL Injection Attack Detected via libinjection|
+|942110|SQL Injection Attack: Common Injection Testing Detected|
+|942120|SQL Injection Attack: SQL Operator Detected|
+|942140|SQL Injection Attack: Common DB Names Detected|
+|942150|SQL Injection Attack|
+|942160|Detects blind sqli tests using sleep() or benchmark().|
+|942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
+|942180|Detects basic SQL authentication bypass attempts 1/3|
+|942190|Detects MSSQL code execution and information gathering attempts|
+|942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
+|942210|Detects chained SQL injection attempts 1/2|
+|942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942230|Detects conditional SQL injection attempts|
+|942240|Detects MySQL charset switch and MSSQL DoS attempts|
+|942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
+|942260|Detects basic SQL authentication bypass attempts 2/3|
+|942270|Looking for basic sql injection. Common attack string for mysql, oracle, and others.|
+|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
+|942290|Finds basic MongoDB SQL injection attempts|
+|942300|Detects MySQL comments, conditions, and ch(a)r injections|
+|942310|Detects chained SQL injection attempts 2/2|
+|942320|Detects MySQL and PostgreSQL stored procedure/function injections|
+|942330|Detects classic SQL injection probings 1/2|
+|942340|Detects basic SQL authentication bypass attempts 3/3|
+|942350|Detects MySQL UDF injection and other data/structure manipulation attempts|
+|942360|Detects concatenated basic SQL injection and SQLLFI attempts|
+|942361|Detects basic SQL injection based on keyword alter or union|
+|942370|Detects classic SQL injection probings 2/2|
+|942380|SQL Injection Attack|
+|942390|SQL Injection Attack|
+|942400|SQL Injection Attack|
+|942410|SQL Injection Attack|
+|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942440|SQL Comment Sequence Detected.|
+|942450|SQL Hex Encoding Identified|
+|942470|SQL Injection Attack|
+|942480|SQL Injection Attack|
+
+### <a name="drs943-10"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
+|RuleId|Description|
+|---|---|
+|943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
+|943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
+|943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
+
+### <a name="drs944-10"></a> <p x-ms-format-detection="none">JAVA Attacks</p>
+|RuleId|Description|
+|---|---|
+|944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
+|944110|Detects potential payload execution|
+|944120|Possible payload execution and remote command execution|
+|944130|Suspicious Java classes|
+|944200|Exploitation of Java deserialization Apache Commons|
+|944210|Possible use of Java serialization|
+|944240|Remote Command Execution: Java serialization|
+|944250|Remote Command Execution: Suspicious Java method detected|
+
+# [Bot rules](#tab/bot)
+
+## <a name="bot"></a> Bot Manager rule sets
+
+### <a name="Bot100"></a> <p x-ms-format-detection="none">Bad bots</p>
+|RuleId|Description|
+|---|---|
+|Bot100100|Malicious bots detected by threat intelligence|
+|Bot100200|Malicious bots that have falsified their identity|
+
+### <a name="Bot200"></a> <p x-ms-format-detection="none">Good bots</p>
+|RuleId|Description|
+|---|---|
+|Bot200100|Search engine crawlers|
+|Bot200200|Unverified search engine crawlers|
+
+### <a name="Bot300"></a> <p x-ms-format-detection="none">Unknown bots</p>
+|RuleId|Description|
+|---|---|
+|Bot300100|Unspecified identity|
+|Bot300200|Tools and frameworks for web crawling and attacks|
+|Bot300300|General purpose HTTP clients and SDKs|
+|Bot300400|Service agents|
+|Bot300500|Site health monitoring services|
+|Bot300600|Unknown bots detected by threat intelligence|
+|Bot300700|Other bots|
 ---
 
 
