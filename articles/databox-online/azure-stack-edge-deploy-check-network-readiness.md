@@ -39,7 +39,7 @@ You can run the tool from any computer on the network where you'll deploy the Az
 
 - DNS resource records registration for Azure Stack Edge is functioning correctly.
 
-The report file, AzsReadinessCheckerReport.json, has detailed diagnostics that are collected during each test. These may be helpful if you need to contact Support.
+The tool saves a report, AzsReadinessCheckerReport.json, with detailed diagnostics that are collected during each test. This information can be helpful if you need to contact Support.
 
 For example, the report provides:
  * A list of network adapters on the machine used to run the tests, with their driver versions, MAC addresses, and connection state
