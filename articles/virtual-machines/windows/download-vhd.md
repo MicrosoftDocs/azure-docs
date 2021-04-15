@@ -52,7 +52,7 @@ Take a snapshot of the disk to download.
 Your snapshot will be created shortly, and may then be used to download or create another VM from.
 
 > [NOTE!]
->  If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been powercycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running a the time were not crash resistent.
+>  If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running a the time were not crash resistant.
 
 ## Generate download URL
 
