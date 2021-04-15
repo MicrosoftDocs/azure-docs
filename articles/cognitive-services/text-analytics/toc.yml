@@ -13,7 +13,7 @@
     href: whats-new.md
   - name: Text Analytics FAQ
     href: text-analytics-resource-faq.md
-- name: Text Analytics quickstart
+- name: Quickstart
   href: quickstarts/client-libraries-rest-api.md
 - name: Samples
   items:
@@ -71,21 +71,25 @@
     displayName: NER, Named entity recognition, PII, redaction
   - name: Text Analytics for health
     href: How-tos/text-analytics-for-health.md
-  - name: Deploy Text Analytics
+  - name: Use containers
     items:
-    - name: Containers
-      items:
-        - name: Install and run containers
-          href: how-tos/text-analytics-how-to-install-containers.md
-        - name: Configure containers
-          href: text-analytics-resource-container-config.md
-        - name: Use container instances
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-        - name: Use kubernetes service (AKS)
-          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-        - name: Cognitive Services containers documentation
-          href: ../containers/index.yml
+    - name: Install and run containers
+      href: how-tos/text-analytics-how-to-install-containers.md
+    - name: Configure containers
+      href: text-analytics-resource-container-config.md
+    - name: Use container instances
+      maintainContext: true
+      href: ../containers/azure-container-instance-recipe.md
+    - name: Use kubernetes service (AKS)
+      href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
+  - name: Enterprise readiness
+    items:
+    - name: Set up Virtual Networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/text-analytics/context/context
+    - name: Use Azure AD authentication
+      href: ../authentication.md?context=/azure/cognitive-services/text-analytics/context/context
   - name: Migrate to version 3 of the API
     href: migration-guide.md
 - name: Concepts
@@ -164,13 +168,13 @@
     href: /powershell/module/azurerm.cognitiveservices/
 - name: Resources
   items:
-  - name: Support & help options
+  - name: Enterprise readiness
+    items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context
   - name: External and community content
     href: text-analytics-resource-external-community.md
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Try it!
-    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
