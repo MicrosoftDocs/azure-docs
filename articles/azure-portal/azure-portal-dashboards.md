@@ -31,13 +31,13 @@ This example shows how to create a new private dashboard with an assigned name. 
 
     ![Screenshot of the New dashboard options.](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-    This action opens the **Tile Gallery**, from which you'll select tiles, and an empty grid where you'll arrange the tiles.
+    This action opens the **Tile Gallery**, from which you can select tiles, and an empty grid where you'll arrange the tiles.
 
 1. Select the **My Dashboard** text in the dashboard label and enter a name that will help you easily identify the custom dashboard.
 
     ![Screenshot of an empty grid with the Tile Gallery.](./media/azure-portal-dashboards/dashboard-name.png)
 
-1. To save the dashboard as is, select **Done customizing** in the page header. Or, continue to the next section to make changes and save your dashboard.
+1. To save the dashboard as is, select **Done customizing** in the page header. Or, continue to the next section to add tiles and save your dashboard.
 
 The dashboard view now shows your new dashboard. Select the arrow next to the dashboard name to see dashboards available to you. The list might include dashboards that other users have created and shared.
 
@@ -45,15 +45,17 @@ The dashboard view now shows your new dashboard. Select the arrow next to the da
 
 Now, let's edit the dashboard to add, resize, and arrange tiles that represent your Azure resources.
 
-### Add tiles from the tile gallery
+### Add tiles from the Tile Gallery
 
 To add tiles to a dashboard, follow these steps:
 
-1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the page header.
+1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the dashboard's page header.
 
     ![Screenshot of dashboard highlighting the Edit option.](./media/azure-portal-dashboards/dashboard-edit.png)
 
 1. Browse the **Tile Gallery** or use the search field to find a certain tile. Select the tile you want to add to your dashboard.
+
+   :::image type="content" source="media/azure-portal-dashboards/dashboard-tile-gallery.png" alt-text="Screenshot of the Tile Gallery.":::
 
 1. Select **Add** to add the tile to the dashboard with a default size and location. Or, drag the tile to the grid and place it where you want. Add any tiles you want, but here are a couple of ideas:
 
@@ -65,7 +67,7 @@ To add tiles to a dashboard, follow these steps:
 
 1. To save your changes, select **Save** in the page header. You can also preview the changes without saving by selecting **Preview** in the page header. From the preview screen, you can select **Save** to keep the changes, **Discard** to remove them, or **Edit** to go back to the editing options and make further changes.
 
-:::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of the Preview, Save, and Discard options.":::
+   :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of the Preview, Save, and Discard options.":::
 
 ### Pin content from a resource page
 
@@ -85,7 +87,7 @@ To change the size of a tile or to rearrange the tiles on a dashboard, follow th
 
 1. Select the context menu in the upper right corner of a tile. Then, choose a tile size. Tiles that support any size also include a "handle" in the lower right corner that lets you drag the tile to the size you want.
 
-    ![Screenshot of dashboard with tile size menu open](./media/azure-portal-dashboards/dashboard-tile-resize.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-tile-resize.png" alt-text="Screenshot of dashboard with tile size menu open.":::
 
 1. Select a tile and drag it to a new location on the grid to arrange your dashboard.
 
