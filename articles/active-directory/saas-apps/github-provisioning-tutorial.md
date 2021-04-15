@@ -68,7 +68,7 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 	![Screenshot shows the sign-in page for GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/organizations/<Organization_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
+7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/orgs/<Organization_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
 
 	![Screenshot shows Organizations page in GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 
