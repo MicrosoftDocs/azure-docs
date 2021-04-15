@@ -39,6 +39,15 @@
   - name: Billing model
     href: concept-billing-model.md
 
+- name: Reference 
+  items:
+  - name: REST API
+    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/protocol-rest-api.md
+  - name: PubSub WebSocket Subprotocol
+    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/pubsub-websocket-subprotocol.md
+  - name: Web PubSub CloudEvents 
+    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/protocol-cloudevents.md
+
 - name: Resources
   items:
   - name: Solutions
