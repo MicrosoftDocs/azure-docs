@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Government with Azure CLI | Microsoft Docs
-description: This quickstart shows you how to connect to Azure Government and reate a web app in Azure Government with Azure CLI
+title: Connect to Azure Government with Azure CLI
+description: This quickstart shows you how to connect to Azure Government and create a web app in Azure Government with Azure CLI
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/09/2018  
+ms.date: 03/09/2021  
 ms.custom: devx-track-azurecli
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using CLI so I can start developing against Azure Government's secure isolated datacenters.
@@ -18,18 +18,16 @@ ms.custom: devx-track-azurecli
 
 # Quickstart: Connect to Azure Government with Azure CLI
 
-Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. To manage your Azure Government cloud workloads and applications you can connect to the Azure Government using different tools, as described in the following video.  
-
-This quickstart shows how to use the Azure CLI to access and start managing resources in Azure Government.  
+Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. To manage your Azure Government cloud workloads and applications you can connect to Azure Government using different tools, as described in the following video.  
 
 > [!VIDEO https://www.youtube.com/embed/Q3kx4cmRkCA]
 
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
+This quickstart shows how to use the Azure CLI to access and start managing resources in Azure Government. If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
 ## Prerequisites
 
-* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
-* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
+- Review [Guidance for developers](./documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+- Review [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
 
 ## Install Azure CLI 
 
@@ -75,7 +73,7 @@ az account list-locations
 
 ## Next steps
 
-This quickstart showed you how to use CLI to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
+This quickstart showed you how to use CLI to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md). To learn more about Azure services, continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
-> [Azure documentation](../index.yml).
+> [Azure documentation](../index.yml)

@@ -91,7 +91,7 @@ If desired, you can skip to [Run the function locally](#run-the-function-locally
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-For an HTTP trigger, the function receives request data in the variable `req` as defined in *function.json*. The return object, defined as `$return` in *function.json*, is the response. To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=javascript).
+For an HTTP trigger, the function receives request data in the variable `req` as defined in *function.json*. The response is defined as `res` in *function.json* and can be accessed using `context.res`. To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=javascript).
 
 #### function.json
 

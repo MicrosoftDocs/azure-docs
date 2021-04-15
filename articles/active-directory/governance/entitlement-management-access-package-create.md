@@ -147,3 +147,4 @@ You can also create an access package using Microsoft Graph.  A user in an appro
 - [Share link to request an access package](entitlement-management-access-package-settings.md)
 - [Change resource roles for an access package](entitlement-management-access-package-resources.md)
 - [Directly assign a user to the access package](entitlement-management-access-package-assignments.md)
+- [Create an access review for an access package](entitlement-management-access-reviews-create.md)

@@ -103,8 +103,8 @@ You'll need the files for these steps:
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -384,7 +384,7 @@ You can examine the Media Services asset that was created by the media graph by 
 1. In the wizard that opens, accept the default options and select **Add**. For more information, see [Video playback](video-playback-concept.md).
 
     > [!TIP]
-    > Make sure your [streaming endpoint is running](../latest/streaming-endpoint-concept.md).
+    > Make sure your [streaming endpoint is running](../latest/stream-streaming-endpoint-concept.md).
 1. The player should load the video. Select **Play** to view it.
 
 > [!NOTE]

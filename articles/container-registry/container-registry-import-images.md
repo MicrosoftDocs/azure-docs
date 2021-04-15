@@ -9,11 +9,11 @@ ms.date: 01/15/2021
 
 You can easily import (copy) container images to an Azure container registry, without using Docker commands. For example, import images from a development registry to a production registry, or copy base images from a public registry.
 
-Azure Container Registry handles a number of common scenarios to copy images from an existing registry:
+Azure Container Registry handles a number of common scenarios to copy images and other artifacts from an existing registry:
 
-* Import from a public registry
+* Import images from a public registry
 
-* Import from another Azure container registry, in the same or a different Azure subscription or tenant
+* Import images or OCI artifacts including Helm 3 charts from another Azure container registry, in the same or a different Azure subscription or tenant
 
 * Import from a non-Azure private container registry
 
@@ -63,13 +63,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-The following example imports a public image from the `tensorflow` repository in Docker Hub:
+If you have a [Docker Hub account](https://www.docker.com/pricing), we recommend that you use the credentials when importing an image from Docker Hub. Pass the Docker Hub user name and the password or a [personal access token](https://docs.docker.com/docker-hub/access-tokens/) as parameters to `az acr import`. The following example imports a public image from the `tensorflow` repository in Docker Hub, using Docker Hub credentials:
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### Import from Microsoft Container Registry

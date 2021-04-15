@@ -36,7 +36,7 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 
 * Download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
 
-* Use the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region (primary) and Central US region (secondary):
+* Use the [Azure CLI](/cli/azure/install-azure-cli) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region (primary) and Central US region (secondary):
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -118,6 +118,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ----- | ----- | ----- | ----- |
 | Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Azure portal | management.azure.com | management.azure.us | management.azure.cn |
+| Azure Resource Manager | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
 
 **Azure Machine Learning hosts**
 
@@ -141,7 +142,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Compute cluster/instance | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
-| Compute cluster/instance | graph.windows.net |  |  |
+| Compute cluster/instance | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Compute instance | \*.instances.azureml.ms |  |  |
 

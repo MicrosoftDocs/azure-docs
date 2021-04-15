@@ -46,6 +46,10 @@ Change **Target temperature** to 80 to warm the device and reduce the humidity. 
 
 :::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Screenshot that shows the updated target temperature setting for the device":::
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this quickstart, you learned how to:

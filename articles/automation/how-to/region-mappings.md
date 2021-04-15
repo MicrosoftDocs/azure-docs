@@ -1,7 +1,7 @@
 ---
 title: Supported regions for linked Log Analytics workspace
 description: This article describes the supported region mappings between an Automation account and a Log Analytics workspace as it relates to certain features of Azure Automation.
-ms.date: 01/21/2021
+ms.date: 04/01/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
@@ -10,6 +10,10 @@ ms.custom: references_regions
 # Supported regions for linked Log Analytics workspace
 
 In Azure Automation, you can enable the Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours features for your servers and virtual machines. These features have a dependency on a Log Analytics workspace, and therefore require linking the workspace with an Automation account. However, only certain regions are supported to link them together. In general, the mapping is *not* applicable if you plan to link an Automation account to a workspace that won't have these features enabled.
+
+The mappings discussed here apply only to linking the Log Analytics Workspace to an Automation account. They do not apply to the virtual machines (VMs) that are connected to the workspace that's linked to the Automation Account. VMs aren't limited to the regions supported by a given Log Analytics workspace. They can be in any region. Keep in mind that having the VMs in a different region may affect state, local, and country regulatory requirements, or your company's compliance requirements. Having VMs in a a different region could also introduce data bandwidth charges.
+
+Before connecting VMs to a workspace in a different region, you should review the requirements and potential costs to confirm and understand the legal and cost implications.
 
 This article provides the supported mappings in order to successfully enable and use these features in your Automation account.
 
@@ -29,30 +33,44 @@ The following table shows the supported mappings:
 |EastUS2<sup>2</sup>|EastUS|
 |WestUS|WestUS|
 |WestUS2|WestUS2|
+|NorthCentralUS|NorthCentralUS|
 |CentralUS|CentralUS|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
+|**Brazil**||
+|BrazilSouth|BrazilSouth|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
+|**China**||
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |**Asia Pacific**||
-|AustraliaEast|AustraliaEast|
-|AustraliaSoutheast|AustraliaSoutheast|
 |EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
+|**India**||
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>3</sup>|ChinaEast2|
+|**Japan**||
 |JapanEast|JapanEast|
+|**Australia**||
+|AustraliaEast|AustraliaEast|
+|AustraliaSoutheast|AustraliaSoutheast|
+|**Korea**||
+|KoreaCentral|KoreaCentral|
+|**Norway**||
+|NorwayEast|NorwayEast|
 |**Europe**||
 |NorthEurope|NorthEurope|
-|FranceCentral|FranceCentral|
-|UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|**France**||
+|FranceCentral|FranceCentral|
+|**United Kingdom**
+|UKSouth|UKSouth|
+|**Switzerland**||
 |SwitzerlandNorth|SwitzerlandNorth|
+|**United Arab Emirates**||
+|UAENorth|UAENorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>3</sup>|USGovArizona|
-
-
 
 <sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 

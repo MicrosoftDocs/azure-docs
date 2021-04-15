@@ -87,4 +87,4 @@ To get started using Event Hubs, see the **Send and receive events** tutorials:
 To learn more about Event Hubs, see the following articles:
 
 - [Event Hubs features overview](event-hubs-features.md)
-- [Frequently asked questions](event-hubs-faq.md).
+- [Frequently asked questions](event-hubs-faq.yml).

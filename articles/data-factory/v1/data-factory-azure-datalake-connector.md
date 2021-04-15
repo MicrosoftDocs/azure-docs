@@ -1,22 +1,12 @@
 ---
 title: Copy data to and from Azure Data Lake Storage Gen1 
 description: Learn how to copy data to and from Data Lake Store by using Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-csharp
-
 robots: noindex
 ---
 # Copy data to and from Data Lake Storage Gen1 by using Data Factory

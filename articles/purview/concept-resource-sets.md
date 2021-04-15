@@ -16,7 +16,7 @@ This article helps you understand how Azure Purview uses resource sets to map da
 
 At-scale data processing systems typically store a single table on a disk as multiple files. This concept is represented in Azure Purview by using resource sets. A resource set is a single object in the catalog that represents a large number of assets in storage.
 
-For example, suppose your Spark cluster has persisted a DataFrame into an Azure DataL Lake Storage (ADLS) Gen2 data source. Although in Spark the table looks like a single logical resource, on the disk there are likely thousands of Parquet files, each of which represents a partition of the total DataFrame's contents. IoT data and web log data have the same challenge. Imagine you have a sensor that outputs log files several times a second. It won't take long until you have hundreds of thousands of log files from that single sensor.
+For example, suppose your Spark cluster has persisted a DataFrame into an Azure Data Lake Storage (ADLS) Gen2 data source. Although in Spark the table looks like a single logical resource, on the disk there are likely thousands of Parquet files, each of which represents a partition of the total DataFrame's contents. IoT data and web log data have the same challenge. Imagine you have a sensor that outputs log files several times a second. It won't take long until you have hundreds of thousands of log files from that single sensor.
 
 To address the challenge of mapping large numbers of data assets to a single logical resource, Azure Purview uses resource sets.
 
@@ -81,19 +81,19 @@ When Azure Purview matches a group of assets into a resource set, it attempts to
 
 ### Example 1
 
-Qualified name: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+Qualified name: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
 Display name: "name of spark output"
 
 ### Example 2
 
-Qualified name: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+Qualified name: `https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}`
 
 Display name: "my partitioned data"
 
 ### Example 3
 
-Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+Qualified name: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Display name: "data"
 

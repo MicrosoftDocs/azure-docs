@@ -1,10 +1,10 @@
 ---
-title: Azure Policy security baseline for Azure Security Benchmark
+title: Azure security baseline for Azure Policy
 description: The Azure Policy security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: azure-policy
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: subject-security-benchmark
 
 ---
 
-# Azure Policy security baseline for Azure Security Benchmark
+# Azure security baseline for Azure Policy
 
 This security baseline applies guidance from the [Azure Security Benchmark](../../../security/benchmarks/overview.md) to Azure Policy. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **compliance domains** and **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Policy. **Controls** not applicable to Azure Policy have been excluded. To see how Azure Policy completely maps to the Azure Security Benchmark, see the [full Azure Policy security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -20,117 +20,112 @@ For a mapping of the Azure Security Benchmark controls to built-in policy defini
 
 Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details on _Ownership_, see [Azure Policy policy definitions](./definition-structure.md#type) and [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
+## Logging and Monitoring
 
-## Logging and monitoring
-
-*For more information, see [Security control: Logging and monitoring](../../../security/benchmarks/security-control-logging-monitoring.md).*
+*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.3: Enable audit logging for Azure resources
 
 **Guidance**: Azure Policy uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Understand logging and different log types in Azure](../../../azure-monitor/platform/platform-logs-overview.md)
-
-
-**Azure Security Center monitoring**: Currently not available
+- [Understand logging and different log types in Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsibility**: Customer
 
-## Identity and access control
+**Azure Security Center monitoring**: None
 
-*For more information, see [Security control: Identity and access control](../../../security/benchmarks/security-control-identity-access-control.md).*
+## Identity and Access Control
+
+*For more information, see the [Azure Security Benchmark: Identity and Access Control](../../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts. 
-
-You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure AD Privileged Identity Management](../../../active-directory/privileged-identity-management/pim-configure.md) Privileged Roles or [Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
-
-
-**Azure Security Center monitoring**: Currently not available
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts. You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure Active Directory (Azure AD) Privileged Identity Management](../../../active-directory/privileged-identity-management/pim-configure.md) Privileged Roles or [Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
-**Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
+**Azure Policy built-in definitions - Microsoft.GuestConfiguration**:
 
-* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+[!INCLUDE [Resource Policy for Microsoft.GuestConfiguration 3.3](../../../../includes/policy/standards/asb/rp-controls/microsoft.guestconfiguration-3-3.md)]
 
-* [How to enable MFA in Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
+**Guidance**: Use privileged access workstations (PAWs) with multifactor authentication configured to log into and configure Azure resources.
 
-**Azure Security Center monitoring**: Not applicable
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+
+- [How to enable multifactor authentication in Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsibility**: Customer
 
-## Data protection
+**Azure Security Center monitoring**: None
 
-*For more information, see [Security control: Data protection](../../../security/benchmarks/security-control-data-protection.md).*
+## Data Protection
 
-### 4.6: Use Azure RBAC to control access to resources
+*For more information, see the [Azure Security Benchmark: Data Protection](../../../security/benchmarks/security-control-data-protection.md).*
+
+### 4.6: Use Azure RBAC to control access to resources 
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Policy.
 
-* [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy)
+- [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy)
 
-* [How to configure Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
-
-
-**Azure Security Center monitoring**: Currently not available
+- [How to configure Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
 **Guidance**: Use Azure Monitor with activity logs to create alerts for when changes take place in Azure Policy.
 
-* [How to create alerts for Azure activity log events](../../../azure-monitor/platform/alerts-activity-log.md)
-
-
-**Azure Security Center monitoring**: Currently not available
+- [How to create alerts for Azure activity log events](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
-## Inventory and asset management
+**Azure Security Center monitoring**: None
 
-*For more information, see [Security control: Inventory and asset management](../../../security/benchmarks/security-control-inventory-asset-management.md).*
+## Inventory and Asset Management
+
+*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.2: Maintain asset metadata
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy. Use the Azure Policy _modify_ effect to report on and enforce compliance and consistent tag governance.
 
-* [Tutorial: Create and manage policies](../tutorials/create-and-manage.md)
+- [Tutorial: Create and manage policies](../tutorials/create-and-manage.md)
 
-* [Tutorial: Manage tag governance](../tutorials/govern-tags.md)
-
-
-**Azure Security Center monitoring**: Currently not available
+- [Tutorial: Manage tag governance](../tutorials/govern-tags.md)
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
+**Azure Security Center monitoring**: None
+
+### 6.4: Define and maintain inventory of approved Azure resources
 
 **Guidance**: Create an inventory of approved policy definitions and policy assignments as per your organizational needs.
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your
+subscriptions.
 
-* [How to configure and manage Azure Policy](../tutorials/create-and-manage.md)
-
-
-**Azure Security Center monitoring**: Not applicable
+- [How to configure and manage Azure Policy](../tutorials/create-and-manage.md)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ## Next steps
 
-- See the [Azure security benchmark](../../../security/benchmarks/overview.md)
+- See the [Azure Security Benchmark V2 overview](../../../security/benchmarks/overview.md)
 - Learn more about [Azure security baselines](../../../security/benchmarks/security-baselines-overview.md)

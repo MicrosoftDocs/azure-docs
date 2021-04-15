@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String|
    |externalId|String|
    |title|String|
-   |emails[type eq"work"].value|String|
+   |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |externalId|String|
    |userType|String|

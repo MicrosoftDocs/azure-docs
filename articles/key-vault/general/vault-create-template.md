@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 10/5/2020
+ms.date: 3/14/2021
 ms.author: mbaldwin
 
 #Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
@@ -148,7 +148,7 @@ You can deploy access policies to an existing key vault without redeploying the 
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": "[parameters('certificatesPermissions')]"
+              "certificates": "[parameters('certificatePermissions')]"
             }
           }
         ]

@@ -13,7 +13,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
-  ms.date: 01/29/2019
+  ms.date: 02/09/2019
   ms.author: aahi
 
 landingContent:
@@ -118,26 +118,22 @@ landingContent:
         - text: Entity recognition
           url: how-tos/text-analytics-how-to-entity-linking.md
 
-- title: Reference
+- title: Responsible use of AI
   linkLists:
-    - linkListType: reference
+    - linkListType: overview
       links:
-        - text: REST API
-          url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
-        - text: .NET client library
-          url: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
-        - text: Python client library
-          url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
-        - text: JavaScript client library
-          url: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
-        - text: Java client library
-          url: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
-        - text: Go client library
-          url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
-        - text: Azure PowerShell 
-          url: /powershell/module/az.cognitiveservices
-        - text: Azure CLI 
-          url: /cli/azure/cognitiveservices?view=azure-cli-latest
+        - text: Transparency note for Text Analytics
+          url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Health
+          url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for PII
+          url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Sentiment Analysis
+          url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+    - linkListType: concept
+      links:
+        - text: Integration and responsible use
+          url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
 
 - title: Use Docker containers
   linkLists:
@@ -153,6 +149,27 @@ landingContent:
           url: ../containers/azure-container-instance-recipe.md
         - text: Deploy a container to Azure Kubernetes Service (AKS)
           url: how-tos/text-analytics-how-to-use-kubernetes-service.md
+
+- title: Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: REST API (v3.1-preview)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/
+        - text: REST API (v3.0)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
+        - text: .NET client library
+          url: /dotnet/api/overview/azure/ai.textanalytics-readme
+        - text: Python client library
+          url: /python/api/overview/azure/ai-textanalytics-readme
+        - text: JavaScript client library
+          url: /javascript/api/overview/azure/ai-text-analytics-readme
+        - text: Java client library
+          url: /java/api/overview/azure/ai-textanalytics-readme
+        - text: Azure PowerShell 
+          url: /powershell/module/az.cognitiveservices
+        - text: Azure CLI 
+          url: /cli/azure/cognitiveservices
 
 - title: Help and feedback
   linkLists:

@@ -35,7 +35,6 @@ The following table lists the administrative configuration limits in the Azure A
 
 |Category  |Limit  |
 |---------|---------|
-|Number of applications per Azure AD B2C tenant   |250           |
 |Number of scopes per application        |1000          |
 |Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |100         |
 |Number of redirect URLs per application       |100         |

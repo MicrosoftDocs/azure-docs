@@ -96,6 +96,9 @@ Before setting up the private link, read the [general requirements](sql-data-syn
 - [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
 - [Use PowerShell to sync between a database in Azure SQL Database and a databases in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 
+### Set up Data Sync with REST API
+- [Use REST API to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases-rest-api.md)
+
 ### Review the best practices for Data Sync
 
 - [Best practices for Azure SQL Data Sync](sql-data-sync-best-practices.md)

@@ -13,7 +13,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Migrate to cloud authentication using staged rollout (preview)
+# Migrate to cloud authentication using staged rollout
 
 Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
     
@@ -75,13 +75,9 @@ The following scenarios are not supported for staged rollout:
 - Admins can roll out cloud authentication by using security groups. To avoid sync latency when you're using on-premises Active Directory security groups, we recommend that you use cloud security groups. The following conditions apply:
 
     - You can use a maximum of 10 groups per feature. That is, you can use 10 groups each for *password hash sync*, *pass-through authentication*, and *seamless SSO*.
-    - Nested groups are *not supported*. This scope applies to public preview as well.
+    - Nested groups are *not supported*. 
     - Dynamic groups are *not supported* for staged rollout.
     - Contact objects inside the group will block the group from being added.
-
-- You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-pass-through-authentication.md)
-
-
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
@@ -91,12 +87,14 @@ The following scenarios are not supported for staged rollout:
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for all versions, when user’s on-premises UPN is not routable. This scenario will fall back to the WS-Trust endpoint while in staged rollout mode, but will stop working when staged migration is complete and user sign-on is no longer relying on federation server.
 
-
+  >[!NOTE]
+  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
+  
 ## Get started with staged rollout
 
 To test the *password hash sync* sign-in by using staged rollout, follow the pre-work instructions in the next section.
 
-For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Pre-work for password hash sync
 
@@ -166,23 +164,23 @@ You can roll out one of these options:
 
 Do the following:
 
-1. To access the preview UX, sign in to the [Azure AD portal](https://aka.ms/stagedrolloutux).
+1. To access the UX, sign in to the [Azure AD portal](https://aka.ms/stagedrolloutux).
 
-2. Select the **Enable staged rollout for managed user sign-in (Preview)** link.
+2. Select the **Enable staged rollout for managed user sign-in** link.
 
    For example, if you want to enable *Option A*, slide the **Password Hash Sync** and **Seamless single sign-on** controls to **On**, as shown in the following images.
 
-   ![The Azure AD Connect page](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![The "Enable staged rollout features (Preview)" page](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Add the groups to the feature to enable *pass-through authentication* and *seamless SSO*. To avoid a UX time-out, ensure that the security groups contain no more than 200 members initially.
 
-   ![The "Manage groups for Password Hash Sync (Preview)" page](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
-   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. 
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immediately. 
    >Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
    >Seamless SSO will apply only if users are in the Seamless SSO group and also in either a PTA or PHS group.
 
@@ -250,7 +248,9 @@ A: No, this feature is designed for testing cloud authentication. After successf
 
 **Q: Can I use PowerShell to perform staged rollout?**
 
-A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Next steps
-- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
+- [Change the sign-in method to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Change sign-in method to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

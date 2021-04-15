@@ -47,7 +47,7 @@ Learn more about [Microsoft Antimalware for Azure](antimalware.md) and the core 
 Learn more about antimalware software to help protect your virtual machines:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](../../virtual-machines/extensions/trend.md)
+* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
 * [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -96,7 +96,7 @@ Azure Backup is a scalable solution that helps protect your application data wit
 Learn more:
 
 * [What is Azure Backup?](../../backup/backup-overview.md)
-* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.md)
+* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.yml)
 
 ## Azure Site Recovery
 

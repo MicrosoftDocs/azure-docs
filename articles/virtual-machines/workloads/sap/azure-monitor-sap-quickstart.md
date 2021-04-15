@@ -4,10 +4,9 @@ description: Deploy Azure Monitor for SAP solutions with the Azure portal
 author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.reviewer: cynthn
+
 ---	
 
 # Deploy Azure Monitor for SAP Solutions with Azure portal
@@ -78,12 +77,28 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Select OS (Linux) from the drop-down 
 
-> [!IMPORTANT]
-> To configure OS (Linux) provider, ensure that Node_Exporter is installed in each BareMetal instance. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
+>[!IMPORTANT]
+> To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Use this [link] (https://prometheus.io/download/#node_exporter) to find latest version. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
 
 2. Input a name, which will be the identifier for the BareMetal Instance.
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
-4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
+
+>[!IMPORTANT]
+> Please use private IP address of linux host. Please ensure that host and AMS resource are in the same VNET. 
+
+>[!Note]
+> Firewall port “9100” should be opened on the linux host.
+>If using firewall-cmd: 
+   >firewall-cmd --permanent --add-port=9100/tcp
+   >firewall-cmd --reload
+>If using ufw:
+     >ufw allow 9100/tcp
+     >ufw reload
+
+>[!Tip]
+> If linux host is an Azure VM, please ensure that all applicable NSGs allow inbound traffic at port 9100 from "VirtualNetwork" as the source.
+ 
+5. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
 
 
 ### Microsoft SQL Server provider
@@ -122,6 +137,32 @@ Sign in to the Azure portal at https://portal.azure.com
 4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image shows information related to adding the Microsoft SQL Server Provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+
+### SAP NetWeaver provider
+
+#### Pre-requisites for adding NetWeaver provider
+
+The “SAP start service” provides a host of services including monitoring the SAP system. We are leveraging the “SAPControl” which is a SOAP web service interface that exposes these capabilities. This SAPControl webservice Interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) webservice methods. To be able to fetch specific metrics, you will need to unprotect some methods. To unprotect the required methods for the current release, please follow the steps below for each SAP system:-
+
+1. Open an SAP GUI connection to the SAP server
+2. Login using an administrative account
+3. Execute transaction RZ10
+4. Select the appropriate Profile (DEFAULT.PFL)
+5. Select 'Extended Maintenance' and click Change 
+6. Modify the value of the affected parameter “service/protectedwebmethods” to "SDEFAULT -GetQueueStatistic –ABAPGetWPTable –EnqGetStatistic –GetProcessList" to the recommended setting and click Copy
+7. Go back and select Profile->Save
+8. Restart system for parameter to take effect
+
+#### Installing NetWeaver provider on the Azure portal
+1.	Make sure that the pre-requisite steps have been completed and server has been restarted
+2.	On the Azure portal, under AMS, select Add provider and choose SAP NetWeaver from the drop down
+3.	Input the hostname of the SAP system and Subdomain (if applicable)
+4.	Enter the Instance number corresponding to the hostname entered 
+5.	Enter the System ID (SID)
+6.	When finished, select Add provider
+7.	Continue to add additional providers as needed or select Review + create to complete the deployment
+
+![image](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
 
 ## Next steps
 

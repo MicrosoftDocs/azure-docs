@@ -41,7 +41,7 @@ directory. You receive a notification when the process is complete. For more inf
 
 ## Application setup
 
-To enable JavaScript to query Azure Resource Graph, the environment must be set up. This setup works
+To enable JavaScript to manage management groups, the environment must be set up. This setup works
 wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/install-win10).
 
 1. Set up a new Node.js project by running the following command.

@@ -10,7 +10,19 @@ ms.author: azfuncdf
 
 The monitor pattern refers to a flexible *recurring* process in a workflow - for example, polling until certain conditions are met. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement monitoring.
 
-[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+## Prerequisites
+
+# [C#](#tab/csharp)
+
+* [Complete the quickstart article](durable-functions-create-first-csharp.md)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
+
+# [JavaScript](#tab/javascript)
+
+* [Complete the quickstart article](quickstart-js-vscode.md)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/javascript)
+
+---
 
 ## Scenario overview
 
@@ -67,9 +79,6 @@ Here is the code that implements the function:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
-# [Python](#tab/python)
-We have a different tutorial for the monitoring pattern on Python, please see it [here](durable-functions-monitor-python.md).
-
 ---
 
 This orchestrator function performs the following actions:
@@ -100,9 +109,6 @@ And here is the implementation.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-# [Python](#tab/python)
-We have a different tutorial for the monitoring pattern on Python, please see it [here](durable-functions-monitor-python.md).
-
 ---
 
 ### E3_SendGoodWeatherAlert activity function
@@ -125,9 +131,6 @@ Its *function.json* is simple:
 And here is the code that sends the SMS message:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
-
-# [Python](#tab/python)
-We have a different tutorial for the monitoring pattern on Python, please see it [here](durable-functions-monitor-python.md).
 
 ---
 

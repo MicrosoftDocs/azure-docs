@@ -4,7 +4,7 @@ description: How to configure directory services for client access to storage ta
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
 ---
 
@@ -39,7 +39,7 @@ Under **Active directory details**, supply these values:
 
 * **AD DNS domain name** - Provide the fully qualified domain name of the AD server that the cache will join to get the credentials.
 
-* **Cache server name (computer account)** - Set the name that will be assigned to this HPC cache when it joins the AD domain. Specify a name that is easy to recognize as this cache. The name can be up to 15 characters long and can include capital or lowercase letters, numbers, and hyphens (-).
+* **Cache server name (computer account)** - Set the name that will be assigned to this HPC Cache when it joins the AD domain. Specify a name that is easy to recognize as this cache. The name can be up to 15 characters long and can include capital or lowercase letters, numbers, and hyphens (-).
 
 In the **Credentials** section, provide an AD administrator username and password that the Azure HPC Cache can use to access the AD server. This information is encrypted when stored, and can't be queried.
 
@@ -70,13 +70,13 @@ The server and base DN are the only required settings to make LDAP work, but the
 
 In the **Secure access** section, you can enable encryption and certificate validation for the LDAP connection. After you click **Yes** to enable encryption, you have these options:
 
-* **Require valid certificate** - When this is set, the LDAP server's certificate is verified against the certificate authority in the URI field below.
+* **Validate certificate** - When this is set, the LDAP server's certificate is verified against the certificate authority in the URI field below.
 
 * **CA certificate URI** - Specify the path to the authoritative certificate. This can be a link to a CA-validated certificate or to a self-signed certificate. This field is required to use the externally validated certificates setting.
 
 * **Auto-download certificate** - Choose **Yes** if you want to try to download a certificate as soon as you submit these settings.
 
-Fill in the **Credentials** section if you want to use static credentials for LDAP security.
+Fill in the **Credentials** section if you want to use static credentials for LDAP security. This information is encrypted when stored, and can't be queried.
 
 * **Bind DN** - Enter the bind distinguished name to use to authenticate to the LDAP server. (Use DN format.)
 * **Bind password** - Provide the password for the bind DN.

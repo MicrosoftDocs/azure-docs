@@ -33,11 +33,11 @@ Learn the basics of using Python to develop apps or services that use Azure File
 
 # [Python v12](#tab/python)
 
-The [Azure File Storage client library v12.x for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) requires Python 2.7 or 3.5.
+The [Azure File Storage client library v12.x for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) requires Python 2.7 or 3.6+.
 
 # [Python v2](#tab/python2)
 
-The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python 2.7, 3.3, 3.4, 3.5, or 3.6.
+The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python 2.7 or 3.6+.
 
 ---
 

@@ -32,10 +32,9 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
+> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more gstreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
 > - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
 > - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-> [!IMPORTANT]
-> The Opus audio coding format is not supported by the Speech SDK on RHEL/CentOS 7.
 
 ---

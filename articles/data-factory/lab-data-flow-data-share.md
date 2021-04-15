@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
+ms.date: 04/14/2021
 ---
 
 # Data integration using Azure Data Factory and Azure Data Share
@@ -59,12 +59,9 @@ In Azure Data Factory linked services define the connection information to exter
 
 ### Create an Azure SQL Database linked service
 
-1. The authoring page is where you create data factory resources such as pipelines, datasets, data flows, triggers and linked services. To create a linked service, click on the **Connections** button in the bottom-right corner.
+1. To create a linked service, select **Manage** hub in the left side-bar, on the **Connections** pane, select **Linked services** and then select **New** to add a new linked service.
 
     ![Portal configure 2](media/lab-data-flow-data-share/configure2.png)
-1. In the connections tab, click **New** to add a new linked service.
-
-    ![Portal configure 3](media/lab-data-flow-data-share/configure3.png)
 1. The first linked service you'll configure is an Azure SQL DB. You can use the search bar to filter the data store list. Click on the **Azure SQL Database** tile and click continue.
 
     ![Portal configure 4](media/lab-data-flow-data-share/configure-4.png)
@@ -94,9 +91,11 @@ In Azure Data Factory linked services define the connection information to exter
 
 In section *Transform data using mapping data flow*, you'll be building mapping data flows. A best practice before building mapping data flows is to turn on debug mode, which allows you to test transformation logic in seconds on an active spark cluster.
 
-To turn on debug, click the **Data flow debug** slider in the factory top bar. Click ok when the confirmation dialog pop-ups. The cluster will take about 5-7 minutes to start up. Continue on to *Ingest data from Azure SQL DB into ADLS Gen2 using the copy activity* while it is initializing.
+To turn on debug, click the **Data flow debug** slider in the top bar of data flow canvas or pipeline canvas when you have **Data flow** activities. Click ok when the confirmation dialog pop-ups. The cluster will take about 5-7 minutes to start up. Continue on to *Ingest data from Azure SQL DB into ADLS Gen2 using the copy activity* while it is initializing.
 
 ![Portal configure 10](media/lab-data-flow-data-share/configure10.png)
+
+![Portal configure 11](media/lab-data-flow-data-share/configure11.png)
 
 ## Ingest data using the copy activity
 

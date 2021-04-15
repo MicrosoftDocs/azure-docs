@@ -90,6 +90,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 ### Device registration
 
 **Q**: What is device registration?
+
 **A**: Your org might require you to register the device to track access to secured resources, such as files and apps. They also might turn on Conditional Access to reduce the risk of unwanted access to those resources. You can unregister your device in **Settings**, but you may lose access to emails in Outlook, files in OneDrive, and you'll lose the ability to use phone sign-in.
 
 ### Verification codes when connected
@@ -255,7 +256,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Will my employees or students get to use password autofill in Authenticator app?
 
-**A**: Yes, Autofill now works for most enterprise users even when a work or school account is added to the Authenticator app. You can fill out a form to configure (allow or deny) Autofill for your organization and [send it to the Authenticator team](https://aka.ms/ConfigureAutofillInAuthenticator).
+**A**: Yes, Autofill for your [personal Microsoft accounts](https://go.microsoft.com/fwlink/?linkid=2144423) now works for most enterprise users even when a work or school account is added to the Authenticator app. You can fill out a form to allow or deny Autofill for your organization and [send it to the Authenticator team](https://aka.ms/ConfigureAutofillInAuthenticator). Autofill is not currently available for work or school accounts.
 
 **Q**: Will my users’ work or school account password get automatically synced?
 

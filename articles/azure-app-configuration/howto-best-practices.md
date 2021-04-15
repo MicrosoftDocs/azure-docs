@@ -88,7 +88,7 @@ App Configuration is regional service. For applications with different configura
 
 ## Client Applications in App Configuration 
 
-Excessive requests to App Configuration can result in throttling or overage charges. Applications take advantage of the caching and intelligent refreshing currently available to optimize the number of requests they send. This process can be mirrored in high volume client applications by avoiding direct connections to the configuration store. Instead, client applications connect to a custom service, and this service communicates with the configuration store. This proxy solution can ensure the client applications do not approach the throttling limit on the configuration store. For more information on throttling, see [the FAQ](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Excessive requests to App Configuration can result in throttling or overage charges. Applications take advantage of the caching and intelligent refreshing currently available to optimize the number of requests they send. This process can be mirrored in high volume client applications by avoiding direct connections to the configuration store. Instead, client applications connect to a custom service, and this service communicates with the configuration store. This proxy solution can ensure the client applications do not approach the throttling limit on the configuration store. For more information on throttling, see [the FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## Next steps
 

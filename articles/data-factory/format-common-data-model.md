@@ -3,7 +3,6 @@ title: Common Data Model format
 description: Transform data using the Common Data Model metadata system
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
@@ -86,24 +85,24 @@ When mapping data flow columns to entity properties in the Sink transformation, 
 
 ```
 source(output(
-		ProductSizeId as integer,
-		ProductColor as integer,
-		CustomerId as string,
-		Note as string,
-		LastModifiedDate as timestamp
-	),
-	allowSchemaDrift: true,
-	validateSchema: false,
-	entity: 'Product.cdm.json/Product',
-	format: 'cdm',
-	manifestType: 'manifest',
-	manifestName: 'ProductManifest',
-	entityPath: 'Product',
-	corpusPath: 'Products',
-	corpusStore: 'adlsgen2',
-	adlsgen2_fileSystem: 'models',
-	folderPath: 'ProductData',
-	fileSystem: 'data') ~> CDMSource
+        ProductSizeId as integer,
+        ProductColor as integer,
+        CustomerId as string,
+        Note as string,
+        LastModifiedDate as timestamp
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false,
+    entity: 'Product.cdm.json/Product',
+    format: 'cdm',
+    manifestType: 'manifest',
+    manifestName: 'ProductManifest',
+    entityPath: 'Product',
+    corpusPath: 'Products',
+    corpusStore: 'adlsgen2',
+    adlsgen2_fileSystem: 'models',
+    folderPath: 'ProductData',
+    fileSystem: 'data') ~> CDMSource
 ```
 
 ### Sink properties
@@ -135,21 +134,21 @@ The associated data flow script is:
 
 ```
 CDMSource sink(allowSchemaDrift: true,
-	validateSchema: false,
-	entity: 'Product.cdm.json/Product',
-	format: 'cdm',
-	entityPath: 'ProductSize',
-	manifestName: 'ProductSizeManifest',
-	corpusPath: 'Products',
-	partitionPath: 'adf',
-	folderPath: 'ProductSizeData',
-	fileSystem: 'cdm',
-	subformat: 'parquet',
-	corpusStore: 'adlsgen2',
-	adlsgen2_fileSystem: 'models',
-	truncate: true,
-	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> CDMSink
+    validateSchema: false,
+    entity: 'Product.cdm.json/Product',
+    format: 'cdm',
+    entityPath: 'ProductSize',
+    manifestName: 'ProductSizeManifest',
+    corpusPath: 'Products',
+    partitionPath: 'adf',
+    folderPath: 'ProductSizeData',
+    fileSystem: 'cdm',
+    subformat: 'parquet',
+    corpusStore: 'adlsgen2',
+    adlsgen2_fileSystem: 'models',
+    truncate: true,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> CDMSink
 
 ```
 

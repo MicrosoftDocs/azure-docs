@@ -143,7 +143,7 @@ FROM
 
 ## Access elements from repeated columns
 
-The following query reads the justSimpleArray.parquet file and uses [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to retrieve a scalar element from within a repeated column, like an array or map:
+The following query reads the justSimpleArray.parquet file and uses [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve a scalar element from within a repeated column, like an array or map:
 
 ```sql
 SELECT
@@ -168,7 +168,7 @@ Here's the result:
 
 ## Access sub-objects from complex columns
 
-The following query reads the mapExample.parquet file and uses [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to retrieve a non-scalar element from within a repeated column, like an array or map:
+The following query reads the mapExample.parquet file and uses [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve a non-scalar element from within a repeated column, like an array or map:
 
 ```sql
 SELECT

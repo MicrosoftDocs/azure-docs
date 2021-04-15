@@ -146,7 +146,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.Purview](#microsoftpurview)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
@@ -498,7 +498,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | capabilities | No | 
-> | domainnames | Yes | No |
+> | domainnames | No |
 > | quotas | No | 
 > | resourcetypes | No |
 > | validatesubscriptionmoveavailability | No | 
@@ -1056,7 +1056,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts | No. [Learn more](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
+> | accounts | No. [Learn more](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 
@@ -1068,12 +1068,12 @@ Jump to a resource provider namespace:
 > | diagnosticsettingscategories | No | 
 > | eventcategories | No | 
 > | eventtypes | No | 
-> | extendeddiagnosticsettings | No | |
+> | extendeddiagnosticsettings | No |
 > | guestdiagnosticsettings | No | 
 > | listmigrationdate | No | 
 > | logdefinitions | No | 
 > | logprofiles | No | 
-> | logs | No | No |
+> | logs | No |
 > | metricalerts | No | 
 > | metricbaselines | No | 
 > | metricbatch | No | 
@@ -1394,7 +1394,8 @@ Jump to a resource provider namespace:
 > | networkwatchers / pingmeshes |  No | 
 > | p2svpngateways | No | 
 > | privatednszones |  No |  
-> | privatednszones / virtualnetworklinks | No |> | privatednszonesinternal | No |
+> | privatednszones / virtualnetworklinks | No |
+> | privatednszonesinternal | No |
 > | privateendpointredirectmaps | No |
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
@@ -1513,7 +1514,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | capacities |  No | 
 
-## Microsoft.ProjectBabylon
+## Microsoft.Purview
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 

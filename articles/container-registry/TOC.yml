@@ -62,6 +62,9 @@
       href: zone-redundancy.md
     - name: Registry best practices
       href: container-registry-best-practices.md
+    - name: Multi-arch images
+      href: push-multi-architecture-images.md
+      displayName: multi-architecture
     - name: Manage public images
       href: buffer-gate-public-content.md
   - name: How-to guides

@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 03/26/2021
 ms.author: mbaldwin
 
 
@@ -15,6 +15,9 @@ ms.author: mbaldwin
 Get started with Azure Private Link by using a private endpoint to connect securely to Azure Attestation.
 
 In this quickstart, you'll create a private endpoint for Azure Attestation and deploy a virtual machine to test the private connection.  
+
+> [!NOTE]
+> The current implementation only includes automatic approval option. The subscription must be added to an allow list to be able to proceed with private endpoint creation. Please reach out to the service team or submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/) before proceeding with the below steps.
 
 ## Prerequisites
 

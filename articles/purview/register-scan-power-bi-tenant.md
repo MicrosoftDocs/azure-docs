@@ -18,7 +18,7 @@ This article shows how to use Azure Purview portal to register and scan a Power 
 
 ## Create a security group for permissions
 
-To set up authentication, create a security group and add the catalog's managed identity to it.
+To set up authentication, create a security group and add the Purview managed identity to it.
 
 1. In the [Azure portal](https://portal.azure.com), search for **Azure Active Directory**.
 1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -30,11 +30,11 @@ To set up authentication, create a security group and add the catalog's managed 
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Security group type":::
 
-1. Add your catalog's managed identity to this security group. Select **Members**, then select **+ Add members**.
+1. Add your Purview managed identity to this security group. Select **Members**, then select **+ Add members**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Add the catalog's managed instance to group.":::
 
-1. Search for your catalog and select it.
+1. Search for your Purview managed identity and select it.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Add catalog by searching for it":::
 
@@ -56,14 +56,14 @@ To set up authentication, create a security group and add the catalog's managed 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions":::
 
     > [!Caution]
-    > When you allow the security group you created (that has your data catalog managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure Purview, Purview's permissions, not Power BI permissions, determine who can see that metadata.
+    > When you allow the security group you created (that has your Purview managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure Purview, Purview's permissions, not Power BI permissions, determine who can see that metadata.
 
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Purview account. You can delete it separately, if you wish.
 
 ## Register your Power BI and set up a scan
 
-Now that you've given the catalog permissions to connect to the Admin API of your Power BI tenant, you can set up your scan from the catalog portal.
+Now that you've given the Purview Managed Identity permissions to connect to the Admin API of your Power BI tenant, you can set up your scan from the Azure Purview Studio.
 
 First, add a special feature flag to your Purview URL 
 
@@ -93,11 +93,13 @@ First, add a special feature flag to your Purview URL
     > For Power BI, data source registration and scan is allowed for only one instance.
 
 
-4. Give your scan a name. Notice that the only authentication method supported is **Managed Identity**.
+4. Give your scan a name. Then select the option to include or exclude the personal workspaces. Notice that the only authentication method supported is **Managed Identity**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image showing Power BI scan setup":::
 
-    The scan name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens.  Spaces aren't allowed.
+    > [!Note]
+    > * Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source
+    > * The scan name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens. Spaces aren't allowed.
 
 5. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
 

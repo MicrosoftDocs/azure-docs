@@ -13,6 +13,10 @@ zone_pivot_groups: qnamaker-quickstart
 
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
 ::: zone-end
@@ -37,9 +41,6 @@ Get started with the QnA Maker client library. Follow these steps to install the
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
-::: zone pivot="rest"
-[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
-::: zone-end
 
 ## Clean up resources
 
@@ -51,7 +52,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Tutorial: Test your knowledge base with a batch file](../index.yml)
+>[Tutorial: Test your knowledge base with a batch file](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 * [What is the QnA Maker API?](../Overview/overview.md)
 * [Edit a knowledge base](../how-to/edit-knowledge-base.md)

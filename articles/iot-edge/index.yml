@@ -13,6 +13,7 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
+  ms.custom: e2e-hybrid
 
 landingContent:
   - title: Develop for Linux devices

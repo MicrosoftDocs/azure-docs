@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 04/07/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -29,9 +29,9 @@ To learn more about Azure pricing, see [Azure pricing overview](https://azure.mi
 
 Some limits are managed at a regional level.
 
-Let's use vCPU quotas as an example. To request a quota increase with support for vCPUs, you must decide how many vCPUs you want to use in which regions. You then make a specific request for Azure resource group vCPU quotas for the amounts and regions that you want. If you need to use 30 vCPUs in West Europe to run your application there, you specifically request 30 vCPUs in West Europe. Your vCPU quota isn't increased in any other region--only West Europe has the 30-vCPU quota.
+Let's use vCPU quotas as an example. To request a quota increase with support for vCPUs, you must decide how many vCPUs you want to use in which regions. You then request an increase in vCPU quotas for the amounts and regions that you want. If you need to use 30 vCPUs in West Europe to run your application there, you specifically request 30 vCPUs in West Europe. Your vCPU quota isn't increased in any other region--only West Europe has the 30-vCPU quota.
 
-As a result, decide what your Azure resource group quotas must be for your workload in any one region. Then request that amount in each region into which you want to deploy. For help in how to determine your current quotas for specific regions, see [Resolve errors for resource quotas](../templates/error-resource-quota.md).
+As a result, decide what your quotas must be for your workload in any one region. Then request that amount in each region into which you want to deploy. For help in how to determine your current quotas for specific regions, see [Resolve errors for resource quotas](../templates/error-resource-quota.md).
 
 ## General limits
 
@@ -165,7 +165,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ### Application Insights
 
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
 ## Azure Policy limits
 
@@ -182,6 +182,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## Azure VMware Solution limits
+
+[!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
 ## Backup limits
 
@@ -359,6 +363,9 @@ For SQL Database limits, see [SQL Database resource limits for single databases]
 
 For Azure Synapse Analytics limits, see [Azure Synapse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
+## Azure Files and Azure File Sync
+To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
+
 ## Storage limits
 
 <!--like # storage accts -->
@@ -373,16 +380,6 @@ For more information on limits for standard storage accounts, see [Scalability t
 ### Azure Blob storage limits
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### Azure Files limits
-
-For more information on Azure Files limits, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### Azure File Sync limits
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### Azure Queue storage limits
 

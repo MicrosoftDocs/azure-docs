@@ -28,7 +28,10 @@ A [service connection](/azure/devops/pipelines/library/service-endpoints) allows
 1. Under **Pipelines** select **Service connections**.
 1. If you don't have any existing service connections, click the **Create service connection** button in the middle of the screen. Otherwise, click **New service connection** in the top right of the page.
 1. Select **Azure Resource Manager**.
-1. Select **Service principal (automatic)**.
+![Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.](./media/new-service-connection.png)
+1. In the **Authentication method** dialog, select **Service principal (automatic)**.
+    > [!NOTE]
+    > **Managed identity** authentication is currently unsupported for the App Configuration task.
 1. Fill in your subscription and resource. Give your service connection a name.
 
 Now that your service connection is created, find the name of the service principal assigned to it. You'll add a new role assignment to this service principal in the next step.
@@ -44,9 +47,11 @@ Assign the proper App Configuration role to the service connection being used wi
 
 1. Navigate to your target App Configuration store. For a walkthrough of setting up an App Configuration store, see [Create an App Configuration store](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) in one of the Azure App Configuration quickstarts.
 1. On the left, select **Access control (IAM)**.
-1. At the top, select **+ Add** and pick **Add role assignment**.
+1. On the right side, click the **Add role assignments** button.
+![Screenshot shows the Add role assignments button.](./media/add-role-assignment-button.png).
 1. Under **Role**, select **App Configuration Data Reader**. This role allows the task to read from the App Configuration store. 
 1. Select the service principal associated with the service connection that you created in the previous section.
+![Screenshot shows the Add role assignment dialog.](./media/add-role-assignment-reader.png)
 
 > [!NOTE]
 > To resolve Azure Key Vault references within App Configuration, the service connection must also be granted permission to read secrets in the referenced Azure Key Vaults.
@@ -55,24 +60,33 @@ Assign the proper App Configuration role to the service connection being used wi
 
 This section will cover how to use the Azure App Configuration task in an Azure DevOps build pipeline.
 
-1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For build pipeline documentation, see  [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
-      - If you're creating a new build pipeline, click **New pipeline**, select the repository for your pipeline. Select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration** task.
-      - If you're using an existing build pipeline, select **Edit** to edit the pipeline. In the **Tasks** tab, search for the **Azure App Configuration** Task.
+1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For build pipeline documentation, see  [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
+      - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
+      ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
+      - If you're using an existing build pipeline, click the **Edit** button at the top-right.
+      ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
+1. Search for the **Azure App Configuration** Task.
+![Screenshot shows the Add Task dialog with Azure App Configuration in the search box.](./media/add-azure-app-configuration-task.png)
 1. Configure the necessary parameters for the task to pull the key-values from the App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration name** to the resource name of your App Configuration store.
       - Leave the default values for the remaining parameters.
+![Screenshot shows the app configuration task parameters.](./media/azure-app-configuration-parameters.png)
 1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in releases
 
 This section will cover how to use the Azure App Configuration task in an Azure DevOps release pipeline.
 
-1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. For release pipeline documentation, see [Release pipelines](/azure/devops/pipelines/release?view=azure-devops).
+1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. For release pipeline documentation, see [Release pipelines](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, click **New pipeline** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
-1. Choose the **Stage** to add the task. For more information about stages, see [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments?view=azure-devops).
-1. Click **+** for on "Run on agent", then add the **Azure App Configuration** task under the **Add tasks** tab.
+1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
+![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
+1. Click **+** next to the Job to which you want to add a new task.
+![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
+1. Search for the **Azure App Configuration** Task.
+![Screenshot shows the Add Task dialog with Azure App Configuration in the search box.](./media/add-azure-app-configuration-task.png)
 1. Configure the necessary parameters within the task to pull your key-values from your App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration name** to the resource name of your App Configuration store.

@@ -101,9 +101,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Learn more about the [parameters](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
+Learn more about the [parameters](/cli/azure/keyvault/certificate#az-keyvault-certificate-import).
 
-After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show)
 
 
 ```azurecli
@@ -132,7 +132,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?).
 
 
 ## Clean up resources

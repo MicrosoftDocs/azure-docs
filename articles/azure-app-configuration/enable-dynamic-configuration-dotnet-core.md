@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: abarora
+author: GrantMeStrength
 manager: zhenlan
 editor: ''
 
@@ -15,13 +15,13 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: abarora
+ms.author: jken
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET Core app
 
-The App Configuration .NET Core client library supports updating a set of configuration settings on demand without causing an application to restart. This can be implemented by first getting an instance of `IConfigurationRefresher` from the options for the configuration provider and then calling `TryRefreshAsync` on that instance anywhere in your code.
+The App Configuration .NET Core client library supports updating configuration on demand without causing an application to restart. This can be implemented by first getting an instance of `IConfigurationRefresher` from the options for the configuration provider and then calling `TryRefreshAsync` on that instance anywhere in your code.
 
 In order to keep the settings updated and avoid too many calls to the configuration store, a cache is used for each setting. Until the cached value of a setting has expired, the refresh operation does not update the value, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds, but it can be overridden if required.
 
