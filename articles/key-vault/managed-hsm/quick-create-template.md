@@ -16,6 +16,7 @@ ms.custom:
   - mode-arm
 #Customer intent: As a security admin who is new to Azure, I want to create a managed HSM using an Azure Resource Manager template.
 ---
+
 # Quickstart: Create an Key Vault Managed HSM using an Azure Resource Manager template
 
 Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  

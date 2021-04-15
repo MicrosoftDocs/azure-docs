@@ -52,6 +52,8 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Screenshot showing the next step of going to the resource](./media/quick-create-portal/next-steps.png)
 
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
 ## Connect to virtual machine
 
 Create a remote desktop connection to the virtual machine. These directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) from the Mac App Store.

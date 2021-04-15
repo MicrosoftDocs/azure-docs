@@ -161,6 +161,8 @@ Create two VMs in the virtual network:
   
 6. Review the settings, and then select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Connect to myVM1
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage your private VM. Search for and select **Virtual machines**.

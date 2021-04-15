@@ -298,6 +298,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
@@ -571,6 +573,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ---
 
