@@ -81,7 +81,7 @@ Scroll down to *Advanced Options* and make sure that **Create a route to the app
 
 When you're ready, at the bottom of the page click on **Create**. This will create resources to manage the build and deployment of the application. You'll then be redirected to the topology overview for the project.
 
-:::image type="content" source="media/s2i/demoapp-topology.png" alt-text="Azure Red Hat OpenShift project from Git - Topology":::
+:::image type="content" source="media/s2i/demo-app-topology.png" alt-text="Azure Red Hat OpenShift project from Git - Topology":::
 
 The topology overview provides a visual representation of the application you've deployed. With this view, you can see the overall application structure.
 
@@ -91,13 +91,13 @@ While the application is scaling up or down, starting rollouts and recreating po
 
 Clicking on the application icon will bring up more details as shown below.
 
-:::image type="content" source="media/s2i/demoapp-details.png" alt-text="Azure Red Hat OpenShift project from Git - Details":::
+:::image type="content" source="media/s2i/demo-app-details.png" alt-text="Azure Red Hat OpenShift project from Git - Details":::
 
 ## Viewing the builder logs
 
 Once the build has started, click on the *View Logs* link shown on the *Resources* panel.
 
-:::image type="content" source="media/s2i/demoapp-buildlogs.png" alt-text="Azure Red Hat OpenShift project from Git - Build logs":::
+:::image type="content" source="media/s2i/demo-app-build-logs.png" alt-text="Azure Red Hat OpenShift project from Git - Build logs":::
 
 This will allow you to monitor the progress of the build as it runs. The builder image, Python in this case, will inject the application source code into the final image before it pushes it to the OpenShift internal image registry. The build will have completed successfully when you see a final message of "Push successful".
 
@@ -109,7 +109,7 @@ Click on *Topology* in the left-hand menu bar to return to the topology view for
 
 From the topology view, you can  get to the URL for the deployed application by clicking on the icon top right of the ring. When the deployment is complete, click on the icon and you should see the application you deployed.
 
-:::image type="content" source="media/s2i/demoapp-browse.png" alt-text="Azure Red Hat OpenShift project from Git - Browse app":::
+:::image type="content" source="media/s2i/demo-app-browse.png" alt-text="Azure Red Hat OpenShift project from Git - Browse app":::
 
 ## Deploying using the command-line
 
@@ -267,7 +267,7 @@ build.build.openshift.io/django-ex-2 started
 
 If you refresh the browser with the application, you should see the updated title.
 
-:::image type="content" source="media/s2i/demoapp-browse-updated.png" alt-text="Azure Red Hat OpenShift project from Git - Browse updated app":::
+:::image type="content" source="media/s2i/demo-app-browse-updated.png" alt-text="Azure Red Hat OpenShift project from Git - Browse updated app":::
 
 ## Clean up resources
 
