@@ -177,14 +177,14 @@ Drill down on any of the completed models to see training run details, like a mo
 
 ## Model explanations (preview)
 
-To better understand your model, see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
+To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
 
 The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 To get explanations for a particular model, 
 
-1. On the **Models** tab, select the model you want to use. 
-1. Select the **Explain model** button and provide a compute that can be used to generate the explanations.
+1. On the **Models** tab, select the model you want to understand. 
+1. Select the **Explain model** button, and provide a compute that can be used to generate the explanations.
 1. Check the **Child runs** tab for the status. 
 1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
 
