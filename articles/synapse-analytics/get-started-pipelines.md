@@ -34,7 +34,10 @@ In this tutorial, you'll learn how to integrate pipelines and activities using S
 
 ## Forcing a pipeline to run immediately
 
-1. Once the pipeline is published, to make the pipeline run immediately, without waiting for the next hour, select **Add trigger** > **Trigger now**.
+Once the pipeline is published, you may want to run it immediately without waiting for an hour to pass.
+
+1. Open the pipeline.
+1. Click **Add trigger** > **Trigger now**.
 
 ## Monitor pipeline execution
 
