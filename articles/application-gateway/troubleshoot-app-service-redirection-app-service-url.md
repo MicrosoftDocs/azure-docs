@@ -82,7 +82,7 @@ Set the host name in the location header to the application gateway's domain nam
 
 ## Alternate solution: Use a custom domain name
 
-Using App Service's Custom Domain feature is another solution to always redirect the traffic to Application Gateway's domain name (www.contoso.com in our example). This configuration also serves as a solution for the ARR Affinity cookie problem. As stated above, the ARRAffinity cookie domain is set to the App Service's default host name (example.azurewebsites.net) instead of the Application Gateway domain name. The browser in this case will reject the cookie due to the difference in the domain names of the request and the cookie.
+Using App Service's Custom Domain feature is another solution to always redirect the traffic to Application Gateway's domain name (`www.contoso.com` in our example). This configuration also serves as a solution for the ARR Affinity cookie problem. As stated above, the ARRAffinity cookie domain is set to the App Service's default host name (example.azurewebsites.net) instead of the Application Gateway domain name. The browser in this case will reject the cookie due to the difference in the domain names of the request and the cookie.
 
 You must own a custom domain to follow this process:
 
