@@ -348,7 +348,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 *Disable flow logs*
 
-When the flow log is disabled, the flow logging for associated NSG is stopped. But the flow log as a resource continues to exist with all its settings and associations. It can be renabled anytime to begin flow logging on the configured NSG. Steps to disable/enable a flow logs can be found in [this how to guide](./network-watcher-nsg-flow-logging-powershell.md).  
+When the flow log is disabled, the flow logging for associated NSG is stopped. But the flow log as a resource continues to exist with all its settings and associations. It can be enabled anytime to begin flow logging on the configured NSG. Steps to disable/enable a flow logs can be found in [this how to guide](./network-watcher-nsg-flow-logging-powershell.md).  
 
 *Delete flow logs*
 
