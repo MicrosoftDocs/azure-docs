@@ -5,9 +5,6 @@ description: This topic demonstrates how to use APIs to upload and index your vi
 services: media-services
 author: Juliako
 manager: femila
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/04/2021
 ms.author: juliako
@@ -16,13 +13,13 @@ ms.custom: devx-track-csharp
 
 # Upload and index your videos  
 
-Once your video has been uploaded, Video Analyzer for Media (optionally) encodes the video (discussed in the article). When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+Once your video has been uploaded, Azure Video Analyzer for Media (former Video Indexer) encodes (optionally) the video (discussed in the article). When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 When uploading videos with Video Analyzer for Media API, you have the following upload options: 
 
 * upload your video from a URL (preferred),
 * send the video file as a byte array in the request body,
-* Use existing Azure Media Services asset by providing the [asset ID](../latest/assets-concept.md) (supported in paid accounts only).
+* Use existing Azure Media Services asset by providing the [asset ID](../../media-services/latest/assets-concept.md) (supported in paid accounts only).
 
 The article shows how to upload and index your videos with these options:
 
@@ -31,7 +28,7 @@ The article shows how to upload and index your videos with these options:
 
 ## Supported file formats for Video Analyzer for Media
 
-See the [input container/file formats](../latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Analyzer for Media.
+See the [input container/file formats](../../media-services/latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Analyzer for Media.
 
 ## Video files storage
 
@@ -109,9 +106,9 @@ Once your video has been uploaded, Video Analyzer for Media, optionally encodes 
 When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
 For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Analyzer for Media encodes it as 1280x720. Otherwise, as 640x468.
-The Default setting is [content aware encoding](../latest/encode-content-aware-concept.md).
+The Default setting is [content aware encoding](../../media-services/latest/encode-content-aware-concept.md).
 
-In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Analyzer for Media account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
+In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Analyzer for Media account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../../media-services/previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
 If you only want to index your video but not encode it, set `streamingPreset`to `NoStreaming`.
 

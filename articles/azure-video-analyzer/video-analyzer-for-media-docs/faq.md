@@ -5,9 +5,6 @@ description: This article gives answers to frequently asked questions about Azur
 services: media-services
 author: Juliako
 manager: femila
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
@@ -15,7 +12,7 @@ ms.author: juliako
 
 # Video Analyzer for Media frequently asked questions
 
-This article answers frequently asked questions about Video Analyzer for Media.
+This article answers frequently asked questions about Azure Video Analyzer for Media (former Video Indexer).
 
 ## General questions
 
@@ -55,7 +52,7 @@ No, Video Analyzer for Media provides the integration of multiple machine learni
 
 ### What media formats does Video Analyzer for Media support?
 
-Video Analyzer for Media supports most common media formats. Refer to the [Azure Media Encoder standard formats](../latest/encode-media-encoder-standard-formats-reference.md) list for more details.
+Video Analyzer for Media supports most common media formats. Refer to the [Azure Media Encoder standard formats](../../media-services/latest/encode-media-encoder-standard-formats-reference.md) list for more details.
 
 ### How do I upload a media file into Video Analyzer for Media and what are the limitations?
 

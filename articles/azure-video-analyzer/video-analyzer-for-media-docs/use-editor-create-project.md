@@ -5,9 +5,6 @@ description: This topic demonstrates how to use the Azure Video Analyzer for Med
 services: media-services
 author: Juliako
 manager: femila
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/28/2020
 ms.author: juliako
@@ -15,7 +12,7 @@ ms.author: juliako
 
 # Add video clips to your projects
 
-The [Video Analyzer for Media](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
+The [Azure Video Analyzer for Media (former Video Indexer)](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
 
 Once created, the project can be rendered and downloaded from Video Analyzer for Media and be used in your own editing applications or downstream workflows.
 

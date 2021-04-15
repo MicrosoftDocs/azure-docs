@@ -5,8 +5,6 @@ description: Learn how to search for exact moments in videos using Azure Video A
 services: media-services
 author: Juliako
 manager: femila
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/23/2019
 ms.author: juliako
@@ -14,7 +12,7 @@ ms.author: juliako
 
 # Search for exact moments in videos with Video Analyzer for Media
 
-This topic shows you how to use the Video Analyzer for Media website to search for exact moments in videos.
+This topic shows you how to use the Azure Video Analyzer for Media (former Video Indexer) website to search for exact moments in videos.
 
 1. Go to the [Video Analyzer for Media](https://www.videoindexer.ai/) website and sign in.
 1. Specify the search keywords and the search will be performed among all videos in your account's library. 

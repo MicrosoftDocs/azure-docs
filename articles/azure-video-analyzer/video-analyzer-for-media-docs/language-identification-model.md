@@ -6,8 +6,6 @@ services: media-services
 author: juliako
 manager: femila
 
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
@@ -15,7 +13,7 @@ ms.author: ellbe
 
 # Automatically identify the spoken language with language identification model
 
-Video Analyzer for Media supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
+Azure Video Analyzer for Media (former Video Indexer) supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
 
 Currently LID supports: English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese (Brazilian). 
 

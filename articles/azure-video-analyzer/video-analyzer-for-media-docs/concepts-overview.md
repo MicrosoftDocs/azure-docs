@@ -5,8 +5,6 @@ description: This article gives a brief overview of Azure Video Analyzer for Med
 services: media-services
 author: Juliako
 manager: femila
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/19/2021
 ms.author: juliako
@@ -15,7 +13,7 @@ ms.author: juliako
 
 # Video Analyzer for Media concepts
 
-This article gives a brief overview of Video Analyzer for Media terminology and concepts.
+This article gives a brief overview of Azure Video Analyzer for Media (former Video Indexer) terminology and concepts.
 
 ## Audio/video/combined insights
 

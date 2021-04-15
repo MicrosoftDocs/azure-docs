@@ -6,8 +6,6 @@ services: media-services
 author: Juliako
 manager: femila
 
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako 
@@ -15,7 +13,7 @@ ms.author: juliako
 
 # Things to consider when using Video Analyzer for Media at scale
 
-When using Video Analyzer for Media to index videos and your archive of videos is growing, consider scaling. 
+When using Azure Video Analyzer for Media (former Video Indexer) to index videos and your archive of videos is growing, consider scaling. 
 
 This article answers questions like:
 
@@ -52,7 +50,7 @@ To see an example of how to upload videos using URL, check out [this example](up
 
 Usually in the proof of concept stage when you just start using Video Analyzer for Media, you don’t need a lot of computing power. When you start having a larger archive of videos you need to index and you want the process to be at a pace that fits your use case, you need to scale up your usage of Video Analyzer for Media. Therefore, you should think about increasing the number of compute resources you use if the current amount of computing power is just not enough.
 
-In Azure Media Services, when you want to increase computing power and parallelization, you need to pay attention to media [reserved units](../latest/concept-media-reserved-units.md)(RUs). The RUs are the compute units that determine the parameters for your media processing tasks. The number of RUs affects the number of media tasks that can be processed concurrently in each account and their type determines the speed of processing and one video might require more than one RU if its indexing is complex. When your RUs are busy, new tasks will be held in a queue until another resource is available.
+In Azure Media Services, when you want to increase computing power and parallelization, you need to pay attention to media [reserved units](../../media-services/concept-media-reserved-units.md)(RUs). The RUs are the compute units that determine the parameters for your media processing tasks. The number of RUs affects the number of media tasks that can be processed concurrently in each account and their type determines the speed of processing and one video might require more than one RU if its indexing is complex. When your RUs are busy, new tasks will be held in a queue until another resource is available.
 
 To operate efficiently and to avoid having resources that stay idle part of the time, Video Analyzer for Media offers an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#autoscale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
 

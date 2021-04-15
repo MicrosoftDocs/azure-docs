@@ -5,8 +5,6 @@ description: Learn how to customize a Person model with the Azure Video Analyzer
 services: media-services
 author: anikaz
 manager: johndeu
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
@@ -14,7 +12,7 @@ ms.author: kumud
 
 # Customize a Person model with the Video Analyzer for Media API
 
-Video Analyzer for Media supports face detection and celebrity recognition for video content. The celebrity recognition feature covers about one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that aren't recognized by the celebrity recognition feature are detected but left unnamed. After you upload your video to Video Analyzer for Media and get results back, you can go back and name the faces that weren't recognized. Once you label a face with a name, the face and name get added to your account's Person model. Video Analyzer for Media will then recognize this face in your future videos and past videos.
+Azure Video Analyzer for Media (former Video Indexer) supports face detection and celebrity recognition for video content. The celebrity recognition feature covers about one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that aren't recognized by the celebrity recognition feature are detected but left unnamed. After you upload your video to Video Analyzer for Media and get results back, you can go back and name the faces that weren't recognized. Once you label a face with a name, the face and name get added to your account's Person model. Video Analyzer for Media will then recognize this face in your future videos and past videos.
 
 You can use the Video Analyzer for Media API to edit faces that were detected in a video, as described in this topic. You can also use the Video Analyzer for Media website, as described in [Customize Person model using the Video Analyzer for Media website](customize-person-model-with-api.md).
 
