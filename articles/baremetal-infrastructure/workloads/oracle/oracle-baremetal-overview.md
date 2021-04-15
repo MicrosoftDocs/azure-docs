@@ -24,7 +24,7 @@ Other features of BareMetal Infrastructure for Oracle include:
   - Includes Azure ExpressRoute to the customer's domain controller
   - Secured physical and network security, can access all Azure cloud services
 
-### Protocols Supported
+### Supported protocols
 
 The following protocols are used for different mount points within BareMetal servers for Oracle workload.
 

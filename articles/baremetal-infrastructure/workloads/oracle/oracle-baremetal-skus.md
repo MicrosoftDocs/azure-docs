@@ -26,7 +26,7 @@ BareMetal Infrastructure for Oracle SKUs range from two sockets up to four socke
 - Customer has root access (No hypervisor).
 - Servers aren't directly on Azure VNETs.
 
-## Next Step
+## Next steps
 
 Learn about the storage offered by BareMetal Infrastructure for Oracle.
 
