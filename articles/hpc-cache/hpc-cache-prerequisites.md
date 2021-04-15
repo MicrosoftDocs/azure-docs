@@ -101,19 +101,12 @@ If you want to use Azure Blob storage with your cache, you need a compatible sto
 
 Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
-To create a compatible storage account, use these settings:
+To create a compatible storage account, use one of these combinations:
 
 | Performance | Type | Replication | Access tier |
 |--|--|--|--|
 | Standard | StorageV2 (general purpose v2)| Locally redundant storage (LRS) or Zone-redundant storage (ZRS) | Hot |
 | Premium | Block blobs | Locally redundant storage (LRS) | Hot |
-
-<!-- * Performance:
-  * Standard with any of these options, or
-  * Premium with the type Block blobs and Locally redundant storage
-* Account kind: StorageV2 (general purpose v2)
-* Replication: Locally redundant storage (LRS) or Zone-redundant storage (ZRS)
-* Access tier (default): Hot -->
 
 The storage account must be accessible from your cache's private subnet. If your account uses a private endpoint or a public endpoint that is restricted to specific virtual networks, make sure to enable access from the cache's subnet. (An open public endpoint is not recommended.)
 
