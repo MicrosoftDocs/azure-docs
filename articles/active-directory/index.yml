@@ -27,7 +27,7 @@ highlightedContent:
     - title: Secure your remote workforce
       itemType: get-started
       url: /enterprise-mobility-security/remote-work/
-    - title: Verifiable credentials
+    - title: What is verifiable credentials (preview)?
       itemType: overview
       url: ./verifiable-credentials/decentralized-identifier-overview.md
     - title: Azure AD deployment checklist
