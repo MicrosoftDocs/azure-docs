@@ -25,21 +25,21 @@ This article lists the curated environments in Azure Machine Learning. Curated e
      - PyTorch version: 1.7
      - Python version: 3.6.9
      - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
-     - CUDA version: 11
+     - CUDA version: 11.0.3
      - OpenMPI: 4.1.0
 
 ## Scikit
 - AzureML-Scikit-learn0.20.4-Cuda11-OpenMpi4.1.0-py36
      - Scikit-learn version: 20.4
      - Python version: 3.6.9
-     - Base image:
-     - CUDA version: 11
+     - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
+     - CUDA version: 11.0.3
      - OpenMPI: 4.1.0
 
 ## TensorFlow
 - AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36
      - Tensorflow version: 2.4
      - Python version: 3.6.9
-     - Base image:
-     - CUDA version: 
+     - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
+     - CUDA version: 11.0.3
      - OpenMPI: 4.1.0
