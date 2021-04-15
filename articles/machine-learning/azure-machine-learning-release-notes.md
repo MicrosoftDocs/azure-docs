@@ -29,8 +29,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
   + **azureml-core**
     + Added the ability to override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable.
-    + Fixed a bug where docker settings in Environment object are not respected.
-    + Allowing a user to partition data to the destination specified by target
+    + Fixed a bug where docker settings in Environment object on ScriptRunConfig are not respected.
+    + Allow partitioning a dataset when copying it to a destination.
     + Added a custom mode to the OutputDatasetConfig to enable passing created Datasets in pipelines through a link function. These support enhancements made to enable Tabular Partitioning for PRS.
     + Added a new KubernetesCompute compute type to azureml-core.
   + **azureml-pipeline-core**
