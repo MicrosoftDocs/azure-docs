@@ -27,6 +27,8 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)].
 
+Select the **Applicable products** in Dynamics 365 this offer applies to.
+
 Enter an **App version** for your offer. Customers will see this number listed on the offer's detail page.
 
 ### Legal
