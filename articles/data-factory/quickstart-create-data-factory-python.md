@@ -35,7 +35,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
-* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values to use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to the **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **application ID (service principal id below), authentication key (client secret below), and tenant ID.**
+* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **application ID (service principal id below), authentication key (client secret below), and tenant ID.**
 
 ## Create and upload an input file
 
@@ -220,8 +220,6 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
- > [!NOTE] 
- > The To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format **{ “ParameterName1” : “ParameterValue1” }** for each of the parameters needed in the pipeline. To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format **@pipeline().parameters.parametername.**
 
 
 ## Create a pipeline
@@ -238,6 +236,13 @@ Add the following code to the **Main** method that creates a **pipeline with a c
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)

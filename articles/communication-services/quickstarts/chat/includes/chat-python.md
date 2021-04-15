@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"
 Use the `create_chat_thread` method to create a chat thread.
 
 - Use `topic` to give a thread topic; Topic can be updated after the chat thread is created using the `update_thread` function.
-- Use `thread_participants` to list the `ChatThreadParticipant` to be added to the chat thread, the `ChatThreadParticipant` takes `CommunicationUserIdentifier` type as `user`, which is what you got after you
+- Use `thread_participants` to list the `ChatParticipant` to be added to the chat thread, the `ChatParticipant` takes `CommunicationUserIdentifier` type as `user`, which is what you got after you
 created by [Create a user](../../access-tokens.md#create-an-identity)
 
 `CreateChatThreadResult` is the result returned from creating a thread, you can use it to fetch the `id` of 
@@ -93,8 +93,6 @@ the chat thread that got created. This `id` can then be used to fetch a `ChatThr
 the `get_chat_thread_client` method. `ChatThreadClient` can be used to perform other chat operations to this chat thread.
 
 ```python
-from azure.communication.chat import ChatThreadParticipant
-
 topic="test topic"
 
 create_chat_thread_result = chat_client.create_chat_thread(topic)
@@ -206,13 +204,13 @@ Once a chat thread is created, you can then add and remove users from it. By add
 
 One or more users can be added to the chat thread using the `add_participants` method, provided new access token and identify is available for all users.
 
-A `list(tuple(ChatThreadParticipant, CommunicationError))` is returned. When participant is successfully added,
+A `list(tuple(ChatParticipant, CommunicationError))` is returned. When participant is successfully added,
 an empty list is expected. In case of an error encountered while adding participant, the list is populated
 with the failed participants along with the error that was encountered.
 
 ```python
 from azure.communication.identity import CommunicationIdentityClient
-from azure.communication.chat import ChatThreadParticipant
+from azure.communication.chat import ChatParticipant
 from datetime import datetime
 
 # create 2 users
@@ -225,14 +223,14 @@ new_users = [identity_client.create_user() for i in range(2)]
 # user_id = 'some user id'
 # user_display_name = "Wilma Flinstone"
 # new_user = CommunicationUserIdentifier(user_id)
-# participant = ChatThreadParticipant(
+# participant = ChatParticipant(
 #     user=new_user,
 #     display_name=user_display_name,
 #     share_history_time=datetime.utcnow())
 
 participants = []
 for _user in new_users:
-  chat_thread_participant = ChatThreadParticipant(
+  chat_thread_participant = ChatParticipant(
     user=_user,
     display_name='Fred Flinstone',
     share_history_time=datetime.utcnow()
@@ -263,13 +261,13 @@ Use `list_participants` to retrieve the participants of the thread.
 - Use `results_per_page`, optional, The maximum number of participants to be returned per page.
 - Use `skip`, optional, to skips participants up to a specified position in response.
 
-An iterator of `[ChatThreadParticipant]` is the response returned from listing participants
+An iterator of `[ChatParticipant]` is the response returned from listing participants
 
 ```python
 chat_thread_participants = chat_thread_client.list_participants()
 for chat_thread_participant_page in chat_thread_participants.by_page():
     for chat_thread_participant in chat_thread_participant_page:
-        print("ChatThreadParticipant: ", chat_thread_participant)
+        print("ChatParticipant: ", chat_thread_participant)
 ```
 
 ## Run the code
