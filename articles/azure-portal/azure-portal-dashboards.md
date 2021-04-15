@@ -3,7 +3,7 @@ title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 04/15/2021
 ---
 
 # Create a dashboard in the Azure portal
@@ -37,9 +37,7 @@ This example shows how to create a new private dashboard with an assigned name. 
 
     ![Screenshot of an empty grid with the Tile Gallery.](./media/azure-portal-dashboards/dashboard-name.png)
 
-1. In the page header select **Done customizing** to exit edit mode, then select **Save**.
-
-    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of the dashboard save process.":::
+1. To save the dashboard as is, select **Done customizing** in the page header. Or, continue to the next section to make changes and save your dashboard.
 
 The dashboard view now shows your new dashboard. Select the arrow next to the dashboard name to see dashboards available to you. The list might include dashboards that other users have created and shared.
 
@@ -65,15 +63,19 @@ To add tiles to a dashboard, follow these steps:
 
 1. If desired, resize the tile by dragging and dropping the lower right hand corner of the tile.
 
-1. In the page header select **Save**.
+1. To save your changes, select **Save** in the page header. You can also preview the changes without saving by selecting **Preview** in the page header. From the preview screen, you can select **Save** to keep the changes, **Discard** to remove them, or **Edit** to go back to the editing options and make further changes.
 
-### Add tiles from a resource page
+:::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of the Preview, Save, and Discard options.":::
+
+### Pin content from a resource page
 
 Another way to add tiles to your dashboard is directly from a resource page.
 
-Many resource pages include a pushpin icon in the command bar. If you select the icon, you can pin a tile representing the source page to an existing dashboard, or to a new dashboard that you create.
+Many resource pages include a pin icon in the command bar. If you select this icon, you can pin a tile representing the source page to an existing dashboard, or to a new dashboard that you create.
 
 ![Screenshot of page command bar with pin icon](./media/azure-portal-dashboards/dashboard-pin-blade.png)
+
+In some cases, a pin icon may also appear by specific content within a page, which means you can pin a tile for that specific content rather than the entire page.
 
 ### Resize or rearrange tiles
 
