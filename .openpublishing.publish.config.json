@@ -358,7 +358,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "samples-mediaservices-node",
+      "path_to_root": "media-services-v3-node-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
       "branch": "master",
       "branch_mapping": {}
