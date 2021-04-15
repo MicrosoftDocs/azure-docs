@@ -35,7 +35,7 @@ This example shows how to create a new private dashboard with an assigned name. 
 
 1. Select the **My Dashboard** text in the dashboard label and enter a name that will help you easily identify the custom dashboard.
 
-    ![Screenshot of an empty grid with the Tile Gallery.](./media/azure-portal-dashboards/dashboard-name.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-name.png" alt-text="Screenshot of an empty grid with the Tile Gallery.":::
 
 1. To save the dashboard as is, select **Done customizing** in the page header. Or, continue to the next section to add tiles and save your dashboard.
 
