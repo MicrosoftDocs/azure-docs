@@ -1,13 +1,13 @@
 ---
-title: Check network readiness before deploying an Azure Stack Edge with GPU device
-description: Pre-quality network before deploying Azure Stack Edge devices.
+title: Check network readiness before deploying an Azure Stack Edge Pro GPU device
+description: Pre-qualify your network before deploying Azure Stack Edge Pro GPU devices.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/15/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -17,10 +17,11 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to check your network for the most common issues in Azure Stack Edge deployments before you deploy an Azure Stack Edge device.<!--Verify ASE SKUs.-->
+This article describes how to check your network for the most common deployment issues before you deploy an Azure Stack Edge device.<!--Verify ASE SKUs.-->
 
-You'll use the Azure Stack Network Readiness Checker, a PowerShell tool that runs a series of tests to check mandatory and optional settings on the network where you deploy your Azure Stack Edge devices. You can run the tool from any computer on the network where you'll deploy the Azure Stack Edge devices.<!--OS requirements imposed by PowerShell 7.0?--> The tool returns Pass/Fail status for each test and saves a log file and report file with more detail.
+You'll use the Azure Stack Network Readiness Checker, a PowerShell tool that runs a series of tests to check mandatory and optional settings on the network where you deploy your Azure Stack Edge devices. The tool returns Pass/Fail status for each test and saves a log file and report file with more detail.
 
+You can run the tool from any computer on the network where you'll deploy the Azure Stack Edge devices. The tool works with PowerShell 5.1, which is built into Windows.
 
 ## About the tool
 
@@ -61,8 +62,6 @@ Before you begin, complete the following tasks:
 
 - Make sure you have access to a client computer that is running on the network where you'll deploy your Azure Stack Edge devices.
 
-- Install PowerShell 7.0 on the client computer. For guidance, see [What's new in PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70.md?view=powershell-7.1&preserve-view=true).<!--CONDITIONAL: Tested in PowerShell 5.1.17763.1. Tool spec recommends PowerShell 7.0 to enable multi-platform testing in a Windows/Linux environment. May I install PowerShell 7.0 on the test machine side by side with PowerShell 5.1.17763.1, and run some tests? Ideal messaging: "Install PowerShell 5.1.17763.1 or later. To support multi-platform testing in a Windows-Linux environment, install PowerShell 7.0 or later." Can we verify that the tool runs in the current version of PowerShell 7?-->
-
 - Install the Azure Stack Network Readiness Checker tool in PowerShell by following the steps in [Install Network Readiness Checker](#install-network-readiness-checker), below.
 
 
@@ -70,7 +69,7 @@ Before you begin, complete the following tasks:
 
 To install the Azure Stack Network Readiness Checker (NRC) on the client computer, do these steps: 
 
-1. Open PowerShell 7.0 on the client computer.
+1. Open PowerShell on the client computer.
 
 1. In a browser, go to [Microsoft.AzureStack.ReadinessChecker](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2100.1396.426) in the PowerShell Gallery. Version 1.2100.1396.426 of the Microsoft.AzureStack.ReadinessChecker module is displayed.
 
@@ -104,27 +103,31 @@ To run a network readiness check, do these steps:
     WindowsUpdateServer | DnsRegistration}] [-OutputPath <string>]
     ```
     
-    Enter the following parameters. This set of parameters (all but `-SkipTests`) is needed to get meaningful Network Readiness Checker results that find key issues in your network setup>
+    Enter the following parameters. This set of parameters (all but `-SkipTests`) are needed to get meaningful Network Readiness Checker results that find key issues in your network setup>
 
     |Parameter|Description|
     |---------|-----------|
     `-DnsServer`|IP addresses of the DNS servers (for example, your primary and secondary DNS servers).|
-    |`-DeviceFqdn`|Fully qualified domain name (FQDN) of the client computer that you're using for the test.| 
+    |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.| 
     |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
     |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
+    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)<!--Add to example-->|
     |`-WindowsUpdateServer`|URIs for one or more Windows Update Servers or Windows Update for Business Servers. (Optional)|
+    |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.<!--Add to example-->|    
+    |`AzureEnvironment`|Indicates the Azure environment if the device is deployed to an environment other than the Azure public cloud. For example, Azure Gov or Azure Germany. (Optional)<!--Get parameters.-->| 
     |`-SkipTests`|Can be used to exclude tests. (Optional)<br> Separate test names with a comma. For a list of test names, see [Network tests](#about-the-tool), above.|
-    |`-OutPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the log and report from the previous run.| 
+    |`CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
+    |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the log and report from the previous run.| 
  
 
 ## Sample output: Success
 
-The following sample is the output from a successful run of the Azure Stack Network Readiness Checker tool, with this command:
+The following sample is the output from a successful run of the Azure Stack Network Readiness Checker tool, with these parameters:<!--Update command and output with new parameters-->
 
-   `Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://10.57.48.80:8080' -SkipTests DuplicateIP -WindowsUpdateServer "http://ase-prod.contoso.com" -OutputPath C:\ase-network-tests`
+   `Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://proxy.contoso.com:3128/' -SkipTests DuplicateIP -WindowsUpdateServer 'http://ase-prod.contoso.com' -OutputPath C:\ase-network-tests`
 
 ```powershell
-PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://10.57.48.80:8080' -SkipTests DuplicateIP -WindowsUpdateServer "http://ase-prod.contoso.com" -OutputPath C:\ase-network-tests
+PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://proxy.contoso.com:3128/' -SkipTests DuplicateIP -WindowsUpdateServer 'http://ase-prod.contoso.com' -OutputPath C:\ase-network-tests
 
 Invoke-AzsNetworkValidation v1.2100.1396.426 started.
 The following tests will be executed: LinkLayer, IPConfig, DnsServer, TimeServer, AzureEndpoint, WindowsUpdateServer, DnsRegistration, Proxy
@@ -157,8 +160,53 @@ Invoke-AzsNetworkValidation Completed
 
 If a test fails, the Network Readiness Checker returns information to help you resolve the issue, as shown in the sample output below. 
 
+The following sample is the output from this command:<!--1) Generalize all URLs. Use Success URLs for standard entries. 2) IntroducesCustomUrl in Success sample. 3) Use command-line location, log location, and report location from Success example.-->
+
+`Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://time.windows.com','http://fakename.fakeurl.com'`
+
 ```powershell
-   TBD
+   PS D:\src\AzureStack-Solution-OnRamp\src\ExternalTools\Utils\AzsReadinessChecker> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://time.windows.com','http://fakename.fakeurl.com'
+Invoke-AzsNetworkValidation v1.0 started.
+Validating input parameters
+The following tests will be executed: LinkLayer, IPConfig, DnsServer, TimeServer, AzureEndpoint, WindowsUpdateServer, DuplicateIP, DnsRegistration, CustomUrl
+Validating Azure Stack Edge Network Readiness
+        Link Layer: OK
+        IP Configuration: OK
+        DNS Server 10.50.10.50: OK
+        Time Server time.windows.com: OK
+        Azure ARM Endpoint: OK
+        Azure Graph Endpoint: OK
+        Azure Login Endpoint: OK
+        Azure ManagementService Endpoint: OK
+        URL http://www.nytimes.com/: OK
+        URL http://time.windows.com/: Fail
+        URL http://fakename.fakeurl.com/: Fail
+        Windows Update Server windowsupdate.microsoft.com port 80: OK
+        Windows Update Server update.microsoft.com port 80: OK
+        Windows Update Server update.microsoft.com port 443: OK
+        Windows Update Server download.windowsupdate.com port 80: OK
+        Windows Update Server download.microsoft.com port 443: OK
+        Windows Update Server go.microsoft.com port 80: OK
+        Duplicate IP: Warning
+        DNS Registration for aseclient.contoso.com: OK
+        DNS Registration for login.aseclient.contoso.com: Fail
+        DNS Registration for management.aseclient.contoso.com: Fail
+        DNS Registration for *.blob.aseclient.contoso.com: Fail
+        DNS Registration for compute.aseclient.contoso.com: Fail
+Details:
+[-] URL http://time.windows.com/: Unable to connect to URI http://time.windows.com/. The operation has timed out..
+[-] URL http://fakename.fakeurl.com/: fakename.fakeurl.com : DNS name does not exist
+[-] Duplicate IP: Some IP addresses allocated to Azure Stack may be active on the network. Check the output log for the detailed list.
+[-] DNS Registration for login.aseclient.contoso.com: login.aseclient.contoso.com : DNS name does not exist
+[-] DNS Registration for management.aseclient.contoso.com: management.aseclient.contoso.com : DNS name does not exist
+[-] DNS Registration for *.blob.aseclient.contoso.com: testname.aseclient.contoso.com : DNS name does not exist
+[-] DNS Registration for compute.aseclient.contoso.com: compute.aseclient.contoso.com : DNS name does not exist
+Additional help URL http://aka.ms/azsnrc
+ 
+Log location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsNetworkValidation Completed
+PS D:\src\AzureStack-Solution-OnRamp\src\ExternalTools\Utils\AzsReadinessChecker>
 ```
 
 For more information, you can review the log file that the tool saves to the output path. The following sample is the log file entry for the error that the sample command returned.<!--Assuming one exemplary error in the sample above. Will adjust code type in formatting.-->
