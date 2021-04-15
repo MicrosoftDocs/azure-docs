@@ -61,7 +61,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 <sup>4</sup> The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. Limit for this payload size doesn't relate to the amount of data you can move and process with Azure Synapse Analytics. Learn about the [symptoms and recommendation](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) if you hit this limit.
 
 ### Dedicated SQL pool limits
-For details of capacity limits for dedicated SQL pools in Azure Synapse Analytics, see [Azure Synapse Analytics SQL pool resource limits](../articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+For details of capacity limits for dedicated SQL pools in Azure Synapse Analytics, see [dedicated SQL pool resource limits](../articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ### Web service call limits
 Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
