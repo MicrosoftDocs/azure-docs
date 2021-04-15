@@ -358,6 +358,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-mediaservices-node",
+      "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
