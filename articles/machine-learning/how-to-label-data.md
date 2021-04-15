@@ -1,7 +1,7 @@
 ---
-title: Labeling image and text data
+title: Labeling images and text documents
 title.suffix: Azure Machine Learning
-description: Learn how to use the data tagging tools to rapidly prepare text or image data for a Machine Learning in a data labeling project.
+description: Learn how to use the data labeling tools to rapidly prepare text or image data for a Machine Learning in a data labeling project.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -11,7 +11,7 @@ ms.date: 04/12/2021
 ms.custom: data4ml
 ---
 
-# Tag images in a labeling project 
+# Labeling images and text documents
 
 After your project administrator [creates a data labeling project](./how-to-create-labeling-projects.md#create-a-data-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
@@ -61,28 +61,6 @@ Machine learning algorithms may be triggered during your labeling. If these algo
 * For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page. 
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
-
-## Text classification (preview)
-
-When tagging, text, use the toolbar to:
-
-* Increase or decrease the text size
-* Change the font
-* Examine properties of the text item
-* Skip labeling this item and move to the next item
-* Show the item at full screen
-
-If you realize that you made a mistake after you assign a tag, you can fix it. Select the "**X**" on the label that's displayed below the text to clear the tag.
-
-There are two text project types:
-
-
-|Project type  |Tagging  |
-|---------|---------|
-| Classification Multi-Class | Assign a single tag to the entire text item.     |
-| Classification Multi-Label     | Assign one *or more* tags to each text item.         |
-
-To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
 
 ## Image tasks
 
@@ -170,6 +148,26 @@ Use the **Add or remove polygon points** tool ![This is the add or remove polygo
 To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-data/delete-regions-tool.png).
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
+
+## Annotate text (preview)
+
+When annotating text, use the toolbar to:
+
+* Increase or decrease the text size
+* Change the font
+* Skip labeling this item and move to the next item
+
+If you realize that you made a mistake after you assign a tag, you can fix it. Select the "**X**" on the label that's displayed below the text to clear the tag.
+
+There are two text project types:
+
+
+|Project type  |Tagging  |
+|---------|---------|
+| Classification Multi-Class | Assign a single tag to the entire text item.  You can only select one tag for each text item.   |
+| Classification Multi-Label     | Assign one *or more* tags to each text item.  You can select multiple tags for each text item.       |
+
+To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
 
 ## Finish up
 

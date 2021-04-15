@@ -320,7 +320,7 @@
             - name: Get data labeled
               displayName: data, dataset, labeling
               href: how-to-create-labeling-projects.md
-            - name: Label images
+            - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
             - name: Create datasets with labels
