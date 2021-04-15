@@ -2,7 +2,7 @@
 title: 'Tutorial: User provisioning for GitHub - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to GitHub.
 services: active-directory
-author: Zhchia
+author: zchia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -60,17 +60,17 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![GitHub Provisioning](./media/github-provisioning-tutorial/GitHub1.png)
+	![GitHub Provisioning](./media/github-provisioning-tutorial/github1.png)
 
 5. Under the **Admin Credentials** section, click **Authorize**. This operation opens a GitHub authorization dialog in a new browser window. Note that you need to ensure you are approved to authorize access. Follow the directions described [here](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization).
 
 6. In the new window, sign into GitHub using your Admin account. In the resulting authorization dialog, select the GitHub team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
 
-	![Screenshot shows the sign-in page for GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
+	![Screenshot shows the sign-in page for GitHub.](./media/github-provisioning-tutorial/github2.png)
 
 7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/orgs/<Organization_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
 
-	![Screenshot shows Organizations page in GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
+	![Screenshot shows Organizations page in GitHub.](./media/github-provisioning-tutorial/github3.png)
 
 8. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 
