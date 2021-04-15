@@ -1,8 +1,9 @@
 ---
 author: Juliako
 ms.topic: include
-ms.date: 09/01/2020
+ms.date: 04/15/2021
 ms.author: juliako
 ---
 
-![On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Analyzer for Media, if a customer is, or is allowing use of such services by or for, a police department in the United States.](../media/banner/banner.svg)
+> [!IMPORTANT]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in ???, such as Face or Azure Video Analyzer (former Video Indexer), if a customers is, or is allowing use of such services by or for, a police department in the United States.
