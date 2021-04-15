@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 04/15/2021
 ---
 
 <!-- VERSION 2.2

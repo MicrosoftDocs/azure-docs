@@ -6,7 +6,7 @@ ms.author: victorh
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
-ms.date: 04/08/2021
+ms.date: 04/15/2021
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -53,7 +53,7 @@ If you notice a spike in *Backend last byte response time* but the *Backend firs
 
 Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that that the degradation is because of the network between client and Application Gateway.
 
-#### Application Gateway metrics
+#### V2 metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
