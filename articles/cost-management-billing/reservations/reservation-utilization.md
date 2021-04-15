@@ -1,6 +1,6 @@
 ---
-title: View reservation utilization
-description: Learn how to get reservation utilization and details
+title: View Azure reservation utilization
+description: Learn how to get reservation utilization and details.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
@@ -23,7 +23,6 @@ To view reservation utilization, you must have Azure RBAC access to the reservat
 1. The list shows all the reservations where you have the Owner or Reader role. Each reservation shows the last known utilization percentage.
 1. Select the utilization percentage to see the utilization history and details. The following video shows an example.
    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4sYwk] 
-
 
 ## View utilization as billing administrator
 
