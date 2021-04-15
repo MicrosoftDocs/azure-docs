@@ -129,8 +129,8 @@
   - name: Teams interoperability
     href: concepts/teams-interop.md
   - name: Service Events (EventGrid)
-      href: ../event-grid/event-schema-communication-services.md
-      maintainContext: true
+    href: ../event-grid/event-schema-communication-services.md
+    maintainContext: true
   - name: Logging and diagnostics
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
