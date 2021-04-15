@@ -44,7 +44,7 @@ Bi-directional communication between Windows process and the Linux virtual machi
 
 IoT Edge for Linux on Windows emphasizes interoperability between the Linux and Windows components.
 
-For samples that demonstrate communication between Windows applications and IoT Edge modules, see [EFLOW & Windows 10 IoT Samples](https://aka.ms/AzEFOW-Samples).
+For samples that demonstrate communication between Windows applications and IoT Edge modules, see [EFLOW & Windows 10 IoT Samples](https://aka.ms/AzEFLOW-Samples).
 
 ## Public preview
 
