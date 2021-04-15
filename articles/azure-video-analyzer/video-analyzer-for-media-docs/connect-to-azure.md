@@ -18,7 +18,7 @@ This article shows how to create a Video Analyzer for Media account that's linke
 
 If you are moving from a *trial* to *paid* Video Analyzer for Media account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
-The article also covers [Linking a Video Analyzer for Media account to Azure Government](#video-indexer-in-azure-government).
+The article also covers [Linking a Video Analyzer for Media account to Azure Government](#video-analyzer-for-media-in-azure-government).
 
 ## Prerequisites for connecting to Azure
 

@@ -33,7 +33,7 @@ To implement BCDR, you need to have two Video Analyzer for Media accounts to han
 > [!TIP]
 > You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
-For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Video Analyzer for Media account per tenant](./manage-multiple-tenants.md#video-indexer-account-per-tenant) or [Azure subscription per tenant](./manage-multiple-tenants.md#azure-subscription-per-tenant).
+For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Video Analyzer for Media account per tenant](./manage-multiple-tenants.md#video-analyzer-for-media-account-per-tenant) or [Azure subscription per tenant](./manage-multiple-tenants.md#azure-subscription-per-tenant).
 
 ## Next steps
 
