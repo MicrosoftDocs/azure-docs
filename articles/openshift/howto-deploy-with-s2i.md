@@ -58,11 +58,11 @@ https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-![Azure Red Hat OpenShift login screen](media/s2i/login.png)
+:::image type="content" source="media/s2i/login.png" alt-text="Azure Red Hat OpenShift login screen":::
 
 Switch to the *Developer* perspective instead of the *Administrator* perspective in the left-hand side menu and select `demoproject` in the list of projects. You should then be at the *Topology* page for the project.
 
-![Azure Red Hat OpenShift project topology](media/s2i/project-topology.png)
+:::image type="content" source="media/s2i/project-topology.png" alt-text="Azure Red Hat OpenShift project topology":::
 
 As the project is empty, no workloads should be found and you'll be presented with various options for how you can deploy an application.
 
@@ -70,18 +70,18 @@ As the project is empty, no workloads should be found and you'll be presented wi
 
 From the options presented for deploying an application, select *From Git*. This will land you on the *Import from Git* page. Use `https://github.com/sclorg/django-ex.git` as the **Git Repo URL**. The sample web application is implemented using the Python programming language.
 
-![Azure Red Hat OpenShift project from Git](media/s2i/from-git.png)
+:::image type="content" source="media/s2i/from-git.png" alt-text="Azure Red Hat OpenShift project from Git":::
 
 > [!NOTE]
 > OpenShift detects that this is a Python project and selects the appropriate builder image.
 
 Scroll down to *Advanced Options* and make sure that **Create a route to the application** is checked. This action will create an OpenShift route, a way to expose a service by giving it an externally reachable hostname.
 
-![Azure Red Hat OpenShift project from Git - Route setup](media/s2i/from-git-route.png)
+:::image type="content" source="media/s2i/from-git-route.png" alt-text="Azure Red Hat OpenShift project from Git - Route setup":::
 
 When you're ready, at the bottom of the page click on **Create**. This will create resources to manage the build and deployment of the application. You'll then be redirected to the topology overview for the project.
 
-![Azure Red Hat OpenShift project from Git - Topology](media/s2i/demoapp-topology.png)
+:::image type="content" source="media/s2i/demoapp-topology.png" alt-text="Azure Red Hat OpenShift project from Git - Topology":::
 
 The topology overview provides a visual representation of the application you've deployed. With this view, you can see the overall application structure.
 
@@ -91,13 +91,13 @@ While the application is scaling up or down, starting rollouts and recreating po
 
 Clicking on the application icon will bring up more details as shown below.
 
-![Azure Red Hat OpenShift project from Git - Details](media/s2i/demoapp-details.png)
+:::image type="content" source="media/s2i/demoapp-details.png" alt-text="Azure Red Hat OpenShift project from Git - Details":::
 
 ## Viewing the builder logs
 
 Once the build has started, click on the *View Logs* link shown on the *Resources* panel.
 
-![Azure Red Hat OpenShift project from Git - Build logs](media/s2i/demoapp-buildlogs.png)
+:::image type="content" source="media/s2i/demoapp-buildlogs.png" alt-text="Azure Red Hat OpenShift project from Git - Build logs":::
 
 This will allow you to monitor the progress of the build as it runs. The builder image, Python in this case, will inject the application source code into the final image before it pushes it to the OpenShift internal image registry. The build will have completed successfully when you see a final message of "Push successful".
 
@@ -109,7 +109,7 @@ Click on *Topology* in the left-hand menu bar to return to the topology view for
 
 From the topology view, you can  get to the URL for the deployed application by clicking on the icon top right of the ring. When the deployment is complete, click on the icon and you should see the application you deployed.
 
-![Azure Red Hat OpenShift project from Git - Browse app](media/s2i/demoapp-browse.png)
+:::image type="content" source="media/s2i/demoapp-browse.png" alt-text="Azure Red Hat OpenShift project from Git - Browse app":::
 
 ## Deploying using the command-line
 
@@ -248,7 +248,7 @@ code welcome/templates/welcome/index.html
 
 Scroll down and change the line that says `Welcome to your Django application on OpenShift` to say `Welcome to Azure Red Hat OpenShift`. Save the file and close the editor through the `...` menu on the top right.
 
-![Azure Red Hat OpenShift project from Git - Edit application in Azure Cloud Shell editor](media/aro4-cloudshell-editor.png)
+:::image type="content" source="media/aro4-cloudshell-editor.png" alt-text="Azure Red Hat OpenShift project from Git - Edit application in Azure Cloud Shell editor":::
 
 Start a new build by running the command:
 
@@ -267,7 +267,7 @@ build.build.openshift.io/django-ex-2 started
 
 If you refresh the browser with the application, you should see the updated title.
 
-![Azure Red Hat OpenShift project from Git - Browse updated app](media/s2i/demoapp-browse-updated.png)
+:::image type="content" source="media/s2i/demoapp-browse-updated.png" alt-text="Azure Red Hat OpenShift project from Git - Browse updated app":::
 
 ## Clean up resources
 
