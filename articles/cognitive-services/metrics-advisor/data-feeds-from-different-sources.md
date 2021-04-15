@@ -52,7 +52,7 @@ You can create a **credential entity** to store credential related information, 
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault |
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>Data Lake Gen2 Shared Key<br>Service principal<br>Service principal from key vault |
-|[**Azure Log Analytics**](#log)| Basic|<br>Service principal<br>Service principal from key vault |
+|[**Azure Log Analytics**](#log)| Basic<br>Service principal<br>Service principal from key vault |
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String |
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
@@ -153,15 +153,15 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource in Azure Portal, in **Keys**. 
-* **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section.
-* **Collection ID**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section.
+* **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource in Azure Portal, in **Keys**. Also, you can find more information in [Secure access to data in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data).
+* **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section in Azure portal.
+* **Collection ID**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section in Azure portal.
 * **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
     
     ```SQL
-    select [TimestampColumn], [DimensionName], [MetricColumnName] from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd    
     ```
 
     Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
@@ -299,14 +299,25 @@ The timestamp field must match one of these two formats:
 -->
 
 ## <span id="log">Azure Log Analytics</span>
+There are three Authentication types for Azure Log Analytics, they are **Basic**, **Service Principal** and **Service Principal From KeyVault**.
+* **Basic**: You will need to fill in **Tenant Id**, **Client Id**, **Client Secret**, **Workspace ID**.
+   To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register app or web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+   * **Tenant Id**: Specify the tenant id to access your Log Analytics.
+   * **Client Id**: Specify the client id to access your Log Analytics.
+   * **Client Secret**: Specify the client secret to access your Log Analytics.
+   * **Workspace ID**: Specify the workspace Id of Log Analytics. For **Wordkspace ID**, you can find it in Azure portal.
 
-To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register app or web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
-* **Tenant Id**: Specify the tenant id to access your Log Analytics.
-* **Client Id**: Specify the client id to access your Log Analytics.
-* **Client Secret**: Specify the client secret to access your Log Analytics.
-* **Workspace ID**: Specify the workspace Id of Log Analytics. For **Wordkspace ID**, you can find it in Azure portal.
+    ![workspace id](media/workspace-id.png)
+    
+* **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+    
+     First, you will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) documentation.
 
-  ![workspace id](media/workspace-id.png)
+     Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/en-us/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
+
+     Also, you need to **create a credential entity** in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
+        
+* **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008) to follow detailed procedure to set service principal from key vault. 
 
 * **Query**: Specify the query of Log Analytics. For more details please refer to [Log queries in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview)
 
@@ -338,7 +349,7 @@ To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Registe
       3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
       4. The last step is to enable MI in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
     
-          ```
+          ``` SQL
           CREATE USER [MI Name] FROM EXTERNAL PROVIDER
 
           ALTER ROLE db_datareader ADD MEMBER [MI Name]
@@ -415,12 +426,12 @@ Check allowed services and allowed resource types checkboxes, then click the **G
 
 * **Host**:Specify the master host of Elasticsearch Cluster.
 * **Port**:Specify the master port of Elasticsearch Cluster.
-* **Authorization Header**(optional):Specify the authorization header value of Elasticsearch Cluster.
+* **Authorization Header**(optional):Specify the authorization header value of Elasticsearch Cluster. See more information in [Elastic Document](https://www.elastic.co/guide/en/elasticsearch/reference/current/http-clients.html).
 * **Query**: Specify the query to get data for a single interval. You can use `@IntervalStart` and `@IntervalEnd` in your query to help with getting expected metrics value in an interval. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
     
-    ``` Sql
+    ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
 
@@ -489,7 +500,7 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
 
     Sample query:
 
-    ``` mysql
+    ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
 
@@ -502,7 +513,7 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
 
     Sample query:
 
-    ```SQL
+    ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
     Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
