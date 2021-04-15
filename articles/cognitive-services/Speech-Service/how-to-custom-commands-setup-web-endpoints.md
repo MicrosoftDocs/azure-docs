@@ -140,7 +140,7 @@ To deploy the sample app to Azure Functions, follow these steps.
 ## Setup web endpoints in Custom Commands
 
 Let's hook up the Azure function with the existing Custom Commands application.
-In this section, you will use an existing default **DeviceState** endpoint. If you created your own web endpoint using Azure Function or otherwise, use that instead of the default	https://webendpointexample.azurewebsites.net/api/DeviceState.
+In this section, you will use an existing default **DeviceState** endpoint. If you created your own web endpoint using Azure Function or otherwise, use that instead of the default	`https://webendpointexample.azurewebsites.net/api/DeviceState`.
 
 1. Open the Custom Commands application you previously created.
 1. Go to **Web endpoints**, click **New web endpoint**.
