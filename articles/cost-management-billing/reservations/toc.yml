@@ -102,7 +102,7 @@
       href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
     - name: Virtual machines
       href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
-  - name: View, Manage and Optimize after purchase
+  - name: Permissions, View and Manage after purchase
     items:
     - name: Permissions to view and manage
       href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -112,6 +112,8 @@
       href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
+  - name: Exchange and refund after purchase
+    items:
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Report costs
