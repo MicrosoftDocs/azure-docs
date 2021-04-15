@@ -10,7 +10,7 @@ ms.author: mingshen
 ms.date: 04/15/2021
 ---
 
-# Review and publish a Dynamics 365 CE&PA offer to the commercial marketplace
+# Review and publish a Dynamics 365 CE&PA offer
 
 This article shows you how to use Partner Center to preview your draft Dynamics 365 for Customer Engagement and Power Apps offer and then publish it to the commercial marketplace. It also cover how to check publishing status as it proceeds through the publishing steps.
 
