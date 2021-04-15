@@ -218,7 +218,7 @@ If you're done streaming events and want to clean up the resources provisioned e
 * Stop the Live Event. Once the Live Event is stopped, it won't incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 * You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the Live Event is in a stopped state, it won't incur any charges.
 
-[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CleanUpResources)]
+In  the sample code, refer to the **cleanUpResources** method for details.
 
 ## Watch the event
 
