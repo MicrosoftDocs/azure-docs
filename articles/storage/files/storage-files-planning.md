@@ -111,7 +111,8 @@ For more information, see [Introduction to Azure Defender for Storage](../../sec
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 ### Enable standard file shares to span up to 100 TiB
-[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+By default, standard file shares can span only up to 5 TiB, but you can increase the share limit to 100 TiB. To learn how to increase your share limit, see [Enable and create large file shares](storage-files-how-to-create-large-file-share.md).
+
 
 #### Limitations
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
