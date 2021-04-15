@@ -6,28 +6,28 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/14/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus)
 
 Azure Database for PostgreSQL – Hyperscale (Citus) automatically creates
 backups of each node and stores them in locally redundant storage. Backups can
-be used to restore your Hyperscale (Citus) cluster to a specified time. Backup
-and restore are an essential part of any business continuity strategy because
-they protect your data from accidental corruption or deletion.
+be used to restore your Hyperscale (Citus) server group to a specified time.
+Backup and restore are an essential part of any business continuity strategy
+because they protect your data from accidental corruption or deletion.
 
 ## Backups
 
 At least once a day, Azure Database for PostgreSQL takes snapshot backups of
 data files and the database transaction log. The backups allow you to restore a
 server to any point in time within the retention period. (The retention period
-is currently 35 days for all clusters.) All backups are encrypted using AES
-256-bit encryption.
+is currently 35 days for all server groups.) All backups are encrypted using
+AES 256-bit encryption.
 
 In Azure regions that support availability zones, backup snapshots are stored
 in three availability zones. As long as at least one availability zone is
-online, the Hyperscale (Citus) cluster is restorable.
+online, the Hyperscale (Citus) server group is restorable.
 
 Backup files can't be exported. They may only be used for restore operations
 in Azure Database for PostgreSQL.
@@ -40,29 +40,20 @@ page](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
 ## Restore
 
-In Azure Database for PostgreSQL, restoring a Hyperscale (Citus) cluster
-creates a new cluster from the original nodes' backups. 
+You can restore a Hyperscale (Citus) server group to any point in time within
+the last 35 days.  Point-in-time restore is useful in multiple scenarios. For
+example, when a user accidentally deletes data, drops an important table or
+database, or if an application accidentally overwrites good data with bad data.
 
 > [!IMPORTANT]
->You can only restore the Hyperscale (Citus) cluster within the same subscription and resource group, and with a different cluster name.
+> Deleted Hyperscale (Citus) server groups can't be restored. If you delete the
+> server group, all nodes that belong to the server group are deleted and can't
+> be recovered. To protect server group resources, post deployment, from
+> accidental deletion or unexpected changes, administrators can leverage
+> [management locks](../azure-resource-manager/management/lock-resources.md).
 
-
-> [!IMPORTANT]
-> Deleted Hyperscale (Citus) clusters can't be restored. If you delete the
-> cluster, all nodes that belong to the cluster are deleted and can't be
-> recovered. To protect cluster resources, post deployment, from accidental
-> deletion or unexpected changes, administrators can leverage [management
-> locks](../azure-resource-manager/management/lock-resources.md).
-
-### Point-in-time restore (PITR)
-
-You can restore a cluster to any point in time within the last 35 days.
-Point-in-time restore is useful in multiple scenarios. For example, when a user
-accidentally deletes data, drops an important table or database, or if an
-application accidentally overwrites good data with bad data.
-
-The restore process creates a new cluster in the same Azure region,
-subscription, and resource group as the original. The cluster has the
+The restore process creates a new server group in the same Azure region,
+subscription, and resource group as the original. The server group has the
 original's configuration: the same number of nodes, number of vCores, storage
 size, user roles, PostgreSQL version, and version of the Citus extension.
 

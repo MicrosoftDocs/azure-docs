@@ -1,6 +1,6 @@
 {
   "redirections": [
-    {
+	{
       "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
       "redirect_document_id": false
@@ -40,7 +40,7 @@
       "redirect_url": "/azure/azure-percept/overview-advanced-code",
       "redirect_document_id": false
     },
-  {
+    {
       "source_path": "articles/cosmos-db/create-mongodb-flask.md",
       "redirect_url": "/azure/cosmos-db/mongodb-introduction",
       "redirect_document_id": false
@@ -1399,7 +1399,8 @@
       "source_path_from_root": "/articles/active-directory-b2c/tutorial-customize-ui.md",
       "redirect_url": "/azure/active-directory-b2c/customize-ui",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
       "redirect_document_id": false
@@ -16949,52 +16950,52 @@
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-gpu-modules",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-configure-tls-settings.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-tls-settings",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-connect-resource-manager",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-shares.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-shares",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-storage-accounts.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-storage-accounts",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-cli-python",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-compute.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-compute",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-overview.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-pro-r-overview",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password.md",
       "redirect_url": "/azure/azure-stack-edge-gpu-set-azure-resource-manager-password",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-iot-edge-module.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-iot-edge-module",
       "redirect_document_id": false
@@ -28838,7 +28839,7 @@
       "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
       "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-account.md",
       "redirect_url": "/azure/marketplace/create-account",
@@ -28853,7 +28854,7 @@
       "source_path_from_root": "/articles/marketplace/partner-center-portal/company-work-accounts.md",
       "redirect_url": "/azure/marketplace/company-work-accounts",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/portal-tour/cpp-insights-page.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
@@ -33704,7 +33705,6 @@
       "redirect_url": "/azure/spring-cloud/troubleshooting-vnet",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-troubleshoot.md",
       "redirect_url": "/azure/spring-cloud/troubleshoot",
@@ -33810,7 +33810,6 @@
       "redirect_url": "/azure/spring-cloud/how-to-scale-manual",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-provision-azure-spring-cloud-instance-terraform.md",
       "redirect_url": "/azure/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform",
@@ -37106,7 +37105,6 @@
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-pool.md",
       "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",

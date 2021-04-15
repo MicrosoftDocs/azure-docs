@@ -1,8 +1,10 @@
 ---
-title: "Quickstart: Create a blueprint in the portal"
+title: 'Quickstart: Create a blueprint in the portal'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
 ms.date: 01/27/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-portal
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
