@@ -152,9 +152,16 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
 ## Compare Apache Spark applications
-Click on **Compare applications** button and choose an application to compare performance, users can intuitively see the difference between the two applications.
+
+There are two ways to compare applications. You can compare by choose a **Compare Application**, or click the **Compare in notebook** button to view it in the notebook.
+
+### Compare by choose an application
+
+Click on **Compare applications** button and choose an application to compare performance, you can intuitively see the difference between the two applications.
 
 ![compare applications](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+![details compare applications](./media/how-to-monitor-spark-applications/details-compare-applications.png)
 
 1. Use the mouse to hover on an application, and then the **Compare applications** icon is displayed.
 
@@ -162,7 +169,7 @@ Click on **Compare applications** button and choose an application to compare pe
 
 3. Click on **Choose application** button to open **Choose comparison application** page.
 
-4. When choosing the comparison application, users need to either enter the application URL, or choose from the recurring list. Then, click **OK** button. 
+4. When choosing the comparison application, you need to either enter the application URL, or choose from the recurring list. Then, click **OK** button. 
 
    ![choose comparison application](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
 
@@ -170,6 +177,15 @@ Click on **Compare applications** button and choose an application to compare pe
 
    ![comparison result](./media/how-to-monitor-spark-applications/comparison-result.png)
 
+### Compare by Compare in notebook
+
+Click the **Compare in Notebook** button on the **Compare applications** page to open the notebook. The default name of the .ipynb file is **Recurrent Application Analytics**.
+
+![compare in notebook](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
+
+In the Notebook: Recurrent Application Analytics file, you can run it directly after setting the Spark pool and Language.
+
+![recurrent application analytics](./media/how-to-monitor-spark-applications/recurrent-application-analytics.png)
 
 ## Next steps
 

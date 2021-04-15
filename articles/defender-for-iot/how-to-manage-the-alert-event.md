@@ -1,11 +1,7 @@
 ---
 title: Manage alert events
 description: Manage alert events detected in your network. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
-ms.service: azure
 ms.topic: how-to
 ---
 
