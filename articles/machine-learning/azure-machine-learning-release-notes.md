@@ -48,7 +48,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Addition of new KubernetesCompute compute type to azureml-core.
 
 
-## 2021-04-19
+## 2021-04-05
 
 ### Azure Machine Learning SDK for Python v1.26.0
 + **Bug fixes and improvements**
