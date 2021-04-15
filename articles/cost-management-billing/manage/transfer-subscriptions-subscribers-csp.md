@@ -50,7 +50,7 @@ To transfer any other Azure subscriptions to a CSP partner, the subscriber needs
 
 ## Transfer CSP subscription to other offer
 
-To transfer any other subscriptions from a CSP Partner to any other Azure offer, the subscriber needs to move resources between source CSP subscriptions and target subscriptions. This is work that the customer does between their partner, not work done with a Microsoft representative.
+To transfer any other subscriptions from a CSP Partner to any other Azure offer, the subscriber needs to move resources between source CSP subscriptions and target subscriptions. This is work done by a partner and a customer - it is not work done by a Microsoft representative.
 
 1. The customer creates target Azure subscriptions.
 1. Ensure that the source and target subscriptions are in the same Azure Active Directory (Azure AD) tenant. For more information about changing an Azure AD tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
