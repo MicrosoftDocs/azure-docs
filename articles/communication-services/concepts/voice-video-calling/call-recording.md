@@ -26,6 +26,33 @@ Call Recording provides a set of server APIs to start, stop, pause and resume re
 - **File Download** - Recordings are stored for 48 hours on built-in transitory storage, for retrieval and movement to a long-term storage solution of choice.
 
 ## Run-time Control APIs
+Run-time control APIs can be used to manage recording via either internal business logic triggers such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. In either scenario, `<conversation-id>` is required to record a specific meeting or call. 
+
+#### Getting Conversation ID from a server initiated call
+
+ConversationId is returned in the CallEstablished event sent to <recording-state-callback-uri>, within the data.ConversationId field. This value can be used directly as the '{conversationId}' parameter in run-time control APIs:
+```
+      {
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/<callLegId>/callState",
+        "data": {
+---->       "ConversationId": "<conversation-id>",    <----
+            "CallLegId": "<callLegId>",
+            "CallState": "Established"
+        },
+        "eventType": "Microsoft.Communication.CallLegStateChanged",
+        "eventTime": "2021-04-14T16:32:34.1115003Z",
+        "metadataVersion": null,
+        "dataVersion": null
+    }
+```
+                                                            
+#### Getting Conversation ID from a user triggered event on the client
+From the Javascript `@azure/communication-calling` library, after establishing a call invoke `let result = call.info.getConversationUrl()` to get the conversationUrl, then 
+**Base64Url encoded the conversationUrl to get the `{conversationId}` for use in the run-time control APIs**.
+> Note that the conversationUrl must be Base64Url encoded, not to be confused with just Base64 encoding (i.e. btoa).                                                            
+
 ### Start Recording
 #### Request
 **HTTP**
