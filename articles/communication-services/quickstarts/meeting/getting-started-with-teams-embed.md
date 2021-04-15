@@ -17,8 +17,6 @@ zone_pivot_groups: acs-plat-ios-android
 
 Get started with Azure Communication Services by using the Communication Services Teams Embed SDK to add teams meetings to your app. 
 
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
-
 ::: zone pivot="platform-android"
 [!INCLUDE [Teams Embed with Android](./includes/get-started-android.md)]
 ::: zone-end
