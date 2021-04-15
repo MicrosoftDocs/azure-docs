@@ -387,8 +387,6 @@
         href: coda-tutorial.md
       - name: Code42
         href: code42-tutorial.md
-      - name: Codility
-        href: codility-tutorial.md
       - name: Coggle
         href: coggle-tutorial.md
       - name: Cognidox
@@ -746,6 +744,8 @@
         href: gr8-people-tutorial.md
       - name: Gra-Pe
         href: grape-tutorial.md
+      - name: Grammarly
+        href: grammarly-tutorial.md  
       - name: Greenhouse
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
@@ -2251,8 +2251,6 @@
         href: iprova-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
-      - name: Jostle
-        href: jostle-provisioning-tutorial.md
       - name: Juno Journey
         href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
