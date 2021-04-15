@@ -1,7 +1,7 @@
 ---
-title: Search for exact moments in videos with Video Indexer
+title: Search for exact moments in videos with Azure Video Analyzer for Media (former Video Indexer)
 titleSuffix: Azure Media Services
-description: Learn how to search for exact moments in videos using Video Indexer.
+description: Learn how to search for exact moments in videos using Azure Video Analyzer for Media (former Video Indexer).
 services: media-services
 author: Juliako
 manager: femila
@@ -12,11 +12,11 @@ ms.date: 11/23/2019
 ms.author: juliako
 ---
 
-# Search for exact moments in videos with Video Indexer
+# Search for exact moments in videos with Video Analyzer for Media
 
-This topic shows you how to use the Video Indexer website to search for exact moments in videos.
+This topic shows you how to use the Video Analyzer for Media website to search for exact moments in videos.
 
-1. Go to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+1. Go to the [Video Analyzer for Media](https://www.videoindexer.ai/) website and sign in.
 1. Specify the search keywords and the search will be performed among all videos in your account's library. 
 
     You can filter your search by selecting **Filters**. In below example, we search for "Microsoft" that appears as an on-screen text only (OCR).
@@ -33,7 +33,7 @@ This topic shows you how to use the Video Indexer website to search for exact mo
 
     :::image type="content" source="./media/video-indexer-search/insights.png" alt-text="View, search and edit the insights of the video":::
 
-    If you embed the video through Video Indexer widgets, you can achieve the player/insights view and synchronization in your app. For more information, see [Embed Video Indexer widgets into your app](video-indexer-embed-widgets.md).
+    If you embed the video through Video Analyzer for Media widgets, you can achieve the player/insights view and synchronization in your app. For more information, see [Embed Video Analyzer for Media widgets into your app](video-indexer-embed-widgets.md).
 1. You can view, search, and edit the transcripts by clicking on the **Timeline** tab. 
 
     :::image type="content" source="./media/video-indexer-search/timeline.png" alt-text="View, search and edit the transcripts of the video":::
@@ -54,4 +54,4 @@ You can create a clip based on your video of specific lines and moments by click
 
 ## Next steps
 
-[Process content with Video Indexer REST API](video-indexer-use-apis.md)
+[Process content with Video Analyzer for Media REST API](video-indexer-use-apis.md)

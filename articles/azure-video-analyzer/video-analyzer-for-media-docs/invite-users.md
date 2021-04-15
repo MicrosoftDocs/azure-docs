@@ -1,7 +1,7 @@
 ---
-title: Invite users to Video Indexer - Azure  
+title: Invite users to Azure Video Analyzer for Media (former Video Analyzer for Media) - Azure  
 titleSuffix: Azure Media Services
-description: This article shows how to invite users to Video Indexer.
+description: This article shows how to invite users to Azure Video Analyzer for Media (former Video Analyzer for Media).
 services: media-services
 author: Juliako
 manager: femila
@@ -13,20 +13,20 @@ ms.date: 02/03/2021
 ms.author: juliako
 ---
 
-# Quickstart: Invite users to Video Indexer
+# Quickstart: Invite users to Video Analyzer for Media
 
-To collaborate with your colleagues, you can invite them to your Video Indexer account. 
+To collaborate with your colleagues, you can invite them to your Video Analyzer for Media account. 
 
 > [!NOTE]
 > Only the account’s admin can add or remove users.
 
 ## Invite new users
 
-1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website. Make sure you are connected with an admin account.
+1. Sign in on the [Video Analyzer for Media](https://www.videoindexer.ai/) website. Make sure you are connected with an admin account.
 1. If you are the admin, you see the **Share account** button in the top-right corner. Click on the button and you can invite users. 
 
     :::image type="content" source="./media/invite-users/share-account.png" alt-text="Share your account":::
-1. In the **Share this account with others** dialog, enter an email addresses of a person you want to invite to your Video Indexer account:
+1. In the **Share this account with others** dialog, enter an email addresses of a person you want to invite to your Video Analyzer for Media account:
 
     :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Invite users to this account":::  
 1. After you press **Invite**, the person will be added to the list of pending invites. <br/>You can choose from two options for each invitee who didn't yet join the account: **remove invitation** or **copy invitation URL**.
@@ -55,10 +55,10 @@ In addition to bringing up the **Share this account with others** dialog by clic
 
 ## Next steps
 
-You can now use the [Video Indexer website](video-indexer-view-edit.md) or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
+You can now use the [Video Analyzer for Media website](video-indexer-view-edit.md) or [Video Analyzer for Media Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
 
 ## See also
 
-- [Video Indexer overview](video-indexer-overview.md)
+- [Video Analyzer for Media overview](video-indexer-overview.md)
 - [How to sign up and upload your first video](video-indexer-get-started.md)
 - [Start using APIs](video-indexer-use-apis.md)

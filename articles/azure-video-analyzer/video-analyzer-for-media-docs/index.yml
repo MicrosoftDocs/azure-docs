@@ -1,13 +1,13 @@
 ### YamlMime:Landing
  
 title: Learn about Azure Video Analyzer for Media (former Video Indexer)
-summary: Azure Video Analyzer for Media (former Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.
+summary: Azure Video Analyzer for Media (former Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Analyzer for Media video and audio models.
 
 metadata:
   title: Azure Video Analyzer for Media (former Video Indexer) documentation
-  description: Azure Video Analyzer for Media (former Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.
-  services: azure-video-analyzer
-  ms.service: azure-video-analyzer
+  description: Azure Video Analyzer for Media (former Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Analyzer for Media video and audio models.
+  services: media-services
+  ms.service: media-services
   ms.subservice:
   ms.topic: landing-page # Required
   ms.collection: collection

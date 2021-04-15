@@ -1,7 +1,7 @@
 ---
-title:  Video Indexer concepts - Azure  
-titleSuffix: Azure Media Services Video Indexer
-description: This article gives a brief overview of Azure Media Services Video Indexer terminology and concepts.
+title:  Azure Video Analyzer for Media (former Video Indexer) concepts - Azure  
+titleSuffix: Azure Video Analyzer for Media (former Video Indexer)
+description: This article gives a brief overview of Azure Video Analyzer for Media (former Video Indexer) terminology and concepts.
 services: media-services
 author: Juliako
 manager: femila
@@ -13,13 +13,13 @@ ms.author: juliako
 ---
 
 
-# Video Indexer concepts
+# Video Analyzer for Media concepts
 
-This article gives a brief overview of Azure Media Services Video Indexer terminology and concepts.
+This article gives a brief overview of Video Analyzer for Media terminology and concepts.
 
 ## Audio/video/combined insights
 
-When you upload your videos to Video Indexer, it analyses both visuals and audio by running different AI models. As Video Indexer analyzes your video, the insights that are extracted by the AI models. For more information, see [overview](video-indexer-overview.md).
+When you upload your videos to Video Analyzer for Media, it analyses both visuals and audio by running different AI models. As Video Analyzer for Media analyzes your video, the insights that are extracted by the AI models. For more information, see [overview](video-indexer-overview.md).
 
 ## Confidence scores
 
@@ -54,7 +54,7 @@ Blocks are meant to make it easier to go through the data. For example, block mi
 
 ## Project and editor
 
-The [Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Video Indexer and be used in your own editing applications or downstream workflows.
+The [Video Analyzer for Media](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Video Analyzer for Media and be used in your own editing applications or downstream workflows.
 
 Some scenarios where you may find this feature useful are: 
 
@@ -66,7 +66,7 @@ For more information, see [Use editor to create projects](use-editor-create-proj
 
 ## Keyframes
 
-Video Indexer selects the frame(s) that best represent each shot. Keyframes are the representative frames selected from the entire video based on aesthetic properties (for example, contrast and stableness). For more information, see [Scenes, shots, and keyframes](scenes-shots-keyframes.md).
+Video Analyzer for Media selects the frame(s) that best represent each shot. Keyframes are the representative frames selected from the entire video based on aesthetic properties (for example, contrast and stableness). For more information, see [Scenes, shots, and keyframes](scenes-shots-keyframes.md).
 
 ## time range vs. adjusted time range	
 
@@ -74,7 +74,7 @@ TimeRange is the time range in the original video. AdjustedTimeRange is the time
 
 ## Widgets
 
-Video Indexer supports embedding widgets in your apps. For more information, see [Embed Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
+Video Analyzer for Media supports embedding widgets in your apps. For more information, see [Embed Video Analyzer for Media widgets in your apps](video-indexer-embed-widgets.md).
 
 ## Summarized insights	
 

@@ -1,7 +1,7 @@
 ---
-title: Customize Language model with Video Indexer website
+title: Customize Language model with Azure Video Analyzer for Media (former Video Indexer) website
 titleSuffix: Azure Media Services
-description: Learn how to customize a Language model with the Video Indexer website.
+description: Learn how to customize a Language model with the Azure Video Analyzer for Media (former Video Indexer) website.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -12,21 +12,21 @@ ms.date: 08/10/2020
 ms.author: kumud
 ---
 
-# Customize a Language model with the Video Indexer website
+# Customize a Language model with the Video Analyzer for Media website
 
-Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
+Video Analyzer for Media lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
 
-For a detailed overview and best practices for custom language models, see [Customize a Language model with Video Indexer](customize-language-model-overview.md).
+For a detailed overview and best practices for custom language models, see [Customize a Language model with Video Analyzer for Media](customize-language-model-overview.md).
 
-You can use the Video Indexer website to create and edit custom Language models in your account, as described in this topic. You can also use the API, as described in [Customize Language model using APIs](customize-language-model-with-api.md).
+You can use the Video Analyzer for Media website to create and edit custom Language models in your account, as described in this topic. You can also use the API, as described in [Customize Language model using APIs](customize-language-model-with-api.md).
 
 ## Create a Language model
 
-1. Go to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+1. Go to the [Video Analyzer for Media](https://www.videoindexer.ai/) website and sign in.
 1. To customize a model in your account, select the **Content model customization** button on the left of the page.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-language-model/model-customization.png" alt-text="Customize content model in Video Indexer":::
+    > :::image type="content" source="./media/customize-language-model/model-customization.png" alt-text="Customize content model in Video Analyzer for Media":::
 1. Select the **Language** tab.
 
     You see a list of supported languages.
@@ -51,12 +51,12 @@ To use your Language model on a new video, do one of the following actions:
 
 * Select the **Upload** button on the top of the page.
 
-    ![Upload button Video Indexer](./media/customize-language-model/upload.png)
+    ![Upload button Video Analyzer for Media](./media/customize-language-model/upload.png)
 * Drop your audio or video file or browse for your file.
 
 You're given the option to select the **Video source language**. Select the drop-down and select a Language model that you created from the list. It should say the language of your Language model and the name that you gave it in parentheses. For example:
 
-![Choose video source language—Reindex a video with Video Indexer](./media/customize-language-model/reindex.png)
+![Choose video source language—Reindex a video with Video Analyzer for Media](./media/customize-language-model/reindex.png)
 
 Select the **Upload** option in the bottom of the page, and your new video will be indexed using your Language model.
 
@@ -64,7 +64,7 @@ Select the **Upload** option in the bottom of the page, and your new video will 
 
 To use your Language model to reindex a video in your collection, follow these steps:
 
-1. Sign in to the [Video Indexer](https://www.videoindexer.ai/) home page.
+1. Sign in to the [Video Analyzer for Media](https://www.videoindexer.ai/) home page.
 1. Click on **...** button on the video and select **Re-index**.
 1. You're given the option to select the **Video source language** to reindex your video with. Select the drop-down and select a Language model that you created from the list. It should say the language of your language model and the name that you gave it in parentheses.
 1. Select the **Re-index** button and your video will be reindexed using your Language model.
@@ -101,21 +101,21 @@ To delete a Language model from your account, select the ellipsis (**...**) butt
 
 A new window pops up telling you that the deletion can't be undone. Select the **Delete** option in the new window.
 
-This action removes the Language model completely from your account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise,  Video Indexer will use its default model to reindex the video.
+This action removes the Language model completely from your account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise,  Video Analyzer for Media will use its default model to reindex the video.
 
 ## Customize Language models by correcting transcripts
 
-Video Indexer supports automatic customization of Language models based on the actual corrections users make to the transcriptions of their videos.
+Video Analyzer for Media supports automatic customization of Language models based on the actual corrections users make to the transcriptions of their videos.
 
 1. To make corrections to a transcript, open up the video that you want to edit from your Account Videos. Select the **Timeline** tab.
 
-    ![Customize language model timeline tab—Video Indexer](./media/customize-language-model/timeline.png)
+    ![Customize language model timeline tab—Video Analyzer for Media](./media/customize-language-model/timeline.png)
 
 1. Select the pencil icon to edit the transcript of your transcription.
 
-    ![Customize language model edit transcription—Video Indexer](./media/customize-language-model/edits.png)
+    ![Customize language model edit transcription—Video Analyzer for Media](./media/customize-language-model/edits.png)
 
-    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to retrain the specific Language model that was used to index this video. 
+    Video Analyzer for Media captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to retrain the specific Language model that was used to index this video. 
     
     The edits that were done in the [widget's](video-indexer-embed-widgets.md) timeline are also included.
     
@@ -130,7 +130,7 @@ Video Indexer supports automatic customization of Language models based on the a
 
    To look at the "From transcript edits" file for each of your Language models, select it to open it.
 
-    ![From transcript edits—Video Indexer](./media/customize-language-model/from-transcript-edits.png)
+    ![From transcript edits—Video Analyzer for Media](./media/customize-language-model/from-transcript-edits.png)
 
 ## Next steps
 
