@@ -28,7 +28,7 @@ landingContent:
       - text: Reservation purchase recommendations
         url: reserved-instance-purchase-recommendations.md
       - text: Instance size flexibility
-        url: reserved-vm-instance-size-flexibility.md
+        url: virtual-machines/reserved-vm-instance-size-flexibility.md
       - text: Windows and SQL software cost charged separately
         url: reserved-instance-windows-software-costs.md
                 
