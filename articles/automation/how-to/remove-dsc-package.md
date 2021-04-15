@@ -3,17 +3,17 @@ title: How to remove a DSC package
 description: This article explains how to remove a DSC package
 services: automation
 ms.subservice: dsc
-ms.date: 04/10/2021
+ms.date: 04/14/2021
 ms.topic: how-to
 ---
 
 # How to remove a DSC package
 
-This article provides a step-by-step guide for safely removing a desired state configuration (DSC) from the Automation State Configuration (DSC) managed nodes. For both Windows and Linux nodes, you need to delete the configuration and unregister the node. For Linux nodes only, you can optionally remove the DSC and OMI packages as well.
+This article provides a step-by-step guide for safely removing a desired state configuration (DSC) from the Automation State Configuration (DSC) managed nodes. For both Windows and Linux nodes, you need to [delete the configuration](#delete-a-configuration-from-the-Azure-portal) and [unregister the node](#unregister-a-node). For Linux nodes only, you can optionally [remove the DSC and OMI packages](#remove-the-DSC-package-from-a-Linux-node) as well.
 
 ## Delete a configuration from the Azure portal
 
-After you have imported a configuration, you can view it in the Azure portal.
+When you're ready to remove an imported configuration document (.mof) that's assigned to one or more nodes, follow these steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Automation Accounts**.
@@ -37,7 +37,7 @@ If you no longer want a node to be managed by State Configuration (DSC), you can
 1. Search for and select **Automation Accounts**.
 1. On the **Automation Accounts** page, select your Automation account from the list.
 1. On the Automation account detail page, select **State configuration (DSC)** under **Configuration Management**.
-1. On the State configuration (DSC) page, click the **Nodes** tab.
+1. On the **State configuration (DSC)** page, click the **Nodes** tab.
 1. On the **Nodes** tab, select the name of the node you want to unregister.
 1. On the pane for that node, click **Unregister**.
 
@@ -52,7 +52,7 @@ You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomat
 
 ## Remove the DSC package from a Linux node
 
-This step is optional. Removing the packages as described will remove remove the DSC and OMI packages, as well as all logs and related data.
+This step is optional. Removing the packages as described will remove the DSC and OMI packages, as well as all logs and related data.
 
 ### RPM-based systems
 
@@ -67,3 +67,7 @@ dpkg -P <package name>
 ```
 
  ## Next steps
+
+- If you want to re-register the node, or register a new one, see [Register a VM to be managed by State Configuration](/azure/automation/tutorial-configure-servers-desired-state#register-a-vm-to-be-managed-by-state-configuration).
+
+- If you want to add the configuration back and recompile, see [Compile DSC configurations in Azure Automation State Configuration](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
