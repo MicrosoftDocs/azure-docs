@@ -42,8 +42,8 @@ You can run the tool from any computer on the network where you'll deploy the Az
 The tool saves a report, AzsReadinessCheckerReport.json, with detailed diagnostics that are collected during each test. This information can be helpful if you need to contact Support.
 
 For example, the report provides:
- * A list of network adapters on the machine used to run the tests, with their driver versions, MAC addresses, and connection state
- * The IP configuration of the machine used to run the tests
+ * A list of network adapters on the machine on which the tests ran, with their driver versions, MAC addresses, and connection state
+ * The IP configuration of the machine on which the tests ran
  * Detailed DNS response properties returned by the DNS server for each test
  * Detailed HTTP response for all URL tests
  * Network route trace for each of the tests
