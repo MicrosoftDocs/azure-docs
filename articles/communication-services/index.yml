@@ -81,6 +81,10 @@ landingContent:
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Phone number types
             url: concepts/telephony-sms/plan-solution.md
+      - linkListType: learn
+        links:
+          - text: Send an SMS using C#
+            url: https://docs.microsoft.com/learn/modules/communication-service-send-sms-console-app/
   - title: Chat
     linkLists:
       - linkListType: quickstart
