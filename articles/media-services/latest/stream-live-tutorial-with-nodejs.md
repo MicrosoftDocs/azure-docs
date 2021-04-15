@@ -133,7 +133,7 @@ While in the *index.ts* file, press F5 to launch the debugger.
 The following code snippet shows how to create the Media Services client in Node.JS. 
 Notice that in this code we are first setting the longRunningOperationRetryTimeout property of the AzureMediaServicesOptions to 2 seconds to reduce the time it takes to poll for the status of a long running operation on the Azure Resource Management(ARM) endpoint.  Since most of the operations on Live Events are going to be asynchronous, and could take some time to complete, you should reduce this polling interval on the SDK from the default value of 30 seconds to speed up the time it takes to complete major operations like creating Live Events, Starting and Stopping which are all asynchronous calls. Two seconds is the recommended value for most use case scenarios.
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateMediaServicesClient)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateMediaServicesClient)]
 
 
 ### Create a live event
@@ -148,7 +148,7 @@ Some things that you might want to specify when creating the live event are:
 There are also standby modes available to start the Live Event in a lower cost 'allocated' state that makes it faster to move to a 'Running' state. This is useful for situations like hot pools that need to hand out channels quickly to streamers.
 * For an ingest URL to be predictive and easier to maintain in a hardware based live encoder, set the "useStaticHostname" property to true, as well as use a custom unique GUID in the "accessToken". For detailed information, see [Live Event ingest URLs](live-event-outputs-concept.md#live-event-ingest-urls).
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateLiveEvent)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateLiveEvent)]
 
 ### Create an Asset to record and archive the live event to
 
@@ -158,7 +158,7 @@ When learning these concepts, it is best to think of the "Asset" object as the t
 Keep in mind tha the Asset, or "tape", can be created at any time. It is just an empty "Asset" that you will hand to the Live Output object, the tape recorder in this analogy.
 
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateAsset)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateAsset)]
 
 ### Create the Live Output
 
@@ -169,14 +169,14 @@ The Live Output, or "tape recorder" in our analogy, can be created at any time a
 
 Live Outputs start on creation and stop when deleted.  When you delete the Live Output, you're not deleting the underlying Asset or content in the asset. Think of it as ejecting the tape. The Asset with the recording will last as long as you like, and when it is ejected (meaning, when the Live Output is deleted) it will be available for on-demand viewing immediately.
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateLiveOutput)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateLiveOutput)]
 
 
 ### Get ingest URLs
 
 Once the Live Event is created, you can get ingest URLs that you'll provide to the live encoder. The encoder uses these URLs to input a live stream using the RTMP protocol
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#GetIngestURL)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#GetIngestURL)]
 
 ### Get the preview URL
 
@@ -185,7 +185,7 @@ Use the previewEndpoint to preview and verify that the input from the encoder is
 > [!IMPORTANT]
 > Make sure that the video is flowing to the Preview URL before continuing.
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#GetPreviewURL)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#GetPreviewURL)]
 
 ### Create and manage Live Events and Live Outputs
 
@@ -202,13 +202,13 @@ To stop the "tape recorder", you call delete on the LiveOutput. This does not ac
 
 When you publish the Asset using a Streaming Locator, the Live Event (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first. This is how you make the virtual "tape" recording available for your viewing audience to see live and on-demand. The same URL can be used to watch the live event, DVR window, or the on-demand asset when the recording is complete (when the Live Output is deleted.)
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateStreamingLocator)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateStreamingLocator)]
 
 #### Build the paths to the HLS and DASH manifests
 
 The method BuildManifestPaths in the sample shows how to deterministically create the streaming paths to use for DASH or HLS delivery to various clients and player frameworks.
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#BuildManifestPaths)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#BuildManifestPaths)]
 
 ### Cleaning up resources in your Media Services account
 
@@ -218,9 +218,9 @@ If you're done streaming events and want to clean up the resources provisioned e
 * Stop the Live Event. Once the Live Event is stopped, it won't incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 * You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the Live Event is in a stopped state, it won't incur any charges.
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CleanupLiveEventAndOutput)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CleanupLiveEventAndOutput)]
 
-[!code-nodejs[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CleanupLocatorAssetAndStreamingEndpoint)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CleanupLocatorAssetAndStreamingEndpoint)]
 
 ## Watch the event
 
@@ -258,4 +258,3 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 ## Next steps
 
 [Stream files](stream-files-tutorial-with-api.md)
- 
