@@ -708,19 +708,19 @@ Front Door.
 
 ## <a name="bot"></a> Bot Manager rule sets
 
-### <a name="Bot100"></a> <p x-ms-format-detection="none">Bad bots</p>
+### <a name="bot100"></a> <p x-ms-format-detection="none">Bad bots</p>
 |RuleId|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
 
-### <a name="Bot200"></a> <p x-ms-format-detection="none">Good bots</p>
+### <a name="bot200"></a> <p x-ms-format-detection="none">Good bots</p>
 |RuleId|Description|
 |---|---|
 |Bot200100|Search engine crawlers|
 |Bot200200|Unverified search engine crawlers|
 
-### <a name="Bot300"></a> <p x-ms-format-detection="none">Unknown bots</p>
+### <a name="bot300"></a> <p x-ms-format-detection="none">Unknown bots</p>
 |RuleId|Description|
 |---|---|
 |Bot300100|Unspecified identity|
