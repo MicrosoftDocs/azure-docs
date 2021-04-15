@@ -248,7 +248,7 @@ code welcome/templates/welcome/index.html
 
 Scroll down and change the line that says `Welcome to your Django application on OpenShift` to say `Welcome to Azure Red Hat OpenShift`. Save the file and close the editor through the `...` menu on the top right.
 
-:::image type="content" source="media/aro4-cloudshell-editor.png" alt-text="Azure Red Hat OpenShift project from Git - Edit application in Azure Cloud Shell editor":::
+:::image type="content" source="media/s2i/cloudshell-editor.png" alt-text="Azure Red Hat OpenShift project from Git - Edit application in Azure Cloud Shell editor":::
 
 Start a new build by running the command:
 
