@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Handling Recording File Events and Download Sample
 
-## Prerequisits
+## Prerequisites
 As a prerequisite you need to create a valid ACS resource.
 
 ## Create a web hook and subscribing to recording events
@@ -49,7 +49,7 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
 ```
 **Note:**
 - You will need to add a dependency Microsoft.Azure.EventGrid NuGet package  just for using the models.
-- The Web hook endpoint needs to be a POST method as this allows event service to send the validation code.
+- The Web hook endpoint needs to be a POST method to allow the event service to send the validation code.
 - (Documentation link for endpoint validation and handshake)[https://docs.microsoft.com/en-us/azure/event-grid/receive-events#endpoint-validation]
 
 Now once you have a Web hook, we need to subscribe it to the recording event.
@@ -63,7 +63,7 @@ Now once you have a Web hook, we need to subscribe it to the recording event.
 ![Subscribe to Event](./media/call-recording/image3-subscribe-to-event.png)
 
 ## Notification Schema
-Once the recoding is available to download the recording service will send an notification on the Recording event with the following schema:
+Once the recoding is available to download, the recording service will send a notification on the Recording event with the following schema:
 > The document ids for the recording can be fetched from the documentId fields in the recordingChunks for each chunk.
 
 ```
@@ -92,8 +92,8 @@ Once the recoding is available to download the recording service will send an no
 }
 ```
 ## Download recording files
-Now once we get the document id for the file to download, we shall call below ACS apis for downloading the recording file and metadata using HMAC authentication.
-The maximum recording file size is currently 1.5GB. After that point, recorder will split the recording into multiple files.
+Now once we get the document ID for the file to download, we shall call below ACS apis for downloading the recording file and metadata using HMAC authentication.
+The maximum recording file size is currently 1.5 GB. After that point, recorder will split the recording into multiple files.
 Client should be able to download a recording file with a single request. If there is an issue, the client can retry with a range header to avoid redownloading the whole thing.
 
 Download call recording file: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}?api-version=2021-04-15-preview1
@@ -101,8 +101,8 @@ Download call recording file: Method: GET URL: https://contoso.communication.azu
 Download call recording meta-data: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}/metadata?api-version=2021-04-15-preview1
 
 ### Authentication
-In order to call ACS apis for downloading recording file and meta data, we need HMAC authentication to authenticate the request.
-One can simply create a Http client and add the necessary headers using the HmacAuthentication utility provided below:
+In order to call ACS APIs for downloading recording file and meta data, we need HMAC authentication to authenticate the request.
+Create an Http client and add the necessary headers using the HmacAuthentication utility provided below:
 ```
   var client = new HttpClient();
 
