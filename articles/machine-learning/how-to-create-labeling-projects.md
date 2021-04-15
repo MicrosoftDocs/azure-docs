@@ -95,7 +95,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
-1. Choose **File** as the **Dataset type**.  Only file dataset types are supported.
+1. Choose the **Dataset type**.  Only file dataset types are supported for images. File and tabular types are available for text labeling.
 1. Select the datastore.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
@@ -110,7 +110,7 @@ To directly upload your data:
 
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
-1. Choose "File" as the **Dataset type**.
+1. Choose the **Dataset type**.  Only file dataset types are supported for images. File and tabular types are available for text labeling.
 1. *Optional:* Select **Advanced settings** to customize the datastore, container, and path to your data.
 1. Select **Browse** to select the local files to upload.
 1. Provide a description of your dataset.
@@ -177,7 +177,7 @@ Since the final labels still rely on input from the labeler, this technology is 
 
 ### Clustering
 
-The clustering phase applies only to image labeling tasks. After a certain number of labels are submitted, the machine learning model for classification starts to group together similar items.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images.
+After a certain number of labels are submitted, the machine learning model for classification starts to group together similar items.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images.
 
 Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully-connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This embeds each image in a high-dimensional space defined by this model layer. Images that are nearest neighbors in the space are used for clustering tasks. 
 
