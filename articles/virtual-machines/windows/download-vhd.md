@@ -28,11 +28,11 @@ To use the VHD as an image to create other VMs, generalize the VM.
 5. In the System Preparation Tool dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that **Generalize** is selected.
 6. In Shutdown Options, select **Shutdown**, and then click **OK**. 
 
-If you don't want to generalize your current VM, you can still create a generalized image by first making a snapshot of the OS disk, creating a new VM from the snapshot, and then generalizing the copy.
+If you don't want to generalize your current VM, you can still create a generalized image by first [making a snapshot of the OS disk](#alternative-snapshot-the-vm-disk), creating a new VM from the snapshot, and then generalizing the copy.
 
 ## Stop the VM
 
-A VHD can’t be downloaded from Azure if it's attached to a running VM. You need to stop the VM to download a VHD (or make a snapshot and download the snapshot). 
+A VHD can’t be downloaded from Azure if it's attached to a running VM. If you want to keep the VM running, you can [create a snapshot and then download the snapshot](#alternative-snapshot-the-vm-disk).
 
 1. On the Hub menu in the Azure portal, click **Virtual Machines**.
 1. Select the VM from the list.
