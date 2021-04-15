@@ -18,7 +18,7 @@ Azure File Sync extends your on-premises Windows Server or cloud virtual machine
 Cloud tiering can help reduce the footprint of your local storage while maintaining on-premises performance. With cloud tiering enabled, your most frequently accessed files are cached on your local server and your least frequently accessed files are tiered to the cloud. Tiered files can quickly be recalled on-demand, making the experience seamless while enabling you to cut down on costs as you only need to store a fraction of your data on-premises. For more information about cloud tiering, see [Cloud tiering overview](file-sync-cloud-tiering-overview.md). 
 
 ### Multi-site access and sync
-Azure File Sync is ideal for complicated distributed access scenarios. For each of your offices, wherever they are, you can provision a local Windows Server as part of your Azure File Sync deployment. Changes made to the server in one office automatically sync to the servers in all other offices.
+Azure File Sync is ideal for complicated distributed access scenarios. For each of your offices, wherever they are, you can provision a local Windows Server as part of your Azure File Sync deployment. Changes made to a server in one office automatically sync to the servers in all other offices.
 
 Additionally, with [identity-based authentication](../files/storage-files-active-directory-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), Azure Files SMB shares can continue to work with AD hosted on-premises for access control. 
 
