@@ -9,7 +9,7 @@ ms.author: branim
 ms.custom: devx-track-csharp
 ---
 # Introduction to Dynamic node tags
-Node tags allow you to dynamically add and remove tags from nodes in order to influence the placement of services. Node tagging is very flexible and allows changes to service placement without application or cluster upgrades. Tags can be added or removed from nodes at any time, and services can specify requirements for certain tags when they are created. A service can also have it's tag requirements updated dynamically while it is running.
+Node tags allow you to dynamically add and remove tags from nodes in order to influence the placement of services. Node tagging is very flexible and allows changes to service placement without application or cluster upgrades. Tags can be added or removed from nodes at any time, and services can specify requirements for certain tags when they are created. A service can also have its tag requirements updated dynamically while it is running.
 
 Node tagging is similar to [placement constraints](service-fabric-cluster-resource-manager-configure-services.md) and is typically used to control what nodes a service runs on. Each Service Fabric service can be configured to require tag to be placed or to keep running.
 
@@ -20,15 +20,15 @@ The rest of this article describes ways to enable or to disable node tagging and
 
 ## Describing dynamic node tags
 Services can specify the tags they require. There are two types of tags:
-* **Tags required for placement** describes a set of tags which are required only for service placement. Once replica is placed, these tags can be removed without interrupting the service. If any of these tags are removed from the node, the service replica will keep functioning, and Service Fabric will not remove the service
+* **Tags required for placement** describe a set of tags, which are required only for service placement. Once replica is placed, these tags can be removed without interrupting the service. If any of these tags are removed from the node, the service replica will keep functioning, and Service Fabric will not remove the service
 
-* **Tags required to run** describes a set of tags which are required for both placement and running of the service. If any of the required running tags get removed, Service Fabric will move the service to another node which has those tags specified.
+* **Tags required to run** describe a set of tags, which are required for both placement and running of the service. If any of the required running tags get removed, Service Fabric will move the service to another node which has those tags specified.
 
 Example:
 Required for placement tags can be utilized when you use some sort of container activator service, and you need that service for your container to be placed, and as soon as container gets activated, you don't need activator anymore, and you can remove the tag associated with it, but container should keep running.
 Required for running tags can be used when you have a billing service, which is useful to be collocated with user-facing service. When billing service fails on the node, you remove tag associated with it, and user-facing service gets moved to another node, which has billing service, and its tag, present.
 
-A tag or set of tags can be added, updated or removed from a single node using standard Service Fabric interface mechanisms such as C# APIs, REST APIS or PowerShell commands.
+A tag or set of tags can be added, updated, or removed from a single node using standard Service Fabric interface mechanisms such as C# APIs, REST APIs, or PowerShell commands.
 
 > [!NOTE]
 > Service Fabric does not maintain UD/FD distributions when using node tags. Please manage node tags appropriately, so you don't get FD/UD violations due to bad distribution of tags across domains.
