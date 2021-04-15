@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 04/15/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro device.
 ---
@@ -26,9 +26,6 @@ A Windows VHD or VHDX can be used to create a *specialized* image or a *generali
 
 [!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-<!--MOVED TO TASK 1 - >> [!IMPORTANT]
-> These procedures do not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).-->
-
 ## Workflow
 
 The high-level workflow to prepare a Windows VHD to use as a generalized image, starting from the VHD or VHDX of an existing virtual machine, has the following steps:
@@ -44,7 +41,7 @@ The high-level workflow to prepare a Windows VHD to use as a generalized image, 
 
 Before you prepare a Windows VHD for use as a generalized image on an Azure Stack Edge Pro device, make sure that:
 
-- You have a VHD or a VHDX containing a supported version of Windows. See [Supported guest operating Systems]() for your Azure Stack Edge Pro device.<!--Link target needed. Are these the same OS's supported for clients - at https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-system-requirements#supported-os-for-clients-connected-to-device?--> 
+- You have a VHD or a VHDX containing a supported version of Windows. 
 - You have access to a Windows client with Hyper-V Manager installed. 
 - You have access to an Azure Blob storage account to store your VHD after it is prepared.
 
