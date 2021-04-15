@@ -190,7 +190,7 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientGroupCallJoinOptions | MeetingUIClientMeetingJoinOptions are used for configurable options such as display name. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
 | MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group id to join. |
-| MeetingUIClientCallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
+| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
 | MeetingUIClientDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
 | MeetingUIClientIdentityProviderDelegate | The MeetingUIClientIdentityProviderDelegate is used to map user details to the users in a meeting. |
 | MeetingUIClientUserEventDelegate | The MeetingUIClientUserEventDelegate is used provide delegate calls in case user has click in the UI on specific elements. |
@@ -201,7 +201,7 @@ Initialize a `MeetingUIClient` instance with a User Access Token which will enab
 
 ```swift
 do {
-    let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: <USER_ACCESS_TOKEN>, refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
+    let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
 	let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
     meetingUIClient = MeetingUIClient(with: credential)
 }
@@ -219,7 +219,7 @@ Create a `fetchTokenAsync` method. Then add your `fetchToken` logic to get the u
 ```swift
 private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
     func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
-        completionHandler(self.acsToken)
+        completionHandler("<USER_ACCESS_TOKEN>")
     }
     getTokenFromServer { newToken in
         completionHandler(newToken, nil)
