@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
-Azure Communication Services allows you to easily add real-time voice, video, and telephony-over-IP communication to your applications. Communication Services SDKs also allow you to add SMS functionality to your communications solutions. Azure Communication Services is identity agnostic and you have complete control over how end-users are identified and authenticated. You can connect humans to the communication dataplane or services (bots).
+Azure Communication Services allows you to easily add real-time voice, video, and telephone communication to your applications. Communication Services SDKs also allow you to add SMS functionality to your communications solutions. Azure Communication Services is identity agnostic and you have complete control over how end-users are identified and authenticated. You can connect humans to the communication data plane or services (bots).
 
 Applications include:
 
