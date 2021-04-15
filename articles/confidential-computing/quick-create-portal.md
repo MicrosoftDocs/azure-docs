@@ -2,12 +2,14 @@
 title: Quickstart - Create an Azure confidential computing virtual machine in the Azure portal
 description: Get started with your deployments by learning how to quickly create a confidential computing virtual machine in the Azure portal.
 author: JBCook
+ms.author: JenCook
+ms.date: 04/23/2020
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 04/23/2020
-ms.author: JenCook
+ms.custom:
+  - mode-portal
 ---
 
 
