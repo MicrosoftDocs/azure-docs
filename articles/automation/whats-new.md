@@ -33,7 +33,7 @@ Azure Automation has added 5 new built-in policies:
 - Configure private endpoint connections on Azure Automation accounts
 - Private endpoint connections on Automation Accounts should be enabled.
 
-See the [policy reference](./policy-reference) article for more details.
+See the [policy reference](./policy-reference.md) article for more details.
 
 ### Support for Automation and State Configuration declared GA in South India
 
@@ -69,7 +69,7 @@ Two new scripts have been added to the Azure Automation [GitHub repository](http
 
 **Type:** New feature
 
-See [Use a webhook from an ARM template](./automation-webhooks#use-a-webhook-from-an-arm-template) for more details.
+See [Use a webhook from an ARM template](./automation-webhooks.md#use-a-webhook-from-an-arm-template) for more details.
 
 ### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 
@@ -81,7 +81,7 @@ See the [full list](./update-management/overview.md#supported-operating-systems)
 
 **Type:** New feature
 
-In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](./automation-managing-data#geo-replication-in-azure-automation) for more details.
+In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation) for more details.
 
 ## February 2021
 
