@@ -67,7 +67,7 @@
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
-      - name: Verifiable Credentials
+      - name: Verifiable credentials
         tocHref: /azure/active-directory/verifiable-credentials/
         topicHref: /azure/active-directory/verifable-credentials/
   - name: Analysis Services
