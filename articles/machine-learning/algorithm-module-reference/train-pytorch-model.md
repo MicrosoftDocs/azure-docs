@@ -43,9 +43,11 @@ Currently, **Train PyTorch Model** module supports both single node and distribu
 
 7.  For **Learning rate**, specify a value for the *learning rate*. Learning rate controls the size of the step that is used in optimizer like sgd each time the model is tested and corrected.
 
-    By making the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By making the rate larger, you can converge faster, at the risk of overshooting the true minima. by default 0.001. Polynomial learning rate decay is applied and can help result in a better performing model.
+    By making the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By making the rate larger, you can converge faster, at the risk of overshooting the true minima. by default 0.001.
     > [!NOTE]
     > If train loss becomes nan during training, which may be caused by too large learning rate, decreasing learning rate may help.
+    > In distributed training, to keep gradient descent stable, the actual learning rate is calculated by `lr * torch.distributed.get_world_size()` because batch size of the process group is world size times that of single process.
+    > Polynomial learning rate decay is applied and can help result in a better performing model.
 
 8.  For **Random seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.
 
