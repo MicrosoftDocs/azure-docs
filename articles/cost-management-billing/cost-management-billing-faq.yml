@@ -7,7 +7,7 @@ metadata:
   ms.reviewer: adwise
   ms.service: cost-management-billing
   ms.topic: conceptual
-  ms.date: 04/09/2021
+  ms.date: 04/15/2021
   ms.author: banders
     
 title: Azure Cost Management + Billing frequently asked questions (FAQ)
@@ -90,6 +90,15 @@ sections:
       - question: Can I use Power BI to view costs?
         answer: |
           Yes, you use [Power BI Desktop to connect to Cost Management data](/power-bi/connect-data/desktop-connect-azure-cost-management) or you can use the [Cost Management Power BI App for EAs](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
+      - question: What are the supported offer types in Cost Management?
+        answer: |
+          See [Supported Microsoft Azure offers](/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+      - question: How soon can I see my cost and usage data in Azure Cost Management?
+        answer: |
+          See [Cost and usage data updates and retention](/costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
+      - question: Can I find all my cost related information in Azure Cost Management?
+        answer: |
+          See [Costs included in Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
       - question: Are allocated costs factored into budgets and forecast views?
         answer: |
           <a name="budgets-forecast"></a>Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by cost allocation rules.
@@ -137,6 +146,9 @@ sections:
       - question: How can I find reservation costs to charge back?
         answer: |
           See [Charge back Azure Reservation costs](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json) for detailed information.
+      - question: How can I view charges incurred for Spot VMs?
+        answer: |
+          See [View your Spot VM charges](/costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
       - question: How do I get a reservation details report?
         answer: |
           Read the API documentation to [generate a reservation details report](/rest/api/cost-management/generatereservationdetailsreport).
