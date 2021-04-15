@@ -31,7 +31,7 @@ Basic vs Standard:
 
 In order to create an availability test, you need use an existing Application Insight resource or [create an Application Insights resource](create-new-resource.md).
 
-To create your first availability request, open the Availability pane and select Create Test & choose your test SKU.
+To create your first availability request, open the Availability pane and select  Create Test & choose your test SKU.
 
 :::image type="content" source="./media/monitor-web-app-availability/create-basic-test.png" alt-text="Screenshot of create a basic url ping test in Azure Portal":::
 
