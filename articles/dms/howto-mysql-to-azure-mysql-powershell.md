@@ -444,7 +444,7 @@ The following script creates a mapping based on the target and source table list
 # Optional table settings
 # DEFAULT: $SelectedTables = $null => migrate all tables
 # Array of qualified target table names which should be migrated 
-[string[]] $SelectedTables = @("migtestdb.coupons", "migtestdb.daily_cash_sheets");
+[string[]] $SelectedTables = @("migtargetdb.coupons", "migtargetdb.daily_cash_sheets");
 
 LogMessage -Message "Creating the table map based on the user input and database table information ..." `
     -IsProcessing $true
