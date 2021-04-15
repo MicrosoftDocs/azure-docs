@@ -27,8 +27,6 @@
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
   - name: "JavaScript Form Recognizer client library SDK"
     href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
-  - name: "REST API  and cURL"
-    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer
 - name: How-to guides
   items:
   - name: Build a training data set
