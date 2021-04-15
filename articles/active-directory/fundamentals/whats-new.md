@@ -206,7 +206,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** MS Graph  
 **Product capability:** B2B/B2C
 
-[MS Graph API for the Company Branding](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties?view=graph-rest-1.0)  is available for the Azure AD or Microsoft 365 login experience to allow the management of the branding parameters programmatically.
+[MS Graph API for the Company Branding](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties)  is available for the Azure AD or Microsoft 365 login experience to allow the management of the branding parameters programmatically.
 
 ---
 
