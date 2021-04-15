@@ -110,7 +110,7 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 ## Add additional catalog owners
 
-The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helpshare the catalog management responsibilities. 
+The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management responsibilities. 
 
 Follow these steps to assign a user to the catalog owner role:
 
