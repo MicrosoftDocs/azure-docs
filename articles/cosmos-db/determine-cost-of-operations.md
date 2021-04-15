@@ -1,30 +1,31 @@
 ---
-title: Determine cost of operations in Azure Cosmos DB
-description: This article explains how to determine the cost of operations in Azure Cosmos DB.
+title: Throttling Cosmos DB requests in your custom application
+description: This article provides developers with a methodology to throttle requests to Cosmos to reduce errors and improve throughput.
 author: pelasne
 
 ---
 
-# Determining the cost of operations in Azure Cosmos DB
+# Throttling Cosmos requests in your custom application
 
-This article describes how to determine the [Request Unit](request-units.md) cost of your operations (read and write requests), and how it is counted against your provisioned throughput. 
-It is important to determine this cost early, as if you exceed your allotment, you will receive `429 Too many requests` errors and eventually `503 Service Unavailable` errors.
+This article provides developers with a methodology to throttle requests to Cosmos to reduce errors and improve throughput.
 
-> [!NOTE]
-> Different protocols in Cosmos behave differently, in some cases you will immediately get TooManyRequests errors and in some cases the Cosmos gateway will buffer some requests for a short period of time. However, sustaining costs above your capacity will in every case result in TooManyRequests errors.
+Requests that exceed your provisioned throughput in Cosmos DB can result in transient faults like TooManyRequests, Timeout, and ServiceUnavailable. Typically you would retry these requests when capacity is available and be successful. However, this approach can result in a very large number of requests following the error path in your code and typically results in reduced throughput.
 
-## An approach to determining cost
+Consider the following scenario. You provision Cosmos DB with 20K RU. Your application processes an ingestion job that contains 10K records, each of which costs 10 RU. The total capacity required to complete this job is 100K RU. If you simply send the entire job to Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. Instead if you spread those requests evenly across 5 seconds, you should expect no faults and overall faster throughput. Spreading the requests across a period of time can be accomplished by introducing a throttling mechanism in your code.
 
-An approach to determining cost is the following:
+## Workflow
+
+An approach to implementing throttling might look like this:
 
 1. Profile your application so you have data about what writes and read requests are used.
 1. Define all indexes in Cosmos DB.
 1. Populate the collection with a reasonable amount of data (could be sample data). If you expect your application to normally have millions of records, populate it with millions of records.
 1. Write your representative documents and record the RU cost.
 1. Run your representative queries and record the RU cost.
-1. Implement a function in your application to determine the cost based on your findings.
-1. Load test your application and verify that you don't exceed the provisioned capacity.
-1. Re-test the RU costs periodically.
+1. Implement a function in your application to determine the cost of any given request based on your findings.
+1. Implement a throttling mechanism in your code to ensure that the sum of all operations sent to Cosmos DB in a second do not exceed your provisioned throughput.
+1. Load test your application and verify that you don't exceed the provisioned throughput.
+1. Re-test the RU costs periodically and update your cost function as needed.
 
 ## Indexing
 
@@ -45,22 +46,30 @@ There are some key concepts when measuring cost:
   - It will be helpful to create some repeatable (maybe even automated) test of the representative documents and queries.
   - Ensure your representative documents and queries are still representative.
 
+The method to determine the cost of a request, is different for each API:
+
+- [Core API](find-request-unit-charge.md)
+- [Cassandra API](find-request-unit-charge-cassandra.md)
+- [Gremlin API](find-request-unit-charge-gremlin.md)
+- [Mongo DB API](find-request-unit-charge-mongodb.md)
+- [Table API](find-request-unit-charge-table.md)
+
 ### Measuring cost using the Core API
 
-Every operation executed under the Core API returns the cost of the operation. Specifics on how to access that property on the return are documented in 
+Every operation executed under the Core API returns the cost of the operation. Specifics on how to access that property on the return are documented in
 [find request unit charge](find-request-unit-charge.md).
 
-Unfortunately, some APIs like the Mongo API do not return the cost of the operation. You can run a database command of "getLastRequestStatistics" to get the 
-cost of the last operation in this session as documented in [find request unit charge mongodb](find-request-unit-charge-mongodb). There is no RU cost for running the 
+Unfortunately, some APIs like the Mongo API do not return the cost of the operation. You can run a database command of "getLastRequestStatistics" to get the
+cost of the last operation in this session as documented in [find request unit charge mongodb](find-request-unit-charge-mongodb). There is no RU cost for running the
 "getLastRequestStatistics" command. In a system that supports asynchronous operations, the last operation is not guaranteed to be the operation you wanted to measure.
-Typically you will need your measurement tests to be synchronous in a different session from your operational session. 
+Typically you will need your measurement tests to be synchronous in a different session from your operational session.
 
 ## Write requests
 
 The cost of write operations tends to be easy to predict. You will insert records and document the cost that Cosmos reported.
 
-If you have documents of different size and/or documents that will use different indexes, it is important to measure all of them. 
-You may find that all your representative documents are close enough in cost that you can assign a single value across all writes. 
+If you have documents of different size and/or documents that will use different indexes, it is important to measure all of them.
+You may find that all your representative documents are close enough in cost that you can assign a single value across all writes.
 For example, if you found costs of 13.14 RU, 16.01 RU, and 12.63 RU, you might average those to a cost of 14 RU.
 
 ## Read requests
@@ -69,10 +78,24 @@ Unfortunately, the cost of query operations tends to be much harder to predict f
 
 - If your system supports user-defined queries, you will need to map the incoming queries to the representative queries to help determine the cost. There are various forms this might take:
   - It may be possible to match the queries exactly. If there is no direct match, you may have to find the representative query that it is closest to.
-  - You may find that you can calculate a cost based on characteristics of the query. For example, you may find that each clause of the query has a certain cost, 
+  - You may find that you can calculate a cost based on characteristics of the query. For example, you may find that each clause of the query has a certain cost,
   or that indexed properties cost "x" while those not indexed cost "y", etc.
 - The number of results can vary and unless you have statistics on this, you won't be able to predict the RU impact from the return payload.
 
-It is likely you will not have a single cost of query operations, but rather some function that evaluates the query and calculates a cost. 
-If you are using the Core API, you could then evaluate the actual cost of the operation and determine how accurate your estimation was 
-(tuning of this estimation could even happen automatically within the code). 
+It is likely you will not have a single cost of query operations, but rather some function that evaluates the query and calculates a cost.
+If you are using the Core API, you could then evaluate the actual cost of the operation and determine how accurate your estimation was
+(tuning of this estimation could even happen automatically within the code).
+
+## Transient fault handling
+
+Your application will still need transient fault handling even if you implement a throttling mechanism for the following reasons:
+
+- The actual cost of a request may be different than your projected cost.
+- Transient faults can occur for reasons other than TooManyRequests.
+
+However, properly implementing a throttling mechanism in your application will substantially reduce the number of transient faults.
+
+## Related Links
+
+- [Diagnose and troubleshoot Azure Cosmos DB request rate too large exceptions](troubleshoot-request-rate-too-large.md)
+- [Diagnose and troubleshoot Azure Cosmos DB request timeout exceptions](troubleshoot-request-timeout.md)
