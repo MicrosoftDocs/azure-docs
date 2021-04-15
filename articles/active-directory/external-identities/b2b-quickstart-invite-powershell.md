@@ -1,22 +1,21 @@
 ---
-
 title: 'Quickstart: Add a guest user with PowerShell - Azure AD'
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user.
-
 services: active-directory
-ms.service: active-directory
-ms.subservice: B2B
-ms.topic: quickstart
-ms.date: 08/28/2018
-
-ms.author: mimart
 author: msmimart
+ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan"
-# Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
-
+ms.date: 08/28/2018
+ms.topic: quickstart
+ms.service: active-directory
+ms.subservice: B2B
+ms.custom:
+  - it-pro
+  - seo-update-azuread-jan
+  - mode-api
 ms.collection: M365-identity-device-management
+# Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
 ---
 
 # Quickstart: Add a guest user with PowerShell
