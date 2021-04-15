@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: "seo-nov-2020"
 ---
@@ -107,8 +107,8 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * Expect different behavior in regard to explicit `null` values:
   * Spark pools in Azure Synapse will read these values as `0` (zero).
-  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a datatype different of `integer`.
-  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value that is an `integer`.
+  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a `non-numeric` datatype.
+  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value with a `numeric` datatype.
 
 * Expect different behavior in regard to missing columns:
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
@@ -129,6 +129,7 @@ There are two modes of schema representation in the analytical store. These mode
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
 * A property always has the same type across multiple items.
+* We only allow 1 type change, from null to any other data type.The first non-null occurrence defines the column data type.
 
   * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `"a"` as the data type of `“a”` in the first-occurring item in the lifetime of the container. The document will still be included in analytical store, but items where the data type of `"a"` differs will not.
   

@@ -28,7 +28,6 @@ Below are some examples of the errors returned by Azure Attestation:
 Unauthorized
 
 **Scenario examples**
-  - Attestation failure if the user is not assigned with Attestation Reader role
   - Unable to manage attestation policies as the user is not assigned with appropriate roles
   - Unable to manage attestation policy signers as the user is not assigned with appropriate roles
 
@@ -45,55 +44,25 @@ At line:1 char:1
 
 **Troubleshooting steps**
 
-In order to view attestation policies/policy signers, an Azure AD user requires the permission for "Actions":
+In order to manage policies, an Azure AD user requires the following permissions for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
-
-  This permission can be assigned to an AD user through a role such as "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" (specific         permissions for Azure Attestation only).
-
-In order to add/delete policy signers or to configure policies, an Azure AD user requires the following permissions for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor"         (specific permissions for Azure Attestation only).
+  To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
 
-Customers can choose to use the default provider for attestation, or create their own providers with custom policies. To send attestation requests to custom attestation providers, "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" role is required for the user. The default providers are accessible by any Azure AD user.
+In order to read policies, an Azure AD user requires the following permission for "Actions":
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-To verify the roles in PowerShell, run below:
+  To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. The read permission can be also be inherited with roles such as "Reader" (wildcard permissions) on  the subscription/ resource group.  
+
+To verify the roles in PowerShell, run the below steps:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Verify your Azure role assignment settings
+b. Please refer the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
 
-
-  ```powershell
-  $c = Get-AzContext
-  Get-AzRoleAssignment -ResourceGroupName $attestationResourceGroup -ResourceName $attestationProvider -ResourceType Microsoft.Attestation/attestationProviders -SignInName $c.Account.Id
-  ```
-
-  You should see something like this:
-
-  ```
-  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
-  
-  Scope              : /subscriptions/subscriptionId
-  
-  DisplayName        : displayName
-  
-  SignInName         : signInName
-  
-  RoleDefinitionName : Reader
-  
-  RoleDefinitionId   : roleDefinitionId
-  
-  ObjectId           : objectid
-  
-  ObjectType         : User
-  
-  CanDelegate        : False
- 
-  ```
-
-c. If you don't find an appropriate role assignment in the list, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
+c. If you don't find an appropriate role assignment, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
 
 ## 2. HTTP – 400 errors
 
@@ -294,7 +263,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 User assigned with appropriate roles. But facing authorization issues while managing attestation policies through PowerShell.
 
 ### Error
-The client with object id &lt;object Id&gt;  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ or the scope is invalid. If access was recently granted, please refresh your credentials
+The client with object ID &lt;object Id&gt;  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ or the scope is invalid. If access was recently granted, please refresh your credentials
 
 ### Troubleshooting steps
 

@@ -26,7 +26,7 @@ You can migrate tests from Network Performance Monitor (NPM) to new, improved Co
 
 The migration helps produce the following results:
 
-* On-premises agents and firewall settings work as is. No changes are required. Log Analytics agents that are installed on Azure virtual machines need to be replaced with the [Network Watcher extension](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+* On-premises agents and firewall settings work as is. No changes are required. Log Analytics agents that are installed on Azure virtual machines need to be replaced with the [Network Watcher extension](../virtual-machines/extensions/network-watcher-windows.md).
 * Existing tests are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to it, and submit the template via Azure Resource Manager.
 * Agents send data to both the Log Analytics workspace and the metrics.
 * Data monitoring:
@@ -38,7 +38,7 @@ The migration helps produce the following results:
 	
 ## Prerequisites
 
-* Ensure that Network Watcher is enabled in your subscription and the region of the Log Analytics workspace. 
+* Ensure that Network Watcher is enabled in your subscription and the region of the Log Analytics workspace. If not done, you will see an error stating "Before you attempt migrate, please enable Network watcher extension in selection subscription and location of LA workspace selected."
 * In case Azure VM belonging to a different region/subscription than that of Log Analytics workspace is used as an endpoint, make sure Network Watcher is enabled for that subscription and region.   
 * Azure virtual machines with Log Analytics agents installed must be enabled with the Network Watcher extension.
 
@@ -52,6 +52,10 @@ To migrate the tests from Network Performance Monitor to Connection Monitor, do 
 	
 1. In the drop-down lists, select your subscription and workspace, and then select the NPM feature you want to migrate. 
 1. Select **Import** to migrate the tests.
+* If NPM is not enabled on the workspace, you will see an error stating "No valid NPM config found". 
+* If no tests exist in the feature you chose in step2 , you will see an error stating "Workspace selected does not have <feature> config".
+* If there are no valid tests, you will see an error stating "Workspace selected does not have valid tests"
+* Your tests may contain agents that are no longer active, but may have been active in the past. You will see an error stating "Few tests contain agents that are no longer active. List of inactive agents - {0}. These agents may be running in the past but are shut down/not running any more. Enable agents and migrate to Connection Monitor. Click continue to migrate the tests that do not contain agents that are not active."
 
 After the migration begins, the following changes take place: 
 * A new connection monitor resource is created.

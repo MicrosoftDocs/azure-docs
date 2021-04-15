@@ -79,7 +79,8 @@ Create a .zip file that contains all the files that are required to install your
 ## Publish the application
 To publish an HDInsight application:
 
-1. Sign in to [Azure Publishing](https://publish.windowsazure.com/).
+1. Sign in to Azure Publishing.
+
 2. In the left menu, select **Solution templates**.
 3. Enter a title, and then select **Create a new solution template**.
 4. If you haven't already registered your organization, select **Create Dev Center account and join the Azure program**.  For more information, see [Create a Microsoft Developer account](../marketplace/overview.md).

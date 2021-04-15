@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 04/12/2021
 ms.author: radeltch
 
 ---
@@ -171,7 +171,6 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Enter the name of the new load balancer rule (for example **nw1-lb**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw-backend** and **nw1-hp**)
          1. Select **HA Ports**.
-         1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rule for NW2

@@ -7,7 +7,7 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 tags: azure-resource-manager
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -257,6 +257,8 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     --no-wait
 ```
 It may take a few minutes for the VMs to deploy.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create a public IP address - Standard
 
@@ -777,6 +779,8 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     --no-wait
 ```
 It may take a few minutes for the VMs to deploy.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create a public IP address - Basic
 

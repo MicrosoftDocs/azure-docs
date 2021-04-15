@@ -86,7 +86,7 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Azure roadmap
+  - name: Azure updates
     href: https://azure.microsoft.com/updates/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-portal
@@ -96,7 +96,5 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Azure Videos
+  - name: Azure videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-  - name: Azure and Power BI
-    href: /power-bi/connect-data/service-azure-and-power-bi?context=/azure/azure-portal/context/context

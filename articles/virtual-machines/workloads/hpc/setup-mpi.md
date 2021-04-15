@@ -1,5 +1,5 @@
 ---
-title: Set up Message Passing Interface for HPC - Azure Virtual Machines | Microsoft Docs
+title: Set up Message Passing Interface (MPI) for HPC - Azure Virtual Machines | Microsoft Docs
 description: Learn how to set up MPI for HPC on Azure. 
 author: vermagit
 ms.service: virtual-machines
@@ -60,6 +60,11 @@ Run HPC-X
 ```bash
 ${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tests/osu-micro-benchmarks-5.3.2/osu_latency
 ```
+
+### Optimizing MPI collectives
+
+MPI Collective communication primitives offer a flexible, portable way to implement group communication operations. They are widely used across various scientific parallel applications and have a significant impact on the overall application performance. Refer to the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/optimizing-mpi-collective-communication-using-hpc-x-on-azurehpc/ba-p/1356740) for details on configuration parameters to optimize collective communication performance using HPC-X and HCOLL library for collective communication.
+
 > [!NOTE] 
 > With HPC-X 2.7.4+, it may be necessary to explicitly pass LD_LIBRARY_PATH if the UCX version on MOFED vs. that in HPC-X is different.
 

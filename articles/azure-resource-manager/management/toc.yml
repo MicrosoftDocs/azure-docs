@@ -28,7 +28,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Azure common security attributes
-      href: azure-resource-manager-security-controls.md
+      href: ./security-baseline.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
@@ -169,6 +169,8 @@
     href: /dotnet/api/microsoft.azure.management.resourcemanager
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
+  - name: JavaScript
+    href: /javascript/api/overview/azure/resources
   - name: Python
     href: /python/api/overview/azure/resources
   - name: Azure Policy built-ins

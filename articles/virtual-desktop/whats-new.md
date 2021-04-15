@@ -3,15 +3,15 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/20/2021
+ms.date: 04/08/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
 
-Windows Virtual Desktop updates on a regular basis. This article is where you'll find out about:
+Windows Virtual Desktop updates regularly. This article is where you'll find out about:
 
 - The latest updates
 - New features
@@ -34,14 +34,72 @@ Check out these articles to learn about updates for our clients for Windows Virt
 
 The Windows Virtual Desktop agent updates at least once per month.
 
-Here's what's changed in Windows Virtual Desktop Agent:
+Here's what's changed in the Windows Virtual Desktop Agent:
 
-- Version 1.0.2800.2800: This update was released in March 2021 and fixed a reverse connection issue.
-- Version 1.0.2800.2700: This update was released in February 2021 and fixed an access denied orchestration issue.
+- Version 1.0.2990.800: This update was released April 13 2021, and has the following changes:
+    - Updated agent error messages.
+    - Adds an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
+    - Has updated heartbeat service logic.
+- Version 1.0.2944.1400: This update was released April 7, 2021 and has the following changes:
+    - Placed links to the Windows Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
+    - Added an additional exception for better error handling.
+    - Added the WVDAgentUrlTool.exe that allows customers to check which required URLs they can access.
+- Version 1.0.2866.1500: This update was released March 26, 2021 and it fixes an issue with the stack health check.
+- Version 1.0.2800.2802: This update was released March 10, 2021 and it has general improvements and bug fixes.
+- Version 1.0.2800.2800: This update was released March 2, 2021 and it fixes a reverse connection issue.
+- Version 1.0.2800.2700: This update was released February 10, 2021 and it has general improvements and bug fixes.
+- Version 1.0.2800.2700: This update was released February 4, 2021 and it fixes an access denied orchestration issue.
 
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## March 2021
+
+Here's what changed in March 2021.
+
+### Updates to the Azure portal UI for Windows Virtual Desktop
+
+We've made the following updates to Windows Virtual Desktop for the Azure portal:
+
+- We've enabled new availability options (availability set and zones) for the workflows to create host pools and add VMs.
+- We've fixed an issue where a host with the "Needs assistance" status appeared as unavailable. Now the host will have a warning icon next to it.
+- We've enabled sorting for active sessions.
+- You can now send messages to or sign out specific users on the host details tab.
+- We've changed the maximum session limit field.
+- We've added an OU validation path to the workflow to create a host pool.
+- You can now use the latest version of the Windows 10 image when you create a personal host pool.
+
+### Generation 2 images and Trusted Launch
+
+The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images will let you use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](../virtual-machines/generation-2.md). To learn how to provision Windows Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+
+### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
+
+Based on customer feedback, we've set up a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Windows Virtual Desktop deployment easier.
+
+### Azure Monitor for Windows Virtual Desktop is now in General Availability
+
+Azure Monitor for Windows Virtual Desktop is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](azure-monitor.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+
+### March 2021 updates for Teams on Windows Virtual Desktop
+
+We've made the following updates for Teams on Windows Virtual Desktop:
+
+- We've improved video quality performance on calls and 2x2 mode.
+- We've reduced CPU utilization by 5-10% (depending on CPU generation) by using hardware offload of video processing (XVP).
+- Older machines can now use XVP and hardware decoding to display more incoming video streams smoothly in 2x2 mode.
+- We've updated the WebRTC stack from M74 to M88 for better AV sync performance and fewer transient issues.
+- We've replaced our software H264 encoder with OpenH264 (OSS used in Teams on the web), which increased the video quality of the outgoing camera.
+- We enabled 2x2 mode for Teams Server for the general public on March 30. 2x2 mode shows up to four incoming video streams at the same time.
+
+### Start VM on Connect public preview
+
+The new host pool setting, Start VM on Connect, is now available in public preview. This setting lets you turn on your VMs whenever you need them. If you want to save costs, you'll need to deallocate your VMs by configuring your Azure Compute settings. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
+
+### Windows Virtual Desktop Specialty certification
+
+We've released a beta version of the AZ-140 exam that will let you prove your expertise in Windows Virtual Desktop in Azure. To learn more, check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
 
 ## February 2021
 
