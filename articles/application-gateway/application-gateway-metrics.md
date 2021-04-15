@@ -2,11 +2,11 @@
 title: Azure Monitor metrics for Application Gateway
 description: Learn how to use metrics to monitor performance of application gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: surmb
+ms.author: azhussai
 
 ---
 # Metrics for Application Gateway
