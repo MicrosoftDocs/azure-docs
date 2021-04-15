@@ -162,7 +162,7 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 
 ### Palo Alto Networks SACA deployment
 
-The Palo Alto Networks deployment template deploys one to many VM-Series appliances, as well as the VDMS staging and routing to enable a one-tier, VDSS-compliant architecture. This architecture meets the requirements of SCCA. 
+The Palo Alto Networks deployment template deploys one to many VM-Series appliances, as well as the VDMS staging and routing to enable a one-tier, VDSS-compliant architecture. This architecture meets the requirements of VDSS. 
 
 ![Palo Alto SACA diagram](media/pansaca.png)
 
