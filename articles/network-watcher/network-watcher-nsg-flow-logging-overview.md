@@ -338,7 +338,7 @@ While flow logs target NSGs, they are not displayed the same as the other logs. 
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-*Visualize flow Logs*
+*Visualize flow logs*
 
 - [Azure Traffic analytics](./traffic-analytics.md) is an Azure native service to process flow logs, extracts insights and visualize flow logs. 
 - [[Tutorial] Visualize NSG Flow logs with Power BI](./network-watcher-visualize-nsg-flow-logs-power-bi.md)
@@ -346,6 +346,18 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [[Tutorial] Manage and analyze NSG Flow logs using Grafana](./network-watcher-nsg-grafana.md)
 - [[Tutorial] Manage and analyze NSG Flow logs using Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
+*Disable flow logs*
+
+When the flow log is disabled, the flow logging for associated NSG is stopped. But the flow log as a resource continues to exist with all its settings and associations. It can be enabled anytime to begin flow logging on the configured NSG. Steps to disable/enable a flow logs can be found in [this how to guide](./network-watcher-nsg-flow-logging-powershell.md).  
+
+*Delete flow logs*
+
+When the flow log is deleted, not only the flow logging for the associated NSG is stopped but also the flow log resource is deleted with its settings and associations. To begin flow logging again, a new flow log resource must be created for that NSG. A flow log can be deleted using [PowerShell](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkwatcherflowlog), [CLI](https://docs.microsoft.com/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) or [REST API](https://docs.microsoft.com/rest/api/network-watcher/flowlogs/delete). The support for deleting flow logs from Azure portal is in pipeline.    
+
+Also, when a NSG is deleted, by default the associated flow log resource is deleted.
+
+> [!NOTE]
+> To move a NSG to a different resource group or subscription, the associated flow logs must be deleted, just disabling the flow logs won't work. After migration of NSG, the flow logs must be recreated to enable flow logging on it.  
 
 ## NSG flow logging considerations
 

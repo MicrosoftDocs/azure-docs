@@ -27,4 +27,4 @@ Azure Backup includes encryption on two levels:
 ## Next steps
 
 - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
-- [Azure Backup FAQ](backup-azure-backup-faq.md#encryption) for any questions you may have about encryption
+- [Azure Backup FAQ](/backup-azure-backup-faq.yml#encryption) for any questions you may have about encryption
