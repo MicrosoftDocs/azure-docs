@@ -5,9 +5,6 @@ description: This article gives answers to frequently asked questions about Azur
 services: media-services
 author: Juliako
 manager: femila
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
@@ -15,7 +12,7 @@ ms.author: juliako
 
 # Video Analyzer for Media frequently asked questions
 
-This article answers frequently asked questions about Video Analyzer for Media.
+This article answers frequently asked questions about Azure Video Analyzer for Media (former Video Indexer).
 
 ## General questions
 
@@ -55,7 +52,7 @@ No, Video Analyzer for Media provides the integration of multiple machine learni
 
 ### What media formats does Video Analyzer for Media support?
 
-Video Analyzer for Media supports most common media formats. Refer to the [Azure Media Encoder standard formats](../latest/encode-media-encoder-standard-formats-reference.md) list for more details.
+Video Analyzer for Media supports most common media formats. Refer to the [Azure Media Encoder standard formats](../../media-services/latest/encode-media-encoder-standard-formats-reference.md) list for more details.
 
 ### How do I upload a media file into Video Analyzer for Media and what are the limitations?
 
@@ -72,7 +69,7 @@ For the comprehensive list, see [Uploading considerations and limitations](uploa
 
 ### How long does it take Video Analyzer for Media to extract insights from media?
 
-The amount of time it takes to index a video or audio file, both using the Video Analyzer for Media API and the Video Analyzer for Media web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](../previous/media-services-scale-media-processing-overview.md) available, and whether the [streaming endpoint](../previous/media-services-streaming-endpoints-overview.md) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
+The amount of time it takes to index a video or audio file, both using the Video Analyzer for Media API and the Video Analyzer for Media web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](../../media-services/previous/media-services-scale-media-processing-overview.md) available, and whether the [streaming endpoint](../../media-services/previous/media-services-streaming-endpoints-overview.md) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
 
 ### Can I create customized workflows to automate processes with Video Analyzer for Media?
 

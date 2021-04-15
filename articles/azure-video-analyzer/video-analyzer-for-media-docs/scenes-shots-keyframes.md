@@ -5,9 +5,6 @@ description: This topic gives an overview of the Azure Video Analyzer for Media 
 services: media-services
 author: Juliako
 manager: femila
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
@@ -15,7 +12,7 @@ ms.author: juliako
 
 # Scenes, shots, and keyframes
 
-Video Analyzer for Media supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic.   
+Azure Video Analyzer for Media (former Video Indexer) supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic.   
 
 ![Scenes, shots, and keyframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
  

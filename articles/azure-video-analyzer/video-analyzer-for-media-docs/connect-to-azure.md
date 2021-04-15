@@ -5,8 +5,6 @@ description: Learn how to create a Azure Video Analyzer for Media (former Video 
 services: media-services
 author: Juliako
 manager: femila
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article 
 ms.date: 01/14/2021
 ms.author: juliako
@@ -14,13 +12,13 @@ ms.author: juliako
  
 # Create a Video Analyzer for Media account
 
-When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Analyzer for Media account that's connected to your Azure subscription. You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+When creating a Azure Video Analyzer for Media (former Video Indexer) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Analyzer for Media account that's connected to your Azure subscription. You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 This article shows how to create a Video Analyzer for Media account that's linked to an Azure subscription and an Azure Media Services account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
 
 If you are moving from a *trial* to *paid* Video Analyzer for Media account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
-The article also covers [Linking a Video Analyzer for Media account to Azure Government](#video-indexer-in-azure-government).
+The article also covers [Linking a Video Analyzer for Media account to Azure Government](#video-analyzer-for-media-in-azure-government).
 
 ## Prerequisites for connecting to Azure
 
@@ -79,7 +77,7 @@ The article also covers [Linking a Video Analyzer for Media account to Azure Gov
         Your Media Services account must have the same region as your Video Analyzer for Media account.
 
         > [!NOTE]
-        > To minimize indexing duration and low throughput, it's highly recommended to adjust the type and number of [Reserved Units](../previous/media-services-scale-media-processing-overview.md ) in your Media Services account to **10 S3 Reserved Units**. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md). The reserved units are charged to your account, view [pricing details](https://azure.microsoft.com/pricing/details/media-services/#analytics).
+        > To minimize indexing duration and low throughput, it's highly recommended to adjust the type and number of [Reserved Units](../../media-services/previous/media-services-scale-media-processing-overview.md ) in your Media Services account to **10 S3 Reserved Units**. See [Use portal to change reserved units](../../media-services/previous/media-services-portal-scale-media-processing.md). The reserved units are charged to your account, view [pricing details](https://azure.microsoft.com/pricing/details/media-services/#analytics).
     * To manually configure your connection, select the **Switch to manual configuration** link.
 
         For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually-advanced-option) (advanced option) section that follows.
@@ -102,7 +100,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 ### Create and configure a Media Services account
 
-1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
+1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../../media-services/previous/media-services-portal-create-account.md).
 
      Make sure the Media Services account was created with the classic APIs. 
  
@@ -115,7 +113,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
-1. Adjust the type and number of [reserved units](../previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md).
+1. Adjust the type and number of [reserved units](../../media-services/previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change reserved units](../../media-services/previous/media-services-portal-scale-media-processing.md).
 
     The reserved units are charged to your account, view [pricing details](https://azure.microsoft.com/pricing/details/media-services/#analytics).s
 1. Before you can play your videos in the Video Analyzer for Media web app, you must start the default **Streaming Endpoint** of the new Media Services account.
@@ -123,10 +121,10 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
     ![Streaming endpoints](./media/create-account/create-ams-account-se.png)
-4. For Video Analyzer for Media to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](../previous/media-services-portal-get-started-with-aad.md):
+4. For Video Analyzer for Media to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](../../media-services/previous/media-services-portal-get-started-with-aad.md):
 
     1. In the new Media Services account, select **API access**.
-    2. Select [Service principal authentication method](../previous/media-services-portal-get-started-with-aad.md).
+    2. Select [Service principal authentication method](../../media-services/previous/media-services-portal-get-started-with-aad.md).
     3. Get the client ID and client secret
 
         After you select **Settings**->**Keys**, add **Description**, press **Save**, and the key value gets populated.

@@ -6,9 +6,6 @@ documentationcenter: ''
 author: ika-microsoft
 manager: femila
 editor: ''
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.workload: 
 ms.topic: article
 ms.custom: 
@@ -18,7 +15,7 @@ ms.author: ikbarmen
 
 # Manage multiple tenants
 
-This article discusses different options for managing multiple tenants with Video Analyzer for Media. Choose a method that is most suitable for your scenario:
+This article discusses different options for managing multiple tenants with Azure Video Analyzer for Media (former Video Indexer). Choose a method that is most suitable for your scenario:
 
 * Video Analyzer for Media account per tenant
 * Single Video Analyzer for Media account for all tenants

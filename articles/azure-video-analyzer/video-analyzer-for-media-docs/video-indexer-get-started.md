@@ -5,9 +5,6 @@ description: Learn how to sign up and upload your first video using the Azure Vi
 services: media-services
 author: Juliako
 manager: femila
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 01/25/2021
 ms.author: juliako
@@ -15,7 +12,7 @@ ms.author: juliako
 
 # Quickstart: How to sign up and upload your first video
 
-This getting started quickstart shows how to sign in to the Video Analyzer for Media website and how to upload your first video.
+This getting started quickstart shows how to sign in to the Azure Video Analyzer for Media (former Video Indexer) website and how to upload your first video.
 
 When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/). 
 
@@ -26,13 +23,13 @@ To start developing with Video Analyzer for Media, browse to the [Video Analyzer
 Once you start using Video Analyzer for Media, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
 
 > [!NOTE]
-> Review [planned Video Analyzer for Media website authenticatication changes](release-notes.md#planned-video-indexer-website-authenticatication-changes).
+> Review [planned Video Analyzer for Media website authenticatication changes](./release-notes.md#planned-video-analyzer-for-media-website-authenticatication-changes).
 
 ## Upload a video using the Video Analyzer for Media website
 
 ### Supported file formats for Video Analyzer for Media
 
-See the [input container/file formats](../latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Analyzer for Media.
+See the [input container/file formats](../../media-services/latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Analyzer for Media.
 
 ### Upload a video
 

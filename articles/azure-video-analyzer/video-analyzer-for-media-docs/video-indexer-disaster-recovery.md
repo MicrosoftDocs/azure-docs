@@ -7,9 +7,6 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.workload: 
 ms.topic: article
 ms.custom: 
@@ -18,7 +15,7 @@ ms.author: juliako
 ---
 # Video Analyzer for Media failover and disaster recovery
 
-Video Analyzer for Media doesn't provide instant failover of the service if there's a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for apps and minimized recovery time if a disaster occurs.
+Azure Video Analyzer for Media (former Video Indexer) doesn't provide instant failover of the service if there's a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for apps and minimized recovery time if a disaster occurs.
 
 We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure's isolation and availability policies. For more information, see [Azure paired regions](../../best-practices-availability-paired-regions.md).
 
@@ -36,7 +33,7 @@ To implement BCDR, you need to have two Video Analyzer for Media accounts to han
 > [!TIP]
 > You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
-For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Video Analyzer for Media account per tenant](manage-multiple-tenants.md#video-indexer-account-per-tenant) or [Azure subscription per tenant](manage-multiple-tenants.md#azure-subscription-per-tenant).
+For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Video Analyzer for Media account per tenant](./manage-multiple-tenants.md#video-analyzer-for-media-account-per-tenant) or [Azure subscription per tenant](./manage-multiple-tenants.md#azure-subscription-per-tenant).
 
 ## Next steps
 
