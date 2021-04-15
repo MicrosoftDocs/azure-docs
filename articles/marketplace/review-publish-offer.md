@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 04/14/2021
+ms.date: 04/13/2021
 ---
 
 # How to review and publish an offer to the commercial marketplace

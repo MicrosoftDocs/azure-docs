@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 06/17/2020
+ms.date: 04/14/2021
 ---
 
 # Create an Azure container offer in Azure Marketplace

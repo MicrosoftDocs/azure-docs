@@ -6,7 +6,7 @@ ms.author: navits
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 04/14/2021
 ---
 
 # Create a Power BI app offer

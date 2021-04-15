@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/13/2021
+ms.date: 04/14/2021
 ---
 
 # Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center

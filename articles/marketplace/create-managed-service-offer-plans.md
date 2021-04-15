@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/15/2021
 ---
 
 # How to create plans for your Managed Service offer

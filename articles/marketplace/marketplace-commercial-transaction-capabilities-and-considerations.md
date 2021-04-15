@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 04/14/2021
 ms.author: mingshen
 author: mingshen-ms
 ---

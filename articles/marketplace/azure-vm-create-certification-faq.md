@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: mathapli
 ms.author: mathapli
-ms.date: 04/14/2021
+ms.date: 04/13/2021
 ---
 
 # Troubleshoot virtual machine certification
