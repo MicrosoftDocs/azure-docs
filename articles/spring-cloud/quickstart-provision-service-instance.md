@@ -113,6 +113,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
     - **Resource group**: Creating new resource groups for new resources is a best practice. Note that this will be used in later steps as **\<resource group name\>**.
     - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - **Location**: Select the location for your service instance.
+    - On the **Application insights** tab, select *yes* for **Enable Java in-process agent**.
 
     ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
