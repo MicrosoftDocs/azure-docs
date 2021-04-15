@@ -49,17 +49,18 @@ However, as you continue data exploration, you might want to create some utility
 - Database users with the permissions to access some data sources or database objects.
 - Utility views, procedures, and functions that you can use in the queries.
 
-You need to create a separate database to use these objects. Custom database objects, cannot be created in the `master` database.
+1. You need to create a separate database to use these objects. Custom database objects, cannot be created in the `master` database.
 
     ```sql
-    CREATE DATABASE DataExplorationDB COLLATE Latin1_General_100_BIN2_UTF8
+    CREATE DATABASE DataExplorationDB 
+                    COLLATE Latin1_General_100_BIN2_UTF8
     ```
 
 > [!IMPORTANT]
 > Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
 > the best performance in the queries that read data from Parquet files and cosmos Db containers.
 
-1. Switch to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
+2. Switch to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE ContosoLake
@@ -69,7 +70,7 @@ You need to create a separate database to use these objects. Custom database obj
 > [!NOTE]
 > An external data source can be created without credential. In that case, the caller's identity will be used to acces external data source.
 
-2. Optionally, you can create database  to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
+3. Optionally, you can create database  to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
 
 
     ```sql
@@ -80,13 +81,13 @@ You need to create a separate database to use these objects. Custom database obj
     ```sql
     CREATE USER data_explorer FROM LOGIN = 'data_explorer';
     GO
-    GRANT ADMINISTER DATABASE BULK OPERATIONS TO USER = 'data_explorer';
+    GRANT ADMINISTER DATABASE BULK OPERATIONS TO data_explorer;
     GO
     ```
 
-3. Explore the content of the file using the relative path and the data source:
+4. Explore the content of the file using the relative path and the data source:
 
-    ```
+    ```sql
     SELECT
         TOP 100 *
     FROM
