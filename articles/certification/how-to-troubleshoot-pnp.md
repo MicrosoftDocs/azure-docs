@@ -29,7 +29,7 @@ AICS test may not pass because of several causes. Follow these steps to check fo
 1. In some instances where the logs indicate `Failed to get Digital Twin Model ID of device xx due to DeviceNotConnected`, try rebooting the device and restarting the device provisioning process.
 1. If the automated tests continue to fail, then you can `request a manual review` of the results to substitute. This will trigger a request for **manual validation** with the Azure Certified Device team.  
 
-    ![Review test data](./media/images/request-manual-review.png)
+    ![Request manual review](./media/images/request-manual-review.png)
 
 ## When you see "Passed with warnings"
 
@@ -37,7 +37,7 @@ While running the tests, if you receive a result of `Passed with warnings`, this
 
 ## When you need help with the model repository
 
-For IoT Plug and Play issues related to the model repository, refer to [our Docs guidance about the device model repository](http://docs.microsoft.com/azure/iot-pnp/concepts-model-repository).
+For IoT Plug and Play issues related to the model repository, refer to [our Docs guidance about the device model repository](https://docs.microsoft.com/azure/iot-pnp/concepts-model-repository).
 
 ## Next steps
 
