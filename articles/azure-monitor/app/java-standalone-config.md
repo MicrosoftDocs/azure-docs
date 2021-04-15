@@ -270,7 +270,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
-## Auto-collected Azure SDK telemetry (Preview)
+## Auto-collected Azure SDK telemetry (preview)
 
 Many of the latest Azure SDK libraries emit telemetry (see the [full list](./java-in-process-agent.md#azure-sdks-preview)).
 

@@ -126,9 +126,9 @@ See [configuration options](./java-standalone-config.md) for full details.
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
-### Azure SDKs (Preview)
+### Azure SDKs (preview)
 
-See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry)
+See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)
 to enable this preview feature and capture the telemetry emitted by these Azure SDKs:
 
 * [App Configuration](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme) 1.1.9+
