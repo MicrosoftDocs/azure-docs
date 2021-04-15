@@ -11,6 +11,8 @@ ms.date: 04/14/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
+# Handling Recording File Events and Download Sample
+
 ## Prerequisits
 As a prerequisite you need to create a valid ACS resource.
 
