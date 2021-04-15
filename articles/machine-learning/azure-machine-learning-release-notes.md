@@ -19,7 +19,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
 
-## 2021-04-05
+## 2021-04-19
 
 ### Azure Machine Learning SDK for Python v1.27.0
 + **Bug fixes and improvements**
