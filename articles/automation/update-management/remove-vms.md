@@ -26,9 +26,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 3. In the Azure portal, navigate to **Log Analytics workspaces**. Select your workspace from the list.
 
-4. In your Log Analytics workspace, select **Advanced settings** and then and choose **Computer Groups** from the left-hand menu.
+4. In your Log Analytics workspace, from **Settings** in the left-hand pane, select **Computer Groups**
 
-5. From **Computer Groups** in the right-hand pane, select **Saved groups**.
+5. Select **Saved Groups**.
 
 6. From the table, for the saved search query **Updates:MicrosoftDefaultComputerGroup**, click the **View Members** icon to run and view its members.
 
