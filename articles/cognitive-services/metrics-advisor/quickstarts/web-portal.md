@@ -63,10 +63,7 @@ This quickstart uses a SQL Database as an example. You can also ingest your own 
 * **Ingest data since (UTC)**: The start time for the first timestamp to be ingested. 
 
 
-Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**. 
-Here is something you must know: The query is aimed to return some records for each dimension combination in each granularity, so you should specify the granularity to indicate how often for data ingestion. Metrics Advisor will run this query for each timestamp to ingest your data.
-
-[!INCLUDE [query requirements](../includes/query-requirements.md)]
+Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**, see [how to write a valid query](../tutorial/write-a-valid-query.md) for more information. 
 
 :::image type="content" source="../media/connection-settings.png" alt-text="Connection settings" lightbox="../media/connection-settings.png":::
 
