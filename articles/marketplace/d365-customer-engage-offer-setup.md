@@ -36,7 +36,6 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- The Offer ID combined with the Publisher ID must be under 50 characters in length. <font color="red">[ still true? ]</font>
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -69,7 +68,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. <font color="red">[ Need to do this ]</font>Configuring a CRM (see next section) is required with test drive <font color="red">[ Applies to CE&PA too? ]</font> and when using the **Contact me** package type. To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. With test drive, you must also configure your offer to a CRM system for customer leads (see next section). To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 

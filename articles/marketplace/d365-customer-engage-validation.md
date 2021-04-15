@@ -1,15 +1,15 @@
 ---
-title: Functional validation of a Dynamics 365 Business Central offer in Microsoft AppSource.
-description: Functionally validate a Dynamics 365 Business Central offer in Microsoft AppSource.
+title: Functional validation of a Dynamics 365 for Customer Engagement & Power Apps offer in Microsoft AppSource (Azure Marketplace).
+description: Functionally validate a Dynamics 365 for Customer Engagement & Power Apps offer in Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: emuench
 ms.author: navits
-ms.date: 12/07/2020
+ms.date: 04/15/2021
 ---
 
-# Dynamics 365 for Customer Engagement & PowerApps functional validation
+# Dynamics 365 for Customer Engagement & Power Apps functional validation
 
 Publishing a Dynamics 365 for Customer Engagement & PowerApps offer in [Partner Center](https://partner.microsoft.com/dashboard/home) requires two functional validations:
 
@@ -72,5 +72,5 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 ## Next steps
 
 - To start creating an offer, see [Plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md) <font color="red"> [ use if this is first and delete below] </font>
-- To publish your offer, see [Review and publish your offer](review-publish-offer.md) <font color="red"> [ use if this is at the end and delete above] </font>
+- To publish your offer, see [Review and publish your offer](d365-customer-engage-review-publish.md) <font color="red"> [ use if this is at the end and delete above] </font>
 

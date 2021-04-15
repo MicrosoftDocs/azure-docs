@@ -27,7 +27,9 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)].
 
-Enter an **App version** for your offer. Customers will see this number listed on the offer's detail page. <strike>If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.</strike>
+Select the **Applicable products** in Dynamics 365 this offer applies to.
+
+Enter an **App version** for your offer. Customers will see this number listed on the offer's detail page.
 
 ## Legal
 

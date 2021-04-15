@@ -201,7 +201,7 @@
     items: 
     - name: Plan your offer
       href: marketplace-dynamics-365.md
-    - name: Create a Customer Engagement & PowerApps offer
+    - name: Create a Customer Engagement & Power Apps offer
       items: 
       - name: Create the offer
         href: d365-customer-engage-offer-setup.md
@@ -217,6 +217,8 @@
         href: d365-customer-engage-supplemental-content.md
       - name: Functional validation
         href: d365-customer-engage-validation.md
+      - name: Review and publish
+        href: d365-customer-engage-review-publish.md
     - name: Create an Operations offer
       items: 
       - name: Create a Dynamics 365 for Operations offer
