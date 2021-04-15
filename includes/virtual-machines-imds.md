@@ -422,7 +422,7 @@ Data | Description |
 
 ### Get user data
 
-When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. To set up user data, utilize the quickstart template [here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-userdata). The sample below shows how to retrieve this data through IMDS.
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. To set up user data, utilize the quickstart template [here](aka.ms/ImdsUserDataArmTemplate). The sample below shows how to retrieve this data through IMDS.
 
 > [!NOTE]
 > This feature is released with version `2021-01-01` and depends upon an update to the Azure platform, which is currently being rolled out and may not yet be available in every region.
@@ -1159,7 +1159,7 @@ If there is a data element not found or a malformed request, the Instance Metada
 | `404 Not Found` | The requested element doesn't exist
 | `405 Method Not Allowed` | The HTTP method (verb) is not supported on the endpoint.
 | `410 Gone` | Retry after some time for a max of 70 seconds
-| `429 Too Many Requests` | API [Rate Limits](#rate-limiting) has been exceeded
+| `429 Too Many Requests` | API [Rate Limits](#rate-limiting) have been exceeded
 | `500 Service Error` | Retry after some time
 
 ## Frequently asked questions
