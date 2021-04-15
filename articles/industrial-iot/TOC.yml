@@ -5,10 +5,8 @@
   items:
   - name: What is Industrial IoT?
     href: overview-what-is-industrial-iot.md
-  - name: What is the OPC Publisher?
+  - name: What is OPC Publisher?
     href: overview-what-is-opc-publisher.md
-  - name: What is the Industrial IoT Platform?
-    href: overview-what-is-industrial-iot-platform.md
 - name: Tutorials
   items:
   - name: OPC Publisher standalone tutorials
