@@ -137,7 +137,7 @@
     - name: Support matrix for backup of SAP HANA databases
       href: ../../../backup/sap-hana-backup-support-matrix.md
     - name: FAQ – Back up SAP HANA databases on Azure VMs
-      href: ../../../backup/sap-hana-faq-backup-azure-vm.md
+      href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
     - name: Troubleshoot backup of SAP HANA databases on Azure
       href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
     - name: Tutorial - Back up SAP HANA databases in an Azure VM

@@ -23,8 +23,7 @@ We strongly recommend you to test your application with the new PostgreSQL and
 Citus version before you upgrade your production environment.
 
 A convenient way to test is to make a copy of your server group using
-[point-in-time
-restore](concepts-hyperscale-backup.md#point-in-time-restore-pitr). Upgrade the
+[point-in-time restore](concepts-hyperscale-backup.md#restore). Upgrade the
 copy and test your application against it. Once you've verified everything
 works properly, upgrade the original server group.
 
