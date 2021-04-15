@@ -92,22 +92,34 @@
   items:
   - name: Queues, topics, and subscriptions
     href: service-bus-queues-topics-subscriptions.md
-  - name: Message sessions
-    href: message-sessions.md
-  - name: Topic filters and actions
-    href: topic-filters.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-  - name: Message transfers, locks, and settlement
-    href: message-transfers-locks-settlement.md
-  - name: Dead-letter queues
-    href: service-bus-dead-letter-queues.md
-  - name: Message counters
-    href: message-counters.md
-  - name: Optimize performance
-    href: service-bus-performance-improvements.md
+  - name: Advanced features
+    items: 
+    - name: Message sessions
+      href: message-sessions.md
+    - name: Topic filters and actions
+      href: topic-filters.md
+    - name: Message browsing
+      href: message-browsing.md
+    - name: Message transfers, locks, and settlement
+      href: message-transfers-locks-settlement.md
+    - name: Dead-letter queues
+      href: service-bus-dead-letter-queues.md
+    - name: Message counters
+      href: message-counters.md
+    - name: Optimize performance
+      href: service-bus-performance-improvements.md
+    - name: Geo-disaster recovery and geo-replication
+      href: service-bus-geo-dr.md
+    - name: Asynchronous messaging and high availability
+      href: service-bus-async-messaging.md
+    - name: Handling outages and disasters
+      href: service-bus-outages-disasters.md
+    - name: Throttling
+      href: service-bus-throttling.md
   - name: Federation 
     items:
       - name: Message replication and cross-region federation
@@ -124,14 +136,6 @@
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
       - name: Acquire messages from Event Hubs
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
-  - name: Geo-disaster recovery and geo-replication
-    href: service-bus-geo-dr.md
-  - name: Asynchronous messaging and high availability
-    href: service-bus-async-messaging.md
-  - name: Handling outages and disasters
-    href: service-bus-outages-disasters.md
-  - name: Throttling
-    href: service-bus-throttling.md
   - name: Security
     items:
     - name: Security baseline
@@ -206,8 +210,6 @@
         href: duplicate-detection.md
       - name: Message deferral
         href: message-deferral.md
-      - name: Message browsing
-        href: message-browsing.md
       - name: Chain entities with auto-forwarding
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
