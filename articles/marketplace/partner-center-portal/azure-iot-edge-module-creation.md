@@ -301,7 +301,7 @@ After you create your plans, the **Plan overview** tab shows:
 The actions available in the Plan overview vary depending on the current status of your plan. They include:
 
 - **Delete draft**: If the plan status is a Draft.
-- **Stop sell plan**: If the plan status is published live.
+- **Deprecate plan** (formerly Stop sell plan): If the plan status is published live. 
 
 ### Create new plan
 

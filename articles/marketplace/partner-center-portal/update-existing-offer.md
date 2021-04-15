@@ -127,9 +127,9 @@ Remember to republish your offer after making updates for the changes to take ef
 
 You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it, and they can download it again if needed. However, they won't get updates if you decide to republish the offer or plan at a later time.
 
-- To deprecate (formerly stop sell) an offer after you've published it, select **deprecate (formerly stop sell)** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
+- To deprecate (formerly stop sell) an offer after you've published it, select **deprecate** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
 
-- To deprecate (formerly stop sell) a plan, select **deprecate (formerly stop sell)** from the **Plan overview** page. The option to deprecate (formerly stop sell) a plan is only available if you have more than one plan in the offer. You can choose to deprecate (formerly stop sell) one plan without impacting other plans within your offer.
+- To deprecate (formerly stop sell) a plan, select **deprecate** from the **Plan overview** page. The option to deprecate (formerly stop sell) a plan is only available if you have more than one plan in the offer. You can choose to deprecate (formerly stop sell) one plan without impacting other plans within your offer.
      >[!NOTE]
      > Once you confirm you want to deprecate (formerly stop sell) the plan, you must republish the offer for the change to take effect.
 
