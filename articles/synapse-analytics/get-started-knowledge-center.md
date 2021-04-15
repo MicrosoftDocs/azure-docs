@@ -25,7 +25,7 @@ There are two ways of finding the Knowledge Center in Synapse Studio:
 
 Pick either method and open the **Knowledge Center**.
 
-# Exploring the Knowledge center
+## Exploring the Knowledge center
 
 Once it is visible, you will see that the **Knowledge center** allows you to do three things:
 * **Use samples immediately**. If you want a quick example of how Synapse works, choose this option.
