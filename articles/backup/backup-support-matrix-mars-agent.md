@@ -251,7 +251,7 @@ The following table lists the previous versions of the agent with their download
 [2.0.9207.0](https://download.microsoft.com/download/b/5/a/b5a29638-1cef-4906-b704-4d3d914af76e/MARSAgentInstaller.exe) | [5001305](https://support.microsoft.com/help/5001305)
 
 >[!NOTE]
->A few versions only have minor internal reliability and performance improvements. So, the versions don't have a KB article.
+>MARS agent versions with minor reliability and performance improvements don't have a KB article.
 
 ## Next steps
 
