@@ -8,7 +8,7 @@
   - name: Language support
     href: language-support.md
   - name: Pricing and limits
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/   
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -21,16 +21,20 @@
   items:
   - name: "C#/.NET: Form Recognizer client library SDK"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-  - name: "Java: Form Recognizer client library SDK" 
+  - name: "Java: Form Recognizer client library SDK"
     href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
   - name: "Python: Form Recognizer client library SDK"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+  - name: "JavaScript Form Recognizer client library SDK"
+    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+  - name: "REST API  and cURL"
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer
 - name: How-to guides
   items:
   - name: Build a training data set
     href: build-training-data-set.md
   - name: Use table tags to train your custom model
-    href: supervised-table-tags.md  
+    href: supervised-table-tags.md
   - name: Deploy the sample labeling tool
     href: deploy-label-tool.md
   - name: Use containers
@@ -42,7 +46,7 @@
       href: form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
-      maintainContext: true 
+      maintainContext: true
       href: ../containers/azure-container-instance-recipe.md
     - name: Cognitive Services containers documentation
       href: ../containers/index.yml
@@ -53,18 +57,18 @@
   - name: Layout API
     expanded: true
     items:
-    - name: Extract form data    
+    - name: Extract form data
       href: concept-layout.md
   - name: Custom models
-    href: concept-custom.md  
+    href: concept-custom.md
   - name: Receipts
     href: concept-receipts.md
   - name: Business cards
     href: concept-business-cards.md
   - name: Invoices
     href: concept-invoices.md
-  - name: Identification cards
-    href: concept-identification-cards.md    
+  - name: Identity documents
+    href: concept-identification-cards.md
 - name: Tutorials
   items:
   - name: Extract form data in bulk
@@ -103,5 +107,5 @@
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
     href: encrypt-data-at-rest.md
-  - name: Privacy and cookies 
+  - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement
