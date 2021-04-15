@@ -72,13 +72,16 @@ Follow the [instructions to register a single-page application](./scenario-spa-a
 
 On the app **Overview** page of your registration, note the **Application (client) ID** value for later use.
 
-Register your **Redirect URI** value as **http://localhost:4200/** and type 'SPA'.
+Register your **Redirect URI** value as **http://localhost:4200/** and type as 'SPA'.
 
 ## Configure the application
 
-1. In the *src/app* folder, edit *app.module.ts* and add `MSALModule` to `imports` as well as the `isIE` constant:
+1. In the *src/app* folder, edit *app.module.ts* and add `MsalModule` to `imports` as well as the `isIE` constant:
 
     ```javascript
+    import { MsalModule } from '@azure/msal-angular';
+    import { PublicClientApplication } from '@azure/msal-browser';
+
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
     @NgModule({
@@ -88,7 +91,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type 'SPA
       imports: [
         BrowserModule,
         AppRoutingModule,
-        MsalModule.forRoot({
+        MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here', // This is your client ID
             authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant ID
@@ -97,8 +100,8 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type 'SPA
           cache: {
             cacheLocation: 'localStorage',
             storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
-          },
-        })
+          }
+        }), null, null)
       ],
       providers: [],
       bootstrap: [AppComponent]
@@ -122,7 +125,27 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type 'SPA
     import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
     ```
 
-3. Add the following import statements to the top of `src/app/app.component.ts`:
+3. If you are planning to use redirects, we recommend also bootstrapping the `MsalRedirectComponent` and adding the `<app-redirect>` selector to *src/index.html*:
+
+    ```javascript
+    // app.component.ts
+    import { MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
+
+    @NgModule({
+      // ...
+      bootstrap: [AppComponent, MsalRedirectComponent]
+    })
+    ```
+
+    ```javascript
+    // index.html
+    <body>
+      <app-root></app-root>
+      <app-redirect></app-redirect>
+    </body>
+    ```
+
+4. Add the following import statements to the top of `src/app/app.component.ts`:
 
     ```javascript
     import { MsalService, MsalBroadcastService } from '@azure/msal-angular';
@@ -153,6 +176,70 @@ export class AppComponent implements OnInit {
 > [!TIP]
 > We recommend using `loginRedirect` for Internet Explorer users.
 
+### Signing in with Redirects
+Redirects have to be handled after signing in. If you have bootstrapped the `MsalRedirectComponent` above, redirects back to your app should be handled. If you want to access the result from the sign in, you should subscribe to the `MsalBroadcastService`, filtering for the the `LOGIN_SUCCESS` event as follows:
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { MsalBroadcastService } from '@azure/msal-angular';
+import { EventMessage, EventType } from '@azure/msal-browser';
+import { filter } from 'rxjs/operators';
+
+export class HomeComponent implements OnInit {
+
+  constructor(private msalBroadcastService: MsalBroadcastService) { }
+
+  ngOnInit(): void {   
+    this.msalBroadcastService.msalSubject$
+      .pipe(
+        filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS),
+      )
+      .subscribe((result: EventMessage) => {
+        // Do something with result here
+      });
+  }
+}
+```
+
+If you are unable to bootstrap the `MsalRedirectComponent`, you can handle redirects manually by adding `handleRedirectObservable` to all pages redirected to. If using this method, you can access the result from the sign in as follows:
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { MsalService } from '@azure/msal-angular';
+
+export class HomeComponent implements OnInit {
+  loginDisplay = false;
+
+  constructor(private authService: MsalService) { }
+
+  ngOnInit(): void {
+    this.authService.handleRedirectObservable().subscribe({
+      next: (result) => {
+        // Do something with result here
+      },
+      error: (error) => console.log(error)
+    });
+  }
+}
+
+```
+
+### Signing in with Popups
+
+Results from signing in with popups can be accessed as follows:
+
+```javascript
+this.authService.loginPopup()
+  .subscribe({
+    next: (result) => {
+      // Do something with result here
+    },
+    error: (error) => console.log(error)
+  });
+```
+
+Other components can also subscribe to the `MsalBroadcastService` and filter for the `LOGIN_SUCCESS` event, as above, when signing in with popups.
+
 ## Guarding routes
 
 ### Angular Guard
@@ -175,6 +262,8 @@ import { MsalGuard, MsalModule } from "@azure/msal-angular";
 Next, provide configurations for MsalGuard in the `MsalModule.forRoot()`. Scopes needed for acquiring tokens later can be provided in the `authRequest`, and the type of interaction for the Guard can be set to `Redirect` or `Popup`. An optional route can also be provided for when the guard fails.
 
 ```javascript
+import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
+
 @NgModule({
   // ...
   imports: [
@@ -182,7 +271,7 @@ Next, provide configurations for MsalGuard in the `MsalModule.forRoot()`. Scopes
     MsalModule.forRoot({
       auth: {
         clientId: 'Enter_the_Application_Id_here', 
-        authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Info_Here', 
+        authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', 
         redirectUri: 'Enter_the_Redirect_Uri_Here' 
       },
       cache: {
@@ -229,7 +318,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: !isIframe ? 'enabled' : 'disabled' // Don't perform initial navigation in iframes
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
@@ -238,10 +329,15 @@ export class AppRoutingModule { }
 You may also wish to adjust your login calls in `app.component.ts` to take the `authRequest` set in the guard configurations into account:
 
 ```javascript
+import { Component, Inject, OnInit } from '@angular/core';
+import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { PopupRequest, RedirectRequest } from '@azure/msal-browser';
 
 export class AppComponent implements OnInit {
-  constructor(private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+  constructor(
+    @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, 
+    private msalBroadcastService: MsalBroadcastService, 
+    private authService: MsalService) { }
 
   ngOnInit() { }
 
@@ -262,7 +358,6 @@ export class AppComponent implements OnInit {
         .subscribe();
     }
   }
-
 }
 ```
 
@@ -280,6 +375,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   // ...
+  imports : [
+    // ...
+    HttpClientModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -300,7 +399,7 @@ Next, provide configurations for Msal Interceptor in `MsalModule.forRoot()`. The
     MsalModule.forRoot({
       auth: {
         clientId: 'Enter_the_Application_Id_here', 
-        authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Info_Here', 
+        authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', 
         redirectUri: 'Enter_the_Redirect_Uri_Here' 
       },
       cache: {
@@ -308,7 +407,7 @@ Next, provide configurations for Msal Interceptor in `MsalModule.forRoot()`. The
         storeAuthStateInCookie: isIE,
       },
     }, {
-        interactionType: InteractionType.Redirect
+        interactionType: InteractionType.Redirect // MSAL Guard Configuration
     }, {
         interactionType: InteractionType.Redirect, // MSAL Interceptor Configuration
         protectedResourceMap: new Map([ 
@@ -319,17 +418,31 @@ Next, provide configurations for Msal Interceptor in `MsalModule.forRoot()`. The
 });
 ```
 
-Finally, retrieve a user's profile with an HTTP request:
+Finally, retrieve a user's profile with an HTTP request in a component:
 
 ```JavaScript
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-getProfile() {
-  this.http.get(GRAPH_ENDPOINT)
-    .subscribe(profile => {
-      this.profile = profile;
-    });
+export class ProfileComponent implements OnInit {
+  profile!: { givenName?: string };
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.getProfile();
+  }
+
+  getProfile() {
+    this.http.get(graphMeEndpoint)
+      .subscribe(profile => {
+        this.profile = profile;
+      });
+  }
 }
+
 ```
 
 ### acquireTokenSilent, acquireTokenPopup, acquireTokenRedirect
@@ -422,6 +535,20 @@ logout(popup?: boolean) {
 
 ## Add UI
 For an example of how to add UI by using the Angular Material component library, see the [sample application](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa).
+
+For UI or functionality that involve user accounts, we recommend subscribing to the `inProgress$` observable and checking that all interactions have completed first:
+
+```javascript
+this.msalBroadcastService.inProgress$
+  .pipe(
+    // Filtering for all interactions to be completed
+    filter((status: InteractionStatus) => status === InteractionStatus.None),
+  )
+  .subscribe(() => {
+    // Do something related to user accounts or UI here
+  })
+}
+```
 
 ## Test your code
 
