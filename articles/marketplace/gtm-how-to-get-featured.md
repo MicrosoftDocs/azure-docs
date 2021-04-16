@@ -9,7 +9,7 @@ ms.author: keferna
 ms.date: 04/15/2020
 ---
 
-# How to get featured in AppSource and Azure Marketplace
+# How to get featured in Microsoft AppSource and Azure Marketplace
 
 Azure Marketplace and AppSource have **featured apps** sections, where you can get your app featured:
 
@@ -18,7 +18,7 @@ Azure Marketplace and AppSource have **featured apps** sections, where you can g
 
 The featured apps selection algorithm generates a score to an app by Microsoft, just like a person's credit score in the US.  The weekly selection of featured apps will be based on a calculation of app and service performance.
 
-## Improving your score
+## Steps to improve your score
 
 You can take the following action items to improve your score:
 
