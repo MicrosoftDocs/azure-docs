@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/14/2021
+ms.date: 04/16/2021
 ---
 
 # Transform data in delta lake using mapping data flows
@@ -61,7 +61,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
     ![Screenshot that shows where you name your data flow when you create a new data flow.](media/tutorial-data-flow/activity2.png)
 1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-    ![Data Flow Activity](media/tutorial-data-flow/dataflow1.png)
+    ![Screenshot that shows where is the Data flow debug slider.](media/tutorial-data-flow/dataflow1.png)
 
 ## Build transformation logic in the data flow canvas
 
