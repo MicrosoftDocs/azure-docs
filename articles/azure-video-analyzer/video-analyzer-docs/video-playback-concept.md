@@ -1,6 +1,7 @@
 ---
 title: Video playback Azure Video Analyzer - Azure
 description: Placeholder
+ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 04/12/2021
 
