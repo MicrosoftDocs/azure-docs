@@ -184,7 +184,7 @@ The following sections specify the parameters required for all authentication ty
 
         Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
 
-        Also, you need to **create a credential entity** in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
+        Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
         
         Here is an example of connection string:
         
@@ -236,7 +236,7 @@ The following sections specify the parameters required for all authentication ty
 
         Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
 
-        Also, you need to **create a credential entity** in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
+        Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
         
         The account name is the same as **Basic** authentication type.
     
@@ -316,7 +316,7 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
 
      Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
 
-     Also, you need to **create a credential entity** in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
+     Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
         
 * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
 
@@ -356,8 +356,9 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
           ALTER ROLE db_datareader ADD MEMBER [MI Name]
           ```
        
-     The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
-        Here is an example of connection string: 
+     Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+        
+     Here is an example of connection string: 
 
         ```
         Data Source=<Server>;Initial Catalog=<Database>
@@ -378,7 +379,7 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
 
         Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
 
-        Also, you need to **create a credential entity** in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
+        Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
         Here is an example of connection string: 
         
         ```
