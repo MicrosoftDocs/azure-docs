@@ -253,13 +253,14 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
-| Language detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
-| Sentiment analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
+| Language Detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
+| Sentiment Analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
 | Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true` |
-| Key phrase extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
-| Named entity recognition - general | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
-| Named entity recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
-| Named entity recognition - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
+| Key Phrase Extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
+| Named Entity Recognition - General | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
+| Named Entity Recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii` |
+| Named Entity Recognition - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi` |
+| Entity Linking | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/linking` |
 
 #### [Asynchronous](#tab/asynchronous)
 
