@@ -54,7 +54,7 @@ Redo can be delayed for a pre-determined period, so user errors aren't immediate
 
 The NetApp Files storage solution used in BareMetal allows you to create snapshots of volumes. Snapshots allow you to revert a filesystem to a specific point in time quickly. Snapshot technologies allow recovery time objective (RTO) times that are only a fraction of the time associated with restoring a database backup.
 
-Snapshot functionality for Oracle databases is available through Azure NetApp SnapCenter. SnapCenter allows you to schedule and automate volume snapshot creation and restoration.
+Snapshot functionality for Oracle databases is available through Azure NetApp SnapCenter. SnapCenter enables snapshots for backup, SnapVault gives you offline vaulting, and Snap Clone enables self-service restore as well as other operations.
 
 ## Recovery Manager
 
