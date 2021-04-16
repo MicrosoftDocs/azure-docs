@@ -81,11 +81,11 @@ Next, create a C# .NET console application in Visual Studio:
     private const string eventHubName = "<EVENT HUB NAME>";
     ```
 
-You can get event hub namespace associated with purview account by looking at Atlas kafka endpoint primary/secondary connection strings in properties tab of Purview account
+    You can get event hub namespace associated with purview account by looking at Atlas kafka endpoint primary/secondary connection strings in properties tab of Purview account.
 
-:::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="Event Hub Namespace":::
+    :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="Event Hub Namespace":::
 
-The event hub name should be ATLAS_HOOK for sending messages to Purview.
+    The event hub name should be **ATLAS_HOOK** for sending messages to Purview.
 
 3. Replace the `Main` method with the following `async Main` method and add an `async ProduceMessage` to push messages into Purview. See the code comments for details. 
 
@@ -288,11 +288,11 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
         private const string blobContainerName = "<BLOB CONTAINER NAME>";
     ```
 	
-You can get event hub namespace associated with purview account by looking at Atlas kafka endpoint primary/secondary connection strings in properties tab of Purview account.
+    You can get event hub namespace associated with purview account by looking at Atlas kafka endpoint primary/secondary connection strings in properties tab of Purview account.
 
-:::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="Event Hub Namespace":::
+    :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="Event Hub Namespace":::
 
-The event hub name should be **ATLAS_ENTITIES** for sending messages to Purview.
+    The event hub name should be **ATLAS_ENTITIES** for sending messages to Purview.
 
 3. Replace the `Main` method with the following `async Main` method. See the code comments for details. 
 
