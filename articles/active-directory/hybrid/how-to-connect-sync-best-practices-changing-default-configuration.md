@@ -27,8 +27,8 @@ The configuration created by Azure AD Connect works “as is” for most environ
 Azure AD Connect sync is running under a service account created by the installation wizard. This service account holds the encryption keys to the database used by sync. It is created with a 127 characters long password and the password is set to not expire.
 
 > [!WARNING]
-> Change or reset the password of the service account destroys the encryption keys and the service is not able to access the database and is not able to start.
-> You will have to [abandon the encryption keys and reconfigure passwords](how-to-connect-sync-change-serviceacct-pass.md)
+> If you change or reset the ADSync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the ADSync service account password.
+> To do this, see [Changing the ADSync service account password](how-to-connect-sync-change-serviceacct-pass.md).
 
 ## Changes to the scheduler
 Starting with the releases from build 1.1 (February 2016) you can configure the [scheduler](how-to-connect-sync-feature-scheduler.md) to have a different sync cycle than the default 30 minutes.
