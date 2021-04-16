@@ -1,8 +1,11 @@
 ---
 title: Throttling Azure Cosmos DB requests in your custom application
 description: This article provides developers with a methodology to throttle requests to Cosmos to reduce errors and improve throughput.
-author: pelasne
-
+author: plasne
+ms.service: cosmos-db
+ms.topic: how-to
+ms.date: 4/16/2021
+ms.author: pelasne
 ---
 
 # Throttling Azure Cosmos DB requests in your custom application
@@ -53,16 +56,6 @@ The method to determine the cost of a request, is different for each API:
 - [Gremlin API](find-request-unit-charge-gremlin.md)
 - [Mongo DB API](find-request-unit-charge-mongodb.md)
 - [Table API](find-request-unit-charge-table.md)
-
-### Measuring cost using the Core API
-
-Every operation executed under the Core API returns the cost of the operation. Specifics on how to access that property on the return are documented in
-[find request unit charge](find-request-unit-charge.md).
-
-Unfortunately, some APIs like the Mongo API do not return the cost of the operation. You can run a database command of "getLastRequestStatistics" to get the
-cost of the last operation in this session as documented in [find request unit charge mongodb](find-request-unit-charge-mongodb). There is no RU cost for running the
-"getLastRequestStatistics" command. In a system that supports asynchronous operations, the last operation is not guaranteed to be the operation you wanted to measure.
-Typically you will need your measurement tests to be synchronous in a different session from your operational session.
 
 ## Write requests
 
