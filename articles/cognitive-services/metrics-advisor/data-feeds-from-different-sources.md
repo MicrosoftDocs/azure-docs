@@ -1,6 +1,5 @@
----![image](https://user-images.githubusercontent.com/81400625/114914335-bf5e4580-9e54-11eb-92c7-53c238cdb6dc.png)
-
-title: How to: Connect different data sources
+---
+title: Connect different data sources
 titleSuffix: Azure Cognitive Services
 description: add different data feeds to Metrics Advisor
 services: cognitive-services
@@ -9,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 4/17/2021
 ms.author: mbullwin
 ---
+
 
 # How-to: Connect different data sources
 
