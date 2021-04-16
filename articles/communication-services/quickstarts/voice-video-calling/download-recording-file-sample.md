@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Record and download calls with Event Grid
 
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 Get started with Azure Communication Services by recording your Communication Services calls using Azure Event Grid.
 
 ## Prerequisites
