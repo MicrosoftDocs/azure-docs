@@ -54,7 +54,7 @@ The recommended minimum configuration assumes K4A_DEPTH_MODE_NFOV_UNBINNED depth
 
 ## USB3
 
-There are known compatibility issues with USB Host controllers. You can find more information on [Troubleshooting page](troubleshooting.md#usb3-host-controller-compatibility)
+There are known compatibility issues with USB Host controllers. You can find more information on [Troubleshooting page](troubleshooting.yml#usb3-host-controller-compatibility)
 
 ## Next steps
 

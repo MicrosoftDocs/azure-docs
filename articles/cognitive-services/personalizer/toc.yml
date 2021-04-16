@@ -124,6 +124,6 @@
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
   - name: Troubleshooting
-    href: troubleshooting.md
+    href: troubleshooting.yml
   - name: Azure updates
     href: https://go.microsoft.com/fwlink/?linkid=2092153

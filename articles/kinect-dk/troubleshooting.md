@@ -106,7 +106,7 @@ provided power adapter. While the power cable has a USB type A connected, the de
 - Reboot host PC.
 - Make sure you are using latest graphics drivers on your PC.
 - If you are using your own build of SDK, try using officially released version if that fixes the issue.
-- If problem persists, [collect logs](troubleshooting.md#collecting-logs) and file feedback.
+- If problem persists, [collect logs](troubleshooting.yml#collecting-logs) and file feedback.
 
 ## Cannot find microphone
 

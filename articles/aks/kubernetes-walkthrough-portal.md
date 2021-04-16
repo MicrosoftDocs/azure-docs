@@ -51,7 +51,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 5. Keep the default **Node pools** options. At the bottom of the screen, click **Next: Authentication**.
     > [!CAUTION]
-    > Newly created Azure AD service principals may take several minutes to propagate and become available, causing "service principal not found" errors and validation failures in Azure portal. If you hit this bump, please visit [our troubleshooting article](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) for mitigation.
+    > Newly created Azure AD service principals may take several minutes to propagate and become available, causing "service principal not found" errors and validation failures in Azure portal. If you hit this bump, please visit [our troubleshooting article](troubleshooting.yml#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) for mitigation.
 
 6. On the **Authentication** page, configure the following options:
     - Create a new cluster identity by either:

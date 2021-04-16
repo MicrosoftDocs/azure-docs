@@ -88,4 +88,4 @@ This article showed you how to automatically rotate your cluster's certificates,
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
 [dev-spaces]: ../dev-spaces/index.yml
-[dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates
+[dev-spaces-rotate]: ../dev-spaces/troubleshooting.yml#error-using-dev-spaces-after-rotating-aks-certificates

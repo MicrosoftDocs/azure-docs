@@ -191,7 +191,7 @@ New-AzRoleAssignment @RoleAssignParams
 > [!NOTE]
 > If you receive the error: "_New-AzRoleDefinition: Role definition limit exceeded. No more role
 > definitions can be created._", see
-> [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
+> [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.yml).
 
 ## Create a Shared Image Gallery
 

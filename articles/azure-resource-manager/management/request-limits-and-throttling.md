@@ -65,7 +65,7 @@ For checking virtual machine instances within a virtual machine scale set, use t
 For information about throttling in other resource providers, see:
 
 * [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md)
-* [AKS troubleshooting](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
+* [AKS troubleshooting](../../aks/troubleshooting.yml#im-receiving-429---too-many-requests-errors)
 
 ## Error code
 

@@ -98,4 +98,4 @@ The following table captures the Backup management actions and corresponding rol
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Azure role-based access control troubleshooting](../role-based-access-control/troubleshooting.md): Get suggestions for fixing common issues.
+* [Azure role-based access control troubleshooting](../role-based-access-control/troubleshooting.yml): Get suggestions for fixing common issues.

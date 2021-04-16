@@ -356,4 +356,4 @@ The following shows an example of the output when you list a custom role using t
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Tutorial: Create an Azure custom role using Azure CLI](tutorial-custom-role-cli.md)
 - [Understand Azure role definitions](role-definitions.md)
-- [Troubleshoot Azure RBAC](troubleshooting.md)
+- [Troubleshoot Azure RBAC](troubleshooting.yml)

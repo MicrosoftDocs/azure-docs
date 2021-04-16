@@ -88,7 +88,7 @@
    - name: Azure Kinect support
      href: support.md
    - name: Azure Kinect troubleshooting
-     href: troubleshooting.md
+     href: troubleshooting.yml
    - name: Warranties, extended service plans, and Terms & Conditions
      href: https://support.microsoft.com/help/4493926/warranties-extended-service-plans-and-terms-conditions-for-your-device
    - name: Safety information

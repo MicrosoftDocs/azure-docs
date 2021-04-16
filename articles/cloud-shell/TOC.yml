@@ -43,7 +43,7 @@
 - name: Use the Cloud Shell editor
   href: using-cloud-shell-editor.md
 - name: Troubleshooting & limitations
-  href: troubleshooting.md
+  href: troubleshooting.yml
 - name: Reference
   items:
   - name: Azure CLI

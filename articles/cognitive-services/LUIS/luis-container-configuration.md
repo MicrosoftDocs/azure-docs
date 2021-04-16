@@ -162,5 +162,5 @@ Logging:Console:LogLevel:Default=Information
 ## Next steps
 
 * Review [How to install and run containers](luis-container-howto.md)
-* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

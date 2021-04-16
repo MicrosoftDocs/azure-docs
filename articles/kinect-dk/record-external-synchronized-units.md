@@ -111,7 +111,7 @@ You can use the [Azure Kinect viewer](azure-kinect-viewer.md) to play back recor
 - Connecting multiple units to single PC can easily saturate USB bandwidth, consider using separate host PC per device. Pay attention to CPU/GPU compute as well.
 - Disable the microphone and IMU if they aren't needed to improve reliability.
 
-For any issues see [Troubleshooting](troubleshooting.md)
+For any issues see [Troubleshooting](troubleshooting.yml)
 
 ## See also
 

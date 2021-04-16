@@ -107,4 +107,4 @@ If you need to assign administrator roles in Azure Active Directory, see [View a
 
 - [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.md)
 - [Remove Azure role assignments](role-assignments-remove.md)
-- [Troubleshoot Azure RBAC](troubleshooting.md)
+- [Troubleshoot Azure RBAC](troubleshooting.yml)

@@ -51,4 +51,4 @@ By default, the latest enabled version of the application is used in Blockchain 
 
 ## Next steps
 
-* [Azure Blockchain Workbench troubleshooting](troubleshooting.md)
+* [Azure Blockchain Workbench troubleshooting](troubleshooting.yml)

@@ -81,6 +81,6 @@ If the user performs an action that displays a progress bar, such as a tab compl
 
 ## Next steps
 
-[Troubleshooting Cloud Shell](troubleshooting.md) <br>
+[Troubleshooting Cloud Shell](troubleshooting.yml) <br>
 [Quickstart for Bash](quickstart.md) <br>
 [Quickstart for PowerShell](quickstart-powershell.md)

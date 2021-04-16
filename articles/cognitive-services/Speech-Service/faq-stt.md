@@ -178,5 +178,5 @@ The speech experiences built into Microsoft 365, such as Dictation and PowerPoin
 
 ## Next steps
 
-- [Troubleshooting](troubleshooting.md)
+- [Troubleshooting](troubleshooting.yml)
 - [Release notes](releasenotes.md)

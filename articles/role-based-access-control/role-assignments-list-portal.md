@@ -134,7 +134,7 @@ You can have up to **2000** role assignments in each subscription. This limit in
 
 ![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.yml#azure-role-assignments-limit).
 
 ![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
@@ -181,4 +181,4 @@ Follow these steps to download role assignments at a scope.
 ## Next steps
 
 - [Assign Azure roles using the Azure portal](role-assignments-portal.md)
-- [Troubleshoot Azure RBAC](troubleshooting.md)
+- [Troubleshoot Azure RBAC](troubleshooting.yml)

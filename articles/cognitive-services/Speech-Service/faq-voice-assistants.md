@@ -65,5 +65,5 @@ For a more detailed guide, please see the [tutorial section](tutorial-voice-enab
 
 ## Next steps
 
-- [Troubleshooting](troubleshooting.md)
+- [Troubleshooting](troubleshooting.yml)
 - [Release notes](releasenotes.md)

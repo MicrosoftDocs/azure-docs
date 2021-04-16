@@ -64,7 +64,7 @@ If you are running the tool against a cluster that is not Kubernetes RBAC-enable
 
 ## Next steps
 
-- [Troubleshoot issues with Azure Kubernetes Service](troubleshooting.md)
+- [Troubleshoot issues with Azure Kubernetes Service](troubleshooting.yml)
 
 <!-- RESOURCES -->
 

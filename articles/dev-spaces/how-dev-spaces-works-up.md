@@ -206,4 +206,4 @@ To learn more about rapidly iterating and developing with Kubernetes, see [How B
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
 [sync-section]: #file-synchronization
-[troubleshooting]: troubleshooting.md
+[troubleshooting]: troubleshooting.yml

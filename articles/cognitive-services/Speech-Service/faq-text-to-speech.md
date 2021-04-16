@@ -58,5 +58,5 @@ We provide additional services to help you prepare scripts for recording. Contac
 
 ## Next steps
 
-- [Troubleshooting](troubleshooting.md)
+- [Troubleshooting](troubleshooting.yml)
 - [Release notes](releasenotes.md)

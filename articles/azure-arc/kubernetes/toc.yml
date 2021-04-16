@@ -63,7 +63,7 @@
     - name: Deploy IoT workloads
       href: deploy-azure-iot-edge-workloads.md
   - name: Troubleshooting
-    href: Troubleshooting.md
+    href: Troubleshooting.yml
 - name: Reference
   items:
   - name: Azure Policy built-ins

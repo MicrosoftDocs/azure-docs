@@ -51,6 +51,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Troubleshooting
-            url: troubleshooting.md
+            url: troubleshooting.yml
           - text: FAQ
             url: faq.md

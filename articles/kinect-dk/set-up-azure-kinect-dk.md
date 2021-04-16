@@ -75,7 +75,7 @@ To work properly, the SDK requires the latest version of the device firmware. To
 
 You're done with your Azure Kinect DK setup. Now you can start developing your application or integrating services.
 
-If you have any issues, check [Troubleshooting](troubleshooting.md).
+If you have any issues, check [Troubleshooting](troubleshooting.yml).
 
 ## See also
 
