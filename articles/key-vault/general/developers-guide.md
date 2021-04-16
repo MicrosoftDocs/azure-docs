@@ -39,7 +39,7 @@ Access to management layer is controlled by [Azure role-based access control](..
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
 
-For more information about Key Vault management plane, see [Key Vault Management Plane](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+For more information about Key Vault management plane, see [Key Vault Management Plane](security-overview.md)
 
 ## Authenticate to Key Vault in code
 
@@ -99,7 +99,7 @@ Access to keys, secrets, and certificates is controlled by data plane. Data plan
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
 
-For more information about Key Vault data plane security, see [Key Vault Data Plane and access policies](./secure-your-key-vault.md#data-plane-and-access-policies) and [Key Vault Data Plane and Azure RBAC](./secure-your-key-vault.md#data-plane-and-azure-rbac)
+For more information about Key Vault data plane security, see [Key Vault Security overview](security-overview.md).
 
 ### Code examples
 
