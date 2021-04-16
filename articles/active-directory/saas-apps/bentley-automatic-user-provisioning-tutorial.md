@@ -23,7 +23,7 @@ ms.author: Zhchia
 This tutorial describes the steps you need to perform in both Bentley - Automatic User Provisioning and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Bentley - Automatic User Provisioning](https://www.bentley.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Bentley - Automatic User Provisioning
 > * Remove users in Bentley - Automatic User Provisioning when they do not require access anymore
@@ -147,7 +147,7 @@ Once you've configured provisioning, use the following resources to monitor your
 2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## Connector Limitations
+## Connector limitations
 * The enterprise extension attribute "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager" is not supported and will be removed.
 
 ## Additional resources
