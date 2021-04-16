@@ -1,6 +1,7 @@
 ---
-title: Create a Media Services and Storage account with a private link 
-description: Create a Media Services account and Storage Account with Private Links to a VNet. The ARM template also sets up DNS for both the Private Links. Finally the template creates a VM to allow the user to try out the Private Links.
+title: Create a Media Services and Storage account with a private link
+titleSuffix: Media Services
+description: Create a Media Services account and Storage Account with Private Links to a VNet. The Azure Resource Manager (ARM) template also sets up DNS for both the Private Links. Finally the template creates a VM to allow the user to try out the Private Links.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -10,11 +11,11 @@ ms.date: 04/15/2021
 ms.author: inhenkel
 ---
 
-# Create a Media Services and Storage account with a private link
+# Create a Media Services and Storage account with a Private Link
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Create a Media Services account and Storage Account with Private Links to a VNet. The ARM template also sets up DNS for both the Private Links. Finally the template creates a VM to allow the user to try out the Private Links.
+Create a Media Services account and Storage Account with Private Links to a VNet. The Azure Resource Manager (ARM) template also sets up DNS for both the Private Links. Finally the template creates a VM to allow the user to try out the Private Links.
 
 ## Prerequisites
 
