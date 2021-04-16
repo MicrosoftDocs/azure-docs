@@ -1,5 +1,5 @@
 ---
-title: 'Set up web endpoints (Preview)'                             
+title: 'Set up web endpoints'                             
 titleSuffix: Azure Cognitive Services
 description: set up web endpoints for Custom Commands
 services: cognitive-services
@@ -120,7 +120,7 @@ For our **DeviceState** endpoint, output of your Azure function is consumed by a
 This output should be written to an external storage, so that you can maintain the state of devices. The external storage state will be used in the [Integrate with client application](#integrate-with-client-application) section below.
 
 
-### Deploy host Azure function
+### Deploy Azure function
 
 We provide a sample you can configure and deploy as an Azure Functions app. To create a storage account for our sample, follow these steps.
  
@@ -311,4 +311,3 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 
 > [!div class="nextstepaction"]
 > [Export Custom Commands application as a remote skill](./how-to-custom-commands-integrate-remote-skills.md)
-
