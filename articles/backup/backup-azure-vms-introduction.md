@@ -19,7 +19,7 @@ Azure Backup also has specialized offerings for database workloads like [SQL Ser
 
 Here's how Azure Backup completes a backup for Azure VMs:
 
-[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
+[!INCLUDE [azure-vm-backup-process.md](../includes/azure-vm-backup-process.md)]
 
 ## Encryption of Azure VM backups
 
