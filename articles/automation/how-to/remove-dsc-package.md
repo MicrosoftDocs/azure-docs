@@ -3,17 +3,39 @@ title: Remove DSC and node from Automation State Configuration
 description: This article explains how to remove an Azure Automation State Configuration (DSC) configuration document assigned and unregister a managed node.
 services: automation
 ms.subservice: dsc
-ms.date: 04/14/2021
+ms.date: 04/16/2021
 ms.topic: how-to
 ---
 
 # How to remove a configuration and node from Automation State Configuration
 
-This article covers how to safely remove a PowerShell Desired State Configuration (DSC) configuration from managed nodes, and unregister a node managed by Automation State Configuration. For both Windows and Linux nodes, you need to [delete the configuration](#delete-a-configuration-from-the-azure-portal) and [unregister the node](#unregister-a-node). For Linux nodes only, you can optionally [remove the DSC and OMI packages](#remove-the-dsc-package-from-a-linux-node) as well.
+This article covers how to unregister a node managed by Automation State Configuration, and safely remove a PowerShell Desired State Configuration (DSC) configuration from managed nodes. For both Windows and Linux nodes, you need to [unregister the node](#unregister-a-node) and [delete the configuration](#delete-a-configuration-from-the-azure-portal). You can optionally delete the DSC files from the nodes as well. For Linux nodes only, you can [remove the DSC and OMI packages](#remove-the-dsc-package-from-a-linux-node), and for Windows nodes, you can [remove the DSC files](#remove-the-dsc-files-from-a-windows-node).
 
 > [!NOTE]
-> Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service. This does not effect the configuration that is currently applied to the node. To remove the current configuration, use the [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) or delete the local configuration file
+>  To remove the current configuration, use the [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) or delete the local configuration file
 (this is the only option for Linux nodes).
+
+## Unregister a node
+
+If you no longer want a node to be managed by State Configuration (DSC), you can unregister it from the Azure portal or with Azure PowerShell using the following steps.
+
+Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service. This does not effect the configuration that is currently applied to the node, and leaves the related files in place on the node. You can optionally clean up those files. See [Delete a configuration](#delete-a-configuration).
+
+### Unregister in the Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Automation Accounts**.
+1. On the **Automation Accounts** page, select your Automation account from the list.
+1. From your Automation account, select **State configuration (DSC)** under **Configuration Management**.
+1. On the **State configuration (DSC)** page, click the **Nodes** tab.
+1. On the **Nodes** tab, select the name of the node you want to unregister.
+1. On the pane for that node, click **Unregister**.
+
+   :::image type="content" source="./media/remove-dsc-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-dsc-package/unregister-node.png":::
+
+### Unregister using PowerShell
+
+You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
 
 ## Delete a configuration
 
@@ -35,32 +57,20 @@ You can delete configurations for both Windows and Linux nodes from the Azure po
 
    :::image type="content" source="./media/remove-dsc-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/remove-dsc-package/delete-extension.png":::
 
+## Manually delete a configuration file from a node
+
+If you don't want to use the Azure portal, you can manually delete the .mof configuration files as follows.
+
 ### Delete a Windows configuration using PowerShell
 
-To remove an imported DSC configuration document (.mof) from the Windows store, use the [Remove-DscConfigurationDocument](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) cmdlet.
-
-## Unregister a node
-
-If you no longer want a node to be managed by State Configuration (DSC), you can unregister it from the Azure portal or with Azure PowerShell using the following steps.
-
-### Unregister in the Azure portal
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Automation Accounts**.
-1. On the **Automation Accounts** page, select your Automation account from the list.
-1. From your Automation account, select **State configuration (DSC)** under **Configuration Management**.
-1. On the **State configuration (DSC)** page, click the **Nodes** tab.
-1. On the **Nodes** tab, select the name of the node you want to unregister.
-1. On the pane for that node, click **Unregister**.
-
-   :::image type="content" source="./media/remove-dsc-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-dsc-package/unregister-node.png":::
-
-### Unregister using PowerShell
-
-You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
+To remove an imported DSC configuration document (.mof), use the [Remove-DscConfigurationDocument](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) cmdlet.
 
 >[!NOTE]
 >If your organization still uses the deprecated AzureRM modules, you can use [Unregister-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/unregister-azurermautomationdscnode).
+
+### Delete a Linux configuration
+
+The configuration files are stored in /etc/opt/omi/conf/dsc/configuration/. Remove the .mof files in this directory to delete the node's configuration.
 
 ## Remove the DSC package from a Linux node
 
