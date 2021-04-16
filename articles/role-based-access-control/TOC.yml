@@ -114,7 +114,7 @@
   - name: Transfer subscription to different directory
     href: transfer-subscription.md
   - name: Troubleshoot
-    href: troubleshooting.yml
+    href: troubleshooting.md
 - name: Reference
   items:
   - name: Built-in roles

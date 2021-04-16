@@ -390,7 +390,7 @@
     - name: Troubleshoot
       items:
         - name: Common issues
-          href: troubleshooting.yml
+          href: troubleshooting.md
         - name: Checking for best practices
           href: kube-advisor-tool.md
         - name: SSH node access

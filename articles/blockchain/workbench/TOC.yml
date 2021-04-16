@@ -30,7 +30,7 @@
   - name: Use Workbench API
     href: use-api.md
   - name: Troubleshoot apps
-    href: troubleshooting.yml
+    href: troubleshooting.md
   - name: Use Workbench data
     items:
     - name: Configure DB firewall
