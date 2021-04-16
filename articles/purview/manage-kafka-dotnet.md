@@ -7,7 +7,6 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: dotnet
-ms.topic: quickstart
 ms.date: 04/15/2021
 ---
 
@@ -19,7 +18,7 @@ This quickstart shows how to send events to and receive events from Azure Purvie
 
 
 ## Prerequisites
-If you're new to Azure Event Hubs, see [Event Hubs overview](./event-hubs/event-hubs-about.md) before you do this quickstart. 
+If you're new to Azure Event Hubs, see [Event Hubs overview](../event-hubs/event-hubs-about.md) before you do this quickstart. 
 
 To complete this quickstart, you need the following prerequisites:
 
@@ -386,7 +385,7 @@ The event hub name should be **ATLAS_ENTITIES** for sending messages to Purview.
 ```
 
 > [!IMPORTANT]
-> Atlas currently supports the following operation types: **ENTITY_CREATE_V2**, **ENTITY_PARTIAL_UPDATE_V2**, **ENTITY_FULL_UPDATE_V2**, **ENTITY_DELETE_V2**. Pushing messages to Purview is currently enabled by default. If the scenario involves reading from Purview  contact us as it needs to be whitelisted. (provide subscription id and name of Purview account).
+> Atlas currently supports the following operation types: **ENTITY_CREATE_V2**, **ENTITY_PARTIAL_UPDATE_V2**, **ENTITY_FULL_UPDATE_V2**, **ENTITY_DELETE_V2**. Pushing messages to Purview is currently enabled by default. If the scenario involves reading from Purview  contact us as it needs to be allow-listed. (provide subscription id and name of Purview account).
 
 
 ## Next steps
