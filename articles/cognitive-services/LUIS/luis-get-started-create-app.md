@@ -256,11 +256,6 @@ To create a Prediction resource from the LUIS portal
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
 * [Iterative app design](./luis-concept-app-iteration.md)
 * [Best practices](./luis-concept-best-practices.md)
-<!---
-* [Call a LUIS endpoint using code](./luis-get-started-get-intent-from-rest.md)
---> 
-=======
-> [!div class="nextstepaction"]
-> [Iterative app development for LUIS](./luis-concept-app-iteration.md)
