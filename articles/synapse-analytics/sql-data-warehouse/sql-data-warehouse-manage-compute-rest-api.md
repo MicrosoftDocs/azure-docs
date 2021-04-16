@@ -13,6 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
+>[!Note]
+>The REST API's in this article are not applicable for a dedicated SQL pool created in Azure Synapse Analytics workspace. Follow this page for [Azure Synapse Analytics workspace](https://docs.microsoft.com/rest/api/synapse/) specific REST API's.
+
 # REST APIs for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
