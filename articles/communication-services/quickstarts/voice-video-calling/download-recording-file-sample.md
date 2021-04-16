@@ -143,8 +143,8 @@ Create an `HttpClient` and add the necessary headers using the `HmacAuthenticati
 
   // Question: Why do we need to pass String.Empty to CreateContentHash() method?
   // Answer: In HMAC authentication hash of the content is one of the parameter to generate the HMAC token.
-  // In our case our recoridng download apis are GET method and does not have any content/body to be passed in the request. 
-  // However in this case we still need the SHA256 hash for the empty content and hence we pass empty string. 
+  // In our case our recording download apis are GET method and does not have any content/body to be passed in the request. 
+  // However in this case we still need the SHA256 hash for the empty content and hence we pass an empty string. 
 
 
   string serializedPayload = string.Empty;
