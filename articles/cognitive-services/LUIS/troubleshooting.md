@@ -86,7 +86,7 @@ You get 403 and 429 error status codes when you exceed the transactions per seco
 
 When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code.
 
-To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-the-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-the-pricing-tier) to a higher tier or [create a new resource](luis-get-started-create-app.md#sign-in-to-luis-portal) and assign it to your app.
 
 Solutions for this error include:
 
