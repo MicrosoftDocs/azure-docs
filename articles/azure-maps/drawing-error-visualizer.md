@@ -97,6 +97,9 @@ Once your [Drawing package meets the requirements](drawing-requirements.md), you
 > [Drawing Conversion error codes](drawing-conversion-error-codes.md)
 
 > [!div class="nextstepaction"]
+> [Drawing Package Guide](drawing-package-guide.md)
+
+> [!div class="nextstepaction"]
 > [Creator (Preview) for indoor maps](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]

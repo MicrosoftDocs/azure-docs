@@ -501,4 +501,7 @@ To fix a **verticalPenetrationError** error, read about how to use a vertical pe
 > [How to use Azure Maps Drawing error visualizer](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
+> [Drawing Package Guide](drawing-package-guide.md)
+
+> [!div class="nextstepaction"]
 > [Creator (Preview) for indoor mapping](creator-indoor-maps.md)
