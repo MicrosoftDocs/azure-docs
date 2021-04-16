@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
+ms.date: 04/15/2020
 ---
 
 # How to get featured in AppSource and Azure Marketplace
