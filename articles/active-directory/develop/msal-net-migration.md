@@ -32,7 +32,7 @@ This article describes the differences between the Microsoft Authentication Libr
 
 ## Should you migrate to MSAL.NET or to Microsoft.Identity.Web
 
-Before digging in the details of MSAL.NET vs ADAL.NET, you might want to check if you want to use MSAL.NET or a higher-level abstraction like [Microsoft.Identity.Web](microsoft-identity-web.ms)
+Before digging in the details of MSAL.NET vs ADAL.NET, you might want to check if you want to use MSAL.NET or a higher-level abstraction like [Microsoft.Identity.Web](microsoft-identity-web.md)
 
 For details about the decision tree below, read [Should I use MSAL.NET only? or a higher level abstraction?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Is-MSAL.NET-right-for-me%3F)
 
