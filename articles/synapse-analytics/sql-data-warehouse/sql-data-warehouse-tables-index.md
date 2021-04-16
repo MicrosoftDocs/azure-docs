@@ -2,12 +2,12 @@
 title: Indexing tables
 description: Recommendations and examples for indexing tables in dedicated SQL pool.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 03/18/2019
+ms.date: 04/16/2021
+author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
@@ -172,6 +172,16 @@ Once you have run the query you can begin to look at the data and analyze your r
 | [CLOSED_rowgroup_rows_AVG] |As above |
 | [Rebuild_Index_SQL] |SQL to rebuild columnstore index for a table |
 
+## Impact of index maintenance
+
+The column `Rebuild_Index_SQL` in the `vColumnstoreDensity` view contains an `ALTER INDEX REBUILD` statement which can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index. To do this, increase the [resource class](resource-classes-for-workload-management.md) of a user which has permissions to rebuild the index on this table to the recommended minimum. For an example, see [Rebuilding indexes to improve segment quality](#rebuilding-indexes-to-improve-segment-quality) later in this article.
+
+For a table with an ordered clustered columnstore index, `ALTER INDEX REBUILD` will re-sort the data using tempdb. Monitor tempdb during rebuild operations. If you need more tempdb space, scale up the database pool. Scale back down once the index rebuild is complete.
+
+For a table with an ordered clustered columnstore index, `ALTER INDEX REORGANIZE` does not re-sort the data. To re-sort data, use `ALTER INDEX REBUILD`.
+
+For more information on ordered clustered columnstore indexes, see [Performance tuning with ordered clustered columnstore index](performance-tuning-ordered-cci.md).
+
 ## Causes of poor columnstore index quality
 
 If you have identified tables with poor segment quality, you want to identify the root cause.  Below are some other common causes of poor segment quality:
@@ -213,12 +223,12 @@ Once your tables have been loaded with some data, follow the below steps to iden
 
 ### Step 1: Identify or create user which uses the right resource class
 
-One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view returns an ALTER INDEX REBUILD statement which can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.
+One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view returns an ALTER INDEX REBUILD statement which can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index. To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.
 
 Below is an example of how to allocate more memory to a user by increasing their resource class. To work with resource classes, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 
 ```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+EXEC sp_addrolemember 'xlargerc', 'LoadUser';
 ```
 
 ### Step 2: Rebuild clustered columnstore indexes with higher resource class user
@@ -229,22 +239,22 @@ Alternatively, instead of rebuilding the index, you could copy the table to a ne
 
 ```sql
 -- Rebuild the entire clustered index
-ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ```
 
 ```sql
 -- Rebuild a single partition
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5;
 ```
 
 ```sql
 -- Rebuild a single partition with archival compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE);
 ```
 
 ```sql
 -- Rebuild a single partition with columnstore compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE);
 ```
 
 Rebuilding an index in dedicated SQL pool is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
