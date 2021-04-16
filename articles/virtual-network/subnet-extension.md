@@ -49,4 +49,4 @@ In the above example, the Azure NVA and the on-premises NVA communicate and lear
 In the next section, you'll find details on subnet extension solutions we've tested on Azure.
 
 ## Next steps 
-[Extend your subnet to Azure using vendor solutions.](https://github.com/microsoft/Azure-LISP)
+[Extend your subnet to Azure using vendor solutions.](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/azu/b_csr1000config-azure/configure-lisp-layer-2-extension.html)
