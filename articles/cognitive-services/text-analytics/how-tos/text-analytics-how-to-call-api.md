@@ -36,7 +36,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
     2. Click **Metrics**, located under **Monitoring** in the left navigation menu. 
     3. Select *Processed text records* in the dropdown box for **Metric**.
     
-A text record is 1000 characters.
+A text record a unit of input text up to 1000 characters.  For example, 1500 characters submitted as input text will count as 2 text records.
 
 ## Change your pricing tier 
 
@@ -161,7 +161,19 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "false"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "true",
+                    "domain": "phi",
+                    "pii-categories":"default"
                 }
             }
         ],
@@ -169,23 +181,29 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "false"
                 }
             }
         ],
-        "keyPhraseExtractionTasks": [{
-            "parameters": {
-                "model-version": "latest"
+        "keyPhraseExtractionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "loggingOptOut": "false"
+                }
             }
-        }],
-        "entityRecognitionPiiTasks": [{
-            "parameters": {
-                "model-version": "latest",
-                "stringIndexType": "TextElements_v8",
-                "domain": "phi",
-                "pii-categories":"default"
+        ],
+        "sentimentAnalysisTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "false",
+                    "opinionMining": "false"
+                }
             }
-        }]
+        ]
     }
 }
 
@@ -237,7 +255,7 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 |--|--|--|
 | Language detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | Sentiment analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.4/sentiment?opinionMining=true` |
+| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true` |
 | Key phrase extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | Named entity recognition - general | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
 | Named entity recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
@@ -324,6 +342,7 @@ The synchronous endpoint responses will vary depending on the endpoint you use. 
 If successful, the GET request to the `/analyze` endpoint will return an object containing the assigned tasks. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
 
 + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Entity recognition](text-analytics-how-to-entity-linking.md#view-results)
 + [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 
