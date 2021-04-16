@@ -80,7 +80,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Age distribution over time**      | No      | Yes | Yes | Yes            |
 | **Access time**                     | No      | Yes | Yes | Yes            |
 | **Modified time**                   | No      | Yes | Yes | Yes            |
-| **Creation time**                   | No      | Yes | Yes | Yes (SMB only) |
+| **Creation time**                   | No      | Yes | Yes | Yes            |
 | **Per file / object report status** | Partial | Yes | Yes | Yes            |
 
 ## Licensing

@@ -5046,6 +5046,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/automation-tutorial-troubleshoot-changes.md",
+      "redirect_url": "/azure/automation/troubleshoot/change-tracking",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-runbook-settings.md",
       "redirect_url": "/azure/automation/automation-runbook-execution",
       "redirect_document_id": false
