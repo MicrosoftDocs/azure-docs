@@ -16,13 +16,13 @@ This article will show you how to use a proxy server with Windows Virtual Deskto
 
 We recommend bypassing proxies for Windows Virtual Desktop traffic. Proxies don't make Windows Virtual Desktop more secure because the traffic is already encrypted. To learn more about connection security, see [Connection security](network-connectivity.md#connection-security). 
 
-Most proxy servers aren't designed for supporting long running web socket connections and may affect connection stability. Proxy server scalability also causes issues because Windows Virtual Desktop uses multiple long-term connections. If you do use proxy servers, they must be the right size to run these connections.
+Most proxy servers aren't designed for supporting long running WebSocket connections and may affect connection stability. Proxy server scalability also causes issues because Windows Virtual Desktop uses multiple long-term connections. If you do use proxy servers, they must be the right size to run these connections.
 
-If the proxy server's geography is far from the host, then this distance will cause more latency to your user connections. More latency means slower connection time and worse user experience in scenarios that need graphics, audio, or low-latency interactions with input devices. If you must use a proxy server, keep in mind that you need to place the server in the same geography as the Windows Virtual Desktop Agent and client.
+If the proxy server's geography is far from the host, then this distance will cause more latency in your user connections. More latency means slower connection time and worse user experience, especially in scenarios that need graphics, audio, or low-latency interactions with input devices. If you must use a proxy server, keep in mind that you need to place the server in the same geography as the Windows Virtual Desktop Agent and client.
 
 If you configure your proxy server as the only path for Windows Virtual Desktop traffic to take, the Remote Desktop Protocol (RDP) data will be forced over Transmission Control Protocol (TCP) instead of User Datagram Protocol (UDP). This move lowers the visual quality and responsiveness of the remote connection.
 
-In summary, using proxy servers on Windows Virtual Desktop causes performance-related issues from latency degradation and packet loss. 
+In summary, we don't recommend using proxy servers on Windows Virtual Desktop because they cause performance-related issues from latency degradation and packet loss. 
 
 ## Bypassing a proxy server
 
@@ -96,9 +96,22 @@ The Windows Virtual Desktop client supports proxy servers configured with system
 
 Clients running on Windows 7 don't support proxy server connections for reverse-connect RDP data. If the client can't directly connect to the Windows Virtual Desktop gateways, the connection won't work.
 
+### Support for Windows clients
+
+The following Windows clients support proxy servers:
+
+| Client name | Proxy server support |
+|---|---|
+| Windows Desktop | Yes |
+| Web client | Yes |
+| Android | No |
+| iOS | No |
+| MacOS | No |
+| Windows Store | Yes |
+
 ### Proxy servers for third-party clients
 
-Windows Virtual Desktop doesn't support proxy servers for third-party clients. We recommend you only use Windows clients.
+Windows Virtual Desktop currently only supports proxy server for Linux. For more information, see [Thin client support](linux-overview.md).
 
 ## Support limitations
 
