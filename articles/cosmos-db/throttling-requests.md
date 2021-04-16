@@ -31,7 +31,7 @@ An approach to implementing throttling might look like this:
 
 Before measuring any costs, you should configure all indexes. If you change indexes, you will need to re-run all cost calculations.
 
-Depending on protocol, Cosmos will index all properties. You should avoid running a system in this mode - always specifically choose the properties to index.
+Depending on protocol, Cosmos will index all properties. You should avoid running a system in this mode as the number of RUs consumed to write an item increases as the item property count increases - always specifically choose the properties to index.
 
 ## Measuring Cost
 
