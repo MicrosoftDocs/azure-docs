@@ -336,7 +336,7 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
 
 * **Connection String**: There are five Authentication types for Azure SQL Database | SQL Server, they are **Basic**, **Managed Identity**, **Azure SQL Connection String**, **Service Principal** and **Service Principal From KeyVault**.
     
-    * **Basic**: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    * **Basic**: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
     Here is an example of connection string: 
     
         ```
@@ -360,11 +360,11 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
     
      Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
 
-     Here is an example of connection string: 
-
-          ```
-          Data Source=<Server>;Initial Catalog=<Database>
-          ```
+        Here is an example of connection string: 
+        
+        ```
+        Data Source=<Server>;Initial Catalog=<Database>
+        ```
     
     * **Azure SQL Connection String**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
