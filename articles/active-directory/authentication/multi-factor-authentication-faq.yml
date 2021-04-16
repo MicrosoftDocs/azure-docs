@@ -33,8 +33,8 @@ sections:
       - question: |
           General
         answer: |
-          * [How does Azure Multi-Factor Authentication Server handle user data?](#how-does-azure-multi-factor-authentication-server-handle-user-data)
-          * [What SMS short codes are used for sending SMS messages to my users?](#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+          * [How does Azure Multi-Factor Authentication Server handle user data?](#how-does-azure-multi-factor-authentication-server-handle-user-data-)
+          * [What SMS short codes are used for sending SMS messages to my users?](#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)
           
       - question: |
           How does Azure Multi-Factor Authentication Server handle user data?
@@ -84,13 +84,13 @@ sections:
         answer: |
           Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation for [Azure AD Multi-Factor Authentication versions and consumption plans](concept-mfa-licensing.md).
           
-          * [Is my organization charged for sending the phone calls and text messages that are used for authentication?](#is-my-organization-charged-for-sending-the-phone-calls-and-text-messages-that-are-used-for-authentication)
-          * [Does the per-user billing model charge me for all enabled users, or just the ones that performed two-step verification?](#does-the-per-user-billing-model-charge-me-for-all-enabled-users-or-just-the-ones-that-performed-two-step-verification)
-          * [How does Multi-Factor Authentication billing work?](#how-does-multi-factor-authentication-billing-work)
-          * [Is there a free version of Azure AD Multi-Factor Authentication?](#is-there-a-free-version-of-azure-ad-multi-factor-authentication)
-          * [Can my organization switch between per-user and per-authentication consumption billing models at any time?](#can-my-organization-switch-between-per-user-and-per-authentication-consumption-billing-models-at-any-time)
-          * [Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?](#can-my-organization-switch-between-consumption-based-billing-and-subscriptions-a-license-based-model-at-any-time)
-          * [Does my organization have to use and synchronize identities to use Azure AD Multi-Factor Authentication?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-ad-multi-factor-authentication)
+          * [Is my organization charged for sending the phone calls and text messages that are used for authentication?](#is-my-organization-charged-for-sending-the-phone-calls-and-text-messages-that-are-used-for-authentication-)
+          * [Does the per-user billing model charge me for all enabled users, or just the ones that performed two-step verification?](#does-the-per-user-billing-model-charge-me-for-all-enabled-users--or-just-the-ones-that-performed-two-step-verification-)
+          * [How does Multi-Factor Authentication billing work?](#how-does-multi-factor-authentication-billing-work-)
+          * [Is there a free version of Azure AD Multi-Factor Authentication?](#is-there-a-free-version-of-azure-ad-multi-factor-authentication-)
+          * [Can my organization switch between per-user and per-authentication consumption billing models at any time?](#can-my-organization-switch-between-per-user-and-per-authentication-consumption-billing-models-at-any-time-)
+          * [Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?](#can-my-organization-switch-between-consumption-based-billing-and-subscriptions--a-license-based-model--at-any-time-)
+          * [Does my organization have to use and synchronize identities to use Azure AD Multi-Factor Authentication?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-ad-multi-factor-authentication-)
           
       - question: |
           Is my organization charged for sending the phone calls and text messages that are used for authentication?
@@ -148,16 +148,16 @@ sections:
       - question: |
           Manage and support user accounts
         answer: |
-          * [What should I tell my users to do if they don't receive a response on their phone?](#what-should-i-tell-my-users-to-do-if-they-dont-receive-a-response-on-their-phone)
-          * [What should I do if one of my users can't get in to their account?](#what-should-i-do-if-one-of-my-users-cant-get-in-to-their-account)
-          * [What should I do if one of my users loses a phone that is using app passwords?](#what-should-i-do-if-one-of-my-users-loses-a-phone-that-is-using-app-passwords)
-          * [What if a user can't sign in to non-browser apps?](#what-if-a-user-cant-sign-in-to-non-browser-apps)
-          * [My users say that sometimes they don't receive the text message or the verification times out.](#my-users-say-that-sometimes-they-dont-receive-the-text-message-or-the-verification-times-out)
-          * [Can I change the amount of time my users have to enter the verification code from a text message before the system times out?](#can-i-change-the-amount-of-time-my-users-have-to-enter-the-verification-code-from-a-text-message-before-the-system-times-out)
-          * [Can I use hardware tokens with Azure Multi-Factor Authentication Server?](#can-i-use-hardware-tokens-with-azure-multi-factor-authentication-server)
-          * [Can I use Azure Multi-Factor Authentication Server to secure Terminal Services?](#can-i-use-azure-multi-factor-authentication-server-to-secure-terminal-services)
-          * [I configured Caller ID in MFA Server, but my users still receive Multi-Factor Authentication calls from an anonymous caller.](#i-configured-caller-id-in-mfa-server-but-my-users-still-receive-multi-factor-authentication-calls-from-an-anonymous-caller)
-          * [Why are my users being prompted to register their security information?](#why-are-my-users-being-prompted-to-register-their-security-information)
+          * [What should I tell my users to do if they don't receive a response on their phone?](#what-should-i-tell-my-users-to-do-if-they-don-t-receive-a-response-on-their-phone-)
+          * [What should I do if one of my users can't get in to their account?](#what-should-i-do-if-one-of-my-users-can-t-get-in-to-their-account-)
+          * [What should I do if one of my users loses a phone that is using app passwords?](#what-should-i-do-if-one-of-my-users-loses-a-phone-that-is-using-app-passwords-)
+          * [What if a user can't sign in to non-browser apps?](#what-if-a-user-can-t-sign-in-to-non-browser-apps-)
+          * [My users say that sometimes they don't receive the text message or the verification times out.](#my-users-say-that-sometimes-they-don-t-receive-the-text-message-or-the-verification-times-out-)
+          * [Can I change the amount of time my users have to enter the verification code from a text message before the system times out?](#can-i-change-the-amount-of-time-my-users-have-to-enter-the-verification-code-from-a-text-message-before-the-system-times-out-)
+          * [Can I use hardware tokens with Azure Multi-Factor Authentication Server?](#can-i-use-hardware-tokens-with-azure-multi-factor-authentication-server-)
+          * [Can I use Azure Multi-Factor Authentication Server to secure Terminal Services?](#can-i-use-azure-multi-factor-authentication-server-to-secure-terminal-services-)
+          * [I configured Caller ID in MFA Server, but my users still receive Multi-Factor Authentication calls from an anonymous caller.](#i-configured-caller-id-in-mfa-server--but-my-users-still-receive-multi-factor-authentication-calls-from-an-anonymous-caller-)
+          * [Why are my users being prompted to register their security information?](#why-are-my-users-being-prompted-to-register-their-security-information-)
           
       - question: |
           What should I tell my users to do if they don't receive a response on their phone?
@@ -259,8 +259,8 @@ sections:
       - question: |
           Errors
         answer: |
-          * [What should users do if they see an "Authentication request is not for an activated account" error message when using mobile app notifications?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
-          * [What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)
+          * [What should users do if they see an "Authentication request is not for an activated account" error message when using mobile app notifications?](#what-should-users-do-if-they-see-an--authentication-request-is-not-for-an-activated-account--error-message-when-using-mobile-app-notifications-)
+          * [What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application-)
           
       - question: |
           What should users do if they see an "Authentication request is not for an activated account" error message when using mobile app notifications?
