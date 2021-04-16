@@ -23,33 +23,36 @@ Before you begin, ensure that you're familiar with the following articles:
 
 ## Create and authenticate your service principal
 
-To automate EA actions by using an SPN, you need to create an Azure Active Directory (Azure AD) application. It can authenticate in an automated manner. Read the following articles and follow the steps in them to create and authenticate your service principal.
+To automate EA actions by using an SPN, you need to create an Azure Active Directory (Azure AD) application. It can authenticate in an automated manner.
+
+Follow the steps in these articles to create and authenticate your service principal.
 
 1. [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
 
-Here's an example screenshot showing application registration.
+Here's an example of the application registration page.
 
 :::image type="content" source="./media/assign-roles-azure-service-principals/register-an-application.png" alt-text="Screenshot showing Register an application." lightbox="./media/assign-roles-azure-service-principals/register-an-application.png" :::
 
 ### Find your SPN and Tenant ID
 
-You also need the Object ID of the SPN and the Tenant ID of the app. You need the information for permission assignment operations in later sections. You can find the Tenant ID of the Azure AD app on the overview page for the application.
+You also need the Object ID of the SPN and the Tenant ID of the app. You need this information for permission assignment operations later in this article.
 
-1. To find it in the Azure portal, navigate to Azure Active Directory and select **Enterprise applications**.
-1. Search for the app.
+1. Open Azure Active Directory, and then select **Enterprise applications**.
+1. Find your app in the list.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enterprise-application.png" alt-text="Screenshot showing an example enterprise application." lightbox="./media/assign-roles-azure-service-principals/enterprise-application.png" :::
 
-1. Select the app. Here's an example showing the Application ID and Object ID:
+1. Select the app to find the Application ID and Object ID:
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/application-id-object-id.png" alt-text="Screenshot showing an application ID and object ID for an enterprise application." lightbox="./media/assign-roles-azure-service-principals/application-id-object-id.png" :::
 
-1. Find the Tenant ID on the Microsoft Azure AD Overview page.
+1. Go to the Microsoft Azure AD **Overview** page to find the Tenant ID.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/tenant-id.png" alt-text="Screenshot showing where to view your tenant ID." lightbox="./media/assign-roles-azure-service-principals/tenant-id.png" :::
 
-Your principal tenant ID is also referred to as Principal ID, SPN, and Object ID in various locations. The value of your Azure AD tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
+>[!NOTE]
+>Your Tenant ID might be referred to as Principal ID, SPN, or Object ID in other locations. The value of your Azure AD tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
 
 ## Permissions that can be assigned to the SPN
 
@@ -62,14 +65,14 @@ For the next steps, you give permission to the Azure AD app to do actions using 
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
-- An enrollment reader can be assigned to an SPN only by a user with enrollment writer role.
-- A department reader can be assigned to an SPN only by a user that has enrollment writer role or department writer role.
-- A subscription creator role can be assigned to an SPN only by a user that is the Account Owner of the enrollment account. The role isn't shown in the EA portal. It's only created by programmatic means and is only for programmatic use.
-- The EA purchaser role isn't shown in the EA portal. It's only created by programmatic means and is only for programmatic use.
+- An EnrollmentReader can be assigned to an SPN only by a user with an enrollment writer role.
+- A DepartmentReader can be assigned to an SPN only by a user that has an enrollment writer or department writer role.
+- A SubscriptionCreator role can be assigned to an SPN only by a user that is the Account Owner of the enrollment account. The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
+- The EA purchaser role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 
 ## Assign enrollment account role permission to the SPN
 
-Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/roleassignments/put) REST API article. 
+Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/roleassignments/put) REST API article.
 
 1. While you read the article, select **Try it** to get started by using the SPN.
 
@@ -177,9 +180,9 @@ Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-0
 
    - **billingRoleAssignmentName**: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID/UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
-   - **enrollmentAccountName**: This parameter is the account ID. Find the account ID for the account name in the Azure portal in Cost Management + Billing in the Enrollment and department scope.
+   - **enrollmentAccountName**: This parameter is the account ID. Find the account ID for the account name in the Azure portal in **Cost Management + Billing** in the Enrollment and department scope.
 
-      For this example, we used the GTM Test account. The ID is `196987`.
+      For this example, we used the GTM Test Account. The ID is `196987`.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
@@ -195,7 +198,7 @@ Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-0
       | properties.principalTenantId | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
       | properties.roleDefinitionId | "/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71" |
 
-      The Billing Account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the EA portal and Azure portal.
+      The Billing Account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the EA portal and the Azure portal.
 
       The billing role definition ID of `a0bcee42-bf30-4d1b-926a-48d21664ef71` is for the subscription creator role.
 
