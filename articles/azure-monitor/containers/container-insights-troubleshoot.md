@@ -2,7 +2,7 @@
 title: How to Troubleshoot Container insights | Microsoft Docs
 description: This article describes how you can troubleshoot and resolve issues with Container insights.
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 03/25/2021
 
 ---
 
@@ -109,6 +109,54 @@ Container insights agent Pods uses the cAdvisor endpoint on the node agent to ga
 ## Non-Azure Kubernetes cluster are not showing in Container insights
 
 To view the non-Azure Kubernetes cluster in Container insights, Read access is required on the Log Analytics workspace supporting this Insight and on the Container Insights solution resource **ContainerInsights (*workspace*)**.
+
+## Metrics aren't being collected
+
+1. Verify that the cluster is in a [supported region for custom metrics](../essentials/metrics-custom-overview.md#supported-regions).
+
+2. Verify that the **Monitoring Metrics Publisher** role assignment exists using the following CLI command:
+
+    ``` azurecli
+    az role assignment list --assignee "SP/UserassignedMSI for omsagent" --scope "/subscriptions/<subid>/resourcegroups/<RG>/providers/Microsoft.ContainerService/managedClusters/<clustername>" --role "Monitoring Metrics Publisher"
+    ```
+    For clusters with MSI, the user assigned client id for omsagent changes every time monitoring is enabled and disabled, so the role assignment should exist on the current msi client id. 
+
+3. For clusters with Azure Active Directory pod identity enabled and using MSI:
+
+   - Verify the required label **kubernetes.azure.com/managedby: aks**  is present on the omsagent pods using the following command:
+
+        `kubectl get pods --show-labels -n kube-system | grep omsagent`
+
+    - Verify that exceptions are enabled when pod identity is enabled using one of the supported methods at https://github.com/Azure/aad-pod-identity#1-deploy-aad-pod-identity.
+
+        Run the following command to verify:
+
+        `kubectl get AzurePodIdentityException -A -o yaml`
+
+        You should receive output similar to the following:
+
+        ```
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: mic-exception
+        namespace: default
+        spec:
+        podLabels:
+        app: mic
+        component: mic
+        ---
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: aks-addon-exception
+        namespace: kube-system
+        spec:
+        podLabels:
+        kubernetes.azure.com/managedby: aks
+        ```
+
+
 
 ## Next steps
 

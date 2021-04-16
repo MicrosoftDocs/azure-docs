@@ -50,7 +50,7 @@ This guide will take in a scenario to use two of these extensions:
 ## Add extensions to the shared_preload_libraries
 For details about that are shared_preload_libraries please read the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
 - This step isn't needed for the extensions that are part of `contrib`
-- this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next next paragraph [Create extensions](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group#create-extensions).
+- this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next next paragraph [Create extensions](#create-extensions).
 
 ### Add an extension at the creation time of a server group
 ```console

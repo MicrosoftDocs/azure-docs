@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 You can perform Privileged Identity Management tasks using the [Microsoft Graph APIs](/graph/overview) for Azure Active Directory. This article describes important concepts for using the Microsoft Graph APIs for Privileged Identity Management.
 
-For details about the Microsoft Graph APIs, check out the [Azure AD Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta).
+For details about the Microsoft Graph APIs, check out the [Azure AD Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true).
 
 > [!IMPORTANT]
 > APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
@@ -55,4 +55,4 @@ If you are using the Graph Explorer to test your calls, you can specify the perm
 
 ## Next steps
 
-- [Azure AD Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)
+- [Azure AD Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true)

@@ -8,7 +8,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/15/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -141,10 +142,11 @@ The **UserJourneyBehaviors** element contains the following elements:
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
 |ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
+| JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 
 ### SingleSignOn
 
-The **SingleSignOn** element contains in the following attribute:
+The **SingleSignOn** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -161,7 +163,7 @@ The **JourneyInsights** element contains the following attributes:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Yes | The value must be `ApplicationInsights`. |
 | InstrumentationKey | Yes | The string that contains the instrumentation key for the application insights element. |
-| DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes. The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for PII (Privately Identifiable Information) collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
+| DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes. The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for personal data collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
 | ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. |
 | ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |
 | TelemetryVersion | Yes | The value must be `1.0.0`. |
@@ -189,6 +191,15 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | Name | Yes | The name of the key value pair. |
 
 For more information, see [Configure the UI with dynamic content by using custom policies](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
+
+### JourneyFraming
+
+The **JourneyFraming** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Enabled | Yes | Enables this policy to be loaded within an iframe. Possible values: `false` (default), or `true`. |
+| Sources | Yes | Contains the domains that will load host the iframe. For more information, see [Loading Azure B2C in an iframe](embedded-login.md). |
 
 ## TechnicalProfile
 

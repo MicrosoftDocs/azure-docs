@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -17,6 +17,9 @@ ms.custom: fasttrack-edit
 # Web sign-in with OpenID Connect in Azure Active Directory B2C
 
 OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
+
+> [!NOTE]
+> Most of the open-source authentication libraries acquire and validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own code. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This authentication protocol allows you to perform single sign-on. It introduces the concept of an *ID token*, which allows the client to verify the identity of the user and obtain basic profile information about the user.
 
@@ -93,7 +96,10 @@ error=access_denied
 
 ## Validate the ID token
 
-Just receiving an ID token is not enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid. There are many open-source libraries that are available for validating JWTs, depending on your language of preference. We recommend exploring those options rather than implementing your own validation logic.
+Just receiving an ID token is not enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid. 
+
+> [!NOTE]
+> Most of the open-source authentication libraries validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own validation logic. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
 
 Azure AD B2C has an OpenID Connect metadata endpoint, which allows an application to get information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your B2C tenant. For example, the metadata document for the `b2c_1_sign_in` user flow in `fabrikamb2c.onmicrosoft.com` is located at:
 
@@ -125,7 +131,7 @@ There are also several more validations that you should perform. The validations
 - Ensuring that the user has proper authorization/privileges.
 - Ensuring that a certain strength of authentication has occurred, such as Azure AD Multi-Factor Authentication.
 
-After you validate the ID token, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
+After the ID token is validated, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
 
 ## Get a token
 

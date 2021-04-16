@@ -4,11 +4,13 @@ description: Create an Azure Dedicated HSM with Azure PowerShell
 services: dedicated-hsm
 author: msmbaldwin
 ms.author: mbaldwin
+ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: key-vault
 ms.devlang: azurepowershell
-ms.date: 11/13/2020
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
 ---
 
 # Quickstart: Create an Azure Dedicated HSM with Azure PowerShell

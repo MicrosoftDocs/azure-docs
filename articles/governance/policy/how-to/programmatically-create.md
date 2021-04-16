@@ -1,7 +1,7 @@
 ---
 title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 ms.topic: how-to
 ---
 # Programmatically create policies
@@ -162,9 +162,9 @@ Use the following procedure to create a policy definition.
    Replace the preceding {subscriptionId} with the ID of your subscription or {managementGroupId}
    with the ID of your [management group](../../management-groups/overview.md).
 
-   For more information about the structure of the query, see [Azure Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate)
+   For more information about the structure of the query, see [Azure Policy Definitions – Create or Update](/rest/api/policy/policydefinitions/createorupdate)
    and
-   [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   [Policy Definitions – Create or Update At Management Group](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup)
 
 Use the following procedure to create a policy assignment and assign the policy definition at the
 resource group level.
@@ -283,5 +283,5 @@ Review the following articles for more information about the commands and querie
 - [Azure REST API Resources](/rest/api/resources/)
 - [Azure PowerShell Modules](/powershell/module/az.resources/#policy)
 - [Azure CLI Policy Commands](/cli/azure/policy)
-- [Azure Policy Insights resource provider REST API reference](/rest/api/policy-insights)
+- [Azure Policy resource provider REST API reference](/rest/api/policy)
 - [Organize your resources with Azure management groups](../../management-groups/overview.md).

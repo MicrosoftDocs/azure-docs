@@ -63,13 +63,13 @@ This example specifies the channels and Conda/PyPI dependencies.
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 For details on creating an environment from this environment.yml file, see [Creating an environment from an environment.yml file](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
 
@@ -135,6 +135,11 @@ To add workspace packages:
 
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
 
+>[!WARNING]
+>- Within Azure Synapse, an Apache Spark pool can leverage custom libraries that are either uploaded  as Workspace Packages or uploaded within a well-known Azure Data Lake Storage path. However, both of these options cannot be used simultaneously within the same Apache Spark pool. If packages are provided using both methods, only the wheel files specified in the Workspace packages list will be installed. 
+>
+>- Once Workspace Packages (preview) are used to install packages on a given Apache Spark pool, there is a limitation that you can no longer specify packages using the Storage account path on the same pool.  
+
 ### Storage account
 Custom-built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
 
@@ -144,13 +149,12 @@ The files should be uploaded to the following path in the storage account's defa
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-You may need to add the ```python``` folder within the ```libraries``` folder if it does not already exist.
+>[!WARNING]
+> In some cases, you may need to create the file path based on the structure above if it does not already exist. For example, you may need to add the ```python``` folder within the ```libraries``` folder if it does not already exist.
 
 > [!IMPORTANT]
 > To install custom libraries using the Azure DataLake Storage method, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
 
->[!WARNING]
-> When providing custom wheel files, users cannot provide wheel files in both the storage account and in the workspace library interface. If both are provided, only the wheel files specified in the workspace packages list will be installed. 
 
 ## Session-scoped packages (preview)
 In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session.  Session-scoped libraries let you specify and use custom Python environments within a notebook session. 

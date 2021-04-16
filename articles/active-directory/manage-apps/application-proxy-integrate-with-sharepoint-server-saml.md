@@ -63,8 +63,8 @@ In this step, you create an application in your Azure AD tenant that uses Applic
 
  1. Create a new Azure AD Application Proxy application with custom domain. For step-by-step instructions, see [Custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md).
 
-    - Internal URL: https://portal.contoso.com/
-    - External URL: https://portal.contoso.com/
+    - Internal URL: 'https://portal.contoso.com/'
+    - External URL: 'https://portal.contoso.com/'
     - Pre-Authentication: Azure Active Directory
     - Translate URLs in Headers: No
     - Translate URLs in Application Body: No
@@ -79,4 +79,4 @@ In this step, you create an application in your Azure AD tenant that uses Applic
  
 ## Step 3: Test your application
 
-Using a browser from a computer on an external network, navigate to the URL (https://portal.contoso.com/) that you configured during the publish step. Make sure you can sign in with the test account that you set up.
+Using a browser from a computer on an external network, navigate to the link that you configured during the publish step. Make sure you can sign in with the test account that you set up.

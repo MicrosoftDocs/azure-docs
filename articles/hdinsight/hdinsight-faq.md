@@ -73,11 +73,11 @@ No, it's not possible to run Apache Kafka and Apache Spark on the same HDInsight
 1. Open the Ambari Web UI at `https://CLUSTERNAME.azurehdinsight.net`, where CLUSTERNAME is the name of your cluster.
 2. In the upper-right corner, select admin | Settings. 
 
-   ![Ambari Settings](media/hdinsight-faq/ambari-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Ambari Settings":::
 
 3. In the User Settings window, select the new timezone from the Timezone drop down, and then click Save.
 
-   ![Ambari User Settings](media/hdinsight-faq/ambari-user-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Ambari User Settings":::
 
 ## Metastore
 

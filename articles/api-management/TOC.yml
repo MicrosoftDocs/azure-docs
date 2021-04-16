@@ -131,6 +131,9 @@
               href: configure-custom-domain.md
             - name: Deploy to multiple Azure regions
               href: api-management-howto-deploy-multi-region.md
+            - name: Enable zone redundancy
+              displayName: Availability zones
+              href: zone-redundancy.md
             - name: Provision a self-hosted gateway
               href: api-management-howto-provision-self-hosted-gateway.md
             - name: Deploy a self-hosted gateway to Azure Kubernetes Service
@@ -248,6 +251,8 @@
               href: api-management-transformation-policies.md
             - name: Distributed Application Runtime (Dapr) integration policies
               href: api-management-dapr-policies.md
+            - name: Validation policies
+              href: validation-policies.md  
       - name: Manage in production
         items:
             - name: Export APIs to the Power Platform
