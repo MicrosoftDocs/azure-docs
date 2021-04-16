@@ -66,6 +66,12 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: quickstart-create-automation-account-template.md
+        - name: Managed identity
+          items:
+            - name: Enable managed identity
+              href: enable-managed-identity-for-automation.md
+            - name: Disable managed identity
+              href: disable-managed-identity-for-automation.md
         - name: Run As account
           items:
             - name: Create Run As account
@@ -78,12 +84,6 @@
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
           href: automation-use-azure-ad.md
-        - name: Managed identity
-          items:
-            - name: Enable managed identity for Automation
-              href: enable-managed-identity-for-automation.md
-            - name: Disable managed identity for Automation
-              href: disable-managed-identity-for-automation.md
         - name: Manage DNS records used by Automation
           href: how-to/automation-region-dns-records.md
         - name: Connect privately to Automation account
