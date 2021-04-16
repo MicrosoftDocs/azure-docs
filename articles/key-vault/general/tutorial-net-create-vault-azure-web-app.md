@@ -33,7 +33,7 @@ To complete this tutorial, you need:
 
 * An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * The [.NET Core 3.1 SDK (or later)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* A [Git](https://www.git-scm.com/downloads) installation.
+* A [Git](https://www.git-scm.com/downloads) installation of version 2.28.0 or greater.
 * The [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
 * A Key Vault [secret](../secrets/about-secrets.md). You can create a secret by using the [Azure portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md), or the [Azure CLI](../secrets/quick-create-cli.md).
@@ -77,7 +77,7 @@ In this step, you'll deploy your .NET Core application to Azure App Service by u
 In the terminal window, select **Ctrl+C** to close the web server.  Initialize a Git repository for the .NET Core project:
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
@@ -166,8 +166,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in the format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Save this URL. You'll need it later.
+
+Now configure your web app to deploy from the `main` branch:
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+```
 
 Go to your new app by using the following command. Replace `<your-webapp-name>` with your app name.
 

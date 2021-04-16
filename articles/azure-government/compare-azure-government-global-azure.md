@@ -1,6 +1,6 @@
 ---
 title: Compare Azure Government and global Azure | Microsoft Docs
-description: Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). This article compares Azure Government and global Azure.
+description: Describe feature differences between Azure Government and global Azure.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/07/2021
+ms.date: 04/14/2021
 ---
 
 # Compare Azure Government and global Azure
 
-Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
+Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to [screened US persons](./documentation-government-plan-security.md#screening). These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations.
 
 ### Export control implications
 
-Customers are responsible for designing and deploying their applications to meet [export control requirements](./documentation-government-overview-itar.md) such as those prescribed in the EAR and ITAR. In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md). Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting customer data can contain export-controlled data. However, metadata for these Azure services is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining an Azure service, including subscription names, service names, server names, database names, tenant role names, resource groups, deployment names, resource names, resource tags, circuit name, etc. It also includes all shipping information that is used to transport media for Azure Import/Export, such as carrier name, tracking number, description, return information, drive list, package list, storage account name, container name, etc. Sensitive data should not be included in HTTP headers sent to the REST API in search/query strings as part of the API.
+Customers are responsible for designing and deploying their applications to meet [US export control requirements](./documentation-government-overview-itar.md) such as the requirements prescribed in the EAR, ITAR, and DoE 10 CFR Part 810. In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).
 
 ### Guidance for developers
 
@@ -161,6 +161,11 @@ The following Translator **features are not currently available** in Azure Gover
 
 This section outlines variations and considerations when using Analytics services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
+### [Azure Data Factory](../data-factory/index.yml)
+
+The following Data Factory **features are not currently available** in Azure Government:
+
+- Mapping data flows
 
 ### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
 
@@ -225,6 +230,7 @@ The following Virtual Machines **features are not currently available** in Azure
 ### [Azure Functions](../azure-functions/index.yml)
 
 When connecting your function app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
+
 
 ## Databases
 
@@ -378,6 +384,7 @@ The calculation for recommending that you should right-size or shut down underut
 
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
+
 ## Media
 
 This section outlines variations and considerations when using Media services in the Azure Government environment.
@@ -503,16 +510,16 @@ The following Azure Security Center **features are not currently available** in 
     - [Connect GCP account](../security-center/quickstart-onboard-gcp.md)
     - [Integrated vulnerability assessment for machines (powered by Qualys)](../security-center/deploy-vulnerability-assessment-vm.md).
 
-    >[!NOTE]
-    >Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
+    > [!NOTE]
+    > Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
 
 - **Threat detection**
     - [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md).
     - [Azure Defender for Key Vault](../security-center/defender-for-key-vault-introduction.md)
     - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, and threat intelligence reports.
 
-    >[!NOTE]
-    >Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
+    > [!NOTE]
+    > Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
 
 - **Environment hardening**
     - [Adaptive network hardening](../security-center/security-center-adaptive-network-hardening.md)
@@ -565,15 +572,15 @@ Azure relies on [paired regions](../best-practices-availability-paired-regions.m
 
 Table in Guidance for developers section shows URL endpoints for main Azure Storage services.
 
->[!NOTE]
->All your scripts and code need to account for the appropriate endpoints. See [**Configure Azure Storage Connection Strings**](../storage/common/storage-configure-connection-string.md).
+> [!NOTE]
+> All your scripts and code need to account for the appropriate endpoints. See [**Configure Azure Storage Connection Strings**](../storage/common/storage-configure-connection-string.md).
 
 For more information on APIs, see [Cloud Storage Account Constructor](/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount).
 
 The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 
->[!NOTE]
->If error 53 ("The network path was not found") is returned while you're [**mounting the file share**](../storage/files/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on VM that's in the same Azure subscription as the storage account.
+> [!NOTE]
+> If error 53 ("The network path was not found") is returned while you're [**mounting the file share**](../storage/files/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on VM that's in the same Azure subscription as the storage account.
 
 When you're deploying the **StorSimple** Manager service, use the [https://portal.azure.us/](https://portal.azure.us/) URL for the Azure Government portal. For deployment instructions for [StorSimple Virtual Array](../storsimple/storsimple-ova-system-requirements.md), see StorSimple Virtual Array system requirements. For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-8000-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.yml).
 

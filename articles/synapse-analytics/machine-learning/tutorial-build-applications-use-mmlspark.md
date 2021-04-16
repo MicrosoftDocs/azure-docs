@@ -21,7 +21,7 @@ Synapse Spark provide built-in MMLSpark libraries including:
 
 - [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
 - [Cognitive Services on Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
-- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
+- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
 - [HTTP on Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
 

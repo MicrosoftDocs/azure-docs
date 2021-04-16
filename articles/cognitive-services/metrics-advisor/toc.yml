@@ -1,4 +1,4 @@
-- name: Metrics Advisor
+- name: Metrics Advisor Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -9,7 +9,7 @@
     href: http://go.microsoft.com/fwlink/?LinkID=761229
   - name: What's new?
     href: whats-new.md
-- name: Metrics Advisor quickstarts
+- name: Quickstarts
   items:
   - name: Web portal
     href: quickstarts/web-portal.md
@@ -35,6 +35,10 @@
     href: how-tos/anomaly-feedback.md
   - name: Build a metrics graph
     href: how-tos/metrics-graph.md
+  - name: Enterprise readiness
+    items:
+    - name: Use customer-managed keys
+      href: encryption.md
 - name: Concepts 
   items:
     - name: Metrics Advisor key terms
@@ -49,11 +53,11 @@
     href: /powershell/module/azurerm.cognitiveservices/
 - name: Resources
   items:
-  - name: Region support
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services 
-  - name: Support & help options
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Encryption
-    href: encryption.md

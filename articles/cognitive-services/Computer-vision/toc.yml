@@ -3,11 +3,11 @@
 - name: Overview
   expanded: true
   items:
-  - name: Computer Vision overview
+  - name: What is Computer Vision?
     href: overview.md
   - name: Language support
     href: language-support.md
-  - name: Pricing and limits
+  - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: What's new
     href: whats-new.md
@@ -48,14 +48,12 @@
         href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
   - name: Reference
     items:
-    - name: OCR REST API v3.2 preview
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
+    - name: OCR REST API v3.2
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
     - name: OCR REST API v3.1
       href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
     - name: OCR REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-    - name: OCR REST API v1.0
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - name: Node.js
@@ -75,7 +73,7 @@
   - name: Image Analysis overview
     href: overview-image-analysis.md
   - name: Image Analysis quickstart
-    href: quickstarts-sdk/client-library.md
+    href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples  
     items:  
     - name: Explore an image processing app
@@ -120,14 +118,12 @@
       href: Tutorials/storage-lab-tutorial.md
   - name: Reference
     items: 
-    - name: Image Analysis REST API v3.2 preview
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
+    - name: Image Analysis REST API v3.2
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
     - name: Image Analysis REST API v3.1
       href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
     - name: Image Analysis REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-    - name: Image Analysis REST API v1.0
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - name: Node.js
@@ -146,8 +142,6 @@
   items: 
   - name: Spatial Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
-  - name: Set up the host machine and run the container
-    href: spatial-analysis-container.md
   - name: Responsible use of AI
     items:
     - name: Transparency notes
@@ -170,6 +164,8 @@
     items:
     - name: Use the Spatial Analysis container
       items:
+      - name: Set up the host machine and run the container
+        href: spatial-analysis-container.md
       - name: Configure operations
         href: spatial-analysis-operations.md
       - name: Deploy a people counting web app
@@ -184,21 +180,23 @@
         href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
 - name: How-to guides
   items:
-  - name: How to configure virtual networks
-    href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
-  - name: How to configure AAD Authentication
-    href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
-  - name: How to use customer managed keys
-    href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+  - name: Enterprise readiness
+    items:
+    - name: Set up Virtual Networks
+      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Use Azure AD Authentication
+      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
 - name: Resources
   items: 
-  - name: Region support
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: LEARN modules
-    href: /learn/paths/explore-computer-vision-microsoft-azure/
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Microsoft Learn modules
+    href: /learn/paths/explore-computer-vision-microsoft-azure/
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services

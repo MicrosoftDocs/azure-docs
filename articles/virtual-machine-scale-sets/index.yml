@@ -26,7 +26,7 @@ landingContent:
           - text: What are virtual machine scale sets?
             url: overview.md
           - text: Frequently asked questions (FAQ)
-            url: virtual-machine-scale-sets-faq.md
+            url: virtual-machine-scale-sets-faq.yml
 
   # Card
   - title: Get started

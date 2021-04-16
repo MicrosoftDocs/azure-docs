@@ -93,6 +93,9 @@
       - name: Go
         href: connect-go.md
         displayName: connect with go
+      - name: Rust
+        href: connect-rust.md
+        displayName: connect with rust
   - name: Tutorials
     items:
     - name: Design a database
@@ -212,6 +215,8 @@
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
         displayName: query store, performance, optimize, recommendations
+      - name: Azure Advisor recommendations
+        href: concepts-azure-advisor-recommendations.md
     - name: App Development
       items:
       - name: Best practices
@@ -481,6 +486,16 @@
         displayName: monitor, server logs
       - name: Audit logs
         href: flexible-server/concepts-audit.md
+      - name: Intelligent Performance
+        items:
+        - name: Query Store overview
+          href: flexible-server/concepts-query-store.md
+          displayName: performance, optimize, query store
+        - name: Query Store usage scenarios
+          href: flexible-server/concepts-query-store-scenarios.md
+          displayName: query store, performance, optimize
+        - name: Query Store best practices
+          href: flexible-server/concepts-query-store-best-practices.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
@@ -558,11 +573,15 @@
     items:
     - name: What is Hyperscale (Citus)?
       href: hyperscale-overview.md
+    - name: Features in preview
+      href: hyperscale-preview-features.md
   - name: Quickstart
     items:
     - name: Create server group
       items:
-      - name: Azure portal
+      - name: Basic tier (preview)
+        href: quickstart-create-hyperscale-basic-tier.md
+      - name: Standard tier
         href: quickstart-create-hyperscale-portal.md
         displayName: portal, create hyperscale
   - name: Tutorials
@@ -581,6 +600,8 @@
         displayName: hyperscale, tutorial, real-time
   - name: Concepts
     items:
+    - name: Basic tier
+      href: concepts-hyperscale-tiers.md
     - name: Distributed data
       items:
       - name: Nodes and tables
@@ -611,26 +632,26 @@
         displayName: backup, restore, outage, hyperscale
       - name: High availability
         href: concepts-hyperscale-high-availability.md
+    - name: Replication
+      href: concepts-hyperscale-read-replicas.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
         href: concepts-hyperscale-monitoring.md
       - name: Audit logs
         href: concepts-hyperscale-audit.md
+    - name: Columnar storage
+      href: concepts-hyperscale-columnar.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
+    - name: Limits and limitations
+      href: concepts-hyperscale-limits.md
     - name: Prepay for reserved capacity
       href: concepts-hyperscale-reserved-pricing.md
+    - name: PostgreSQL versions
+      href: concepts-hyperscale-versions.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
-  - name: API Reference
-    items:
-      - name: SQL API functions
-        href: reference-hyperscale-functions.md
-      - name: Server parameters
-        href: reference-hyperscale-parameters.md
-      - name: System tables
-        href: reference-hyperscale-metadata.md
   - name: How-to guides
     items:
     - name: Server group size
@@ -656,6 +677,15 @@
         href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
       href: howto-hyperscale-high-availability.md
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-read-replicas-portal.md
+        displayName: replication, read replica
+    - name: Scheduled maintenance
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-maintenance.md
     - name: Monitor
       items:
       - name: Create alerts on metrics
@@ -664,6 +694,12 @@
       - name: Access database logs
         href: howto-hyperscale-logging.md
         displayName: log, hyperscale
+    - name: Restore server group
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-restore-portal.md
+    - name: Major version upgrades
+      href: howto-hyperscale-upgrade.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
@@ -671,6 +707,14 @@
         displayName: connection errors, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
+  - name: API Reference
+    items:
+      - name: SQL API functions
+        href: reference-hyperscale-functions.md
+      - name: Server parameters
+        href: reference-hyperscale-parameters.md
+      - name: System tables
+        href: reference-hyperscale-metadata.md
 - name: Reference
   items:
    - name: Azure CLI

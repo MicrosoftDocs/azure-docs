@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/13/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -40,16 +40,16 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 
 ## Azure regions with Availability Zones
-
+ 
 
 | Americas           | Europe               | Africa              | Asia Pacific   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
 | Brazil South       | France Central       | South Africa North* | Australia East |
-| Canada Central     | Germany West Central |                     | Japan East     |
-| Central US         | North Europe         |                     | Korea Central* |
-| East US            | UK South             |                     | Southeast Asia |
-| East US 2          | West Europe          |                     |                |
+| Canada Central     | Germany West Central |                     | Central India* |
+| Central US         | North Europe         |                     | Japan East     |
+| East US            | UK South             |                     | Korea Central* |
+| East US 2          | West Europe          |                     | Southeast Asia |
 | South   Central US |                      |                     |                |
 | US Gov Virginia    |                      |                     |                |
 | West   US 2        |                      |                     |                |
@@ -75,124 +75,137 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 |     Products                                                    | Resiliency             |
 |-----------------------------------------------------------------|:----------------------------:|
-|     Storage   Account                                           | :large_blue_diamond:  |
-|     Application   Gateway (V2)                                  | :large_blue_diamond:  |
-|     Azure Backup                                                | :large_blue_diamond:  |
-|     Azure Cosmos   DB                                           | :large_blue_diamond:  |
-|     Azure Data   Lake Storage Gen 2                             | :large_blue_diamond:  |
-|     Azure Express   Route                                       | :large_blue_diamond:  |
-|     Azure Public   IP                                           | :large_blue_diamond:  |
-|     Azure SQL   Database (General Purpose Tier)                 | :large_blue_diamond:  |
-|     Azure SQL   Database (Premium & Business Critical Tier)     | :large_blue_diamond:  |
-|     Disk Storage                                                | :large_blue_diamond:  |
-|     Event Hubs                                                  | :large_blue_diamond:  |
-|     Key Vault                                                   | :large_blue_diamond:  |
-|     Load Balancer                                               | :large_blue_diamond:  |
-|     Service Bus                                                 | :large_blue_diamond:  |
-|     Service   Fabric                                            | :large_blue_diamond:  |
-|     Storage:   Hot/Cool Blob Storage Tiers                      | :large_blue_diamond:  |
-|     Storage:   Managed Disks                                    | :large_blue_diamond:  |
-|     Virtual   Machines Scale Sets                               | :large_blue_diamond:  |
-|     Virtual   Machines                                          | :large_blue_diamond:  |
-|     Virtual   Machines: Av2-Series                              | :large_blue_diamond:  |
-|     Virtual   Machines: Bs-Series                               | :large_blue_diamond:  |
-|     Virtual   Machines: DSv2-Series                             | :large_blue_diamond:  |
-|     Virtual   Machines: DSv3-Series                             | :large_blue_diamond:  |
-|     Virtual   Machines: Dv2-Series                              | :large_blue_diamond:  |
-|     Virtual   Machines: Dv3-Series                              | :large_blue_diamond:  |
-|     Virtual   Machines: ESv3-Series                             | :large_blue_diamond:  |
-|     Virtual   Machines: Ev3-Series                              | :large_blue_diamond:  |
-|     Virtual   Machines: F-Series                                | :large_blue_diamond:  |
-|     Virtual   Machines: FS-Series                               | :large_blue_diamond:  |
-|     Virtual   Network                                           | :large_blue_diamond:  |
-|     VPN Gateway                                                 | :large_blue_diamond:  |
+|     [Application   Gateway (V2)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)                                  | :large_blue_diamond:  |
+|     [Azure Backup](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy)                                                | :large_blue_diamond:  |
+|     [Azure Cosmos   DB](https://docs.microsoft.com/azure/cosmos-db/high-availability#availability-zone-support)                                           | :large_blue_diamond:  |
+|     [Azure Data   Lake Storage Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)                             | :large_blue_diamond:  |
+|     [Azure Express   Route](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)                                       | :large_blue_diamond:  |
+|     [Azure Public   IP](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses)                                           | :large_blue_diamond:  |
+|     Azure SQL   Database ([General Purpose Tier](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla))                 | :large_blue_diamond:  |
+|     Azure SQL   Database([Premium & Business Critical Tier](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla))     | :large_blue_diamond:  |
+|     [Disk Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)                                                | :large_blue_diamond:  |
+|     [Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones)                                                  | :large_blue_diamond:  |
+|     [Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)                                                   | :large_blue_diamond:  |
+|     [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)                                               | :large_blue_diamond:  |
+|     [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr#availability-zones)                                                 | :large_blue_diamond:  |
+|     [Service   Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#:~:text=An%20Availability%20Zone%20is%20a%20unique%20physical%20location,zones.%20This%20will%20ensure%20high-availability%20of%20your%20applications)                                            | :large_blue_diamond:  |
+|     [Storage   Account](https://docs.microsoft.com/azure/storage/common/storage-redundancy)                                           | :large_blue_diamond:  |
+|     Storage:   [Hot/Cool Blob Storage Tiers](https://docs.microsoft.com/azure/storage/common/storage-redundancy)                      | :large_blue_diamond:  |
+|     Storage:   [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview)                                    | :large_blue_diamond:  |
+|     [Virtual   Machines Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set)                               | :large_blue_diamond:  |
+|     [Virtual   Machines](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                          | :large_blue_diamond:  |
+|     Virtual   Machines: [Av2-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
+|     Virtual   Machines: [Bs-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual   Machines: [DSv2-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
+|     Virtual   Machines: [DSv3-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                            | :large_blue_diamond:  |
+|     Virtual   Machines: [Dv2-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
+|     Virtual   Machines: [Dv3-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
+|     Virtual   Machines: [ESv3-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
+|     Virtual   Machines: [Ev3-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
+|     Virtual   Machines: [F-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                | :large_blue_diamond:  |
+|     Virtual   Machines: [FS-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual Machines: [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#make-your-images-highly-available) | :large_blue_diamond:  |
+|     [Virtual   Network](https://docs.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway)                                         | :large_blue_diamond:  |
+|     [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)                                             | :large_blue_diamond:  |
 
 
 **Mainstream services**
 
-| Products                                        | Resiliency |
-|-------------------------------------------------|:------------:|
-| App Service Environments                        |      :large_blue_diamond:  |
-| Azure Active Directory Domain Services          |      :large_blue_diamond:  |
-| Azure Bastion                                   |      :large_blue_diamond:  |
-| Azure Cache for Redis                           |      :large_blue_diamond:  |
-| Azure Cognitive Services: Text Analytics        |      :large_blue_diamond:  |
-| Azure Data Explorer                             |      :large_blue_diamond:  |
-| Azure Database for MySQL – Flexible Server      |      :large_blue_diamond:  |
-| Azure Database for PostgreSQL – Flexible Server |      :large_blue_diamond:  |
-| Azure DDoS Protection                           |      :large_blue_diamond:  |
-| Azure Disk Encryption                           |      :large_blue_diamond:  |
-| Azure Firewall                                  |      :large_blue_diamond:  |
-| Azure Firewall Manager                          |      :large_blue_diamond:  |
-| Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
-| Azure Private Link                              |      :large_blue_diamond:  |
-| Azure Red Hat OpenShift                         |      :large_blue_diamond:  |
-| Azure Site Recovery                             |      :large_blue_diamond:  |
-| Azure SQL: Virtual Machine                      |      :large_blue_diamond:  |
-| Azure Search                                    |      :large_blue_diamond:  |
-| Azure Web Application Firewall                  |      :large_blue_diamond:  |
-| Container Registry                              |      :large_blue_diamond:  |
-| Event Grid                                      |      :large_blue_diamond:  |
-| Network Watcher                                 |      :large_blue_diamond:  |
-| Network Watcher: Traffic Analytics              |      :large_blue_diamond:  |
-| Power BI Embedded                               |      :large_blue_diamond:  |
-| Premium Blob Storage                            |      :large_blue_diamond:  |
-| Storage: Azure Premium Files                    |      :large_blue_diamond:  |
-| Virtual Machines: Azure Dedicated Host          |      :large_blue_diamond:  |
-| Virtual Machines: Ddsv4-Series                  |      :large_blue_diamond:  |
-| Virtual Machines: Ddv4-Series                   |      :large_blue_diamond:  |
-| Virtual Machines: Dsv4-Series                   |      :large_blue_diamond:  |
-| Virtual Machines: Dv4-Series                    |      :large_blue_diamond:  |
-| Virtual Machines: Edsv4-Series                  |      :large_blue_diamond:  |
-| Virtual Machines: Edv4-Series                   |      :large_blue_diamond:  |
-| Virtual Machines: Esv4-Series                   |      :large_blue_diamond:  |
-| Virtual Machines: Ev4-Series                    |      :large_blue_diamond:  |
-| Virtual Machines: Fsv2-Series                   |      :large_blue_diamond:  |
-| Virtual Machines: M-Series                      |      :large_blue_diamond:  |
-| Virtual WAN                                     |      :large_blue_diamond:  |
-| Virtual WAN: ExpressRoute                       |      :large_blue_diamond:  |
-| Virtual WAN: Point-to-Site VPN Gateway          |      :large_blue_diamond:  |
-| Virtual WAN: Site-to-Site VPN Gateway           |      :large_blue_diamond:  |
+
+|     Products                                                    | Resiliency             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     [App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy)                                    | :large_blue_diamond:  |
+|     [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview)                      | :large_blue_diamond:  |
+|     [Azure API Management](https://docs.microsoft.com/azure/api-management/zone-redundancy)                      | :large_blue_diamond:  |
+|     [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)                                               | :large_blue_diamond:  |
+|     [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-high-availability)                              | :large_blue_diamond:  |
+|     [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-performance-optimization#availability-zones)               | :large_blue_diamond:  |
+|     Azure Cognitive Services: [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)                    | :large_blue_diamond:  |
+|     [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal)                               | :large_blue_diamond:  |
+|     Azure Database for MySQL – [Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-high-availability)                  | :large_blue_diamond:  |
+|     Azure Database for PostgreSQL – [Flexible Server](https://docs.microsoft.com/azure/postgresql/flexible-server/overview)             | :large_blue_diamond:  |
+|     [Azure DDoS Protection](https://docs.microsoft.com/azure/ddos-protection/ddos-faq)                                       | :large_blue_diamond:  |
+|     [Azure Disk Encryption](https://docs.microsoft.com/azure/virtual-machines/disks-redundancy)                                       | :large_blue_diamond:  |
+|     [Azure Firewall](https://docs.microsoft.com/azure/firewall/deploy-availability-zone-powershell#:~:text=For%20more%20information%20about%20Azure%20Firewall%20Availability%20Zones%2C,This%20creates%20a%20zone-redundant%20IP%20address%20by%20default)                                              | :large_blue_diamond:  |
+|     [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/quick-firewall-policy)                                      | :large_blue_diamond:  |
+|     [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/availability-zones)                              | :large_blue_diamond:  |
+|     [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)                                          | :large_blue_diamond:  |
+|     [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery)                                         | :large_blue_diamond:  |
+|     Azure SQL: [Virtual Machine](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla)                                  | :large_blue_diamond:  |
+|     [Azure Web Application Firewall](https://docs.microsoft.com/azure/firewall/deploy-availability-zone-powershell#:~:text=For%20more%20information%20about%20Azure%20Firewall%20Availability%20Zones%2C,This%20creates%20a%20zone-redundant%20IP%20address%20by%20default)                              | :large_blue_diamond:  |
+|     [Container Registry](https://docs.microsoft.com/azure/container-registry/zone-redundancy)                                          | :large_blue_diamond:  |
+|     [Event Grid](https://docs.microsoft.com/azure/event-grid/overview)                                                  | :large_blue_diamond:  |
+|     [Network Watcher](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
+|     Network Watcher: [Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                          | :large_blue_diamond:  |
+|     [Power BI Embedded](https://docs.microsoft.com/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
+|     [Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-performance-tiers#:~:text=Table%201%20%20%20%20Area%20%20,%20%20Currently%20supports%20only%20locally-redundan%20...%20)                                        | :large_blue_diamond:  |
+|     Storage: [Azure Premium Files](https://docs.microsoft.com/azure/storage/files/storage-files-planning)                                | :large_blue_diamond:  |
+|     Virtual Machines: [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                     | :large_blue_diamond:  |
+|     Virtual Machines: [Ddsv4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
+|     Virtual Machines: [Ddv4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual Machines: [Dsv4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual Machines: [Dv4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                | :large_blue_diamond:  |
+|     Virtual Machines: [Edsv4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
+|     Virtual Machines: [Edv4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual Machines: [Esv4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual Machines: [Ev4-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                | :large_blue_diamond:  |
+|     Virtual Machines: [Fsv2-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual Machines: [M-Series](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                  | :large_blue_diamond:  |
+|     [Virtual WAN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                                 | :large_blue_diamond:  |
+|     Virtual WAN: [ExpressRoute](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                   | :large_blue_diamond:  |
+|     Virtual WAN: [Point-to-Site VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)                      | :large_blue_diamond:  |
+|     Virtual WAN: [Site-to-Site VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)                       | :large_blue_diamond:  |
+
+
+**Specialized Services**
+
+|     Products                                                    | Resiliency             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Azure Red Hat OpenShift                                     | :large_blue_diamond:  |
+|     Cognitive Services: Anomaly Detector                        | :large_blue_diamond:  |
+|     Cognitive Services: Form Recognizer                         | :large_blue_diamond:  |
+|     Storage: Ultra Disk                                         | :large_blue_diamond:  |
 
 
 **Non-regional**
 
-|     Products                                  |     Resiliency    |
-|-----------------------------------------------|:-------------------:|
-|     Azure DNS                                 |     :globe_with_meridians:             |
-|     Azure Active   Directory                  |     :globe_with_meridians:             |
-|     Azure Advanced Threat Protection          |     :globe_with_meridians:             |
-|     Azure Advisor                             |     :globe_with_meridians:             |
-|     Azure Blueprints                          |     :globe_with_meridians:             |
-|     Azure Bot Services                        |     :globe_with_meridians:             |
-|     Azure Front Door                          |     :globe_with_meridians:             |
-|     Azure   Defender for IoT                  |     :globe_with_meridians:             |
-|     Azure Front Door                           |     :globe_with_meridians:             |
-|     Azure   Information Protection            |     :globe_with_meridians:             |
-|     Azure   Lighthouse                        |     :globe_with_meridians:             |
-|     Azure Managed   Applications              |     :globe_with_meridians:             |
-|     Azure Maps                                |     :globe_with_meridians:             |
-|     Azure Policy                              |     :globe_with_meridians:             |
-|     Azure   Resource Graph                    |     :globe_with_meridians:             |
-|     Azure Sentinel                            |     :globe_with_meridians:             |
-|     Azure Stack                               |     :globe_with_meridians:             |
-|     Azure Stack   Edge                        |     :globe_with_meridians:             |
-|     Cloud Shell                               |     :globe_with_meridians:             |
-|     Content Delivery Network                  |     :globe_with_meridians:             |
-|     Cost Management                           |     :globe_with_meridians:             |
-|     Customer Lockbox   for Microsoft Azure    |     :globe_with_meridians:             |
-|     Intune                                    |     :globe_with_meridians:             |
-|     Microsoft   Azure Peering Service         |     :globe_with_meridians:             |
-|     Microsoft   Azure portal                  |     :globe_with_meridians:             |
-|     Microsoft Cloud App Security              |     :globe_with_meridians:             |
-|     Microsoft Graph                           |     :globe_with_meridians:             |
-|     Security   Center                         |     :globe_with_meridians:             |
-|     Traffic   Manager                         |     :globe_with_meridians:             |
+|     Products                                                    | Resiliency             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Azure DNS                                                   | :globe_with_meridians: |
+|     Azure Active   Directory                                    | :globe_with_meridians: |
+|     Azure Advanced Threat Protection                            | :globe_with_meridians: |
+|     Azure Advisor                                               | :globe_with_meridians: |
+|     Azure Blueprints                                            | :globe_with_meridians: |
+|     Azure Bot Services                                          | :globe_with_meridians: |
+|     Azure Front Door                                            | :globe_with_meridians: |
+|     Azure   Defender for IoT                                    | :globe_with_meridians: |
+|     Azure Front Door                                            | :globe_with_meridians: |
+|     Azure   Information Protection                              | :globe_with_meridians: |
+|     Azure   Lighthouse                                          | :globe_with_meridians: |
+|     Azure Managed   Applications                                | :globe_with_meridians: |
+|     Azure Maps                                                  | :globe_with_meridians: |
+|     Azure Performance Diagnostics                               | :globe_with_meridians: |
+|     Azure Policy                                                | :globe_with_meridians: |
+|     Azure   Resource Graph                                      | :globe_with_meridians: |
+|     Azure Sentinel                                              | :globe_with_meridians: |
+|     Azure Stack                                                 | :globe_with_meridians: |
+|     Azure Stack   Edge                                          | :globe_with_meridians: |
+|     Cloud Shell                                                 | :globe_with_meridians: |
+|     Content Delivery Network                                    | :globe_with_meridians: |
+|     Cost Management                                             | :globe_with_meridians: |
+|     Customer Lockbox   for Microsoft Azure                      | :globe_with_meridians: |
+|     Intune                                                      | :globe_with_meridians: |
+|     Microsoft   Azure Peering Service                           | :globe_with_meridians: |
+|     Microsoft   Azure portal                                    | :globe_with_meridians: |
+|     Microsoft Cloud App Security                                | :globe_with_meridians: |
+|     Microsoft Graph                                             | :globe_with_meridians: |
+|     Security   Center                                           | :globe_with_meridians: |
+|     Traffic   Manager                                           | :globe_with_meridians: |
 
 
 ## Pricing for VMs in Availability Zones
 
-There is no additional cost for virtual machines deployed in an Availability Zone. For more information, review the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
+Azure Availability Zones are available with your Azure subscription. Learn more here - [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 
 ## Get started with Availability Zones

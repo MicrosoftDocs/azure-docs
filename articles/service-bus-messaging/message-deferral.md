@@ -17,7 +17,7 @@ A simple illustrative example is an order processing sequence in which a payment
 Ultimately, deferral aids in reordering messages from the arrival order into an order in which they can be processed, while leaving those messages safely in the message store for which processing needs to be postponed.
 
 > [!NOTE]
-> Deferred messages will not be automatically moved to the dead-letter queue [after they expire](./service-bus-dead-letter-queues.md#exceeding-timetolive). This behaviour is by design.
+> Deferred messages will not be automatically moved to the dead-letter queue [after they expire](./service-bus-dead-letter-queues.md#time-to-live). This behaviour is by design.
 
 ## Message deferral APIs
 

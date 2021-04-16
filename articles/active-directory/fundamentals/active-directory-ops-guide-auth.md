@@ -360,8 +360,8 @@ Having access to sign-in activity, audits and risk events for Azure AD is crucia
 
 #### Logs recommended reading
 
-- [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta)
-- [Azure Active Directory sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)
+- [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit)
+- [Azure Active Directory sign-in activity report API reference](/graph/api/resources/signin)
 - [Get data using the Azure AD Reporting API with certificates](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Microsoft Graph for Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Office 365 Management Activity API reference](/office/office-365-management-api/office-365-management-activity-api-reference)

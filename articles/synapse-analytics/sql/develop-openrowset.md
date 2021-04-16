@@ -134,9 +134,9 @@ You can instruct serverless SQL pool to traverse folders by specifying /* at the
 `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Also, unlike Hadoop and PolyBase, serverless SQL pool does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Just like Hadoop and PolyBase, it doesn't return files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
+In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-openrowset/folder-traversal.png)
 
