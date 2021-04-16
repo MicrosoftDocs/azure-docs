@@ -84,7 +84,7 @@ Next, create a C# .NET console application in Visual Studio:
 
 You can get event hub namespace associated with purview account by looking at Atlas kafka endpoint primary/secondary connection strings in properties tab of Purview account
 
-[Event Hub Namespace] (./media/manage-eventhub-kafka-dotnet/properties.png).
+:::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="Event Hub Namespace":::
 
 The event hub name should be ATLAS_HOOK for sending messages to Purview.
 
