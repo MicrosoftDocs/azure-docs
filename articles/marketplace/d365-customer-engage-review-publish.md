@@ -31,6 +31,8 @@ You can review your offer status on the **Overview** tab of the commercial marke
 
 ## Validation and publishing steps
 
+Your offer's publish status will change as it moves through the publication process. For detailed information on this process, see [Validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
+
 When you are ready to submit an offer for publishing, select **Review and publish** at the upper-right corner of the portal. You'll see the status of each page for your offer listed as one of the following:
 
    - **Not started** – The page is incomplete.
