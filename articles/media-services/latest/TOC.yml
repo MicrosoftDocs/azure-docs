@@ -446,7 +446,7 @@
     - name: Roll storage access keys
       href: security-storage-roll-access-keys-how-to.md
     - name: Enable trusted storage
-      href: security-trusted-storage-rest-tutorial.md\
+      href: security-trusted-storage-rest-tutorial.md
     - name: Azure Media PlayerPass authentication tokens
       href: security-pass-authentication-tokens-how-to.md
     - name: Enable trusted storage
