@@ -20,9 +20,9 @@ ms.author: apimpm
 
 By publishing and managing your APIs via Azure API Management, you're taking advantage of fault tolerance and infrastructure capabilities that you'd otherwise design, implement, and manage manually. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
 
-To recover from availability problems that affect the region that hosts your API Management service, be ready to reconstitute your service in another region at any time. Depending on your recovery time objective, you might want to keep a standby service in one or more regions. You might also try to maintain their configuration and content in sync with the active service according to your recovery point objective. The service backup and restore features provides the necessary building blocks for implementing disaster recovery strategy.
+To recover from availability problems that affect the region that hosts your API Management service, be ready to reconstitute your service in another region at any time. Depending on your recovery time objective, you might want to keep a standby service in one or more regions. You might also try to maintain their configuration and content in sync with the active service according to your recovery point objective. The service backup and restore features provide the necessary building blocks for implementing disaster recovery strategy.
 
-Backup and restore operations can also be used for replicating API Management service configuration between operational environments, e.g. development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
+Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
 
 This guide shows how to automate backup and restore operations and how to ensure successful authenticating of backup and restore requests by Azure Resource Manager.
 
@@ -74,11 +74,14 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 5. Choose **Azure Service Management**.
 6. Press **Select**.
 
-    ![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Screenshot that shows how to add app permissions."::: 
 
 7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
+
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Screenshot that shows adding delegated app permissions.":::
+
 8. Press **Select**.
-9. Click **Grant Permissions**.
+9. Click **Add Permissions**.
 
 ### Configuring your app
 
