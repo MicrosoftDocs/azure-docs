@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 04/16/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -22,15 +22,11 @@ ms.collection: M365-identity-device-management
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
-The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
+The Azure Active Directory portal gives you access to three activity logs:
 
-- **Activity** 
-    - **Sign-ins** – Information about the usage of managed applications and user sign-in activities.
-    - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications, and directory activities.
-    - **Provisioning logs** - [Provisioning logs](./concept-provisioning-logs.md) allow customers to monitor activity by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday. 
-- **Security** 
-    - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt by someone who isn't the legitimate owner of a user account.
-    - **Users flagged for risk** - A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.
+- **Sign-ins** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
 This article gives you an overview of the sign-ins report.
 
@@ -94,6 +90,17 @@ Select an item in the list view to get more detailed information.
 > [!NOTE]
 > Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 > For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
+
+
+## Sign-in error code
+
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. 
+
+![sign-in error code](./media/concept-all-sign-ins/error-code.png)
+ 
+While the log item provides you with a failure reason, there are cases where you might get more information using the [sign-in error lookup tool](https://login.microsoftonline.com/error). For example, if available, this tool provides you with remediation steps.  
+
+![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
 
 
