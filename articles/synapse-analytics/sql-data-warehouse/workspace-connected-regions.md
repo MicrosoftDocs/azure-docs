@@ -24,13 +24,13 @@ The following table summarizes by region where the ability to enable the Synapse
 |:--- |:--- |:--- |
 | Australia Central 1 |\* |
 | Australia Central 2 |\* |
-| China East 2 |March 31, 2021 |
-| China North 2 |March 31, 2021 |
-| India South |March 31, 2021 |
-| India West |March 31, 2021 |
-| Korea South |March 31, 2021 |
-| Switzerland West |March 31, 2021 |
-| UAE North |March 31, 2021 |
+| China East 2 |\* |
+| China North 2 |\* |
+| India South |\*|
+| India West |\*|
+| Korea South |\* |
+| Switzerland West |\* |
+| UAE North |\*|
  
  
 > [!NOTE]

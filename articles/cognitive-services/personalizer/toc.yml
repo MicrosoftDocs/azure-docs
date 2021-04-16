@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: Personalizer overview
+  - name: What is Personalizer?
     href: what-is-personalizer.md
   - name: Pricing
     href: https://go.microsoft.com/fwlink/?linkid=2092154
@@ -11,7 +11,7 @@
   - name: What's new
     href: whats-new.md
     displayName: release notes, service updates, videos
-- name: Personalizer quickstart
+- name: Quickstart
   href: ./quickstart-personalizer-sdk.md
 - name: Samples
   href: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
@@ -32,6 +32,12 @@
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
     href: how-to-offline-evaluation.md
+  - name: Enterprise readiness
+    items:
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/personalizer/context/context
+      - name: Use customer-managed keys
+        href: encrypt-data-at-rest.md
 - name: Concepts
   items:
   - name: How Personalizer works
@@ -107,17 +113,17 @@
       href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
   items:
-  - name: Support & help options
+  - name: Enterprise readiness
+    items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Microsoft Learn modules
+    href: https://docs.microsoft.com/learn/browse/?terms=personalizer
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
   - name: Troubleshooting
     href: troubleshooting.md
-  - name: Learn modules
-    href: https://docs.microsoft.com/learn/browse/?terms=personalizer
-  - name: Region support
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Encryption
-    href: encrypt-data-at-rest.md
   - name: Azure updates
     href: https://go.microsoft.com/fwlink/?linkid=2092153

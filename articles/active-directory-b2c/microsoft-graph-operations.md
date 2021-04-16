@@ -135,7 +135,7 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 
 ## Conditional Access
 
-- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
+- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies?tabs=http)
 - [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
 - [Create a new Conditional Access policy](/graph/api/resources/application)
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
