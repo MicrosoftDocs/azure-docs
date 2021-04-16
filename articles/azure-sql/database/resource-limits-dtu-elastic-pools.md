@@ -155,6 +155,8 @@ If all DTUs of an elastic pool are used, then each database in the pool receives
 
 > [!NOTE]
 > For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+>
+> For additional information on local storage limits, see [Storage space governance](resource-limits-logical-server.md#storage-space-governance).
 
 ### Database properties for pooled databases
 
