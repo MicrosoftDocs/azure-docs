@@ -180,20 +180,22 @@
               items:
                   - name: Understand the developer portal
                     href: api-management-howto-developer-portal.md
+                  - name: Frequently asked questions
+                    href: developer-portal-faq.md
+                  - name: Automate portal deployments
+                    href: automate-portal-deployments.md
                   - name: Migrate from deprecated to new developer portal
                     href: developer-portal-deprecated-migration.md
-                  - name: Move portal between services
-                    href: developer-portal-migrate-between-services.md
                   - name: Authenticate with Azure AD
                     href: api-management-howto-aad.md
                   - name: Authenticate with Azure AD B2C
                     href: api-management-howto-aad-b2c.md
-                  - name: Delegated authentication
+                  - name: Delegate authentication
                     href: api-management-howto-setup-delegation.md
+                  - name: Enable console OAuth support
+                    href: api-management-howto-oauth2.md
                   - name: E-mail notifications and templates
                     href: api-management-howto-configure-notifications.md
-                  - name: Enable console OAuth support
-                    href: api-management-howto-oauth2.md 
                   - name: Integrate Application Insights
                     href: developer-portal-integrate-application-insights.md
                   - name: Integrate Google Tag Manager
@@ -202,12 +204,8 @@
               items:  
                 - name: Create self-hosted portal
                   href: developer-portal-self-host.md
-                - name: Enable CAPTCHA
-                  href: developer-portal-enable-captcha.md
-                - name: Alternative processes to self-host
+                - name: Alternative approaches to self-hosting
                   href: developer-portal-alternative-processes-self-host.md
-                - name: Content management API
-                  href: developer-portal-content-management-api.md
                 - name: Implement widgets
                   href: developer-portal-implement-widgets.md
                 - name: Contribute widgets
@@ -216,12 +214,6 @@
                   href: developer-portal-use-community-widgets.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
-                - name: Move from managed to self-hosted portal
-                  href: developer-portal-move-managed-self-hosted.md
-                - name: Single sign-on to self-hosted portal
-                  href: developer-portal-sso-authentication.md
-                - name: Configure OAuth 2.0 for self-hosted portal
-                  href: developer-portal-configure-oauth-2-0.md
             - name: Deprecated portal
               items:
                 - name: Deprecated portal - customize the portal

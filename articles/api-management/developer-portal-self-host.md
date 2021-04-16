@@ -1,19 +1,21 @@
 ---
 title: Self-host the developer portal
 titleSuffix: Azure API Management
-description: Learn how to set up your local development environment, carry out changes in the Azure API Management developer portal, and publish and deploy them to an Azure storage account.
+description: Learn how to self-host the API Management developer portal.
 author: dlepow
 ms.author: apimpm
-ms.date: 03/24/2021
+ms.date: 04/15/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Self-host the API Management developer portal
 
-This tutorial describes how to set up your local development environment, carry out changes in the developer portal for API Management, and publish and deploy them to an Azure storage account.
+This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting provides great flexibility to extend the developer portal with custom logic and widgets that dynamically customize pages on runtime. You can self-host multiple portals for your API Mangagement instance, with different features. When you self-host a portal, you become its maintainer and you are responsible for its upgrades. 
 
-If you have already uploaded or modified media files in the managed portal, you need to follow the [Move from managed to self-hosted](developer-portal-move-managed-self-hosted.md) guide instead.
+The following steps show how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure storage account.
+
+If you have already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ To set up a local development environment, you need to have:
 
 To set up your local environment, you'll have to clone the repository, switch to the latest release of the developer portal, and install npm packages.
 
-1. Clone the api-management-developer-portal repo from GitHub:
+1. Clone the [api-management-developer-portal](https://github.com/Azure/api-management-developer-portal.git) repo from GitHub:
 
     ```console
     git clone https://github.com/Azure/api-management-developer-portal.git
@@ -77,7 +79,7 @@ Go to the `src` folder and open the `config.design.json` file.
 
 Configure the file:
 
-1. In the `managementApiUrl` value, replace `<service-name>` with the name of your API Management instance. For example:
+1. In the `managementApiUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://management.contoso.com`).
 
     ```json
     {
@@ -90,16 +92,16 @@ Configure the file:
 
 1. Copy the generated token and paste it as the `managementApiAccessToken` value.
 
-1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. For example:
+1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
 
     ```json
     {
     ...
-    "backendUrl": "https://contoso-api.management.azure-api.net"
+    "backendUrl": "https://contoso-api.developer.azure-api.net"
     ...
     ```
 
-1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](developer-portal-enable-captcha.md).
+1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha).
 
 ### config.publish.json file
 
@@ -108,7 +110,7 @@ Go to the `src` folder and open the `config.publish.json` file.
 ```json
 {
   "environment": "publishing",
-  "managementApiUrl": "https://<service-name>.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/<service-name>",
+  "managementApiUrl": "https://<service-name>.management.azure-api.net",
   "managementApiAccessToken": "SharedAccessSignature...",
   "useHipCaptcha": false
 }
@@ -116,9 +118,9 @@ Go to the `src` folder and open the `config.publish.json` file.
 
 Configure the file:
 
-1. Copy and paste the `managementApiUrl`, and `managementApiAccessToken` values from the previous configuration file.
+1. Copy and paste the `managementApiUrl` and `managementApiAccessToken` values from the previous configuration file.
 
-1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](developer-portal-enable-captcha.md).
+1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha.md).
 
 ### config.runtime.json file
 
@@ -127,7 +129,7 @@ Go to the `src` folder and open the `config.runtime.json` file.
 ```json
 {
   "environment": "runtime",
-  "managementApiUrl": "https://<service-name>.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/<service-name>",
+  "managementApiUrl": "https://<service-name>.management.azure-api.net",
   "backendUrl": "https://<service-name>.developer.azure-api.net"
 }
 ```
@@ -136,14 +138,15 @@ Configure the file:
 
 1. Copy and paste the `managementApiUrl` value from the previous configuration file.
 
-1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. For example:
+1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example. `https://portal.contoso.com`).
 
     ```json
     {
     ...
-    "backendUrl": "https://contoso-api.management.azure-api.net"
+    "backendUrl": "https://contoso-api.developer.azure-api.net"
     ...
     ```
+
 ### Configure the static website
 
 Configure the **Static website** feature in your storage account by providing routes to the index and error pages:
@@ -199,8 +202,6 @@ Use the visual editor to carry out these tasks:
 
 See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content. Save all changes in the local environment, and press **Ctrl+C** to close it.
 
-:::image type="content" source="media/developer-portal-self-host/save-content.png" alt-text="Diagram showing customizing content for developer portal" border="false":::
-
 ## Publish locally
 
 The portal data originates in the form of strong-typed objects. The following command translates them into static files and places the output in the `./dist/website` directory:
@@ -208,8 +209,6 @@ The portal data originates in the form of strong-typed objects. The following co
 ```console
 npm run publish
 ```
-
-:::image type="content" source="media/developer-portal-self-host/generate-content.png" alt-text="Diagram showing publishing the developer portal locally" border="false":::
 
 ## Upload static files to a blob
 
@@ -227,7 +226,6 @@ Use Azure CLI to upload the locally generated static files to a blob, and make s
         --connection-string <account-connection-string>
     ```
 
-:::image type="content" source="media/developer-portal-self-host/upload-content.png" alt-text="Diagram showing uploading the developer portal" border="false":::
 
 ## Go to your website
 
@@ -393,9 +391,51 @@ Update the developer portal URL in any template that has a link in the footer:
 <a href="https://portal.contoso.com/">https://portal.contoso.com/</a>
 ```
 
+## Move from managed to self-hosted developer portal
+
+Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the manged version, the self-hosted version of the portal offers you full flexibility and extensibility.
+
+### Transition process
+
+You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you've carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
+
+The conversion process is almost identical to [setting up a generic self-hosted portal](developer-portal-self-host.md). There is one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
+
+> [!TIP]
+> We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
+
+## Enable CAPTCHA
+
+When setting up the self-hosted portal, you may have disabled CAPTCHA through the `useHipCaptcha` setting. Communication with CAPTCHA happens through an endpoint, which lets Cross-Origin Resource Sharing (CORS) happen for only the managed developer portal hostname. If your developer portal is self-hosted, it uses a different hostname and CAPTCHA won't allow the communication.
+
+### Update the JSON config files
+
+To enable the CAPTCHA in your self-hosted portal:
+
+1. Assign a custom domain (for example, `api.contoso.com`) to the **Developer portal** endpoint of your API Management service.
+
+    This domain applies to the managed version of your portal and the CAPTCHA endpoint. For steps, see [Configure a custom domain name for your Azure API Management instance](configure-custom-domain.md).
+
+1. Go to the `src` folder in the [local environment](#set-up-local-environment) for your self-hosted portal.
+
+1. Update the configuration `json` files:
+
+    | File | New value | Note |
+    | ---- | --------- | ---- |
+    | `config.design.json`| `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
+    |  | `"useHipCaptcha": true` | Change the value to `true` |
+    | `config.publish.json`| `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
+    |  | `"useHipCaptcha": true` | Change the value to `true` |
+    | `config.runtime.json` | `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
+
+1. [Publish](#publish-locally) the portal.
+
+1. [Upload](#upload-static-files-to-a-blob) and host the newly published portal.
+
+1. Expose the self-hosted portal through a custom domain.
+
+The portal domain's first and second levels need to match the domain set up in the first step. For example, `portal.contoso.com`. The exact steps depend on your hosting platform of choice. If you used an Azure storage account, you can refer to [Map a custom domain to an Azure Blob Storage endpoint](../storage/blobs/storage-custom-domain-name.md) for instructions.
 
 ## Next steps
 
-- [Enable CAPTCHA](developer-portal-enable-captcha.md)
-- Learn about [Alternative processes for self-hosted portal](developer-portal-alternative-processes-self-host.md)
-- Learn about the [content management API](developer-portal-content-management-api.md)
+- Learn about [Alternative approaches for self-hosted portal](developer-portal-alternative-processes-self-host.md)
