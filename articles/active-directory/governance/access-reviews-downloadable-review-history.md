@@ -54,7 +54,6 @@ The reports provide details on a per-user basis showing the following:
 
 | Element name | Description |
 | --- | --- |
-| AccessReviewId | Review object id |
 | AccessReviewId |	Review object id |
 | ReviewType | Review types include group, application, Azure AD role, Azure role, and access package|
 |ResourceDisplayName | Display Name of the resource being reviewed |
