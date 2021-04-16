@@ -168,4 +168,4 @@ To help with troubleshooting issues with the MFA Server AD FS Adapter use the st
 
 ## Related topics
 
-For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.md)
+For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.yml)
