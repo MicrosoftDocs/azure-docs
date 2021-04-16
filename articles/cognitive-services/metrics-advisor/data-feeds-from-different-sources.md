@@ -198,7 +198,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<Server>;Initial Catalog=<Database>
         ```
 
-    * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+    * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
     
         You can create managed identity in Azure portal for your Azure Data Explorer (Kusto), choose **Persmissions** section, and click **add** to create. The suggested role type is: admin / viewer.
         
@@ -343,7 +343,7 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
         Data Source=<Server>;Initial Catalog=<db-name>;User Id=<user-name>;Password=<password>
         ```
     
-    * **Managed Identity** : Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
+    * **Managed Identity** : Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
     To enable your managed entity, you can refer to following steps:
       1. Enabling a system-assigned managed identity is a one-click experience. In Auzre portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
       2. In Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give MI access to specified users, and the suggested role type is: admin / viewer.
@@ -356,16 +356,17 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
           ALTER ROLE db_datareader ADD MEMBER [MI Name]
           ```
        
-     Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+            Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
         
-     Here is an example of connection string: 
+            Here is an example of connection string: 
 
-        ```
-        Data Source=<Server>;Initial Catalog=<Database>
-        ```
+            ```
+            Data Source=<Server>;Initial Catalog=<Database>
+            ```
     
     * **Azure SQL Connection String**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+
         Here is an example of connection string: 
         
         ```
@@ -380,6 +381,7 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
         Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
 
         Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
+
         Here is an example of connection string: 
         
         ```
@@ -387,6 +389,7 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
         ```
   
     * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+        
         Here is an example of connection string: 
         
         ```
