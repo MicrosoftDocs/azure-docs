@@ -24,9 +24,7 @@ The following table gives you the CLI commands that you can use to enable sessio
 | Task | Command | 
 | ---- | ------- | 
 | Create a queue with sessions enabled | [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-session` set to `true` | 
-| Enable sessions for an existing queue | [`az servicebus queue update`](/cli/azure/servicebus/queue#az_servicebus_queue_update) command with `--enable-session` set to `true` |
 | Create a topic subscription with sessions enabled | [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--enable-session` set to `true` |
-| Enable sessions for an existing topic subscription | [`az servicebus topic subscription update`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_update) command with `--enable-session` set to `true` |
 
 For a tutorial on using CLI to create a Service Bus namespace and a queue, see [Use the Azure CLI to create a Service Bus namespace and a queue](service-bus-quickstart-cli.md). 
 
@@ -45,8 +43,8 @@ For a tutorial on using PowerShell to create a Service Bus namespace and a queue
 
 | Task | Instructions | 
 | ---- | ------- | 
-| Create or update a queue with sessions enabled | Set `requiresSession` to `true`. For an example, see [Microsoft.ServiceBus namespaces/queues template reference](/templates/microsoft.servicebus/namespaces/queues?tabs=json). |
-| Create or update a topic subscription with sessions enabled | Set `requiresSession` to `true`. For an example, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). |
+| Create a queue with sessions enabled | Set `requiresSession` to `true`. For an example, see [Microsoft.ServiceBus namespaces/queues template reference](/templates/microsoft.servicebus/namespaces/queues?tabs=json). |
+| Create a topic subscription with sessions enabled | Set `requiresSession` to `true`. For an example, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). |
 
 
 ## Management library SDKs
