@@ -134,7 +134,7 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 >
 > For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REORGANIZE does not re-sort the data. To resort data, use ALTER INDEX REBUILD.
 >
-> FOr more on ordered CCI maintenance, see [Optimizing clustered columnstore indexes](sql-data-warehouse-tables-index.md#optimizing-clustered-columnstore-indexes).
+> For more information on ordered CCI maintenance, see [Optimizing clustered columnstore indexes](sql-data-warehouse-tables-index.md#optimizing-clustered-columnstore-indexes).
 
 ## Examples
 
