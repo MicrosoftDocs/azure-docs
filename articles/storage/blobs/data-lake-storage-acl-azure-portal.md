@@ -53,7 +53,10 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
    > [!div class="mx-imgBorder"]
    > ![access ACL tab of the Manage ACL page](./media/data-lake-storage-acl-azure-portal/access-acl-page.png)
 
-7. To add a *security principal* to the ACL, select the **Add principal** button. A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). 
+7. To add a *security principal* to the ACL, select the **Add principal** button. 
+
+   > [!TIP]
+   > A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). 
 
    Find the security principal by using the search box, and then click the **Select** button. 
 
@@ -63,7 +66,10 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
    > [!NOTE]
    > We recommend that you create a security group in Azure AD, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md).
 
-8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbook. a default ACL is a template of an ACL that determines the access ACLs for any child items that are created under a directory. A blob doesn't have a default ACL, so this tab appears only for directories. 
+8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbook. 
+
+   > [!TIP]
+   > A default ACL is a template of an ACL that determines the access ACLs for any child items that are created under a directory. A blob doesn't have a default ACL, so this tab appears only for directories. 
 
    > [!div class="mx-imgBorder"]
    > ![default ACL tab of the Manage ACL page](./media/data-lake-storage-acl-azure-portal/default-acl-page.png)
