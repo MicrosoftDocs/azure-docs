@@ -1,6 +1,6 @@
 ---
 title: Transform data for Azure IoT Central | Microsoft Docs
-description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way into IoT Central and on the way out. 
+description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way into IoT Central and on the way out. The scenarios described use IoT Edge and Azure Functions.
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/09/2021
@@ -31,24 +31,22 @@ The following table shows three example transformation types:
 | Transformation | Description | Example  | Notes |
 |------------------------|-------------|----------|-------|
 | Message Format         | Convert to or manipulate JSON messages. | CSV to JSON  | At ingress. IoT Central only accepts value JSON messages. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md). |
-| Computations           | Math functions that [Azure Functions](../../azure-functions/index.md) can execute. | Unit conversion from Fahrenheit to Celsius.  | Normalize using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. Normalizing data lets you use common device models and IoT Central features such as visualizations and jobs. |
-| Message Enrichment     | Enrichments from external data sources not found in device properties or telemetry. To learn more about internal enrichments, see [Export IoT data to cloud destinations using data export](howto-export-data.md) | Add weather information to messages using location data from devices. | Normalize using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. |
+| Computations           | Math functions that [Azure Functions](../../azure-functions/index.yml) can execute. | Unit conversion from Fahrenheit to Celsius.  | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. Transforming the data lets you use IoT Central features such as visualizations and jobs. |
+| Message Enrichment     | Enrichments from external data sources not found in device properties or telemetry. To learn more about internal enrichments, see [Export IoT data to cloud destinations using data export](howto-export-data.md) | Add weather information to messages using location data from devices. | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. |
 
 ## Prerequisites
 
 To complete the steps in this article, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To set up the solution, you need a [V3 IoT Central application](howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](quick-deploy-iot-central.md).
+To set up the solution, you need an IoT Central application. To learn how to create an IoT Central application, see [Create an Azure IoT Central application](quick-deploy-iot-central.md).
 
 ## Data transformation at ingress
 
 To transform device data at ingress, there are two options:
 
-- **IoT Edge**: Use an IoT Edge module to transform data from downstream devices or other modules before sending the data to your IoT Central application.
+- **IoT Edge**: Use an IoT Edge module to transform data from downstream devices before sending the data to your IoT Central application.
 
 - **IoT Central device bridge**: The [IoT Central device bridge](https://github.com/Azure/iotc-device-bridge) connects other IoT device clouds, such as Sigfox, Particle, and The Things Network, to IoT Central. The device bridge uses an Azure function to forward the data and you can customize the function to transform the device data.
-
-To learn more about the data formats IoT Central expects, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 ### Use IoT Edge to transform device data
 
@@ -62,7 +60,7 @@ In this scenario, an IoT Edge module transforms the data from downstream devices
 
 1. **Transform device data in IoT Edge:** Create an IoT Edge module to transform the data. Deploy the module to the IoT Edge gateway device that forwards the transformed device data to your IoT Central application.
 
-1. **Verify**: Send data from a downstream device to the gateway and verify the transformed device data arrives in your IoT Central application.
+1. **Verify**: Send data from a downstream device to the gateway and verify the transformed device data reaches your IoT Central application.
 
 In the example described in the following sections, the downstream device sends CSV data in the following format to the IoT Edge gateway device:
 
@@ -89,7 +87,12 @@ The following steps show you how to set up and configure this scenario:
 
 ### Build the custom module
 
-In this scenario, the IoT Edge device runs a custom module that transforms the data from the downstream device. Before you deploy and configure the IoT Edge device, you need to build the custom module and add it to a container registry. The IoT Edge runtime downloads custom modules from a container registry such as an Azure container registry or Docker Hub. To build the custom module and upload it to an Azure container registry. The [Azure Cloud Shell](https://shell.azure.com/) is preinstalled with all the tools you need to create a container registry, build the module, and upload the module to the container registry:
+In this scenario, the IoT Edge device runs a custom module that transforms the data from the downstream device. Before you deploy and configure the IoT Edge device, you need to:
+
+- Build the custom module.
+- Add the custom module to a container registry.
+
+The IoT Edge runtime downloads custom modules from a container registry such as an Azure container registry or Docker Hub. The [Azure Cloud Shell](../../cloud-shell/overview.md) has all the tools you need to create a container registry, build the module, and upload the module to the registry:
 
 To create a container registry:
 
@@ -126,15 +129,21 @@ To build the custom module in the [Azure Cloud Shell](https://shell.azure.com/):
 
 ### Set up an IoT Edge device
 
-This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create device templates for the gateway and downstream devices in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
+This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device templates for the gateway and downstream devices in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
 
-To create a device template for the downstream device:
+To create a device template for the downstream device. This scenario uses a simple thermostat device model:
+
+1. Download the [device model for the thermostat](https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main/dtmi/com/example/thermostat-2.json) device to your local machine.
 
 1. Sign in to your IoT Central application and navigate to the **Device templates** page.
 
-1. Select **+ New**, select **RS40 Occupancy Sensor**, select **Next: Review**, then select **Create**.
+1. Select **+ New**, select **IoT Device**, and select **Next: Customize**.
 
-1. This device template is automatically published.
+1. Enter *Thermostat* as the template name and select **Next: Review**. Then select **Create**.
+
+1. Select **Import a model** and import the *thermostat-2.json* file you downloaded previously.
+
+1. Select **Publish** to publish the new device template.
 
 To create a device template for the IoT Edge gateway device:
 
@@ -154,11 +163,11 @@ To create a device template for the IoT Edge gateway device:
 
 1. When the deployment manifest is validated, select **Next: Review**, then select **Create**.
 
-1. Under **Model**, select **Relationships**. Select **+ Add relationship**. Enter *Downstream device* as the display name, and select **RS40 Occupancy Sensor** as the target. Select **Save**.
+1. Under **Model**, select **Relationships**. Select **+ Add relationship**. Enter *Downstream device* as the display name, and select **Thermostat** as the target. Select **Save**.
 
 1. Select **Publish** to publish the device template.
 
-You now have two device templates. The **IoT Edge gateway device** template, and the **RS40 Occupancy Sensor** as the downstream device.
+You now have two device templates. The **IoT Edge gateway device** template, and the **Thermostat** template as the downstream device.
 
 To register a gateway device in IoT Central:
 
@@ -168,19 +177,19 @@ To register a gateway device in IoT Central:
 
 1. In the list of devices, click on the **IoT Edge gateway device**, and then select **Connect**.
 
-1. Make a note of the **ID scope**, **Device ID**, and **Primary key** values for the gateway device. You use them later.
+1. Make a note of the **ID scope**, **Device ID**, and **Primary key** values for the **IoT Edge gateway device**. You use them later.
 
 To register a downstream device in IoT Central:
 
 1. In your IoT Central application, navigate to the **Devices** page.
 
-1. Select **RS40 Occupancy Sensor** and select **Create a device**. Enter *RS40 Occupancy Sensor* as the device name, enter *downstream-01* as the device ID, make sure **RS40 Occupancy Sensor** is selected as the device template. Select **Create**.
+1. Select **Thermostat** and select **Create a device**. Enter *Thermostat* as the device name, enter *downstream-01* as the device ID, make sure **Thermostat** is selected as the device template. Select **Create**.
 
-1. In the list of devices, select the **RS40 Occupancy Sensor** and then select **Attach to Gateway**. Select the **IoT Edge gateway device** template and the **IoT Edge gateway device** instance. Select **Attach**.
+1. In the list of devices, select the **Thermostat** and then select **Attach to Gateway**. Select the **IoT Edge gateway device** template and the **IoT Edge gateway device** instance. Select **Attach**.
 
-1. In the list of devices, click on the **RS40 Occupancy Sensor**, and then select **Connect**.
+1. In the list of devices, click on the **Thermostat**, and then select **Connect**.
 
-1. Make a note of the **ID scope**, **Device ID**, and **Primary key** values for the downstream device. You use them later.
+1. Make a note of the **ID scope**, **Device ID**, and **Primary key** values for the **Thermostat** device. You use them later.
 
 ### Deploy the gateway and downstream devices
 
@@ -205,7 +214,7 @@ Select **Review + Create**, and then **Create**. It takes a couple of minutes to
 
 To check that the IoT Edge device is running correctly:
 
-1. Open your IoT Central application and navigate to the **IoT Edge Gateway device** on the list of devices on the **Devices** page.
+1. Open your IoT Central application. Then navigate to the **IoT Edge Gateway device** on the list of devices on the **Devices** page.
 
 1. Select the **Modules** tab and check the status of the three modules. It takes a few minutes for the IoT Edge runtime to start up in the virtual machine. When it's started, the status of the three modules is **Running**. If the IoT Edge runtime doesn't start, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
 
@@ -213,7 +222,7 @@ For your IoT Edge device to function as a gateway, it needs some certificates to
 
 To generate the demo certificates and install them on your gateway device:
 
-1. Use SSH to connect to and sign in on your gateway device virtual machine.
+1. Use SSH to connect to and sign in on your gateway device virtual machine. You can find the DNS name for this virtual machine in the Azure portal. Navigate to the **edgegateway** virtual machine in the **ingress-scenario** resource group.
 
     > [!TIP]
     > You may need to open the port 22 for SSH access on both your virtual machines before you can use SSH to connect from your local machine or the Azure Cloud Shell.
@@ -265,15 +274,15 @@ To generate the demo certificates and install them on your gateway device:
     sudo systemctl restart iotedge
     ```
 
-If the IoT Edge runtime starts successfully after your changes, the status of the **$edgeAgent** and **$edgeHub** modules changes to **Running** on the **Modules** page for your gateway device in IoT Central.
+If the IoT Edge runtime starts successfully after your changes, the status of the **$edgeAgent** and **$edgeHub** modules changes to **Running**. You can see these status values on the **Modules** page for your gateway device in IoT Central.
 
 If the runtime doesn't start, check the changes you made in *config.yaml* and see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
 
-### Connect downstream device to Edge
+### Connect downstream device to IoT Edge device
 
 To connect a downstream device to the IoT Edge gateway device:
 
-1. Use SSH to connect to and sign in on your downstream device virtual machine.
+1. Use SSH to connect to and sign in on your downstream device virtual machine. You can find the DNS name for this virtual machine in the Azure portal. Navigate to the **leafdevice** virtual machine in the **ingress-scenario** resource group.
 
     > [!TIP]
     > You may need to open the port 22 for SSH access on both your virtual machines before you can use SSH to connect from your local machine or the Azure Cloud Shell.
@@ -285,14 +294,14 @@ To connect a downstream device to the IoT Edge gateway device:
     git clone https://github.com/iot-for-all/iot-central-transform-with-iot-edge
     ```
 
-1. To copy the required certificate from the gateway device, run the following commands. You'll be prompted for your password:
+1. To copy the required certificate from the gateway device, run the following `scp` commands. This `scp` command uses the hostname `edgegateway` to identify the gateway virtual machine. You'll be prompted for your password:
 
     ```bash
     cd ~/iot-central-transform-with-iot-edge
     scp AzureUser@edgegateway:/home/AzureUser/certs/certs/azure-iot-test-only.root.ca.cert.pem leafdevice/certs
     ```
 
-1. Navigate to the *leafdevice* folder and install the required packages. Then run the `dist/main.js` script to provision and connect the device to the gateway:
+1. Navigate to the *leafdevice* folder and install the required packages. Then run the `build` and `start` scripts to provision and connect the device to the gateway:
 
     ```bash
     cd ~/iot-central-transform-with-iot-edge/leafdevice
@@ -322,6 +331,8 @@ To connect a downstream device to the IoT Edge gateway device:
 
 To verify the scenario is running, navigate to your **IoT Edge gateway device** in IoT Central:
 
+:::image type="content" source="media/howto-transform-data/transformed-data.png" alt-text="Screenshot that shows transformed data on devices page.":::
+
 - Select **Modules**. Verify that the three IoT Edge modules **$edgeAgent**, **$edgeHub** and **transformmodule** are running.
 - Select the **Downstream Devices** and verify that the downstream device is provisioned.
 - Select **Raw data**. The telemetry data in the **Unmodeled data** column looks like:
@@ -342,7 +353,7 @@ You can connect your devices to IoT Central, export the device data to a compute
 
 You can use the [IoT Central device bridge](https://github.com/Azure/iotc-device-bridge) as compute engine to transform data exported from IoT Central.
 
-An advantage of transforming data at egress is that your devices connect directly to IoT Central, making it easy to send commands to devices or update device properties. However, with this method, you may use more messages than your monthly allotment and increase the cost of using Azure IoT Central.
+An advantage of transforming data at egress is that your devices connect directly to IoT Central, which makes it easy to send commands to devices or update device properties. However, with this method, you may use more messages than your monthly allotment and increase the cost of using Azure IoT Central.
 
 ### Use the IoT Central device bridge to transform device data
 
@@ -554,8 +565,21 @@ To run a sample device that tests the scenario:
     send status: MessageEnqueued [{"data":"40.5, 36.41, 14.6043, 14.079"}]
     ```
 
-1. In your IoT Central application, navigate to the device called **computeDevice**. On the **Raw data** view there are two different telemetry lines one after the other showing up around every five seconds. These lines show the original device data and the transformed data.
+1. In your IoT Central application, navigate to the device called **computeDevice**. On the **Raw data** view there are two different telemetry streams that show up around every five seconds. The stream with un-modeled data is the original telemetry, the stream with modeled data is the data that the function transformed:
 
-## Next Steps
+    :::image type="content" source="media/howto-transform-data/egress-telemetry.png" alt-text="Screenshot that shows original and transformed raw data.":::
+
+## Clean up resources
+
+If you no longer need the Azure resources you created while following the steps in this guide, delete the [resource groups in the Azure portal](https://portal.azure.com/?r=1#blade/HubsExtension/BrowseResourceGroups).
+
+The two resource groups you used in this guide are **ingress-scenario** and **egress-scenario**.
+
+## Next steps
+
+In this article, you learned about the different options for transforming device data for IoT Central, both at ingress and egress. The article included walkthroughs for two specific scenarios:
+
+- Use an IoT Edge module to transform data from downstream devices before the data is sent to your IoT Central application.
+- Use Azure Functions to transform data outside of IoT Central. In this scenario, IoT Central uses a data export to send incoming data to an Azure function to be transformed. The function sends the transformed data back to your IoT Central application.
 
 Now that you've learned how to transform device data outside of your Azure IoT Central application, you can learn [How to use analytics to analyze device data in IoT Central](howto-create-analytics.md).
