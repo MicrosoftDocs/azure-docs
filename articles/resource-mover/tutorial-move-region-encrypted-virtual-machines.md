@@ -17,7 +17,7 @@ This article discusses how to move encrypted Azure virtual machines (VMs) to a d
 
 Encrypted VMS can be described as either:
 
-- VMs that have disks with Azure Disk Encryption (ADE) enabled. For more information, see [Create and encrypt a Windows virtual machine by using the Azure portal](../virtual-machines/windows/disk-encryption-portal-quickstart.md).
+- VMs that have disks with Azure Disk Encryption enabled. For more information, see [Create and encrypt a Windows virtual machine by using the Azure portal](../virtual-machines/windows/disk-encryption-portal-quickstart.md).
 - VMs that use customer-managed keys (CMKs) for encryption at rest, or server-side encryption. For more information, see [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](../virtual-machines/disks-enable-customer-managed-keys-portal.md).
 
 
@@ -25,10 +25,10 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Check prerequisites. 
-> * For VMs with ADE enabled, copy keys and secrets from the source-region key vault to the destination-region key vault.
+> * For VMs with Azure Disk Encryption enabled, copy keys and secrets from the source-region key vault to the destination-region key vault.
 > * Prepare to move VMs and to select resources in the source region that you want to move them from.
 > * Resolve resource dependencies.
-> * For VMs with ADE enabled, manually assign the destination key vault. For VMs that use server-side encryption with customer-managed keys, manually assign a disk encryption set in the destination region.
+> * For VMs with Azure Disk Encryption enabled, manually assign the destination key vault. For VMs that use server-side encryption with customer-managed keys, manually assign a disk encryption set in the destination region.
 > * Move the key vault or disk encryption set.
 > * Prepare and move the source resource group. 
 > * Prepare and move the other resources.
@@ -46,7 +46,7 @@ Requirement |Details
 --- | ---
 **Subscription permissions** | Check to ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 **VM support** | Check to ensure that the VMs you want to move are supported by doing the following:<li>[Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<li>[Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<li>Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.
-**Key vault requirements (Azure Disk Encryption)** | If you have ADE enabled for VMs, you need a key vault in both the source and destination regions. For more information, see [Create a key vault](../key-vault/general/quick-create-portal.md).<br/><br/> For the key vaults in the source and destination regions, you need these permissions:<li>Key permissions: Key Management Operations (Get, List) and Cryptographic Operations (Decrypt and Encrypt)<li>Secret permissions: Secret Management Operations (Get, List, and Set)<li>Certificate (List and Get)
+**Key vault requirements (Azure Disk Encryption)** | If you have Azure Disk Encryption enabled for VMs, you need a key vault in both the source and destination regions. For more information, see [Create a key vault](../key-vault/general/quick-create-portal.md).<br/><br/> For the key vaults in the source and destination regions, you need these permissions:<li>Key permissions: Key Management Operations (Get, List) and Cryptographic Operations (Decrypt and Encrypt)<li>Secret permissions: Secret Management Operations (Get, List, and Set)<li>Certificate (List and Get)
 **Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption that uses a CMK, you need a disk encryption set in both the source and destination regions. For more information, see [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Moving between regions isn't supported if you're using hardware security module (HSM keys) for customer-managed keys.
 **Target region quota** | The subscription needs enough quota to create the resources you're moving in the target region. If it doesn't have quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 **Target region charges** | Verify the pricing and charges that are associated with the target region to which you're moving the VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
@@ -54,13 +54,13 @@ Requirement |Details
 
 ## Verify permissions in the key vault
 
-If you're moving VMs that have ADE enabled, you need to run a script as mentioned in the ["Copy the keys to the destination key vault"](#copy-the-keys-to-the-destination-key-vault) section. The users who execute the script should have appropriate permissions to do so. To understand which permissions are needed, refer to the following table. You'll find the options for changing the permissions by going to the key vault in the Azure portal. Under **Settings**, select **Access policies**.
+If you're moving VMs that have Azure Disk Encryption enabled, you need to run a script as mentioned in the [Copy the keys to the destination key vault](#copy-the-keys-to-the-destination-key-vault) section. The users who execute the script should have appropriate permissions to do so. To understand which permissions are needed, refer to the following table. You'll find the options for changing the permissions by going to the key vault in the Azure portal. Under **Settings**, select **Access policies**.
 
 :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Screenshot of the 'Access policies' link on the key vault Settings pane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
 If the user permissions aren't in place, select **Add Access Policy**, and then specify the permissions. If the user account already has a policy, under **User**, set the permissions according to the instructions in the following table.
 
-Azure VMs that use ADE can have the following variations, and you'll need to set the permissions according to their relevant components. The VMs might have:
+Azure VMs that use Azure Disk Encryption can have the following variations, and you'll need to set the permissions according to their relevant components. The VMs might have:
 - A default option where the disk is encrypted with secrets only.
 - Added security that uses a [Key Encryption Key (KEK)](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 
@@ -140,7 +140,7 @@ To run the script, do the following:
 
 To select the resources, do the following:
 
-1. In the Azure portal, search for **resource mover** and then, under **Services**, select **Azure Resource Mover**.
+1. In the Azure portal, search for **resource mover**. Then, under **Services**, select **Azure Resource Mover**.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Screenshot of search results for Azure Resource Mover in the Azure portal." :::
 
@@ -148,7 +148,7 @@ To select the resources, do the following:
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Screenshot of the 'Move across regions' button for adding resources to move to another region." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
 
-1. On the **Move resources** pane, select the **Source + destination** tab and then, in the drop-down lists, select the source subscription and region.
+1. On the **Move resources** pane, select the **Source + destination** tab. Then, in the drop-down lists, select the source subscription and region.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Page to select source and destination region.." :::
 
@@ -158,7 +158,7 @@ To select the resources, do the following:
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Screenshot of the 'Move resources' pane and 'Select resources' button.]." :::
 
-1. On the **Select resources** pane, select the VMs you want to move. As mentioned in the ["Select the resources to move"](#select-the-resources-to-move) section, you can add only resources that are supported for a move.
+1. On the **Select resources** pane, select the VMs you want to move. As mentioned in the [Select the resources to move](#select-the-resources-to-move) section, you can add only resources that are supported for a move.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Screenshot of the 'Select resources' pane for selecting VMs to move." :::
 
@@ -216,9 +216,9 @@ To select the resources, do the following:
 
 You need to manually assign destination resources that are associated with encryption.
 
-- If you're moving a VM that has ADE enabled, the key vault in your destination region appears as a dependency.
-- If you're moving a VM with server-side encryption that uses customer-managed keys (CMKs), the disk encryption set in the destination region appears as a dependency. 
-- Because this tutorial demonstrates moving a VM that has ADE enabled and that uses a CMK, both the destination key vault and the disk encryption set show up as dependencies.
+- If you're moving a VM that has Azure Disk Encryption enabled, the key vault in your destination region appears as a dependency.
+- If you're moving a VM with server-side encryption that uses CMKs, the disk encryption set in the destination region appears as a dependency. 
+- Because this tutorial demonstrates moving a VM that has Azure Disk Encryption enabled and that uses a CMK, both the destination key vault and the disk encryption set show up as dependencies.
 
 To assign the destination resources manually, do the following:
 
@@ -269,7 +269,7 @@ To prepare to move the source resource group, do the following:
 
 Begin moving the source resource group by doing the following:
 
-1. On the **Across regions** pane, select the resource group, and then select **Initiate move**
+1. On the **Across regions** pane, select the resource group, and then select **Initiate move**.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Screenshot of the 'Initiate move' button on the 'Across regions' pane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
 
