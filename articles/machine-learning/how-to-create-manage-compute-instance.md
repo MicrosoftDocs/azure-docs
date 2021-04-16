@@ -144,7 +144,7 @@ The setup script is a shell script which runs as *azureuser*.  Create or upload 
 
 1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
 1. On the left, select **Notebooks**
-1. Use the **Add files** tool to create or upload your setup script.
+1. Use the **Add files** tool to create or upload your setup shell script.  Make sure the script filename ends in ".sh".  When you create a new file, also change the **File type** to *bash(.sh)*.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
 
