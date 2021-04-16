@@ -8,7 +8,7 @@ manager: guillasi
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
 ---
@@ -25,7 +25,7 @@ The script is designed to be flexible. It will first look for existing Immersive
 
 ## Set up PowerShell environment
 
-1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that Cloud Shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
+1. Start by opening the [Azure Cloud Shell](../../cloud-shell/overview.md). Ensure that Cloud Shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
 
 1. Copy and paste the following code snippet into the shell.
 
@@ -40,7 +40,8 @@ The script is designed to be flexible. It will first look for existing Immersive
         [Parameter(Mandatory=$true)] [String] $ResourceGroupLocation,
         [Parameter(Mandatory=$true)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
         [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
-        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret,
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecretExpiration
     )
     {
         $unused = ''
@@ -89,12 +90,13 @@ The script is designed to be flexible. It will first look for existing Immersive
         $clientId = az ad app show --id $AADAppIdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $clientId = az ad app create --password $AADAppClientSecret --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
+            $clientId = az ad app create --password $AADAppClientSecret --end-date "$AADAppClientSecretExpiration" --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
 
             if (-not $clientId) {
                 throw "Error: Failed to create Azure Active Directory app"
             }
-            Write-Host "Azure Active Directory app created successfully"
+            Write-Host "Azure Active Directory app created successfully."
+            Write-Host "NOTE: To manage your Active Directory app client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> $AADAppDisplayName -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
         # Create a service principal if it doesn't already exist
@@ -137,20 +139,27 @@ The script is designed to be flexible. It will first look for existing Immersive
     }
     ```
 
-1. Run the function `Create-ImmersiveReaderResource`, supplying the parameters as appropriate.
+1. Run the function `Create-ImmersiveReaderResource`, supplying the '<PARAMETER_VALUES>' placeholders below with your own values as appropriate.
 
     ```azurepowershell-interactive
+    Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+    ```
+
+    The full command will look something like the following. Here we have put each parameter on its own line for clarity, so you can see the whole command. Do not copy or use this command as-is. Copy and use the command above with your own values. This example has dummy values for the '<PARAMETER_VALUES>' above. Yours will be different, as you will come up with your own names for these values.
+
+    ```
     Create-ImmersiveReaderResource
-      -SubscriptionName '<SUBSCRIPTION_NAME>' `
-      -ResourceName '<RESOURCE_NAME>' `
-      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
-      -ResourceSKU '<RESOURCE_SKU>' `
-      -ResourceLocation '<RESOURCE_LOCATION>' `
-      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
-      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
-      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
-      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
-      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
+        -SubscriptionName 'MyOrganizationSubscriptionName'
+        -ResourceName 'MyOrganizationImmersiveReader'
+        -ResourceSubdomain 'MyOrganizationImmersiveReader'
+        -ResourceSKU 'S0'
+        -ResourceLocation 'westus2'
+        -ResourceGroupName 'MyResourceGroupName'
+        -ResourceGroupLocation 'westus2'
+        -AADAppDisplayName 'MyOrganizationImmersiveReaderAADApp'
+        -AADAppIdentifierUri 'https://MyOrganizationImmersiveReaderAADApp'
+        -AADAppClientSecret 'SomeStrongPassword'
+        -AADAppClientSecretExpiration '2021-12-31'
     ```
 
     | Parameter | Comments |
@@ -158,13 +167,18 @@ The script is designed to be flexible. It will first look for existing Immersive
     | SubscriptionName |Name of the Azure subscription to use for your Immersive Reader resource. You must have a subscription in order to create a resource. |
     | ResourceName |  Must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters.|
     | ResourceSubdomain |A custom subdomain is needed for your Immersive Reader resource. The subdomain is used by the SDK when calling the Immersive Reader service to launch the Reader. The subdomain must be globally unique. The subdomain must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters. This parameter is optional if the resource already exists. |
-    | ResourceSKU |Options: `S0`. Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. This parameter is optional if the resource already exists. |
+    | ResourceSKU |Options: `S0` (Standard tier) or `S1` (Education/Nonprofit organizations). Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. This parameter is optional if the resource already exists. |
     | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. This parameter is optional if the resource already exists. |
     | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply the name of an existing resource group. If the resource group does not already exist, a new one with this name will be created. |
     | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. Use the *name* property (without spaces) of the returned result. This parameter is optional if your resource group already exists. |
     | AADAppDisplayName |The Azure Active Directory application display name. If an existing Azure AD application is not found, a new one with this name will be created. This parameter is optional if the Azure AD application already exists. |
     | AADAppIdentifierUri |The URI for the Azure AD app. If an existing Azure AD app is not found, a new one with this URI will be created. For example, `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. |
+    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. To manage Azure AD application client secrets after you've created this resource please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> `[AADAppDisplayName]` -> Certificates and Secrets blade -> Client Secrets section (as shown in the "Manage your Azure AD application secrets" screenshot below). |
+    | AADAppClientSecretExpiration |The date or datetime after which your `[AADAppClientSecret]` will expire (e.g. '2020-12-31T11:59:59+00:00' or '2020-12-31'). |
+
+    Manage your Azure AD application secrets
+
+    ![Azure Portal Certificates and Secrets blade](./media/client-secrets-blade.png)
 
 1. Copy the JSON output into a text file for later use. The output should look like the following.
 
@@ -180,11 +194,7 @@ The script is designed to be flexible. It will first look for existing Immersive
 ## Next steps
 
 * View the [Node.js quickstart](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) to see what else you can do with the Immersive Reader SDK using Node.js
-* View the [Android tutorial](./tutorial-android.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
-* View the [iOS tutorial](./tutorial-ios.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
-* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
+* View the [Android tutorial](./how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
+* View the [iOS tutorial](./how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
+* View the [Python tutorial](./how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Python
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
-
-
-
-

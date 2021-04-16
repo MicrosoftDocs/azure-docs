@@ -32,7 +32,7 @@ To create a user delegation SAS using the Azure CLI, make sure that you have ins
 
 Sign in to the Azure CLI with your Azure AD credentials. For more information, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## Assign permissions with RBAC
+## Assign permissions with Azure RBAC
 
 To create a user delegation SAS from Azure PowerShell, the Azure AD account used to sign into Azure CLI must be assigned a role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. This permission enables that Azure AD account to request the *user delegation key*. The user delegation key is used to sign the user delegation SAS. The role providing the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action must be assigned at the level of the storage account, the resource group, or the subscription.
 
@@ -99,7 +99,7 @@ az storage blob generate-sas \
     --permissions acdrw \
     --expiry <date-time> \
     --auth-mode login \
-    --as-user
+    --as-user \
     --full-uri
 ```
 

@@ -4,7 +4,7 @@ description: Overview of DNS hosting service on Microsoft Azure. Host your domai
 author: rohinkoul
 ms.service: dns
 ms.topic: overview
-ms.date: 3/21/2019
+ms.date: 3/25/2021
 ms.author: rohink
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
@@ -13,7 +13,7 @@ ms.author: rohink
 
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 
-You can't use Azure DNS to buy a domain name. For an annual fee, you can buy a domain name by using [App Service domains](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) or a third-party domain name registrar. Your domains then can be hosted in Azure DNS for record management. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
+You can't use Azure DNS to buy a domain name. For an annual fee, you can buy a domain name by using [App Service domains](../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain) or a third-party domain name registrar. Your domains then can be hosted in Azure DNS for record management. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
 
 The following features are included with Azure DNS.
 
@@ -25,17 +25,17 @@ DNS domains in Azure DNS are hosted on Azure's global network of DNS name server
 
  Azure DNS is based on Azure Resource Manager, which provides features such as:
 
-* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to control who has access to specific actions for your organization.
+* [Azure role-based access control (Azure RBAC)](../azure-resource-manager/management/overview.md) to control who has access to specific actions for your organization.
 
-* [Activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
+* [Activity logs](../azure-resource-manager/management/overview.md) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
 
-* [Resource locking](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) to lock a subscription, resource group, or resource. Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
+* [Resource locking](../azure-resource-manager/management/lock-resources.md) to lock a subscription, resource group, or resource. Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
 For more information, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md). 
 
 ## DNSSEC
 
-Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third party DNS hosting providers.
+Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third-party DNS hosting providers.
 
 ## Ease of use
 
@@ -63,6 +63,6 @@ For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 
 * To learn about DNS zones and records, see [DNS zones and records overview](dns-zones-records.md).
 
-* To learn how to create a zone in Azure DNS, see [Create a DNS zone](./dns-getstarted-create-dnszone-portal.md).
+* To learn how to create a zone in Azure DNS, see [Create a DNS zone](./dns-getstarted-portal.md).
 
 * For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.md).

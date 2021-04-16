@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: Predict intentions - LUIS"
 description: Create a custom app that predicts a user's intention based on the utterance (text) in this tutorial.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
 ---
@@ -186,7 +188,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
-* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot](/azure/bot-service/)
 
 
 ## Next steps

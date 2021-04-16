@@ -7,7 +7,7 @@ ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > - Configure a managed instance as a replication publisher and distributor.
-> - Configure a managed instance as a replication distributor.
+> - Configure a managed instance as a replication subscriber.
 
 ![Replicate between two managed instances](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
@@ -42,10 +42,10 @@ This tutorial is intended for an experienced audience and assumes that the user 
 
 Configuring SQL Managed Instance to function as a publisher and/or a distributor requires:
 
-- That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [virtual network peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been configured between the virtual networks of all three entities. 
+- That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [VPN gateways](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) have been configured between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure storage account share for the replication working directory.
-- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share.  If you encounter the error `failed to connect to azure storage \<storage account name> with os error 53`, you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance subnet.
+- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share.  If you encounter the error `failed to connect to azure storage <storage account name> with os error 53`, you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance subnet.
 
 ## 1 - Create a resource group
 
@@ -62,7 +62,7 @@ You will also need to [configure an Azure VM to connect](connect-vm-instance-con
 
 ## 3 - Create an Azure storage account
 
-[Create an Azure storage account](/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account. 
+[Create an Azure storage account](../../storage/common/storage-account-create.md#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account. 
 
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
@@ -324,4 +324,4 @@ You can clean up your Azure resources by [deleting the SQL Managed Instance reso
 ## Next steps
 
 You can also learn more information about [transactional replication with Azure SQL Managed Instance](replication-transactional-overview.md) or learn to 
-configure replication between a [SQL Managed Instance publisher/distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md). 
+configure replication between a [SQL Managed Instance publisher/distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md).

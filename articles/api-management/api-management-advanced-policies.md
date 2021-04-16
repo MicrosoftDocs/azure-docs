@@ -11,13 +11,13 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
 ---
 
 # API Management advanced policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="AdvancedPolicies"></a> Advanced policies
 
@@ -74,7 +74,7 @@ The second control flow policy is in the outbound section and conditionally appl
 ```xml
 <policies>
     <inbound>
-        <set-variable name="isMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+        <set-variable name="isMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
         <base />
         <choose>
             <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">
@@ -152,7 +152,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 ### Policy statement
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### Examples
@@ -251,6 +251,7 @@ This operation level policy does not forward requests to the backend service.
 | timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | None    |
 | follow-redirects="false &#124; true"          | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.                                                                                                                                                                                                    | No       | false   |
 | buffer-request-body="false &#124; true"       | When set to "true" request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| buffer-response="false &#124; true" | Affects processing of chunked responses. When set to "false" each chunk received from the backend is immediately returned to the caller. When set to "true" chunks are buffered (8KB, unless end of stream is detected) and only then returned to the caller. | No | true |
 | fail-on-error-status-code="false &#124; true" | When set to true triggers [on-error](api-management-error-handling-policies.md) section for response codes in the range from 400 to 599 inclusive.                                                                                                                                                                      | No       | false   |
 
 ### Usage
@@ -849,7 +850,7 @@ The `set-variable` policy declares a [context](api-management-policy-expressions
 The following example demonstrates a set variable policy in the inbound section. This set variable policy creates an `isMobile` Boolean [context](api-management-policy-expressions.md#ContextVariables) variable that is set to true if the `User-Agent` request header contains the text `iPad` or `iPhone`.
 
 ```xml
-<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+<set-variable name="IsMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
 ```
 
 ### Elements
@@ -913,7 +914,7 @@ Expressions used in the `set-variable` policy must return one of the following b
 The `trace` policy adds a custom trace into the API Inspector output, Application Insights telemetries, and/or Resource Logs.
 
 -   The policy adds a custom trace to the [API Inspector](./api-management-howto-api-inspector.md) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
--   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting.
+-   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 
 ### Policy statement
@@ -1037,4 +1038,4 @@ For more information working with policies, see:
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Policy expressions](api-management-policy-expressions.md)
 -   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
+-   [Policy samples](./policy-reference.md)

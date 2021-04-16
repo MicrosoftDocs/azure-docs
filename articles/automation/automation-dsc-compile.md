@@ -283,6 +283,6 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 - To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - For an example of using State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).

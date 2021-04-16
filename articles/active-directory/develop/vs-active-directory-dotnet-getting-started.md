@@ -9,7 +9,7 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev, vs-azure
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 
 ---
 # Getting Started with Azure Active Directory (ASP.NET MVC Projects)
@@ -77,5 +77,5 @@ To add the SignIn/SignOut controls to your view, you can use the `_LoginPartial.
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
 - [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

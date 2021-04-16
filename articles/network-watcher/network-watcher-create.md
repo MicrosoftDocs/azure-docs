@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Network Watcher instance | Microsoft Docs
-description: Learn how to enable Network Watcher in an Azure region.
+description: Learn how to create an Azure Network Watcher in an Azure region by using the Azure portal or other technologies, and how to delete a Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -124,7 +124,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Now that you have an instance of Network Watcher, learn about the features available:
 
-* [Topology](network-watcher-topology-overview.md)
+* [Topology](./view-network-topology.md)
 * [Packet capture](network-watcher-packet-capture-overview.md)
 * [IP flow verify](network-watcher-ip-flow-verify-overview.md)
 * [Next hop](network-watcher-next-hop-overview.md)

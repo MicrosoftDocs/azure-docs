@@ -1,13 +1,13 @@
 ---
 title: 'Azure ExpressRoute: Router configuration samples'
-description: This page provides router config samples for Cisco and Juniper routers.
+description: Use these interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers as examples to work with Azure ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
-ms.author: osamaz
+ms.author: duau
 
 ---
 # Router configuration samples to set up and manage routing

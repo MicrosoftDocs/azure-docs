@@ -25,7 +25,8 @@ In this article, learn how to register for Azure NetApp Files so that you can be
 
 ## <a name="waitlist"></a>Submit a waitlist request for accessing the service
 
-1. Submit a waitlist request for accessing the Azure NetApp Files service through the [Azure NetApp Files waitlist submission page](https://aka.ms/azurenetappfiles). 
+1. Go to the following page and submit a waitlist request for accessing the Azure NetApp Files service:  
+    [**Azure NetApp Files waitlist submission page**](https://aka.ms/azurenetappfiles) 
 
     Waitlist signup does not guarantee immediate service access. 
 
@@ -45,13 +46,13 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
       ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. If you have multiple subscriptions on your Azure account, select the one that has been whitelisted for Azure NetApp Files:
+2. If you have multiple subscriptions on your Azure account, select the one that has been approved for Azure NetApp Files:
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been whitelisted:
+3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been approved:
     
     ```azurepowershell
     az feature list | grep NetApp

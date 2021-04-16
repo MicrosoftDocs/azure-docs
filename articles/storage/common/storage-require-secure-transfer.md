@@ -11,7 +11,7 @@ ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Require secure transfer to ensure secure connections
@@ -53,7 +53,7 @@ To require secure transfer programmatically, set the _enableHttpsTrafficOnly_ pr
 * [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
 * [CLI](/cli/azure/storage/account)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
+* [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
 * [Python SDK](https://pypi.org/project/azure-mgmt-storage)
 * [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)

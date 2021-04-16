@@ -1,39 +1,45 @@
 ---
-title: 'Tutorial: Get started analyze data with SQL on-demand' 
-description: In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases.
+title: 'Tutorial: Get started analyze data with a serverless SQL pool' 
+description: In this tutorial, you'll learn how to analyze data with a serverless SQL pool using data located in Spark databases.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020 
+ms.date: 04/15/2021
 ---
 
-# Analyze data with SQL on-demand
+# Analyze data with a serverless SQL pool
 
-In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases. 
+In this tutorial, you'll learn how to analyze data with serverless SQL pool. 
 
-## Analyze NYC Taxi data in Spark databases using SQL on-demand
+## The Built-in serverless SQL pool
 
-Tables in Spark databases are automatically visible, and they can be queried by SQL on-demand.
+Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless SQL pool is based on the amount of data processed to run the query and not the number of nodes used to run the query.
 
-1. In Synapse Studio, go to the **Develop** hub and create a new SQL script.
-1. Set **Connect to** to **SQL on-demand**.
-1. Paste the following text into the script and run the script.
+Every workspace comes with a pre-configured serverless SQL pool called **Built-in**. 
 
-    ```sql
-    SELECT *
-    FROM nyctaxi.dbo.passengercountstats
+## Analyze NYC Taxi data with a serverless SQL pool
+
+1. In Synapse Studio, go to the **Develop** hub
+1. Create a new SQL script.
+1. Paste the following code into the script.
+
     ```
-
-    > [!NOTE]
-    > The first time you run a query that uses SQL on-demand, it takes about 10 seconds for SQL on-demand to gather the SQL resources needed to run your queries. Subsequent queries will be much faster.
-  
-
+    SELECT
+        TOP 100 *
+    FROM
+        OPENROWSET(
+            BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            FORMAT='PARQUET'
+        ) AS [result]
+    ```
+1. Click **Run**. 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using spark](get-started-analyze-spark.md)
+> [Analyze data with a serverless Spark pool](get-started-analyze-spark.md)

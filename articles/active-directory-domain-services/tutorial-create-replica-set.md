@@ -2,26 +2,24 @@
 title: Tutorial - Create a replica set in Azure AD Domain Services | Microsoft Docs
 description: Learn how to create and use replica sets in the Azure portal for service resiliency with Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
-ms.author: iainfou
+ms.date: 03/22/2021
+ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create and use replica sets in Azure Active Directory Domain Services to provide resiliency or geographical distributed managed domain data.
 ---
 
-# Tutorial: Create and use replica sets for resiliency or geolocation in Azure Active Directory Domain Services (preview)
+# Tutorial: Create and use replica sets for resiliency or geolocation in Azure Active Directory Domain Services
 
 To improve the resiliency of an Azure Active Directory Domain Services (Azure AD DS) managed domain, or deploy to additional geographic locations close to your applications, you can use *replica sets*. Every Azure AD DS managed domain namespace, such as *aaddscontoso.com*, contains one initial replica set. The ability to create additional replica sets in other Azure regions provides geographical resiliency for a managed domain.
 
 You can add a replica set to any peered virtual network in any Azure region that supports Azure AD DS.
-
-Replica sets are a public preview feature in Azure AD Domain Services. Please be aware of the support differences that exist for features still in preview. For more information about previews, [Azure Active Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this tutorial, you learn how to:
 
@@ -40,11 +38,11 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain created using replica sets and configured in your Azure AD tenant.
+* An Azure Active Directory Domain Services managed domain created using the Azure Resource Manager deployment model and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Make sure that you create a managed domain that uses replica sets. An existing managed domain created before this preview doesn't support replica sets. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
+    > Managed domains created using the Classic deployment model can't use replica sets. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
 
 ## Sign in to the Azure portal
 
@@ -76,7 +74,7 @@ To create an additional replica set, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
-1. On the left-hand side, select **Replica sets (preview)**. Each managed domain includes one initial replica set in the selected region, as shown in the following example screenshot:
+1. On the left-hand side, select **Replica sets**. Each managed domain includes one initial replica set in the selected region, as shown in the following example screenshot:
 
     ![Example screenshot to view and add a replica set in the Azure portal](./media/tutorial-create-replica-set/replica-set-list.png)
 
@@ -111,7 +109,7 @@ To delete a replica set, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
-1. On the left-hand side, select **Replica sets (preview)**. From the list of replica sets, select the **...** context menu next to the replica set you want to delete.
+1. On the left-hand side, select **Replica sets**. From the list of replica sets, select the **...** context menu next to the replica set you want to delete.
 1. Select **Delete** from the context menu, then confirm you want to delete the replica set.
 
 > [!NOTE]

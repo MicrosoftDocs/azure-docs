@@ -1,13 +1,10 @@
 ---
 title: Connect to or install Apache Beeline - Azure HDInsight 
 description: Learn how to connect to the Apache Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 05/27/2020
+ms.custom: contperf-fy21q1
+ms.date: 04/07/2021
 ---
 # Connect to Apache Beeline on HDInsight or install it locally
 
@@ -74,7 +71,9 @@ Apache Spark provides its own implementation of HiveServer2, which is sometimes 
 
 #### Through public or private endpoints
 
-The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it uses `httpPath/sparkhive2`. Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
+The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it uses `httpPath/sparkhive2`. Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. Replace `password` with the password for the cluster login account.
+> [!NOTE]
+> For ESP clusters, replace `admin` with full UPN (for example, user@domain.com). 
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
@@ -98,7 +97,7 @@ When connecting directly from the cluster head node, or from a resource inside t
 
 ## Install Beeline client
 
-Although Beeline is included on the head nodes, you may want to install it locally.  The install steps for a local machine are based on a [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Although Beeline is included on the head nodes, you may want to install it locally.  The install steps for a local machine are based on a [Windows Subsystem for Linux](/windows/wsl/install-win10).
 
 1. Update package lists. Enter the following command in your bash shell:
 
@@ -138,7 +137,7 @@ Although Beeline is included on the head nodes, you may want to install it local
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Further amend the bashrc file. You'll need to identify the path to where the archives were unpacked. If using the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10), and you followed the steps exactly, your path would be `/mnt/c/Users/user/`, where `user` is your user name.
+1. Further amend the bashrc file. You'll need to identify the path to where the archives were unpacked. If using the [Windows Subsystem for Linux](/windows/wsl/install-win10), and you followed the steps exactly, your path would be `/mnt/c/Users/user/`, where `user` is your user name.
 
     1. Open the file: `nano ~/.bashrc`
 

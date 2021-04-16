@@ -17,9 +17,8 @@ Once converted, a model can be loaded from an Azure Storage Account.
 
 The conversion service supports these formats:
 
-- **FBX**  (version 2011 and above)
-- **GLTF** (version 2.x)
-- **GLB**  (version 2.x)
+- **FBX**  (version 2011 to version 2020)
+- **GLTF**/**GLB** (version 2.x)
 
 There are minor differences between the formats with regard to material property conversion, as listed in chapter [material mapping for model formats](../../reference/material-mapping.md).
 
@@ -54,4 +53,5 @@ For the various conversion options, see [this chapter](configure-model-conversio
 - [Use Azure Blob Storage for model conversion](blob-storage.md)
 - [The model conversion REST API](conversion-rest-api.md)
 - [Configuring the model conversion](configure-model-conversion.md)
+- [Laying out files for conversion](layout-files-for-conversion.md)
 - [Material mapping for model formats](../../reference/material-mapping.md)

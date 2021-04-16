@@ -113,7 +113,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 * Design and implement a complete network architecture to identify and control all ingress and egress points to Azure resources
 * Consider utilising a Hub and Spoke Network Design for virtual networks as discussed in the Microsoft Virtual Data Centre (VDC) documentation
 * Utilise products with inbuilt security capabilities for outbound connections to the Internet (for example, Azure Firewall, Network Virtual Appliances or Web Proxies)
-* Use identity controls such as Role-Based Access, Conditional Access, and Multi-Factor Authentication (MFA) to limit network configuration privileges
+* Use identity controls such as Azure role-based access control, Conditional Access, and Multi-Factor Authentication (MFA) to limit network configuration privileges
 * Implement Locks to prevent modification or deletion of key elements of the network configuration
 * Deploy PaaS in a VNet integrated configuration for increased segregation and control
 * Implement ExpressRoute for connectivity with on-premises networks
@@ -127,7 +127,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 Item | Link
 -----------| ---------
 _Australian Regulatory and Policy Compliance Documents including Consumer Guidance_ | [https://aka.ms/au-irap](https://aka.ms/au-irap)
-_Azure Virtual Data Centre_ | [https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)
+_Azure Virtual Data Centre_ | [https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter](/azure/architecture/vdc/networking-virtual-datacenter)
 _ACSC Network Segmentation_ | [https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)
 _ACSC Cloud Security for Tenants_ | [https://acsc.gov.au/publications/protect/cloud-security-tenants.htm](https://acsc.gov.au/publications/protect/cloud-security-tenants.htm)
 _ACSC Information Security Manual_ | [https://acsc.gov.au/infosec/ism/index.htm](https://acsc.gov.au/infosec/ism/index.htm)
@@ -149,9 +149,9 @@ As virtual networks form the base address space and routing boundary within Azur
 
 | Resource | Link |
 | --- | --- |
-| *Virtual Networks Overview* | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) |
-| *Plan Virtual Networks How-to Guide*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) |
-| *Create a Virtual Network Quickstart* | [https://docs.microsoft.com/azure/virtual-network/quick-create-portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+| *Virtual Networks Overview* | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview](../virtual-network/virtual-networks-overview.md) |
+| *Plan Virtual Networks How-to Guide*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](../virtual-network/virtual-network-vnet-plan-design-arm.md) |
+| *Create a Virtual Network Quickstart* | [https://docs.microsoft.com/azure/virtual-network/quick-create-portal](../virtual-network/quick-create-portal.md)
 |
 
 ### Subnet
@@ -162,7 +162,7 @@ The subnets within a virtual network should be planned to meet the requirements 
 
 |Resource|Link|
 |---|---|
-|*Add, change, or delete a virtual network subnet* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
+|*Add, change, or delete a virtual network subnet* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet](../virtual-network/virtual-network-manage-subnet.md)
 |
 
 ### Network interface
@@ -171,8 +171,8 @@ Network interfaces are the source for all egress traffic from a virtual machine.
 
 |Resource|Link|
 |---|---|
-|*Create, Change, or Delete a Network Interface* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface) |
-|*Network Interface IP Addressing*               | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+|*Create, Change, or Delete a Network Interface* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](../virtual-network/virtual-network-network-interface.md) |
+|*Network Interface IP Addressing*               | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/private-ip-addresses.md)
 |
 
 ### VNet integrated PaaS
@@ -185,8 +185,8 @@ When deploying PaaS into a virtual network where routing and NSG controls have b
 
 | Resource  | Link  |
 | --- | --- |
-| *Virtual network integration for Azure services* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services) |
-| *Integrate your app with an Azure Virtual Network How-to guide* | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+| *Virtual network integration for Azure services* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services](../virtual-network/virtual-network-for-azure-services.md) |
+| *Integrate your app with an Azure Virtual Network How-to guide* | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/web-sites-integrate-with-vnet.md)
 |
 
 ### Public IP
@@ -195,8 +195,8 @@ Public IP addresses are used when communicating outside a virtual network. This 
 
 |Resource|Link|
 |---|---|
-|*Public IP Addresses Overview*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) |
-|*Create, change, or delete a public IP address* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+|*Public IP Addresses Overview*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/public-ip-addresses.md#public-ip-addresses) |
+|*Create, change, or delete a public IP address* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/virtual-network-public-ip-address.md)
 |
 
 ## Effective routes
@@ -218,11 +218,11 @@ Individuals involved in the design or implementation of routing topologies in Az
 
 ### System routes
 
-For [System Routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#system-routes), individuals involved in the design or implementation of virtual networks should understand the default system routes and the options available to complement or override those routes.
+For [System Routes](../virtual-network/virtual-networks-udr-overview.md#system-routes), individuals involved in the design or implementation of virtual networks should understand the default system routes and the options available to complement or override those routes.
 
 ### Service endpoints
 
-Enabling [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) on a subnet provides a direct communication path to the associated PaaS resource. This can provide increased performance and security by restricting the available communication path to just that service. The use of service endpoints does introduce a potential data exfiltration path as the default configuration allows access to all instances of the PaaS service rather than the specific instances required for an application or system.
+Enabling [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) on a subnet provides a direct communication path to the associated PaaS resource. This can provide increased performance and security by restricting the available communication path to just that service. The use of service endpoints does introduce a potential data exfiltration path as the default configuration allows access to all instances of the PaaS service rather than the specific instances required for an application or system.
 
 Commonwealth entities should evaluate the risk associated with providing direct access to the PaaS resource including the likelihood and consequence of the path being misused.
 
@@ -230,7 +230,7 @@ To reduce potential risks associated with service endpoints, implement service e
 
 |Resource|Link|
 |---|---|
-|*Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal* |[https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources)|
+|*Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal* |[https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources](../virtual-network/tutorial-restrict-network-access-to-resources.md)|
 |
 
 ### Route tables
@@ -239,8 +239,8 @@ Route tables provide an administrator configured mechanism for controlling netwo
 
 |Resource|Link|
 |---|---|
-|*Routing Concepts - custom routes* |[https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)|
-|*Tutorial: Route network traffic* |[https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal)|
+|*Routing Concepts - custom routes* |[https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes)|
+|*Tutorial: Route network traffic* |[https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal](../virtual-network/tutorial-create-route-table-portal.md)|
 |
 
 ### Border Gateway Protocol (BGP)
@@ -251,10 +251,10 @@ Individuals involved in the design or implementation of virtual networks and vir
 
 |Resource|Link|
 |---|---|
-|*Routing Concepts: BGP* | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#next-hop-types-across-azure-tools](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#next-hop-types-across-azure-tools)|
-|*ExpressRoute routing requirements* | [https://docs.microsoft.com/azure/expressroute/expressroute-routing](https://docs.microsoft.com/azure/expressroute/expressroute-routing)|
-|*About BGP with Azure VPN Gateway* |[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview)|
-|*Tutorial: Configure a site-to-site VPN over ExpressRoute Microsoft peering* |[https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)|
+|*Routing Concepts: BGP* | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#next-hop-types-across-azure-tools](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools)|
+|*ExpressRoute routing requirements* | [https://docs.microsoft.com/azure/expressroute/expressroute-routing](../expressroute/expressroute-routing.md)|
+|*About BGP with Azure VPN Gateway* |[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview](../vpn-gateway/vpn-gateway-bgp-overview.md)|
+|*Tutorial: Configure a site-to-site VPN over ExpressRoute Microsoft peering* |[https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering](../expressroute/site-to-site-vpn-over-microsoft-peering.md)|
 |
 
 ## Next hop types
@@ -276,8 +276,8 @@ When configuring VNet peering, it is critical that individuals involved in the d
 
 |Resource|Link|
 |---|---|
-| Concepts: Virtual network peering                   | [https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) |
-| Create, change, or delete a virtual network peering | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)|
+| Concepts: Virtual network peering                   | [https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview](../virtual-network/virtual-network-peering-overview.md) |
+| Create, change, or delete a virtual network peering | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering](../virtual-network/virtual-network-manage-peering.md)|
 |
 
 ### Virtual network gateway
@@ -292,8 +292,8 @@ It is important to note that ExpressRoute Gateways have restrictions on the addr
 
 | Resource  | Link  |
 |---|---|
-| ExpressRoute Gateway Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) |
-| Configure a virtual network gateway for ExpressRoute | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager)
+| ExpressRoute Gateway Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways](../expressroute/expressroute-about-virtual-network-gateways.md) |
+| Configure a virtual network gateway for ExpressRoute | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)
 |
 
 #### VPN Gateway
@@ -302,8 +302,8 @@ Azure VPN Gateway provides an egress network point from the virtual network to a
 
 | Resource  | Link |
 | --- | --- |
-| VPN Gateway Overview| [https://docs.microsoft.com/azure/vpn-gateway](https://docs.microsoft.com/azure/vpn-gateway)|
-| Planning and design for VPN Gateway | [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design)|
+| VPN Gateway Overview| [https://docs.microsoft.com/azure/vpn-gateway](../vpn-gateway/index.yml)|
+| Planning and design for VPN Gateway | [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design](../vpn-gateway/vpn-gateway-about-vpngateways.md)|
 | Azure VPN Gateway in Azure Australia | [Azure VPN Gateway in Azure Australia](vpn-gateway.md)
 |
 
@@ -313,8 +313,8 @@ The next hop of virtual appliance provides the ability to process network traffi
 
 | Resource  | Link |
 | --- | ---|
-| Routing concepts: Custom Routes | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) |
-| Enable or Disable IP forwarding | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#enable-or-disable-ip-forwarding](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#enable-or-disable-ip-forwarding)
+| Routing concepts: Custom Routes | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) |
+| Enable or Disable IP forwarding | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#enable-or-disable-ip-forwarding](../virtual-network/virtual-network-network-interface.md#enable-or-disable-ip-forwarding)
 |
 
 ### Next hop of VirtualNetworkServiceEndpoint
@@ -332,9 +332,9 @@ Examples of services that can be added using the next hop of Internet are:
 
 |Resource|Link|
 |---|---|
-| Outbound connections in Azure | [https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) |
-| Use Azure custom routes to enable KMS activation | [https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) |
-| Locking down an App Service Environment  | [https://docs.microsoft.com/azure/app-service/environment/firewall-integration](https://docs.microsoft.com/azure/app-service/environment/firewall-integration) |
+| Outbound connections in Azure | [https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections](../load-balancer/load-balancer-outbound-connections.md) |
+| Use Azure custom routes to enable KMS activation | [https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation) |
+| Locking down an App Service Environment  | [https://docs.microsoft.com/azure/app-service/environment/firewall-integration](../app-service/environment/firewall-integration.md) |
 |
 
 ### Next hop of none
@@ -353,14 +353,14 @@ Achieving this outcome is based on implementing the necessary network segmentati
 
 ### Network Security Groups (NSGs)
 
-NSGs are used to specify the inbound and outbound traffic permitted for a subnet or a specific network interface. When configuring NSGs, commonwealth entities should use a whitelisting approach where rules are configured to permit the necessary traffic with a default rule configured to deny all traffic that does not match a specific permit statement. When planning and configuring NSGs, care must be taken to ensure that all necessary inbound and outbound traffic is captured appropriately. This includes identifying and understanding all private IP address ranges utilised within virtual networks and the on-premises environment, and specific Microsoft services such as Azure Load Balancer and PaaS management requirements. Individuals involved in the design and implementation of NSGs should also understand the use of Service Tags and Application Security Groups for creating fine-grained, service, and application-specific security rules.
+NSGs are used to specify the inbound and outbound traffic permitted for a subnet or a specific network interface. When configuring NSGs, commonwealth entities should use a approval list approach where rules are configured to permit the necessary traffic with a default rule configured to deny all traffic that does not match a specific permit statement. When planning and configuring NSGs, care must be taken to ensure that all necessary inbound and outbound traffic is captured appropriately. This includes identifying and understanding all private IP address ranges utilised within virtual networks and the on-premises environment, and specific Microsoft services such as Azure Load Balancer and PaaS management requirements. Individuals involved in the design and implementation of NSGs should also understand the use of Service Tags and Application Security Groups for creating fine-grained, service, and application-specific security rules.
 
 It is important to note that the default configuration for an NSG permits outbound traffic to all addresses within the virtual network and all public IP addresses.
 
 |Resource|Link|
 |---|---|
-|Network Security Overview | [https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
-|Create, change, or delete a network security group | [https://docs.microsoft.com/azure/virtual-network/manage-network-security-group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)|
+|Network Security Overview | [https://docs.microsoft.com/azure/virtual-network/security-overview](../virtual-network/network-security-groups-overview.md)|
+|Create, change, or delete a network security group | [https://docs.microsoft.com/azure/virtual-network/manage-network-security-group](../virtual-network/manage-network-security-group.md)|
 |
 
 ### Azure Firewall
@@ -369,8 +369,8 @@ Azure Firewall can be utilised to build a hub and spoke network topology and enf
 
 |Resource|Link|
 |---|---|
-|*Azure Firewall Documentation* | [https://docs.microsoft.com/azure/firewall](https://docs.microsoft.com/azure/firewall)|
-|*Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell* | [https://docs.microsoft.com/azure/firewall/tutorial-hybrid-ps](https://docs.microsoft.com/azure/firewall/tutorial-hybrid-ps)|
+|*Azure Firewall Documentation* | [https://docs.microsoft.com/azure/firewall](../firewall/index.yml)|
+|*Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell* | [https://docs.microsoft.com/azure/firewall/tutorial-hybrid-ps](../firewall/tutorial-hybrid-ps.md)|
 |
 
 ### Network Virtual Appliances (NVAs)
@@ -379,7 +379,7 @@ NVAs can be used to build a hub and spoke network topology, provide enhanced or 
 
 |Resource|Link|
 |---|---|
-|*Deploy highly available network virtual appliances* | [https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)|
+|*Deploy highly available network virtual appliances* | [https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha](/azure/architecture/reference-architectures/dmz/nva-ha)|
 |
 
 ### Service endpoint policies (Preview)
@@ -388,8 +388,8 @@ Configure service endpoint policies based on availability of the service and a s
 
 | Resource | Link  |
 | --- | --- |
-| *Service endpoint policies overview* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) |
-| *Create, change, or delete service endpoint policy using the Azure portal* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-portal](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-portal)
+| *Service endpoint policies overview* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview](../virtual-network/virtual-network-service-endpoint-policies-overview.md) |
+| *Create, change, or delete service endpoint policy using the Azure portal* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-portal](../virtual-network/virtual-network-service-endpoint-policies-portal.md)
 |
 
 ### Azure Policy
@@ -398,9 +398,9 @@ Azure Policy is a key component for enforcing and maintaining the integrity of t
 
 |Resource | Link|
 |---|---|
-|*Azure Policy Overview* | [https://docs.microsoft.com/azure/governance/policy/overview](https://docs.microsoft.com/azure/governance/policy/overview)|
-|*Allowed Resource Types sample policy* | [https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types](https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types)|
-|*Force NSG on a subnet sample policy*| [https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet](https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet)|
+|*Azure Policy Overview* | [https://docs.microsoft.com/azure/governance/policy/overview](../governance/policy/overview.md)|
+|*Allowed Resource Types sample policy* | [https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types](../governance/policy/samples/index.md)|
+|*Force NSG on a subnet sample policy*| [https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet](../governance/policy/samples/index.md)|
 |
 
 ## PaaS egress capabilities
@@ -415,7 +415,7 @@ Public IP addresses for PaaS capabilities are allocated based on the region wher
 | --- | --- |
 | *Microsoft Azure Datacenter IP Ranges*                   | [https://www.microsoft.com/download/details.aspx?id=41653](https://www.microsoft.com/download/details.aspx?id=41653) |
 | *Azure Services per region*                              | [https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast&products=all](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast&products=all) |
-| *Inbound and outbound IP addresses in Azure App Service* | [https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips](https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips)
+| *Inbound and outbound IP addresses in Azure App Service* | [https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips](../app-service/overview-inbound-outbound-ips.md)
 |
 
 ## Next steps

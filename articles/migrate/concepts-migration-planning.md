@@ -1,164 +1,157 @@
 ---
-title: Build migration plan with Azure Migrate | Microsoft Docs
-description: Provides guidance on building you migration plan with Azure Migrate.
+title: Build a migration plan with Azure Migrate 
+description: Provides guidance on building a migration plan with Azure Migrate.
 author: rashi-ms
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 06/21/2020
 ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: conceptual
+ms.date: 11/11/2020
+
 ---
 
 # Build migration plan with Azure Migrate
 
-This article provides a quick guide to help build your migration plan to Azure with [Azure Migrate](migrate-services-overview.md). If you have other questions, check these resources:
+Follow this article to build your migration plan to Azure with [Azure Migrate](migrate-services-overview.md). 
 
-- [General questions](resources-faq.md) about Azure Migrate
-- Questions about the [Azure Migrate appliance](common-questions-appliance.md)
-- Questions about [server migration](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
+## Define cloud migration goals
 
-## Define the goals of cloud migration
+Before you start, understanding and evaluating your [motivation](/azure/cloud-adoption-framework/strategy/motivations) for moving to the cloud can contribute to a successful business outcome. As explained in the [Cloud Adoption Framework](/azure/cloud-adoption-framework), there are a number of triggers and outcomes.   
 
-Before building out a migration plan, it is important to understand and evaluate the [motivation](/azure/cloud-adoption-framework/strategy/motivations) to move to the cloud that can help produce more successful business outcomes. As the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework) explains, there could be different triggers and migration approaches suitable for your business:  
-
-**Critical business events** | **Migration outcome**
+**Business event** | **Migration outcome**
 --- | ---
-Datacenter exit | Cost savings
-Merger, acquisition, or divestiture | Reduction in vendor or technical complexity
+Datacenter exit | Cost 
+Merger, acquisition, or divestiture | Reduction in vendor/technical complexity
 Reduction in capital expenses | Optimization of internal operations
 End of support for mission-critical technologies | Increase in business agility
 Response to regulatory compliance changes | Preparation for new technical capabilities
 New data sovereignty requirements | Scaling to meet market demands
-Reduction of disruptions and improvement of IT stability | Scaling to meet geographic demands
+Reduction in disruptions, and IT stability improvements | Scaling to meet geographic demands
 
-Your migration motivation can also help you reflect on the strategic goals and outcomes that you would like to achieve by migrating to Azure. The next step is to identify and plan a migration path to Azure that is tailored for your workloads. Azure Migrate: Server Assessment tool helps you assess on-premises workloads and provides guidance and tools to help you migrate.
+Identifying your motivation helps you to pin down your strategic migration goals. The next step is to identify and plan a migration path that's tailored for your workloads. The [Azure Migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool helps you to assess on-premises workloads, and provides guidance and tools to help you migrate.
 
 ## Understand your digital estate
 
-Start with understanding your on-premises infrastructure, applications, and dependencies to help identify workloads that you wish to migrate to Azure and get optimized cost projections. The Server Assessment tool will help you answer the following questions:
+Start by identifying your on-premises infrastructure, applications, and dependencies. This helps you to identify workloads for migration to Azure, and to gather optimized cost projections. The Discovery and assessment tool helps you to identify the workloads you have in use, dependencies between workloads, and workload optimization.
 
-### What workloads are in use?
+### Workloads in use
 
-Use the lightweight Azure Migrate appliance to perform an agentless discovery of your on-premises VMware VMs, Hyper-V VMs, and physical servers. The continuous discovery collects machine configuration and performance metadata and can also be used to get the inventory of installed applications, and roles/features running on your on-premises machines. The Azure Migrate appliance collects:
+Azure Migrate uses a lightweight Azure Migrate appliance to perform agentless discovery of on-premises VMware VMs, Hyper-V VMs, other virtualized servers, and physical servers. Continuous discovery collects server configuration information, and performance metadata, as well as application data. Here's what the appliance collects from on-premises servers: 
 
-- Metadata details of the machines, disks, and NICs
+- Server, disk, and NIC metadata.
 
-- Installed applications including applications and roles/features  
+- Installed applications, roles, and features.
 
-- Performance data including CPU and memory utilization, disk IOPS, and throughput
+- Performance data, including CPU and memory utilization, disk IOPS, and throughput.
 
-Next, export the application inventory list to find out all SQL Server instances running on your workloads and use the Azure Migrate: Database Assessment tool to understand their readiness.
+After collecting data, you can export the application inventory list to find apps, and SQL Server instances running on your servers. You can use the Azure Migrate: Database Assessment tool to understand SQL Server readiness.
 
  ![Application inventory on Portal](./media/concepts-migration-planning/application-inventory-portal.png)
 
  ![Application inventory export](./media/concepts-migration-planning/application-inventory-export.png)
 
-Along with the discovery data from the Server Assessment tool, use your existing CMDB data to build our view of your server and database estate and understand server distribution across business units, application owners, geographies, etc., which can in turn help in prioritizing the workloads to be migrated.
+Along with data discovered with the Discovery and assessment tool, you can use your Configuration Management Database (CMDB) data to build a view of your server and database estate, and to understand how your servers are distributed across business units, application owners, geographies, etc. This helps decide which workloads to prioritize for migration. 
 
-### What dependencies exist between workloads?
+### Dependencies between workloads
 
-Once you’ve discovered your servers, use agentless dependency mapping to visualize and identify cross-server dependencies and optimization strategies for moving interdependent servers to Azure. The visualization helps to understand whether certain machines are in use, or if they can be decommissioned instead of being migrated.  Make sure you analyze dependencies to ensure that nothing is left behind and avoid surprise outages during migration. Once you have performed application inventory and dependency mapping, you can create high-confidence groups and start assessing your servers.
+After server discovery, you can [analyze dependencies](concepts-dependency-visualization.md), to visualize and identify cross-server dependencies, and optimization strategies for moving interdependent servers to Azure. The visualization helps to understand whether certain servers are in use, or if they can be decommissioned, instead of being migrated.  Analyzing dependencies helps ensure that nothing is left behind, and to  surprise outages during migration. With your application inventory and dependency analysis done, you can create high-confidence groups of servers, and start assessing them.
 
  ![Dependency mapping](./media/concepts-migration-planning/expand-client-group.png)
 
-### Are they optimized and sized properly?
+### Optimization and sizing
 
-As Azure provides flexibility to resize your cloud capacity over time, migration is an opportunity for you to optimize the CPU and memory resources allocated to your servers. Create an assessment on the group identified before to understand the performance history of the workloads, which will be very crucial in rightsized VM SKUs and disks recommendations on Azure.
+Azure provides flexibility to resize your cloud capacity over time, and migration provides an opportunity for you to optimize the CPU and memory resources allocated to your servers. Creating an assessment on servers you've identity helps you to understand your workload performance history. This is crucial for right sizing Azure VM SKUs, and disk recommendations in Azure.
 
-## Assess your readiness for migration
+## Assess migration readiness
 
-### Readiness and suitability analysis for Azure
-Export the Azure VM assessment report and filter by the following readiness categories to understand VM readiness for Azure:
 
-- **Ready for Azure**: You can migrate these machines as-is to Azure without any changes  
+### Readiness/suitability analysis
 
-- **Conditionally ready for Azure**: You can migrate these machines to Azure but you will need minor changes on these servers as per the remediation guidance provided in the assessment
+You can export the assessment report, and filter on these categories to understand Azure readiness:
 
-- **Not ready for Azure**: You cannot migrate these machines to Azure as-is and need to fix the issues as per the remediation guidance before migration
+- **Ready for Azure**: Servers can be migrated as-is to Azure, without any changes. 
+- **Conditionally ready for Azure**: Servers can be migrated to Azure, but need minor changes, in accordance with the remediation guidance provided in the assessment.
+- **Not ready for Azure**: Servers can't be migrated to Azure as-is. Issues must be fixed in accordance with remediation guidance, before migration. 
+- **Readiness unknown**: Azure Migrate can't determine server readiness, because of insufficient metadata.
 
-- **Readiness unknown**: Azure Migrate is unable to determine the readiness of the machine because of insufficient metadata
-
-Using the database assessments, you can assess the readiness for migrating your SQL Server data estate to Azure SQL Database or Azure SQL Managed Instances. You can see the migration readiness status percentage for each of your SQL server instances. Also, for each of the instances, you can see the recommended target in Azure, potential migration blockers, breaking changes count, readiness for Azure SQL DB / Azure SQL VM, and compatibility level. You can dig deeper to understand the impact of the migration blockers and recommendations to fix them.
+Using database assessments, you can assess the readiness of your SQL Server data estate for migration to Azure SQL Database, or Azure SQL Managed Instances. The assessment shows migration readiness status percentage for each of your SQL server instances. In addition, for each instance you can see the recommended target in Azure, potential migration blockers, a count of breaking changes, readiness for Azure SQL DB or Azure SQL VM, and a compatibility level. You can dig deeper to understand the impact of migration blockers, and recommendations for fixing them.
 
  ![Database assessments](./media/concepts-migration-planning/database-assessment-portal.png)
 
 ### Sizing Recommendations
 
-After the machine is marked as ready for Azure, Server Assessment makes sizing recommendations to identify the Azure VM and disk SKU for your VMs. You can choose to see the sizing recommendation based on the performance history (so that you are optimizing resources as you migrate), or as based on their on-premises configuration without considering the performance history. For databases, you can see the recommendations around database SKU, pricing tier, and compute level in your database assessment.  
+After a server is marked as ready for Azure, Discovery and assessment makes sizing recommendations that identify the Azure VM SKU and disk type for your servers. You can get sizing recommendations based on performance history (to optimize resources as you migrate), or based on on-premise server settings, without performance history. In a database assessment, you can see recommendations for the database SKU, pricing tier, and compute level.  
 
-### Compute assessments to get estimated costs for running the workloads in Azure
+### Get compute costs
 
-The *performance-based* right-sizing option in assessments lets you optimize workloads for Azure. In addition to rightsizing there are few other avenues to help save cost:
+Performance-based sizing option in Azure Migrate assessments helps you to right-size VMs, and should be used as a best practice for optimizing workloads in Azure. In addition to right-sizing, there are a few other options to help save Azure costs: 
 
-- **Reserved Instances**: With Reserved Instances, you can significantly reduce costs compared to pay-as-you-go pricing with 1-year or 3-year terms on Windows and Linux (VMs)
-
-- **Azure Hybrid Benefits**: You can bring Windows Server on-premises licenses with Software Assurance to Azure and combine it with Reserved instances options
-
-- **Enterprise Agreement Offer (EA)**: The Enterprise Agreement offers built-in savings applicable to your subscription
-
-- **Offers**: There are multiple Azure Offers, for example, Pay-As-You-Go Dev/Test and Enterprise Dev/Test that provides lower rates for Dev or Test VMs
-
-- **VM uptime**: you can mention the duration in days per month and hours per day when the Azure VMs will run to reduce your costs (not applicable for RI)
-
-- **Target Region**: You can create multiple assessments in different regions to compare if migrating to a certain region in a geography might be more cost-effective
-
-- **Performance-based recommendations**: As a best practice, try to use rightsized Azure VM recommendations that will help you save cloud costs
+- **Reserved Instances**: With [reserved instances(RI)](https://azure.microsoft.com/pricing/reserved-vm-instances/), you can significantly reduce costs compared to [pay-as-you-go pricing](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- **Azure Hybrid Benefit**: With [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/), you can bring on-premises Windows Server licenses with active Software Assurance, or Linux subscriptions, to Azure, and combine with reserved instances options.
+- **Enterprise Agreement**: Azure [Enterprise Agreements (EA)](../cost-management-billing/manage/ea-portal-agreements.md) can offer savings for Azure subscriptions and services.
+- **Offers**: There are multiple [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/). For example, [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/pricing/dev-test/), or [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p/), to provide lower rates for dev/test VMs
+- **VM uptime**: You can review days per month and hours per day in which Azure VMs run. Shutting off servers when they're not in use can reduce your costs   (not applicable for RIs).
+- **Target region**: You can create assessments in different regions, to figure out whether migrating to a specific region might be more cost effective. 
 
 ### Visualize data
 
-You can see the Server Assessment report with Azure readiness and monthly cost distribution in the portal as well as export the assessment to apply more visualizations on the discovery and assessment data to make the migration plan richer. You can create multiple assessments for different combinations of properties and choose the set of properties that work best for your business.  
+You can view Discovery and assessment reports (with Azure readiness information, and monthly cost distribution) in the portal. You can also export assessment, and enrich your migration plan with additional visualizations. You can create multiple assessments, with different combinations of properties, and choose the set of properties that work best for your business.  
 
  ![Assessments overview](./media/concepts-migration-planning/assessment-summary.png)
 
-### Evaluate gaps and potential blockers
+### Evaluate gaps/blockers
 
-While determining the applications and underlying infrastructure to migrate, identify the downtime constraints for these applications, and look for any operational dependencies, between your applications and the underlying infrastructure. This analysis can help you plan migrations that meet your recovery time objective (RTO) and ensure minimal to zero data loss. Before you migrate, we recommend you to review and mitigate any compatibility issues or unsupported features that may block migrating your servers and SQL databases with the help of the Server Assessment report and Azure Migrate: Database Assessment recommendations.
+As you figure out the apps and workloads you want to migrate, identify downtime constraints for them, and look for any operational dependencies between your apps and the underlying infrastructure. This analysis helps you to plan migrations that meet your recovery time objective (RTO), and ensure minimal to zero data loss. Before you migrate, we recommend that you review and mitigate any compatibility issues, or unsupported features, that may block server/SQL database migration. The Azure Migrate Discovery and assessment report, and Azure Migrate Database Assessment, can help with this. 
 
-### First workloads to target and approach
+### Prioritize workloads
 
-Now that you have all the crucial information to take your migration decision, you should prioritize which applications and workloads should be migrated first. Develop an “apply and learn” approach to migrate your intended applications in a systematic and controllable way so that you can iron out any flaws in this strategy before embarking on a full-scale migration. You can also use strategic factors such as - complexity and time to migrate, business urgency, production/not production environment, compliance, and security requirements, application knowledge, etc. to prioritize which application groups to migrate.
+After you've collected information about your inventory, you can identify which apps and workloads to migrate first. Develop an “apply and learn” approach to migrate apps in a systematic and controllable way, so that you can iron out any flaws before starting a full-scale migration.
 
-Few recommended migration strategies are:
+To prioritize migration order, you can use strategic factors such as complexity, time-to-migrate, business urgency, production/non-production considerations, compliance, security requirements, application knowledge, etc. 
 
-- **Prioritize your quick wins**: You can use the assessment reports to identify low-hanging fruit, including the servers and databases that are fully ready and require minimal effort to migrate to Azure:
-    - Azure Ready: Export your assessment report and filter all machines that are “Ready for Azure”. This can be your first group of machines that you can lift and shift with the Azure Migrate: Server Migration tool.
-    - OS end of support: Export your assessment report and filter all machines that are running the Windows Server 2008 and Windows Server 2008 R2 operating systems. These SKUs are end of support and only Azure provides you with free 3-years of security updates when you migrate them to Azure. When you combine, Azure Hybrid Benefit and use Reserved Instances, the saving could be much higher.
-    - SQL Server Migration: Use the database assessment recommendations to migrate the databases ready for Azure SQL databases using the Azure Migrate: Database Migration and the databases ready for Azure SQL VM using the Azure Migrate: Server Migration.
-    - Software end of support: Export your application inventory and filter any of the software/extensions that might be reaching end of support. You should prioritize these applications.
-    - Over-provisioned VMs: Export your assessment report and filter out machines with low CPU utilization (%) and memory utilization (%).  You can use this opportunity to migrate to a rightsized VM in Azure and save what you have been paying for underutilized resources.
-    - Capacity Constraints: Export your assessment report and filter out machines with high CPU utilization (%) and memory utilization (%).  You can prevent the overstrained VMs from breaking and increase performance by migrating them to Azure and utilize auto-scaling capability to meet demand. You can also look at the assessment report to understand your storage constraints by analyzing the disk IOPS and throughput and find the recommended disk type that will best fit your needs.
+A few recommendations:
 
-- **Start small and then go big**: Start with moving applications and workloads that are minimal risk and less complex, to build confidence in your migration strategy. You could also intersect your Azure Migrate assessment recommendations with your organizations’ CMDB repository to find and migrate Dev/Test environment workloads in your pilot migrations. The learnings from these pilots can be used when migrating production workloads.  
+- **Prioritize quick wins**: Use the assessment reports to identify low-hanging fruit, including servers and databases that are fully ready, and require minimal effort to migrate to Azure. The table summarizes a few ways to do this.
 
-- **Comply with your regulatory/industry requirements**: Azure maintains the largest compliance portfolio across the industry, in terms of breadth and depth of offerings. Use this as an opportunity to prioritize your migrations to Azure and comply with your national, regional, and industry-specific standards and laws. This is especially true for organizations that deal with business-critical or hold sensitive information or are in heavily regulated industries, where the standards and regulations abound and in certain cases may change often, making it difficult to keep up with.  
+    **State** | **Action**
+    --- | ---
+    **Azure ready VMs** | Export the assessment report, and filter all servers with state *Ready for Azure*. This might be the first group of servers that you lift and shift to Azure, using the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+    **End-of-support operating systems** | Export the assessment report, and filter all servers running Windows Server 2008 R2/Windows Server 2008. These operating systems are at the end of support, and only Azure provides a free three years of security updates when you migrate them to Azure. If you combine Azure Hybrid Benefit, and use RIs, the savings could be much higher.
+    **SQL Server migration** | Use the database assessment recommendations to migrate databases that are ready for Azure SQL Database, using the Azure Migrate: Database Migration tool. Migrate the databases ready for Azure SQL VM using the Azure Migrate: Server Migration tool.
+    **End-of-support software** | Export your application inventory, and filter for any software/extensions that might be reaching end-of-support. Prioritize these applications for migration.
+    **Under-provisioned servers** | Export the assessment report, and filter for servers with low CPU utilization (%) and memory utilization (%).  Migrate to a right-sized Azure VM, and save on costs for underutilized resources.
+    **Over-provisioned servers** | Export the assessment report and filter for servers with high CPU utilization (%) and memory utilization (%).  Solve capacity constraints, prevent overstrained servers from breaking, and increase performance by migrating these servers to Azure. In Azure, use autoscaling capabilities to meet demand.<br/><br/> Analyze assessment reports to investigate storage constraints. Analyze disk IOPS and throughput, and the recommended disk type.
 
-## Finalize the migration plan and prepare for migration
+- **Start small, then go big**: Start by moving apps and workloads that  present minimal risk and complexity, to build confidence in your migration strategy. Analyze Azure Migrate assessment recommendations together with your CMDB repository, to find and migrate dev/test workloads that might be candidates for pilot migrations. Feedback and learnings from pilot migrations can be helpful as you begin migrating production workloads.  
+- **Comply**: Azure maintains the largest compliance portfolio in the industry, in terms of breadth and depth of offerings. Use compliance requirements to prioritize migrations, so that apps and workloads comply with your national, regional, and industry-specific standards and laws. This is especially true for organizations that deal with business-critical process, hold sensitive information, or are in heavily regulated industries. In these types of organizations, standards and regulations abound, and might change often, being difficult to keep up with.  
 
-Before finalizing your migration plan, ensure that these key migration considerations do not play hindrance to your migration planning:
+## Finalize the migration plan
 
-- Evaluate constraints of network bandwidth and latency which can cause unforeseen delays and disrupt the migration replication speed.
+Before finalizing your migration plan, make sure you consider and mitigate other potential blockers, as follows: 
 
-- Buffer in time to conduct performance and user acceptance testing on the migrated applications or execute any post-migration app tweaks, such as updating database connection strings and web server configurations, performing cutover and cleanup, etc.
+- **Network requirements**: Evaluate network bandwidth and latency constraints, which might cause unforeseen delays and disruptions to migration replication speed.
+- **Testing/post-migration tweaks**: Allow a time buffer to conduct performance and user acceptance testing for migrated apps, or to configure/tweak apps post-migration, such as updating database connection strings, configuring web servers, performing cut-overs/cleanup etc.
+- **Permissions**: Review recommended Azure permissions, and server/database access roles and permissions needed for migration.
+- **Training**: Prepare your organization for the digital transformation. A solid training foundation is important for successful organizational change. Check out free training on [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), including courses on Azure fundamentals, solution architectures, and security. Encourage your team to explore [Azure certifications](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF).  
+- **Implementation support**: Get support for your implementation if you need it. Many organizations opt for outside help to support their cloud migration. To move to Azure quickly and confidently with personalized assistance, consider an [Azure Expert Managed Service Provider](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF), or [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
-- Review the recommended Azure permissions, and your server/database access roles and permissions model needed for the migration.
 
-- Prepare your organization and ensure workforce alignment to the digital transformation. A solid training foundation is important for successful organizational change. Check out the free training available on [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), including courses on Azure fundamentals, solution architecture, and security. Encourage your team to explore [Azure certification](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF) as well.  
+Create an effective cloud migration plan that includes detailed information about the apps you want to migrate, app/database availability, downtime constraints, and migration milestones. The plan considers how long the data copy will take, and include a realistic buffer for post-migration testing, and cut-over activities. 
 
-- Get support for your implementation if required. Many organizations opt for outside help to support their cloud migration. To move to Azure quickly and confidently with personalized assistance, consider an [Azure Expert Managed Service Provider](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF) or [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
+A post-migration testing plan should include functional, integration, security, and performance testing and use cases, to ensure that migrated apps work as expected, and that all database objects, and data relationships, are transferred successfully to the cloud.  
 
-Create an effective cloud migration plan that includes detailed information on the list/groups of applications you want to migrate, your app and database availability and downtime constraints, and desired migration milestones. Your migration plan should also factor in how long the data copy will take and include a considerate buffer for post-migration testing and cutover activities. The post-migration testing must include functional, integration, security, and performance testing use cases to ensure that the migrated applications work as expected and all the database objects and data relationships have successfully transferred to the Cloud.  
+Build a migration roadmap, and declare a maintenance window to migrate your apps and databases with minimal to zero downtime, and limit the potential operational and business impact during migration.  
 
-Use this analysis to build a migration roadmap and declare a maintenance window to migrate your applications and databases with minimal to zero downtime and limit the potential operational/business impact during migration.  
+## Migrate
 
-We recommend you to always test and proceed using the Azure Migrate’s *Test Migration* capability before kicking off full-scale migrations to Azure. This real data will help you estimate the actual time involved and make necessary tweaks to your migration plan. The test migration also provides an opportunity to discover any potential issues with the migration plan and fix them before the actual migration takes place.  
+We recommend that you run a test migration in Azure Migrate, before starting a full-scale migration. A test migration helps you to estimate the time involved, and tweak your migration plan. It provides an opportunity to discover any potential issues, and fix them before the full migration.
 
-Once you are ready to migrate, use Azure Migrate’s *Server Migration tool* and Azure Migrate’s *Data Migration Service* for a seamless and integrated migration experience with end to end tracking. The Server Migration tool supports the migration of VMs and servers hosted on-premises in customers’ datacenter or any other private or public cloud including AWS, GCP, etc. with around zero downtime. The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime.  
+When you're ready for migration, use the Azure Migrate: Server Migration tool, and the Azure Data Migration Service (DMS), for a seamless and integrated migration experience, with end-to-end tracking.
 
-> [!NOTE]
-> For VMware VMs, Server Assessment uses the operating system specified for the VM in vCenter Server to handle the guest OS analysis. For Linux VMs running on VMware, it currently does not identify the exact kernel version of the guest OS.
+- With the Server Migration tool, you can migrate on-premises VMs and servers, or VMs located in other private or public cloud (including AWS, GCP) with around zero downtime.
+- Azure DMS provides a fully managed service that's designed to enable seamless migrations from multiple database sources to Azure Data platforms, with minimal downtime.  
 
 ## Next steps
 
 - Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
-- [Get started](https://youtu.be/wFfq3YPxYHE) with Azure Migrate.
-- Create an assessment for [VMware VMs](tutorial-assess-vmware.md) or [Hyper-V VMs](tutorial-assess-hyper-v.md).
+- Get a [quick overview](migrate-services-overview.md) of Azure Migrate, and watch a [getting started video](https://youtu.be/wFfq3YPxYHE).
+- Learn more about assessing VMs for migration to [Azure VMs](concepts-assessment-calculation.md).

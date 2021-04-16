@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Deploy continuously from GitHub'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to create an app with CI/CD from GitHub.
 tags: azure-service-management
@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Create a web app with continuous deployment from GitHub

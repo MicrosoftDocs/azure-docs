@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
+# Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -34,6 +34,10 @@ In this tutorial, you set up port forwarding on an Azure Load Balancer. You lear
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 For all steps in this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
+## Prerequisites
+
+* An Azure subscription.
 
 ## Create a Standard load balancer
 

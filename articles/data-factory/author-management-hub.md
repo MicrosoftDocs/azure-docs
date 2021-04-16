@@ -1,14 +1,11 @@
 ---
 title: Management hub
 description: Manage your connections, source control configuration and global authoring properties in the Azure Data Factory management hub
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
-ms.date: 06/02/2020
+author: dcstwh
+ms.author: weetok
+ms.date: 02/01/2021
 ---
 
 # Management hub in Azure Data Factory
@@ -35,7 +32,11 @@ An integration runtime is a compute infrastructure used by Azure Data Factory to
 
 ### Git configuration
 
-View and edit your configured git repository settings in the management hub. For more information, learn about [source control in Azure Data Factory](source-control.md).
+You can view/ edit all the Git-related information under the Git configuration settings in the management hub. 
+
+Last published commit information is listed as well and can help to understand the precise commit, which was last published/ deployed across environments. It can also be helpful when doing Hot Fixes in production.
+
+For more information, learn about [source control in Azure Data Factory](source-control.md).
 
 ![Manage git repo](media/author-management-hub/management-hub-git.png)
 
@@ -51,7 +52,7 @@ To override the generated Resource Manager template parameters when publishing f
 
 Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution). In the management hub, you can create, edit, delete, or view the current state of a trigger.
 
-![Manage custom params](media/author-management-hub/management-hub-triggers.png)
+![Screenshot that shows where to create, edit, delete, nor view the current state of a trigger.](media/author-management-hub/management-hub-triggers.png)
 
 ### Global parameters
 

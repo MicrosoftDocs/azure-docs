@@ -62,7 +62,7 @@ After you select **Save**, if you go to **Job schedules** in the left navigation
 
 ## For more information
 
-To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batch/job-schedule?view=azure-cli-latest).
+To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batch/job-schedule).
 
 ## Next steps
 
@@ -72,7 +72,7 @@ To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batc
 
 
 
-[1]: ./media/batch-job-schedule/add_job_schedule-02.png
-[2]: ./media/batch-job-schedule/add_job_schedule-03.png
+[1]: ./media/batch-job-schedule/add-job-schedule-02.png
+[2]: ./media/batch-job-schedule/add-job-schedule-03.png
 
 

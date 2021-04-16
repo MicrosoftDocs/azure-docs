@@ -1,6 +1,6 @@
 ---
 title: Comparison of Azure Data Lake Storage Gen1 with Blob storage
-description: Provides a summary of the differences between Azure Data Lake Storage Gen1 and Azure Blob storage.
+description: Learn about the differences between Azure Data Lake Storage Gen1 and Azure Blob Storage regarding some key aspects of big data processing.
 
 author: twooley
 ms.service: data-lake-store
@@ -22,11 +22,11 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Key Concepts |Data Lake Storage Gen1 account contains folders, which in turn contains data stored as files |Storage account has containers, which in turn has data in the form of blobs |
 | Structure |Hierarchical file system |Object store with flat namespace |
 | API |REST API over HTTPS |REST API over HTTP/HTTPS |
-| Server-side API |[WebHDFS-compatible REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| Server-side API |[WebHDFS-compatible REST API](/rest/api/datalakestore/) |[Azure Blob Storage REST API](/rest/api/storageservices/Blob-Service-REST-API) |
 | Hadoop File System Client |Yes |Yes |
-| Data Operations - Authentication |Based on [Azure Active Directory Identities](../active-directory/develop/authentication-scenarios.md) |Based on shared secrets - [Account Access Keys](../storage/common/storage-account-keys-manage.md) and [Shared Access Signature Keys](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
-| Data Operations - Authentication Protocol |OAuth 2.0. Calls must contain a valid JWT (JSON Web Token) issued by Azure Active Directory |Hash-based Message Authentication Code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
-| Data Operations - Authorization |POSIX Access Control Lists (ACLs).  ACLs based on Azure Active Directory Identities can be set at the file and folder level. |For account-level authorization – Use [Account Access Keys](../storage/common/storage-account-keys-manage.md)<br>For account, container, or blob authorization -  Use [Shared Access Signature Keys](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Data Operations - Authentication |Based on [Azure Active Directory Identities](../active-directory/develop/authentication-vs-authorization.md) |Based on shared secrets - [Account Access Keys](../storage/common/storage-account-keys-manage.md) and [Shared Access Signature Keys](../storage/common/storage-sas-overview.md). |
+| Data Operations - Authentication Protocol |[OpenID Connect](https://openid.net/connect/). Calls must contain a valid JWT (JSON web token) issued by Azure Active Directory.|Hash-based Message Authentication Code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
+| Data Operations - Authorization |POSIX Access Control Lists (ACLs).  ACLs based on Azure Active Directory Identities can be set at the file and folder level. |For account-level authorization – Use [Account Access Keys](../storage/common/storage-account-keys-manage.md)<br>For account, container, or blob authorization -  Use [Shared Access Signature Keys](../storage/common/storage-sas-overview.md) |
 | Data Operations - Auditing |Available. See [here](data-lake-store-diagnostic-logs.md) for information. |Available |
 | Encryption data at rest |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault</li></ul></ul> |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault (preview)</li></ul><li>Client-side encryption</li></ul> |
 | Management operations (for example, Account Create) |[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management |[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management |

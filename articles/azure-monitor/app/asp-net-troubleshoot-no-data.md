@@ -2,6 +2,7 @@
 title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/21/2020
 
 ---
@@ -24,6 +25,10 @@ ms.date: 05/21/2020
 
 * SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetry-channels) used.
 
+## Request count collected by Application Insights SDK does not match the IIS log count for my application
+
+Internet Information Services (IIS) logs counts of all request reaching IIS and inherently could differ from the total request reaching an application. Due to this it is not guaranteed that the request count collected by the SDKs will match the total IIS log count. 
+
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 
@@ -33,6 +38,39 @@ ms.date: 05/21/2020
 *I [installed Status Monitor](./monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
 * See [Troubleshooting Status Monitor](./monitor-performance-live-website-now.md#troubleshoot).
+
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
+
+## FileNotFoundException: Could not load file or assembly 'Microsoft.AspNet TelemetryCorrelation
+
+For more information on this error see [GitHub issue 1610 ]
+(https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610).
+
+When upgrading from SDKs older than (2.4) you need to make sure the following changes applied to `web.config` and `ApplicationInsights.config`:
+
+1. Two http modules instead of one. In `web.config` you should have two http modules. Order is important for some scenarios:
+
+    ``` xml
+    <system.webServer>
+      <modules>
+          <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="integratedMode,managedHandler" />
+          <add name="ApplicationInsightsHttpModule" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+      </modules>
+    </system.webServer>
+    ```
+
+2. In `ApplicationInsights.config` in addition to `RequestTrackingTelemetryModule` you should have the following telemetry module:
+
+    ``` xml
+    <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Web.AspNetDiagnosticTelemetryModule, Microsoft.AI.Web"/>
+    </TelemetryModules>
+    ```
+
+***Failure to upgrade properly may lead to unexpected exceptions or telemetry not being collected.***
+
 
 ## <a name="q01"></a>No 'Add Application Insights' option in Visual Studio
 *When I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
@@ -152,7 +190,7 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * In your firewall, you might have to [open some TCP ports](./ip-addresses.md).
 * If you have to use a proxy to send out of your corporate network, set [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) in Web.config
-* Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
 
 ## I used to see data, but it has stopped
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
@@ -188,7 +226,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
     ```xml
     <TelemetryModules>
-      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.FileDiagnosticsTelemetryModule, Microsoft.ApplicationInsights">
         <Severity>Verbose</Severity>
         <LogFileName>mylog.txt</LogFileName>
         <LogFilePath>C:\\SDKLOGS</LogFilePath>
@@ -242,11 +280,13 @@ You can modify these parameters as needed:
 
 For more information,
 - [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
 
 ## Collect logs with dotnet-trace
 
-An alternate method of collecting logs for troubleshooting that may be particularly helpful for linux-based environments is [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
+Alternatively, customers can also use a cross-platform .NET Core tool, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) for collecting logs that can further help in troubleshooting. This may be particularly helpful for linux-based environments.
+
+After installation of [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace), execute the command below in bash.
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
@@ -258,4 +298,3 @@ Learn how to remove Application Insights in Visual Studio by following the steps
 
 ## Still not working...
 * [Microsoft Q&A question page for Application Insights](/answers/topics/azure-monitor.html)
-

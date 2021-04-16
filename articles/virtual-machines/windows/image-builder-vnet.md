@@ -3,10 +3,11 @@ title: Create a Windows VM with Azure Image Builder using an existing VNET (prev
 description: Create a Windows VM with the Azure Image Builder using an existing VNET
 author: cynthn
 ms.author: cynthn
-ms.date: 05/29/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ms.reviewer: danis
 ---
 # Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET
@@ -127,13 +128,13 @@ For more information on Image Builder networking, see [Azure Image Builder Servi
 ## Modify the example template and create role
 
 ```powershell-interactive
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
+$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
 $templateFilePath = "existingVNETWindows.json"
 
-$aibRoleNetworkingUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$aibRoleNetworkingUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $aibRoleNetworkingPath = "aibRoleNetworking.json"
 
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download configs
@@ -253,7 +254,7 @@ $runOutJsonStatus
 ```
 ## Create a VM
 
-Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm#description).
 
 ## Clean Up
 
@@ -291,5 +292,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).
-
+Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).

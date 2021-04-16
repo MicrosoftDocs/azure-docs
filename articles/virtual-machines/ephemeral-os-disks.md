@@ -20,7 +20,7 @@ The key features of ephemeral disks are:
 - Lower latency, similar to a temporary disk. 
 - Ephemeral OS disks are free, you incur no storage cost for OS disk.
 - They are available in all Azure regions. 
-- Ephemeral OS Disk is supported by [Shared Image Gallery](./linux/shared-image-galleries.md). 
+- Ephemeral OS Disk is supported by [Shared Image Gallery](./shared-image-galleries.md). 
  
 
  
@@ -36,7 +36,8 @@ Key differences between persistent and ephemeral OS disks:
 | **Stop-deallocated state**      | VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated                                  |
 | **Specialized OS disk support** | Yes                                                                                          | No                                                                                 |
 | **OS disk resize**              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
-| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
+| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned       
+| **Page file placement**   | For Windows, page file is stored on the resource disk                                              | For Windows, page file is stored on the OS disk   |
 
 ## Size requirements
 
@@ -45,7 +46,7 @@ You can deploy VM and instance images up to the size of the VM cache. For exampl
 Ephemeral disks also require that the VM size supports Premium storage. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
 
 ## Preview - Ephemeral OS Disks can now be stored on temp disks
-Ephemeral OS Disks can now be stored on VM temp/resource disk in addition to the VM cache. So, now you can use Ephemeral OS Disks with VM which don’t have a cache or has insufficient cache but has a temp/resource disk to store the Ephemeral OS disk such as Dav3, Dav4, Eav4 and Eav3. If a VM has sufficient cache and temp space, you will now also be able to specify where you want to store the ephemeral OS Disk by using a new property called [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). This feature is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. To get started, [request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+Ephemeral OS Disks can now be stored on VM temp/resource disk in addition to the VM cache. So, now you can use Ephemeral OS Disks with VM which don’t have a cache or has insufficient cache but has a temp/resource disk to store the Ephemeral OS disk such as Dav3, Dav4, Eav4 and Eav3. If a VM has sufficient cache and temp space, you will now also be able to specify where you want to store the ephemeral OS Disk by using a new property called [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). With this feature, when a Windows VM is provisioned, we configure the pagefile to be located on the OS Disk. This feature is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. To get started, [request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## PowerShell
 
@@ -79,7 +80,7 @@ az vm create \
 
 For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly`.
 
-## Portal	
+## Portal
 
 In the Azure portal, you can choose to use ephemeral disks when deploying a VM by opening the **Advanced** section of the **Disks** tab. For **Use ephemeral OS disk** select **Yes**.
 
@@ -114,7 +115,7 @@ The process to create a scale set that uses an ephemeral OS disk is to add the `
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-	           	"option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 
@@ -149,7 +150,7 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
        "storageProfile": { 
             "osDisk": { 
               "diffDiskSettings": { 
-               	"option": "Local" 
+                "option": "Local" 
               }, 
               "caching": "ReadOnly", 
               "createOption": "FromImage" 
@@ -238,6 +239,11 @@ A: Ephemeral disks do not support:
 - Azure Backup
 - Azure Site Recovery  
 - OS Disk Swap 
+
+> [!NOTE]
+> 
+> Ephemeral disk will not be accessible through portal. You will receive "Resource not Found" or "404" error when accessing the ephemeral disk which is expected.
+> 
  
 ## Next steps
 You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az-vm-create).

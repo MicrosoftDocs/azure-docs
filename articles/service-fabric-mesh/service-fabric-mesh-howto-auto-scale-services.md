@@ -1,15 +1,21 @@
 ---
 title: Auto-scale an app running in Azure Service Fabric Mesh 
 description: Learn how to configure auto-scale policies for the services of a Service Fabric Mesh application.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to scale for demand by autoscaling services in a Service Fabric Mesh application.
 ---
 
 # Create autoscale policies for a Service Fabric Mesh application
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 One of the main advantages of deploying applications to Service Fabric Mesh is the ability for you to easily scale your services in or out. This should be used for handling varying amounts of load on your services, or improving availability. You can manually scale your services in or out or set up autoscaling policies.
 
 [Auto scaling](service-fabric-mesh-scalability.md#autoscaling-service-instances) allows you to dynamically scale the number of your service instances (horizontal scaling). Auto scaling gives great elasticity and enables provisioning or removal of service instances based on CPU or memory utilization.

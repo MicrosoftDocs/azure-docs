@@ -3,6 +3,7 @@ title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 ms.topic: conceptual
 ms.date: 03/15/2019
+ms.custom: devx-track-csharp
 
 ms.reviewer: sdash
 ---
@@ -29,7 +30,7 @@ On clicking "Update map components", the map is refreshed with all components di
 
 If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
 
-![Application Map Screenshot](media/app-map/app-map-001.png)
+![Screenshot shows an example of an application map.](media/app-map/app-map-001.png)
 
 One of the key objectives with this experience is to be able to visualize complex topologies with hundreds of components.
 
@@ -160,10 +161,8 @@ For [Java agent 3.0](./java-in-process-agent.md) the cloud role name is set as f
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
@@ -220,6 +219,21 @@ appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
 });
+```
+
+# [Python](#tab/python)
+
+For Python, [OpenCensus Python telemetry processors](api-filtering-sampling.md#opencensus-python-telemetry-processors) can be used.
+
+```python
+def callback_function(envelope):
+   envelope.tags['ai.cloud.role'] = 'new_role_name'
+   
+# AzureLogHandler
+handler.add_telemetry_processor(callback_function)
+
+# AzureExporter
+exporter.add_telemetry_processor(callback_function)
 ```
 ---
 

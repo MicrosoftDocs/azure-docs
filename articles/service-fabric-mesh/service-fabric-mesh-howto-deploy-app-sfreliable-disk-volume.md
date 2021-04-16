@@ -5,10 +5,16 @@ author: ashishnegi
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ---
 
 # Mount highly available Service Fabric Reliable Disk based volume in a Service Fabric Mesh application 
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 The common method of persisting state with container apps is to use remote storage like Azure File Storage or database like Azure Cosmos DB. This incurs significant read and write network latency to the remote store.
 
 This article shows how to store state in highly available Service Fabric Reliable Disk by mounting a volume inside the container of a Service Fabric Mesh application.
@@ -41,6 +47,11 @@ az group create --name myResourceGroup --location eastus
 
 ## Deploy the template
 
+>[!NOTE]
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. 
+> 
+> This template makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
+
 The following command deploys a Linux application using the [counter.sfreliablevolume.linux.json template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). To deploy a Windows application, use the [counter.sfreliablevolume.windows.json template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Be aware that larger container images may take longer to deploy.
 
 ```azurecli-interactive
@@ -50,7 +61,7 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
 You can also see the state of the deployment with the command
 
 ```azurecli-interactive
-az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
+az deployment group show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
 Notice the name of gateway resource which has resource type as `Microsoft.ServiceFabricMesh/gateways`. This will be used in getting public IP address of the app.

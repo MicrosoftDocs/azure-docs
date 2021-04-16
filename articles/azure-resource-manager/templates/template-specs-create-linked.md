@@ -2,20 +2,20 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 01/05/2021
 
 ---
 
 # Tutorial: Create a template spec with linked templates (Preview)
 
-Learn how to create a [template spec](template-specs.md) with a [linked template](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the new `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
+Learn how to create a [template spec](template-specs.md) with a main template and a [linked template](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
 
 ## Prerequisites
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/templateSpecOnboarding).
+> Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create linked templates
 
@@ -23,7 +23,7 @@ Create the main template and the linked template.
 
 To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the relative path of the linked template in accordance with the path of the parent template.
 
-The linked template is called **linkedTemplate.json**, and is stored in a subfolder called **artifacts** in the path where the main template is stored.  You can use one of the follow values for the relativePath:
+The linked template is called **linkedTemplate.json**, and is stored in a subfolder called **artifacts** in the path where the main template is stored.  You can use one of the following values for the relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -79,7 +79,7 @@ The `relativePath` property is always relative to the template file where `relat
         },
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "createStorage",
           "properties": {
             "mode": "Incremental",
@@ -160,40 +160,90 @@ The `relativePath` property is always relative to the template file where `relat
 
 Templates specs are stored in resource Groups.  Create a resource group, and then create a template spec with the following script. The template spec name is **webSpec**.
 
+# [PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name templateSpecRG `
   -Location westus2
 
 New-AzTemplateSpec `
-  -ResourceGroupName templateSpecRG `
   -Name webSpec `
   -Version "1.0.0.0" `
+  -ResourceGroupName templateSpecRG `
   -Location westus2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location westus2
+
+az ts create \
+  --name webSpec \
+  --version "1.0.0.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "<path-to-main-template>"
+```
+
+---
+
 When you are done, you can view the template spec from the Azure portal or by using the following cmdlet:
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 ```
 
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+```
+
+---
+
 ## Deploy template spec
 
 You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
   -Location westus2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName webRG
 ```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+id = $(az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+
+az deployment group create \
+  --resource-group webRG \
+  --template-spec $id
+```
+
+> [!NOTE]
+> There is a known issue with getting a template spec ID and assigning it to a variable in Windows PowerShell.
+
+---
 
 ## Next steps
 

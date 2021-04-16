@@ -3,11 +3,16 @@ title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
 
 ---
 
-# collectd: Linux performance metrics in Application Insights
+# collectd: Linux performance metrics in Application Insights [Deprecated]
 
+> [!IMPORTANT]
+> The **recommended approach** to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for **[Application Insights Java 3.0 agent](./java-in-process-agent.md)**.
 
 To explore Linux system performance metrics in [Application Insights](./app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
@@ -24,7 +29,7 @@ Take a copy of the instrumentation key, which identifies the resource.
 On your Linux server machines:
 
 1. Install [collectd](https://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 4. Edit `/etc/collectd/collectd.conf`:
    * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
@@ -124,5 +129,5 @@ Workaround: Exclude data collected by the problem Write plugins.
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 

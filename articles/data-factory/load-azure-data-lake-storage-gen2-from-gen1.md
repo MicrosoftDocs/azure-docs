@@ -1,22 +1,17 @@
 ---
 title: Copy data from Azure Data Lake Storage Gen1 to Gen2
 description: 'Use Azure Data Factory to copy data from Azure Data Lake Storage Gen1 to Gen2'
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2019
+ms.date: 02/18/2021
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics that's built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). You can use it to interface with your data by using both file system and object storage paradigms.
 
@@ -92,7 +87,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 7. Specify the copy behavior by selecting the **Copy files recursively** and **Binary copy** options. Select **Next**.
 
-    ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
+    ![Screenshot shows the Choose the input file or folder where you can select Copy file recursively and Binary Copy.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
 8. On the **Destination data store** page, select **+ Create new connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
@@ -108,7 +103,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 10. On the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
 
-    ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
+    ![Screenshot shows the folder path you enter.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
 11. On the **Settings** page, select **Next** to use the default settings.
 

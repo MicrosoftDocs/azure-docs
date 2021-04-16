@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Scale Windows Virtual Desktop (classic) session hosts using Azure Automation
 
@@ -15,10 +15,6 @@ manager: lizross
 You can reduce your total Windows Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
 In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
-
-## Report issues
-
-Issue reports for the scaling tool are currently being handled on GitHub instead of Microsoft Support. If you encounter any issue with the scaling tool, get the necessary information as described in the [Reporting issues](#reporting-issues) section and open a GitHub issue labeled with "4a-WVD-scaling-logicapps" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## How the scaling tool works
 
@@ -356,3 +352,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## Report issues
+
+Issue reports for the scaling tool are currently being handled by Microsoft Support. When you make an issue report, make sure to follow the instructions in [Reporting issues](#reporting-issues). If you have feedback about the tool or want to request new features, open a GitHub issue labeled "4-WVD-scaling-tool" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

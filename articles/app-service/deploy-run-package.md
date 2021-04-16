@@ -37,7 +37,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## Run the package
 
-The easiest way to run a package in your App Service is with the Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command. For example:
+The easiest way to run a package in your App Service is with the Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) command. For example:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
@@ -63,6 +63,7 @@ If you publish an updated package with the same name to Blob storage, you need t
 
 - Running directly from a package makes `wwwroot` read-only. Your app will receive an error if it tries to write files to this directory.
 - TAR and GZIP formats are not supported.
+- The ZIP file can be at most 1GB
 - This feature is not compatible with [local cache](overview-local-cache.md).
 - For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
 

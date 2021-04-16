@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 11/05/2020
 ---
 # Data import overview - Azure Cognitive Search
 
@@ -29,12 +29,12 @@ This approach is more flexible than the pull model because you can upload docume
 
 You can use the following APIs to load single or multiple documents into an index:
 
-+ [Add, Update, or Delete Documents (REST API)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) or [indexBatch class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) 
 
 There is currently no tool support for pushing data via the portal.
 
-For an introduction to each methodology, see [Quickstart: Create an Azure Cognitive Search index using PowerShell](search-create-index-rest-api.md) or [C# Quickstart: Create an Azure Cognitive Search index using .NET SDK](search-get-started-dotnet.md).
+For an introduction to each methodology, see [Quickstart: Create an Azure Cognitive Search index using PowerShell](./search-get-started-powershell.md) or [C# Quickstart: Create an Azure Cognitive Search index using .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -56,7 +56,7 @@ In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatc
 
 ### Formulate your query
 
-There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
+There are two ways to [search your index using the REST API](/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
 
 For both POST and GET, you need to provide your *service name*, *index name*, and an *API version* in the request URL. 
 
@@ -76,13 +76,14 @@ The pull model crawls a supported data source and automatically uploads the data
 + [Table storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL Database, SQL Managed Instance, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [SharePoint Online (preview)](search-howto-index-sharepoint-online.md)
++ [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md)
 
-Indexers connect an index to a data source (usually a table, view, or equivalent structure), and map source fields to equivalent fields in the index. During execution, the rowset is automatically transformed to JSON and loaded into the specified index. All indexers support scheduling so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index. 
-
+Indexers connect an index to a data source (usually a table, view, or equivalent structure), and map source fields to equivalent fields in the index. During execution, the rowset is automatically transformed to JSON and loaded into the specified index. All indexers support scheduling so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index.
 
 ### How to pull data into an Azure Cognitive Search index
 
-Indexer functionality is exposed in the [Azure portal](search-import-data-portal.md), the [REST API](/rest/api/searchservice/Indexer-operations), and the [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
+Indexer functionality is exposed in the [Azure portal](search-import-data-portal.md), the [REST API](/rest/api/searchservice/Indexer-operations), and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
 
 An advantage to using the portal is that Azure Cognitive Search can usually generate a default index schema for you by reading the metadata of the source dataset. You can modify the generated index until the index is processed, after which the only schema edits allowed are those that do not require reindexing. If the changes you want to make impact the schema directly, you would need to rebuild the index. 
 

@@ -90,7 +90,7 @@ The following snippet shows an example of the response:
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](../azure-resource-manager/management/view-activity-logs.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
 * **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data.
 * **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds. 
@@ -147,7 +147,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 ### Activity log
 
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../monitoring-and-diagnostics/insights-debugging-with-events.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../azure-resource-manager/management/view-activity-logs.md) article.
 
 ### Access log
 
@@ -203,7 +203,6 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |---------|---------|
 |instanceId     | Application Gateway instance that served the request.        |
 |clientIP     | Originating IP for the request.        |
-|clientPort     | Originating port for the request.       |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
 |UserAgent     | User agent from the HTTP request header.        |
@@ -218,7 +217,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response from the backend server.|
-|host| Address listed in the host header of the request. If rewritten, this field contains the updated host name|
+|host| Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name|
 |originalRequestUriWithArgs| This field contains the original request URL |
 |requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |originalHost| This field contains the original request host name
@@ -231,7 +230,6 @@ The access log is generated only if you've enabled it on each Application Gatewa
     "properties": {
         "instanceId": "appgw_1",
         "clientIP": "191.96.249.97",
-        "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
         "userAgent": "-",
@@ -303,7 +301,7 @@ The firewall log is generated only if you have enabled it for each application g
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
 |ruleId     | Rule ID of the triggering event.        |
 |message     | User-friendly message for the triggering event. More details are provided in the details section.        |
-|action     |  Action taken on the request. Available values are Matched and Blocked.      |
+|action     |  Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these are both for mandatory rules, depending on if the WAF is in detection or prevention mode).      |
 |site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
 |details     | Details of the triggering event.        |
 |details.message     | Description of the rule.        |
@@ -348,7 +346,7 @@ The firewall log is generated only if you have enabled it for each application g
 You can view and analyze activity log data by using any of the following methods:
 
 * **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article.
-* **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](https://docs.microsoft.com/power-bi/service-template-apps-overview), you can analyze your data.
+* **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](/power-bi/service-template-apps-overview), you can analyze your data.
 
 ### View and analyze the access, performance, and firewall logs
 

@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -11,7 +12,7 @@ ms.author: trbye
 Before you get started:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource </a>
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 > * Make sure that you have access to a microphone for audio capture
 

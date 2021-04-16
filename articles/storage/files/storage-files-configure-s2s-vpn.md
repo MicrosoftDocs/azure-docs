@@ -25,7 +25,7 @@ The article details the steps to configure a Site-to-Site VPN to mount Azure fil
 
 - A network appliance or server in your on-premises datacenter that is compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen but Azure VPN Gateway maintains a [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Different network appliances offer different features, performance characteristics, and management functionalities, so consider these when selecting a network appliance.
 
-    If you do not have an existing network appliance, Windows Server contains a built-in Server Role, Routing and Remote Access (RRAS), which may be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway).
+    If you do not have an existing network appliance, Windows Server contains a built-in Server Role, Routing and Remote Access (RRAS), which may be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
 ## Add storage account to VNet
 In the Azure portal, navigate to the storage account containing the Azure file share you would like to mount on-premises. In the table of contents for the storage account, select the **Firewalls and virtual networks** entry. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the **Allow access from** radio button for **All networks** selected.

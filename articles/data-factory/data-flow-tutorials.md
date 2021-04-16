@@ -1,11 +1,11 @@
 ---
 title: Mapping data flow video tutorials
 description: A list of video tutorials explaining mapping data flow concepts
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
+ms.date: 12/14/2020
 ---
 
 # Mapping data flow video tutorials
@@ -31,6 +31,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Monitor and manage mapping data flow performance](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [Benchmark timings](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[Debugging workflows for data flows](https://youtu.be/y3suL7UsWVw)
 
 ## Transformation overviews
 
@@ -76,6 +78,16 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
 
+[Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
+
+[Rank transformation](https://youtu.be/6XvgkbMtws0)
+
+[Cached lookup](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Row context via Window transformation](http://youtu.be/jqt1gmX2XUg)
+
+[Parse transformation](https://www.youtube.com/watch?v=r7O7AJcuqoY)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -100,8 +112,6 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Data lineage](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Optimization tips](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Iterate files with parameters](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Decrease start-up times](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -114,6 +124,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
+[Azure Integration Runtimes for Data Flows](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
 ## Mapping data flow scenarios
 
 [Fuzzy lookups](http://youtu.be/7gdwExjHBbw)
@@ -122,7 +134,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Clean addresses pattern](https://youtu.be/axEYbuU3lmw)
 
-[Deduplication](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Deduplication](https://youtu.be/QOi26ETtPTw)
 
 [Merge files](http://youtu.be/WbDTBAyYte8)
 
@@ -163,3 +175,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+## Metadata
+
+[Metadata validation rules](https://www.youtube.com/watch?v=E_UD3R-VpYE)

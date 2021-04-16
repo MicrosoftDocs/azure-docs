@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: ETL operations with Interactive Query - Azure HDInsight'
 description: Tutorial - Learn how to extract data from a raw CSV dataset. Transform it using Interactive Query on HDInsight. Then load the transformed data into Azure SQL Database by using Apache Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
@@ -28,13 +25,13 @@ This tutorial covers the following tasks:
 
 * An Interactive Query cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Interactive Query** for **Cluster type**.
 
-* A database in Azure SQL Database. You use the database as a destination data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database in the Azure portal](/azure/sql-database/sql-database-single-database-get-started).
+* A database in Azure SQL Database. You use the database as a destination data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Download the flight data
 
-1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
 
 2. On the page, clear all fields, and then select the following values:
 

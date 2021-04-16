@@ -27,7 +27,7 @@ To import your Application Insights query, you use the desktop version of Power 
 Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### Export an Analytics query
-1. [Open Analytics and write your query](../log-query/get-started-portal.md).
+1. [Open Analytics and write your query](../logs/log-analytics-tutorial.md).
 2. Test and refine the query until you're happy with the results. Make sure that the query runs correctly in Analytics before you export it.
 3. On the **Export** menu, choose **Power BI (M)**. Save the text file.
    
@@ -63,11 +63,11 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    Paste the exported M Language script into the Advanced Editor. 
 
-   ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/export-power-bi/advancedquery.png)
+   ![Screenshot shows the Power BI Desktop, with Advanced Editor highlighted](./media/export-power-bi/advancedquery.png)
 
 4. Select items from the query, and choose a Funnel visualization.
 
-   ![Screenshot of Power BI Desktop visualization options](./media/export-power-bi/selectsequence.png)
+   ![Screenshot shows the Power BI Desktop Funnel visualization options](./media/export-power-bi/selectsequence.png)
 
 5. Change the title to make it meaningful, and publish your report to your Power BI cloud workspace. 
 
@@ -82,7 +82,7 @@ This can happen if your refresh token has not been updated. Try these steps to e
 
 1. Sign in to the Azure portal, and make sure you can access the resource.
 2. Try to refresh the credentials for the dashboard.
-3. Try to clear the cache from your PowerBI Desktop.
+3. Try to clear the cache from your Power BI Desktop.
 
 
    If you do have access and refreshing the credentials does not work, please open a support ticket.
@@ -117,14 +117,14 @@ This method creates a complete dashboard of telemetry for you. The initial datas
 1. Sign in to [Power BI](https://app.powerbi.com/).
 2. Open **Get Data** ![Screenshot of GetData Icon in lower left corner](./media/export-power-bi/001.png), **Services**.
 
-    ![Screenshots of Get from Application Insights data source](./media/export-power-bi/002.png)
+    ![Screenshots shows Get button in the Services window.](./media/export-power-bi/002.png)
 
 3. Select **Get it now** under Application Insights.
 
    ![Screenshots of Get from Application Insights data source](./media/export-power-bi/003.png)
 4. Provide the details of your Application Insights resource, and then **Sign-in**.
 
-    ![Screenshot of Get from Application Insights data source](./media/export-power-bi/005.png)
+    ![Screenshot shows Connect to Application Insights window.](./media/export-power-bi/005.png)
 
      This information can be found in the Application Insights Overview pane:
 
@@ -142,5 +142,4 @@ After the initial import, the dashboard and the reports continue to update daily
 
 ## Next steps
 * [Power BI - Learn](https://www.powerbi.com/learning/)
-* [Analytics tutorial](../log-query/get-started-portal.md)
-
+* [Analytics tutorial](../logs/log-analytics-tutorial.md)

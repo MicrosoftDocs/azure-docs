@@ -4,8 +4,9 @@ description: How to create service principals and assign roles by using PowerShe
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.author: helohr
-manager: lizross
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
 # Tutorial: Create service principals and role assignments with PowerShell in Windows Virtual Desktop (classic)
 

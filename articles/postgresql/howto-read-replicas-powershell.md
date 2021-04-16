@@ -1,8 +1,8 @@
 ---
 title: Manage read replicas - Azure PowerShell - Azure Database for PostgreSQL
 description: Learn how to set up and manage read replicas in Azure Database for PostgreSQL using PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020 
@@ -23,7 +23,7 @@ You can create and manage read replicas using PowerShell.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) installed
+- The [Az PowerShell module](/powershell/azure/install-az-ps) installed
   locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
@@ -34,13 +34,13 @@ To complete this how-to guide, you need:
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
 If you choose to use PowerShell locally, connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
 > The read replica feature is only available for Azure Database for PostgreSQL servers in the General
-> Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing
+> Purpose or Memory Optimized pricing tiers. Ensure the primary server is in one of these pricing
 > tiers.
 
 ### Create a read replica
@@ -64,33 +64,41 @@ a replica in the **West US** region.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMariaDServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzPostgreSQLServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 To learn more about which regions you can create a replica in, visit the
 [read replica concepts article](concepts-read-replicas.md).
 
-By default, read replicas are created with the same server configuration as the master unless the
+By default, read replicas are created with the same server configuration as the primary unless the
 **Sku** parameter is specified.
 
 > [!NOTE]
 > It is recommended that the replica server's configuration should be kept at equal or greater
-> values than the master to ensure the replica is able to keep up with the master.
+> values than the primary to ensure the replica is able to keep up with the master.
 
-### List replicas for a master server
+### List replicas for a primary server
 
-To view all replicas for a given master server, run the following command:
+To view all replicas for a given primary server, run the following command:
 
 ```azurepowershell-interactive
-Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
+Get-AzPostgreSQLReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 ```
 
-The `Get-AzMariaDReplica` command requires the following parameters:
+The `Get-AzPostgreSQLReplica` command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  The resource group where the replica server will be created to.  |
-| ServerName | mydemoserver | The name or ID of the master server. |
+| ServerName | mydemoserver | The name or ID of the primary server. |
+
+### Stop a replica server
+
+Stopping a read replica server promotes the read replica to be an independent server. It can be done by running the `Update-AzPostgreSqlServer` cmdlet and by setting the ReplicationRole value to `None`.
+
+```azurepowershell-interactive
+Update-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -ReplicationRole None
+```
 
 ### Delete a replica server
 
@@ -100,13 +108,13 @@ Deleting a read replica server can be done by running the `Remove-AzPostgreSqlSe
 Remove-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### Delete a master server
+### Delete a primary server
 
 > [!IMPORTANT]
-> Deleting a master server stops replication to all replica servers and deletes the master server
+> Deleting a primary server stops replication to all replica servers and deletes the primary server
 > itself. Replica servers become standalone servers that now support both read and writes.
 
-To delete a master server, you can run the `Remove-AzPostgreSqlServer` cmdlet.
+To delete a primary server, you can run the `Remove-AzPostgreSqlServer` cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

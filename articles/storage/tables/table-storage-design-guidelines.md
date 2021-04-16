@@ -2,11 +2,11 @@
 title: Guidelines for Azure storage table design | Microsoft Docs
 description: Understand guidelines for designing your Azure storage table service to support read and write operations efficiently.
 services: storage
-author: SnehaGunda
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
 ---
 # Guidelines for table design

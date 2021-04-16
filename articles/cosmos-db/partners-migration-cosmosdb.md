@@ -9,10 +9,11 @@ ms.date: 05/28/2019
 ---
 
 # Azure Cosmos DB NoSQL migration and application development partners
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-From NoSQL migration to application development, you can choose from a variety of experienced systems integrator partners and tools to support your Azure Cosmos DB solutions. 
+From NoSQL migration to application development, you can choose from a variety of experienced systems integrator partners and tools to support your Azure Cosmos DB solutions. This article lists the partners who have solutions or services that use Azure Cosmos DB. This list changes over time, Microsoft is not responsible to any changes or updates made to the solutions of these partners.
 
-## Systems Integrator partners
+## Systems Integrator and tooling partners
 
 |**Partner**  |**Capabilities & experience**  |**Supported countries/regions**  |
 |---------|---------|---------|
@@ -25,7 +26,6 @@ From NoSQL migration to application development, you can choose from a variety o
 | [Capgemini](https://www.capgemini.com/) | Retail (inventory), IoT, Operational Analytics (Spark), App development | USA, France, UK, Netherlands, Finland  |
 | [Cognizant](https://www.cognizant.com/) | IoT, Personalization, Retail (inventory), Operational Analytics  (Spark), App development |USA, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan |
 |[Infosys](https://www.infosys.com/)     | App development      |    USA    |  
-| [Lagash Systems](https://www.lagash.com/) | IoT, Serverless architecture, App development | Argentina, Chile, Colombia, Mexico|
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Real-time personalization, Retail inventory, App development | Brazil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalization, Retail (inventory), Operational Analytics (Spark), App development  |    USA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   NoSQL migration      |   USA      |

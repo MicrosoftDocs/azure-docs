@@ -3,16 +3,22 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
-# Troubleshooting and Q and A for Application Insights for Java
+# Troubleshooting and Q and A for Application Insights for Java SDK
+
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+
 Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
 
 ## Build errors
 **In Eclipse or Intellij Idea, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.**
 
-* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.0.+'`), try specifying a specific version instead like `2.0.1`. See the [release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) for the latest version.
+* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.+'`), try specifying a specific version instead like `2.6.2`.
 
 ## No data
 **I added Application Insights successfully and ran my app, but I've never seen data in the portal.**
@@ -25,7 +31,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * [Turn on logging](#debug-data-from-the-sdk) by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with AI: INFO/WARN/ERROR for any suspicious logs. 
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
 * If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/classes folder. During development you can place ApplicationInsights.xml in resources folder of your web project.
-* Please also look at [GitHub issues page](https://github.com/Microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
+* Please also look at [GitHub issues page](https://github.com/microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
 #### I used to see data, but it has stopped
@@ -52,7 +58,6 @@ You successfully set up your app to send telemetry from the server. Now your nex
 Alternatively, if your client is an app in a [phone or other device][platforms], you can send telemetry from there.
 
 Use the same instrumentation key to set up both your client and server telemetry. The data will appear in the same Application Insights resource, and you'll be able to correlate events from client and server.
-
 
 ## Disabling telemetry
 **How can I disable telemetry collection?**
@@ -160,7 +165,8 @@ Assuming you [set up your app for Application Insights][java], click Browse, sel
 
 Yes, provided your server can send telemetry to the Application Insights portal through the public internet.
 
-In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
+You may need to [open some outgoing ports in your server's firewall](./ip-addresses.md#outgoing-ports)
+to allow the SDK to send data to the portal.
 
 ## Data retention
 **How long is data retained in the portal? Is it secure?**
@@ -173,7 +179,6 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 >[!NOTE]
 >If you enable DEBUG level logging for all namespaces in the app, it will be honored by all executing modules including `org.apache.http` renamed as `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights will not be able to apply filtering for these calls because the log call is being made by the Apache library. DEBUG level logging produce a considerable amount of log data and is not recommended for live production instances.
 
-
 ## Next steps
 **I set up Application Insights for my Java server app. What else can I do?**
 
@@ -185,7 +190,7 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 
 ## Get help
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [File an issue on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [File an issue on GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

@@ -44,13 +44,13 @@ To extract high-resolution keyframes for your video, you must first upload and i
 
 To extract keyframes using the Video Indexer website, upload and index your video. Once the indexing job is complete, click on the **Download** button and select **Artifacts (ZIP)**. This will download the artifacts folder to your computer. 
 
-![Keyframes](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![Screenshot that shows the "Download" drop-down with "Artifacts" selected.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
 Unzip and open the folder. In the *_KeyframeThumbnail* folder, and you will find all of the keyframes that were extracted from your video. 
 
 #### With the Video Indexer API
 
-To get keyframes using the Video Indexer API, upload and index your video using the [Upload Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) call. Once the indexing job is complete, call [Get Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). This will give you all of the insights that Video Indexer extracted from your content in a JSON file.  
+To get keyframes using the Video Indexer API, upload and index your video using the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) call. Once the indexing job is complete, call [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index). This will give you all of the insights that Video Indexer extracted from your content in a JSON file.  
 
 You will get a list of keyframe IDs as part of each shot's metadata. 
 
@@ -94,7 +94,7 @@ You will get a list of keyframe IDs as part of each shot's metadata.
 ]
 ```
 
-You will now need to run each of these keyframe IDs on the [Get Thumbnails](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) call. This will download each of the keyframe images to your computer. 
+You will now need to run each of these keyframe IDs on the [Get Thumbnails](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) call. This will download each of the keyframe images to your computer. 
 
 ## Editorial shot type detection
 

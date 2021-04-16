@@ -4,12 +4,12 @@ description: Learn how Azure web application firewall on Azure CDN service prote
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 03/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: victorh
 ---
 
-# Azure Web Application Firewall on Azure Content Delivery Network
+# Azure Web Application Firewall on Azure Content Delivery Network from Microsoft
 
 Azure Web Application Firewall (WAF) on Azure Content Delivery Network (CDN) from Microsoft provides centralized protection for your web content. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements.
 

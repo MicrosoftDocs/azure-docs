@@ -1,14 +1,14 @@
 ---
 title: "Pattern: Effects of a policy definition"
 description: This Azure Policy pattern provides example of how to use the different effects of a policy definition.
-ms.date: 06/29/2020
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: effects
 
-Azure Policy has a number of [effects](../concepts/effects.md) that determine how the service reacts
-to non-compliant resources. Some effects are simple and require no additional properties in the
-policy definition while others require several properties.
+Azure Policy has many [effects](../concepts/effects.md) that determine how the service reacts to
+non-compliant resources. Some effects are simple and require no additional properties in the policy
+definition while others require several properties.
 
 ## Sample 1: Simple effect
 
@@ -24,8 +24,8 @@ is triggered to add the tag with the value in parameter **tagValue**.
 
 A **modify** effect requires the **policyRule.then.details** block that defines
 **roleDefinitionIds** and **operations**. These parameters inform Azure Policy what roles are needed
-to add the tag and remediate the resource and which **modify** operation to perform. In this
-example, the **operation** is _add_ and the parameters are used to set the tag and its value.
+to add the tag and remediate the resource and which **modify** operation to use. In this example,
+the _add_ **operation** and the parameters are used to set the tag and its value.
 
 ## Sample 2: Complex effect
 

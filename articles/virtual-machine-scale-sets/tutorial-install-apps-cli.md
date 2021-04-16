@@ -5,7 +5,6 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
@@ -19,11 +18,11 @@ To run applications on virtual machine (VM) instances in a scale set, you first 
 > * Use the Azure Custom Script Extension
 > * Update a running application on a scale set
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## What is the Azure Custom Script Extension?
@@ -45,6 +44,9 @@ In your current shell, create a file named *customConfig.json* and paste the fol
   "commandToExecute": "./automate_nginx.sh"
 }
 ```
+
+> [!CAUTION]
+> You may need to invert the use of the single (') and double quotes (") within the JSON block if you decide to reference the JSON directly (instead of referencing the *customConfig.json* file) in the *--settings* parameter below. 
 
 
 ## Create a scale set

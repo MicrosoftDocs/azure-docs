@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Enable logging in the Speech SDK
 
-Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
+Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging is handled by a static class in Speech SDK’s native library. You can turn on logging for any Speech SDK recognizer or synthesizer instance. All instances in the same process write log entries to the same log file.
 
 > [!NOTE]
 > Logging is available since Speech SDK version 1.4.0 in all supported Speech SDK programming languages, with the exception of JavaScript.
@@ -63,7 +63,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-More about file access permission for UWP applications is available [here](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+More about file access permission for UWP applications is available [here](/windows/uwp/files/file-access-permissions).
 
 ### Android
 

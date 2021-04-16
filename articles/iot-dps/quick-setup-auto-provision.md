@@ -1,5 +1,5 @@
 ---
-title: Set up IoT Hub Device Provisioning Service in the Azure portal
+title: Quickstart - Set up IoT Hub Device Provisioning Service in the Azure portal
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) in the Azure portal
 author: wesmc7777
 ms.author: wesmc
@@ -15,13 +15,14 @@ ms.custom: mvc
 The IoT Hub Device Provisioning Service can be used with IoT Hub to enable zero-touch, just-in-time provisioning to the desired IoT hub without requiring human intervention, enabling customers to provision millions of IoT devices in a secure and scalable manner. Azure IoT Hub Device Provisioning Service supports IoT devices with TPM, symmetric key and X.509 certificate authentications. For more information, please refer to [IoT Hub Device Provisioning Service overview](./about-iot-dps.md)
 
 In this quickstart, you will learn how to set up the IoT Hub Device Provisioning Service in the Azure Portal for provisioning your devices with the following steps:
-> [!div class="checklist"]
-> * Use the Azure portal to create an IoT Hub
-> * Use the Azure portal to create an IoT Hub Device Provisioning Service and get the ID scope
-> * Link the IoT hub to the Device Provisioning Service
 
+* Use the Azure portal to create an IoT Hub
+* Use the Azure portal to create an IoT Hub Device Provisioning Service and get the ID scope
+* Link the IoT hub to the Device Provisioning Service
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+You'll need an Azure subscription to begin with this article. You can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), if you haven't already.
 
 
 ## Create an IoT hub

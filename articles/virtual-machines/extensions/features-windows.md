@@ -1,21 +1,13 @@
 ---
 title: Azure VM extensions and features for Windows 
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
-ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 03/30/2018
-ms.author: akjosh
-ms.custom: H1Hack27Feb2017
 
 ---
 # Virtual machine extensions and features for Windows
@@ -31,7 +23,7 @@ This article provides an overview of VM extensions, prerequisites for using Azur
 Several different Azure VM extensions are available, each with a specific use case. Some examples include:
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
-- Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../azure-monitor/learn/quick-collect-azurevm.md).
+- Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../azure-monitor/vm/quick-collect-azurevm.md).
 - Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](/azure/developer/chef/windows-vm-configure).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -66,7 +58,7 @@ Extension packages are downloaded from the Azure Storage extension repository, a
 > [!IMPORTANT]
 > If you have blocked access to *168.63.129.16* using the guest firewall or with a proxy, extensions fail irrespective of the above. Ports 80, 443, and 32526 are required.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](../../virtual-network/security-overview.md#service-tags) to Storage or AzureActiveDirectory.
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](../../virtual-network/network-security-groups-overview.md#service-tags) to Storage or AzureActiveDirectory.
 
 The Windows Guest Agent does not have proxy server support for you to redirect agent traffic requests through, which means that the Windows Guest Agent will rely on your custom proxy (if you have one) to access resources on the internet or on the Host through IP 168.63.129.16.
 
@@ -123,7 +115,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](../troubleshooting/reset-rdp.md). Once you have run this, you should reset the password at first login:
+In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](/troubleshoot/azure/virtual-machines/reset-rdp). Once you have run this, you should reset the password at first login:
 
 ```powershell
 $cred=Get-Credential
@@ -351,7 +343,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
+2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\\<extensionName>*
 
 3. Check extension specific documentation troubleshooting sections for error codes, known issues etc.
 

@@ -12,11 +12,11 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. Data Lake Storage Gen2 supports individual file sizes as high as 5TB and most of the hard limits for performance have been removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
+In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. Data Lake Storage Gen2 supports individual file sizes as high as 190.7 TiB and most of the hard limits for performance have been removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
 
 ## Security considerations
 
-Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and directories. The access controls can also be used to create default permissions that can be automatically applied to new files or directories. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and directories. The access controls can also be used to create default permissions that can be automatically applied to new files or directories. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### Use security groups versus individual users
 
@@ -36,7 +36,7 @@ Azure Active Directory service principals are typically used by services like Az
 
 Data Lake Storage Gen2 supports the option of turning on a firewall and limiting access only to Azure services, which is recommended to limit the vector of external attacks. Firewall can be enabled on a storage account in the Azure portal via the **Firewall** > **Enable Firewall (ON)** > **Allow access to Azure services** options.
 
-To access your storage account from Azure Databricks, deploy Azure Databricks to your virtual network, and then add that virtual network to your firewall. See [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+To access your storage account from Azure Databricks, deploy Azure Databricks to your virtual network, and then add that virtual network to your firewall. See [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 ## Resiliency considerations
 

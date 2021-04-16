@@ -1,14 +1,19 @@
 ---
 title: Overview of Azure Service Fabric Mesh 
 description: Learn about Azure Service Fabric Mesh. With Service Fabric Mesh, you can deploy and scale your application without worrying about the infrastructure needs of your application.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 10/1/2018
 ms.topic: overview
 #Customer intent: As a developer, I want to deploy and manage services in containers on a serverless platform.
 ---
 
 # What is Service Fabric Mesh?
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This video provides a quick overview of Service Fabric Mesh.
 > [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]

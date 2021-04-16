@@ -3,19 +3,15 @@ title: Scale session hosts Azure Automation - Azure
 description: How to automatically scale Windows Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Scale session hosts using Azure Automation
 
 You can reduce your total Windows Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
 In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
-
-## Report issues
-
-Issue reports for the scaling tool are currently being handled on GitHub instead of Microsoft Support. If you encounter any issue with the scaling tool, get the necessary information as described in the [Reporting issues](#reporting-issues) section and open a GitHub issue labeled with "4a-WVD-scaling-logicapps" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## How the scaling tool works
 
@@ -50,6 +46,9 @@ However, the tool also has the following limitations:
 - This solution applies only to pooled multi-session session host VMs.
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account and Azure Logic App.
 - The maximum runtime of a job in the runbook is 3 hours. If starting or stopping the VMs in the host pool takes longer than that, the job will fail. For more details, see [Shared resources](../automation/automation-runbook-execution.md#fair-share).
+- At least one VM or session host needs to be turned on for the scaling algorithm to work properly.
+- The scaling tool doesn't support scaling based on CPU or memory.
+- Scaling only works with existing hosts in the host pool. The scaling tool doesn't support scaling new session hosts.
 
 >[!NOTE]
 >The scaling tool controls the load balancing mode of the host pool it's currently scaling. The tool uses breadth-first load balancing mode for both peak and off-peak hours.
@@ -321,3 +320,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## Report issues
+
+Issue reports for the scaling tool are currently being handled by Microsoft Support. When you make an issue report, make sure to follow the instructions in [Reporting issues](#reporting-issues). If you have feedback about the tool or want to request new features, open a GitHub issue labeled "4-WVD-scaling-tool" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

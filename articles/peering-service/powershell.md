@@ -7,14 +7,14 @@ ms.service: peering-service
 ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: derekol
-Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
+# Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
 ---
 
 # Tutorial: Register a Peering Service connection using Azure PowerShell
 
 In this tutorial, you'll learn how to register Peering Service using Azure PowerShell.
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using Azure PowerShell.
+Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using Azure PowerShell.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 

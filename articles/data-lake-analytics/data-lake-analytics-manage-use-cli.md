@@ -1,8 +1,6 @@
 ---
 title: Manage Azure Data Lake Analytics using Azure CLI
 description: This article describes how to use the Azure CLI to manage Data Lake Analytics jobs, data sources, & users.
-services: data-lake-analytics
-ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
@@ -13,18 +11,17 @@ ms.date: 01/29/2018
 
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure CLI. To see management topics using other tools, click the tab select above.
 
-
 ## Prerequisites
 
 Before you begin this tutorial, you must have the following resources:
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Azure CLI. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Azure CLI. See [Install and configure Azure CLI](/cli/azure/install-azure-cli).
 
-  * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
+  - Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 
-* Authenticate by using the `az login` command and select the subscription that you want to use. For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
+- Authenticate by using the `az login` command and select the subscription that you want to use. For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
 
    ```azurecli
    az login
@@ -40,13 +37,11 @@ Before you begin this tutorial, you must have the following resources:
 
 ## Manage accounts
 
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not 
-running a job. You only pay for the time when it is running a job.  For more information, see 
-[Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
+Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not running a job. You only pay for the time when it is running a job.  For more information, see [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).
 
 ### Create accounts
 
-Run the following command to create a Data Lake account, 
+Run the following command to create a Data Lake account,
 
    ```azurecli
    az dla account create --account "<Data Lake Analytics account name>" --location "<Location Name>" --resource-group "<Resource Group Name>" --default-data-lake-store "<Data Lake Store account name>"
@@ -84,11 +79,11 @@ List Data Lake Analytics accounts within a specific resource group
 
 Data Lake Analytics currently supports the following two data sources:
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+- [Azure Storage](../storage/common/storage-introduction.md)
 
-When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
-storage account. The default Data Lake storage account is used to store job metadata and job audit logs. After you have created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
+When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default
+storage account. The default Data Lake storage account is used to store job metadata and job audit logs. After you have created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account.
 
 ### Find the default Data Lake Store account
 
@@ -124,7 +119,7 @@ To update an existing Blob storage account key:
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
-### List data sources:
+### List data sources
 
 To list the Data Lake Store accounts:
 
@@ -138,9 +133,9 @@ To list the Blob storage account:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Screenshot that shows Azure C L I with the "dataLakeStoreAccounts:" information highlighted.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-### Delete data sources:
+### Delete data sources
 
 To delete a Data Lake Store account:
 
@@ -182,7 +177,8 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 >    ```
 
 ### Cancel jobs
-Use the list command to find the job id, and then use cancel to cancel the job.
+
+Use the list command to find the job ID, and then use cancel to cancel the job.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
@@ -209,7 +205,8 @@ az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recu
 ```
 
 ## Next steps
-* [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
-* [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
+- [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

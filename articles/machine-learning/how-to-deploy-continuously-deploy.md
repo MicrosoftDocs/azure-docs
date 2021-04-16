@@ -1,7 +1,7 @@
 ---
 title: Continuously deploy Azure Machine Learning models
 titleSuffix: Azure Machine Learning
-description: 'Learn how to continuously deploy models with the Azure Machine Learning DevOps extension.'
+description: 'Learn how to continuously deploy models with the Azure Machine Learning DevOps extension. Automatically check for, and deploy, new model versions.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,8 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 08/03/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.reviewer: larryfr
+ms.custom: how-to, tracking-python, deploy
 ---
 
 # Continuously deploy models
@@ -24,9 +25,9 @@ This article assumes you have already registered a model in your Azure Machine L
 
 You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning workspace.
 
-1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
+1. Sign up for [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
 
-1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+1. [Create an Azure DevOps project.](/azure/devops/organizations/projects/create-project)
 
 1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 

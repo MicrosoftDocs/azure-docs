@@ -13,6 +13,8 @@ services: iot-edge
 
 # Communicate with edgeAgent using built-in direct methods
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Monitor and manage IoT Edge deployments by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely.
 
 For more information about direct methods, how to use them, and how to implement them in your own modules, see [Understand and invoke direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
@@ -64,13 +66,14 @@ In the Azure portal, invoke the method with the method name `RestartModule` and 
 
 ![Invoke direct method 'RestartModule' in Azure portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
-## Experimental methods
+## Diagnostic direct methods
 
-New direct method options are available as experimental features to test, including:
+* [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs): Retrieve module logs inline in the response of the direct method.
+* [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs): Retrieve module logs and upload them to Azure Blob Storage.
+* [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics): Retrieve module logs using a support bundle and upload a zip file to Azure Blob Storage.
+* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status): Check on the status of an upload logs or support bundle request.
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Retrieve module logs and upload them to Azure Blob Storage.
-* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): Check on the status of an upload logs request.
-* [GetLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): Retrieve module logs inline in the response of the direct method.
+These diagnostic direct methods are available as of the 1.0.10 release.
 
 ## Next steps
 

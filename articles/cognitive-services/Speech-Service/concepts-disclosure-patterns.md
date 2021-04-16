@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
+ms.author: shlo
 ---
 
 # Disclosure design patterns
@@ -179,7 +179,7 @@ Consider the different modes of interactions of your experience when incorporati
 
 Disclosure can be achieved implicitly by setting accurate expectations for what the digital assistant is capable of. Provide sample commands so that users can learn how to interact with the digital assistant and offer contextual help to learn more about the synthetic voice during the early stages of the experience.
 
-![Visual cues and feedback](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Example of default responses to a conversation that you can craft.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### Conversational Transparency
 
@@ -232,21 +232,14 @@ Use disclosure as an opportunity to fail gracefully.
 - [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [Handoff to human](#conversational-transparency)
 
-
-
 ## Additional resources
 - [Microsoft Bot Guidelines](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Cortana Design Guidelines](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Microsoft Windows UWP Speech Design Guidelines](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Microsoft Windows Mixed Reality Voice Commanding Guidelines](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Cortana Design Guidelines](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Microsoft Windows UWP Speech Design Guidelines](/windows/uwp/design/input/speech-interactions)
+- [Microsoft Windows Mixed Reality Voice Commanding Guidelines](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## Reference docs
+## See also
 
-* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)
+* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
-
-## Next steps
-
-* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)

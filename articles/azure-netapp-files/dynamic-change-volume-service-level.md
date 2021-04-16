@@ -13,10 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 01/14/2021
 ms.author: b-juche
 ---
 # Dynamically change the service level of a volume
+
+> [!IMPORTANT] 
+> Dynamically changing the service level of a replication destination volume is currently not supported.
 
 You can change the service level of an existing volume by moving the volume to another capacity pool that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact access to the volume.  
 
@@ -43,12 +46,13 @@ The feature to move a volume to another capacity pool is currently in preview. I
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for several minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+ 
 ## Move a volume to another capacity pool
 
 1.	On the Volumes page, right-click the volume whose service level you want to change. Select **Change Pool**.
@@ -66,3 +70,4 @@ The feature to move a volume to another capacity pool is currently in preview. I
 
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Troubleshoot issues for changing the capacity pool of a volume](troubleshoot-capacity-pools.md#issues-when-changing-the-capacity-pool-of-a-volume)

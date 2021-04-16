@@ -35,7 +35,7 @@ To get started with Reliable Actors, you only need to understand a few basic con
 * **Actor registration**. As with Reliable Services, a Reliable Actor service needs to be registered with the Service Fabric runtime. In addition, the actor type needs to be registered with the Actor runtime.
 * **Actor interface**. The actor interface is used to define a strongly typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces.
 * **ActorProxy class**. The ActorProxy class is used by client applications to invoke the methods exposed through the actor interface. The ActorProxy class provides two important functionalities:
-  
+
   * Name resolution: It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
   * Failure handling: It can retry method invocations and re-resolve the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
 
@@ -156,9 +156,9 @@ The actor service must be registered with a service type in the Service Fabric r
 public class HelloWorldActorHost {
 
 private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
-    
+
 public static void main(String[] args) throws Exception {
-        
+
         try {
 
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
@@ -223,7 +223,7 @@ Actors do not do anything on their own, they require another service or client t
 1. Run the script using the watch utility to see the output of the actor service.  The test script calls the `setCountAsync()` method on the actor to increment a counter, calls the `getCountAsync()` method on the actor to get the new counter value, and displays that value to the console.
 
    In case of MAC OS X, you need to copy the HelloWorldTestClient folder into the some location inside the container by running the following additional commands.    
-    
+
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
      docker exec -it [first-four-digits-of-container-ID] /bin/bash

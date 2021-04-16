@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Configure application settings for Azure Static Web Apps Preview
@@ -29,7 +29,7 @@ Application settings are also sometimes referred to as environment variables.
 ## Prerequisites
 
 - An Azure Static Web Apps application
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Types of application settings
 
@@ -163,4 +163,4 @@ Application settings are available to view through the Azure CLI.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Setup local development](local-development.md)
+> [Configure front-end frameworks](front-end-frameworks.md)

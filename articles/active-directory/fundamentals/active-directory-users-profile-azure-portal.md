@@ -62,4 +62,4 @@ After you've updated your users' profiles, you can perform the following basic p
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).

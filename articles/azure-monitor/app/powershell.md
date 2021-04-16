@@ -10,7 +10,7 @@ ms.date: 05/02/2020
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../platform/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
@@ -400,12 +400,12 @@ This will set the daily cap to 200 GB/day, configure the daily cap reset time to
 
 ## Add a metric alert
 
-To automate the creation of metric alerts, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
+To automate the creation of metric alerts, consult the [metric alerts template article](../alerts/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## Add an availability test
 
-To automate availability tests, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+To automate availability tests, consult the [metric alerts template article](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## Add more resources
 
@@ -427,7 +427,6 @@ To automate the creation of any other resource of any kind, create an example ma
    
     Each web test has an associated alert rule, so you have to copy both of them.
    
-    You can also include alerts on metrics. [Metric names](powershell-alerts.md#metric-names).
 5. Insert this line in each resource:
    
     `"apiVersion": "2015-05-01",`
@@ -466,8 +465,6 @@ Azure should set up the resources in strict order. To make sure one setup comple
 Other automation articles:
 
 * [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) - quick method without using a template.
-* [Set up Alerts](powershell-alerts.md)
-* [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
-* [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
+* [Create release annotations](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

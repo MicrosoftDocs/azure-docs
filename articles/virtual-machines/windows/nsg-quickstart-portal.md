@@ -1,8 +1,9 @@
 ---
 title: Open ports to a VM using the Azure portal 
-description: Learn how to open a port / create an endpoint to your Windows VM using the Azure portal
+description: Learn how to open a port / create an endpoint to your VM using the Azure portal
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
@@ -73,4 +74,4 @@ In this article, you created a network security group, created an inbound rule t
 
 You can find information on creating more detailed environments in the following articles:
 - [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
-- [Security groups](../../virtual-network/security-overview.md)
+- [Security groups](../../virtual-network/network-security-groups-overview.md)

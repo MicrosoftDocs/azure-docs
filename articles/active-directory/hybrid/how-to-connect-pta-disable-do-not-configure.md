@@ -14,9 +14,14 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Disable PTA when using Azure AD Connect "Do not configure"
+# Disable PTA when using Azure AD Connect
 
-If you are using Pass-through Authentication with Azure AD Connect and you have it set to "Do not configure", you can disable it. Disabling PTA can be done using the following cmdlets. 
+If you are using Pass-through Authentication with Azure AD Connect and you have it set to **"Do not configure"**, you can disable it. 
+
+>[!NOTE]
+>If you have PHS already enabled then disabling PTA will result in the tenant fallback to PHS.
+
+Disabling PTA can be done using the following cmdlets. 
 
 ## Prerequisites
 The following prerequisites are required:

@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 Shared Services blueprint sample overview
 description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
-ms.date: 07/13/2020
+ms.date: 02/05/2021
 ms.topic: sample
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
@@ -33,28 +33,32 @@ composed of:
   deployment of any infrastructure:
   - NetOps role has the rights to manage the network environment, including firewall settings, NSG
     settings, routing, and other networking functionality
-  - SecOps role has the necessary rights to deploy and manage [Azure Security Center](../../../../security-center/security-center-intro.md),
-    define [Azure Policies](../../../policy/overview.md), and other security-related rights
-  - SysOps role has the necessary rights to define [Azure Policies](../../../policy/overview.md)
-    within the subscription, manage [Log Analytics](../../../../azure-monitor/overview.md) for the
-    entire environment, among other operational rights
+  - SecOps role has the necessary rights to deploy and manage
+    [Azure Security Center](../../../../security-center/security-center-introduction.md), define
+    [Azure Policy](../../../policy/overview.md) definitions, and other security-related rights
+  - SysOps role has the necessary rights to define [Azure Policy](../../../policy/overview.md)
+    definitions within the subscription, manage
+    [Log Analytics](../../../../azure-monitor/overview.md) for the entire environment, among other
+    operational rights
 - [Log Analytics](../../../../azure-monitor/overview.md) is deployed as the first Azure service to
   ensure all actions and services log to a central location from the moment you start your secure
   deployment
 - A virtual network supporting subnets for connectivity back to an on-premises datacenter, an
   ingress and egress stack for Internet connectivity, and a shared service subnet using NSGs and
   ASGs for full micro-segmentation containing:
-  - A jumpbox or bastion host used for management purposes, which can only be accessed over an [Azure Firewall](../../../../firewall/overview.md)
-    deployed in the ingress stack subnet
-  - Two virtual machines running Active Directory Domain Services (ADDS) and DNS only accessible
-    through the jumpbox, and can be configured only to replicate AD over a VPN or [ExpressRoute](../../../../expressroute/expressroute-introduction.md)
-    connection (not deployed by the blueprint)
+  - A jumpbox or bastion host used for management purposes, which can only be accessed over an
+    [Azure Firewall](../../../../firewall/overview.md) deployed in the ingress stack subnet
+  - Two virtual machines running Azure Active Directory Domain Services (Azure AD DS) and DNS only
+    accessible through the jumpbox, and can be configured only to replicate AD over a VPN or
+    [ExpressRoute](../../../../expressroute/expressroute-introduction.md) connection (not deployed
+    by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
     and standard DDoS protection
 - An [Azure Key Vault](../../../../key-vault/general/overview.md) instance used to host secrets used
   for the VMs deployed in the shared services environment
 
-All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
+All these elements abide to the proven practices published in the
+[Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
 
 > [!NOTE]
 > The ISO 27001 Shared Services infrastructure lays out a foundational architecture for workloads.
@@ -65,8 +69,7 @@ For more information, see the [Virtual Datacenter documentation](/azure/architec
 ## Next steps
 
 You've reviewed the overview and architecture of the ISO 27001 Shared Services blueprint sample.
-Next, visit the following articles to learn about the control mapping and how to deploy this
-sample:
+Next, visit the following articles to learn about the control mapping and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [ISO 27001 Shared Services blueprint - Control mapping](./control-mapping.md)

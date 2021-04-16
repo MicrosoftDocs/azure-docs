@@ -2,7 +2,8 @@
 title: 'Quickstart: Use a Resource Manager template to create a Windows VM'
 description: In this quickstart, you learn how to use a Resource Manager template to create a Windows virtual machine
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
@@ -29,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json" range="1-225" highlight="67-224":::
+:::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json":::
 
 
 Several resources are defined in the template:

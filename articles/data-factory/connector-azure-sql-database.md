@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Azure SQL Database
 description: Learn how to copy data to and from Azure SQL Database, and transform data in Azure SQL Database by using Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
+ms.date: 03/17/2021
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory
@@ -39,11 +35,13 @@ For Copy activity, this Azure SQL Database connector supports these functions:
 - As a source, retrieving data by using a SQL query or a stored procedure. You can also choose to parallel copy from an Azure SQL Database source, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section for details.
 - As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during the copy.
 
+If you use Azure SQL Database [serverless tier](../azure-sql/database/serverless-tier-overview.md), note when the server is paused, activity run fails instead of waiting for the auto resume to be ready. You can add activity retry or chain additional activities to make sure the server is live upon the actual execution.
+
 >[!NOTE]
-> Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Learn more from [Using Always Encrypted](#using-always-encrypted) section. 
+> Azure SQL Database [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Learn more from [Using Always Encrypted](#using-always-encrypted) section. 
 
 > [!IMPORTANT]
-> If you copy data by using the Azure integration runtime, configure a [server-level firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) so that Azure services can access the server.
+> If you copy data by using the Azure integration runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the server.
 > If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that's used to connect to Azure SQL Database.
 
 ## Get started
@@ -63,7 +61,7 @@ These properties are supported for an Azure SQL Database linked service:
 | servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
@@ -73,7 +71,7 @@ For different authentication types, refer to the following sections on prerequis
 - [Azure AD application token authentication: Managed identities for Azure resources](#managed-identity)
 
 >[!TIP]
->If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
+>If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again. `Pooling=false` is also recommended for **SHIR(Self Hosted Integration Runtime)** type linked service setup. Pooling and other connection parameters can be added as new parameter names and values in **Additional connection properties** section of linked service creation form.
 
 ### SQL authentication
 
@@ -139,7 +137,7 @@ To use a service principal-based Azure AD application token authentication, foll
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. Grant the service principal needed permissions as you normally do for SQL users or others. Run the following code. For more options, see [this document](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. Grant the service principal needed permissions as you normally do for SQL users or others. Run the following code. For more options, see [this document](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 
     ```sql
     ALTER ROLE [role name] ADD MEMBER [your application name];
@@ -185,7 +183,7 @@ To use managed identity authentication, follow these steps.
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. Grant the Data Factory managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. Grant the Data Factory managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 
     ```sql
     ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
@@ -213,7 +211,7 @@ To use managed identity authentication, follow these steps.
 
 ## Dataset properties
 
-For a full list of sections and properties available to define datasets, see [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services).
+For a full list of sections and properties available to define datasets, see [Datasets](./concepts-datasets-linked-services.md).
 
 The following properties are supported for Azure SQL Database dataset:
 
@@ -262,18 +260,18 @@ To copy data from Azure SQL Database, the following properties are supported in 
 | sqlReaderQuery | This property uses the custom SQL query to read data. An example is `select * from MyTable`. | No |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
-| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. If not specified, the database's default isolation level is used. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
-| partitionOptions | Specifies the data partitioning options used to load data from Azure SQL Database. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable** ,and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Azure SQL Database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. If not specified, the database's default isolation level is used. Refer to [this doc](/dotnet/api/system.data.isolationlevel) for more details. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Azure SQL Database. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Azure SQL Database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | ***Under `partitionSettings`:*** | | |
-| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section. | No |
+| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is autodetected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section. | No |
 | partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section. | No |
 | partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section. | No |
 
-**Points to note:**
+**Note the following points:**
 
 - If **sqlReaderQuery** is specified for **AzureSqlSource**, the copy activity runs this query against the Azure SQL Database source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
-- If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against Azure SQL Database. If the dataset definition doesn't have "structure," all columns are selected from the table.
+- When using stored procedure in source to retrieve data, note if your stored procedure is designed as returning different schema when different parameter value is passed in, you may encounter failure or see unexpected result when importing schema from UI or when copying data to SQL database with auto table creation.
 
 #### SQL query example
 
@@ -379,8 +377,9 @@ To copy data to Azure SQL Database, the following properties are supported in th
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | writeBatchSize | Number of rows to insert into the SQL table *per batch*.<br/> The allowed value is **integer** (number of rows). By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. | No |
-| writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is “00:30:00” (30 minutes). | No |
-| disableMetricsCollection | Data Factory collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is "00:30:00" (30 minutes). | No |
+| disableMetricsCollection | Data Factory collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations, which introduces additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example 1: Append data**
 
@@ -467,16 +466,17 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, Data Factory automatically detects the physical partitions, and copies data by partitions. |
-| Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound **(optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
-| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, Data Factory replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Azure SQL Database. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
+| Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, Data Factory automatically detects the physical partitions, and copies data by partitions. <br><br/>To check if your table has physical partition or not, you can refer to [this query](#sample-query-to-check-physical-partition). |
+| Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
+| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, Data Factory replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Azure SQL Database. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+|
 
 Best practices to load data with partition option:
 
 1. Choose distinctive column as partition column (like primary key or unique key) to avoid data skew. 
-2. If the table has built-in partition, use partition option "Physical partitions of table" to get better performance.	
+2. If the table has built-in partition, use partition option "Physical partitions of table" to get better performance.    
 3. If you use Azure Integration Runtime to copy data, you can set larger "[Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4) to utilize more computing resource. Check the applicable scenarios there.
-4. "[Degree of copy parallelism](copy-activity-performance-features.md#parallel-copy)" control the partition numbers, setting this number too large sometime hurts the performance, recommend to set this number as (DIU or number of Self-hosted IR nodes) * (2 to 4).
+4. "[Degree of copy parallelism](copy-activity-performance-features.md#parallel-copy)" control the partition numbers, setting this number too large sometime hurts the performance, recommend setting this number as (DIU or number of Self-hosted IR nodes) * (2 to 4).
 
 **Example: full load from large table with physical partitions**
 
@@ -502,6 +502,25 @@ Best practices to load data with partition option:
 }
 ```
 
+### Sample query to check physical partition
+
+```sql
+SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, pf.name AS PartitionFunctionName, c.name AS ColumnName, iif(pf.name is null, 'no', 'yes') AS HasPartition
+FROM sys.tables AS t
+LEFT JOIN sys.objects AS o ON t.object_id = o.object_id
+LEFT JOIN sys.schemas AS s ON o.schema_id = s.schema_id
+LEFT JOIN sys.indexes AS i ON t.object_id = i.object_id 
+LEFT JOIN sys.index_columns AS ic ON ic.partition_ordinal > 0 AND ic.index_id = i.index_id AND ic.object_id = t.object_id 
+LEFT JOIN sys.columns AS c ON c.object_id = ic.object_id AND c.column_id = ic.column_id 
+LEFT JOIN sys.partition_schemes ps ON i.data_space_id = ps.data_space_id 
+LEFT JOIN sys.partition_functions pf ON pf.function_id = ps.function_id 
+WHERE s.name='[your schema]' AND t.name = '[your table name]'
+```
+
+If the table has physical partition, you would see "HasPartition" as "yes" like the following.
+
+![Sql query result](./media/connector-azure-sql-database/sql-query-result.png)
+
 ## Best practice for loading data into Azure SQL Database
 
 When you copy data into Azure SQL Database, you might require different write behavior:
@@ -519,7 +538,7 @@ Appending data is the default behavior of this Azure SQL Database sink connector
 
 ### Upsert data
 
-**Option 1:** When you have a large amount of data to copy, you can bulk load all records into a staging table by using the copy activity, then run a stored procedure activity to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) or INSERT/UPDATE statement in one shot. 
+**Option 1:** When you have a large amount of data to copy, you can bulk load all records into a staging table by using the copy activity, then run a stored procedure activity to apply a [MERGE](/sql/t-sql/statements/merge-transact-sql) or INSERT/UPDATE statement in one shot. 
 
 Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with a combination of multiple activities, refer to [Optimize Azure SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
 
@@ -559,7 +578,7 @@ The steps to write data with custom logic are similar to those described in the 
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
-When you copy data into Azure SQL Database, you also can configure and invoke a user-specified stored procedure with additional parameters on each batch of the source table. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+When you copy data into Azure SQL Database, you also can configure and invoke a user-specified stored procedure with additional parameters on each batch of the source table. The stored procedure feature takes advantage of [table-valued parameters](/dotnet/framework/data/adonet/sql/table-valued-parameters).
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert into more than one table.
 
@@ -620,7 +639,12 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 **Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.
 
+**Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask ADF to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
+
+![Stored procedure](media/data-flow/stored-procedure-2.png "Stored Procedure")
+
 - SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Parameterized SQL Example: ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
@@ -644,6 +668,8 @@ Settings specific to Azure SQL Database are available in the **Settings** tab of
 
 The column name that you pick as the key here will be used by ADF as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. If you wish to not write the value to this key column, then click "Skip writing key columns".
 
+You can parameterize the key column used here for updating your target Azure SQL Database table. If you have multiple columns for a composite key, the click on "Custom Expression" and you will be able to add dynamic content using the ADF data flow expression language, which can include an array of strings with column names for a composite key.
+
 **Table action:** Determines whether to recreate or remove all rows from the destination table prior to writing.
 
 - None: No action will be done to the table.
@@ -652,9 +678,32 @@ The column name that you pick as the key here will be used by ADF as part of the
 
 **Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
 
+**Use TempDB:** By default, Data Factory will use a global temporary table to store data as part of the loading process. You can alternatively uncheck the "Use TempDB" option and instead, ask Data Factory to store the temporary holding table in a user database that is located in the database that is being used for this Sink.
+
+![Use Temp DB](media/data-flow/tempdb.png "Use Temp DB")
+
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
 ![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+
+### Error row handling
+
+When writing to Azure SQL DB, certain rows of data may fail due to constraints set by the destination. Some common errors include:
+
+*    String or binary data would be truncated in table
+*    Cannot insert the value NULL into column
+*    The INSERT statement conflicted with the CHECK constraint
+
+By default, a data flow run will fail on the first error it gets. You can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Azure Data Factory provides different options for you to handle these error rows.
+
+**Transaction Commit:** Choose whether your data gets written in a single transaction or in batches. Single transaction will provide worse performance but no data written will be visible to others until the transaction completes.  
+
+**Output rejected data:** If enabled, you can output the error rows into a csv file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. This will write the error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
+
+**Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
+
+![Error row handling](media/data-flow/sql-error-row-handling.png "Error row handling")
+
 
 ## Data type mapping for Azure SQL Database
 
@@ -708,13 +757,13 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 ## Using Always Encrypted
 
-When you copy data from/to Azure SQL Database with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current), use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. This Azure SQL Database connector does not support Always Encrypted now. 
+When you copy data from/to Azure SQL Database with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. This Azure SQL Database connector does not support Always Encrypted now. 
 
 More specifically:
 
 1. Set up a Self-hosted Integration Runtime if you don't have one. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 
-2. Download the 64-bit ODBC driver for SQL Server from [here](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current), and install on the Integration Runtime machine. Learn more about how this driver works from [Using Always Encrypted with the ODBC Driver for SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current#using-the-azure-key-vault-provider).
+2. Download the 64-bit ODBC driver for SQL Server from [here](/sql/connect/odbc/download-odbc-driver-for-sql-server), and install on the Integration Runtime machine. Learn more about how this driver works from [Using Always Encrypted with the ODBC Driver for SQL Server](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider).
 
 3. Create linked service with ODBC type to connect to your SQL database, refer to the following samples:
 
@@ -724,7 +773,7 @@ More specifically:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - To use **Data Factory Managed Identity authentication**: 
+    - If you run Self-hosted Integration Runtime on Azure Virtual Machine, you can use **Managed Identity authentication** with Azure VM's identity:
 
         1. Follow the same [prerequisites](#managed-identity) to create database user for the managed identity and grant the proper role in your database.
         2. In linked service, specify the ODBC connection string as below, and select **Anonymous** authentication as the connection string itself indicates`Authentication=ActiveDirectoryMsi`.

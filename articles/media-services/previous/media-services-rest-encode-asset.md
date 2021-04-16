@@ -3,21 +3,22 @@ title: How to encode an Azure asset by using Media Encoder Standard | Microsoft 
 description: Learn how to use Media Encoder Standard to encode media content on Azure Media Services. Code samples use REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # How to encode an asset by using Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
@@ -94,7 +95,7 @@ The following example shows how to set the assetName attribute:
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## Considerations
+### Considerations
 * TaskBody properties must use literal XML to define the number of input, or output assets that are used by the task. The task article contains the XML Schema Definition for the XML.
 * In the TaskBody definition, each inner value for `<inputAsset>` and `<outputAsset>` must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.

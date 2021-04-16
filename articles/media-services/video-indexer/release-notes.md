@@ -11,7 +11,8 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.custom: references_regions
+ms.date: 03/30/2021
 ms.author: juliako
 ---
 
@@ -25,6 +26,113 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## March 2021
+
+### Audio analysis 
+
+Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
+
+The newly added bundle is available when indexing or re-indexing your file by choosing the **Advanced option** -> **Basic Audio** preset (under the **Video + audio indexing** drop-down box).
+
+### New developer portal 
+
+Video Indexer has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Indexer APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Indexer FAQs](faq.md), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
+ 
+### Advanced customization capabilities for insight widget 
+
+SDK is now available to embed Video Indexer's insights widget in your own service and customize its style and data. The SDK supports the standard Video Indexer insights widget and a fully customizable insights widget. Code sample is available in [Video Indexer GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Video Indexer insights). 
+
+### Video Indexer deployed in the US North Central , US West and Canada Central 
+
+You can now create a Video Indexer paid account in the US North Central, US West and Canada Central regions
+ 
+### New source languages support for speech-to-text (STT), translation and search 
+
+Video Indexer now support STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Video Indexer website. 
+ 
+### Search by Topic in Video Indexer Website 
+
+You can now use the search feature, at the top of  the [Video Indexer website](https://www.videoindexer.ai/account/login) page, to search for videos with specific topics. 
+
+## February 2021
+
+### Multiple account owners 
+
+Account owner role was added to Video Indexer. You can add, change and remove users; change their role. For details on how to share an account, see [Invite users](invite-users.md).
+
+### Audio event detection (public preview)
+
+> [!NOTE]
+> This feature is only available in trial accounts. 
+
+Video Indexer now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, crowd reactions (cheering, clapping and booing) and Silence. 
+
+The newly added audio affects feature is available when indexing your file by choosing the **Advanced option** -> **Advanced audio** preset (under Video + audio indexing). Standard indexing will only include **silence** and **crowd reaction**. 
+
+The **clapping** event type that was included in the previous audio effects model, is now extracted a part of the **crowd reaction** event type.
+
+When you choose to see **Insights** of your video on the [Video Indexer](https://www.videoindexer.ai/) website, the Audio Effects show up on the page.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Audio event detection":::
+
+### Named entities enhancement  
+
+The extracted list of people and location was extended and updated in general. 
+
+In addition, the model now includes people and locations in-context which are not famous, like a ‘Sam’ or ‘Home’ in the video. 
+
+## January 2021
+
+### Video Indexer is deployed on US Government cloud 
+
+You can now create a Video Indexer paid account on US government cloud in Virginia and Arizona regions. 
+Video Indexer free trial offering isn't available in the mentioned region. For more information go to Video Indexer Documentation. 
+
+### Video Indexer deployed in the India Central region 
+
+You can now create a Video Indexer paid account in the India Central region. 
+
+### New Dark Mode for the Video Indexer website experience
+
+The Video Indexer website experiences is now available in dark mode. 
+To enable the dark mode open the settings panel and toggle on the **Dark Mode** option. 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
+
+## December 2020
+
+### Video Indexer deployed in the Switzerland West and Switzerland North
+
+You can now create a Video Indexer paid account in the Switzerland West and Switzerland North regions.
+
+## October 2020
+
+### Animated character identification improvements  
+
+Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
+
+### Planned Video Indexer website authenticatication changes
+
+Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer website](https://www.videoindexer.ai/) [developer portal](video-indexer-use-apis.md) using Facebook or LinkedIn.
+
+You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
+
+> [!NOTE]
+> The Video Indexer accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021. 
+> 
+> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Indexer account so you will still have access. You can add an additional owner of supported providers, as described in [invite](invite-users.md). <br/>
+> Alternatively, you can create a paid account and migrate the data.
+
+## August 2020
+
+### Mobile design for the Video Indexer website
+
+The Video Indexer website experience is now supporting mobile devices. The user experience is responsive to adapt to your mobile screen size (excluding customization UIs). 
+
+### Accessibility improvements and bug fixes 
+
+As part of WCAG (Web Content Accessibility guidelines), the Video Indexer website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved. 
 
 ## July 2020
 
@@ -54,7 +162,7 @@ Side panel is also used for user preferences and help.
 
 You can now use the search API to search for videos with specific topics (API only).
 
-Topics is added as part of the `textScope` (optional parameter). See [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) for details.  
+Topics is added as part of the `textScope` (optional parameter). See [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos) for details.  
 
 ### Labels enhancement
 
@@ -92,10 +200,10 @@ A new player skin launched with updated design.
 
 * Today, the following APIs return an account object:
 
-    * [Create-Paid-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
-    * [Get-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
-    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
-    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+    * [Create-Paid-Account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account)
+    * [Get-Account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account)
+    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Accounts-Authorization)
+    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Accounts-With-Token)
  
     The Account object has a `Url` field pointing to the location of the [Video Indexer website](https://www.videoindexer.ai/).
 For paid accounts the `Url` field is currently pointing to an internal URL instead of the public website.
@@ -106,7 +214,7 @@ In the coming weeks we will change it and return the [Video Indexer website](htt
 
    You can do it it by either:
 
-    * Replacing the URL with a URL pointing to the Video Indexer widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
+    * Replacing the URL with a URL pointing to the Video Indexer widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Insights-Widget))
     * Using the Video Indexer website to generate a new embedded URL:
          
          Press **Play** to get to your video's page -> click the **&lt;/&gt; Embed** button -> copy the URL into your application:
@@ -130,13 +238,13 @@ https://github.com/Azure-Samples/media-services-video-indexer
  
 ### Swagger update
 
-Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Developers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
 
 ## December 2019
 
 ### Update transcript with the new API
 
-Update a specific section in the transcript using the [Update-Video-Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) API.
+Update a specific section in the transcript using the [Update-Video-Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index) API.
 
 ### Fix account configuration from the Video Indexer portal
 
@@ -166,7 +274,7 @@ When streaming endpoint is disabled, Video Indexer will show a descriptive error
 
 ### Error handling improvement
 
-Status code 409 will now be returned from [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) and [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) APIs in case a video is actively indexed, to prevent overriding the current re-index changes by accident.
+Status code 409 will now be returned from [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) and [Update Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index) APIs in case a video is actively indexed, to prevent overriding the current re-index changes by accident.
 
 ## November 2019
  
@@ -260,7 +368,7 @@ You can now create a Video Indexer paid account in the Japan East region.
 
 ### Create and repair account API (Preview)
 
-Added a new API that enables you to [update the Azure Media Service connection endpoint or key](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
+Added a new API that enables you to [update the Azure Media Service connection endpoint or key](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services).
 
 ### Improve error handling on upload 
 
@@ -278,9 +386,9 @@ You can now see a preview of all the insights that are selected as a result of c
 
 ### Update custom language model from closed caption file
 
-[Create custom language model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) and [Update custom language models](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) APIs now support VTT, SRT, and TTML file formats as input for language models.
+[Create custom language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Language-Model) and [Update custom language models](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) APIs now support VTT, SRT, and TTML file formats as input for language models.
 
-When calling the [Update Video transcript API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), the transcript is added automatically. The training model associated with the video is updated automatically as well. For information on how to customize and train your language models, see [Customize a Language model with Video Indexer](customize-language-model-overview.md).
+When calling the [Update Video transcript API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Transcript), the transcript is added automatically. The training model associated with the video is updated automatically as well. For information on how to customize and train your language models, see [Customize a Language model with Video Indexer](customize-language-model-overview.md).
 
 ### New download transcript formats – TXT and CSV
 

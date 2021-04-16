@@ -1,9 +1,6 @@
 ---
 title: Troubleshoot script actions in Azure HDInsight
 description: General troubleshooting steps for script actions in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
@@ -24,11 +21,11 @@ You can use the Apache Ambari web UI to view information logged by script action
 
 1. From the bar at the top of the page, select the **ops** entry. A list displays current and previous operations done on the cluster through Ambari.
 
-    ![Ambari web UI bar with ops selected](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
+    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="Ambari web UI bar with ops selected" border="true":::
 
 1. Find the entries that have **run\_customscriptaction** in the **Operations** column. These entries are created when the script actions run.
 
-    ![Apache Ambari script action operations](./media/troubleshoot-script-action/ambari-script-action.png)
+    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Apache Ambari script action operations" border="true":::
 
     To view the **STDOUT** and **STDERR** output, select the **run\customscriptaction** entry and drill down through the links. This output is generated when the script runs and might have useful information.
 
@@ -38,7 +35,7 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
 * The storage logs are available at `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Script action logs](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
+    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="Script action logs" border="true":::
 
     Under this directory, the logs are organized separately for **headnode**, **worker node**, and **zookeeper node**. See the following examples:
 
@@ -106,10 +103,4 @@ There are two exceptions:
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -55,7 +55,7 @@ No, Video Indexer provides the integration of multiple machine learning models i
 
 ### What media formats does Video Indexer support?
 
-Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](../latest/media-encoder-standard-formats.md) list for more details.
+Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](../latest/encode-media-encoder-standard-formats-reference.md) list for more details.
 
 ### How do I upload a media file into Video Indexer and what are the limitations?
 
@@ -193,7 +193,7 @@ Access tokens expire every hour, so you need to generate a new access token ever
 
 ### What are the login options to Video Indexer Developer portal?
 
-You can login using Azure AD, Microsoft account, Google account or Facebook account. 
+See a release note regarding [login information](release-notes.md#october-2020).
 
 Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
 
@@ -213,4 +213,5 @@ Yes, Video Indexer offers a free trial that gives full service and API functiona
 
 ## Next steps
 
-[Overview](video-indexer-overview.md)
+* [Overview](video-indexer-overview.md)
+* [Stack Overflow](https://stackoverflow.com/search?q=video-indexer)

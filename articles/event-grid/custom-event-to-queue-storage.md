@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events to storage queue - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint.' 
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart 
 ms.custom: devx-track-azurecli
 ---
@@ -12,12 +12,11 @@ Azure Event Grid is an eventing service for the cloud. Azure Queue storage is on
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you are using Azure CLI or Azure PowerShell on your local machine instead of using Cloud Shell in the Azure portal, ensure that you have the following versions of Azure CLI and Azure PowerShell. 
+- This article requires version 2.0.56 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-- Azure PowerShell version 1.1.0 or greater. Download the latest version of Azure PowerShell on your Windows machine from [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/). 
+- If you are using Azure PowerShell on your local machine instead of using Cloud Shell in the Azure portal, ensure that you have Azure PowerShell version 1.1.0 or greater. Download the latest version of Azure PowerShell on your Windows machine from [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/). 
 
 This article gives you commands for using Azure CLI. 
 
@@ -112,6 +111,11 @@ done
 Navigate to the Queue storage in the portal, and notice that Event Grid sent those three events to the queue.
 
 ![Show messages](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> If you use an [Azure Queue storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) for a queue that receives messages from Event Grid, you may see the following error message on the function execution: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> The reason is that when you use an [Azure Queue storage trigger](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions expect a **base64 encoded string**, but Event Grid sends messages to a storage queue in a plain text format. Currently, it's not possible to configure the queue trigger for Azure Functions to accept plain text. 
 
 
 ## Clean up resources

@@ -3,8 +3,8 @@ title: Deploy on dedicated host
 description: Use a dedicated host to achieve true host-level isolation for your Azure Container Instances workloads
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
+author: macolso
+ms.author: macolso
 ---
 
 # Deploy on dedicated hosts
@@ -14,6 +14,9 @@ ms.author: dekapur
 The dedicated sku is appropriate for container workloads that require workload isolation from a physical server perspective.
 
 ## Prerequisites
+
+> [!NOTE]
+> Due to some current limitations, not all limit increase requests are guaranteed to be approved.
 
 * The default limit for any subscription to use the dedicated sku is 0. If you would like to use this sku for your production container deployments, create an [Azure Support request][azure-support] to increase the limit.
 

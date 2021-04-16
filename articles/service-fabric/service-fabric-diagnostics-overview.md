@@ -1,11 +1,8 @@
 ---
 title: Azure Service Fabric Monitoring and Diagnostics Overview 
 description: Learn about monitoring and diagnostics for Azure Service Fabric clusters, applications, and services.
-author: srrengar
-
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.author: srrengar
 ---
 
 # Monitoring and diagnostics for Azure Service Fabric
@@ -35,7 +32,7 @@ Service Fabric provides a comprehensive set of events out of the box. These [Ser
 
 * EventStore - The EventStore is a feature offered by the platform that provides Service Fabric platform events available in the Service Fabric Explorer and through REST API. You can see a snapshot view of what's going on in your cluster for each entity e.g. node, service, application and query based on the time of the event. You can also  Read more about the EventStore at the [EventStore Overview](service-fabric-diagnostics-eventstore.md).    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![Screenshot shows the EVENTS tab of the Nodes pane several events, including a NodeDown event.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 The diagnostics provided are in the form of a comprehensive set of events out of the box. These [Service Fabric events](service-fabric-diagnostics-events.md) illustrate actions done by the platform on different entities such as Nodes, Applications, Services, Partitions etc. In the last scenario above, if a node were to go down, the platform would emit a `NodeDown` event and you could be notified immediately by your monitoring tool of choice. Other common examples include `ApplicationUpgradeRollbackStarted` or `PartitionReconfigured` during a failover. **The same events are available on both Windows and Linux clusters.**
 

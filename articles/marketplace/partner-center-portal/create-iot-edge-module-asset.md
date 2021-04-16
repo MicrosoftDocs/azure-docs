@@ -34,14 +34,14 @@ Your module must support all Tier 1 platforms supported by IoT Edge (as recorded
 
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the [GitHub Manifest-tool](https://github.com/estesp/manifest-tool).
 
-- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/).
+- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible).
 
 #### A subset of Tier 1 platforms supported by IoT Edge
 
 Your module must support a subset (at least one) of Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](../../iot-edge/support.md)). A module using this platform option must:
 
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the GitHub [manifest-tool](https://github.com/estesp/manifest-tool) if more than one platform is supported. Manifest tags are optional only when one platform is supported.
-- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/).
+- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://devicecatalog.azure.com/).
 
 :::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="This is an image of the Offer Listing section within Partner Center":::
 
@@ -49,7 +49,7 @@ Your module must support a subset (at least one) of Tier 1 platforms supported b
 
 IoT Edge module dimensions (such as CPU, RAM, storage, and GPU) on targeted IoT Edge devices must meet the following requirements:
 
-- The module must work with at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/).
+- The module must work with at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://devicecatalog.azure.com/).
 
 - The minimum hardware requirements must be documented as the last paragraph in the description of the offer (under the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace)). Optionally, you can also list the recommended hardware requirements if they differ significantly. For example, add the following section at the end of your offer description:
 
@@ -102,10 +102,10 @@ Modules using the IoT Module SDK must set the unique module identifier to Publis
 
 Use one of the following methods from the IoT Module SDKs to set the ProductInfo to this identifier:
 
-- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo)
 
 For modules that don't use the IoT Module SDK, less precise insights are available through Partner Center, such as the number of downloads.
 

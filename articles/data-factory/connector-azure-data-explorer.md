@@ -1,17 +1,12 @@
 ---
 title: Copy data to or from Azure Data Explorer
 description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
 ms.author: orspodek
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
+ms.date: 03/24/2020
 ---
 
 # Copy data to or from Azure Data Explorer by using Azure Data Factory
@@ -52,7 +47,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Azure Data Explorer connector uses service principal authentication. Follow these steps to get a service principal and to grant permissions:
+The Azure Data Explorer connector supports the following authentication types. See the corresponding sections for details:
+
+- [Service principal authentication](#service-principal-authentication)
+- [Managed identities for Azure resources authentication](#managed-identity)
+
+### Service principal authentication
+
+To use service principal authentication, follow these steps to get a service principal and to grant permissions:
 
 1. Register an application entity in Azure Active Directory by following the steps in [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
 
@@ -66,7 +68,7 @@ The Azure Data Explorer connector uses service principal authentication. Follow 
     - **As sink**, grant at least the **Database ingestor** role to your database
 
 >[!NOTE]
->When you use the Data Factory UI to author, your login user account is used to list Azure Data Explorer clusters, databases, and tables. Manually enter the name if you don't have permission for these operations.
+>When you use the Data Factory UI to author, by default your login user account is used to list Azure Data Explorer clusters, databases, and tables. You can choose to list the objects using the service principal by clicking the dropdown next to the refresh button, or manually enter the name if you don't have permission for these operations.
 
 The following properties are supported for the Azure Data Explorer linked service:
 
@@ -75,11 +77,12 @@ The following properties are supported for the Azure Data Explorer linked servic
 | type | The **type** property must be set to **AzureDataExplorer**. | Yes |
 | endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
 | database | Name of database. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is known as "Authority ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
-| servicePrincipalId | Specify the application's client ID. This is known as "AAD application client ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
-| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is known as "Authority ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
+| servicePrincipalId | Specify the application's client ID. This is known as "AAD application client ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
+| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
-**Linked service properties example:**
+**Example: using service principal key authentication**
 
 ```json
 {
@@ -95,6 +98,44 @@ The following properties are supported for the Azure Data Explorer linked servic
                 "type": "SecureString",
                 "value": "<service principal key>"
             }
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+
+To use managed identities for Azure resource authentication, follow these steps to grant permissions:
+
+1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your factory.
+
+2. Grant the managed identity the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
+
+    - **As source**, grant at least the **Database viewer** role to your database
+    - **As sink**, grant at least the **Database ingestor** role to your database
+
+>[!NOTE]
+>When you use the Data Factory UI to author, your login user account is used to list Azure Data Explorer clusters, databases, and tables. Manually enter the name if you don't have permission for these operations.
+
+The following properties are supported for the Azure Data Explorer linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureDataExplorer**. | Yes |
+| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
+| database | Name of database. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+
+**Example: using managed identity authentication**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
         }
     }
 }
@@ -148,7 +189,7 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | noTruncation | Indicates whether to truncate the returned result set. By default, result is truncated after 500,000 records or 64 megabytes (MB). Truncation is strongly recommended to ensure the correct behavior of the activity. |No |
 
 >[!NOTE]
->By default, Azure Data Explorer source has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. For more information, see [Query limits](https://docs.microsoft.com/azure/kusto/concepts/querylimits).
+>By default, Azure Data Explorer source has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. For more information, see [Query limits](/azure/kusto/concepts/querylimits).
 
 **Example:**
 
@@ -191,7 +232,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink**. | Yes |
 | ingestionMappingName | Name of a pre-created [mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table. To map the columns from source to Azure Data Explorer (which applies to [all supported source stores and formats](copy-activity-overview.md#supported-data-stores-and-formats), including CSV/JSON/Avro formats), you can use the copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer mappings. | No |
-| additionalProperties | A property bag which can be used for specifying any of the ingestion properties which aren't being set already by the Azure Data Explorer Sink. Specifically, it can be useful for specifying ingestion tags. Learn more from [Azure Data Explore data ingestion doc](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | No |
+| additionalProperties | A property bag which can be used for specifying any of the ingestion properties which aren't being set already by the Azure Data Explorer Sink. Specifically, it can be useful for specifying ingestion tags. Learn more from [Azure Data Explore data ingestion doc](/azure/data-explorer/ingestion-properties). | No |
 
 **Example:**
 

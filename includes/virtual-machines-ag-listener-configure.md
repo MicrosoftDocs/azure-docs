@@ -24,7 +24,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     b. In the **Roles** pane, right-click the availability group name, and then select **Add Resource** > **Client Access Point**.
 
-   ![Client Access Point](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Screenshot that shows the Client Access Point menu option.](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
     c. In the **Name** box, create a name for this new listener. 
    The name for the new listener is the network name that applications use to connect to databases in the SQL Server availability group.
@@ -44,7 +44,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     c. Under **IP Address**, click **Static IP Address**. Set the IP address as the same address that you used when you set the load balancer address on the Azure portal.
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![Screenshot that shows where you set the IP address.](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
@@ -58,7 +58,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     c. On the dependencies tab, add the name of the client access point (the listener) resource.
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![Screenshot that shows where to add the name on the Dependencies tab.](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Click **OK**.
 
@@ -68,7 +68,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     b. On the **Resources** tab, right-click the client access point resource under **Server Name**, and then click **Properties**. 
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![Screenshot that shows the Properties menu option for the server's name.](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
     c. Click the **Dependencies** tab. Verify that the IP address is a dependency. If it is not, set a dependency on the IP address. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
 

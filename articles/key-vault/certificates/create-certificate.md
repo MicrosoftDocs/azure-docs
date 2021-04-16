@@ -1,6 +1,6 @@
 ---
 title: Certificate creation methods  
-description: Ways to create a certificate in Key Vault.
+description: Learn about different options to create or import a Key Vault certificate in Azure Key Vault. There are several ways to create a Key Vault certificate.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -79,7 +79,7 @@ Certificate creation can be completed manually or using a “Self” issuer. Key
 
 |Provider|Certificate type|Configuration setup  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration Guide](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration Guide](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration Guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
@@ -90,4 +90,5 @@ Note that when an order is placed with the issuer provider, it may honor or over
 
 ## See Also
 
+ - How-to guide to create certificates in Key Vault using [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), [Azure CLI](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli), [Azure Powershell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

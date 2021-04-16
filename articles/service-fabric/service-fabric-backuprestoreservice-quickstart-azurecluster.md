@@ -1,11 +1,9 @@
 ---
 title: Periodic backup and restore in Azure Service Fabric
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
-author: hrushib
 
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.author: hrushib
 ---
 # Periodic backup and restore in an Azure Service Fabric cluster
 > [!div class="op_single_selector"]
@@ -45,11 +43,16 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-cluster-creation-via-arm.md) to know how to get or create an X.509 certificate.
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .NET Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
 * Create Azure Storage account for storing application backups.
-* Install Microsoft.ServiceFabric.Powershell.Http Module [In Preview] for making configuration calls.
+* Install Microsoft.ServiceFabric.Powershell.Http Module (Preview) for making configuration calls.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> If your PowerShellGet version is less than 1.6.0, you'll need to update to add support for the *-AllowPrerelease* flag:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
 
@@ -207,6 +210,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 
 #### Using Service Fabric Explorer
+Make sure the [advanced mode](service-fabric-visualizing-your-cluster.md#backup-and-restore) for Service Fabric Explorer is enabled 
 
 1. Select an application and go to action. Click Enable/Update Application Backup.
 

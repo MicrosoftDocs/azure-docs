@@ -1,5 +1,5 @@
 ---
-title: Real-time data visualization of data frm Azure IoT Hub – Power BI
+title: Real-time data visualization of data from Azure IoT Hub – Power BI
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
 author: robinsh
 keywords: real time data visualization, live data visualization, sensor data visualization
@@ -17,24 +17,14 @@ ms.author: robinsh
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## What you learn
+In this article, you learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try to visualize the data in your IoT hub with a web app, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
-You learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try to visualize the data in your IoT hub with a web app, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+## Prerequisites
 
-## What you do
-
-* Get your IoT hub ready for data access by adding a consumer group.
-
-* Create, configure, and run a Stream Analytics job for data transfer from your IoT hub to your Power BI account.
-
-* Create and publish a Power BI report to visualize the data.
-
-## What you need
-
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These articles cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
   
   * An active Azure subscription.
-  * An Azure IoT hub under your subscription.
+  * An Azure IoT hub in your subscription.
   * A client application that sends messages to your Azure IoT hub.
 
 * A Power BI account. ([Try Power BI for free](https://powerbi.microsoft.com/))
@@ -135,9 +125,9 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 ## Create and publish a Power BI report to visualize the data
 
-The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](https://docs.microsoft.com/power-bi/consumer/service-new-look).
+The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/consumer/service-new-look).
 
-1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](./iot-hub-raspberry-pi-kit-node-get-started.md).
 
 2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
 

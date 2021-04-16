@@ -1,6 +1,6 @@
 ---
 title: Offline backup for Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS) - previous versions
-description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
+description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for previous versions of DPM and Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
 ---
@@ -11,7 +11,7 @@ ms.date: 06/08/2020
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.
 
-The offline-seeding process of Azure Backup is tightly integrated with the [Azure Import/Export service](../storage/common/storage-import-export-service.md). You can use this service to transfer data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy on one or more hard drives to an Azure datacenter. This article provides an overview and further steps that finish this workflow for System Center Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS).
+The offline-seeding process of Azure Backup is tightly integrated with the [Azure Import/Export service](../import-export/storage-import-export-service.md). You can use this service to transfer data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy on one or more hard drives to an Azure datacenter. This article provides an overview and further steps that finish this workflow for System Center Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS).
 
 > [!NOTE]
 > The process of offline backup for the Microsoft Azure Recovery Services (MARS) Agent is distinct from DPM and MABS. For information on using offline backup with the MARS Agent, see [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md). Offline backup isn't supported for system state backups done by using the Azure Backup Agent.
@@ -40,7 +40,7 @@ Offline backup is supported for all deployment models of Azure Backup that back 
 > * Backup of all workloads and files with MABS.
 
 >[!NOTE]
->Azure CSP subscriptions are not supported for use with offline seeding for DPM 2019 RTM and earlier versions, and MABS v3 RTM and earlier versions. Online backups over the network are still supported.
+>Azure CSP subscriptions aren't supported for use with offline seeding for DPM 2019 RTM and earlier versions, and MABS v3 RTM and earlier versions. Online backups over the network are still supported.
 
 ## Prerequisites
 
@@ -55,12 +55,12 @@ Ensure that the following prerequisites are met before you start the offline bac
     | United States | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* An Azure storage account with the Resource Manager deployment model has been created in the subscription from which you downloaded the publish settings file. In the storage account, create a new blob container which will be used as the destination.
+* An Azure storage account with the Resource Manager deployment model has been created in the subscription from which you downloaded the publish settings file. In the storage account, create a new blob container, which will be used as the destination.
 
   ![Create a storage account with Resource Manager development](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
-* For disks sent to Azure, ensure that only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
+* For disks sent to Azure, ensure that only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../import-export/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
 * The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the staging location to the SATA drives is done. Ensure that BitLocker is enabled on the copy computer.
 
 ## Prepare the server for the offline backup process
@@ -100,7 +100,7 @@ Follow these steps to manually upload the offline backup certificate to a previo
     ![Locate application on Owned applications tab](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
 
 1. Select the application. Under **Manage** on the left pane, go to **Certificates & secrets**.
-1. Check for preexisting certificates or public keys. If there are none, you can safely delete the application by selecting the **Delete** button on the application's **Overview** page. Then you can retry the steps to [prepare the server for the offline backup](#prepare-the-server-for-the-offline-backup-process) process, and skip the following steps. Otherwise, continue to follow these steps from the DPM instance or Azure Backup server where you want to configure offline backup.
+1. Check for pre-existing certificates or public keys. If there are none, you can safely delete the application by selecting the **Delete** button on the application's **Overview** page. Then you can retry the steps to [prepare the server for the offline backup](#prepare-the-server-for-the-offline-backup-process) process, and skip the following steps. Otherwise, continue to follow these steps from the DPM instance or Azure Backup server where you want to configure offline backup.
 1. From **Start** – **Run**, type *Certlm.msc*. In the **Certificates - Local Computer** window, select the **Certificates – Local Computer** > **Personal** tab. Look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 1. Select the certificate, right-click **All Tasks**, and then select **Export**, without a private key, in the .cer format.
 1. Go to the Azure offline backup application in the Azure portal.
@@ -127,7 +127,7 @@ Follow these steps to manually upload the offline backup certificate to a previo
 
 ## Workflow
 
-The information in this section helps you finish the offline backup workflow so that your data can be delivered to an Azure datacenter and uploaded to Azure Storage. If you have questions about the import service or any aspect of the process, see the [Import service overview documentation](../storage/common/storage-import-export-service.md) referenced earlier.
+The information in this section helps you finish the offline backup workflow so that your data can be delivered to an Azure datacenter and uploaded to Azure Storage. If you have questions about the import service or any aspect of the process, see the [Import service overview documentation](../import-export/storage-import-export-service.md) referenced earlier.
 
 ### Initiate offline backup
 
@@ -197,7 +197,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. When prompted, provide confirmation for the formatting of the drive.
 
-    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool in case the provided disk doesn't have sufficient space for the backup data. <br/>
+    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
     After the tool finishes successfully, one or more disks that you provided are prepared for shipping to Azure. An import job with the name you provided during the workflow in the "Initiate offline backup" section also is created in Azure. Finally, the tool displays the shipping address to the Azure datacenter where the disks need to be shipped.
 
@@ -265,7 +265,7 @@ To check the import job status:
 
     ![Check import job status](./media/offline-backup-dpm-mabs-previous-versions/import-job-status-reporting.png)<br/>
 
-For more information on the various states of the Azure import job, see [View the status of Azure Import/Export jobs](../storage/common/storage-import-export-view-drive-status.md).
+For more information on the various states of the Azure import job, see [View the status of Azure Import/Export jobs](../import-export/storage-import-export-view-drive-status.md).
 
 ### Finish the workflow
 
@@ -277,4 +277,4 @@ At the time of the next scheduled backup, Azure Backup performs incremental back
 
 ## Next steps
 
-* For any questions about the Azure Import/Export service workflow, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
+* For any questions about the Azure Import/Export service workflow, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../import-export/storage-import-export-service.md).

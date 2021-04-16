@@ -1,17 +1,18 @@
 ---
 title: InfiniBand driver extension - Azure Windows VMs 
 description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Windows.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 editor: ''
-
 ms.assetid:
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 02/01/2021
 ms.author: amverma
 
 ---
@@ -26,15 +27,15 @@ An extension is also available to install InfiniBand drivers for [Linux VMs](hpc
 
 ### Operating system
 
-This extension supports the following OS distros, depending on driver support for specific OS version.
+This extension supports the following OS distros, depending on driver support for specific OS version. Note the appropriate InfiniBand NIC for the H and N-series VM sizes of interest.
 
-| Distribution | Version |
+| Distribution | InfiniBand NIC drivers |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2019 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
-| Windows Server 2012 | Core |
+| Windows 10 | CX5, CX6 |
+| Windows Server 2019 | CX5, CX6 |
+| Windows Server 2016 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 | CX3-Pro, CX5, CX6 |
 
 ### Internet connectivity
 

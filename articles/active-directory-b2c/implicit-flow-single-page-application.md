@@ -22,7 +22,9 @@ Many modern applications have a single-page app front end that is written primar
 - Many authorization servers and identity providers do not support cross-origin resource sharing (CORS) requests.
 - Full-page browser redirects away from the app can be invasive to the user experience.
 
-To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
+The recommended way of supporting single-page applications is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).
+
+Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. Thee flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
 Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](user-flow-overview.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, **{tenant}.onmicrosoft.com** is used as an example. Replace `{tenant}` with the name of your tenant if you have one and have also created a user flow.
 
@@ -135,7 +137,7 @@ Several more validations that you should perform are described in detail in the 
 
 * Ensuring that the user or organization has signed up for the app.
 * Ensuring that the user has proper authorization and privileges.
-* Ensuring that a certain strength of authentication has occurred, such as by using Azure Multi-Factor Authentication.
+* Ensuring that a certain strength of authentication has occurred, such as by using Azure AD Multi-Factor Authentication.
 
 For more information about the claims in an ID token, see the [Azure AD B2C token reference](tokens-overview.md).
 

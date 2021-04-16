@@ -3,15 +3,16 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
-ms.topic: conceptual
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.date: 03/02/2021
+ms.topic: reference
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
 ---
 # Preview: Create an Azure Image Builder template 
 
-Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 This is the basic template format:
 
@@ -90,7 +91,7 @@ By default, Image Builder will not change the size of the image, it will use the
 ```
 
 ## vnetConfig
-If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder), this is optional.
+If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
 
 ```json
     "vnetConfig": {
@@ -114,7 +115,7 @@ For more information, see [Define resource dependencies](../../azure-resource-ma
 
 ## Identity
 
-Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -136,7 +137,7 @@ For more information on deploying this feature, see [Configure managed identitie
 
 ## Properties: source
 
-Image Builder currently only supports HyperV generation 1 images and VMs, the `source` section contains information about the source image that will be used by Image Builder.
+The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
@@ -148,7 +149,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 > When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../windows/image-builder-overview.md#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -227,7 +228,7 @@ By default, the Image Builder will run for 240 minutes. After that, it will time
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs), to see if the customization step is waiting on something like user input. 
+If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log), to see if the customization step is waiting on something like user input. 
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
@@ -242,7 +243,7 @@ When using `customize`:
 - If one customizer fails, then the whole customization component will fail and report back an error.
 - It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - Do not put sensitive data in the scripts. 
-- The script locations need to be publicly accessible, unless you are using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+- The script locations need to be publicly accessible, unless you are using [MSI](./image-builder-user-assigned-identity.md).
 
 ```json
         "customize": [
@@ -302,11 +303,28 @@ Customize properties:
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
     * To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
 
-
-For commands to run with super user privileges, they must be prefixed with `sudo`.
-
 > [!NOTE]
 > Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition, and these are also visible to Microsoft Support in the event of a support case for troubleshooting purposes. If you have sensitive commands or values, it is strongly recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
+
+#### Super user privileges
+For commands to run with super user privileges, they must be prefixed with `sudo`, you can add these into scripts or use it inline commands, for example:
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+Example of a script using sudo that you can reference using scriptUri:
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### Windows restart customizer 
 The Restart customizer allows you to restart a Windows VM and wait for it come back online, this allows you to install software that requires a reboot.  
@@ -367,7 +385,7 @@ Customize properties:
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
-    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
 
 
 ### File customizer
@@ -391,6 +409,10 @@ OS support: Linux and Windows
 File customizer properties:
 
 - **sourceUri** - an accessible storage endpoint, this can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers. 
+
+> [!NOTE]
+> If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. Please see this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
+
 - **destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. You can use the script customizers to create the path. 
 
 This is supported by Windows directories and Linux paths, but there are some differences: 
@@ -402,8 +424,6 @@ If there is an error trying to download the file, or put it in a specified direc
 
 > [!NOTE]
 > The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
-
-Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### Windows Update Customizer
 This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.
@@ -429,7 +449,8 @@ Customize properties:
 - **filters** – Optional, allows you to specify a filter to include or exclude updates.
 - **updateLimit** – Optional, defines how many updates can be installed, default 1000.
  
- 
+> [!NOTE]
+> The Windows Update customizer can fail if there are any outstanding Windows restarts, or application installations still running, typically you may see this error in the customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. We strongly advise you consider adding in a Windows Restart, and/or allowing applications enough time to complete their installations using [sleep](/powershell/module/microsoft.powershell.utility/start-sleep) or wait commands in the inline commands or scripts before running Windows Update.
 
 ### Generalize 
 By default, Azure Image Builder will also run ‘deprovision’ code at the end of each image customization phase, to ‘generalize’ the image. Generalizing is a process where the image is set up so it can be reused to create multiple VMs. For Windows VMs, Azure Image Builder uses Sysprep. For Linux, Azure Image Builder runs ‘waagent -deprovision’. 
@@ -474,7 +495,7 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 * Windows: c:\DeprovisioningScript.ps1
 * Linux: /tmp/DeprovisioningScript.sh
 
-Image Builder will read these commands, these are written out to the AIB logs, ‘customization.log’. See [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) on how to collect logs.
+Image Builder will read these commands, these are written out to the AIB logs, ‘customization.log’. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
  
 ## Properties: distribute
 
@@ -527,17 +548,16 @@ Output:
 The image output will be a managed image resource.
 
 ```json
-"distribute": [
-        {
-"type":"managedImage",
+{
+       "type":"managedImage",
        "imageId": "<resource ID>",
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
             "<name": "<value>",
-             "<name>": "<value>"
-               }
-         }]
+            "<name>": "<value>"
+        }
+}
 ```
  
 Distribute properties:
@@ -565,7 +585,7 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {
@@ -653,7 +673,7 @@ az resource invoke-action \
 ### Cancelling an Image Build
 If you are running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status).
+The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 
 Examples of `cancel` commands:
@@ -672,4 +692,4 @@ az resource invoke-action \
 
 ## Next steps
 
-There are sample .json files for different scenarios in the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).
+There are sample .json files for different scenarios in the [Azure Image Builder GitHub](https://github.com/azure/azvmimagebuilder).

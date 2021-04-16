@@ -18,6 +18,9 @@ An Azure virtual machine scale set can automatically increase or decrease the nu
 ## Benefits of autoscale
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set.
 
+> [!NOTE]
+> When using automatic instance repairs for your scale set, the maximum number of instances in the scale set can be 200. Learn more about [Automatic Instance Repairs](./virtual-machine-scale-sets-automatic-instance-repairs.md).
+
 When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or memory, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
@@ -134,4 +137,4 @@ This overview detailed how to use autoscale rules to scale horizontally and incr
 
 For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).
+To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/autoscale/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../azure-monitor/alerts/alerts-log-webhook.md).

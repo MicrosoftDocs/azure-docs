@@ -4,8 +4,9 @@ description: How to deploy the management tool for Windows Virtual Desktop (clas
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: helohr
-manager: lizross
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
 
 # Deploy a Windows Virtual Desktop (classic) management tool with PowerShell

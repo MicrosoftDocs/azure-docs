@@ -1,9 +1,6 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight using Azure portal 
 description: Learn how to create and manage Azure HDInsight clusters using the Azure portal.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -34,7 +31,7 @@ The **HDInsight clusters** page will list your existing clusters.  From the port
 
 Select your cluster name from the [**HDInsight clusters**](#showClusters) page.  This will open the **Overview** view, which looks similar to the following image:
 
-![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
+:::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Azure portal HDInsight cluster essentials":::
 
 **Top menu:**  
 
@@ -52,7 +49,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |---|---|
     |Overview|Provides general information for your cluster.|
     |Activity log|Show and query activity logs.|
-    |Access control (IAM)|Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
+    |Access control (IAM)|Use role assignments.  See [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
     |Tags|Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.|
     |Diagnose and solve problems|Display troubleshooting information.|
     |Quickstart|Displays information that helps you get started using HDInsight.|
@@ -65,7 +62,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |Cluster size|Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Quota limits|Display the used and available cores for your subscription.|
     |SSH + Cluster login|Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-    |Data Lake Storage Gen1|Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
+    |Data Lake Storage Gen1|Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).|
     |Storage accounts|View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.|
     |Applications|Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).|
     |Script actions|Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
@@ -171,7 +168,7 @@ From the [cluster home page](#homePage):
 
 1. Select **Cluster dashboards**.
 
-    ![HDInsight Apache Hadoop cluster menu](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png" alt-text="HDInsight Apache Hadoop cluster menu":::
 
 1. Select **Ambari home** from the new page.
 1. Enter the cluster username and password.  The default cluster username is _admin_.

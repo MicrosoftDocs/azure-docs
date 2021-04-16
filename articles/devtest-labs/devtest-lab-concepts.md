@@ -52,7 +52,7 @@ Policies help in controlling cost in your lab. For example, you can create a pol
 Caps is a mechanism to minimize waste in your lab. For example, you can set a cap to restrict the number of VMs that can be created per user, or in a lab.
 
 ## Security levels
-Security access is determined by Azure role-based access control (Azure RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC.
+Security access is determined by Azure role-based access control (Azure RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by Azure RBAC.
 
 * Permission - A permission is a defined access to a specific action (e.g. read-access to all virtual machines).
 * Role - A role is a set of permissions that can be grouped and assigned to a user. For example, the *subscription owner* role has access to all resources within a subscription.

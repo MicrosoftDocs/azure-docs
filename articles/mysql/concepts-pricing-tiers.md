@@ -1,11 +1,11 @@
 ---
 title: Pricing tiers - Azure Database for MySQL
 description: Learn about the various pricing tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 10/14/2020
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -46,7 +46,7 @@ The storage you provision is the amount of storage capacity available to your Az
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
 > [!NOTE]
-> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2 and West Central US.
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, Brazil South, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2, West Central US, Canada East, and Canada Central.
 >
 > All other regions support up to 4TB of storage and up to 6000 IOPS.
 >
@@ -86,7 +86,7 @@ Azure Database for MySQL provides up to 100% of your provisioned server storage 
 
 After you create your server, you can independently change the vCores, the hardware generation, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MySQL server by using Azure CLI](scripts/sample-scale-server.md).
 
-When you change the number of vCores, the hardware generation, or the pricing tier, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute.
+When you change the number of vCores, the hardware generation, or the pricing tier, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This downtime during scaling can be around 60-120 seconds. The downtime during scaling is dependent on database recovery time, which can cause the database to come online longer if you have heavy transactional activity on the server at the time of scaling operation. To avoid longer restart time, it is recommended to perform scaling operations during periods of low transactional activity on the server.
 
 Scaling storage and changing the backup retention period are true online operations. There is no downtime, and your application isn't affected. As IOPS scale with the size of the provisioned storage, you can increase the IOPS available to your server by scaling up storage.
 

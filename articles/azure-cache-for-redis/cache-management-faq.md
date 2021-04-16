@@ -5,6 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ---
 # Azure Cache for Redis management FAQs
@@ -56,7 +57,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 * The client VM used for testing should be in the same region as your Azure Cache for Redis instance.
 * We recommend using Dv2 VM Series for your client as they have better hardware and should give the best results.
 * Make sure your client VM you choose has at least as much computing and bandwidth capability as the cache you are testing.
-* Enable VRSS on the client machine if you are on Windows. [See here for details](https://technet.microsoft.com/library/dn383582.aspx).
+* Enable VRSS on the client machine if you are on Windows. [See here for details](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
 * Premium tier Redis instances have better network latency and throughput because they are running on better hardware for both CPU and Network.
 
 ### What are some of the considerations when using common Redis commands?
@@ -137,7 +138,7 @@ How to configure this setting:
     > [!NOTE]
     > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a 4-core machine and want to set *minWorkerThreads* and *minIoThreads* to 50 per CPU during run-time, you would use **ThreadPool.SetMinThreads(200, 200)**.
 
-* It is also possible to specify the minimum threads setting by using the [*minIoThreads* or *minWorkerThreads* configuration setting](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under the `<processModel>` configuration element in `Machine.config`, usually located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Setting the number of minimum threads in this way is generally not recommended, because it is a System-wide setting.**
+* It is also possible to specify the minimum threads setting by using the [*minIoThreads* or *minWorkerThreads* configuration setting](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) under the `<processModel>` configuration element in `Machine.config`, usually located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Setting the number of minimum threads in this way is generally not recommended, because it is a System-wide setting.**
 
   > [!NOTE]
   > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4-core machine and want your *minIoThreads* setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.

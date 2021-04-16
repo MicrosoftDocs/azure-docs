@@ -1,12 +1,13 @@
 ---
-title: Configuring Azure File Sync
-description: Configure Azure File Sync. A common text block, shared across migration docs.
+title: include file
+description: include file
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
+ms.custom: include file
 ---
 
 This step ties together all resources and folders you've set up on your Windows Server instance during the previous steps.

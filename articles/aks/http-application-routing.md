@@ -107,7 +107,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -275,8 +275,8 @@ ingress "aks-helloworld" deleted
 For information on how to install an HTTPS-secured Ingress controller in AKS, see [HTTPS Ingress on Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli

@@ -3,14 +3,14 @@ title: All Prebuilt entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains lists of the prebuilt entities that are included in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/20/2020
-ms.author: diberry
+ms.date: 04/13/2021
+
 ---
 
 # Entities per culture in your LUIS model
@@ -20,7 +20,7 @@ Language Understanding (LUIS) provides prebuilt entities.
 ## Entity resolution
 When a prebuilt entity is included in your application, LUIS includes the corresponding entity resolution in the endpoint response. All example utterances are also labeled with the entity.
 
-The behavior of prebuilt entities can't be modified but you can improve resolution by [adding the prebuilt entity as a feature to a machine-learning entity or subentity](luis-concept-entity-types.md#effective-prebuilt-entities).
+The behavior of prebuilt entities can't be modified but you can improve resolution by [adding the prebuilt entity as a feature to a machine-learning entity or sub-entity](luis-concept-entity-types.md#prebuilt-entity).
 
 ## Availability
 Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
@@ -37,7 +37,7 @@ Unless otherwise noted, prebuilt entities are available in all LUIS application 
 |Korean|[ko-KR](#korean-entity-support)||
 |Portuguese|[pt-BR (Brazil)](#portuguese-brazil-entity-support)||
 |Spanish|[es-ES (Spain)](#spanish-spain-entity-support), [es-MX (Mexico)](#spanish-mexico-entity-support)||
-|Turkish|[turkish](#turkish-entity-support)|No prebuilt entities supported in Turkish|
+|Turkish|[turkish](#turkish-entity-support)||
 
 ## Prediction endpoint runtime
 
@@ -265,6 +265,8 @@ The following entities are supported:
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
+KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR```.
+
 ## Spanish (Spain) entity support
 
 The following entities are supported:
@@ -311,13 +313,7 @@ The following entities are supported:
 
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR```.
-
 ## Turkish entity support
-
-**There are no prebuilt entities supported in Turkish.**
-
-<!--
 
 | Prebuilt entity | tr-tr |
 | --------------- | :---: |
@@ -326,19 +322,16 @@ KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR`
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   |
 [Email](luis-reference-prebuilt-email.md)   |    -   |
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Number](luis-reference-prebuilt-number.md)   |    -   |
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |
 [Percentage](luis-reference-prebuilt-percentage.md)   |    -   |
-[PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   |
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
+<!---
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
-
-
 KeyPhrase is not available.
 -->
 

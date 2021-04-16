@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, change, or delete an Azure public IP address prefix
 titlesuffix: Azure Virtual Network
 description: Learn about public IP address prefixes and how to create, change, or delete them. See where to find additional information.
@@ -56,6 +56,9 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
+>[!NOTE]
+>In regions with availability zones, you can use PowerShell or CLI commands to create a public IP address prefix as either: non-zonal, associated with a specific zone, or to use zone-redundancy.  For API version 2020-08-01 or later, if a zone parameter is not provided, a non-zonal public IP address prefix is created. For versions of the API older than 2020-08-01, a zone-redundant public IP address prefix is created. 
+
 ## Create a static public IP address from a prefix
 Once you create a prefix, you must create static IP addresses from the prefix. In order to do this, follow steps below.
 
@@ -74,8 +77,8 @@ Alternatively you may use the CLI and PS commands below with the --public-ip-pre
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 ## View or delete a prefix
 
@@ -83,7 +86,7 @@ Alternatively you may use the CLI and PS commands below with the --public-ip-pre
 2. Select the name of the public IP address prefix that you want to view, change settings for, or delete from the list.
 3. Complete one of the following options, depending on whether you want to view, delete, or change the public IP address prefix.
    - **View**: The **Overview** section shows key settings for the public IP address prefix, such as prefix.
-   - **Delete**: To delete the public IP address prefix, select **Delete** in the **Overview** section. If addresses within the prefix are associated to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Delete**: To delete the public IP address prefix, select **Delete** in the **Overview** section. If addresses within the prefix are associated to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Commands**
 

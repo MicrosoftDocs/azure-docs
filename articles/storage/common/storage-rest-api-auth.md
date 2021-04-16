@@ -11,6 +11,7 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Call REST API operations with Shared Key authorization
@@ -61,7 +62,7 @@ Review the reference for the [ListContainers](/rest/api/storageservices/List-Con
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
-**Request URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  The request URI is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
+**Request URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  The request URI is created from the blob storage account endpoint `https://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
 
 [URI parameters](/rest/api/storageservices/List-Containers2#uri-parameters): There are additional query parameters you can use when calling ListContainers. A couple of these parameters are *timeout* for the call (in seconds) and *prefix*, which is used for filtering.
 

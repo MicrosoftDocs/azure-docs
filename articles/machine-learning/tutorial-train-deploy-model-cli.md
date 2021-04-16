@@ -8,15 +8,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 04/02/2021
 ---
 
 # Tutorial: Train and deploy a model from the CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this tutorial, you use the machine learning extension for the Azure CLI to train, register, and deploy a model.
 
-The Python training scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a basic model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with Azure Machine Learning.
+The Python training scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a simple model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with Azure Machine Learning.
 
 Learn how to take the following actions:
 
@@ -34,7 +34,7 @@ Learn how to take the following actions:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
@@ -70,7 +70,7 @@ The repository contains the following files, which are used to deploy the traine
 
 ## Connect to your Azure subscription
 
-There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
+There are several ways that you can authenticate to your Azure subscription from the CLI. The most simple is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
 ```azurecli-interactive
 az login
@@ -80,23 +80,9 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-## Install the machine learning extension
-
-To install the machine learning extension, use the following command:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-If you get a message that the extension is already installed, use the following command to update to the latest version:
-
-```azurecli-interactive
-az extension update -n azure-cli-ml
-```
-
 ## Create a resource group
 
-A resource group is a basic container of resources on the Azure platform. When working with the Azure Machine Learning, the resource group will contain your Azure Machine Learning workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
+A resource group is a container of resources on the Azure platform. When working with the Azure Machine Learning, the resource group will contain your Azure Machine Learning workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
 
 To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
@@ -123,7 +109,7 @@ The response from this command is similar to the following JSON:
 }
 ```
 
-For more information on working with resource groups, see [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
+For more information on working with resource groups, see [az group](/cli/azure/group).
 
 ## Create a workspace
 
@@ -295,17 +281,17 @@ The runconfig file also contains information used to configure the environment u
 > [!TIP]
 > While it is possible to manually create a runconfig file, the one in this example was created using the `generate-runconfig.py` file included in the repository. This file gets a reference to the registered dataset, creates a run config programatically, and then persists it to file.
 
-For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). For a complete JSON reference, see the [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+For more information on run configuration files, see [Use compute targets for model training](how-to-set-up-training-targets.md#whats-a-run-configuration). For a complete JSON reference, see the [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## Submit the training run
 
 To start a training run on the `cpu-cluster` compute target, use the following command:
 
 ```azurecli-interactive
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-This command specifies a name for the experiment (`myexperiment`). The experiment stores information about this run in the workspace.
+This command specifies a name for the experiment (`tutorial-cli`). The experiment stores information about this run in the workspace.
 
 The `-c mnist` parameter specifies the `.azureml/mnist.runconfig` file.
 
@@ -322,7 +308,7 @@ This text is logged from the training script and displays the accuracy of the mo
 
 If you inspect the training script, you'll notice that it also uses the alpha value when it stores the trained model to `outputs/sklearn_mnist_model.pkl`.
 
-The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
+The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`tutorial-cli` in this example).
 
 ## Register the model
 
@@ -340,13 +326,13 @@ The output of this command is similar to the following JSON:
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }

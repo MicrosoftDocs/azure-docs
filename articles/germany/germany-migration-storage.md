@@ -1,24 +1,17 @@
 ---
 title: Migrate Azure storage resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure storage resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 06/22/2020
-ms.topic: how-to
 ms.custom: bfmigrate
 ---
 
 # Migrate storage resources to global Azure
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
 
@@ -30,7 +23,7 @@ AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works
 
 If you don't use managed disks for your source VM, use AzCopy to copy the .vhd files to the target environment. Otherwise, you must complete some steps in advance. For more information, see [Recommendations for managed disks](#managed-disks).
 
-The following example shows how AzCopy works. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+The following example shows how AzCopy works. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
 
 AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
 
@@ -74,7 +67,7 @@ To get a consistent copy of the VHD, shut down the VM before you copy the VHD. P
 
 For more information:
 
-- Review the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+- Review the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
 - Learn how to [create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## Managed Disks
@@ -147,13 +140,13 @@ To begin, install [Azure Storage Explorer](https://azure.microsoft.com/features/
 
 You use Storage Explorer to copy tables from the source Azure Storage account. 
 
-Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. You can [sign in to access resources in your subscription](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
 
 ### Connect to target
 
 You use Storage Explorer to paste tables to the target Azure Storage account.
 
-Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
 
 
 ### Migrate tables
@@ -187,7 +180,7 @@ https://<storageaccountname>.blob.core.windows.net/<filesharename>
 ```
 You need a storage account SAS token to access the Azure Storage account. 
 
-The following example command copies all file shares, directories, and files from an Azure Germany storage account to a global Azure storage account. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+The following example command copies all file shares, directories, and files from an Azure Germany storage account to a global Azure storage account. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
 
 URI part | Example value
 -------- | --------------
@@ -200,7 +193,7 @@ Target fileshare | `targetfileshare`
 azcopy copy "https://migratetest.blob.core.cloudapi.de/sourcefileshare?<SAS-token>" "https://migratetarget.blob.core.windows.net/targetfileshare?<SAS-token>" --recursive=true
 ```
 
-For more information about AzCopy, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md) and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md#copy-files-between-storage-accounts).
+For more information about AzCopy, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md) and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md#copy-files-between-storage-accounts).
 
 ## Next steps
 
@@ -217,4 +210,3 @@ Learn about tools, techniques, and recommendations for migrating resources in th
 - [Security](./germany-migration-security.md)
 - [Management tools](./germany-migration-management-tools.md)
 - [Media](./germany-migration-media.md)
-

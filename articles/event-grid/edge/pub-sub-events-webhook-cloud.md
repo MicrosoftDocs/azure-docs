@@ -7,6 +7,7 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Publish, subscribe to events in cloud
@@ -25,7 +26,7 @@ In order to complete this tutorial, you will need:
 
 ## Create an Azure function in the Azure portal
 
-Follow the steps outlined in the [tutorial](../../azure-functions/functions-create-first-azure-function.md) to create an Azure function. 
+Follow the steps outlined in the [tutorial](../../azure-functions/functions-get-started.md) to create an Azure function. 
 
 Replace the code snippet with the following code:
 

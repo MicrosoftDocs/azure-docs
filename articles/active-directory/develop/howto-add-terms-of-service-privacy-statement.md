@@ -54,17 +54,22 @@ When the terms of service and privacy statement are ready, you can add links to 
 ### <a name="azure-portal"></a>Using the Azure portal
 Follow these steps in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Navigate to the **App Registrations** section and select your app.
-3. Open the **Branding** pane.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).
+2. Navigate to the **App registrations** section and select your app.
+3. Under **Manage**, select **Branding**.
 4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
-5. Save your changes.
+5. Select **Save**.
 
     ![App properties contains terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Using the app object JSON
 
 If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
+
+1. Navigating to the **App Registrations** section and select your app.
+2. Open the **Manifest** pane.
+3. Ctrl+F, Search for "informationalUrls". Fill in the information.
+4. Save your changes.
 
 ```json
     "informationalUrls": { 

@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: backup
-author: dcurwin
+author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.topic: include
 ms.date: 10/18/2018
-ms.author: dacurwin
+ms.author: v-amallick
 ms.custom: include file
 ---
 
@@ -49,7 +49,7 @@ To create a Recovery Services vault, follow these steps.
 
 1. After providing the values, select **Review + create**.
 
-    ![Create the Recovery Services vault](./media/backup-create-rs-vault/review-and-create.png)
+    ![Screenshot that shows the Review + create button in the create a Recovery Services vault process.](./media/backup-create-rs-vault/review-and-create.png)
 
 1. When you're ready to create the Recovery Services vault, select **Create**.
 
@@ -60,4 +60,4 @@ To create a Recovery Services vault, follow these steps.
      ![Refresh the list of backup vaults](./media/backup-create-rs-vault/refresh-button.png)
 
 >[!IMPORTANT]
-> We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault. For more information, see the [Set Storage redundancy](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) section.
+> We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault. For more information, see the [Set Storage redundancy](../articles/backup/backup-create-rs-vault.md#set-storage-redundancy) section.

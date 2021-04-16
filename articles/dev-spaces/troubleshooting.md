@@ -8,6 +8,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 ---
 # Azure Dev Spaces troubleshooting
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
 If you have a problem when using Azure Dev Spaces, create an [issue in the Azure Dev Spaces GitHub repository](https://github.com/Azure/dev-spaces/issues).
@@ -18,17 +20,9 @@ To troubleshoot problems more effectively, it may help to create more detailed l
 
 For Visual Studio, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs are written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
-In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the *TEMP* directory is usually `/tmp`. In addition, verify that logging is enabled in your [Azure CLI configuration file](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the *TEMP* directory is usually `/tmp`. In addition, verify that logging is enabled in your [Azure CLI configuration file](/cli/azure/azure-cli-configuration#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces also works best when debugging a single instance, or pod. The `azds.yaml` file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the *replicaCount* to configure your application to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
-
-## Common issues when using Local Process with Kubernetes
-
-### Fail to restore original configuration of deployment on cluster
-
-When using Local Process with Kubernetes, if the Local Process with Kubernetes client crashes or terminates abruptly, the service that Local Process with Kubernetes is redirecting may not be restored to its original state before Local Process with Kubernetes connected to it.
-
-To fix this issue, redeploy the service to your cluster.
 
 ## Common issues when enabling Azure Dev Spaces
 
@@ -49,8 +43,6 @@ If you don't have the Azure Dev Spaces CLI installed, you can first install it u
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-Recreating the controller can be done from the CLI or Visual Studio. See the [Team development](quickstart-team-development.md) or [Develop with .NET Core](quickstart-netcore-visualstudio.md) quickstarts for examples.
 
 ### Controller create failing because of controller name length
 
@@ -93,7 +85,7 @@ azure-cli                         2.0.60 *
 
 Despite the error message when running `az aks use-dev-spaces` with a version of the Azure CLI before 2.0.63, the installation does succeed. You can continue to use `azds` without any issues.
 
-To fix this issue, update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to 2.0.63 or later. This update will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
+To fix this issue, update your installation of the [Azure CLI](/cli/azure/install-azure-cli) to 2.0.63 or later. This update will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
 
 ### Error "Unable to reach kube-apiserver"
 
@@ -261,7 +253,7 @@ This error occurs because Azure Dev Spaces does not currently support multi-stag
 
 ### Network traffic is not forwarded to your AKS cluster when connecting your development machine
 
-When using [Azure Dev Spaces to connect your AKS cluster to your development machine](https://code.visualstudio.com/docs/containers/local-process-kubernetes), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
+When using [Azure Dev Spaces to connect your AKS cluster to your development machine](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
 
 When connecting your development machine to your AKS cluster, Azure Dev Spaces forwards network traffic between your AKS cluster and your development machine by modifying your development machine's `hosts` file. Azure Dev Spaces creates an entry in the `hosts` with the address of the Kubernetes service you are replacing as a host name. This entry is used with port forwarding to direct network traffic between your development machine and the AKS cluster. If a service on your development machine conflicts with the port of the Kubernetes service you are replacing, Azure Dev Spaces cannot forward network traffic for the Kubernetes service. For example, the *Windows BranchCache* service is usually bound to *0.0.0.0:80*, which conflicts will cause a conflict for port 80 on all local IPs.
 
@@ -278,9 +270,9 @@ For example, to stop and disable the *Windows BranchCache* service:
 
 When running a service with Azure Dev Spaces on an AKS cluster with a [managed identity](../aks/use-managed-identity.md) and [pod managed identities](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) installed, the process may stop responding after the *chart install* step. If you inspect the *azds-injector-webhook* in the *azds* name space, you may see this error.
 
-The services Azure Dev Spaces runs on your cluster utilize the cluster's managed identity to talk to the Azure Dev Spaces backend services outside the cluster. When the pod managed identity is installed, networking rules are configured on your cluster's nodes to redirect all calls for managed identity credentials to a [Node Managed Identity (NMI) DaemonSet installed on the cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). This NMI DaemonSet identifies the calling pod and ensures that pod has been labeled appropriately to access the requested managed identity. Azure Dev Spaces can't detect if a cluster has pod managed identity installed and can't perform the necessary configuration to allow Azure Dev Spaces services to access the cluster's managed identity. Since the Azure Dev Spaces services haven't been configured to access the cluster's managed identity, the NMI DaemonSet will not allow them to obtain an AAD token for the managed identity and fail to communicate with Azure Dev Spaces backend services.
+The services Azure Dev Spaces runs on your cluster utilize the cluster's managed identity to talk to the Azure Dev Spaces backend services outside the cluster. When the pod managed identity is installed, networking rules are configured on your cluster's nodes to redirect all calls for managed identity credentials to a [Node Managed Identity (NMI) DaemonSet installed on the cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). This NMI DaemonSet identifies the calling pod and ensures that pod has been labeled appropriately to access the requested managed identity. Azure Dev Spaces can't detect if a cluster has pod managed identity installed and can't perform the necessary configuration to allow Azure Dev Spaces services to access the cluster's managed identity. Since the Azure Dev Spaces services haven't been configured to access the cluster's managed identity, the NMI DaemonSet will not allow them to obtain an Azure AD token for the managed identity and fail to communicate with Azure Dev Spaces backend services.
 
-To fix this issue, apply an [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) for the *azds-injector-webhook* and update pods instrumented by Azure Dev Spaces to access the managed identity.
+To fix this issue, apply an [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception) for the *azds-injector-webhook* and update pods instrumented by Azure Dev Spaces to access the managed identity.
 
 Create a file named *webhookException.yaml* and copy the following YAML definition:
 
@@ -381,6 +373,17 @@ spec:
       [...]
 ```
 
+### Error "Cannot get connection details for Azure Dev Spaces Controller 'ABC' because it is in the 'Failed' state. Something wrong might have happened with your controller."
+
+To resolve this issue, try deleting the Azure Dev Spaces controller from the cluster and reinstalling it:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Also, as Azure Dev Spaces is being retired, please consider [migrating to Bridge to Kubernetes](migrate-to-bridge-to-kubernetes.md) which provides a better experience.
+
 ## Common issues using Visual Studio and Visual Studio Code with Azure Dev Spaces
 
 ### Error "Required tools and configurations are missing"
@@ -410,7 +413,7 @@ To fix this issue, install the [VS Code extension for C#](https://marketplace.vi
 
 You may see this error when running the Visual Studio Code debugger. You might not have the VS Code extension for Azure Dev Spaces installed on your development machine.
 
-To fix this issue, install the [VS Code extension for Azure Dev Spaces](get-started-netcore.md).
+To fix this issue, install the VS Code extension for Azure Dev Spaces.
 
 ### Error "Invalid 'cwd' value '/src'. The system cannot find the file specified." or "launch: program '/src/[path to project binary]' does not exist"
 
@@ -461,7 +464,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### New pods aren't starting
 
-The Kubernetes initializer can't apply the PodSpec for new pods due to RBAC permission changes to the *cluster-admin* role in the cluster. The new pod may also have an invalid PodSpec, for example the service account associated with the pod no longer exists. To see the pods that are in a *Pending* state due to the initializer issue, use the `kubectl get pods` command:
+The Kubernetes initializer can't apply the PodSpec for new pods due to Kubernetes RBAC permission changes to the *cluster-admin* role in the cluster. The new pod may also have an invalid PodSpec, for example the service account associated with the pod no longer exists. To see the pods that are in a *Pending* state due to the initializer issue, use the `kubectl get pods` command:
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -490,7 +493,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 After your controller is reinstalled, redeploy your pods.
 
-### Incorrect RBAC permissions for calling Dev Spaces controller and APIs
+### Incorrect Azure RBAC permissions for calling Dev Spaces controller and APIs
 
 The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* Azure role for the controller. More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 

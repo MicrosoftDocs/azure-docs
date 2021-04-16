@@ -2,7 +2,8 @@
 title: Create and manage Windows VMs in Azure that use multiple NICs 
 description: Learn how to create and manage a Windows VM that has multiple NICs attached to it by using Azure PowerShell or Resource Manager templates.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
@@ -65,7 +66,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Typically you also create a [network security group](../../virtual-network/security-overview.md) to filter network traffic to the VM and a [load balancer](../../load-balancer/load-balancer-overview.md) to distribute traffic across multiple VMs.
+Typically you also create a [network security group](../../virtual-network/network-security-groups-overview.md) to filter network traffic to the VM and a [load balancer](../../load-balancer/load-balancer-overview.md) to distribute traffic across multiple VMs.
 
 ### Create the virtual machine
 Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. For more information, see [Windows VM sizes](../sizes.md).
@@ -283,4 +284,4 @@ Azure assigns a default gateway to the first (primary) network interface attache
     The route listed with *192.168.1.1* under **Gateway**, is the route that is there by default for the primary network interface. The route with *192.168.2.1* under **Gateway**, is the route you added.
 
 ## Next steps
-Review [Windows VM sizes](../sizes.md) when you're trying to create a VM that has multiple NICs. Pay attention to the maximum number of NICs that each VM size supports. 
+Review [Windows VM sizes](../sizes.md) when you're trying to create a VM that has multiple NICs. Pay attention to the maximum number of NICs that each VM size supports.

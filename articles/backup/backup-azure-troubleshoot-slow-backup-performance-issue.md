@@ -16,7 +16,7 @@ This article provides troubleshooting guidance to help you diagnose the cause of
 Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](https://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.
 
-We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.
+We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.yml) to make sure you're not experiencing any of the common configuration issues.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -88,10 +88,10 @@ This behavior occurs because while you're backing up the data and moving it to A
 The following indicators can help you understand the bottleneck and accordingly work on the next steps:
 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
-* **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
+* **UI isn't showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
 
 If you're trying to back up large disks, then it's recommended to use [Azure Data Box](./offline-backup-azure-data-box.md) for the first backup (Initial Replication).  If you can't use Data Box, then any transient network issues happening in your environment during long data transfers over the network can cause backup failures.  To safeguard against these failures, you can add a few folders to your initial backup and keep incrementally adding more folders until all the folders are successfully backed up to Azure.  Subsequent incremental backups will be relatively faster.
 
 ## Next steps
 
-* [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md)
+* [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.yml)

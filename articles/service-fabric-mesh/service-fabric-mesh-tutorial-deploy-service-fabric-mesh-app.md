@@ -1,15 +1,20 @@
 ---
 title: Tutorial- Deploy a Service Fabric Mesh application  
 description: Learn how to use Visual Studio to publish an Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 
 # Tutorial: Deploy a Service Fabric Mesh application
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This tutorial is part three of a series and shows you how to publish an Azure Service Fabric Mesh web application directly from Visual Studio.
 
@@ -135,4 +140,4 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli

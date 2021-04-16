@@ -1,14 +1,10 @@
 ---
 title: Use Resource Manager templates in Data Factory 
 description: Learn how to create and use Azure Resource Manager templates to create Data Factory entities.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -223,7 +219,7 @@ Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) fo
 }
 ```
 ## Parameterizing Data Factory template
-For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/resource-manager-template-best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
+For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/template-best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
 
 * Settings vary by environment (example: development, test, and production)
 * Secrets (such as passwords)

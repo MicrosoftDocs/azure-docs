@@ -6,7 +6,7 @@ documentationcenter: na
 author: damendo
 
 tags: azure-resource-manager
-Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
+# Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
@@ -99,7 +99,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 5. Under **LOGS**, select **NSG flow logs**, as shown in the following picture:
 
-    ![NSGs](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![Screenshot shows the Network Watcher NSG flow logs.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. From the list of NSGs, select the NSG named **myVm-nsg**.
 7. Under **Flow logs settings**, select **On**.
@@ -109,7 +109,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 9. Select the storage account that you created in step 3.
    > [!NOTE]
-   > NSG Flow Logs do not work with storage accounts that have [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) enabled.
+   > NSG Flow Logs do not work with storage accounts that have [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) enabled.
 1. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 10. Set **Retention (days)** to 5, and then select **Save**.
 

@@ -1,29 +1,18 @@
 ---
 title: FAQ - Azure Monitor for SAP Solutions | Microsoft Docs
-description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
+description: In this article, learn answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
 
 ---
 
-# Azure monitor for SAP solutions FAQ (preview)
+# Azure Monitor for SAP solutions FAQ (preview)
 ## Frequently asked questions
 
-This article provides answers to frequently asked questions (FAQ) about Azure monitor for SAP solutions.  
+This article provides answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.  
 
  - **Do I have to pay for Azure Monitor for SAP Solutions?**  
 There is no licensing fee for Azure Monitor for SAP Solutions.  
@@ -67,13 +56,28 @@ Contributor role.
 Previews are excluded from service level agreements. Please read the full license term through Azure Monitor for SAP Solutions marketplace image.  
 
  - **Can I monitor my entire landscape through this solution?**  
-You can currently monitor HANA database, the underlying infrastructure, High-availability cluster, and Microsoft SQL server in public preview.  
+You can currently monitor HANA database, the underlying infrastructure, High-availability cluster, Microsoft SQL server, SAP Netweaver availability and SAP Application Instance availability metrics in public preview.  
 
  - **Does this service replace SAP Solution manager?**  
 No. Customers can still use SAP Solution manager for Business process monitoring.  
 
  - **What is the value of this service over traditional solutions like SAP HANA Cockpit/Studio?**  
 Azure Monitor for SAP Solutions is not HANA database specific. Azure Monitor for SAP Solutions supports also AnyDB.  
+
+- **Which SAP NetWeaver versions are supported?**  
+SAP NetWeaver 7.0 or higher.  
+
+- **Which SAP NetWeaver configurations are supported?**  
+Supports ABAP, Java and dual-stack SAP NetWeaver Application Server configurations.
+
+- **Why do I need to unprotect methods for SAP NetWeaver application monitoring?**  
+In SAP releases >= 7.3, most webservice methods are protected by default. In order to fetch availability and performance metrics by calling these methods, you would need to unprotect the following methods: GetQueueStatistic, ABAPGetWPTable, GetProcessList, EnqGetStatistic and GetSystemInstancelist.
+
+- **Is there any risk in unprotecting SAPCONTROL webmethods?**  
+In general unprotecting SAPCONTROL webmethods does not pose a security risk as [such](https://launchpad.support.sap.com/#/notes/1439348), however if customers want to restrict/forbid access to the unprotected webmethods via server ports(5XX13 / 5XX14) of sapstartsrv, you could do so by adding filter in SAP Access Control List(ACL) , the [OSS note](https://service.sap.com/sap/support/notes/1495075) describes the required configuration to achieve this. 
+
+- **Do I need to restart my SAP instances after performing system configurations for setting up SAP NetWeaver provider?**  
+Yes, once you have unprotected methods through SAP config changes, you will need to restart the respective SAP systems to ensure the configuration changes are updated.  
 
 ## Next steps
 

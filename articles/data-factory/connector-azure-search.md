@@ -1,16 +1,12 @@
 ---
 title: Copy data to Search index
 description: Learn about how to push or copy data to an Azure search index by using the Copy Activity in an Azure Data Factory pipeline.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/13/2019
+ms.date: 03/17/2021
 ---
 
 # Copy data to an Azure Cognitive Search index using Azure Data Factory
@@ -112,6 +108,7 @@ To copy data into Azure Cognitive Search, set the source type in the copy activi
 | type | The type property of the copy activity source must be set to: **AzureSearchIndexSink** | Yes |
 | writeBehavior | Specifies whether to merge or replace when a document already exists in the index. See the [WriteBehavior property](#writebehavior-property).<br/><br/>Allowed values are: **Merge** (default), and **Upload**. | No |
 | writeBatchSize | Uploads data into the search index when the buffer size reaches writeBatchSize. See the [WriteBatchSize property](#writebatchsize-property) for details.<br/><br/>Allowed values are: integer 1 to 1,000; default is 1000. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 ### WriteBehavior property
 
@@ -175,7 +172,7 @@ The following table specifies whether an Azure Cognitive Search data type is sup
 | String Array | N |
 | GeographyPoint | N |
 
-Currently other data types e.g. ComplexType are not supported. For a full list of Azure Cognitive Search supported data types, see [Supported data types (Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+Currently other data types e.g. ComplexType are not supported. For a full list of Azure Cognitive Search supported data types, see [Supported data types (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

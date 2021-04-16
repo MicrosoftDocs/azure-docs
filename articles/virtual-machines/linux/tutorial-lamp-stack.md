@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Deploy LAMP on a Linux virtual machine in Azure 
 description: In this tutorial, you learn how to install the LAMP stack on a Linux virtual machine in Azure
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
-
+ms.collection: linux
 ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
@@ -22,7 +22,7 @@ ms.author: cynthn
 
 # Tutorial: Install a LAMP web server on a Linux virtual machine in Azure
 
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. If you prefer the NGINX web server, see the [LEMP stack]() tutorial. To see the LAMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. To see the LAMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create an Ubuntu VM (the 'L' in the LAMP stack)

@@ -1,8 +1,9 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 # Working with large Azure resource data sets
 
@@ -37,8 +38,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
 control is **$top** and is part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
@@ -65,7 +65,8 @@ of the data set instead.
 
 > [!NOTE]
 > When using **Skip**, it's recommended to order the results by at least one column with `asc` or
-> `desc`. Without sorting, the results returned are random and not repeatable.
+> `desc`. Without sorting, the results returned are random and not repeatable. If `limit` or `take`
+> are used in the query, **Skip** is ignored.
 
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
@@ -78,17 +79,17 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the control is **$skip** and is
-part of **QueryRequestOptions**.
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+control is **$skip** and is part of **QueryRequestOptions**.
 
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
 result set would exceed the maximum allowed value of _1000_ returned records, use paging. The
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
 **QueryResponse** provides values to indicate of a results set has been broken up:
 **resultTruncated** and **$skipToken**. **resultTruncated** is a boolean value that informs the
-consumer if there are additional records not returned in the response. This condition can also be
+consumer if there are more records not returned in the response. This condition can also be
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
@@ -111,7 +112,8 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > The query must **project** the **id** field in order for pagination to work. If it's missing from
 > the query, the response won't include the **$skipToken**.
 
-For an example, see [Next page query](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query)
+For an example, see
+[Next page query](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results
@@ -131,7 +133,7 @@ design and row values of the properties returned by the query. This format close
 defined in a structured table or spreadsheet with the columns identified first and then each row
 representing data aligned to those columns.
 
-Here is a sample of a query result with the _Table_ formatting:
+Here's a sample of a query result with the _Table_ formatting:
 
 ```json
 {
@@ -175,7 +177,7 @@ The _ObjectArray_ format also returns results in a JSON format. However, this de
 key/value pair relationship common in JSON where the column and the row data are matched in array
 groups.
 
-Here is a sample of a query result with the _ObjectArray_ formatting:
+Here's a sample of a query result with the _ObjectArray_ formatting:
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Deploy resources with a policy definition"
-description: This Azure Policy pattern provides an example of how to deploy resources with a policy definition.
-ms.date: 01/31/2020
+description: This Azure Policy pattern provides an example of how to deploy resources with a deployIfNotExists policy definition.
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: deploy resources

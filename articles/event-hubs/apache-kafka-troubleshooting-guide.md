@@ -50,11 +50,11 @@ Check the following items if you see issues when using Kafka on Event Hubs.
 - **SASL authentication** - Getting your framework to cooperate with the SASL authentication protocol required by Event Hubs can be more difficult than meets the eye. See if you can troubleshoot the configuration using your framework's resources on SASL authentication. 
 
 ## Limits
-Apache Kafka vs. Event Hubs Kafka. For the most part, Event Hubs Kafka has the same defaults, properties, error codes, and general behavior that Apache Kafka does. The instances that these two explicitly differ (or where Event Hubs imposes a limit that Kafka doesn't) are listed below:
+Apache Kafka vs. Event Hubs Kafka. For the most part, Azure Event Hubs' Kafka interface has the same defaults, properties, error codes, and general behavior that Apache Kafka does. The instances that these two explicitly differ (or where Event Hubs imposes a limit that Kafka doesn't) are listed below:
 
 - The max length of the `group.id` property is 256 characters
 - The max size of `offset.metadata.max.bytes` is 1024 bytes
-- Offset commits are throttled at 4 calls/second per partition with a max internal log size of 1 MB
+- Offset commits are throttled to 4 calls/second per partition with a maximum internal log size of 1 MB
 
 
 ## Next steps
@@ -62,5 +62,5 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 
 - [Apache Kafka developer guide for Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
-- [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.yml)
 - [Recommended configurations](apache-kafka-configurations.md)

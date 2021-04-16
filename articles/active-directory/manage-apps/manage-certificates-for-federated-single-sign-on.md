@@ -2,17 +2,14 @@
 title: Manage federation certificates in Azure AD | Microsoft Docs
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: celestedg
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ---
@@ -85,6 +82,8 @@ Azure AD will send an email notification 60, 30, and 7 days before the SAML cert
 1. For each email address you want to delete, select the **Delete** icon (a garbage can) next to the email address.
 1. Select **Save**.
 
+You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails.
+
 You will receive the notification email from aadnotification@microsoft.com. To avoid the email going to your spam location, add this email to your contacts.
 
 ## Renew a certificate that will soon expire
@@ -106,4 +105,4 @@ If a certificate is about to expire, you can renew it using a procedure that res
 - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Application management with Azure Active Directory](what-is-application-management.md)
 - [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
-- [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md)

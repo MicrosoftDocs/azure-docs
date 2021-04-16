@@ -1,6 +1,8 @@
 ---
 title: Migrate to V3 machine-learning entity
 description: The V3 authoring provides one new entity type, the machine-learning entity, along with the ability to add relationships to the machine-learning entity and other entities or features of the application.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
 ---

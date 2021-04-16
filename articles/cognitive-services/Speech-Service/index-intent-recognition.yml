@@ -19,7 +19,7 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Recognize speech, intents, and entities
-          url: quickstarts/intent-recognition.md
+          url: get-started-intent-recognition.md
 - title: Develop with intent recognition
   linkLists:
     - linkListType: how-to-guide
@@ -38,3 +38,9 @@ landingContent:
           url: ../luis/luis-language-support.md#languages-supported
         - text: Intent recognition pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

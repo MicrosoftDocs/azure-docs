@@ -1,19 +1,11 @@
 ---
 title: 'Tutorial: Create a pipeline using Copy Wizard '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard
@@ -49,7 +41,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 2. In the **New data factory** blade:
    
    1. Enter **ADFTutorialDataFactory** for the **name**.
-       The name of the Azure data factory must be globally unique. If you receive the error: `Data factory name “ADFTutorialDataFactory” is not available`, change the name of the data factory (for example, yournameADFTutorialDataFactoryYYYYMMDD) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.  
+       The name of the Azure data factory must be globally unique. If you receive the error: `Data factory name "ADFTutorialDataFactory" is not available`, change the name of the data factory (for example, yournameADFTutorialDataFactoryYYYYMMDD) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.  
       
        ![Data Factory name not available](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Select your Azure **subscription**.
@@ -58,7 +50,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
       - Select **Use existing** to select an existing resource group.
       - Select **Create new** to enter a name for a resource group.
           
-		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../../azure-resource-manager/management/overview.md).
+        Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../../azure-resource-manager/management/overview.md).
    4. Select a **location** for the data factory.
    5. Select **Pin to dashboard** check box at the bottom of the blade.  
    6. Click **Create**.
@@ -97,10 +89,10 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    1. Double-click **adftutorial** (folder).
    2. Select **emp.txt**, and click **Choose**
       
-      ![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![Screenshot shows the Choose option for your input file.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. On the **Choose the input file or folder** page, click **Next**. Do not select **Binary copy**. 
    
-    ![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![Screenshot shows the Binary copy option for your input.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file. You can also enter the delimiters manually for the copy wizard to stop auto-detecting or to override. Click **Next** after you review the delimiters and preview data. 
    
     ![Copy Tool - File format settings](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -125,10 +117,10 @@ In this step, you use the Azure portal to create an Azure data factory named **A
     ![Copy Tool - schema mapping](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. On the **Performance settings** page, click **Next**. 
     
-    ![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![Screenshot shows the Performance settings page where you can select Next.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard). 
     
-    ![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![Screenshot shows the Summary page where you can select Next.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Launch Monitor and Manage application
 1. On the **Deployment** page, click the link: `Click here to monitor copy pipeline`.
@@ -140,11 +132,11 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 3. To see the latest status of hourly slices, click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom. You see five activity windows for five days between start and end times for the pipeline. The list is not automatically refreshed, so you may need to click Refresh a couple of times before you see all the activity windows in the Ready state. 
 4. Select an activity window in the list. See the details about it in the **Activity Window Explorer** on the right.
 
-	![Activity window details](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)	
+    ![Activity window details](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-	Notice that the dates 11, 12, 13, 14, and 15 are in green color, which means that the daily output slices for these dates have already been produced. You also see this color coding on the pipeline and the output dataset in the diagram view. In the previous step, notice that two slices have already been produced, one slice is currently being processed, and the other two are waiting to be processed (based on the color coding). 
+    Notice that the dates 11, 12, 13, 14, and 15 are in green color, which means that the daily output slices for these dates have already been produced. You also see this color coding on the pipeline and the output dataset in the diagram view. In the previous step, notice that two slices have already been produced, one slice is currently being processed, and the other two are waiting to be processed (based on the color coding). 
 
-	For more information on using this application, see [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) article.
+    For more information on using this application, see [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) article.
 
 ## Next steps
 In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 

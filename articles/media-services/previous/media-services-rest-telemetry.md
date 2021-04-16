@@ -3,22 +3,22 @@ title: Configuring Azure Media Services telemetry with REST| Microsoft Docs
 description: This article shows you how to use the Azure Media Services telemetry using REST API..
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 
 # Configuring Azure Media Services telemetry with REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This topic describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using REST API. 
 

@@ -4,7 +4,7 @@ description: Learn about several of the integration requirements for the Microso
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -35,7 +35,10 @@ While subscribing to the SaaS offer, the user has agreed to pay for consumption 
 
 After subscribing to an offer, the Azure user can discover and manage all their offers in Azure. By default, the state of a newly subscribed SaaS offer is shown as **Provisioning, fulfillment pending**. In this state, the Azure user will be prompted with an action to **Configure Account**, in order to browse to their SaaS subscription management experience in the Azure portal.
 
-When the user selects **Configure Account**, they are redirected to the SaaS service website. The publisher configured the URL at the time of publishing the offer. This page is referred to as the publisher's landing page. Azure users sign in to the SaaS landing page based on their existing AAD credentials in Azure.
+When the user selects **Configure Account**, they are redirected to the SaaS service website. The publisher configured the URL at the time of publishing the offer. This page is referred to as the publisher's landing page. Azure users sign in to the SaaS landing page based on their existing Azure Active Directory (Azure AD) credentials in Azure.
+
+> [!IMPORTANT]
+> You must sign in the buying user using Azure Active Directory, Single Sign On (Azure AD SSO) as directed by the [policy](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). The `mail` property on the user resource retrieved from the Microsoft Graph API gives you the contact information for the case of Azure AD and `userPrincipalName` for MSA. It is possible that the “mail” field is empty for Azure AD, and the user may not have an email recorded. If this is the case, we recommend you detect that and ask for a contact email. This is your only chance to get a contact email to reach a customer during or after the customer on-boarding process.
 
 When the Azure user is redirected to the landing page, a token is added to the query URL. This token is short-lived, and valid for a time duration of 24 hours. You can then detect the presence of this token, and call Microsoft's API to get more context associated with the token.
 
@@ -58,13 +61,13 @@ The response to the `Resolve` API includes the offer and plan information associ
 >[!Note]
 >You can block downgrades if you do not want to support specific conversion paths.
 
-The sequence below captures the flow when an Azure customer changes plan in the SaaS experience:
+The sequence below captures the flow when an Azure customer changes a plan in the SaaS experience:
 
 ![Customer plan change flow](media/saas-metering-service-integration-flow-b.png)
 
-The sequence below captures the flow when an Azure customer changes plan in Microsoft's storefront
+The sequence below captures the flow when an Azure customer changes a plan in Microsoft's online store:
 
-![Customer storefront plan change flow](media/saas-metering-service-integration-flow-c.png)
+![Customer online store plan change flow](media/saas-metering-service-integration-flow-c.png)
 
 ### How can the Azure user unsubscribe from the plan associated with Azure subscription?
 
@@ -74,9 +77,9 @@ The sequence below captures the flow when an Azure customer unsubscribes to the 
 
 ![Customer unsubscribes in the SaaS experience](media/saas-metering-service-integration-flow-d.png)
 
-The sequence below captures the flow when Azure user unsubscribes in Microsoft's storefront:
+The sequence below captures the flow when Azure user unsubscribes in Microsoft's online store:
 
-![Customer unsubscribes in Microsoft's storefront](media/saas-metering-service-integration-flow-e.png)
+![Customer unsubscribes in Microsoft's online store](media/saas-metering-service-integration-flow-e.png)
 
 ## Next steps
 

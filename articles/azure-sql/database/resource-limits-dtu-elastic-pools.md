@@ -6,28 +6,34 @@ ms.service: sql-database
 ms.subservice: elastic-pools
 ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang:
-ms.topic: conceptual
+ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: carlrab
-ms.date: 07/28/2020
+ms.reviewer: sstein
+ms.date: 04/09/2021
 ---
 # Resources limits for elastic pools using the DTU purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides the detailed resource limits for databases in Azure SQL Database that are within an elastic pool using the DTU purchasing model.
 
-* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](resource-limits-vcore-elastic-pools.md).
+* For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits single databases](resource-limits-dtu-single-databases.md) and [DTU resource limits elastic pools](resource-limits-dtu-elastic-pools.md).
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
+* For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
+
+Each read-only replica has its own resources such as DTUs, workers, and sessions. Each read-only replica is subject to the resource limits detailed later in this article.
 
 ## Elastic pool: Storage sizes and compute sizes
 
 For Azure SQL Database elastic pools, the following tables show the resources available at each service tier and compute size. You can set the service tier, compute size, and storage amount using:
 
+* [Transact-SQL](elastic-pool-scale.md) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [Azure CLI](elastic-pool-manage.md#azure-cli)
-* [REST API](elastic-pool-manage.md#rest-api).
+* [REST API](elastic-pool-manage.md#rest-api)
+
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md)
@@ -70,7 +76,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max concurrent sessions per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min DTU per database choices | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Max DTU per database choices | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
-| Max storage per database (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
+| Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
@@ -91,7 +97,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max concurrent sessions per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min DTU per database choices | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Max DTU per database choices | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Max storage per database (GB) | 1024 | 1536 | 1792 | 2304 | 2816 |
 |||||||
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
@@ -112,7 +118,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max concurrent sessions per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
-| Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1536 |
 |||||||
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
@@ -133,7 +139,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max concurrent sessions per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min DTU per database choices | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Max DTU per database choices | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Max storage per database (GB) | 2048 | 2560 | 3072 | 3584 | 4096 |
 |||||||
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
@@ -148,7 +154,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 > [!NOTE]
-> For `tempdb` limits, see [tempdb limits](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
 ### Database properties for pooled databases
 

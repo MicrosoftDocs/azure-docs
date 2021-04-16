@@ -1,8 +1,10 @@
 ---
 title: "Quickstart: Deploy an app with the LUIS portal"
 description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/06/2020
+ms.date: 03/29/2021
 ---
 
 # Quickstart: Deploy an app in the LUIS portal
@@ -114,4 +116,4 @@ When you're done with this quickstart, select **My apps** from the top navigatio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Identify common intents and entities](luis-tutorial-prebuilt-intents-entities.md)
+> [Iterative app development for LUIS](./luis-concept-app-iteration.md)

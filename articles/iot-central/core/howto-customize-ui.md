@@ -9,15 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 
-# As an administrator, I want to customize the themes and help links within Central so that my company's brand is represented within the app. 
-
+#Customer intent: As an administrator, I want to customize the themes and help links within Central so that my company's brand is represented within the app.
 ---
 
 # Customize the Azure IoT Central UI
 
 This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
-
-
 
 The following screenshot shows a page using the standard theme:
 

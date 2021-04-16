@@ -1,20 +1,11 @@
 ---
 title: Encrypt credentials in Azure Data Factory 
 description: Learn how to encrypt and store credentials for your on-premises data stores on a machine with self-hosted integration runtime. 
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-
 ---
 
 # Encrypt credentials for on-premises data stores in Azure Data Factory
@@ -34,17 +25,17 @@ Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with va
 
 ```json
 {
-	"properties": {
-		"type": "SqlServer",
-		"typeProperties": {
-			"connectionString": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-		},
-		"connectVia": {
-			"type": "integrationRuntimeReference",
-			"referenceName": "<integration runtime name>"
-		},
-		"name": "SqlServerLinkedService"
-	}
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
+        },
+        "connectVia": {
+            "type": "integrationRuntimeReference",
+            "referenceName": "<integration runtime name>"
+        },
+        "name": "SqlServerLinkedService"
+    }
 }
 ```
 

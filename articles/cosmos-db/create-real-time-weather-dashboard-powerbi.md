@@ -4,6 +4,7 @@ description: Learn how to create a live weather dashboard in Power BI using Azur
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
@@ -11,6 +12,7 @@ ms.reviewer: sngun
 ---
 
 # Create a real-time dashboard using Azure Cosmos DB and Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes the steps required to create a live weather dashboard in Power BI using Azure Cosmos DB and Azure Analysis Services. The Power BI dashboard will display charts to show real-time information about temperature and rainfall in a region.
 
@@ -42,7 +44,7 @@ Azure Analysis Services provides a fully managed platform as a service that host
 
 ### Ingest weather data into Azure Cosmos DB
 
-Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset/local-weather-archive) to Azure Cosmos DB. You can set up an [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB sink.
+Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) to Azure Cosmos DB. You can set up an [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB sink.
 
 
 ### Connect Power BI to Azure Cosmos DB
@@ -66,7 +68,7 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
    
    |Property  |Data type  |Filter  |
    |---------|---------|---------|
-   |_ts	    |   Numeric      |  [_ts] > Duration.TotalSeconds(RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) and [_ts] < Duration.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0, 0)))       |
+   |_ts        |   Numeric      |  [_ts] > Duration.TotalSeconds(RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) and [_ts] < Duration.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0, 0)))       |
    |Date (for example:- 2019-08-19)     |   String      | [Document.date]> DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
    |Date (for example:- 2019-08-11 12:00:00)   |  String       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
@@ -88,13 +90,13 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
 ### Ingest weather data into Azure Cosmos DB 
 
-Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset/local-weather-archive) to Azure Cosmos DB. You can set up an Azure Data Factory(ADF) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB Sink.
+Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) to Azure Cosmos DB. You can set up an Azure Data Factory(ADF) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB Sink.
 
 ### Connect Azure Analysis Services to Azure Cosmos account
 
 1. **Create a new Azure Analysis Services cluster** - [Create an instance of Azure Analysis services](../analysis-services/analysis-services-create-server.md) in the same region as the Azure Cosmos account and the Databricks cluster.
 
-1. **Create a new Analysis Services Tabular Project in Visual Studio** -  [Install the SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) and create an Analysis Services Tabular project in Visual Studio.
+1. **Create a new Analysis Services Tabular Project in Visual Studio** -  [Install the SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) and create an Analysis Services Tabular project in Visual Studio.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Create Azure Analysis Services project":::
 
@@ -136,7 +138,7 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
    Additionally, change the data type of the temperature columns to Decimal to make sure that these values can be plotted in Power BI.
 
-1. **Create Azure Analysis partitions** - Create partitions in Azure Analysis Services to divide the dataset into logical partitions that can be refreshed independently and at different frequencies. In this example, you create two partitions that would divide the dataset into the most recent month’s data and everything else.
+1. **Create Azure Analysis partitions** - Create partitions in Azure Analysis Services to divide the dataset into logical partitions that can be refreshed independently and at different frequencies. In this example, you create two partitions that would divide the dataset into the most recent month's data and everything else.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Create analysis services partitions":::
 

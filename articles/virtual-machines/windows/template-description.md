@@ -2,7 +2,7 @@
 title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
@@ -278,7 +278,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
+In Azure, vhd files can represent [disks or images](../managed-disks-overview.md). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 
@@ -449,5 +449,5 @@ It’s not a problem to use the same template to create resources or to update e
 
 - Create your own template using [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](ps-template.md).
-- Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md).
 - For the JSON syntax and properties of resource types in templates, see [Azure Resource Manager template reference](/azure/templates/).

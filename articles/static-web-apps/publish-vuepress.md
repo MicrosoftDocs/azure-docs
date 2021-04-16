@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 ---
 
@@ -73,7 +73,7 @@ Create a VuePress app from the Command Line Interface (CLI):
     echo 'node_modules' > .gitignore
     ```
 
-1. Initialize a git repo.
+1. Initialize a Git repo.
 
    ```bash
     git init
@@ -96,7 +96,7 @@ You need a repository on GitHub to connect to Azure Static Web Apps. The followi
 1. Push your local repo up to GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## Deploy your web app
@@ -131,7 +131,7 @@ The following steps show you how to create a new Static Web Apps application and
 
 1. Select the **vuepress-static-app** as the _Repository_ .
 
-1. For the _Branch_ select **master**.
+1. For the _Branch_ select **main**.
 
    :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Completed GitHub information":::
 

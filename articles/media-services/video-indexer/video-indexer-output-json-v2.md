@@ -9,30 +9,45 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 11/16/2020
 ms.author: juliako
 ---
 
-# Examine the Video Indexer output produced by API
+# Examine the Video Indexer output
 
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Video Indexer produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
-1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. 
 
-	In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
-
-You can also visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. For more information, see [View and edit video insights](video-indexer-view-edit.md).
+You can also use the API by calling the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content.
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-This article examines the JSON content returned by the  **Get Video Index** API. 
+This article examines the Video Indexer output (JSON content). <br/>For information about what features and insights are available to you, see [Video Indexer insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > Expiration of all the access tokens in Video Indexer is one hour.
 
+## Get the insights
 
-## Root elements
+### Insights/output produced in the website/portal
+
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+1. Find a video the output of which you want to examine.
+1. Press **Play**.
+1. Select the **Insights** tab (summarized insights) or the **Timeline** tab (allows to filter the relevant insights).
+1. Download artifacts and what's in them.
+
+For more information, see [View and edit video insights](video-indexer-view-edit.md).
+
+## Insights/output produced by API
+
+1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)
+1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)
+
+	In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
+
+## Root elements of the insights
 
 |Name|Description|
 |---|---|
@@ -81,11 +96,11 @@ This section shows the summary of the insights.
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
-|faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
+|faces/animatedCharacters|May contain zero or more faces. For more detailed information, see [faces/animatedCharacters](#facesanimatedcharacters).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
-|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
+|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects-public-preview).|
 |labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
 |statistics | For more detailed information, see [statistics](#statistics).|
@@ -108,7 +123,7 @@ This section shows the summary of the insights.
 |metadata|The video's external metadata (if specified by the user).|
 |isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object. For more information, see [insights](#insights).|
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it the video ID and thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it the video ID and thumbnailId.|
 |publishedUrl|A url to stream the video.|
 |publishedUrlProxy|A url to stream the video from (for Apple devices).|
 |viewToken|A short lived view token for streaming the video.|
@@ -158,16 +173,17 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |ocr|The [OCR](#ocr) insight.|
 |keywords|The [keywords](#keywords) insight.|
 |blocks|May contain one or more [blocks](#blocks)|
-|faces|The [faces](#faces) insight.|
+|faces/animatedCharacters|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
 |labels|The [labels](#labels) insight.|
 |shots|The [shots](#shots) insight.|
 |brands|The [brands](#brands) insight.|
-|audioEffects|The [audioEffects](#audioeffects) insight.|
+|audioEffects|The [audioEffects](#audioeffects-public-preview) insight.|
 |sentiments|The [sentiments](#sentiments) insight.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) insight.|
 |textualContentModeration|The [textualContentModeration](#textualcontentmoderation) insight.|
 |emotions| The [emotions](#emotions) insight.|
 |topics|The [topics](#topics) insight.|
+|speakers|The [speakers](#speakers) insight.|
 
 Example:
 
@@ -203,36 +219,45 @@ instances|A list of time ranges of this block.|
 |---|---|
 |id|The line ID.|
 |text|The transcript itself.|
+|confidence|The transcript accuracy confidence.|
+|speakerId|The ID of the speaker.|
 |language|The transcript language. Intended to support transcript where each line can have a different language.|
 |instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only 1 instance.|
 
 Example:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+	"adjustedStart":"0:00:10.21",
+	"adjustedEnd":"0:00:12.81",
+	"start":"0:00:10.21",
+	"end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+	"adjustedStart":"0:00:12.81",
+	"adjustedEnd":"0:00:17.03",
+	"start":"0:00:12.81",
+	"end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### ocr
@@ -301,7 +326,11 @@ Example:
 }
 ```
 
-#### faces
+#### faces/animatedCharacters
+
+`animatedCharacters` element replaces `faces` in case the video was indexed with an animated characters model. This is done using a custom model in Custom Vision, Video Indexer runs it on keyframes.
+
+If faces (not animated characters) are present, Video Indexer uses Face API on all the video’s frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|
@@ -557,26 +586,28 @@ Business and product brand names detected in the speech to text transcript and/o
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
-#### audioEffects
+#### audioEffects (public preview)
 
-|Name|Description|
+|Name|Description
 |---|---|
-|id|The audio effect ID.|
-|type|The audio effect type (for example, Clapping, Speech, Silence).|
-|instances|A list of time ranges where this audio effect appeared.|
+|id|The audio effect ID|
+|type|The audio effect type|
+|instances|A list of time ranges where this audio effect appeared. Each instance has a confidence field.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]
@@ -804,6 +835,42 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 . . .
 ```
 
+#### speakers
+
+|Name|Description|
+|---|---|
+|id|The speaker ID.|
+|name|The speaker name in the form of "Speaker #*<number>*" For example: "Speaker #1".|
+|instances |A list of time ranges where this speaker appeared.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+	"adjustedStart":"0:00:10.21",
+	"adjustedEnd":"0:00:12.81",
+	"start":"0:00:10.21",
+	"end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+	"adjustedStart":"0:00:12.81",
+	"adjustedEnd":"0:00:17.03",
+	"start":"0:00:12.81",
+	"end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## Next steps
 
 [Video Indexer Developer Portal](https://api-portal.videoindexer.ai)
