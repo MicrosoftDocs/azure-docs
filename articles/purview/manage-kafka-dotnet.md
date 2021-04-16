@@ -247,7 +247,7 @@ The event hub name should be **ATLAS_ENTITIES** for sending messages to Purview.
 6. Run the receiver application. 
 
 > [!IMPORTANT]
-> Atlas currently supports the following operation types: **ENTITY_CREATE_V2**, **ENTITY_PARTIAL_UPDATE_V2**, **ENTITY_FULL_UPDATE_V2**, **ENTITY_DELETE_V2**. Pushing messages to Purview is currently enabled by default. If the scenario involves reading from Purview, notify your MS rep to create IcM, as it will need to be whitelisted in Azure Purview (provide subscription id and name of Purview account).
+> Atlas currently supports the following operation types: **ENTITY_CREATE_V2**, **ENTITY_PARTIAL_UPDATE_V2**, **ENTITY_FULL_UPDATE_V2**, **ENTITY_DELETE_V2**. Pushing messages to Purview is currently enabled by default. If the scenario involves reading from Purview  contact us as it needs to be whitelisted. (provide subscription id and name of Purview account).
 
 Sample Create Entity JSON message to create a sql table with two columns.
 
