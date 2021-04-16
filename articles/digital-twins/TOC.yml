@@ -149,6 +149,8 @@
       items:
       - name: 403 (Forbidden)
         href: troubleshoot-error-403.md
+      - name: 404 Sub-Domain not found
+        href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Reference

@@ -27,9 +27,7 @@ Azure Database Migration Service is a fully managed service designed to enable s
 * Continued investment in friction-free migrations.
 
 **Q. What source/target pairs does Azure Database Migration Service currently support?**
-The service currently supports a variety of source/target pairs, or migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](./resource-scenario-status.md).
-
-Other migration scenarios are in preview and require submitting a nomination via the DMS Preview site. For a complete listing of the scenarios in preview and to sign up to participate in one of these offerings, see the [DMS Preview site](https://aka.ms/dms-preview/).
+The service currently supports a variety of source/target pairs, or migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](https://github.com/MicrosoftDocs/azure-docs-pr/pull/resource-scenario-status.md).
 
 **Q. What versions of SQL Server does Azure Database Migration Service support as a source?**
 When migrating from SQL Server, supported sources for Azure Database Migration Service are SQL Server 2005 through SQL Server 2019.
