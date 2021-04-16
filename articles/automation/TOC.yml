@@ -68,9 +68,9 @@
           href: quickstart-create-automation-account-template.md
         - name: Managed identity
           items:
-            - name: Enable managed identity for Automation
+            - name: Enable managed identity
               href: enable-managed-identity-for-automation.md
-            - name: Disable managed identity for Automation
+            - name: Disable managed identity
               href: disable-managed-identity-for-automation.md
         - name: Run As account
           items:
