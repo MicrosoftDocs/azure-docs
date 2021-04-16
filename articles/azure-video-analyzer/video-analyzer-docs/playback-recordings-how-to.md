@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 04/13/2021
 
 ---
-# Playback of recordings 
+# Playback of video recordings 
 
 ## Pre-read  
 
@@ -16,7 +16,7 @@ ms.date: 04/13/2021
 
 ## Background  
 
-You can use Azure Video Analyzer on IoT Edge for [continuous video recording](continuous-video-recording-concept.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
+You can use Azure Video Analyzer on IoT Edge for [continuous video recording](continuous-video-recording.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
 
 Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag]()<!-- add link to swagger--> that will be set to `true` for the video resource.
 
