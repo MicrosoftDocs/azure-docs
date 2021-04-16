@@ -5,6 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/16/2020
