@@ -10,7 +10,7 @@ ms.author: cachai
 
 # Azure Function Event Grid Blob Trigger
 
-The Event Grid Blob trigger is still in preview. This article demonstrates how to setup and debug a local function that uses an Event Grid Blob trigger to handle events raised by a storage account.
+The Event Grid Blob trigger is still in preview. This article demonstrates how to setup and debug a local function that uses an Event Grid Blob trigger to handle events raised by a storage account. It also details how to deploy the trigger to Azure.
 
 ## Prerequisites
 
@@ -21,20 +21,33 @@ The Event Grid Blob trigger is still in preview. This article demonstrates how t
 
 ## Create a new function
 
-1. Open your function app in Visual Studio and, right-click on the project name in the Solution Explorer and click **Add > New Azure Function**.
+1. Open your function app in Visual Studio Code.
 
-1. In the *New Azure Function* window, select **Blob trigger**. 
+1. **Press F1** to create a new blob trigger function. Make sure to use the connection string for your storage account.
 
-1. In the *Connection string setting name* field, add your storage accounts connection string. Select **Add**.
+1. Once the function is created, add the Event Grid source parameter.
 
-1. Once the function is created, add **Source = BlobTriggerSource.EventGrid** to the function parameters.
+# [C#](#tab/csharp)
+Add **Source = BlobTriggerSource.EventGrid** to the function parameters.
 
-    ![Copy location](./media/functions-event-grid-blob-trigger/1.add-event-grid-source.png)
+# [C# Script](#tab/csharp-script)
+Add **"source": "EventGrid"** to the function.json parameters.
 
-1. Then, set a breakpoint on the line that begins with `log.LogInformation`.
+# [Java](#tab/java)
+Add **"source": "EventGrid"** to the function.json parameters.
 
-    ![Set breakpoint](./media/functions-event-grid-blob-trigger/2.set-breakpoint.png)
+# [JavaScript](#tab/javascript)
+Add **"source": "EventGrid"** to the function.json parameters.
 
+# [PowerShell](#tab/powershell)
+Add **"source": "EventGrid"** to the function.json parameters.
+
+# [Python](#tab/python)
+Add **"source": "EventGrid"** to the function.json parameters.
+
+---
+
+1. Then, set a breakpoint in your function on the line that handles logging.
 
 1. Next, **press F5** to start a debugging session.
 
@@ -99,6 +112,14 @@ Open [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 
 Once the Event Grid recognizes a new file is uploaded to the storage container, the break point is hit in your local function.
 
 ![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
+
+## Deployment
+
+When deploying your function app to Azure, you'll need to update the webhook endpoint from your local endpoint to your deployed app endpoint. To do this, follow the steps in [Add a storage event](#add-a-storage-event) and use the below for the webhook url in step 5.
+
+```http
+https://[functionAppName].azurewebsites.net/runtime/webhooks/blobs?functionName=Function1&code=[blobExtensionKey]
+```
 
 ## Clean up resources
 

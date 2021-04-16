@@ -42,9 +42,29 @@ See the [Image resize with Event Grid](../event-grid/resize-images-on-storage-bl
 
 #### Storage Extension 5.x and higher
 
-When using the preview storage extension, there is inbuilt support for Event Grid in the Blob trigger. To use this feature, add the **Source = BlobTriggerSource.EventGrid** parameter to your blob trigger function.
+When using the preview storage extension, there is inbuilt support for Event Grid in the Blob trigger. To use this feature, add the Event Grid source parameter to your blob trigger function.
 
-For more information on how to use the Blob Trigger based on Event Grid, go to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md)
+# [C#](#tab/csharp)
+Add **Source = BlobTriggerSource.EventGrid** to the function parameters.
+
+# [C# Script](#tab/csharp-script)
+Add **"source": "EventGrid"** to the function.json parameters.
+
+# [Java](#tab/java)
+Add **"source": "EventGrid"** to the function.json parameters.
+
+# [JavaScript](#tab/javascript)
+Add **"source": "EventGrid"** to the function.json parameters.
+
+# [PowerShell](#tab/powershell)
+Add **"source": "EventGrid"** to the function.json parameters.
+
+# [Python](#tab/python)
+Add **"source": "EventGrid"** to the function.json parameters.
+
+---
+
+For more information on how to use the Blob Trigger based on Event Grid, go to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md).
 
 ### Queue storage trigger
 
@@ -324,6 +344,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code. |
 |**path** | **BlobPath** |The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
+|**source** | **EventGrid** | Set this if you're using the Event Grid based blob trigger. In .NET, this can be done by setting the **Source = BlobTriggerSource.EventGrid** parameter. |
 |**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
