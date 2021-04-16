@@ -245,7 +245,7 @@ Get the state of a call:
   - `Connected`: Indicates that the call is connected.
   - `LocalHold`: Indicates that the call is put on hold by a local participant. No media is flowing between the local endpoint and remote participants.
   - `RemoteHold`: Indicates that the call was put on hold by remote participant. No media is flowing between the local endpoint and remote participants.
-  -  'InLobby' - indicates that user is in lobby
+  - `InLobby`: Indicates that user is in lobby.
   - `Disconnecting`: Transition state before the call goes to a `Disconnected` state.
   - `Disconnected`: Final call state. If the network connection is lost, the state changes to `Disconnected` after two minutes.
 
@@ -374,7 +374,7 @@ Remote participants have a set of associated properties and collections:
   - `Connected`: Participant is connected to the call.
   - `Hold`: Participant is on hold.
   - `EarlyMedia`: Announcement that plays before a participant connects to the call.
-  - `InLobby` - Indicates that remote participant is in lobby
+  - `InLobby`: Indicates that remote participant is in lobby.
   - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
@@ -410,7 +410,7 @@ Remote participants have a set of associated properties and collections:
 
 ### Add a participant to a call
 
-To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It synchronously returns the `remoteParticipant` instance.
+To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It synchronously returns the `remoteParticipant` instance. The `remoteParticipantsUpdated` event from Call is raised when a participant is successfully added to the call.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
