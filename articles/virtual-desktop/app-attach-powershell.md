@@ -235,4 +235,4 @@ You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual 
 Here are some other articles you might find helpful:
 
 - [MSIX app attach glossary](app-attach-glossary.md)
-- [MSIX app attach FAQ](app-attach-faq.md)
+- [MSIX app attach FAQ](app-attach-faq.yml)

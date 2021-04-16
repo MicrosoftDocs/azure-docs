@@ -177,7 +177,7 @@
       - name: Glossary
         href: app-attach-glossary.md
       - name: FAQ
-        href: app-attach-faq.md
+        href: app-attach-faq.yml
   - name: Azure Monitor glossary
     href: azure-monitor-glossary.md
   - name: Data locations
