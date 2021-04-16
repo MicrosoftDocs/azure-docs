@@ -55,10 +55,16 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 Your new tenant is created with the domain contoso.onmicrosoft.com.
 
+## Your user account in the new tenant
+
+When you create a new AAD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Admin](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
+
+By default, you're also listed as the [technical contact](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+
 ## Clean up resources
 If you're not going to continue to use this application, you can delete the tenant using the following steps:
 
-- Ensure that you are signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal, and switching to the target directory if needed.
+- Ensure that you're signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal. Switch to the target directory if needed.
 - Select **Azure Active Directory**, and then on the **Contoso - Overview** page, select **Delete directory**.
 
     The tenant and its associated information is deleted.
