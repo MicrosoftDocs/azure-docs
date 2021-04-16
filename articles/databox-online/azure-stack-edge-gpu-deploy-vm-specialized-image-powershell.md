@@ -7,41 +7,32 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
+#Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro GPU device so that I can deploy VMs on the device.
 ---
 
-# Deploy a VM from a specialized image on your Azure Stack Edge Pro device via Azure PowerShell 
+# Deploy a VM from a specialized image on your Azure Stack Edge Pro GPU device via Azure PowerShell 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes the steps required to deploy a virtual machine (VM) on your Azure Stack Edge Pro device from a specialized image. 
+This article describes the steps required to deploy a virtual machine (VM) on your Azure Stack Edge Pro GPU device from a specialized image. 
 
-## About specialized images
+To prepare a generalized image for deploying VMs in Azure Stack Edge Pro GPU, see [Prepare generalized image from Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) or [Prepare generalized image from an ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
+
+## About VM images
 
 A Windows VHD or VHDX can be used to create a *specialized* image or a *generalized* image. The following table summarizes key differences between the *specialized* and the *generalized* images.
 
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-|Image type  |Generalized  |Specialized  |
-|---------|---------|---------|
-|Target     |Deployed on any system         | Targeted to a specific system        |
-|Setup after boot     | Setup required at first boot of the VM.          | Setup not needed. <br> Platform turns on the VM.        |
-|Configuration     |Hostname, admin-user, and other VM-specific settings required.         |Pre-configured.         |
-|Used to     |Create multiple new VMs from the same image.         |Migrate a specific machine or restoring a VM from previous backup.         |
-
-
-This article covers steps required to deploy from a specialized image. To deploy from a generalized image, see [Use generalized Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) for your device.
-
-
-## VM image workflow
+## Workflow
 
 The high-level workflow to deploy a VM from a specialized image is:
 
 1. Copy the VHD to a local storage account on your Azure Stack Edge Pro GPU device.
 1. Create a new managed disk from the VHD.
 1. Create a new virtual machine from the managed disk and attach the managed disk.
-
 
 ## Prerequisites
 
@@ -62,7 +53,6 @@ Verify that your client can connect to the local Azure Resource Manager.
     ```
 
 2. Provide the username `EdgeArmUser` and the password to connect via Azure Resource Manager. If you do not recall the password, [Reset the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
- 
 
 ## Deploy VM from specialized image
 
@@ -72,10 +62,10 @@ The following sections contain step-by-step instructions to deploy a VM from a s
 
 Follow these steps to copy VHD to local storage account:
 
-1. Copy the source VHD to a local blob storage account on your Azure Stack Edge. 
+1. Copy the source VHD to a local blob storage account on your Azure Stack Edge.
 
 1. Take note of the resulting URI. You'll use this URI in a later step.
-    
+
     To create and access a local storage account, see the sections [Create a storage account](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) through [Upload a VHD](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) in the article: [Deploy VMs on your Azure Stack Edge device via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
 
 ## Create a managed disk from VHD
@@ -298,7 +288,6 @@ This article used only one resource group to create all the VM resource. Deletin
 
 ## Next steps
 
-Depending on the nature of deployment, you can choose one of the following procedures.
-
-- [Deploy a VM from a generalized image via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
-- [Deploy a VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Prepare a generalized image from a Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+- [Prepare a generalized image from an ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
+d
