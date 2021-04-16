@@ -6,22 +6,20 @@ ms.date: 04/12/2021
 ---
 
 # Enable message sessions for an Azure Service Bus queue or subscription
-Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For more information, see [Message sessions](message-sessions.md).
-
- This article shows how to use enable sessions for a Service Bus queue or subscription. 
+Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For conceptual information about sessions, see [Message sessions](message-sessions.md). This article shows how to use enable sessions for a Service Bus queue or subscription. 
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Using Azure portal
-In the portal, you can enable sessions while creating an entity (queue or subscription) as shown in the following examples. 
+In the portal, you can enable sessions while creating a queue or a topic subscription. 
 
 :::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
 
 :::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
 
 ## Using CLI
-The following table gives you the CLI commands that you can use to enable sessions for a queue or topic subscription. 
+The following table gives you the CLI commands that you can use to enable sessions for queues and topic subscriptions. 
 
 | Task | Command | 
 | ---- | ------- | 
@@ -34,7 +32,7 @@ For a tutorial on using CLI to create a Service Bus namespace and a queue, see [
 
 
 ## Using PowerShell
-The following table gives you the PowerShell commands that you can use to enable sessions for a queue or topic subscription. 
+The following table gives you the PowerShell commands that you can use to enable sessions for queues and topic subscriptions. 
 
 | Task | Command | 
 | ---- | ------- | 
