@@ -67,6 +67,7 @@ The following command illustrates some recommended mpirun arguments for HPC-X an
 mpirun -n $NPROCS --hostfile $HOSTFILE --map-by ppr:$NUMBER_PROCESSES_PER_NUMA:numa:pe=$NUMBER_THREADS_PER_PROCESS -report-bindings $MPI_EXECUTABLE
 ```
 where:
+
 |Parameter|Description                                        |
 |---------|---------------------------------------------------|
 |`NPROCS`	|Specifies the number of MPI processes. For example: `-n 16`.|
@@ -139,6 +140,7 @@ export I_MPI_PIN_DOMAIN=numa
 mpirun -n $NPROCS -f $HOSTFILE $MPI_EXECUTABLE
 ```
 where:
+
 |Parameter|Description                                        |
 |---------|---------------------------------------------------|
 |`FI_PROVIDER`	|Specifies which libfabric provider to use, which will affect the API, protocol, and network used. verbs is another option, but generally mlx gives you better performance.|
@@ -198,6 +200,7 @@ mpirun -n $NPROCS -f $HOSTFILE $MPI_EXECUTABLE
 ```
 where:
 Parameter|Description                                        |
+
 |---------|---------------------------------------------------|
 |`MV2_CPU_BINDING_POLICY`	|Specifies which binding policy to use, which will affect how processes are pinned to core IDs. In this case, you specify scatter, so processes will be evenly scattered among the NUMA domains.|
 |`MV2_CPU_BINDING_LEVEL`|Specifies where to pin processes. In this case, you set it to numanode, which means processes are pinned to units of NUMA domains.|
