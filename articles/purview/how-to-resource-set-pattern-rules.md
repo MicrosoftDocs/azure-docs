@@ -1,31 +1,37 @@
 ---
-title: How to create a scoped resource set configuration
-description: Learn how to create a scoped resource set configuration rule to overwrite how assets get grouped into resource sets
+title: How to create resource set pattern rules
+description: Learn how to create a resource set pattern rule to overwrite how assets get grouped into resource sets
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 04/15/2021
 ---
 
-# Create scoped resource set configuration rules
+# Create resource set pattern rules
 
 At-scale data processing systems typically store a single table on a disk as multiple files. This concept is represented in Azure Purview by using resource sets. A resource set is a single object in the data catalog that represents a large number of assets in storage. To learn more, see [Understanding resource sets](concept-resource-sets.md).
 
-When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. Scoped resource set rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog.
+When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. Resource set pattern rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog.
 
-## How to create a scoped resource set configuration
+Pattern rules are currently supported in the following source types:
+- Azure Data Lake Storage Gen2
+- Azure Blob Storage
+- Azure Files
 
-Follow the steps below to create a new scoped resource set configuration:
 
-1. Go to the management center. Select **Scoped resource sets** from the menu. Select **+ New** to create a new configuration rule set.
+## How to create a resource set pattern rule
 
-   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Create new scoped resource set rule" border="true":::
+Follow the steps below to create a new resource set pattern rule:
 
-1. Enter the scope of your scoped resource set configuration. Select your storage account type and the name of the storage account you wish to create a rule set on. Each set of rules is applied relative to a folder path scope specified in the **Folder path** field.
+1. Go to the management center. Select **Pattern rules** from the menu under the Resource sets heading. Select **+ New** to create a new rule set.
 
-   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Create scoped resource set configurations" border="true":::
+   :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-rule.png" alt-text="Create new resource set pattern rule" border="true":::
+
+1. Enter the scope of your resource set pattern rule. Select your storage account type and the name of the storage account you wish to create a rule set on. Each set of rules is applied relative to a folder path scope specified in the **Folder path** field.
+
+   :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-scope.png" alt-text="Create resource set pattern rule configurations" border="true":::
 
 1. To enter a rule for a configuration scope, select **+ New Rule**.
 
@@ -39,31 +45,31 @@ Follow the steps below to create a new scoped resource set configuration:
 
    1. **Do not group as resource set:** If enabled, matched resource won't be grouped into a resource set.
 
-      :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Create new configuration rule." border="true":::
+      :::image type="content" source="media/how-to-resource-set-pattern-rules/scoped-resource-set-rule-example.png" alt-text="Create new configuration rule." border="true":::
 
 1. Save the rule by clicking **Add**.
 
-## <a name="syntax"></a> Scoped resource set syntax
+## <a name="syntax"></a> Pattern rule syntax
 
-When creating scoped resource set rules, use the following syntax to specify which assets rules apply to.
+When creating resource set pattern rules, use the following syntax to specify which assets rules apply to.
 
 ### Dynamic replacers (single brackets)
 
-Single brackets are used as **dynamic replacers** in a scoped resource set rule. Specify a dynamic replacer in the qualified name using format `{<replacerName:<replacerType>}`. If matched, dynamic replacers are used as a grouping condition that indicate assets should be represented as a resource set. If the assets are grouped into a resource set, the resource set qualified path would contain `{replacerName}` where the replacer was specified.
+Single brackets are used as **dynamic replacers** in a pattern rules. Specify a dynamic replacer in the qualified name using format `{<replacerName:<replacerType>}`. If matched, dynamic replacers are used as a grouping condition that indicate assets should be represented as a resource set. If the assets are grouped into a resource set, the resource set qualified path would contain `{replacerName}` where the replacer was specified.
 
 For example, If two assets `folder1/file-1.csv` and `folder2/file-2.csv` matched to rule `{folder:string}/file-{NUM:int}.csv`, the resource set would be a single entity `{folder}/file-{NUM}.csv`.
 
 #### Special case: Dynamic replacers when not grouping into resource set
 
-If *Do not group as resource set* is enabled for a scoped resource set rule, the replacer name is an optional field. `{:<replacerType>}` is valid syntax. For example, `file-{:int}.csv` would successfully match for `file-1.csv` and `file-2.csv` and create two different assets instead of a resource set.
+If *Do not group as resource set* is enabled for a pattern rule, the replacer name is an optional field. `{:<replacerType>}` is valid syntax. For example, `file-{:int}.csv` would successfully match for `file-1.csv` and `file-2.csv` and create two different assets instead of a resource set.
 
 ### Static replacers (double brackets)
 
-Double brackets are used as **static replacers** in the qualified name of a scoped resource set rule. Specify a static replacer in the qualified name using format `{{<replacerName>:<replacerType>}}`. If matched, each set of unique static replacer values will create different resource set groupings.
+Double brackets are used as **static replacers** in the qualified name of a pattern rule. Specify a static replacer in the qualified name using format `{{<replacerName>:<replacerType>}}`. If matched, each set of unique static replacer values will create different resource set groupings.
 
 For example, If two assets `folder1/file-1.csv` and `folder2/file-2.csv` matched to rule `{{folder:string}}/file-{NUM:int}.csv`, two resource sets would be created `folder1/file-{NUM}.csv` and `folder2/file-{NUM}.csv`.
 
-Static replacers can be used to specify the display name of an asset matching to a scoped resource set rule. Using `{{<replacerName>}}` in the display name of a rule will use the matched value in the asset name.
+Static replacers can be used to specify the display name of an asset matching to a pattern rule. Using `{{<replacerName>}}` in the display name of a rule will use the matched value in the asset name.
 
 ### Available replacement types
 
@@ -82,9 +88,9 @@ Below are the available types that can be used in static and dynamic replacers:
 | hex | A series of 1 or more ASCII characters from the set 0-1 and A-F, the value can be 0 prefixed |
 | locale | A string that matches the syntax specified in [RFC 5646](https://tools.ietf.org/html/rfc5646). |
 
-## Order of scoped resource set rules getting applied
+## Order of resource set pattern rules getting applied
 
-Below is the order of operations for applying scoped resource set rules:
+Below is the order of operations for applying pattern rules:
 
 1. More specific scopes will take priority if an asset matches to two rules. For example, rules in a scope `container/folder` will apply before rules in scope `container`.
 
@@ -108,7 +114,7 @@ Files:
 - `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
 - `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
-#### Scoped Resource Set Rule
+#### Pattern rule
 
 **Scope:** `https://myazureblob.blob.core.windows.net/bar/`
 
@@ -139,7 +145,7 @@ Files:
 - `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 - `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### Scoped Resource Set Rules
+#### Pattern rules
 
 **Scope:** `https://myazureblob.blob.core.windows.net/bar/`
 
@@ -188,7 +194,7 @@ Files:
 - `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 - `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### Scoped resource set rule
+#### Pattern rule
 
 **Scope:** `https://myazureblob.blob.core.windows.net/bar/`
 
@@ -225,7 +231,7 @@ Files:
 - `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 - `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### Scoped resource set rule
+#### Pattern rule
 
 **Scope:** `https://myazureblob.blob.core.windows.net/bar/`
 

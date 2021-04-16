@@ -54,6 +54,13 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 
 ## 1.6.4.0
 
+>[!NOTE]
+> The Azure AD Connect sync V2 endpoint API is now available in these Azure environments:
+> - Azure Commercial
+> - Azure China cloud
+> - Azure US Government cloud
+> It will not be made available in the Azure German cloud
+
 ### Release status
 3/31/2021: Released for download only, not available for auto upgrade
 
@@ -68,7 +75,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 >[!NOTE]
 > - This release will be made available for download only.
 > - The upgrade to this release will require a full synchronization due to sync rule changes.
-> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud, the Chinese national cloud and the US government cloud and if you need to deploy this version in these clouds you need to follow [these instructions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
+> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud and if you need to deploy this version in this environment you need to follow [these instructions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
 
 ### Release status
 3/19/2021: Released for download, not available for auto upgrade
