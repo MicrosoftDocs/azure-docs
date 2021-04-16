@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ---
 # Calling Recording overview
 
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 > [!NOTE]
 > Many countries and states have laws and regulations that apply to the recording of PSTN, voice, and video calls, which often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
