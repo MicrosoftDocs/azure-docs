@@ -31,7 +31,7 @@ An Enterprise Agreement (EA) administrator or a Microsoft Customer Agreement (MC
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Cost Management + Billing** > **Reservations**.
 1. Select the utilization percentage to see the utilization history and details.
-  
+
 ## Get reservations and utilization using APIs, PowerShell, and CLI
 
 You can get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API.
