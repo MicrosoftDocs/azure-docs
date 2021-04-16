@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Download Call Recording File Sample
+title: Record and download calls with Event Grid - An Azure Communication Services quickstart
 titleSuffix: An Azure Communication Services quickstart
-description: Sample app for handling recording notifications and downloading media files.
+description: In this quickstart, you'll learn how to record and download calls using Event Grid.
 author: joseys
 manager: anvalent
 services: azure-communication-services
@@ -11,16 +11,25 @@ ms.date: 04/14/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-# Handling Recording File Events and Download Sample
+
+# Record and download calls with Event Grid
+
+Get started with Azure Communication Services by recording your Communication Services calls using Azure Event Grid.
 
 ## Prerequisites
-As a prerequisite you need to create a valid Azure Communication Services resource.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Communication Services resource. [Create a Communication Services resource](../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- The [`Microsoft.Azure.EventGrid`](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) NuGet package.
 
-## Create a web hook and subscribe to recording events
-Before subscribing to the recording event, we need to create a web hook through which we will get the notification when the recording event is triggered and download the recording files.
+## Create a webhook and subscribe to the recording events
+We'll use *webhooks* and *events* to facilitate call recording and media file downloads. 
 
-You can write your own custom web hook to receive event notifications. The key is to send back the validation code as a response for successful handshake while subscribing the web hook to the event service.
+First, we'll create a webhook. Your Communication Services resource will use Event Grid to notify this webhook when the `recording` event is triggered, and then again when recorded media is ready to be downloaded.
+
+You can write your own custom webhook to receive these event notifications. It's important for this webhook to respond to inbound messages with the validation code to successfully subscribe the webhook to the event service.
+
 ```
+[HttpPost]
 public async Task<ActionResult> PostAsync([FromBody] object request)
   {
    //Deserializing the request 
@@ -47,24 +56,24 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
     ...
   }
 ```
-**Note:**
-- You will need to add the Microsoft.Azure.EventGrid NuGet package as a dependency to use the models.
-- The web hook endpoint needs to be a POST method to allow the event service to send the validation code.
-- [Documentation link for endpoint validation and handshake](https://docs.microsoft.com/en-us/azure/event-grid/receive-events#endpoint-validation)
 
-Now once you have a Web hook, we need to subscribe it to the recording event.
-1. Click on Events under the newly created Azure Communication Services resource and then click on Event Subscription as shown below.
+
+The above code depends on the `Microsoft.Azure.EventGrid` NuGet package. To learn more about Event Grid endpoint validation, visit the [endpoint validation documentation](https://docs.microsoft.com/azure/event-grid/receive-events#endpoint-validation)
+
+We'll then subscribe this webhook to the `recording` event:
+
+1. Select the `Events` blade from your Azure Communication Services resource.
+2. Select `Event Subscription` as shown below.
 ![Screenshot showing event grid UI](./media/call-recording/image1-event-grid.png)
-
-2. Now configure the event subscription and select the appropriate Event Type as Call Recording File Status Update, and Endpoint type as Web Hook. We are using web hook as an example to get notification once the recording event is invoked.
+3. Configure the event subscription and select `Call Recording File Status Update` as the `Event Type`. Select `Webhook` as the `Endpoint type`.
 ![Create Event Subscription](./media/call-recording/image2-create-subscription.png)
-
-3. Now subscribe to the recording event by adding the URL for the web hook as the Subscriber Endpoint.
+4. Input your webhook's URL into `Subscriber Endpoint`.
 ![Subscribe to Event](./media/call-recording/image3-subscribe-to-event.png)
 
-## Notification Schema
-Once the recording is available to download, the recording service will send a notification of the event with the following schema:
-> The document ids for the recording can be fetched from the documentId fields in the recordingChunks for each chunk.
+Your webhook will now be notified whenever your Communication Services resource is used to record a call.
+
+## Notification schema
+When the recording is available to download, your Communication Services resource will emit a notification with the following event schema. The document IDs for the recording can be fetched from the `documentId` fields of each `recordingChunk`.
 
 ```
 {
@@ -90,19 +99,31 @@ Once the recording is available to download, the recording service will send a n
     "metadataVersion": string, // "1"
     "eventTime": string // ISO 8601 date time for when the event was created
 }
+
 ```
-## Download recording files
-Now once we get the document ID for the file to download, we will call the below Azure Communication Services APIs for downloading the recording file and metadata using HMAC authentication.
-The maximum recording file size is currently 1.5 GB. After that point, the recorder will split the recording into multiple files.
-The client should be able to download a recording file with a single request. If there is an issue, the client can retry with a range header to avoid redownloading the whole thing.
 
-Download call recording file: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}?api-version=2021-04-15-preview1
+## Download the recorded media files
 
-Download call recording metadata: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}/metadata?api-version=2021-04-15-preview1
+Once we get the document ID for the file we want to download, we'll call the below Azure Communication Services APIs to download the recorded media and metadata using HMAC authentication.
+
+The maximum recording file size is 1.5GB. When this file size is exceeded, the recorder will automatically split recorded media into multiple files.
+
+The client should be able to download all media files with a single request. If there's an issue, the client can retry with a range header to avoid redownloading segments that have already been downloaded.
+
+To download recorded media: 
+- Method: `GET` 
+- URL: https://contoso.communication.azure.com/recording/download/{documentId}?api-version=2021-04-15-preview1
+
+To download recorded media metadata: 
+- Method: `GET` 
+- URL: https://contoso.communication.azure.com/recording/download/{documentId}/metadata?api-version=2021-04-15-preview1
+
 
 ### Authentication
-In order to call Azure Communication Services APIs for downloading recording file and metadata, we need HMAC authentication to authenticate the request.
+To download recorded media and metadata, use HMAC authentication to authenticate the request against Azure Communication Services APIs.
+
 Create an `HttpClient` and add the necessary headers using the `HmacAuthenticationUtils` provided below:
+
 ```
   var client = new HttpClient();
 
@@ -118,10 +139,10 @@ Create an `HttpClient` and add the necessary headers using the `HmacAuthenticati
       Content = content // content if required for POST methods
   };
 
-  // Question: Why do we need to pass String.Empty to the CreateContentHash() methodd?
-  // Answer: In HMAC authentication, the hash of the content is one of the parameters used to generate the HMAC token.
-  // In our case, our recording download APIs are GET methods and do not have any content/body to be passed in the request.
-  // However, we still need a SHA256 hash of the empty content, so we pass an empty string.
+  // Question: Why do we need to pass String.Empty to CreateContentHash() method?
+  // Answer: In HMAC authentication hash of the content is one of the parameter to generate the HMAC token.
+  // In our case our recoridng download apis are GET method and does not have any content/body to be passed in the request. 
+  // However in this case we still need the SHA256 hash for the empty content and hence we pass empty string. 
 
 
   string serializedPayload = string.Empty;
@@ -135,8 +156,12 @@ Create an `HttpClient` and add the necessary headers using the `HmacAuthenticati
   // Make a request to the Azure Communication Services APIs mentioned above
   var response = await client.SendAsync(request).ConfigureAwait(false);
 ```
+
 #### HmacAuthenticationUtils 
+The below utilities can be used to manage your HMAC workflow.
+
 **Create content hash**
+
 ```
 public static string CreateContentHash(string content)
 {
@@ -157,7 +182,9 @@ public static string CreateContentHash(string content)
     return Convert.ToBase64String(alg.Hash);
 }
 ```
+
 **Add HMAC headers**
+
 ```
 public static void AddHmacHeaders(HttpRequestMessage requestMessage, string contentHash, string accessKey)
 {
@@ -177,3 +204,14 @@ public static void AddHmacHeaders(HttpRequestMessage requestMessage, string cont
     requestMessage.Headers.Add("Authorization", authorization);
 }
 ```
+
+## Clean up resources
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
+
+
+## Next steps
+For more information, see the following articles:
+
+- Check out our [web calling sample](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
+- Learn about [Calling SDK capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
+- Learn more about [how calling works](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
