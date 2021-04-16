@@ -73,12 +73,12 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 4. Press **Select Microsoft APIs**.
 5. Choose **Azure Service Management**.
 6. Press **Select**.
-![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-an-app1.png)
+![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-an-app_W1.png)
 
 7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
- ![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-an-app2.png)
+![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-an-app_W2.png)
 8. Press **Select**.
-9. Click **Grant Permissions**.
+9. Click **Add Permissions**.
 
 ### Configuring your app
 
