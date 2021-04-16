@@ -47,7 +47,7 @@ Non-platform events are triggered by user actions. Examples include stopping a v
 
 ### Unknown
 
-*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it's an important data point for troubleshooting.
+*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. This commonly occurs when virtual machines have been dallocated. Although this status isn't a definitive indication of the state of the resource, it can be an important data point for troubleshooting.
 
 If the resource is running as expected, the status of the resource will change to *Available* after a few minutes.
 
@@ -74,6 +74,10 @@ If you think that the current health status is incorrect, you can tell us by sel
 You can access up to 30 days of history in the **Health history** section of Resource Health.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
+
+## Root cause information
+
+If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. 
 
 ## Get started
 
