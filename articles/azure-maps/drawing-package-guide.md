@@ -31,7 +31,7 @@ If you don't have your own package to reference along with this guide, you may d
 You may choose any CAD software to open and prepare your facility drawing files. However, this guide is created using Autodesk's AutoCAD® software. Any commands referenced in this guide are meant to be executed using Autodesk's AutoCAD® software.  
 
 >[!TIP]
-For additional details about drawing package requirements that aren't covered in this guide, see [Drawing Package Requirements](drawing-requirements.md).
+For more information about drawing package requirements that aren't covered in this guide, see [Drawing Package Requirements](drawing-requirements.md).
 
 ## Glossary of terms
 
@@ -53,7 +53,7 @@ When preparing your facility drawing files for the Conversion service, make sure
 
 * The Conversion service works with the AutoCAD DWG file format. AC1032 is the internal format version for the DWG files, and it's a good idea to select AC1032 for the internal DWG file format version.
 
-* A DWG file can only contain a single floor. This means that floor of a facility must be provided in its own separate DWG file.  So, if you have five floors in a facility, you must create five separate DWG files.
+* A DWG file can only contain a single floor. A floor of a facility must be provided in its own separate DWG file.  So, if you have five floors in a facility, you must create five separate DWG files.
 
 ## Step 2: Prepare the Drawing Package DWG Files
 
@@ -67,7 +67,7 @@ Each floor of a facility must be provided as one DWG file. If there are no exter
 
 ### Unit of Measurement
 
-The drawings can be created using any unit of measurement. However, all drawings must use the same unit of measurement. This means that if one floor of the facility is using millimeters, then all other  floors (drawings) must also be in millimeters. You can verify/modfy this by using the `UNITS` command.
+The drawings can be created using any unit of measurement. However, all drawings must use the same unit of measurement. So, if one floor of the facility is using millimeters, then all other floors (drawings) must also be in millimeters. You can verify/modfy this by using the `UNITS` command.
 
 The following image shows the Drawing Units window within Autodesk's AutoCAD® software that you can use to verify the unit of measurement.  
 
@@ -79,15 +79,15 @@ Since each floor of a facility is provided as an individual DWG file, it's possi
 
 ### Layers
 
-Ensure that each layer of a drawing contains entities of one feature class. This means that if a layer contains entities for walls, then it can't have other features such as units or doors.  However, a feature class can be split up over multiple layers; for example, you can have three layers in the drawing that contain wall entities.
+Ensure that each layer of a drawing contains entities of one feature class. If a layer contains entities for walls, then it can't have other features such as units or doors.  However, a feature class can be split up over multiple layers; for example, you can have three layers in the drawing that contain wall entities.
 
-Furthermore, each layer has a list of supported entity types and any other types are ignored. For example, if the Unit Label layer only supports single line text, a multiline text or Polyline on the same layer is ignored.
+Furthermore, each layer has a list of supported entity types and any other types are ignored. For example, if the Unit Label layer only supports single-line text, a multiline text or Polyline on the same layer is ignored.
 
 For a better understanding of layers and feature classes, see [Drawing Package Requirements](drawing-requirements.md).
 
 ### Exterior Layer
 
-A single level feature is created from each exterior layer or layers. This level feature defines the level's perimeter. It's important to ensure that the entities in the exterior layer meet the requirements of the layer. For example, a closed Polyline is supported; but an open Polyline is not. This means that if your exterior layer is made of multiple line segments, they must be provided as one closed Polyline. To join multiple line segments together, select all line segments and use the `JOIN` command.
+A single level feature is created from each exterior layer or layers. This level feature defines the level's perimeter. It's important to ensure that the entities in the exterior layer meet the requirements of the layer. For example, a closed Polyline is supported; but an open Polyline is not. If your exterior layer is made of multiple line segments, they must be provided as one closed Polyline. To join multiple line segments together, select all line segments and use the `JOIN` command.
 
 The following image is taken from the sample package, and shows the exterior layer of the facility in red. Note that the unit layer is turned off to help with visualization.
 
@@ -95,15 +95,15 @@ The following image is taken from the sample package, and shows the exterior lay
 
 ### Unit Layer
 
-Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. A closed entity type such as Polygon, closed Polyline, Circle, or closed Ellipse is required to represent each unit. This means that walls and doors alone won't create a unit because there isn’t an entity that represents the unit.  
+Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. A closed entity type such as Polygon, closed Polyline, Circle, or closed Ellipse is required to represent each unit. So, walls and doors alone won't create a unit because there isn’t an entity that represents the unit.  
 
-The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows the unit label layer and unit layer in red. Note that all other layers are turned off to help with visualization. In addition, one unit is selected to help show that each unit is a closed Polyline.  
+The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows the unit label layer and unit layer in red. All other layers are turned off to help with visualization. In addition, one unit is selected to help show that each unit is a closed Polyline.  
 
 :::image border="true" type="content" source="{source}" alt-text="Unit layer of a facility.":::
 
 ### Unit Label Layer
 
-If you'd like to add a name property to a unit, you'll need to add a separate layer for unit labels. Labels must be provided as single line text entities that fall inside the bounds of a unit. A corresponding unit property must be added to the manifest file where the `unitName` matches the Contents of the Text.  To learn about all supported unit properties, see [`unitProperties`](#unitproperties).
+If you'd like to add a name property to a unit, you'll need to add a separate layer for unit labels. Labels must be provided as single-line text entities that fall inside the bounds of a unit. A corresponding unit property must be added to the manifest file where the `unitName` matches the Contents of the Text.  To learn about all supported unit properties, see [`unitProperties`](#unitproperties).
 
 ### Door Layer
 
@@ -115,7 +115,7 @@ The following image is taken from the [sample Drawing package](https://github.co
 
 ### Wall Layer
 
-The wall layer is meant to represent the physical extents of a facility such as walls and columns. The Azure Maps Conversion service perceives walls as physical structures that are an obstruction to routing. With that in mind, a wall should be thought as a physical structure that one can see, but not walk though. Anything that can’t be seen should not be captured in this layer. If a wall has inner walls or columns inside, then only the exterior should be captured.  
+The wall layer is meant to represent the physical extents of a facility such as walls and columns. The Azure Maps Conversion service perceives walls as physical structures that are an obstruction to routing. With that in mind, a wall should be thought as a physical structure that one can see, but not walk though. Anything that can’t be seen won't captured in this layer. If a wall has inner walls or columns inside, then only the exterior should be captured.  
 
 ## Step 3: Prepare the Drawing Package Manifest
 
