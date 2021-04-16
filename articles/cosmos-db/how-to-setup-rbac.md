@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/16/2021
 ms.author: thweiss
 ---
 
@@ -40,6 +40,13 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 
 ## <a id="permission-model"></a> Permission model
 
+> [!IMPORTANT]
+> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. If you need to authenticate management operations with an AAD identity, you **cannot use any Azure Cosmos DB data plane SDK**. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
+> - ARM templates
+> - Azure PowerShell scripts,
+> - Azure CLI scripts,
+> - Azure management libraries.
+
 The table below lists all the actions exposed by the permission model.
 
 | Name | Corresponding database operation(s) |
@@ -59,9 +66,6 @@ Wildcards are supported at both *containers* and *items* levels:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. To authenticate management operations with an AAD identity, use [Azure RBAC](role-based-access-control.md) instead.
 
 ### <a id="metadata-requests"></a> Metadata requests
 
