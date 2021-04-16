@@ -12,17 +12,21 @@ ms.reviewer: stewu
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use [Azure portal](https://ms.portal.azure.com/) to manage access control lists (ACLs) in storage accounts that has hierarchical namespace (HNS) enabled. You can use the Azure portal to view, and then update the ACLs of directories and files.
+This article shows you how to use [Azure portal](https://ms.portal.azure.com/) to manage access control lists (ACLs) in storage accounts that have the hierarchical namespace featured enabled on them. You can use the Azure portal to view, and then update the ACLs of directories and files.
+
+For information about the structure of the ACL, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
+To learn about how to use ACLs and Azure Roles together, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 ## Prerequisites
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+- A storage account that has the hierarchical namespace featured enabled on it. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - You must have one of the following security permissions:
 
-  - You're user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account, parent resource group or subscription.  
+  - Your user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account, parent resource group or subscription.  
 
   - You are the owning user of the target container, directory, or blob to which you plan to apply ACL settings. 
   
@@ -51,22 +55,22 @@ This article shows you how to use [Azure portal](https://ms.portal.azure.com/) t
    > [!div class="mx-imgBorder"]
    > ![access ACL tab of the Manage ACL page](./media/data-lake-storage-acl-azure-portal/access-acl-page.png)
 
-   Use the check box controls to set the values of the ACL. 
+7. Click the **Add principal** button to a *security principal* to the ACL. A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). 
 
-7. To manage the default ACL of a directory, select the **default permissions** tab. This tab appears only for directories. To configure the default ACL, select the **Configure default permissions** checkbox.
-
-   > [!div class="mx-imgBorder"]
-   > ![default ACL tab of the Manage ACL page](./media/data-lake-storage-acl-azure-portal/default-acl-page.png)
-
-   You can also add a *security principal* to the ACL. A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD).
-
-8. To a *security principal* to the ACL, click the **Add principal** button, find the security principal by using the search box, and then click the **Select** button. 
+   Find the security principal by using the search box, and then click the **Select** button. 
 
    > [!div class="mx-imgBorder"]
    > ![Add a security principal to the ACL](./media/data-lake-storage-acl-azure-portal/get-security-principal.png)
 
    > [!NOTE]
    > We recommend that you create a security group in Azure AD, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md).
+
+8. Select the **default permissions** tab to manage the *default ACL*. Default ACLs are templates of ACLs associated with a directory that determine the access ACLs for any child items that are created under that directory. A blob doesn't have a default ACL, so this tab appears only for directories. 
+
+   To configure the default ACL, select the **Configure default permissions** checkbox.
+
+   > [!div class="mx-imgBorder"]
+   > ![default ACL tab of the Manage ACL page](./media/data-lake-storage-acl-azure-portal/default-acl-page.png)
 
 ## Apply an ACL recursively
 
