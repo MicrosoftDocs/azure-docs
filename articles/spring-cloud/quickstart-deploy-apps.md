@@ -171,7 +171,7 @@ The output is JSON:
 
 This response shows that both microservice apps are working. The `SolarSystemWeather` app returns data that it retrieved from the `PlanetWeatherProvider` app.
 ::: zone-end
-
+---
 ::: zone pivot="programming-language-java"
 This document explains how to build and deploy microservice applications to Azure Spring Cloud using:
 * Azure CLI
@@ -189,9 +189,7 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 ## Deployment procedures
 
-#### [CLI](#tab/Azure-CLI)
-
-### Build the microservices applications locally
+## Build the microservices applications locally
 
 1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project. 
 
@@ -202,7 +200,9 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 Compiling the project takes 5 -10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
 
-### Create and deploy apps on Azure Spring Cloud
+#### [CLI](#tab/Azure-CLI)
+
+## Create and deploy apps on Azure Spring Cloud CLI
 
 1. Create the 2 core microservices for PetClinic: API gateway and customer-service.
 
@@ -249,20 +249,10 @@ az spring-cloud app create --name visits-service --instance-count 1 --memory 2
 az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-
+```
 #### [Maven](#tab/Maven)
 
-### Clone and build the sample application repository
-
-1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project. 
-
-    ```azurecli
-    git clone https://github.com/azure-samples/spring-petclinic-microservices
-    cd spring-petclinic-microservices
-    mvn clean package -DskipTests -Denv=cloud
-    ```
-    Compiling the project takes 5 -10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
-### Create and deploy apps on Azure Spring Cloud
+## Create and deploy apps on Azure Spring Cloud Maven
 
 1. Create the 2 core microservices for PetClinic: API gateway and customer-service.
 
@@ -298,7 +288,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 > [!TIP]
 > To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring-cloud app logs --name <app name> -f`.
 
-### Deploy extra apps
+## Deploy extra apps
 
 To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other apps with following commands:
 
@@ -309,10 +299,10 @@ az spring-cloud app create --name visits-service --instance-count 1 --memory 2
 az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-
+```
 #### [IntelliJ](#tab/IntelliJ)
 
-### Import sample project in IntelliJ
+## Import sample project in IntelliJ
 
 1. Download and unzip the source repository for this tutorial, or clone it using Git: `git clone https://github.com/Azure-Samples/piggymetrics` 
 
