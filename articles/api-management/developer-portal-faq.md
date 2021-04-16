@@ -16,12 +16,26 @@ ms.author: apimpm
 
 ## What if I need functionality that isn't supported in the portal?
 
-You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn also about developer portal [extensibility](api-management-howto-developer-portal#extensibility).
+You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn also about developer portal [extensibility](api-management-howto-developer-portal.md#extensibility).
 
 
 ## Can I have multiple developer portals in one API Management service?
 
 You can have one managed portal and multiple self-hosted portals. The content of all portals is stored in the same API Management service, so they will be identical. If you want to differentiate portals' appearance and functionality, you can self-host them with your own custom widgets that dynamically customize pages on runtime, for example based on the URL.
+
+## <a id="preview-to-ga"></a> How can I migrate from the preview version of the portal?
+
+When you first launched the preview version of developer portal, you provisioned the preview version of its default content in your API Management service. The default content has been significantly modified in the generally available version. For example, the preview version of default content doesn't include OAuth buttons in the log-in pages, it uses different widgets for displaying APIs, and relies on limited capabilities for structuring developer portal pages. Even though there are differences in the content, the portal's engine (including underlying widgets) is automatically updated every time you publish your developer portal.
+
+If you heavily customized your portal based on the preview version of content, you may continue to use it as is and place new widgets manually on portal's pages. Otherwise, we recommend replacing your portal's content with the new default content.
+
+To reset the content in a managed portal, select **Reset content** in the **Operations** menu section. This operation will remove all the content of the portal and provision new default content. You will lose all developer portal customizations and changes. **You can't undo this action**.
+
+![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
+
+If you're using the self-hosted version, run `scripts.v2/cleanup.bat` and `scripts.v2/generate.bat` scripts from the GitHub repository to remove existing content and provision new content. Make sure to upgrade your portal's code to the latest release from the GitHub repository beforehand.
+
+If you first accessed the portal after the general availability announcement in November 2019, it should already feature the new default content and no further action is required.
 
 ## Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
 
@@ -55,7 +69,7 @@ After you set up delegation, you need to [republish the portal](api-management-h
 
 Most configuration changes (for example, VNet, sign-in, product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
 
-## I'm getting a CORS error when using the interactive console
+## <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
 The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s).
 

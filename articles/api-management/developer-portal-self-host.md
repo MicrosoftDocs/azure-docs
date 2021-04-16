@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Self-host the API Management developer portal
 
-This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting provides great flexibility to extend the developer portal with custom logic and widgets that dynamically customize pages on runtime. You can self-host multiple portals for your API Mangagement instance, with different features. When you self-host a portal, you become its maintainer and you are responsible for its upgrades. 
+This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting provides great flexibility to extend the developer portal with custom logic and widgets that dynamically customize pages on runtime. You can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you are responsible for its upgrades. 
 
 The following steps show how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure storage account.
 
@@ -120,7 +120,7 @@ Configure the file:
 
 1. Copy and paste the `managementApiUrl` and `managementApiAccessToken` values from the previous configuration file.
 
-1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha.md).
+1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha).
 
 ### config.runtime.json file
 

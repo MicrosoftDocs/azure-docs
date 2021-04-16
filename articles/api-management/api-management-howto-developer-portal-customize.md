@@ -163,7 +163,7 @@ After you publish the portal, you can access it at the same URL as the administr
 
 ## Apply the CORS policy on APIs
 
-To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see the [Azure API Management developer portal overview](api-management-howto-developer-portal.md#cors).
+To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see the [Azure API Management developer portal FAQ](developer-portal-faq.md#cors).
 
 ## Next steps
 

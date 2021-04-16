@@ -84,5 +84,5 @@ Follow these steps to plug Application Insights into your managed or self-hosted
 Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
-- [Move from managed to self-hosted developer portal](developer-portal-move-managed-self-hosted.md)
+- [Automate portal deployments](automate-portal-deployments.md)
 - [Self-host the developer portal](developer-portal-self-host.md)
