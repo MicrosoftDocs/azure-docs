@@ -21,7 +21,6 @@ This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated li
 ## Prerequisites
 
 * An Azure account that includes an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-  > [!NOTE]
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
@@ -52,9 +51,9 @@ The HTTP extension node plays the role of a proxy. It  It samples the incoming v
 
 In this tutorial, you will:
 
-1. Create and deploy the Live Pipeline, modifying it.
-1. Interpret the results.
-1. Clean up resources.
+* Create and deploy the Live Pipeline, modifying it.
+* Interpret the results.
+* Clean up resources.
 
 ## About OpenVINO™ Model Server – AI Extension from Intel
 
@@ -301,7 +300,7 @@ In the messages, notice the following details:
 * The `body` section contains data about the analytics event. In this case, the event is an inference event, so the body contains `inferences` data.
 * The `inferences` section indicates that the `type` is `entity`. This section includes additional data about the entity.
 
-## Run the sample program to detect persons or vehicles or bikes
+## Run the sample program to detect persons, vehicles or bikes
 To use a different model, you will need to modify the pipeline topology, and as well as `operations.json` file.
 
 Copy the [pipeline topology]()<!-- need new link --> to a local file, say `C:\TEMP\topology.json`. Open that copy, and edit the value of `inferencingUrl` to `http://openvino:4000/personVehicleBikeDetection`.

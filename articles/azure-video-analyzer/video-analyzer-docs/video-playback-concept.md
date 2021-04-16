@@ -39,13 +39,13 @@ Alternatively you can embed an existing pre-build script by adding type="module"
 ## Media endpoint 
 
 The media endpoints authorize a player by verifying the playback token presented by the player. You can use your own player to play videos directly from your Azure Video Analyzer account in DASH/HLS format. In order to get access to the video you will need to provide a JWT token to the API. Currently we support a JWT token to be passed to the API by the following ways:
-1. JWT token as HTTP authorization header
-1. JWT token as cookie
-1. JWT token as querystring
+* JWT token as HTTP authorization header
+* JWT token as cookie
+* JWT token as querystring
 
 The JWT will expire and you will need to renew the JWT at regular intervals for continued playback of the videos.
 
-## Streaming Authorization 
+## Streaming authorization 
 
 <!-- Need information how to get a token -->
 
