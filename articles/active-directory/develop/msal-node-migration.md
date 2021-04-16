@@ -14,7 +14,7 @@ ms.date: 04/10/2019
 ms.author: v-doeris
 ms.reviewer: saeeda
 ms.custom: "aaddev"
-#Customer intent: As an application developer, I want to learn about the differences between the ADAL Node and MSAL Node libraries so I can migrate my applications to MSAL Node.
+# Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.```
 ---
 
 # Migrating applications to MSAL Node
