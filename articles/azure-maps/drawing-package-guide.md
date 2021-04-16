@@ -87,7 +87,8 @@ For a better understanding of layers and feature classes, see [Drawing Package R
 
 ### Exterior Layer
 
-A single level feature is created from each exterior layer or layers. This level feature defines the level's perimeter. It's important to ensure that the entities in the exterior layer meet the requirements of the layer. For example, a closed Polyline is supported; but an open Polyline is not. If your exterior layer is made of multiple line segments, they must be provided as one closed Polyline. To join multiple line segments together, select all line segments and use the `JOIN` command.
+A single level feature is created from each exterior layer or layers. This level feature defines the level's perimeter. It's important to ensure that the entities in the exterior layer meet the requirements of the layer. For example, a closed Polyline is supported; but an open Polyline isn't
+. If your exterior layer is made of multiple line segments, they must be provided as one closed Polyline. To join multiple line segments together, select all line segments and use the `JOIN` command.
 
 The following image is taken from the sample package, and shows the exterior layer of the facility in red. Note that the unit layer is turned off to help with visualization.
 
@@ -97,7 +98,7 @@ The following image is taken from the sample package, and shows the exterior lay
 
 Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. A closed entity type such as Polygon, closed Polyline, Circle, or closed Ellipse is required to represent each unit. So, walls and doors alone won't create a unit because there isn’t an entity that represents the unit.  
 
-The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows the unit label layer and unit layer in red. All other layers are turned off to help with visualization. In addition, one unit is selected to help show that each unit is a closed Polyline.  
+The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows the unit label layer and unit layer in red. All other layers are turned off to help with visualization. Also, one unit is selected to help show that each unit is a closed Polyline.  
 
 :::image border="true" type="content" source="{source}" alt-text="Unit layer of a facility.":::
 
@@ -107,7 +108,7 @@ If you'd like to add a name property to a unit, you'll need to add a separate la
 
 ### Door Layer
 
-Doors are optional. However, doors may be used if you'd like to specify the entry point(s) for a unit. Doors can be drawn in any way if it is a supported entity type by the door layer. The door must overlap the boundary of a unit and the overlapping edge of the unit is then be treated as an opening to the unit.  
+Doors are optional. However, doors may be used if you'd like to specify the entry point(s) for a unit. Doors can be drawn in any way if it's a supported entity type by the door layer. The door must overlap the boundary of a unit and the overlapping edge of the unit is then be treated as an opening to the unit.  
 
 The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows a unit with a door (in red) drawn on the unit boundary.
 
