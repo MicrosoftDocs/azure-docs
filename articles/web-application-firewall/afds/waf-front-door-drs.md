@@ -452,7 +452,7 @@ Front Door.
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="drs941-11"></a> <p x-ms-format-detection="none">XSS - Cross-site Scripting</p>
+### <a name="drs941-12"></a> <p x-ms-format-detection="none">XSS - Cross-site Scripting</p>
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
