@@ -430,7 +430,7 @@ To enable the CAPTCHA in your self-hosted portal:
 
 1. [Publish](#step-5-publish-locally) the portal.
 
-1. [Upload](#step-2-upload-static-files-to-a-blob) and host the newly published portal.
+1. [Upload](#step-6-upload-static-files-to-a-blob) and host the newly published portal.
 
 1. Expose the self-hosted portal through a custom domain.
 
