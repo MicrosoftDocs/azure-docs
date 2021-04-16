@@ -95,7 +95,7 @@ Image analysis is computationally-intensive for even simple cases, so when image
 
 Maximum run time varies by tier: several minutes on the Free tier, 24-hour indexing on billable tiers. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
 
-For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) or see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Schedule an indexer](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > If an indexer is set to a certain schedule but repeatedly fails on the same document over and over again each time it runs, the indexer will begin running on a less frequent interval (up to the maximum of at least once every 24 hours) until it successfully makes progress again.  If you believe you have fixed whatever the issue that was causing the indexer to be stuck at a certain point, you can perform an on demand run of the indexer, and if that successfully makes progress, the indexer will return to its set schedule interval again.
@@ -104,12 +104,12 @@ For portal-based indexing (as described in the quickstart), choosing the "run on
 
 ## Tip 8: Increase indexing throughput
 
-For [parallel indexing](search-howto-large-index.md), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datasource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
+For [parallel indexing](search-howto-large-index.md), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple data source and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
 
 ## See also
 
 + [Quickstart: Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
-+ [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [How to configure blob indexers](search-howto-indexing-azure-blob-storage.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)

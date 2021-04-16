@@ -217,8 +217,8 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 
 ## What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
--   [Custom domain TLS/SSL](configure-custom-domain.md) certificates
--   [Custom CA Certificate](api-management-howto-ca-certificates.md), which include intermediate or root certificates uploaded by customer
+-   [Custom domain TLS/SSL](configure-custom-domain.md) certificates.
+-   [Custom CA Certificate](api-management-howto-ca-certificates.md), which includes intermediate or root certificates uploaded by the customer.
 -   [Virtual network](api-management-using-with-vnet.md) integration settings.
 -   [Managed Identity](api-management-howto-use-managed-service-identity.md) configuration.
 -   [Azure Monitor Diagnostic](api-management-howto-use-azure-monitor.md) Configuration.

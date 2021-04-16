@@ -1,13 +1,13 @@
 ---
 title: Create a service SAS for a container or blob
 titleSuffix: Azure Storage
-description: Learn how to create a service shared access signature (SAS) for a container or blob using Azure Storage library for Blob Storage.
+description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 03/23/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -81,28 +81,9 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 
 # [JavaScript v12](#tab/javascript)
 
-A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required options, to get the SAS token string.
+A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required parameters to get the SAS token string.
 
-```javascript
-function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyName) {
-    const sasOptions = {
-        containerName: containerClient.containerName,
-        permissions: ContainerSASPermissions.parse("c")
-    };
-
-    if (storedPolicyName == null) {
-        sasOptions.startsOn = new Date();
-        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
-    } else {
-        sasOptions.identifier = storedPolicyName;
-    }
-
-    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
-    console.log(`SAS token for blob container is: ${sasToken}`);
-
-    return `${containerClient.url}?${sasToken}`;
-}
-```
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_ContainerSAS":::
 
 ---
 
@@ -174,29 +155,9 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 
 To create a service SAS for a blob, call the [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) method.
 
-To create a service SAS for a blob, call the call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required options.
+To create a service SAS for a blob, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required parameters.
 
-```javascript
-function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPolicyName) {
-    const sasOptions = {
-        containerName: containerClient.containerName,
-        blobName: blobName
-    };
-
-    if (storedPolicyName == null) {
-        sasOptions.startsOn = new Date();
-        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
-        sasOptions.permissions = BlobSASPermissions.parse("r");
-    } else {
-        sasOptions.identifier = storedPolicyName;
-    }
-
-    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
-    console.log(`SAS token for blob is: ${sasToken}`);
-
-    return `${containerClient.getBlockBlobClient(blobName).url}?${sasToken}`;
-}
-```
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_BlobSAS":::
 
 ---
 

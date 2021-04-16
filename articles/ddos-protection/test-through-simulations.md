@@ -3,7 +3,7 @@ title: Azure DDoS Protection simulation testing
 description: Learn about how to test through simulations
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -24,6 +24,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 - Optimize your incident response process while under DDoS attack.
 - Document DDoS compliance.
 - Train your network security teams.
+
+> [!NOTE]
+> BreakingPoint Cloud is only available for the Public cloud.
 
 ## Prerequisites
 
@@ -59,7 +62,7 @@ Once the resource is under attack, you should see that the value changes from **
 
 ### BreakingPoint Cloud API Script
 
-This [API script](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
+This [API script](https://aka.ms/ddosbreakingpoint) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
 
 ## Next steps
 

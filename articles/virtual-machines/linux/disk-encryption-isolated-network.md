@@ -2,8 +2,9 @@
 title: Azure Disk Encryption on an isolated network
 description: In this article, learn about troubleshooting tips for Microsoft Azure Disk Encryption on Linux VMs.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020

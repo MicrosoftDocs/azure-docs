@@ -7,17 +7,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 03/15/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is Azure Stack Edge Pro with FPGA?
 
-[!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
-Azure Stack Edge Pro with FPGA is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge Pro with FPGA solution, benefits, key capabilities, and the scenarios where you can deploy this device.
+Azure Stack Edge Pro with FPGA is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge Pro with FPGA solution, benefits, key capabilities, and deployment scenarios.
 
-Azure Stack Edge Pro with FPGA is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway. 
+Azure Stack Edge Pro with FPGA is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway.
+
+Azure Data Box Edge is rebranded as Azure Stack Edge.
 
 ## Use cases
 
@@ -43,7 +45,7 @@ Azure Stack Edge Pro has the following capabilities:
 |---------|---------|
 |Accelerated AI inferencing| Enabled by the built-in FPGA.|
 |Computing       |Allows analysis, processing, filtering of data.|
-|High performance | High performance compute and data transfers.|
+|High performance | High-performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.  |
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
@@ -57,13 +59,15 @@ Azure Stack Edge Pro has the following capabilities:
 
 The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure Stack Edge Pro physical device, and a local web UI.
 
-* **Azure Stack Edge Pro physical device** - A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
+* **Azure Stack Edge Pro physical device**: A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
     
-* **Azure Stack Edge resource** – a resource in the Azure portal that lets you manage an Azure Stack Edge Pro device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+* **Azure Stack Edge resource**: A resource in the Azure portal that lets you manage an Azure Stack Edge Pro device from a web interface that you can access from different geographic locations. Use the Azure Stack Edge resource to create and manage resources, manage shares, and view and manage devices and alerts.
+  
+   <!--[The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    <!--![The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
+   As Azure Stack Edge Pro approaches its end of life, no orders for new Azure Stack Edge Pro devices are being filled. If you're a new customer, we recommend that you explore using Azure Stack Edge Pro - GPU devices for your workloads. For more information, go to [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md). For information about ordering an Azure Stack Edge Pro with GPU device, go to [Create a new resource for Azure Stack Edge Pro - GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
-    For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-a-new-resource).
+   If you're an existing customer, you can still create a new Azure Stack Edge Pro resource if you need to replace or reset your existing Azure Stack Edge Pro device. For instructions, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-new-resource-for-existing-device).
 
 * **Azure Stack Edge Pro local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
@@ -78,6 +82,8 @@ Azure Stack Edge Pro physical device, Azure resource, and target storage account
 - **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge Pro can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
+
+Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 ## Next steps
 

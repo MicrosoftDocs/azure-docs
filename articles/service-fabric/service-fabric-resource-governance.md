@@ -256,7 +256,7 @@ To prevent these situations from occurring, Service Fabric allows you to *enfo
 Additional remarks:
 
 * Resource limit enforcement only applies to the `servicefabric:/_CpuCores` and `servicefabric:/_MemoryInMB` resource metrics
-* Resource limit enforcement only works if node capacities for the resource metrics are available to Service Fabric, either via auto-detection mechanism, or via users manually specifying the node  capacities (as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section). If node capacities are not configured, the resource limit enforcement capability cannot be used since Service Fabric can't know how much resources to reserve for user services. Service Fabric will issue a health warning if "EnforceUserServiceMetricCapacities" is true but node capacities are not configured.
+* Resource limit enforcement only works if node capacities for the resource metrics are available to Service Fabric, either via auto-detection mechanism, or via users manually specifying the node  capacities (as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section). If node capacities are not configured, the resource limit enforcement capability cannot be used since Service Fabric can't know how much resources to reserve for user services. Service Fabric will issue a health warning if "EnforceUserServiceMetricCapacities" is true but node capacities are not configured.
 
 ## Other resources for containers
 

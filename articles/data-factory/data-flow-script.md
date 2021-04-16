@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/23/2020
+ms.date: 02/15/2021
 ---
 
 # Data flow script (DFS)
@@ -239,6 +239,7 @@ derive(each(match(type=='string'), $$ = 'string'),
 	each(match(type=='date'), $$ = 'date'),
 	each(match(type=='timestamp'), $$ = 'timestamp'),
 	each(match(type=='boolean'), $$ = 'boolean'),
+	each(match(type=='long'), $$ = 'long'),
 	each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
@@ -252,6 +253,17 @@ DerivedColumn keyGenerate(output(sk as long),
 SurrogateKey window(over(dummy),
 	asc(sk, true),
 	Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
+```
+
+### Moving Average
+Moving average can be implemented very easily in data flows by using a Windows transformation. This example below creates a 15-day moving average of stock prices for Microsoft.
+
+```
+window(over(stocksymbol),
+	asc(Date, true),
+	startRowOffset: -7L,
+	endRowOffset: 7L,
+	FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
 ```
 
 ## Next steps

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -171,10 +171,11 @@ Azure Storage can automatically update the customer-managed key that is used for
 To configure customer-managed keys with automatic updating of the key version in the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
-1. On the **Settings** blade for the storage account, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following image.
+1. On the **Settings** blade for the storage account, click **Encryption**. By default, key management is set to **Microsoft Managed Keys**, as shown in the following image.
 
     ![Portal screenshot showing encryption option](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
+1. Select the **Customer Managed Keys** option.
 1. Choose the **Select from Key Vault** option.
 1. Select **Select a key vault and key**.
 1. Select the key vault containing the key you want to use.

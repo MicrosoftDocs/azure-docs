@@ -1,9 +1,6 @@
 ---
 title: Use Apache Ambari Hive View with Apache Hadoop in Azure HDInsight
 description: Learn how to use the Hive View from your web browser to submit Hive queries. The Hive View is part of the Ambari Web UI provided with your Linux-based HDInsight cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
@@ -28,11 +25,11 @@ A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apach
 
 1. From the list of views, select __Hive View__.
 
-    ![Apache Ambari select Apache Hive view](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Apache Ambari select Apache Hive view" border="true":::
 
     The Hive view page is similar to the following image:
 
-    ![Image of the query worksheet for the Hive view](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png" alt-text="Image of the query worksheet for the Hive view" border="true":::
 
 1. From the __Query__ tab, paste the following HiveQL statements into the worksheet:
 
@@ -97,19 +94,19 @@ To display the Tez UI for the query, select the **Tez UI** tab below the workshe
 
 The __Jobs__ tab displays a history of Hive queries.
 
-![Apache Hive view jobs tab history](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="Apache Hive view jobs tab history" border="true":::
 
 ## Database tables
 
 You can use the __Tables__ tab to work with tables within a Hive database.
 
-![Image of the Apache Hive tables tab](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png" alt-text="Image of the Apache Hive tables tab" border="true":::
 
 ## Saved queries
 
 From the **Query** tab, you can optionally save queries. After you save a query, you can reuse it from the __Saved Queries__ tab.
 
-![Apache Hive views saved queries tab](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Apache Hive views saved queries tab" border="true":::
 
 > [!TIP]  
 > Saved queries are stored in the default cluster storage. You can find the saved queries under the path `/user/<username>/hive/scripts`. These are stored as plain-text `.hql` files.
@@ -122,7 +119,7 @@ You can extend Hive through user-defined functions (UDF). Use a UDF to implement
 
 Declare and save a set of UDFs by using the **UDF** tab at the top of the Hive View. These UDFs can be used with the **Query Editor**.
 
-![Apache Hive view UDFs tab display](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Apache Hive view UDFs tab display" border="true":::
 
 An **Insert udfs** button appears at the bottom of the **Query Editor**. This entry displays a drop-down list of the UDFs defined in the Hive View. Selecting a UDF adds HiveQL statements to your query to enable the UDF.
 

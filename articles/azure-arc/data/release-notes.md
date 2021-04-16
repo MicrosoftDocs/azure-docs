@@ -7,20 +7,106 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 04/09/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
 
 # Release notes - Azure Arc enabled data services (Preview)
 
+This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## March 2021
+
+The March 2021 release was initially introduced on April 5th 2021, and the final stages of release were completed April 9th 2021.
+
+Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
+
+Azure Data CLI (`azdata`) version number: 20.3.2. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+### Data controller
+
+- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+
+### Azure Arc enabled PostgreSQL Hyperscale
+
+Both custom resource definitions (CRD) for PostgreSQL have been consolidated into a single CRD. See the following table.
+
+|Release |CRD |
+|-----|-----|
+|February 2021 and prior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
+|Beginning March 2021 | postgresqls.arcdata.microsoft.com
+
+You will delete the previous CRDs as you cleanup past installations. See [Cleanup from past installations](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
+
+### Azure Arc enabled SQL Managed Instance
+
+- You can now create a SQL managed instance from the Azure portal in the direct connected mode.
+
+- You can now restore a database to SQL Managed Instance with 3 replicas and it will be automatically added to the availability group. 
+
+- You can now connect to a secondary read-only endpoint on SQL Managed Instances deployed with 3 replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
+
+### Known issues
+
+- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
+- Deployment of data controller in direct mode can only be done from the Azure portal, and not available from client tools such as azdata, Azure Data Studio, or kubectl.
+- Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
+- Deployment of Azure Arc enabled PostgeSQL Hyperscale in direct mode is currently not available.
+- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
+
+## February 2021
+
+### New capabilities and features
+
+Azure Data CLI (`azdata`) version number: 20.3.1. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+Additional updates include:
+
+- Azure Arc enabled SQL Managed Instance
+   - High availability with Always On availability groups
+
+- Azure Arc enabled PostgreSQL Hyperscale
+   Azure Data Studio: 
+   - The overview page now shows the status of the server group itemized per node
+   - A new properties pages is now available to show more details about the server group
+   - Configure Postgres engine parameters from **Node Parameters** page
+
+For issues associated with this release, see [Known issues - Azure Arc enabled data services (Preview)](known-issues.md)
+
+## January 2021
+
+### New capabilities and features
+
+Azure Data CLI (`azdata`) version number: 20.3.0. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+Additional updates include:
+- Localized portal available for 17 new languages
+- Minor changes to Kube-native .yaml files
+- New versions of Grafana and Kibana
+- Issues with Python environments when using azdata in notebooks in Azure Data Studio resolved
+- The pg_audit extension is now available for PostgreSQL Hyperscale
+- A backup ID is no longer required when doing a full restore of a PostgreSQL Hyperscale database
+- The status (health state) is reported for each of the PostgreSQL instances that constitute a sever group
+
+   In earlier releases, the status was aggregated at the server group level and not itemized at the PostgreSQL node level.
+
+- PostgreSQL deployments now honor the volume size parameters indicated in create commands
+- The engine version parameters is now honored when editing a server group
+- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed
+
+    It is now in the form: `ServergroupName{c, w}-n`. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+   - `Postgres01c-0` (coordinator node)
+   - `Postgres01w-0` (worker node)
+   - `Postgres01w-1` (worker node)
 
 ## December 2020
 
 ### New capabilities & features
 
-Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+Azure Data CLI (`azdata`) version number: 20.2.5. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 View endpoints for SQL Managed Instance and PostgreSQL Hyperscale using the Azure Data CLI (`azdata`) with `azdata arc sql endpoint list` and `azdata arc postgres endpoint list` commands.
 
@@ -77,17 +163,9 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
 
-#### PostgreSQL
-
-- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore will fail with an error message like:
-ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}
-When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. You will determine this range by listing your backups and by looking at the dates at which they were taken.
-- Point in time restore is supported only across server groups. The target server of a point in time restore operation cannot be the server from which you took the backup. It has to be a different server group. However, full restore is supported to the same server group.
-- A backup-id is required when doing a full restore. By default, if you are not indicating a backup-id the latest backup will be used. This does not work in this release.
-
 ## October 2020 
 
-Azure Data CLI (`azdata`) version number: 20.2.3. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+Azure Data CLI (`azdata`) version number: 20.2.3. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 ### Breaking changes
 

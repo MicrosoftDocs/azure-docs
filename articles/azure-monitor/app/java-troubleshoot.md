@@ -165,7 +165,8 @@ Assuming you [set up your app for Application Insights][java], click Browse, sel
 
 Yes, provided your server can send telemetry to the Application Insights portal through the public internet.
 
-In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
+You may need to [open some outgoing ports in your server's firewall](./ip-addresses.md#outgoing-ports)
+to allow the SDK to send data to the portal.
 
 ## Data retention
 **How long is data retained in the portal? Is it secure?**

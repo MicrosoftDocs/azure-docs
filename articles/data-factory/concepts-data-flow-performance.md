@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
+ms.date: 04/10/2021
 ---
 
 # Mapping data flows performance and tuning guide
@@ -128,14 +128,17 @@ A best practice is to start small and scale up to meet your performance needs.
 
 ### Time to live
 
-By default, every data flow activity spins up a new cluster based upon the IR configuration. Cluster start-up time takes a few minutes and data processing can't start until it is complete. If your pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will greatly reduced. After the second job completes, the cluster will again stay alive for the TTL time.
+By default, every data flow activity spins up a new Spark cluster based upon the Azure IR configuration. Cold cluster start-up time takes a few minutes and data processing can't start until it is complete. If your pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will greatly reduced. After the second job completes, the cluster will again stay alive for the TTL time.
 
-Only one job can run on a single cluster at a time. If there is an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
+You can additionally minimize the startup time of warm clusters by setting the "Quick re-use" option in the Azure Integration runtime under Data Flow Properties. Setting this to true will tell ADF to not teardown the existing cluster after each job and instead re-use the existing cluster, essentially keeping the compute environment you've set in your Azure IR alive for up to the period of time specified in your TTL. This option makes for the shortest start-up time of your data flow activities when executing from a pipeline.
 
-If most of your data flows execute in parallel, it is not recommended that you enable TTL. 
+However, if most of your data flows execute in parallel, it is not recommended that you enable TTL for the IR that you use for those activities. Only one job can run on a single cluster at a time. If there is an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
 
 > [!NOTE]
 > Time to live is not available when using the auto-resolve integration runtime
+ 
+> [!NOTE]
+> Quick re-use of existing clusters is a feature in the Azure Integration Runtime that is currently in public preview
 
 ## Optimizing sources
 
@@ -157,7 +160,7 @@ Azure SQL Database has a unique partitioning option called 'Source' partitioning
 
 #### Isolation level
 
-The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### Read using query
 
@@ -204,7 +207,7 @@ These can both be done natively using Pre and Post-SQL scripts within an Azure S
 ![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
 
 > [!WARNING]
-> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
+> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### Scaling up your database
 
@@ -212,7 +215,7 @@ Schedule a resizing of your source and sink Azure SQL DB and DW before your pipe
 
 ### Azure Synapse Analytics sinks
 
-When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [SQL Copy Command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using Staging.
+When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [SQL Copy Command](/sql/t-sql/statements/copy-into-transact-sql) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using Staging.
 
 Other than Staging, the same best practices apply to Azure Synapse Analytics as Azure SQL Database.
 
@@ -240,11 +243,11 @@ If a column corresponds to how you wish to output the data, you can select **As 
 
 When writing to CosmosDB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
 
-**Batch size:** Calculate the rough row size of your data, and make sure that row size * batch size is less than two million. If it is, increase the batch size to get better throughput
+**Batch size:** Usually, starting with the default batch size is sufficient. To further tune this value, calculate the rough object size of your data, and make sure that object size * batch size is less than 2MB. If it is, you can increase the batch size to get better throughput.
 
 **Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
 
-**Write Throughput Budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
+**Write throughput budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
 
 ## Optimizing transformations
 
@@ -255,6 +258,8 @@ When writing to CosmosDB, altering throughput and batch size during data flow ex
 In joins, lookups, and exists transformations, if one or both data streams are small enough to fit into worker node memory, you can optimize performance by enabling **Broadcasting**. Broadcasting is when you send small data frames to all nodes in the cluster. This allows for the Spark engine to perform a join without reshuffling the data in the large stream. By default, the Spark engine will automatically decide whether or not to broadcast one side of a join. If you are familiar with your incoming data and know that one stream will be significantly smaller than the other, you can select **Fixed** broadcasting. Fixed broadcasting forces Spark to broadcast the selected stream. 
 
 If the size of the broadcasted data is too large for the Spark node, you may get an out of memory error. To avoid out of memory errors, use **memory optimized** clusters. If you experience broadcast timeouts during data flow executions, you can switch off the broadcast optimization. However, this will result in slower performing data flows.
+
+When working with data sources that can take longer to query, like large database queries, it is recommended to turn broadcast off for joins. Source with long query times can cause Spark timeouts when the cluster attempts to broadcast to compute nodes. Another good choice for turning off broadcast is when you have a stream in your data flow that is aggregating values for use in a lookup transformation later. This pattern can confuse the Spark optimizer and cause timeouts.
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
@@ -298,9 +303,10 @@ If your data flows execute in parallel, its recommended to not enable the Azure 
 
 ### Execute data flows sequentially
 
-If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. ADF will reuse the compute resources resulting in a faster cluster start up time. Each activity will still be isolated receive a new Spark context for each execution.
+If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. ADF will reuse the compute resources resulting in a faster cluster start up time. Each activity will still be isolated receive a new Spark context for each execution. To reduce the time between sequential activities even more, set the "quick re-use" checkbox on the Azure IR to tell ADF to re-use the existing cluster.
 
-Running jobs sequentially will likely take the longest time to execute end-to-end, but provides a clean separation of logical operations.
+> [!NOTE]
+> Quick re-use of existing clusters is a feature in the Azure Integration Runtime that is currently in public preview
 
 ### Overloading a single data flow
 

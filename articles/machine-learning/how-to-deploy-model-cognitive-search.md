@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
-ms.date: 06/11/2020
+ms.date: 03/11/2021
 ms.custom: deploy
 ---
 
@@ -41,7 +41,7 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
+* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
 * A registered model. If you do not have a model, use the example notebook at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
@@ -93,7 +93,7 @@ prov_config = AksCompute.provisioning_configuration()
 
 # Enable TLS (sometimes called SSL) communications
 # Leaf domain label generates a name using the formula
-#  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+#  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
 #  where "######" is a random series of characters
 prov_config.enable_ssl(leaf_domain_label = "contoso")
 
@@ -236,7 +236,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                        max_request_wait_time=5000)
 ```
 
-For more information, see the reference documentation for [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
+For more information, see the reference documentation for [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
 ## Define the inference configuration
 
@@ -247,7 +247,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-For more information, see the reference documentation for [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
+For more information, see the reference documentation for [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig).
 
 ## Deploy the model
 
@@ -272,7 +272,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-For more information, see the reference documentation for [Model](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+For more information, see the reference documentation for [Model](/python/api/azureml-core/azureml.core.model.model).
 
 ## Issue a sample query to your service
 

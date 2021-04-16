@@ -68,7 +68,7 @@ Most teams require a manual review and approval process for deployment to a prod
 
 Use the following tools for CI/CD automation workflows for Custom Speech:
 
-- [Azure CLI](/cli/azure/?view=azure-cli-latest) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
+- [Azure CLI](/cli/azure/) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
 - [Azure Speech CLI](spx-overview.md) to interact with the Speech Service from the command line or an automated workflow.
 
 ## DevOps solution for Custom Speech using GitHub Actions

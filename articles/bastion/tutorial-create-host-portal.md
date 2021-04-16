@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 02/12/2021
 ms.author: cherylmc
 
 ---
@@ -35,6 +35,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Ports: To connect to the Windows VM, you must have the following ports open on your Windows VM:
   * Inbound ports: RDP (3389)
 
+ >[!NOTE]
+ >The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+ >
+
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -61,7 +65,7 @@ This section helps you create the bastion object in your VNet. This is required 
          * The subnet must be at least /27 or larger.
 
       You don't need to fill out additional fields. Select **OK** and then, at the top of the page, select **Create a Bastion** to return to the Bastion configuration page.
-    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP. The public IP address must be in the same region as the Bastion resource you are creating. This is IP address does not have anything to do with any of the VMs that you want to connect to. It's the public IP for the Bastion host resource.
+    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP. The public IP address must be in the same region as the Bastion resource you are creating. This IP address does not have anything to do with any of the VMs that you want to connect to. It's the public IP for the Bastion host resource.
     * **Public IP address name**: The name of the public IP address resource. For this tutorial, you can leave the default.
     * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard Public IP SKU.
     * **Assignment**: This setting is prepopulated by default to **Static**.

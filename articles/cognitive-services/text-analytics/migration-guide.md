@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
 ---
 
@@ -41,9 +41,6 @@ See the reference documentation for examples of the JSON response.
 
 ### Feature changes
 
-> [!NOTE] 
-> Currently, [v3 entity categories](named-entity-types.md) are only returned on English and Spanish text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
-
 In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
 ### Steps to migrate
@@ -69,11 +66,40 @@ See the reference documentation for examples of the JSON response.
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
+#### Version 2.1 entity categories
+
+The following table lists the entity categories returned for NER v2.1.
+
+| Category   | Description                          |
+|------------|--------------------------------------|
+| Person   |   Names of people.  |
+|Location    | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+|Organization | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. |
+| PhoneNumber | Phone numbers (US and EU phone numbers only). |
+| Email | Email addresses. |
+| URL | URLs to websites. |
+| IP | Network IP addresses. |
+| DateTime | Dates and times of day.| 
+| Date | Calender dates. |
+| Time | Times of day |
+| DateRange | Date ranges. |
+| TimeRange | Time ranges. |
+| Duration | Durations. |
+| Set | Set, repeated times. |
+| Quantity | Numbers and numeric quantities. |
+| Number | Numbers. |
+| Percentage | Percentages.|
+| Ordinal | Ordinal numbers. |
+| Age | Ages. |
+| Currency | Currencies. |
+| Dimension | Dimensions and measurements. |
+| Temperature | Temperatures. |
+
 ## [Language detection](#tab/language-detection)
 
 ### Feature changes 
 
-The language detection feature has not changed in v3 outside of the endpoint version, but the JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns a single language in the output. 
+The language detection feature output has changed in v3. The JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns one language in a  `detectedLanguage` attribute for each document.
 
 ### Steps to migrate
 

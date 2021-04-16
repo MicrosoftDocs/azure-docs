@@ -64,7 +64,7 @@ When generating the activation key for the device, or performing any operations 
 
 You should have `User` access on the Active Directory tenant so you can `Read all directory objects`. A Guest user doesn't have permissions to `Read all directory objects`. If you're a guest, operations like generating an activation key, creating a share on your device, and creating a user will fail.
 
-For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
+For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 ### Register resource providers
 
@@ -91,7 +91,7 @@ For a Data Box Gateway device, `Microsoft.DataBoxEdge` should be registered. To 
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-For more information on how to register a resource provider, see [Resolve errors for resource provider registration](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+For more information on how to register a resource provider, see [Resolve errors for resource provider registration](../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## Manage connectivity mode
 

@@ -5,10 +5,10 @@ author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma, devx-track-azurecli
+ms.custom: avverma
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
@@ -44,7 +44,7 @@ The scale set OS upgrade orchestrator checks for the overall scale set health be
 >Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 16.04-LTS to 18.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
 
 ## Supported OS images
-Only certain OS platform images are currently supported. Custom images [are supported](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) if the scale set uses custom images through [Shared Image Gallery](shared-image-galleries.md).
+Only certain OS platform images are currently supported. Custom images [are supported](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) if the scale set uses custom images through [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
 
 The following platform SKUs are currently supported (and more are added periodically):
 
@@ -74,7 +74,7 @@ The following platform SKUs are currently supported (and more are added periodic
 ### Service Fabric requirements
 
 If you are using Service Fabric, ensure the following conditions are met:
--	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze.
+-	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze(except Stateless-only nodetypes, which do support Automatic OS Upgrades).
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
 - An additional health probe or use of application health extension is not required.
@@ -84,11 +84,11 @@ Ensure that durability settings are not mismatched on the Service Fabric cluster
 
 ## Automatic OS image upgrade for custom images
 
-Automatic OS image upgrade is supported for custom images deployed through [Shared Image Gallery](shared-image-galleries.md). Other custom images are not supported for automatic OS image upgrades.
+Automatic OS image upgrade is supported for custom images deployed through [Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Other custom images are not supported for automatic OS image upgrades.
 
 ### Additional requirements for custom images
 - The setup and configuration process for automatic OS image upgrade is the same for all scale sets as detailed in the [configuration section](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) of this page.
-- Scale sets instances configured for automatic OS image upgrades will be upgraded to the latest version of the Shared Image Gallery image when a new version of the image is published and [replicated](shared-image-galleries.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances will not be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your scale sets.
+- Scale sets instances configured for automatic OS image upgrades will be upgraded to the latest version of the Shared Image Gallery image when a new version of the image is published and [replicated](../virtual-machines/shared-image-galleries.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances will not be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your scale sets.
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
@@ -158,7 +158,7 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 ```
 
 > [!NOTE]
-> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
+> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster nodetype must be configured to use the Silver Durability Tier or higher. For Bronze Durability tier, Automatic OS Upgrade is only supported for Stateless nodetypes. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### Keep credentials up to date
 If your scale set uses any credentials to access external resources, such as a VM extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of VMs will be left in a failed state.

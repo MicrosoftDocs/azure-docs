@@ -12,7 +12,7 @@ When you're using the Consumption plan, instances of the Azure Functions host ar
 
 ## Benefits
 
-The Consumption plan scales automatically, even even during periods of high load. When running functions in a Consumption plan, you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
+The Consumption plan scales automatically, even during periods of high load. When running functions in a Consumption plan, you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
 For a comparison of the Consumption plan against the other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
@@ -29,10 +29,10 @@ When you create a function app in the Azure portal, the Consumption plan is the 
 Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
 
 + [Azure CLI](./scripts/functions-cli-create-serverless.md)
-+ [Azure portal](functions-create-first-azure-function.md)
++ [Azure portal](./functions-get-started.md)
 + [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
 
-You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## Multiple apps in the same plan
 

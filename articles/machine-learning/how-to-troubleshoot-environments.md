@@ -12,38 +12,40 @@ ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---
 # Troubleshoot environment image builds
+
 Learn how to troubleshoot issues with Docker environment image builds and package installations.
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
-## Docker Image Build Failures
+## Docker image build failures
  
-For the majority of image build failures, the root cause can be found in the image build log.
-You can find the image build log from the Azure Machine Learning portal (20\_image\_build\_log.txt) or from your ACR tasks runs logs
+For most image build failures, you'll find the root cause in the image build log.
+Find the image build log from the Azure Machine Learning portal (20\_image\_build\_log.txt) or from your Azure Container Registry task run logs.
  
-In most cases, it is easier to reproduce errors locally. Check the kind of error and try one of the following `setuptools`:
+It's usually easier to reproduce errors locally. Check the kind of error and try one of the following `setuptools`:
 
-- Install conda dependency locally `conda install suspicious-dependency==X.Y.Z`
-- Install pip dependency locally `pip install suspicious-dependency==X.Y.Z`
-- Try to materialize the entire environment `conda create -f conda-specification.yml`
+- Install a conda dependency locally: `conda install suspicious-dependency==X.Y.Z`.
+- Install a pip dependency locally: `pip install suspicious-dependency==X.Y.Z`.
+- Try to materialize the entire environment: `conda create -f conda-specification.yml`.
 
 > [!IMPORTANT]
-> Make sure that platform and interpreter on your local compute match the ones on the remote. 
+> Make sure that the platform and interpreter on your local compute cluster match the ones on the remote compute cluster. 
 
 ### Timeout 
  
-Timeout issues can happen for various network issues:
+The following network issues can cause timeout errors:
+
 - Low internet bandwidth
 - Server issues
-- Large dependency that can't be downloaded with the given conda or pip timeout settings
+- Large dependencies that can't be downloaded with the given conda or pip timeout settings
  
-Messages similar to the below will indicate the issue:
+Messages similar to the following examples will indicate the issue:
  
 ```
 ('Connection broken: OSError("(104, \'ECONNRESET\')")', OSError("(104, 'ECONNRESET')"))
@@ -52,60 +54,63 @@ Messages similar to the below will indicate the issue:
 ReadTimeoutError("HTTPSConnectionPool(host='****', port=443): Read timed out. (read timeout=15)",)
 ```
 
-Possible solutions:
+If you get an error message, try one of the following possible solutions:
  
-- Try a different source for the dependency if available such as mirrors, blob storage, or other python feeds.
-- Update conda or pip. If a custom docker file is used, update the timeout settings.
-- Some pip versions have known issues. Consider adding a specific version of pip into environment dependencies .
+- Try a different source, such as mirrors, Azure Blob Storage, or other Python feeds, for the dependency.
+- Update conda or pip. If you're using a custom Docker file, update the timeout settings.
+- Some pip versions have known issues. Consider adding a specific version of pip to the environment dependencies.
 
-### Package Not Found
+### Package not found
 
-This is the most common case for image build failures.
+The following errors are most common for image build failures:
 
-- Conda package could not be found
-        ```
-        ResolvePackageNotFound: 
-          - not-existing-conda-package
-        ```
+- Conda package couldn't be found:
 
-- Specified pip package or version could not be found
-        ```
-        ERROR: Could not find a version that satisfies the requirement invalid-pip-package (from versions: none)
-        ERROR: No matching distribution found for invalid-pip-package
-        ```
+   ```
+   ResolvePackageNotFound: 
+   - not-existing-conda-package
+   ```
 
-- Bad nested pip dependency
-        ```
-        ERROR: No matching distribution found for bad-backage==0.0 (from good-package==1.0)
-        ```
+- Specified pip package or version couldn't be found:
 
-Check the package exists on the specified sources. Use [pip search](https://pip.pypa.io/en/stable/reference/pip_search/) to verify pip dependencies.
+   ```
+   ERROR: Could not find a version that satisfies the requirement invalid-pip-package (from versions: none)
+   ERROR: No matching distribution found for invalid-pip-package
+   ```
 
-`pip search azureml-core`
+- Bad nested pip dependency:
 
-For conda dependencies, use [conda search](https://docs.conda.io/projects/conda/en/latest/commands/search.html).
+   ```
+   ERROR: No matching distribution found for bad-package==0.0 (from good-package==1.0)
+   ```
 
-`conda search conda-forge::numpy`
+Check that the package exists on the specified sources. Use [pip search](https://pip.pypa.io/en/stable/reference/pip_search/) to verify pip dependencies:
 
-For more options:
+- `pip search azureml-core`
+
+For conda dependencies, use [conda search](https://docs.conda.io/projects/conda/en/latest/commands/search.html):
+
+- `conda search conda-forge::numpy`
+
+For more options, try:
 - `pip search -h`
 - `conda search -h`
 
-#### Installer Notes
+#### Installer notes
 
 Make sure that the required distribution exists for the specified platform and Python interpreter version.
 
-For pip dependencies, navigate to `https://pypi.org/project/[PROJECT NAME]/[VERSION]/#files` to see if required version is available. For example, https://pypi.org/project/azureml-core/1.11.0/#files
+For pip dependencies, go to `https://pypi.org/project/[PROJECT NAME]/[VERSION]/#files` to see if the required version is available. Go to https://pypi.org/project/azureml-core/1.11.0/#files to see an example.
 
-For conda dependencies, check package on the channel repository.
-For channels maintained by Anaconda, Inc., check [here](https://repo.anaconda.com/pkgs/).
+For conda dependencies, check the package on the channel repository.
+For channels maintained by Anaconda, Inc., check the [Anaconda Packages page](https://repo.anaconda.com/pkgs/).
 
-### Pip Package Update
+### Pip package update
 
-During install or update of a pip package the resolver may need to update an already installed package to satisfy the new requirements.
-Uninstall can fail for various reasons related to pip version or the way the dependency was installed.
-The most common scenario is that a dependency installed by conda could not be uninstalled by pip.
-For this scenario, consider uninstalling the dependency using `conda remove mypackage`.
+During an installation or an update of a pip package, the resolver might need to update an already-installed package to satisfy the new requirements.
+Uninstallation can fail for various reasons related to the pip version or the way the dependency was installed.
+The most common scenario is that a dependency installed by conda couldn't be uninstalled by pip.
+For this scenario, consider uninstalling the dependency by using `conda remove mypackage`.
 
 ```
   Attempting uninstall: mypackage
@@ -116,62 +121,74 @@ ERROR: Cannot uninstall 'mypackage'. It is a distutils installed project and thu
 
 Certain installer versions have issues in the package resolvers that can lead to a build failure.
 
-If a custom base image or dockerfile is used, we recommend using conda version 4.5.4 or higher.
+If you're using a custom base image or Dockerfile, we recommend using conda version 4.5.4 or later.
 
-Pip package is required to install pip dependencies and if a version is not specified in the environment the latest version will be used.
-We recommend using a known version of pip to avoid transient issues or breaking changes that can be caused by the latest version of the tool.
+A pip package is required to install pip dependencies. If a version isn't specified in the environment, the latest version will be used.
+We recommend using a known version of pip to avoid transient issues or breaking changes that the latest version of the tool might cause.
 
-Consider pinning the pip version in your environment if you see any of the messages below:
+Consider pinning the pip version in your environment if you see the following message:
 
-`Warning: you have pip-installed dependencies in your environment file, but you do not list pip itself as one of your conda dependencies. Conda may not use the correct pip to install your packages, and they may end up in the wrong place. Please add an explicit pip dependency. I'm adding one for you, but still nagging you.`
+   ```
+   Warning: you have pip-installed dependencies in your environment file, but you do not list pip itself as one of your conda dependencies. Conda may not use the correct pip to install your packages, and they may end up in the wrong place. Please add an explicit pip dependency. I'm adding one for you, but still nagging you.
+   ```
 
-`Pip subprocess error:
-ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, update the hashes as well. Otherwise, examine the package contents carefully; someone may have tampered with them.`
+Pip subprocess error:
+   ```
+   ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, update the hashes as well. Otherwise, examine the package contents carefully; someone may have tampered with them.
+   ```
 
-In addition, pip installation can be stuck in an infinite loop if there are unresolvable conflicts in the dependencies. 
-If working locally, downgrade the pip version to < 20.3. 
-In a conda environment created from a YAML file, this issue will only be seen if conda-forge is highest priority channel. To mitigate the issue, explicitly specify pip < 20.3 (!=20.3 or =20.2.4 pin to other version) as a conda dependency in the conda specification file.
+Pip installation can be stuck in an infinite loop if there are unresolvable conflicts in the dependencies. 
+If you're working locally, downgrade the pip version to < 20.3. 
+In a conda environment created from a YAML file, you'll see this issue only if conda-forge is the highest-priority channel. To mitigate the issue, explicitly specify pip < 20.3 (!=20.3 or =20.2.4 pin to other version) as a conda dependency in the conda specification file.
 
-## Service Side Failures
+## Service-side failures
 
-### Unable to pull image from MCR/Address could not be resolved for Container Registry.
+See the following scenarios to troubleshoot possible service-side failures.
+
+### You're unable to pull an image from a container registry, or the address couldn't be resolved for a container registry
+
 Possible issues:
-- Path name to container registry may not be resolving correctly. Check that image names use double slashes and the direction of slashes on Linux vs Windows hosts is correct.
-- If the ACR behind a Vnet is using a private endpoint in [an unsupported region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability), configure the ACR behind a VNet using the service endpoint (Public access) from the portal and retry.
-- After putting the ACR behind a VNet, ensure that the [ARM template](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) is run. This enables the workspace to communicate with the ACR instance.
+- The path name to the container registry might not be resolving correctly. Check that image names use double slashes and the direction of slashes on Linux versus Windows hosts is correct.
+- If a container registry behind a virtual network is using a private endpoint in [an unsupported region](../private-link/private-link-overview.md#availability), configure the container registry by using the service endpoint (public access) from the portal and retry.
+- After you put the container registry behind a virtual network, run the [Azure Resource Manager template](./how-to-network-security-overview.md) so the workspace can communicate with the container registry instance.
 
-### 401 error from workspace ACR
-Resynchronize storage keys using [ws.sync_keys()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--)
+### You get a 401 error from a workspace container registry
 
-### Environment keeps throwing "Waiting for other Conda operations to finish…" Error
-When an image build is ongoing, conda is locked by the SDK client. If the process crashed or was canceled incorrectly by the user - conda stays in the locked state. To resolve this, manually delete the lock file. 
+Resynchronize storage keys by using [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--).
 
-### Custom docker image not in registry
-Check if the [correct tag](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#create-an-environment) is used and that `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` disables Conda and uses the user's installed packages.
+### The environment keeps throwing a "Waiting for other conda operations to finish…" error
 
-### Common VNet issues
+When an image build is ongoing, conda is locked by the SDK client. If the process crashed or was canceled incorrectly by the user, conda stays in the locked state. To resolve this issue, manually delete the lock file. 
 
-1. Check that the storage account, compute cluster, and Azure Container Registry are all in the same subnet of the virtual network.
-2. When ACR is behind a VNet, it can't directly be used to build images. The compute cluster needs to be used to build images.
-3. Storage may need to be placed behind a VNet when:
-    - Using inferencing or private wheel
-    - Seeing 403 (not authorized) service errors
-    - Can't get image details from ACR/MCR
+### Your custom Docker image isn't in the registry
 
-### Image build fails when trying to access network protected storage
-- ACR tasks do not work behind the VNet. If the user has their ACR behind the VNet, they need to use the compute cluster to build an image.
-- Storage should be behind VNet in order to be able to pull dependencies from it. 
+Check if the [correct tag](./how-to-use-environments.md#create-an-environment) is used and that `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` disables conda and uses the user's installed packages.
 
-### Cannot run experiments when storage has network security enabled
-When using default Docker images and enabling user-managed dependencies, you must use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network) to allowlist MCR and its dependencies.
+### You get one of the following common virtual network issues
 
- See [enabling VNET](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) for more.
+- Check that the storage account, compute cluster, and container registry are all in the same subnet of the virtual network.
+- When your container registry is behind a virtual network, it can't directly be used to build images. You'll need to use the compute cluster to build images.
+- Storage might need to be placed behind a virtual network if you:
+    - Use inferencing or private wheel.
+    - See 403 (not authorized) service errors.
+    - Can't get image details from Azure Container Registry.
 
-### Creating an ICM
+### The image build fails when you're trying to access network protected storage
 
-When creating/assigning an ICM to Metastore, please include the CSS support ticket so that we can better understand the issue.
+- Azure Container Registry tasks don't work behind a virtual network. If the user has their container registry behind a virtual network, they need to use the compute cluster to build an image.
+- Storage should be behind a virtual network in order to pull dependencies from it.
+
+### You can't run experiments when storage has network security enabled
+
+If you're using default Docker images and enabling user-managed dependencies, use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](./how-to-network-security-overview.md) to allowlist Azure Container Registry and its dependencies.
+
+ For more information, see [Enabling virtual networks](./how-to-network-security-overview.md).
+
+### You need to create an ICM
+
+When you're creating/assigning an ICM to Metastore, include the CSS support ticket so that we can better understand the issue.
 
 ## Next steps
 
 - [Train a machine learning model to categorize flowers](how-to-train-scikit-learn.md)
-- [Train a machine learning model using a custom Docker image](how-to-train-with-custom-image.md)
+- [Train a machine learning model by using a custom Docker image](how-to-train-with-custom-image.md)

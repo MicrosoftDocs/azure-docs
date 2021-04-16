@@ -47,8 +47,8 @@ For a single subscription, there are limitations on the number of concurrent res
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
-|**Single database (per subscription)**|10|60|
-|**Elastic pool (per pool)**|4|200|
+|**Single database (per subscription)**|30|100|
+|**Elastic pool (per pool)**|4|2000|
 
 
 There isn't a built-in method to restore the entire server. For an example of how to accomplish this task, see [Azure SQL Database: Full server recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).

@@ -1,25 +1,19 @@
 ---
 title: View activity logs for Azure RBAC changes
-description: View activity logs for Azure role-based access control (Azure RBAC) changes to Azure resources for the past 90 days.
+description: View activity logs for Azure role-based access control (Azure RBAC) changes for the past 90 days.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 03/01/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # View activity logs for Azure RBAC changes
 
-Sometimes you need information about Azure role-based access control (Azure RBAC) changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md). You can view the activity logs to see all the Azure RBAC changes for the past 90 days.
+Sometimes you need information about Azure role-based access control (Azure RBAC) changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md). You can view the activity logs to see all the Azure RBAC changes for the past 90 days.
 
 ## Operations that are logged
 
@@ -36,6 +30,10 @@ The easiest way to get started is to view the activity logs with the Azure porta
 
 ![Activity logs using the portal - screenshot](./media/change-history-report/activity-log-portal.png)
 
+To get more information, click an entry to open the summary pane. Click the **JSON** tab to get a detailed log.
+
+![Activity logs using the portal with summary pane open - screenshot](./media/change-history-report/activity-log-summary-portal.png)
+
 The activity log in the portal has several filters. Here are the Azure RBAC-related filters:
 
 | Filter | Value |
@@ -45,9 +43,24 @@ The activity log in the portal has several filters. Here are the Azure RBAC-rela
 
 For more information about activity logs, see [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
-## Azure PowerShell
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+## Interpret a log entry
+
+The log output from the JSON tab, Azure PowerShell, or Azure CLI can include a lot of information. Here are some of the key properties to look for when trying to interpret a log entry. For ways to filter the log output using Azure PowerShell or Azure CLI, see the following sections.
+
+> [!div class="mx-tableFixed"]
+> | Property | Example values | Description |
+> | --- | --- | --- |
+> | authorization:action | Microsoft.Authorization/roleAssignments/write | Create role assignment |
+> |  | Microsoft.Authorization/roleAssignments/delete | Delete role assignment |
+> |  | Microsoft.Authorization/roleDefinitions/write | Create or update role definition |
+> |  | Microsoft.Authorization/roleDefinitions/delete | Delete role definition |
+> | authorization:scope | /subscriptions/{subscriptionId}<br/>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId} | Scope for the action |
+> | caller | admin@example.com<br/>{objectId} | Who initiated the action |
+> | eventTimestamp | 2021-03-01T22:07:41.126243Z | Time that action occurred |
+> | status:value | Started<br/>Succeeded<br/>Failed | Status of the action |
+
+## Azure PowerShell
 
 To view activity logs with Azure PowerShell, use the [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) command.
 
@@ -63,61 +76,120 @@ This command lists all role definition changes in a resource group for the past 
 Get-AzLog -ResourceGroupName pharma-sales -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
-This command lists all role assignment and role definition changes in a subscription for the past seven days and displays the results in a list:
+### Filter log output
+
+The log output can include a lot of information. This command lists all role assignment and role definition changes in a subscription for the past seven days and filters the output:
 
 ```azurepowershell
 Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
-```Example
-Caller                  : alain@example.com
-EventTimestamp          : 2/27/2020 9:18:07 PM
+The following shows an example of the filtered log output when creating a role assignment:
+
+```azurepowershell
+Caller                  : admin@example.com
+EventTimestamp          : 3/1/2021 10:07:42 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           statusCode     : Created
-                          serviceRequestId: 11111111-1111-1111-1111-111111111111
+                          serviceRequestId: {serviceRequestId}
                           eventCategory  : Administrative
+                          entity         : /subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}
+                          message        : Microsoft.Authorization/roleAssignments/write
+                          hierarchy      : {tenantId}/{subscriptionId}
 
-Caller                  : alain@example.com
-EventTimestamp          : 2/27/2020 9:18:05 PM
+Caller                  : admin@example.com
+EventTimestamp          : 3/1/2021 10:07:41 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
-                          requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
-                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
+                          requestbody    : {"Id":"{roleAssignmentId}","Properties":{"PrincipalId":"{principalId}","PrincipalType":"User","RoleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64","Scope":"/subscriptions/
+                          {subscriptionId}/resourceGroups/example-group"}}
+                          eventCategory  : Administrative
+                          entity         : /subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}
+                          message        : Microsoft.Authorization/roleAssignments/write
+                          hierarchy      : {tenantId}/{subscriptionId}
 
 ```
 
-If you are using a service principal to create role assignments, the Caller property will be an object ID. You can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) to get information about the service principal.
+If you are using a service principal to create role assignments, the Caller property will be a service principal object ID. You can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) to get information about the service principal.
 
 ```Example
-Caller                  : 44444444-4444-4444-4444-444444444444
-EventTimestamp          : 6/4/2020 9:43:08 PM
+Caller                  : {objectId}
+EventTimestamp          : 3/1/2021 9:43:08 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              : 
                           statusCode     : Created
-                          serviceRequestId: 55555555-5555-5555-5555-555555555555
-                          category       : Administrative
+                          serviceRequestId: {serviceRequestId}
+                          eventCategory  : Administrative
 ```
 
 ## Azure CLI
 
-To view activity logs with the Azure CLI, use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command.
+To view activity logs with the Azure CLI, use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) command.
 
-This command lists the activity logs in a resource group from February 27, looking forward seven days:
+This command lists the activity logs in a resource group from March 1, looking forward seven days:
 
 ```azurecli
-az monitor activity-log list --resource-group pharma-sales --start-time 2020-02-27 --offset 7d
+az monitor activity-log list --resource-group example-group --start-time 2021-03-01 --offset 7d
 ```
 
-This command lists the activity logs for the Authorization resource provider from February 27, looking forward seven days:
+This command lists the activity logs for the Authorization resource provider from March 1, looking forward seven days:
 
 ```azurecli
-az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2020-02-27 --offset 7d
+az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2021-03-01 --offset 7d
+```
+
+### Filter log output
+
+The log output can include a lot of information. This command lists all role assignment and role definition changes in a subscription looking forward seven days and filters the output:
+
+```azurecli
+az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2021-03-01 --offset 7d --query '[].{authorization:authorization, caller:caller, eventTimestamp:eventTimestamp, properties:properties}'
+```
+
+The following shows an example of the filtered log output when creating a role assignment:
+
+```azurecli
+[
+ {
+    "authorization": {
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "role": null,
+      "scope": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}"
+    },
+    "caller": "admin@example.com",
+    "eventTimestamp": "2021-03-01T22:07:42.456241+00:00",
+    "properties": {
+      "entity": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
+      "eventCategory": "Administrative",
+      "hierarchy": "{tenantId}/{subscriptionId}",
+      "message": "Microsoft.Authorization/roleAssignments/write",
+      "serviceRequestId": "{serviceRequestId}",
+      "statusCode": "Created"
+    }
+  },
+  {
+    "authorization": {
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "role": null,
+      "scope": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}"
+    },
+    "caller": "admin@example.com",
+    "eventTimestamp": "2021-03-01T22:07:41.126243+00:00",
+    "properties": {
+      "entity": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
+      "eventCategory": "Administrative",
+      "hierarchy": "{tenantId}/{subscriptionId}",
+      "message": "Microsoft.Authorization/roleAssignments/write",
+      "requestbody": "{\"Id\":\"{roleAssignmentId}\",\"Properties\":{\"PrincipalId\":\"{principalId}\",\"PrincipalType\":\"User\",\"RoleDefinitionId\":\"/providers/Microsoft.Authorization/roleDefinitions/fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64\",\"Scope\":\"/subscriptions/{subscriptionId}/resourceGroups/example-group\"}}"
+    }
+  }
+]
 ```
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
+[Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools
@@ -126,15 +198,15 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 Here are the basic steps to get started:
 
-1. [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+1. [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
-1. [Configure the Activity Log Analytics solution](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution) for your workspace.
+1. [Configure the Activity Log Analytics solution](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution) for your workspace.
 
-1. [View the activity logs](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Logs** option.
+1. [View the activity logs](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Logs** option.
 
    ![Azure Monitor logs option in portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) to query and view the logs. For more information, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
+1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to query and view the logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 Here's a query that returns new role assignments organized by target resource provider:
 
@@ -157,5 +229,5 @@ AzureActivity
 ![Activity logs using the Advanced Analytics portal - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## Next steps
-* [View events in activity log](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitor Subscription Activity with the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md)
+* [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Monitor subscription activity with the Azure Activity log](../azure-monitor/essentials/platform-logs-overview.md)

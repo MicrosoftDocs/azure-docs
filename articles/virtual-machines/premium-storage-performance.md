@@ -30,8 +30,8 @@ We have provided these guidelines specifically for Premium Storage because workl
 >
 > If you are looking to benchmark your disk, see our articles on benchmarking a disk:
 >
-> * For Linux: [Benchmark your application on Azure Disk Storage](linux/disks-benchmarks.md)
-> * For Windows: [Benchmarking a disk](windows/disks-benchmarks.md).
+> * For Linux: [Benchmark your application on Azure Disk Storage](./disks-benchmarks.md)
+> * For Windows: [Benchmarking a disk](./disks-benchmarks.md).
 >
 > If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -375,8 +375,8 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 If you are looking to benchmark your disk, see our articles on benchmarking a disk:
 
-* For Linux: [Benchmark your application on Azure Disk Storage](linux/disks-benchmarks.md)
-* For Windows: [Benchmarking a disk](windows/disks-benchmarks.md).
+* For Linux: [Benchmark your application on Azure Disk Storage](./disks-benchmarks.md)
+* For Windows: [Benchmarking a disk](./disks-benchmarks.md).
 
 Learn more about the available disk types:
 

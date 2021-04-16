@@ -123,9 +123,9 @@ For an example template, see [Create resource group](#create-resource-group).
 
 ### Scope to tenant
 
-You can create resources at the tenant by setting the `scope` set to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-You can use a nested deployment with `scope` and `location` set.
+To use a nested deployment, set `scope` and `location`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -137,7 +137,7 @@ For more information, see [Management group](deploy-to-management-group.md#manag
 
 ## Deploy to target resource group
 
-To deploy resources in the target resource group, define those resources in the **resources** section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
+To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
@@ -296,7 +296,7 @@ From a resource group deployment, you can switch to the level of a subscription 
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('newResourceGroupName')]",
                             "location": "[parameters('location')]",
                             "properties": {}

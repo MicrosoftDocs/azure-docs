@@ -5,12 +5,7 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Troubleshooting backup failures in Azure Disk Backup (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Troubleshooting backup failures in Azure Disk Backup
 
 This article provides troubleshooting information on backup and restore issues faced with Azure Disk. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
@@ -110,7 +105,7 @@ Recommended Action: Grant the Backup vault's managed identity the appropriate pe
 
 Error Message: Operation has failed as the Disk quota maximum limit has been reached on the subscription.
 
-Recommended Action: Refer to the [Azure subscription and service limits and quota documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) or contact Microsoft Support for further guidance.
+Recommended Action: Refer to the [Azure subscription and service limits and quota documentation](../azure-resource-manager/management/azure-subscription-service-limits.md) or contact Microsoft Support for further guidance.
 
 ### Error Code: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 
@@ -148,11 +143,29 @@ Error Message: The disk snapshot metadata for this Restore point has been delete
 
 Recommended Action: Consider using another recovery point to restore. For more information, see the [restore documentation](restore-managed-disks.md).
 
+### Error Code: BackupAgentPluginHostValidateProtectionError
+
+Error Message: Disk Backup is not yet available in the region of the Backup Vault under which Configure Protection is being tried.
+
+Recommended Action: Backup Vault must be in a supported region. For region availability see the [the support matrix](disk-backup-support-matrix.md).
+
+### Error Code: UserErrorDppDatasourceAlreadyHasBackupInstance
+
+Error Message: The disk you are trying to configure backup is already being protected. Disk is already associated with a backup instance in a Backup vault.
+
+Recommended Action: This disk is already associated with a backup instance in a Backup vault. If you want to re-protect this disk, then delete the backup instance from the Backup vault where it's currently protected and re-protect the disk in any other vault.
+
+### Error Code: UserErrorDppDatasourceAlreadyProtected
+
+Error Message: The disk you are trying to configure backup is already being protected. Disk is already associated with a backup instance in a Backup vault.
+
+Recommended Action: This disk is already associated with a backup instance in a Backup vault. If you want to re-protect this disk, then delete the backup instance from the Backup vault where it is currently protected and re-protect the disk in any other vault.
+
 ### Error Code: UserErrorMaxConcurrentOperationLimitReached
 
-Error Message: Unable to start the operation as maximum number of allowed concurrent operations has reached for this operation type.
+Error Message: Unable to start the operation as maximum number of allowed concurrent backups has reached.
 
-Recommended Action: Wait until the previous operations complete.
+Recommended Action: Wait until the previous running backup completes.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Mini R  so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Mini R  so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Configure certificates, VPN, encryption for your Azure Stack Edge Mini R
 
@@ -33,10 +33,10 @@ Before you configure and set up your Azure Stack Edge Mini R device, make sure t
 * You've installed the physical device as detailed in [Install Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-install.md).
 
 * If you plan to bring your own certificates:
-    - You should have your certificates ready in the appropriate format including the signing chain certificate. For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md)
+    - You should have your certificates ready in the appropriate format including the signing chain certificate. For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md)
 
     - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).
+    For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).
 
 
 ## Configure certificates for device

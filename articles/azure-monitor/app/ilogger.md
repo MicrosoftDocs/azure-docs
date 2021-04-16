@@ -482,13 +482,13 @@ Modify Program.cs and appsettings.json as follows:
    }
    ```
 
-This code is required only when you use a standalone logging provider. For regular Application Insights monitoring, the instrumentation key is loaded automatically from the configuration path *ApplicationInsights: Instrumentationkey*. Appsettings.json should look like this:
+This code is required only when you use a standalone logging provider. For regular Application Insights monitoring, the instrumentation key is loaded automatically from the configuration path *ApplicationInsights: InstrumentationKey*. Appsettings.json should look like this:
 
    ```json
    {
      "ApplicationInsights":
        {
-           "Instrumentationkey":"putrealikeyhere"
+           "InstrumentationKey":"putrealikeyhere"
        }
    }
    ```

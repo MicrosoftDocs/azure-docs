@@ -1,9 +1,6 @@
 ---
 title: Configure outbound network traffic restriction - Azure HDInsight
 description: Learn how to configure outbound network traffic restriction for Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -30,7 +27,7 @@ A summary of the steps to lock down egress from your existing HDInsight with Azu
 
 1. Create a subnet.
 1. Create a firewall.
-1. Add application rules to the firewall
+1. Add application rules to the firewall.
 1. Add network rules to the firewall.
 1. Create a routing table.
 
@@ -50,7 +47,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
 1. Navigate to **Settings** > **Rules** > **Application rule collection** > **+ Add application rule collection**.
 
-    ![Title: Add application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="Title: Add application rule collection":::
 
 1. On the **Add application rule collection** screen, provide the following information:
 
@@ -74,15 +71,15 @@ Create an application rule collection that allows the cluster to send and receiv
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. To use ONLY https connections, make sure ["secure transfer required"](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account. If you are using Private endpoint to access storage accounts, this step is not needed and storage traffic is not forwarded to the firewall.|
+    | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. Make sure ["secure transfer required"](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account. If you are using Private endpoint to access storage accounts, this step is not needed and storage traffic is not forwarded to the firewall.|
 
-   ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Title: Enter application rule collection details":::
 
 1. Select **Add**.
 
 ### Configure the firewall with network rules
 
-Create the network rules to correctly configure your HDInsight cluster.
+Create the network rules to correctly configure your HDInsight cluster. 
 
 1. Continuing from the prior step, navigate to **Network rule collection** > **+ Add network rule collection**.
 
@@ -100,14 +97,14 @@ Create the network rules to correctly configure your HDInsight cluster.
 
     | Name | Protocol | Source Addresses | Service Tags | Destination Ports | Notes |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastores then you only need to allow the traffic to your own custom SQL Servers.|
+    | Rule_5 | TCP | * | SQL | 1433 , 11000-11999 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastores then you only need to allow the traffic to your own custom SQL Servers. Refer to [Azure SQL Database and Azure Synapse Analytics connectivity architecture](../azure-sql/database/connectivity-architecture.md) to see why 11000-11999 port range is also needed in addition to 1433. |
     | Rule_6 | TCP | * | Azure Monitor | * | (optional) Customers who plan to use auto scale feature should add this rule. |
     
-   ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: Enter application rule collection":::
 
 1. Select **Add**.
 
-### Create and configure a route table
+### Create and configure a route table 
 
 Create a route table with the following entries:
 
@@ -163,7 +160,7 @@ Once you've completed the logging setup, if you're using Log Analytics, you can 
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating Azure Firewall with Azure Monitor logs is useful when first getting an application working. Especially when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+Integrating Azure Firewall with Azure Monitor logs is useful when first getting an application working. Especially when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
 To learn about the scale limits of Azure Firewall and request increases, see [this](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) document or refer to the [FAQs](../firewall/firewall-faq.yml).
 

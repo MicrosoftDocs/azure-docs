@@ -30,7 +30,7 @@ Use SQL Server Management Studio (SSMS) to connect to and query a dedicated SQL 
 To use this tutorial, you need:
 
 * An existing dedicated SQL pool. To create one, see [Create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md).
-* SQL Server Management Studio (SSMS) installed. [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for free if you don't already have it.
+* SQL Server Management Studio (SSMS) installed. [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for free if you don't already have it.
 * The fully qualified SQL server name. To find this information, see [Dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-connect-overview.md).
 
 ## 1. Connect to your dedicated SQL pool (formerly SQL DW)

@@ -48,7 +48,7 @@ az appservice plan create \
 ## Create a Web App
 
 Now that you have an App Service Plan you can deploy a Web App.
-Create a Web App with [az appservice plan create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create.
+Create a Web App with [az appservice plan create](/cli/azure/webapp#az-webapp-create.
 This example creates a Web App named *mySiteName* in the Plan named *myAppServicePlan*
 
 ```azurecli-interactive

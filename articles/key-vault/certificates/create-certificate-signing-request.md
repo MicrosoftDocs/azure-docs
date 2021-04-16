@@ -119,7 +119,7 @@ Example
 
 - How do I monitor or manage my CSR?
 
-     See [Monitor and manage certificate creation](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+     See [Monitor and manage certificate creation](./create-certificate-scenarios.md).
 
 - What if I see **Error type 'The public key of the end-entity certificate in the specified X.509 certificate content does not match the public part of the specified private key. Please check if certificate is valid'**?
 

@@ -42,7 +42,7 @@ There could be some rare situations when a data center experiences extended outa
 
 ## Monitor service health
 
-As Azure Digital Twins instances are failed over and recovered, you can monitor the process using the [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview) tool. Service Health tracks the health of your Azure services across different regions and subscriptions, and shares service-impacting communications about outages and downtimes.
+As Azure Digital Twins instances are failed over and recovered, you can monitor the process using the [Azure Service Health](../service-health/service-health-overview.md) tool. Service Health tracks the health of your Azure services across different regions and subscriptions, and shares service-impacting communications about outages and downtimes.
 
 During a failover event, Service Health can provide an indication of when your service is down, and when it's back up.
 
@@ -74,4 +74,4 @@ For best practices on HA/DR, see the following Azure guidance on this topic:
 Read more about getting started with Azure Digital Twins solutions:
  
 * [*What is Azure Digital Twins?*](overview.md)
-* [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md)
+* [*Quickstart: Explore a sample scenario*](quickstart-azure-digital-twins-explorer.md)

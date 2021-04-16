@@ -1,7 +1,7 @@
 ---
 title: 'Set up web endpoints (Preview)'                             
 titleSuffix: Azure Cognitive Services
-description: set up web endpoints for custom commands 
+description: set up web endpoints for custom commands
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -18,10 +18,11 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 
 - Set up web endpoints in Custom Commands application
 - Call web endpoints in Custom Commands application
-- Receive the web endpoints response 
+- Receive the web endpoints response
 - Integrate the web endpoints response into a custom JSON payload, send, and visualize it from a C# UWP Speech SDK client application
 
 ## Prerequisites
+
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * An Azure subscription key for Speech service:
@@ -30,9 +31,113 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 > * A Speech SDK enabled client app:
 [How-to: end activity to client application](./how-to-custom-commands-setup-speech-sdk.md)
 
-## Setup web endpoints
+## Deploy an external web endpoint using Azure Function App
 
-1. Open the Custom Commands application you previously created. 
+* For the sake of this tutorial, you need an HTTP endpoint which maintains states for all the devices which you set up in the **TurnOnOff** command of your custom commands application.
+
+* If you already have a web endpoint you want to call, skip to the [next section](#setup-web-endpoints-in-custom-commands). Alternatively, in the next section, we have provided you with a default hosted web endpoint which you can use if you want to skip this section.
+
+### Input format of Azure Function
+* Next, you will deploy an endpoint using [Azure Functions](../../azure-functions/index.yml).
+The following is the general format of an Custom Commands event that is passed to your Azure function. Use this information when you're writing you function app.
+
+    ```json
+    {
+      "conversationId": "string",
+      "currentCommand": {
+        "name": "string",
+        "parameters": {
+          "SomeParameterName": "string",
+          "SomeOtherParameterName": "string"
+        }
+      },
+      "currentGlobalParameters": {
+          "SomeGlobalParameterName": "string",
+          "SomeOtherGlobalParameterName": "string"
+      }
+    }
+    ```
+
+    
+* Let's review the key attributes of this input:
+        
+    | Attribute | Explanation |
+    | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+    | **conversationId** | The unique identifier of the conversation. Note that this ID can be generated from the client app. |
+    | **currentCommand** | The command that's currently active in the conversation. |
+    | **name** | The name of the command. The `parameters` attribute is a map with the current values of the parameters. |
+    | **currentGlobalParameters** | A map like `parameters`, but used for global parameters. |
+
+
+* For the **DeviceState** Azure Function, an example Custom Commands event will look like following. This will act as an **input** to the function app.
+    
+    ```json
+    {
+      "conversationId": "someConversationId",
+      "currentCommand": {
+        "name": "TurnOnOff",
+        "parameters": {
+          "item": "tv",
+          "value": "on"
+        }
+      }
+    }
+    ```
+
+### Output format of Azure Function
+
+#### Output consumed by a Custom Commands  application
+In this case you can set the output format must adhere to the following format. Follow [Update a command from a web endpoint](./how-to-custom-commands-update-command-from-web-endpoint.md) for more details.
+
+```json
+{
+  "updatedCommand": {
+    "name": "SomeCommandName",
+    "updatedParameters": {
+      "SomeParameterName": "SomeParameterValue"
+    },
+    "cancel": false
+  },
+  "updatedGlobalParameters": {
+    "SomeGlobalParameterName": "SomeGlobalParameterValue"
+  }
+}
+```
+
+#### Output consumed by a client application
+In this case you can set the output format to suit your client's need.
+* For our **DeviceState** endpoint, output of the Azure function is consumed by a client application instead of the Custom Commands application. Example **output** of the Azure function should like following:
+    
+    ```json
+    {
+      "TV": "on",
+      "Fan": "off"
+    }
+    ``` 
+
+*  Also, this output should be written to an external storage, so that you can accordingly maintain the state of devices. The external storage state will be used in the [Integrate with client application section](#integrate-with-client-application).
+
+
+### Host Azure Function
+
+1. Create table storage account to save device state.
+    1. Go to Azure portal and create a new resource of type **Storage account** by name **devicestate**.
+        1. Copy the **Connection string** value from **devicestate -> Access keys**.
+        1. You will need to add this string to the downloaded sample Function App code.
+    1. Download sample [Function App code](https://aka.ms/speech/cc-function-app-sample).
+    1. Open the downloaded solution in VS 2019. In file **Connections.json**, replace **STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** value to the copied secret from *step a*.
+1.  Download the **DeviceStateAzureFunction** code.
+1. [Deploy](../../azure-functions/index.yml) the Functions App to Azure.
+    
+    1.  Wait for deployment to succeed and go the deployed resource on the Azure portal. 
+    1. Select **Functions** in the left pane, and then select **DeviceState**.
+    1.  In the new window, select **Code + Test** and then select **Get function URL**.
+ 
+## Setup web endpoints in Custom Commands
+Let's hook up the Azure function with the existing Custom Commands application.
+In this section, you will use an existing default **DeviceState** endpoint. If you created your own web-endpoint using Azure Function or otherwise, use that instead of the default	https://webendpointexample.azurewebsites.net/api/DeviceState.
+
+1. Open the Custom Commands application you previously created.
 1. Go to "Web endpoints", click "New web endpoint".
 
    > [!div class="mx-imgBorder"]
@@ -46,7 +151,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
    | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
 
     > [!NOTE]
-    > - The example web endpoint created using [Azure Function](../../azure-functions/index.yml), which hooks up with the database that saves the device state of the tv and fan
+    > - The example web endpoint created using [Azure function](../../azure-functions/index.yml), which hooks up with the database that saves the device state of the tv and fan
     > - The suggested header is only needed for the example endpoint
     > - To make sure the value of the header is unique in our example endpoint, take the first 8 digits of your applicationId
     > - In real world, the web endpoint can be the endpoint to the [IOT hub](../../iot-hub/about-iot-hub.md) that manages your devices
@@ -58,7 +163,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 1. Go to **TurnOnOff** command, select **ConfirmationResponse** under completion rule, then select **Add an action**.
 1. Under **New Action-Type**, select **Call web endpoint**
 1. In **Edit Action - Endpoints**, select **UpdateDeviceState**, which is the web endpoint we created.  
-1. In **Configuration**, put the following values: 
+1. In **Configuration**, put the following values:
    > [!div class="mx-imgBorder"]
    > ![Call web endpoints action parameters](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -72,16 +177,16 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
     > - The suggested query parameters are only needed for the example endpoint
 
 1. In **On Success - Action to execute**, select **Send speech response**.
-    
+
     In **Simple editor**, enter `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the On Success - Action to execute screen.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
    | Action to execute | Send speech response | Action to execute if the request to web endpoint succeeds |
-   
+
    > [!NOTE]
    > - You can also directly access the fields in the http response by using `{YourWebEndpointName.FieldName}`. For example: `{UpdateDeviceState.TV}`
 
@@ -98,7 +203,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` is optional. You are free to remove it if you don't want to expose any error message.
-   > - Within our example endpoint, we send back http response with detailed error messages for common errors such as missing header parameters. 
+   > - Within our example endpoint, we send back http response with detailed error messages for common errors such as missing header parameters.
 
 ### Try it out in test portal
 - On Success response\
@@ -112,11 +217,11 @@ Remove one of the query parameters, save, retrain, and test
 
 ## Integrate with client application
 
-In [How-to: Send activity to client application (Preview)](./how-to-custom-commands-send-activity-to-client.md), you added a **Send activity to client** action. The activity is sent to the client application whether or not **Call web endpoint** action is successful or not.
+In [How-to: Send activity to client application](./how-to-custom-commands-send-activity-to-client.md), you added a **Send activity to client** action. The activity is sent to the client application whether or not **Call web endpoint** action is successful or not.
 However, in most of the cases you only want to send activity to the client application when the call to the web endpoint is successful. In this example, this is when the device's state is successfully updated.
 
 1. Delete the **Send activity to client** action you previously added.
-1. Edit call web endpoint: 
+1. Edit call web endpoint:
     1. In **Configuration**, make sure **Query Parameters** is `item={SubjectDevice}&&value={OnOff}`
     1. In **On Success**, change **Action to execute** to **Send activity to client**
     1. Copy the JSON below to the **Activity Content**
@@ -130,7 +235,6 @@ However, in most of the cases you only want to send activity to the client appli
       }
     }
    ```
-   
 Now you only send activity to client when the request to web endpoint is successful.
 
 ### Create visuals for syncing device state
@@ -144,7 +248,7 @@ Add the following XML to `MainPage.xaml` above the `"EnableMicrophoneButton"` bl
         .........../>
 ```
 
-### Sync device state 
+### Sync device state
 
 In `MainPage.xaml.cs`, add the reference `using Windows.Web.Http;`. Add the following code to the `MainPage` class. This method will send a GET request to the example endpoint, and extract the current device state for your app. Make sure to change `<your_app_name>` to what you used in the **header** in Custom Command Web endpoint
 
@@ -154,7 +258,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");

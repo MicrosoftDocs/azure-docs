@@ -209,7 +209,7 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 	e. In **Company** text box, enter your Company.
 
-	f. In **Email Address** text box, enter the email of user like `b.simon\@contoso.com`.
+	f. In **Email Address** text box, enter the email of user like `b.simon@contoso.com`.
 
 	g. In **Create a BlueJeans for Azure AD Meeting I.D** text box, enter your meeting ID.
 

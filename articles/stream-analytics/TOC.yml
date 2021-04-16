@@ -39,12 +39,12 @@
   - name: Create a custom .NET deserializer
     href: custom-deserializer.md
   - name: Create an IoT Edge job
-    href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+    href: ../iot-edge/tutorial-deploy-stream-analytics.md
     maintainContext: true
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
+    href: /samples/browse/?products=azure-stream-analytics
 - name: Concepts
   items:
   - name: End-to-end solution patterns
@@ -316,13 +316,13 @@
         href: external-error-codes.md
       - name: Internal errors
         href: internal-error-codes.md
-  - name: Integrate with machine learnings
+  - name: Integrate with Machine Learning
     items:
     - name: Sentiment analysis with ML models
       href: stream-analytics-machine-learning-integration-tutorial.md
     - name: Anomaly detection
       href: stream-analytics-machine-learning-anomaly-detection.md
-    - name: Use REST APIs
+    - name: Use ML REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
@@ -688,7 +688,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
+    href: https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure
   - name: Feedback forum
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Microsoft Q&A question page
@@ -705,5 +705,3 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
-  - name: Whitepaper - Real-time event processing
-    href: stream-analytics-real-time-event-processing-reference-architecture.md

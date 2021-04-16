@@ -28,7 +28,7 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](../platform/data-platform.md). Use the following instructions to send these telemetry types via the three exporters.
+The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](../data-platform.md). Use the following instructions to send these telemetry types via the three exporters.
 
 ## Telemetry type mappings
 
@@ -216,6 +216,15 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
 
 ### Metrics
 
+OpenCensus.stats supports 4 aggregation methods but provides partial support for Azure Monitor:
+
+- **Count:** The count of the number of measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **Sum:** A sum up of the measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **LastValue:** Keeps the last recorded value, drops everything else.
+- **Distribution:** Histogram distribution of the measurement points. This method is **NOT supported by the Azure Exporter**.
+
+### Count Aggregation example
+
 1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user selects the **Enter** key.
 
     ```python
@@ -315,7 +324,55 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. You can find the data under `customMetrics`.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
+
+### Setting custom dimensions in metrics
+
+Opencensus Python SDK allows adding custom dimensions to your metrics telemetry by the way of `tags`, which are essentially a dictionary of key/value pairs. 
+
+1. Insert the tags that you want to use into the tag map. The tag map acts like a sort of "pool" of all available tags you can use.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+...
+```
+
+1. For a specific `View`, specify the tags you want to use when recording metrics with that view via the tag key.
+
+```python
+...
+prompt_view = view_module.View("prompt view",
+                               "number of prompts",
+                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                               prompt_measure,
+                               aggregation_module.CountAggregation())
+...
+```
+
+1. Be sure to use the tag map when recording in the measurement map. The tag keys that are specified in the `View` must be found in the tag map used to record.
+
+```python
+...
+mmap = stats_recorder.new_measurement_map()
+mmap.measure_int_put(prompt_measure, 1)
+mmap.record(tmap) # <-- pass the tag map in here
+...
+```
+
+1. Under the `customMetrics` table, all metrics records emitted using the `prompt_view` will have custom dimensions `{"url":"http://example.com"}`.
+
+1. To produce tags with different values using the same keys, create new tag maps for them.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap2 = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+...
+```
 
 #### Performance counters
 
@@ -433,7 +490,7 @@ As shown, there are three different Azure Monitor exporters that support OpenCen
 Each exporter accepts the same arguments for configuration, passed through the constructors. You can see details about each one here:
 
 - `connection_string`: The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.
-- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../platform/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
+- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../essentials/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
 - `export_interval`: Used to specify the frequency in seconds of exporting.
 - `instrumentation_key`: The instrumentation key used to connect to your Azure Monitor resource.
 - `logging_sampling_rate`: Used for `AzureLogHandler`. Provides a sampling rate [0,1.0] for exporting logs. Defaults to 1.0.
@@ -453,7 +510,7 @@ In the list under **Active**:
 - For telemetry sent with the Azure Monitor metrics exporter, sent metrics appear under `customMetrics`.
 - For telemetry sent with the Azure Monitor logs exporter, logs appear under `traces`. Exceptions appear under `exceptions`.
 
-For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../platform/data-platform-logs.md).
+For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../logs/data-platform-logs.md).
 
 ## Learn more about OpenCensus for Python
 
@@ -468,11 +525,11 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 * [Tracking incoming requests](./opencensus-python-dependency.md)
 * [Tracking out-going requests](./opencensus-python-request.md)
 * [Application map](./app-map.md)
-* [End-to-end performance monitoring](../learn/tutorial-performance.md)
+* [End-to-end performance monitoring](../app/tutorial-performance.md)
 
 ### Alerts
 
 * [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](./proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../alerts/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 

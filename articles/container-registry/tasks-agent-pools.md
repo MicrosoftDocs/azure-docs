@@ -26,7 +26,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
-- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, USGov Arizona, USGov Texas, and USGov Virginia.
+- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, USGov Arizona, USGov Texas, and USGov Virginia.
 - For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
 - You can't currently cancel a task run on an agent pool.
 
@@ -134,7 +134,7 @@ az acr build \
     --agent-pool myagentpool \
     --image myimage:mytag \
     --file Dockerfile \
-    https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 ### Automatically triggered task
@@ -148,7 +148,7 @@ az acr task create \
     --image myimage:mytag \
     --schedule "0 21 * * *" \
     --file Dockerfile \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --commit-trigger-enabled false
 ```
 

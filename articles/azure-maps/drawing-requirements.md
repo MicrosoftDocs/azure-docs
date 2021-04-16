@@ -102,7 +102,7 @@ No matter how many entity drawings are in the exterior layer, the [resulting fac
 * Exteriors must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
 * Exteriors may overlap, but are dissolved into one geometry.
 * Resulting level feature must be at least 4 square meters.
-* Resulting level feature must not be greater 400 square meters.
+* Resulting level feature must not be greater 400,000 square meters.
 
 If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Alternatively, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 

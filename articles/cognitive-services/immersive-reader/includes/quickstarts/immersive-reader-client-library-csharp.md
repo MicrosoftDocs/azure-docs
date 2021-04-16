@@ -37,7 +37,7 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 ### Configure authentication values
 
-Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
+Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](/aspnet/core/security/app-secrets?tabs=windows). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
 
 ```json
 {
@@ -301,4 +301,5 @@ When you click on the "Immersive Reader" button, you'll see the Immersive Reader
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)
+> [!div class="nextstepaction"]
+> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)

@@ -5,7 +5,6 @@ description: Learn how to restrict access to your apps registered in Azure AD to
 services: active-directory
 author: kalyankrishna1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -43,7 +42,7 @@ There are two ways to create an application with enabled user assignment. One re
 
 ### Enterprise applications (requires the Global Administrator role)
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> as a **Global Administrator**.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> as a **Global Administrator**.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **Enterprise Applications** > **All applications**.
@@ -55,7 +54,7 @@ There are two ways to create an application with enabled user assignment. One re
 
 ### App registration
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
@@ -83,6 +82,6 @@ Once you've configured your app to enable user assignment, you can go ahead and 
 
 - [How to: Add app roles in your application](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory app manifest](./reference-app-manifest.md)

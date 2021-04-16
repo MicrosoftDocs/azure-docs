@@ -21,11 +21,6 @@ ms.author: yelevin
 
 The [Office 365](/office/) log connector brings into Azure Sentinel information on ongoing user and admin activities in **Exchange** and **SharePoint** (including **OneDrive**), and now in **Teams** as well. This information includes details of actions such as file downloads, access requests sent, changes to group events, mailbox operations, Teams events (such as chat, team, member, and channel events), as well as the details of the user who performed the actions. Connecting Office 365 logs to Azure Sentinel enables you to view and analyze this data in your workbooks, query it to create custom alerts, and incorporate it to improve your investigation process, giving you more insight into your Office 365 security.
 
-> [!IMPORTANT]
-> The Office 365 log connector's **extension for Microsoft Teams logs** is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 - You must have read and write permissions on your Azure Sentinel workspace.

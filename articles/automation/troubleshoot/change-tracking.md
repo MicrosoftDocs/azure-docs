@@ -2,17 +2,59 @@
 title: Troubleshoot Azure Automation Change Tracking and Inventory issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Automation Change Tracking and Inventory feature.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/31/2019
-ms.topic: conceptual
-manager: carmonm
+ms.date: 02/15/2021
+ms.topic: troubleshooting
 ---
+
 # Troubleshoot Change Tracking and Inventory issues
 
 This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking/overview.md).
+
+## General errors
+
+### <a name="machine-already-registered"></a>Scenario: Machine is already registered to a different account
+
+### Issue
+
+You receive the following error message:
+
+```error
+Unable to Register Machine for Change Tracking, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+### Cause
+
+The machine has already been deployed to another workspace for Change Tracking.
+
+### Resolution
+
+1. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+
+1. Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
+
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
+
+   If you don't see your machine in the query results, it hasn't checked in recently. There's probably a local configuration issue. You should reinstall the Log Analytics agent.
+
+   If your machine is listed in the query results, verify under the Solutions property that **changeTracking** is listed. This verifies it is registered with Change Tracking and Inventory. If it is not, check for scope configuration problems. The scope configuration determines which machines are configured for Change Tracking and Inventory. To configure the scope configuration for the target machine, see [Enable Change Tracking and Inventory from an Automation account](../change-tracking/enable-from-automation-account.md).
+
+   In your workspace, run this query.
+
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
+
+1. If you get a ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **Usage and estimated costs**. Either select a new **Pricing tier** that allows you to use more data, or click on **Daily cap**, and remove the cap.
+
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="Usage and estimated costs." lightbox="./media/change-tracking/change-tracking-usage.png":::
+
+If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in  [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ## Windows
 
@@ -94,11 +136,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md).
+If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md).
 
 If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
+For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### Log Analytics agent for Linux not configured correctly
 

@@ -246,7 +246,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Qlik Sense Enterprise Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Qlik Sense Enterprise tile in the My Apps, this will redirect to Qlik Sense Enterprise Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Qlik Sense Enterprise tile in the My Apps, this will redirect to Qlik Sense Enterprise Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

@@ -103,6 +103,10 @@ Choose the rule you want to enable or disable. Toggle the **Enabled/Disabled** b
 
 Choose the rule you want to customize. Use one or more filters in the **Target devices** section to narrow the scope of the rule to the devices you want to monitor.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this tutorial, you learned how to:

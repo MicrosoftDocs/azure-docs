@@ -104,6 +104,8 @@ Connection strings and other credentials stored in application settings gives al
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
+Managed identities can be used in place of secrets for connections from some triggers and bindings. See [Identity-based connections](#identity-based-connections).
+
 For more information, see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
 #### Restrict CORS access
@@ -133,6 +135,14 @@ You can also encrypt settings by default in the local.settings.json file when de
 While application settings are sufficient for most many functions, you may want to share the same secrets across multiple services. In this case, redundant storage of secrets results in more potential vulnerabilities. A more secure approach is to a central secret storage service and use references to this service instead of the secrets themselves.      
 
 [Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. You can use a Key Vault reference in the place of a connection string or key in your application settings. To learn more, see [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+
+### Identity-based connections
+
+Identities may be used in place of secrets for connecting to some resources. This has the advantage of not requiring the management of a secret, and it provides more fine-grained access control and auditing. 
+
+When you are writing code that creates the connection to [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), you can choose to use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
+
+Some Azure Functions trigger and binding extensions may be configured using an identity-based connection. Today, this includes the [Azure Blob](./functions-bindings-storage-blob.md) and [Azure Queue](./functions-bindings-storage-queue.md) extensions. For information about how to configure these extensions to use an identity, see [How to use identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection).
 
 ### Set usage quotas
 

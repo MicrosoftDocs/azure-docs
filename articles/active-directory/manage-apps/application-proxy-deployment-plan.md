@@ -3,7 +3,7 @@ title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -168,7 +168,7 @@ The steps to deploy your Application Proxy are covered in this [tutorial for add
 
 Publishing applications assumes that you have satisfied all the pre-requisites and that you have several connectors showing as registered and active in the Application Proxy page.
 
-You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview).
+You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
 
 Below are some best practices to follow when publishing an application:
 
@@ -288,7 +288,7 @@ Azure AD provides additional insights into your organization’s application usa
 
 #### Application audit logs
 
-These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are located in the Azure portal and in [Audit API](/graph/api/resources/directoryaudit?view=graph-rest-beta) for export. Additionally, [usage and insights reports](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are also available for your application.
+These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are located in the Azure portal and in [Audit API](/graph/api/resources/directoryaudit) for export. Additionally, [usage and insights reports](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are also available for your application.
 
 #### Application Proxy Connector monitoring
 
@@ -298,7 +298,7 @@ The connectors and the service take care of all the high availability tasks. You
 
 #### Windows event logs and performance counters
 
-Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](../../azure-monitor/platform/data-sources-windows-events.md).
+Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](../../azure-monitor/agents/data-sources-windows-events.md).
 
 ### Troubleshooting guide and steps
 

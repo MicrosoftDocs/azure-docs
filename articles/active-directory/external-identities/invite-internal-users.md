@@ -6,37 +6,32 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/12/2020
+ms.date: 02/03/2021
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---
 
 # Invite internal users to B2B collaboration
 
-> [!NOTE]
-> Inviting internal users to use B2B collaboration is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like these, you can invite them to use B2B collaboration instead. These B2B guest users will be able to use their own identities and credentials to sign in, and you won’t need to maintain passwords or manage account lifecycles.
 
-Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like this, you can invite them to use B2B collaboration so you can take advantage of Azure AD B2B benefits. Your B2B guest users will be able to use their own identities and credentials to sign in, and you won’t need to maintain passwords or manage account lifecycles.
+Sending an invitation to an existing internal account lets you retain that user’s object ID, UPN, group memberships, and app assignments. You don’t need to manually delete and re-invite the user or reassign resources. To invite the user, you use the invitation API to pass both the internal user object and the guest user’s email address along with the invitation. When the user accepts the invitation, the B2B service changes the existing internal user object to a B2B user. Going forward, the user must sign in to cloud resources services using their B2B credentials.
 
-Sending an invitation to an existing internal account lets you retain that user’s object ID, UPN, group memberships, and app assignments. You don’t need to manually delete and re-invite the user or reassign resources. To invite the user, you’ll use the invitation API to pass both the internal user object and the guest user’s email address along with the invitation. When the user accepts the invitation, the B2B service changes the existing internal user object to a B2B user. Going forward, the user must sign in to cloud resources services using their B2B credentials. They can still use their internal credentials to access on premises resources, but you can prevent this by resetting or changing the password on the internal account.
+## Things to consider
 
-> [!NOTE]
-> Invitation is one-way. You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
+- **Access to on-premises resources**: After the user is invited to B2B collaboration, they can still use their internal credentials to access on-premises resources. You can prevent this by resetting or changing the password on the internal account. The exception is [email one-time passcode authentication](one-time-passcode.md); if the user's authentication method is changed to one-time passcode, they won't be able to use their internal credentials anymore.
 
-While in public preview, the method described in this article for inviting internal users to B2B collaboration can’t be used in these instances:
+- **Billing**: This feature doesn't change the UserType for the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Azure AD tenant must be [linked to an Azure subscription](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription) to activate MAU billing.
 
-- The internal user has an assigned Exchange license.
-- The user is from a domain that is set up for direct federation in your directory.
-- The internal user is a cloud-only account, and their main account isn't in Azure AD.
+- **Invitation is one-way**: You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
 
-In these instances, if the internal user must be changed to a B2B user, you should delete the internal account and send the user an invitation for B2B collaboration.
+- **Teams**: When the user accesses Teams using their external credentials, their tenant won't be available initially in the Teams tenant picker. The user can access Teams using a URL that contains the tenant context, for example: `https://team.microsoft.com/?tenantId=<TenantId>`. After that, the tenant will become available in the Teams tenant picker.
 
-**On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
+- **On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
 
 ## How to invite internal users to B2B collaboration
 
@@ -48,15 +43,15 @@ You can use PowerShell or the invitation API to send a B2B invitation to the int
 By default, the invitation will send the user an email letting them know they’ve been invited, but you can suppress this email and send your own instead.
 
 > [!NOTE]
-> To send your own email or other communication, you can use New-AzureADMSInvitation with -SendInvitationMessage:$false to invite users silently, and then send your own email message to the converted user. See [Azure AD B2B collaboration API and customization](customize-invitation-api.md).
+> To send your own email or other communication, you can use `New-AzureADMSInvitation` with `-SendInvitationMessage:$false` to invite users silently, and then send your own email message to the converted user. See [Azure AD B2B collaboration API and customization](customize-invitation-api.md).
 
 ## Use PowerShell to send a B2B invitation
 
-Use the following command to invite the user to B2B collaboration:
+You'll need Azure AD PowerShell module version 2.0.2.130 or later. Use the following command to update to the latest AzureAD PowerShell module and invite the internal user to B2B collaboration:
 
 ```powershell
-Uninstall-Module AzureADPreview
-Install-Module AzureADPreview
+Uninstall-Module AzureAD
+Install-Module AzureAD
 $ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
@@ -93,7 +88,6 @@ ContentType: application/json
 ```
 
 The response to the API is the same response you get when you invite a new guest user to the directory.
-
 ## Next steps
 
 - [B2B collaboration invitation redemption](redemption-experience.md)

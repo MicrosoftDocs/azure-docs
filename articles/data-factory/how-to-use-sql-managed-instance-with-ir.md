@@ -1,15 +1,9 @@
 ---
 title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services (SSIS) in Azure Data Factory
 description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 4/15/2020
 ---
@@ -22,7 +16,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 - [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Managed Instance](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Clean up SSISDB logs by Azure SQL Managed Instance Agent job](#clean-up-ssisdb-logs)
-- [Azure-SSIS IR failover with Azure SQL Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Azure-SSIS IR failover with Azure SQL Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Managed Instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## Provision Azure-SSIS IR with SSISDB hosted by Azure SQL Managed Instance
@@ -39,7 +33,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             - Inside the same virtual network as the managed instance, with **different subnet**.
             - Inside a different virtual network than the the managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
 
-            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Configure virtual network](#configure-virtual-network).
 

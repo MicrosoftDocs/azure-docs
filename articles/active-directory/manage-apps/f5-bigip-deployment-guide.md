@@ -260,7 +260,7 @@ A BIG-IP system is administered via its web config UI, which can be accessed usi
 
 - From a VPN client connected to the BIG-IP-VM’s internal network
 
-- Published via [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+- Published via [Azure AD Application Proxy](./application-proxy-add-on-premises-application.md)
 
 You’ll need to decide on the most suitable method before you can proceed with the remaining configurations. If necessary, you can connect directly to the web config from the internet by configuring the BIG-IP’s primary IP with a public IP. Then adding an NSG rule to allow the 8443 traffic to that primary IP. Make sure to restrict the source to your own trusted IP, otherwise anyone will be able to connect.
 
@@ -272,7 +272,7 @@ Once ready, confirm you can connect to the BIG-IP VM’s web config and login wi
 
 A BIG-IP system can also be managed via its underlying SSH environment, which is typically used for command-line (CLI) tasks and root level access. Several options exist for connecting to the CLI, including:
 
-- [Azure Bastion service](https://docs.microsoft.com/azure/bastion/bastion-overview): Allows fast and secure connections to any VM within a vNET, from any location
+- [Azure Bastion service](../../bastion/bastion-overview.md): Allows fast and secure connections to any VM within a vNET, from any location
 
 - Connect directly via an SSH client like PuTTY through the JIT approach
 
@@ -419,7 +419,7 @@ With the BIG-IP system now fully provisioned, we recommend taking a full backup 
 
 6. Save the User configuration set (UCS) archive locally by choosing the link of the backup and select **Download**.
 
-As an optional step, you can also take a backup of the entire system disk using [Azure snapshots](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk), which unlike the web config backup would provide some contingency for testing between TMOS versions, or rolling back to a fresh system.
+As an optional step, you can also take a backup of the entire system disk using [Azure snapshots](../../virtual-machines/windows/snapshot-copy-managed-disk.md), which unlike the web config backup would provide some contingency for testing between TMOS versions, or rolling back to a fresh system.
 
 ```PowerShell
 # Install modules

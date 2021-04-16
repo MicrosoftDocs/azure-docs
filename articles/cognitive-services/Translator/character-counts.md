@@ -3,13 +3,13 @@ title: Character Counts - Translator
 titleSuffix: Azure Cognitive Services
 description: This article explains how the Azure Cognitive Services Translator counts characters so you can understand how it ingests content.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # How the Translator counts characters
@@ -33,5 +33,7 @@ For scripts based on ideograms such as Chinese and Japanese Kanji, the Translato
 The number of requests, words, bytes, or sentences is irrelevant in the character count.
 
 Calls to the Detect and BreakSentence methods are not counted in the character consumption. However, we do expect that the calls to the Detect and BreakSentence methods are in a reasonable proportion to the use of other functions that are counted. If the number of Detect or BreakSentence calls you make exceeds the number of other counted methods by 100 times, Microsoft reserves the right to restrict your use of the Detect and BreakSentence methods.
+
+Every character submitted to the translate function is counted even when the content is not changed or when the source and target language are the same.
 
 More information about character counts is in the [Translator FAQ](https://www.microsoft.com/en-us/translator/faq.aspx).
