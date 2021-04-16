@@ -1,9 +1,9 @@
 ---
 title: Azure Key Vault authentication fundamentals
 description: Learn about how key vault's authentication model works
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 09/25/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 04/15/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
