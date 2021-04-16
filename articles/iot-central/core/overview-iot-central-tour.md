@@ -121,7 +121,7 @@ The rules page lets you define rules based on devices' telemetry, state, or even
 
 :::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Screenshot of Analytics page.":::
 
-The analytics page lets you view telemetry from your devices graphically, across a time series. To learn more, see the [Create analytics for your Azure IoT Central application](howto-create-analytics.md) article.
+The analytics page lets you view telemetry from your devices graphically across a time series. To learn more, see the [Create analytics for your Azure IoT Central application](howto-create-analytics.md) article.
 
 ### Jobs
 
