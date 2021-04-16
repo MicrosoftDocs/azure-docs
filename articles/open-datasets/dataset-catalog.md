@@ -12,7 +12,7 @@ ms.date: 04/16/2021
 
 Improve the accuracy of your machine learning models with publicly available datasets. Save time on data discovery and preparation by using curated datasets that are ready to use in machine learning projects.
 
-## Transportation datasets
+## Transportation
 
 | Dataset | Description |
 |--|--|
@@ -21,14 +21,14 @@ Improve the accuracy of your machine learning models with publicly available dat
 | NYC Taxi & Limousine Commission - green taxi trip records | The green taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
 | NYC Taxi & Limousine Commission - For-Hire Vehicle (FHV) trip records | The For-Hire Vehicle trip records include the dispatching base license number and the pick-up date, time, and taxi zone location ID. |
 
-## Weather datasets
+## Weather
 
 | Dataset | Description |
 |--|--|
 | NOAA Global Forecast System (GFS) | 15-day US hourly weather forecast data produced by the Global Forecast System (GFS) from the National Oceanic and Atmospheric Administration (NOAA). |
 | NOAA-Integrated Surface Data (ISD) | NOAA-Integrated Surface Data (ISD) provides Worldwide hourly weather history data sourced from the National Oceanic and Atmospheric Administration (NOAA). |
 
-## Health and genetic datasets
+## Health and genetics
 
 | Dataset | Description |
 |--|--|
@@ -36,7 +36,7 @@ Improve the accuracy of your machine learning models with publicly available dat
 | COVID-19 Open Research Dataset | A full-text and metadata dataset of COVID-19 and coronavirus-related scholarly articles optimized for machine readability and made available for use by the global research community. |
 | Genomics Data Lake | The Genomics Data Lake provides various public datasets that you can access for free and integrate into your genomics analysis workflows and applications. The datasets include genome sequences, variant info and subject/sample metadata in BAM, FASTA, VCF, CSV file formats. |
 
-## Labor and economics datasets
+## Labor and economics
 
 | Dataset | Description |
 |--|--|
@@ -48,7 +48,7 @@ Improve the accuracy of your machine learning models with publicly available dat
 | US Producer Price Index - Industry | The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their output. |
 | US Producer Price Index - Commodities | The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their commodities. |
 
-## Population and safety datasets
+## Population and safety
 
 | Dataset | Description |
 |--|--|
@@ -64,7 +64,7 @@ Improve the accuracy of your machine learning models with publicly available dat
 
 | Dataset | Description |
 |--|--|
-| Diabetes | The Diabetes dataset has 442 samples with 10 features, making it ideal for getting started with machine learning algorithms. |
+| [Diabetes](dataset-diabetes.md) | The Diabetes dataset has 442 samples with 10 features, making it ideal for getting started with machine learning algorithms. |
 | OJ Sales Simulated Data | This dataset is derived from the Dominick’s OJ dataset and includes additional simulated data with the goal of providing a dataset that makes it easy to simultaneously train thousands of models on Azure Machine Learning. |
 | MNIST database of handwritten digits | The MNIST database of handwritten digits has a training set of 60,000 examples and a test set of 10,000 examples. The digits have been size-normalized and centered in a fixed-size image. |
 | Microsoft News recommendation dataset | Microsoft News Dataset (MIND) is a large-scale dataset for news recommendation research. It serves as a benchmark dataset for news recommendation, and facilitates research in news recommendation and recommender systems. |
