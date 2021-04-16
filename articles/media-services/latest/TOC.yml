@@ -242,9 +242,7 @@
       href: media-services-apis-overview.md
       displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
-      href: filter-order-page-entitites-how-to.md 
-    - name: Azure RBAC
-      href: security-rbac-concept.md
+      href: filter-order-page-entitites-how-to.md
     - name: Error codes
       items:
       - name: Streaming endpoint error codes  
@@ -443,8 +441,18 @@
       href: asset-publish-cli-how-to.md
   - name: Security
     items:
+    - name: Azure RBAC
+      href: security-rbac-concept.md
     - name: Roll storage access keys
       href: security-storage-roll-access-keys-how-to.md
+    - name: Enable trusted storage
+      href: security-trusted-storage-rest-tutorial.md
+    - name: Azure Media PlayerPass authentication tokens
+      href: security-pass-authentication-tokens-how-to.md
+    - name: Enable trusted storage
+      href: security-trusted-storage-rest-tutorial.md
+    - name: Customer managed keys with REST API
+      href: security-customer-managed-keys-rest-postman-tutorial.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up
