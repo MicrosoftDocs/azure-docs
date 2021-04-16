@@ -54,6 +54,8 @@
     href: deploy-iot-edge-device.md
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Playback of recordings
+    href: playback-recordings-how-to.md
 - name: Reference 
   items:
   - name: HTTP extension protocol 
