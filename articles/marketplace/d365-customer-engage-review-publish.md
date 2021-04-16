@@ -5,9 +5,9 @@ ms.reviewer: emuench
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms 
-ms.author: mingshen
-ms.date: 04/15/2021
+author: vamahtan
+ms.author: vamahtan
+ms.date: 04/16/2021
 ---
 
 # Review and publish a Dynamics 365 CE&PA offer
@@ -47,7 +47,7 @@ After all pages are complete and you have entered applicable testing notes, sele
 1. Select the **Overview** tab in the left-nav menu bar.
 1. Select the offer.
 1. Select **Review and publish**.
-1. Select **Go-Live** to make your offer publicly available.
+1. Select **Go live** to make your offer publicly available.
 
 ## Next steps
 

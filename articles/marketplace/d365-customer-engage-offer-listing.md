@@ -4,16 +4,14 @@ description: Configure Dynamics 365 for Customer Engagement & PowerApps offer li
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/15/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 04/16/2021
 ---
 
-# Configure D365 for Customer Engagement & PowerApps offer listing details
+# Configure Dynamics 365 for Customer Engagement & Power Apps offer listing details
 
-<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
-
-Define marketplace details for each language/market here, such as offer name, description, and images. Select the language/market name to provide this information.</strike>This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
+This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 
 > [!NOTE]
 > Provide offer listing details in one language only. English is not required as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.

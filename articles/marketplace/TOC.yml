@@ -215,8 +215,6 @@
         href: d365-customer-engage-technical-configuration.md
       - name: Supplemental content
         href: d365-customer-engage-supplemental-content.md
-      - name: Functional validation
-        href: d365-customer-engage-validation.md
       - name: Review and publish
         href: d365-customer-engage-review-publish.md
     - name: Create an Operations offer

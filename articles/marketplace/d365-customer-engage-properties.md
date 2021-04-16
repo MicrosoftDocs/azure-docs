@@ -1,15 +1,15 @@
 ---
-title: Configure Dynamics 365 for Customer Engagement & PowerApps offer properties on Microsoft AppSource
-description: Configure Dynamics 365 for Customer Engagement & PowerApps offer properties on Microsoft AppSource.
+title: Configure Dynamics 365 for Customer Engagement & PowerApps offer properties on Microsoft AppSource (Azure Marketplace).
+description: Configure Dynamics 365 for Customer Engagement & PowerApps offer properties on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/15/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 04/16/2021
 ---
 
-# Configure Dynamics 365 for Customer Engagement & PowerApps offer properties
+# Configure Dynamics 365 for Customer Engagement & Power Apps offer properties
 
 This page lets you define the categories used to group your offer on Microsoft AppSource, your application version, and the legal contracts that support your offer.
 
@@ -25,7 +25,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 ## Industries
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)].
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 Select the **Applicable products** in Dynamics 365 this offer applies to.
 

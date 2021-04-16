@@ -4,12 +4,12 @@ description: Set up Dynamics 365 for Customer Engagement & PowerApps offer suppl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/15/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 04/16/2021
 ---
 
-# Set up Dynamics 365 for Customer Engagement & PowerApps offer supplemental content
+# Set up Dynamics 365 for Customer Engagement & Power Apps offer supplemental content
 
 This page lets you provide additional information to help us validate your offer. This information is not shown to customers or published to the marketplace.
 

@@ -4,8 +4,8 @@ description: Plan Dynamics 365 offers for Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: navits
-ms.author: navits
+author: vamahtan
+ms.author: vamahtan
 ms.date: 04/16/2021
 ---
 
@@ -81,6 +81,6 @@ After you've considered the planning items described above, select one of the fo
 | :------------------- | :-------------------|
 | [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | When you're building for Enterprise Edition, first review these additional [publishing processes and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
 | [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
-| [Dynamics 365 for Customer Engagement & Power Apps](partner-center-portal/create-new-customer-engagement-offer.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
+| [Dynamics 365 for Customer Engagement & Power Apps](d365-customer-engage-offer-setup.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
 | [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | First review these additional [publishing processes and guidelines](/power-bi/developer/office-store). |
 |

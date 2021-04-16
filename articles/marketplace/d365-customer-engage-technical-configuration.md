@@ -4,12 +4,12 @@ description: Set up Dynamics 365 for Customer Engagement & PowerApps offer techn
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/15/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 04/16/2021
 ---
 
-# Set up Dynamics 365 for Customer Engagement & PowerApps offer technical configuration
+# Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration
 
 This page defines the technical details used to connect to your offer. This connection lets us provision your offer for the end customer if they choose to acquire it.
 
