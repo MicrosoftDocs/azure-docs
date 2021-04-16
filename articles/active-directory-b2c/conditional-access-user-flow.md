@@ -161,7 +161,7 @@ Multiple Conditional Access policies may apply to an individual user at any time
 
 Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are.
 
-A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk). Please note the [limitations on Identity Protection detections for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations).
+A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk). Please note the [limitations on Identity Protection detections for B2C](https://docs.microsoft.com/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations).
 
 If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 
@@ -187,7 +187,7 @@ Organizations should choose one of the following options to enable a sign-in ris
 
 ### Enable with Conditional Access APIs
 
-The steps to create a Sign-in risk-based Conditional Access policy with Conditional Access APIs is documented in a sample here, [Conditional Access APIs](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). We will use the sample as a reference to create a policy called "Template 1: Require MFA for medium + sign-in risk" using the APIs.
+The steps to create a Sign-in risk-based Conditional Access policy with Conditional Access APIs is documented in a sample here, [Conditional Access APIs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). We will use the sample as a reference to create a policy called "Template 1: Require MFA for medium + sign-in risk" using the APIs.
 
 To create a Conditional Access policy, use the following `POST` operation.
 
