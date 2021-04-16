@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
+ms.date: 04/15/2021
 ---
 
 # Analyze data with a serverless SQL pool
@@ -24,7 +24,6 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
 
 ## Analyze NYC Taxi data with a serverless SQL pool
 
-
 1. In Synapse Studio, go to the **Develop** hub
 1. Create a new SQL script.
 1. Paste the following code into the script.
@@ -34,11 +33,11 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
         TOP 100 *
     FROM
         OPENROWSET(
-                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
             FORMAT='PARQUET'
         ) AS [result]
     ```
-1. Click **Run**
+1. Click **Run**. 
 
 ## Next steps
 
