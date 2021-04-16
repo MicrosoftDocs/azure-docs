@@ -6,7 +6,6 @@ documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets
-ms.subservice: linux
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services

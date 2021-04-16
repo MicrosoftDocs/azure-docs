@@ -15,8 +15,8 @@ The following table lists quota information specific to Azure Service Bus messag
 
 | Quota name | Scope | Notes | Value |
 | --- | --- | --- | --- |
-| Maximum number of Basic or Standard namespaces per Azure subscription |Namespace |Subsequent requests for additional Basic or Standard namespaces are rejected by the Azure portal. |100|
-| Maximum number of Premium namespaces per Azure subscription |Namespace |Subsequent requests for additional Premium namespaces are rejected by the portal. |100 |
+| Maximum number of Basic or Standard namespaces per Azure subscription |Namespace |Subsequent requests for additional Basic or Standard namespaces are rejected by the Azure portal. | The default is 100. <br/> The maximum is 1,000. <br/><br/> To increase the limit contact Azure support. |
+| Maximum number of Premium namespaces per Azure subscription |Namespace |Subsequent requests for additional Premium namespaces are rejected by the portal. | The default is 100. <br/> The maximum is 1,000. <br/><br/> To increase the limit contact Azure support. |
 | Queue or topic size |Entity |Defined upon creation of the queue or topic. <br/><br/> Subsequent incoming messages are rejected, and an exception is received by the calling code. |1, 2, 3, 4 GB or 5 GB.<br /><br />In the Premium SKU, and the Standard SKU with [partitioning](../articles/service-bus-messaging/service-bus-partitioning.md) enabled, the maximum queue or topic size is 80 GB. |
 | Number of concurrent connections on a namespace |Namespace |Subsequent requests for additional connections are rejected, and an exception is received by the calling code. REST operations don't count toward concurrent TCP connections. |Net Messaging: 1,000.<br /><br />AMQP: 5,000. |
 | Number of concurrent receive requests on a queue, topic, or subscription entity |Entity |Subsequent receive requests are rejected, and an exception is received by the calling code. This quota applies to the combined number of concurrent receive operations across all subscriptions on a topic. |5,000 |
@@ -34,6 +34,6 @@ The following table lists quota information specific to Azure Service Bus messag
 | Size of SQL filters or actions |Namespace |Subsequent requests for creation of additional filters are rejected, and an exception is received by the calling code. |Maximum length of filter condition string: 1,024 (1 K).<br /><br />Maximum length of rule action string: 1,024 (1 K).<br /><br />Maximum number of expressions per rule action: 32. |
 | Number of shared access authorization rules per namespace, queue, or topic |Entity, namespace |Subsequent requests for creation of additional rules are rejected, and an exception is received by the calling code. |Maximum number of rules per entity type: 12. <br /><br /> Rules that are configured on a Service Bus namespace apply to all types: queues, topics. |
 | Number of messages per transaction | Transaction | Additional incoming messages are rejected, and an exception stating "Cannot send more than 100 messages in a single transaction" is received by the calling code. | 100 <br /><br /> For both **Send()** and **SendAsync()** operations. |
-| Number of virtual network and IP filter rules | Namespace | &nbsp; | 128 | 
+| Number of virtual network and IP filter rules | Namespace | &nbsp; | 128 |
 
 [Azure portal]: https://portal.azure.com

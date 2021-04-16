@@ -85,6 +85,7 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
     ```
 
 1. To test dynamic configuration, open the Azure App Configuration portal associated with your application. Select **Configuration Explorer**, and update the value of your displayed key, for example:
+
     | Key | Value |
     |---|---|
     | application/config.message | Hello - Updated |

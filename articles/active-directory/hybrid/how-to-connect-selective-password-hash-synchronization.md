@@ -36,7 +36,7 @@ To reduce the configuration administrative effort, you should first consider the
 > Configuring selective password hash synchronization directly influences password writeback. Password changes or password resets that are initiated in Azure Active Directory write back to on-premises Active Directory only if the user is in scope for password hash synchronization. 
 
 ### The adminDescription attribute
-Both scenarios rely on setting the adminDescription attribute of users to a specific value.  This allows the the rules to be applied and is what makes selective PHS work.
+Both scenarios rely on setting the adminDescription attribute of users to a specific value.  This allows the rules to be applied and is what makes selective PHS work.
 
 |Scenario|adminDescription value|
 |-----|-----|
@@ -78,7 +78,7 @@ The following section describes how to enable selective password hash synchroniz
 - Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization. 
 
 >[!Important]
->The steps provided to configure selective password hash synchronization will only effect user objects that have 
+>The steps provided to configure selective password hash synchronization will only affect user objects that have 
 the attribute **adminDescription** populated in Active Directory with the value of **PHSFiltered**.
 >If this attribute is not populated or the value is something other than **PHSFiltered** then these rules will not be applied to the user objects.
 
@@ -92,7 +92,7 @@ the attribute **adminDescription** populated in Active Directory with the value 
  3.	The first rule will disable password hash sync.
  Provide the following name to the new custom rule: **In from AD - User AccountEnabled - Filter Users from PHS**.
  Change the precedence value to a number lower than 100 (for example **90** or whichever is the lowest value available in your environment).
- Make sure the checkboxes **Enable Password Sync** and **Disabled** are unchecked and c.
+ Make sure the checkboxes **Enable Password Sync** and **Disabled** are unchecked.
  Click **Next**.
      ![Edit inbound](media/how-to-connect-selective-password-hash-synchronization/exclude-3.png)
  4.	In **Scoping filter**, click **Add clause**.
@@ -152,7 +152,7 @@ The following is a summary of the actions that will be taken in the steps below:
 - Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization. 
 
 >[!Important]
->The steps provided to configure selective password hash synchronization will only effect user objects that have 
+>The steps provided to configure selective password hash synchronization will only affect user objects that have 
 the attribute **adminDescription** populated in Active Directory with the value of **PHSIncluded**.
 >If this attribute is not populated or the value is something other than **PHSIncluded** then these rules will not be applied to the user objects.
 

@@ -6,7 +6,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/24/2021 
+ms.date: 04/16/2021 
 ---
 
 # Azure Resource Manager templates for Azure Front Door
@@ -18,7 +18,9 @@ The following table includes links to Azure Resource Manager templates for Azure
 
 | Sample | Description |
 |-|-|
+| [Front Door (quick create)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium/) | Creates a basic Front Door profile including an endpoint, origin group, origin, and route.  |
 | [Rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Creates a Front Door profile and rule set.  |
+| [WAF policy with custom rule](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Creates a Front Door profile and WAF with custom rule.  |
 |**App Service origins**| **Description** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
 | [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |

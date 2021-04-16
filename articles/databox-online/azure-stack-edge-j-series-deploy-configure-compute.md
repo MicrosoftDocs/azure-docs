@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+# Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
 
 # Tutorial: Transform data with Azure Stack Edge Pro

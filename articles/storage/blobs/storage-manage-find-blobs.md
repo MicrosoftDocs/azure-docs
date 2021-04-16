@@ -1,9 +1,9 @@
 ---
 title: Manage and find Azure Blob data with blob index tags (preview)
 description: Learn how to use blob index tags to categorize, manage, and query for blob objects.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common

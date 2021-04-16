@@ -4,8 +4,7 @@ description: In this tutorial, you learn how to configure an Azure Container Reg
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: "seodec18, mvc, devx-track-azurecli"
-# Customer intent: As a developer or devops engineer, I want to trigger
-# container image builds automatically when I commit code to a Git repo.
+# Customer intent: As a developer or devops engineer, I want to trigger container image builds automatically when I commit code to a Git repo.
 ---
 
 # Tutorial: Automate container image builds in the cloud when you commit source code

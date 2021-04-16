@@ -119,7 +119,7 @@ For illustration purposes, we have only one dependent resource.
 
 ## Validate move
 
-The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
+The [validate move operation](/rest/api/resources/resources/moveresources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
 
 * name of the source resource group
 * resource ID of the target resource group
@@ -236,7 +236,7 @@ If you get an error, see [Troubleshoot moving Azure resources to new resource gr
 
 ## Use REST API
 
-To move existing resources to another resource group or subscription, use the [Move resources](/rest/api/resources/Resources/MoveResources) operation.
+To move existing resources to another resource group or subscription, use the [Move resources](/rest/api/resources/resources/moveresources) operation.
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}

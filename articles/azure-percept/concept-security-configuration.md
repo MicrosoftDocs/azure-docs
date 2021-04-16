@@ -33,3 +33,8 @@ Azure Percept DK offers a great variety of security capabilities out of the box.
 - Ensure data-at-rest encryption is enabled
 - Continuously monitor the device posture and quickly respond to alerts
 - Limit the number of administrators who have access to the device
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure Percept security](./overview-percept-security.md)

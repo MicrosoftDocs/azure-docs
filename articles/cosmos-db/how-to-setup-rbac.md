@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 03/30/2021
 ms.author: thweiss
 ---
 
@@ -380,6 +380,7 @@ This additional information flows in the **DataPlaneRequests** log category and 
 ## Limits
 
 - You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
+- You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
 - Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
 - The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
 - Accessing your data with Azure AD through the [Azure Cosmos DB Explorer](data-explorer.md) isn't supported yet. Using the Azure Cosmos DB Explorer still requires the user to have access to the account's primary key for now.

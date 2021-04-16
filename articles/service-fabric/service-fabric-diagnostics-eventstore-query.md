@@ -1,11 +1,8 @@
 ---
 title: Query for cluster events using the EventStore APIs 
 description: Learn how to use the Azure Service Fabric EventStore APIs to query for platform events
-author: srrengar
-
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: srrengar
 ms.custom: devx-track-csharp
 ---
 

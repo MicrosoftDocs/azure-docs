@@ -116,7 +116,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |eventGridPublishRetryInterval|5 minutes|The Event Grid publishes retry interval in the *hh:mm:ss* format.|
 |eventGridPublishEventTypes||A list of event types to publish to Event Grid. If not specified, all event types will be published. Allowed values include `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.
-|useLegacyPartitionManagement|true|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0. The default will be changed to `false` in a future release.|
+|useLegacyPartitionManagement|false|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0.|
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

@@ -24,7 +24,8 @@ The Azure SQL Database data source supports the following functionality:
 
 ### Known limitations
 
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) in Azure SQL Database.
+> * Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) in Azure SQL Database.
+> * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated". 
 
 ## Prerequisites
 
@@ -96,7 +97,7 @@ The service principal or managed identity must have permission to get metadata f
     ```
 
     > [!Note]
-    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
     
 ##### Add service principal to key vault and Purview's credential
 

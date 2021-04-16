@@ -9,10 +9,9 @@ metadata:
   services: baremetal-infrastructure 
   ms.service: baremetal-infrastructure #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
-  author: shortpatti
-  ms.author: v-patsho
-  ms.date: 03/19/2021
-
+  author: Ajayan1008
+  ms.author: v-hborys
+  ms.date: 04/14/2021
 
 
 # card 1
@@ -25,12 +24,30 @@ landingContent:
             url: concepts-baremetal-infrastructure-overview.md
           - text: Know the terms
             url: know-baremetal-terms.md
-          - text: BareMetal workload types
-            url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
-          - text: Connect BareMetal Instance units in Azure
+          - text: Connect BareMetal instances in Azure
             url: connect-baremetal-infrastructure.md
 
 # card 2
+  - title: BareMetal Infrastructure for Oracle 
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is BareMetal Infrastructure for Oracle? 
+            url: workloads/oracle/oracle-baremetal-overview.md 
+          - text: BareMetal SKUs for Oracle workloads
+            url: workloads/oracle/oracle-baremetal-skus.md       
+          - text: Storage on BareMetal for Oracle
+            url: workloads/oracle/oracle-baremetal-storage.md
+          - text: Patching considerations 
+            url: workloads/oracle/oracle-baremetal-patching.md
+          - text: Ethernet configuration 
+            url: workloads/oracle/oracle-baremetal-ethernet.md
+          - text: Architecture of BareMetal for Oracle
+            url: workloads/oracle/oracle-baremetal-architecture.md
+          - text: Provision BareMetal for Oracle
+            url: workloads/oracle/oracle-baremetal-provision.md
+
+# card 3
   - title: SAP HANA on Azure (Large Instances)
     linkLists:
       - linkListType: overview

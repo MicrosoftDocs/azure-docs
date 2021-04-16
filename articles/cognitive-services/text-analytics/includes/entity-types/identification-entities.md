@@ -29,7 +29,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        American Banker Association (ABA) transit routing numbers.
+        American Banker Association (ABA) transit routing numbers. Also returned with `domain=phi`.
 
         To get this entity category, add `ABARoutingNumber` to the `pii-categories` parameter. `ABARoutingNumber` will also be returned in the API response if detected.
       
@@ -57,7 +57,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        SWIFT codes for payment instruction information.
+        SWIFT codes for payment instruction information. Also returned with `domain=phi`.
 
         To get this entity category, add `SWIFTCode` to the `pii-categories` parameter. `SWIFTCode` will be returned in the API response if detected.
       
@@ -84,7 +84,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Credit card numbers. 
+        Credit card numbers. Also returned with `domain=phi`.
 
         To get this entity category, add `CreditCardNumber` to the `pii-categories` parameter. `CreditCardNumber` will be returned in the API response if detected.
 
@@ -111,7 +111,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        IBAN codes for payment instruction information.
+        IBAN codes for payment instruction information. Also returned with `domain=phi`.
 
         To get this entity category, add `InternationlBankingAccountNumber` to the `pii-categories` parameter. `InternationlBankingAccountNumber` will be returned in the API response if detected.
       
@@ -139,12 +139,13 @@ The following entities are grouped and listed by country:
     :::column span="":::
         **Entity**
 
-        Argentina National Identity (DNI) Number
+        Argentina National Identity (DNI) Number 
 
     :::column-end:::
     :::column span="2":::
         **Details**
-
+        Also returned with `domain=phi`.
+        
         To get this entity category, add `ARNationalIdentityNumber` to the `pii-categories` parameter. `ARNationalIdentityNumber` will be returned in the API response if detected.
       
     :::column-end:::

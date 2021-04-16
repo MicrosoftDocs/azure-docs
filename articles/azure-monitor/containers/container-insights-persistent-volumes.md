@@ -12,8 +12,9 @@ Starting with agent version *ciprod10052020*, Azure Monitor for containers integ
 
 Container insights automatically starts monitoring PV usage by collecting the following metrics at 60 -sec intervals and storing them in the **InsightMetrics** table.
 
-|Metric name |Metric Dimension (tags) | Metric Description |
-| `pvUsedBytes`|podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, clusterName|Used space in bytes for a specific persistent volume with a claim used by a specific pod. `capacityBytes` is folded in as a dimension in the Tags field to reduce data ingestion cost and to simplify queries.|
+| Metric name | Metric Dimension (tags) | Metric Description |
+|-----|-----------|----------|
+| `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, clusterName| Used space in bytes for a specific persistent volume with a claim used by a specific pod. `capacityBytes` is folded in as a dimension in the Tags field to reduce data ingestion cost and to simplify queries.|
 
 Learn more about configuring collected PV metrics [here](./container-insights-agent-config.md).
 
@@ -23,7 +24,7 @@ Azure Monitor for containers automatically starts monitoring PVs by collecting t
 
 |Data |Data Source| Data Type| Fields|
 |-----|-----------|----------|-------|
-|Inventory of persistent volumes in a Kubernetes cluster |Kube API |`KubePVInventory` |	PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
+|Inventory of persistent volumes in a Kubernetes cluster |Kube API |`KubePVInventory` |    PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
 
 ## Monitor Persistent Volumes
 
