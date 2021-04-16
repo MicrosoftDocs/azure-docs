@@ -10,7 +10,7 @@ ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
 ---
-
+ 
 # Azure compute unit (ACU)
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
