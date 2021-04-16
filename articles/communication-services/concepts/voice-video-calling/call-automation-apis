@@ -1,0 +1,137 @@
+---
+title: Azure Communication Services Call Automation API overview
+titleSuffix: An Azure Communication Services concept document
+description: Provides an overview of the Call Automation feature and APIs.
+author: joseys
+manager: anvalent
+services: azure-communication-services
+
+ms.author: joseys
+ms.date: 04/16/2021
+ms.topic: overview
+ms.service: azure-communication-services
+---
+# Call Automation APIs Overview
+
+Call Automation APIs enable organizations to connect with their customers or employees at scale through automated business logic running on server applications. With these APIs you can use Azure Communication Services to create automated outbound reminder calls for appointments or to provide pro-active notifications for events like power outages or wildfires. These capabilities also enable companies to use IVR applications to answer incoming calls to ACS phone numbers, and then route calls to the correct agent based on customer inputs. Applications added to a call can also monitor updates as participants join or leave for added reporting and/or logging. 
+
+## Application Interaction Models
+[image1]
+Each participant in an ACS session connects to a `conversation` via a `call`. Applications can interact with a `conversation` as either **In-Call** or **Out-of-Call**. When In-Call, the application connects to the `conversation` via a `call` as a participant. When Out-of-Call, the application listens to events (published via Event Grid, user actions, etc) and interacts with the `conversation` via APIs. 
+
+### Getting Conversation ID from an In-Call application
+
+ConversationId is returned in the CallEstablished event sent to <recording-state-callback-uri>, within the data.ConversationId field. This value can be used directly as the '{conversationId}' parameter in run-time control APIs:
+```
+      {
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/<callLegId>/callState",
+        "data": {
+---->       "ConversationId": "<conversation-id>",    <----
+            "CallLegId": "<callLegId>",
+            "CallState": "Established"
+        },
+        "eventType": "Microsoft.Communication.CallLegStateChanged",
+        "eventTime": "2021-04-14T16:32:34.1115003Z",
+        "metadataVersion": null,
+        "dataVersion": null
+    }
+```
+                                                            
+### Getting Conversation ID from a user triggered event on the client
+From the Javascript `@azure/communication-calling` library, after establishing a call invoke `let result = call.info.getConversationUrl()` to get the conversationUrl, then 
+**Base64Url encoded the conversationUrl to get the `{conversationId}` for use in the run-time control APIs**. Encoding can be done either on the client before sending the event to the server, or server side.
+> Note that the conversationUrl must be Base64Url encoded, not to be confused with just Base64 encoding (i.e. btoa). 
+
+## In-Call APIs
+> **Note:** In-Call applications are billed as an ACS participant at standard PSTN and VoIP rates.
+                                                           
+
+### Start Recording
+#### Request
+**HTTP**
+<!-- {
+  "blockType": "request",
+  "name": "start-recording"
+}-->
+```
+POST /calling/conversations/{conversationId}/Recordings
+Content-Type: application/json
+
+{
+  "operationContext": "string", // developer provided string for correlation context on each operation
+  "recordingStateCallbackUri": "string"
+}
+```
+**C# SDK**
+<!-- {
+  "blockType": "request",
+  "name": "start-recording"
+}-->
+```C#
+string connectionString = "YOUR_CONNECTION_STRING";
+ConversationClient conversationClient = new ConversationClient(connectionString);
+
+/// start call recording
+StartRecordingResponse startRecordingResponse = await conversationClient.StartRecordingAsync(
+    conversationId: "<conversation-id>"
+    operationContext: "<operation-context>", /// developer provided string for correlation context on each operation
+    recordingStateCallbackUri: "<recording-state-callback-uri>").ConfigureAwait(false);
+
+string recordingId = startRecordingResponse.RecordingId;
+```
+#### Response
+**HTTP**
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+} -->
+
+```http
+HTTP/1.1 200 Success
+Content-Type: application/json
+
+{
+  "RecordingId": "string"
+}
+```
+```
+HTTP/1.1 400 Bad request
+Content-Type: application/json
+
+{
+  "code": "string",
+  "message": "string",
+  "target": "string",
+  "details": [
+    null
+  ]
+}
+```
+```
+HTTP/1.1 404 Not found
+Content-Type: application/json
+
+{
+  "code": "string",
+  "message": "string",
+  "target": "string",
+  "details": [
+    null
+  ]
+}
+```
+```
+HTTP/1.1 500 	Internal server error
+Content-Type: application/json
+
+{
+  "code": "string",
+  "message": "string",
+  "target": "string",
+  "details": [
+    null
+  ]
+}
+```
