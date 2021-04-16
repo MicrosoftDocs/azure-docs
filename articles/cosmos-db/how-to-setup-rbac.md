@@ -41,7 +41,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 ## <a id="permission-model"></a> Permission model
 
 > [!IMPORTANT]
-> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. If you need to authenticate management operations with an AAD identity, you **cannot use any Azure Cosmos DB data plane SDK**. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
+> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
 > - ARM templates
 > - Azure PowerShell scripts,
 > - Azure CLI scripts,
