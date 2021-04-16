@@ -121,7 +121,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
-    ![Set IoT Hub Connection String](./media/quickstarts/set-iotconnection-string.png)
+    ![Set IoT Hub Connection String](./media/quickstarts/set-iot-connection-string.png)
 
 > [!NOTE]
 > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
@@ -144,7 +144,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 Right-click the Azure Video Analyzer device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code. 
 
-![Start monitoring](./media/quickstarts/start-monitoring-iothub-events.png)<!-- needs new screenshot --> 
+![Start monitoring](./media/quickstarts/start-monitoring-iot-hub-events.png)<!-- needs new screenshot --> 
 
 ### Run the sample program to detect vehicles
 If you open the [pipeline topology]()<!-- need updated link --> for this tutorial in a browser, you will see that the value of `inferencingUrl` has been set to `http://openvino:4000/vehicleDetection`, which means the inference server will return results after detecting vehicles, if any, in the live video.
