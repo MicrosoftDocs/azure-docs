@@ -262,7 +262,7 @@ sections:
           
           For the various modes, see Speech modes - see below:
           
-          ## Speech modes - Interactive, conversation, dictation
+          ### Speech modes - Interactive, conversation, dictation
 
           [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
@@ -335,7 +335,8 @@ sections:
           |-----------------------|---------------------|---------------------|
           | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
          
-         
+          ***
+
           - Each core must be at least 2.6 GHz or faster.
           - For files, the throttling will be in the Speech SDK, at 2x (first 5 seconds of audio are not throttled).
           - The decoder is capable of doing about 2-3x real time. For this, the overall CPU usage will be close to two cores for a single recognition. That's why we do not recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real time in an eight core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
