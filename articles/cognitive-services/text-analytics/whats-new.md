@@ -22,6 +22,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ### General API updates
 * Release of the new API v3.1-preview.5 which includes 
   * Asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze) now supports Sentiment Analysis (SA) and Opinion Mining (OM).
+  * A new query parameter, `LoggingOptOut`, is now available for customers who wish to opt out of logging input text for incident reports.  Learn more about this parameter in the [Data Privacy](https://docs.microsoft.com/legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context) article.
 
 ## March 2021
 
