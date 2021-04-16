@@ -13,15 +13,15 @@ manager: corywink
 
 # Take a tour of the Azure IoT Central UI
 
-This article introduces you to the Microsoft Azure IoT Central UI. You can use the UI to create, manage, and use an Azure IoT Central solution and its connected devices.
+This article introduces you to Azure IoT Central UI. You can use the UI to create, manage, and use an IoT Central application and its connected devices.
 
-As a _solution builder_, you use the Azure IoT Central UI to define your Azure IoT Central solution. You can use the UI to:
+As a _solution builder_, you can:
 
 * Define the types of device that connect to your solution.
 * Configure the rules and actions for your devices. 
 * Customize the UI for an _operator_ who uses your solution.
 
-As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Central solution. You can use the UI to:
+As an _operator_, you can:
 
 * Monitor your devices.
 * Configure your devices.
@@ -30,13 +30,13 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 
 ## IoT Central homepage
 
-The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the place where you can learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing application.
+The [IoT Central homepage](https://aka.ms/iotcentral-get-started) is the place where you can learn more about the latest news and features available on IoT Central, create new applications, and access your existing applications.
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="IoT Central homepage":::
 
 ### Create an application
 
-In the Build section you can browse the list of industry-relevant IoT Central templates to help you get started quickly, or start from scratch using a Custom app template.  
+In the Build section you can browse the list of industry-relevant application templates to help you get started quickly, or start from scratch using a custom template.  
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-build.png" alt-text="IoT Central build page":::
 
@@ -44,13 +44,13 @@ To learn more, see the [Create an Azure IoT Central application](quick-deploy-io
 
 ### Launch your application
 
-You can launch your IoT Central application by going to the URL that you or your solution builder choose during app creation. You can also see a list of all the applications you have access to in the [IoT Central app manager](https://aka.ms/iotcentral-apps).
+You can launch your IoT Central application by going to the URL that you or your solution builder chose during app creation. You can also see a list of all applications you have access to in the [IoT Central app manager](https://aka.ms/iotcentral-apps).
 
 :::image type="content" source="media/overview-iot-central-tour/app-manager.png" alt-text="IoT Central app manager":::
 
 ## Navigate your application
 
-Once you're inside your IoT application, use the left pane to access the different areas. You can expand or collapse the left pane by selecting the three-lined icon on top of the pane:
+Once you're inside your IoT application, use the left pane to access various features. You can expand or collapse the left pane by selecting the three-lined icon on top of the pane:
 
 > [!NOTE]
 > The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md). 
@@ -61,25 +61,25 @@ Once you're inside your IoT application, use the left pane to access the differe
 
   :::column-end:::
   :::column span="2":::
-     **Dashboard** displays your application dashboard. As a *solution builder*, you can customize the global dashboard for your operators. Depending on their user role, operators can also create their own personal dashboards.
+     **Dashboard** displays your application's dashboards. As a *solution builder*, you can customize the global dashboard for your operators. Depending on their user role, operators can also create their own personal dashboards.
      
-     **Devices** enables you to manage your connected devices - real and simulated.
+     **Devices** enables you to manage all your devices.
 
      **Device groups** lets you view and create logical collections of devices specified by a query. You can save this query and use device groups through the application to perform bulk operations.
 
-     **Rules** enables you to create and edit rules to monitor your devices. Rules are evaluated based on device telemetry and trigger customizable actions.
+     **Rules** enables you to create and edit rules to monitor your devices. Rules are evaluated based on device data and trigger customizable actions.
 
-     **Analytics** lets you create custom views on top of device data to derive insights from your application.
+     **Analytics** exposes rich capabilities to analyze historical trends and correlate various telemetries from your devices.
 
      **Jobs** enables you to manage your devices at scale by running bulk operations.
 
-     **Device templates** is where you create and manage the characteristics of the devices that connect to your application.
+     **Device templates** enables you to create and manage the characteristics of devices that connect to your application.
 
-     **Data export** enables you to configure a continuous export to external services - such as storage and queues.
+     **Data export** enables you to configure a continuous export to external services such as storage and queues.
 
-     **Administration** is where you can manage your application's settings, customization, billing, users, and roles.
+     **Administration** lets you manage your application's settings, customization, billing, users, and roles.
 
-     **IoT Central** lets *administrators* to jump back to IoT Central's app manager.
+     **My apps** lets you jump back to the IoT Central app manager.
      
    :::column-end:::
 :::row-end:::
