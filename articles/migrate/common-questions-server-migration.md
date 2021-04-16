@@ -138,7 +138,8 @@ New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "Gateway
 ```
 
 In order to increase and decrease replication bandwidth based on a schedule, you can leverage Windows scheduled task to scale the bandwidth as needed. One task will be used to decrease the bandwidth, and another task will be used to increase the bandwidth.
-[!NOTE] You need to create the NetQosPolicy, outlined above, prior to executing the commands below.
+[!NOTE]
+You need to create the NetQosPolicy, outlined above, prior to executing the commands below.
 ```powershell
 #Replace with an account part of the local Administrators group
 $User = "localVmName\userName"
