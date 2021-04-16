@@ -95,7 +95,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 1. Name your data flow **TransformMovies** in the properties pane.
 1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-    ![Screenshot that shows where is the Data flow debug slider.](media/tutorial-data-flow-private/data-flow-debug.png)
+    ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
 
 ## Build transformation logic in the data flow canvas
 
