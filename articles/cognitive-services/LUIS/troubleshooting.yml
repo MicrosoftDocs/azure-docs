@@ -323,6 +323,29 @@ sections:
         answer: |
           The first issue is to isolate if the issue is related to LUIS or happens outside the LUIS middleware.
 
+          ### Resolve issue in LUIS
+          Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
+          
+          * `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-the-pricing-tier).
+          
+          ### Resolve issue in Azure Bot Service
+          
+          If you are using the Azure Bot Service and the issue is that the **Test in Web Chat** returns `Sorry, my bot code is having an issue`, check your logs:
+          
+          1. In the Azure portal, for your bot, from the **Bot management** section, select **Build**.
+          1. Open the online code editor.
+          1. In the top, blue navigation bar, select the bot name (the second item to the right).
+          1. In the resulting drop-down list, select **Open Kudu Console**.
+          1. Select **LogFiles**, then select **Application**. Review all log files. If you don't see the error in the application folder, review all log files under **LogFiles**.
+          1. Remember to rebuild your project if you are using a compiled language such as C#.
+          
+          > [!Tip]
+          > The console can also install packages.
+          
+          ### Resolve issue while debugging on local machine with Bot Framework.
+          
+          To learn more about local debugging of a bot, see [Debug a bot](/azure/bot-service/bot-service-debug-bot).
+
   - name: Integrating LUIS
     questions:
       - question: |
