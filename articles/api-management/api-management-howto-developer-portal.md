@@ -16,7 +16,7 @@ ms.author: apimpm
 
 Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also provides answers to frequently asked questions.
+As introduced in this article, you can customize and extend the developer portal for your specific scenarios. 
 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
@@ -56,4 +56,4 @@ Learn more about the new developer portal:
 Browse other resources:
 
 - [GitHub repository with the source code](https://github.com/Azure/api-management-developer-portal)
-
+- [Frequently asked questions about the developer portal](developer-portal-faq.md)

@@ -16,7 +16,7 @@ ms.author: apimpm
 
 ## What if I need functionality that isn't supported in the portal?
 
-You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn also about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
+You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn more about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 
 
 ## Can I have multiple developer portals in one API Management service?
@@ -53,15 +53,15 @@ If your API Management service is in an internal VNet, your developer portal is 
 
 If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management. You may need to disable Web Application Firewall rules. See [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
 
-## I have assigned a custom API Management domain and the published portal doesn't work
+## I assigned a custom API Management domain and the published portal doesn't work
 
 After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
-## I have added an identity provider and I can't see it in the portal
+## I added an identity provider and I can't see it in the portal
 
 After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
 
-## I have set up delegation and the portal doesn't use it
+## I set up delegation and the portal doesn't use it
 
 After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
@@ -90,7 +90,7 @@ You can also enable CORS manually.
 > 
 > If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
 >
-> The browser automatically issues an OPTIONS HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the OPTIONS call with a Product, so it can't apply the CORS policy.
+> The browser automatically issues an `OPTIONS` HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the `OPTIONS` call with a Product, so it can't apply the CORS policy.
 >
 > As a workaround you can pass the subscription key in a query parameter.
 
@@ -100,7 +100,7 @@ You can also enable CORS manually.
 
 ## What is the CORS proxy feature and when should I use it?
 
-Select the **Use CORS proxy** option in the configuration of the API operation details widget to route the interactive console's API calls through the portal's backend in your API Management service. In this configuration, you no longer need to apply a CORS policy for your APIs and connectivity to the gateway endpoint from the local machine isn't required. If the APIs are exposed through a self-hosted gateway or your service is in a virtual network, the connectivity from the API Management's backend service to the gateway is required. If you use the self-hosted portal, specify the portal's backend endpoint using the `backendUrl` option in the configuration files; otherwise, the self-hosted portal won't be aware of the location of the backend service.
+Select the **Use CORS proxy** option in the configuration of the API operation details widget to route the interactive console's API calls through the portal's backend in your API Management service. In this configuration, you no longer need to apply a CORS policy for your APIs, and connectivity to the gateway endpoint from the local machine isn't required. If the APIs are exposed through a self-hosted gateway or your service is in a virtual network, the connectivity from the API Management's backend service to the gateway is required. If you use the self-hosted portal, specify the portal's backend endpoint using the `backendUrl` option in the configuration files. Otherwise, the self-hosted portal won't be aware of the location of the backend service.
 
 ## What permissions do I need to edit the developer portal?
 
@@ -138,9 +138,9 @@ After the permissions have been granted to a user, the user must sign out and si
 
 This error is shown when a `GET` call to `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` fails. The call is issued from the browser by the administrative interface of the portal.
 
-If your API Management service is in a VNet - refer to the VNet connectivity question above.
+If your API Management service is in a VNet, refer to the [VNet connectivity question](#do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies).
 
-The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
+The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain API Management will fall back to the default endpoint with a trusted certificate.
 
 ## What's the browser support for the portal?
 

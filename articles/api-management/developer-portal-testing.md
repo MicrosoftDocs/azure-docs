@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Test the self-hosted developer portal
 
-This article explains how to set up unit tests and end-to-end tests for your self-hosted portal.
+This article explains how to set up unit tests and end-to-end tests for your [self-hosted portal](developer-portal-self-host.md).
 
 ## Unit tests
 

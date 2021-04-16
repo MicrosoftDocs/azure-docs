@@ -11,11 +11,13 @@ ms.topic: how-to
 
 # Self-host the API Management developer portal
 
-This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting provides great flexibility to extend the developer portal with custom logic and widgets that dynamically customize pages on runtime. You can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you are responsible for its upgrades. 
+This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting gives you flexibility to extend the developer portal with custom logic and widgets that dynamically customize pages on runtime. You can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you are responsible for its upgrades. 
 
 The following steps show how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure storage account.
 
 If you have already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 
@@ -27,7 +29,7 @@ To set up a local development environment, you need to have:
 - Node.js (LTS version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 - Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli-windows).
 
-## Set up local environment
+## Step 1: Set up local environment
 
 To set up your local environment, you'll have to clone the repository, switch to the latest release of the developer portal, and install npm packages.
 
@@ -59,7 +61,7 @@ To set up your local environment, you'll have to clone the repository, switch to
 > [!TIP]
 > Always use the [latest portal release](https://github.com/Azure/api-management-developer-portal/releases) and keep your forked portal up-to-date. The Software Engineers use the `master` branch of this repository for daily development purposes. It has unstable versions of the software.
 
-## Configure JSON files, static website, and CORS settings
+## Step 2: Configure JSON files, static website, and CORS settings
 
 The developer portal requires API Management's REST API to manage the content.
 
@@ -179,7 +181,7 @@ Configure the Cross-Origin Resource Sharing (CORS) settings:
 
 1. Select **Save**.
 
-## Run the portal
+## Step 3: Run the portal
 
 Now you can build and run a local portal instance in the development mode. In development mode, all the optimizations are turned off and the source maps are turned on.
 
@@ -191,7 +193,7 @@ npm start
 
 After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. Any changes to the codebase of the project will trigger a rebuild and refresh your browser window.
 
-## Edit through the visual editor
+## Step 4: Edit through the visual editor
 
 Use the visual editor to carry out these tasks:
 
@@ -202,7 +204,7 @@ Use the visual editor to carry out these tasks:
 
 See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content. Save all changes in the local environment, and press **Ctrl+C** to close it.
 
-## Publish locally
+## Step 5: Publish locally
 
 The portal data originates in the form of strong-typed objects. The following command translates them into static files and places the output in the `./dist/website` directory:
 
@@ -210,7 +212,7 @@ The portal data originates in the form of strong-typed objects. The following co
 npm run publish
 ```
 
-## Upload static files to a blob
+## Step 6: Upload static files to a blob
 
 Use Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
 
@@ -227,13 +229,11 @@ Use Azure CLI to upload the locally generated static files to a blob, and make s
     ```
 
 
-## Go to your website
+## Step 7: Go to your website
 
 Your website is now live under the hostname specified in your Azure Storage properties (**Primary endpoint** in **Static websites**).
 
-:::image type="content" source="media/developer-portal-self-host/view-content.png" alt-text="Diagram of viewing content":::
-
-## Change API Management notification templates
+## Step 8: Change API Management notification templates
 
 Replace the developer portal URL in the API Management notification templates to point to your self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
 
@@ -399,7 +399,7 @@ Over time, your business requirements may change. You can end up in a situation 
 
 You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you've carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
 
-The conversion process is almost identical to [setting up a generic self-hosted portal](developer-portal-self-host.md). There is one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
+The conversion process is almost identical to setting up a generic self-hosted portal, as shown in previous steps in this article. There is one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
 
 > [!TIP]
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
@@ -438,4 +438,4 @@ The portal domain's first and second levels need to match the domain set up in t
 
 ## Next steps
 
-- Learn about [Alternative approaches for self-hosted portal](developer-portal-alternative-processes-self-host.md)
+- Learn about [Alternative approaches to self-hosting](developer-portal-alternative-processes-self-host.md)

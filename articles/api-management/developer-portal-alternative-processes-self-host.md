@@ -9,7 +9,7 @@ ms.service: api-management
 ms.topic: how-to
 ---
 
-# Alternative approaches for self-hosting developer portal
+# Alternative approaches to self-host developer portal
 
 There are several alternative approaches you can explore when you [self-host a developer portal](developer-portal-self-host.md):
 
