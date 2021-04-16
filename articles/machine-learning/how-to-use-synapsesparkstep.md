@@ -197,7 +197,7 @@ This "data preparation" script doesn't do any real data transformation, but illu
 
 ## Use the `SynapseSparkStep` in a pipeline
 
-Other steps in the pipeline may have their own unique environments and run on different compute resources appropriate to the task at hand. The sample notebook runs the "training step" on a small CPU cluster:
+The following example uses the output from the `SynapseSparkStep` created in the [previous section](#create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool). Other steps in the pipeline may have their own unique environments and run on different compute resources appropriate to the task at hand. The sample notebook runs the "training step" on a small CPU cluster:
 
 ```python
 from azureml.core.compute import AmlCompute
