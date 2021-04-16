@@ -11,14 +11,14 @@ Azure Service Bus sessions enable joint and ordered handling of unbounded sequen
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
-## Using Azure portal
+## Azure portal
 In the portal, you can enable sessions while creating a queue or a topic subscription. 
 
 :::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
 
 :::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
 
-## Using CLI
+## Azure CLI
 The following table gives you the CLI commands that you can use to enable sessions for queues and topic subscriptions. 
 
 | Task | Command | 
@@ -31,7 +31,7 @@ The following table gives you the CLI commands that you can use to enable sessio
 For a tutorial on using CLI to create a Service Bus namespace and a queue, see [Use the Azure CLI to create a Service Bus namespace and a queue](service-bus-quickstart-cli.md). 
 
 
-## Using PowerShell
+## Azure PowerShell
 The following table gives you the PowerShell commands that you can use to enable sessions for queues and topic subscriptions. 
 
 | Task | Command | 
@@ -41,7 +41,7 @@ The following table gives you the PowerShell commands that you can use to enable
 
 For a tutorial on using PowerShell to create a Service Bus namespace and a queue, see [Use Azure PowerShell to create a Service Bus namespace and a queue](service-bus-quickstart-powershell.md). 
 
-## Using Resource Manager template
+## Azure Resource Manager template
 
 | Task | Instructions | 
 | ---- | ------- | 
@@ -49,7 +49,7 @@ For a tutorial on using PowerShell to create a Service Bus namespace and a queue
 | Create or update a topic subscription with sessions enabled | Set `requiresSession` to `true`. For an example, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). |
 
 
-## Using management library
+## Management library SDKs
 
 # [.NET](#tab/dotnet)
 
@@ -61,7 +61,7 @@ For a tutorial on using PowerShell to create a Service Bus namespace and a queue
 
 ---
 
-## Use client library
+## Client library SDKs
 
 # [.NET](#tab/dotnet)
 
