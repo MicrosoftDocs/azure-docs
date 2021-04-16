@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Run a "Hello world!" Python script'
 titleSuffix: Azure Machine Learning
-description: Part 2 of the Azure Machine Learning get-started series shows how to submit a trivial "Hello world!" Python script to the cloud.
+description: Part 21 of the Azure Machine Learning get-started series shows how to submit a trivial "Hello world!" Python script to the cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 02/11/2021
+ms.date: 04/16/2021
 ms.custom: devx-track-python
 ---
 
@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 In this tutorial, you learn how to use the Azure Machine Learning SDK for Python to submit and run a Python "Hello world!" script.
 
-This tutorial is *part 2 of a four-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Part 1: Set up your local machine for Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
+This tutorial is *part 1 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. 
 
 In this tutorial, you will:
 
@@ -30,11 +30,20 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Completion of [part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
+- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-workspace.md)
 
 ## Create and run a Python script locally
 
-Create a new subdirectory called `src` under the `tutorial` directory to store code that you want to run on an Azure Machine Learning compute cluster. In the `src` subdirectory, create the `hello.py` Python script:
+1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com) and select your workspace if prompted.
+1. On the left, select **Notebooks**
+1. In the **Files** toolbar, select **+**, then select **Create new folder**.
+1. Name the folder **tutorial**.
+1. To the right of the folder name, use the **...** to create another folder under **tutorial**.
+1. Name the new folder **src**.  Use the **Edit location** link if the file location is not correct.
+1. To the right of the **src** folder, use the **...** to create a new file in the **src** directory. 
+1. Name your file *hello.py*.  Switch the **File type** to *Python (*.py)*.
+
+Copy this code into your file:
 
 ```python
 # src/hello.py
@@ -46,23 +55,28 @@ Your project directory structure will now look like:
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Directory structure shows hello.py in src subdirectory":::
 
 
-### <a name="test"></a>Test your script locally
+### <a name="test"></a>Test your script
 
-You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.  In the window that has the activated *tutorial1* conda environment, run the Python file:
+You can run your code locally, which in this case means on the compute instance. Running code locally has the benefit of interactive debugging of code.  
+
+If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for it's state to chang to *Running*.
+
+Use the **Save and run script in terminal** to run the script.
 
 ```bash
 cd <path/to/tutorial>
 python ./src/hello.py
 ```
+You'll see the output of the script in the terminal window that opens.
 
 > [!div class="nextstepaction"]
 > [I ran the script locally](?success=run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=run-local)
 
 ## <a name="control-script"></a> Create a control script
 
-A *control script* allows you to run your `hello.py` script in the cloud. You use the control script to control how and where your machine learning code is run.  
+A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
 
-In your tutorial directory, create a new Python file called `03-run-hello.py` and copy/paste the following code into that file:
+In your **tutorial** directory, create a new Python file called `03-run-hello.py` and copy/paste the following code into that file:
 
 ```python
 # tutorial/03-run-hello.py
@@ -77,6 +91,7 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+If you changed the name of the compute cluster, make sure to adjust the name in the code as well.
 
 ### Understand the code
 
@@ -130,13 +145,7 @@ Here's a description of how the control script works:
 
 Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
-
-```bash
-python 03-run-hello.py
-```
-
-> [!TIP]
-> If running this code gives you an error that you do not have access to the subscription, see [Connect to a workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) for information on authentication options.
+In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
 
 > [!div class="nextstepaction"]
 > [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
@@ -154,7 +163,7 @@ Follow the link.  At first, you'll see a status of **Preparing**.  The very firs
 
 Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
 
-Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
+You may have to use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

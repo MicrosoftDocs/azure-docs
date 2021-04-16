@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train your first machine learning model - Python"
 titleSuffix: Azure Machine Learning
-description: Part 3 of the Azure Machine Learning get-started series shows how to train a machine learning model.
+description: Part 2 of the Azure Machine Learning get-started series shows how to train a machine learning model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,15 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 02/11/2021
+ms.date: 04/16/2021
 ms.custom: devx-track-python, contperf-fy21q3
 ---
 
-# Tutorial: Train your first machine learning model (part 3 of 4)
+# Tutorial: Train your first machine learning model (part 2 of 3)
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning.
 
-This tutorial is *part 3 of a four-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work that you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md) and [Part 2: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series.
+This tutorial is *part 2 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work that you completed in [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series.
 
 In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
@@ -35,8 +35,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
-- Completion of [part1](tutorial-1st-experiment-sdk-setup-local.md) and [part 2](tutorial-1st-experiment-hello-world.md) of the series.
+- Completion of [part 1](tutorial-1st-experiment-hello-world.md) of the series.
 
 ## Create training scripts
 
