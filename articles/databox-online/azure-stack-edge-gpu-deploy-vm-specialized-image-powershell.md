@@ -9,14 +9,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
+#Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro GPU device so that I can deploy VMs on the device.
 ---
 
-# Deploy a VM from a specialized image on your Azure Stack Edge Pro device via Azure PowerShell 
+# Deploy a VM from a specialized image on your Azure Stack Edge Pro GPU device via Azure PowerShell 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes the steps required to deploy a virtual machine (VM) on your Azure Stack Edge Pro device from a specialized image. 
+This article describes the steps required to deploy a virtual machine (VM) on your Azure Stack Edge Pro GPU device from a specialized image. 
 
 To prepare a generalized image for deploying VMs in Azure Stack Edge Pro GPU, see [Prepare generalized image from Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) or [Prepare generalized image from an ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
 
@@ -290,3 +290,4 @@ This article used only one resource group to create all the VM resource. Deletin
 
 - [Prepare a generalized image from a Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
 - [Prepare a generalized image from an ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
+d
