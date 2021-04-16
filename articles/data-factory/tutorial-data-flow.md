@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
+ms.date: 04/16/2021
 ---
 
 # Transform data using mapping data flows
@@ -95,7 +95,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
     ![Screenshot that shows where you select New after you name your source.](media/tutorial-data-flow/dataflow3.png)
 1. Choose **Azure Data Lake Storage Gen2**. Click Continue.
 
-    ![Screenshot that shows the Azure Data Lake Storage Gen2 tile.](media/tutorial-data-flow/dataset1.png)
+    ![Screenshot that shows where is the Azure Data Lake Storage Gen2 tile.](media/tutorial-data-flow/dataset1.png)
 1. Choose **DelimitedText**. Click Continue.
 
     ![Screenshot that shows the DelimitedText tile.](media/tutorial-data-flow/dataset2.png)

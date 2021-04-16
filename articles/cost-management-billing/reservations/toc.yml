@@ -102,7 +102,7 @@
       href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
     - name: Virtual machines
       href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
-  - name: Permissions, View and Manage after purchase
+  - name: Permissions, View and Manage
     items:
     - name: Permissions to view and manage
       href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -112,16 +112,18 @@
       href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-  - name: Exchange and refund after purchase
+  - name: Utilization and cost reports
     items:
-    - name: Exchange and refund reservations
-      href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Report costs
-    items:
+    - name: View reservation utilization
+      href: reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: View reservation transactions
       href: view-purchase-refunds.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Charge back reservation costs
       href: charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Exchange and refund
+    items:
+    - name: Exchange and refund reservations
+      href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Renew reservations
     items:
     - name: Renew a reservation

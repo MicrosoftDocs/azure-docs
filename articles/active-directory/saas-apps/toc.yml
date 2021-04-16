@@ -339,6 +339,8 @@
         href: ciscocloud-tutorial.md
       - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
+      - name: Cisco Intersight
+        href: cisco-intersight-tutorial.md
       - name: Cisco Webex
         href: cisco-spark-tutorial.md
       - name: Cisco Umbrella
@@ -489,6 +491,8 @@
         href: degreed-tutorial.md
       - name: Deputy
         href: deputy-tutorial.md
+      - name: desknet's NEO
+        href: desknets-neo-tutorial.md
       - name: Deskradar
         href: deskradar-tutorial.md
       - name: DigiCert
