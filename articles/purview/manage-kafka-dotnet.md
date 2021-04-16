@@ -125,6 +125,109 @@ The event hub name should be ATLAS_HOOK for sending messages to Purview.
     > [!NOTE]
     > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
 
+### Sample Create Entity JSON message to create a sql table with two columns.
+
+```json
+	
+	{
+	"msgCreatedBy": "nayenama",
+	"message": {
+	"entities": {
+    "referredEntities": {
+        "-1102395743156037": {
+            "typeName": "azure_sql_column",
+            "attributes": {
+                "owner": null,
+                "userTypeId": 61,
+                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID",
+                "precision": 23,
+                "length": 8,
+                "description": "Sales Order ID",
+                "scale": 3,
+                "name": "OrderID",
+                "data_type": "int",
+				"table": {
+                    "guid": "-1102395743156036",
+                    "typeName": "azure_sql_table",
+                    "entityStatus": "ACTIVE",
+                    "displayText": "SalesOrderTable",
+                    "uniqueAttributes": {
+								"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
+					}
+            }
+			},
+            "guid": "-1102395743156037",
+            "version": 2
+        },
+        "-1102395743156038": {
+		 "typeName": "azure_sql_column",
+            "attributes": {
+                "owner": null,
+                "userTypeId": 61,
+                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate",
+                "description": "Sales Order Date",
+                "scale": 3,
+                "name": "OrderDate",
+                "data_type": "datetime",
+				"table": {
+                    "guid": "-1102395743156036",
+                    "typeName": "azure_sql_table",
+                    "entityStatus": "ACTIVE",
+                    "displayText": "SalesOrderTable",
+                    "uniqueAttributes": {
+								"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
+					}
+            }
+			},
+            "guid": "-1102395743156038",
+            "status": "ACTIVE",
+            "createdBy": "ServiceAdmin",
+            "version": 0
+        }
+		},
+		"entity": 
+				{
+					"typeName": "azure_sql_table",
+					"attributes": {
+						"owner": "admin",
+						"temporary": false,
+						"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable",
+						"name" : "SalesOrderTable",
+						"description": "Sales Order Table added via Kafka",
+						"columns": [
+							{
+								"guid": "-1102395743156037",
+								"typeName": "azure_sql_column",
+								"uniqueAttributes": {
+									"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID"
+								}
+							},
+							{
+								"guid": "-1102395743156038",
+								"typeName": "azure_sql_column",
+								"uniqueAttributes": {
+									"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate"
+								}
+							}
+						]
+						},
+						"guid": "-1102395743156036",
+					"version": 0				
+					}
+				},
+		"type": "ENTITY_CREATE_V2",
+		"user": "admin"
+	},
+	"version": {
+		"version": "1.0.0"
+	},
+	"msgCompressionKind": "NONE",
+	"msgSplitIdx": 1,
+	"msgSplitCount": 1
+}
+
+``` 
+
 ## Consume messages from Purview
 This section shows how to write a .NET Core console application that receives messages from an event hub using an event processor. You need to use ATLAS_ENTITIES event hub to receive messages from Purview.The event processor simplifies receiving events from event hubs by managing persistent checkpoints and parallel receptions from those event hubs. 
 
@@ -246,111 +349,45 @@ The event hub name should be **ATLAS_ENTITIES** for sending messages to Purview.
     > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
 6. Run the receiver application. 
 
+### Sample Message received from Purview
+
+```json
+{
+	"version":
+		{"version":"1.0.0",
+		 "versionParts":[1]
+		},
+		 "msgCompressionKind":"NONE",
+		 "msgSplitIdx":1,
+		 "msgSplitCount":1,
+		 "msgSourceIP":"10.244.155.5",
+		 "msgCreatedBy":
+		 "",
+		 "msgCreationTime":1618588940869,
+		 "message":{
+			"type":"ENTITY_NOTIFICATION_V2",
+			"entity":{
+				"typeName":"azure_sql_table",
+					"attributes":{
+						"owner":"admin",
+						"createTime":0,
+						"qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable",
+						"name":"SalesOrderTable",
+						"description":"Sales Order Table"
+						},
+						"guid":"ead5abc7-00a4-4d81-8432-d5f6f6f60000",
+						"status":"ACTIVE",
+						"displayText":"SalesOrderTable"
+					},
+					"operationType":"ENTITY_UPDATE",
+					"eventTime":1618588940567
+				}
+}
+```
+
 > [!IMPORTANT]
 > Atlas currently supports the following operation types: **ENTITY_CREATE_V2**, **ENTITY_PARTIAL_UPDATE_V2**, **ENTITY_FULL_UPDATE_V2**, **ENTITY_DELETE_V2**. Pushing messages to Purview is currently enabled by default. If the scenario involves reading from Purview  contact us as it needs to be whitelisted. (provide subscription id and name of Purview account).
 
-Sample Create Entity JSON message to create a sql table with two columns.
-
-```json
-	
-	{
-	"msgCreatedBy": "nayenama",
-	"message": {
-	"entities": {
-    "referredEntities": {
-        "-1102395743156037": {
-            "typeName": "azure_sql_column",
-            "attributes": {
-                "owner": null,
-                "userTypeId": 61,
-                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID",
-                "precision": 23,
-                "length": 8,
-                "description": "Sales Order ID",
-                "scale": 3,
-                "name": "OrderID",
-                "data_type": "int",
-				"table": {
-                    "guid": "-1102395743156036",
-                    "typeName": "azure_sql_table",
-                    "entityStatus": "ACTIVE",
-                    "displayText": "SalesOrderTable",
-                    "uniqueAttributes": {
-								"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
-					}
-            }
-			},
-            "guid": "-1102395743156037",
-            "version": 2
-        },
-        "-1102395743156038": {
-		 "typeName": "azure_sql_column",
-            "attributes": {
-                "owner": null,
-                "userTypeId": 61,
-                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate",
-                "description": "Sales Order Date",
-                "scale": 3,
-                "name": "OrderDate",
-                "data_type": "datetime",
-				"table": {
-                    "guid": "-1102395743156036",
-                    "typeName": "azure_sql_table",
-                    "entityStatus": "ACTIVE",
-                    "displayText": "SalesOrderTable",
-                    "uniqueAttributes": {
-								"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
-					}
-            }
-			},
-            "guid": "-1102395743156038",
-            "status": "ACTIVE",
-            "createdBy": "ServiceAdmin",
-            "version": 0
-        }
-		},
-		"entity": 
-				{
-					"typeName": "azure_sql_table",
-					"attributes": {
-						"owner": "admin",
-						"temporary": false,
-						"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable",
-						"name" : "SalesOrderTable",
-						"description": "Sales Order Table added via Kafka",
-						"columns": [
-							{
-								"guid": "-1102395743156037",
-								"typeName": "azure_sql_column",
-								"uniqueAttributes": {
-									"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID"
-								}
-							},
-							{
-								"guid": "-1102395743156038",
-								"typeName": "azure_sql_column",
-								"uniqueAttributes": {
-									"qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate"
-								}
-							}
-						]
-						},
-						"guid": "-1102395743156036",
-					"version": 0				
-					}
-				},
-		"type": "ENTITY_CREATE_V2",
-		"user": "admin"
-	},
-	"version": {
-		"version": "1.0.0"
-	},
-	"msgCompressionKind": "NONE",
-	"msgSplitIdx": 1,
-	"msgSplitCount": 1
-}
-
-``` 
 
 ## Next steps
 Check out the samples on GitHub. 
