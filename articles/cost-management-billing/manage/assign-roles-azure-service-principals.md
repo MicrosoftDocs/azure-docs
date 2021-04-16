@@ -27,8 +27,8 @@ To automate EA actions by using an SPN, you need to create an Azure Active Direc
 
 Follow the steps in these articles to create and authenticate your service principal.
 
-1. [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
-2. [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+- [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+- [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
 
 Here's an example of the application registration page.
 
@@ -49,14 +49,14 @@ You also need the Object ID of the SPN and the Tenant ID of the app. You need th
 
 1. Go to the Microsoft Azure AD **Overview** page to find the Tenant ID.
 
-   :::image type="content" source="./media/assign-roles-azure-service-principals/tenant-id.png" alt-text="Screenshot showing where to view your tenant ID." lightbox="./media/assign-roles-azure-service-principals/tenant-id.png" :::
+   :::image type="content" source="./media/assign-roles-azure-service-principals/tenant-id.png" alt-text="Screenshot showing the tenant ID." lightbox="./media/assign-roles-azure-service-principals/tenant-id.png" :::
 
 >[!NOTE]
 >Your Tenant ID might be referred to as Principal ID, SPN, or Object ID in other locations. The value of your Azure AD tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
 
 ## Permissions that can be assigned to the SPN
 
-For the next steps, you give permission to the Azure AD app to do actions using an EA role. You can assign only the following roles to the SPN. The role definition ID, exactly as shown, is used later in this article.
+Later in this article, you'll give permission to the Azure AD app to act by using an EA role. You can assign only the following roles to the SPN, and you need the role definition ID, exactly as shown.
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
@@ -78,17 +78,17 @@ Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/roleassig
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Screenshot showing the Try It option in the Put article." lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
 
-1. Sign in with your account into the tenant that has access to the enrollment where you want to assign access.
+1. Use your account credentials to sign in to the tenant with the enrollment access that you want to assign.
 
 1. Provide the following parameters as part of the API request.
 
-   - **billingAccountName**: This parameter is the Billing account ID. You can find it in the Azure portal on the **Cost Management + Billing** overview page.
+   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
-   - **billingRoleAssignmentName**: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
+   - `billingRoleAssignmentName`: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
-   - **api-version**: Use the **2019-10-01-preview** version. Use the sample request body at [Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/roleassignments/put#examples).
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample request body at [Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/roleassignments/put#examples).
 
       The request body has JSON code with three parameters that you need to use.
 
@@ -96,7 +96,7 @@ Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/roleassig
       | --- | --- |
       | `properties.principalId` | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
-      | `properties.roleDefinitionId` | "/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e" |
+      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
 
       The Billing Account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the EA portal and Azure portal.
 
@@ -108,7 +108,7 @@ Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/roleassig
 
    A `200 OK` response shows that the SPN was successfully added.
 
-Now you can use the SPN (Azure AD App with the object ID) to access EA APIs in an automated manner. The SPN has the EnrollmentReader role.
+Now you can use the SPN to automatically access EA APIs. The SPN has the EnrollmentReader role.
 
 ## Assign EA Purchaser role permission to the SPN
 
@@ -124,31 +124,31 @@ Before you begin, read the [Enrollment Department Role Assignments - Put](/rest/
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Department Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
-1. Sign in with your account into the tenant that has access to the enrollment where you want to assign access.
+1. Use your account credentials to sign in to the tenant with the enrollment access that you want to assign.
 
 1. Provide the following parameters as part of the API request.
 
-   - **billingAccountName**: This parameter is the Billing account ID. You can find it in the Azure portal on the Cost Management + Billing overview page.
+   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
-   - **billingRoleAssignmentName**: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
+   - `billingRoleAssignmentName`: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
-   - **departmentName**: This parameter is the Department ID. You can see department IDs in the Azure portal. Navigate to **Cost Management + Billing** > **Departments**.
+   - `departmentName`: This parameter is the Department ID. You can see department IDs in the Azure portal on the **Cost Management + Billing** > **Departments** page.
 
       For this example, we used the ACE department. The ID for the example is `84819`.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/department-id.png" alt-text="Screenshot showing an example department ID." lightbox="./media/assign-roles-azure-service-principals/department-id.png" :::
 
-   - **api-version**: Use the **2019-10-01-preview** version. The request body has JSON code that you need to use.
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put](/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put).
 
-      Use the sample at [Enrollment Department Role Assignments - Put](/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put). There are three parameters that you need to use as part of the JSON.
+      The request body has JSON code with three parameters that you need to use.
 
       | Parameter | Where to find it |
       | --- | --- |
       | `properties.principalId` | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
-      | `properties.roleDefinitionId` | "/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a" |
+      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a` |
 
       The Billing Account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the EA portal and Azure portal.
 
@@ -160,7 +160,7 @@ Before you begin, read the [Enrollment Department Role Assignments - Put](/rest/
 
    A `200 OK` response shows that the SPN was successfully added.
 
-Now you can use the SPN (Azure AD App with the object ID) to access EA APIs in an automated manner. The SPN has the DepartmentReader role.
+Now you can use the SPN to automatically access EA APIs. The SPN has the DepartmentReader role.
 
 ## Assign the subscription creator role to the SPN
 
@@ -170,33 +170,31 @@ Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-0
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
-1. Sign in with your account into the tenant that has access to the enrollment where you want to assign access.
+1. Use your account credentials to sign in to the tenant with the enrollment access that you want to assign.
 
 1. Provide the following parameters as part of the API request. Read the article at [Enrollment Account Role Assignments - Put - URI Parameters](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put#uri-parameters).
 
-   - **billingAccountName**: This parameter is the Billing account ID. You can find it in the Azure portal on the **Cost Management + Billing overview** page.
+   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing overview** page.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing the Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
-   - **billingRoleAssignmentName**: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID/UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
+   - `billingRoleAssignmentName`: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID/UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
-   - **enrollmentAccountName**: This parameter is the account ID. Find the account ID for the account name in the Azure portal in **Cost Management + Billing** in the Enrollment and department scope.
+   - `enrollmentAccountName`: This parameter is the account **ID**. Find the account ID for the account name in the Azure portal on the **Cost Management + Billing** page.
 
       For this example, we used the GTM Test Account. The ID is `196987`.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
-   - **api-version**: Use the **2019-10-01-preview** version. The request body has JSON code that you need to use.
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put#putenrollmentdepartmentadministratorroleassignment).
 
-      Use the sample at [Enrollment Department Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put#putenrollmentdepartmentadministratorroleassignment).
-
-      There are three parameters that you need to use as part of the JSON.
+      The request body has JSON code with three parameters that you need to use.
 
       | Parameter | Where to find it |
       | --- | --- |
-      | properties.principalId | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
-      | properties.principalTenantId | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
-      | properties.roleDefinitionId | "/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71" |
+      | `properties.principalId` | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.principalTenantId` | See [Find your SPN and Tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 
       The Billing Account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the EA portal and the Azure portal.
 
@@ -208,7 +206,7 @@ Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-0
 
    A `200 OK` response shows that the SPN has been successfully added.
 
-Now you can use the SPN (Azure AD App with the object ID) to access EA APIs in an automated manner. The SPN has the SubscriptionCreator role.
+Now you can use the SPN to automatically access EA APIs. The SPN has the SubscriptionCreator role.
 
 ## Next steps
 
