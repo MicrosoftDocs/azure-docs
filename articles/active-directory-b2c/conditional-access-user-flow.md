@@ -157,6 +157,113 @@ After you've added the Azure AD Conditional Access policy, enable conditional ac
 
 Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires multi-factor authentication (MFA), while the other blocks access, the user will be blocked.
 
+## Conditional Access Template 1: Sign-in risk-based Conditional Access
+
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are.
+
+A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk). Please note the [limitations on Identity Protection detections for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations).
+
+If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
+
+Organizations should choose one of the following options to enable a sign-in risk-based Conditional Access policy requiring multi-factor authentication (MFA) when sign-in risk is medium OR high.
+
+### Enable with Conditional Access policy
+
+1. Sign in to the **Azure portal**.
+2. Browse to **Azure AD B2C** > **Security** > **Conditional Access**.
+3. Select **New policy**.
+4. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+5. Under **Assignments**, select **Users and groups**.
+   1. Under **Include**, select **All users**.
+   2. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   3. Select **Done**.
+6. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+7. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
+   1. Select **High** and **Medium**.
+   2. Select **Done**.
+8. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+9. Confirm your settings and set **Enable policy** to **On**.
+10. Select **Create** to create to enable your policy.
+
+### Enable with Conditional Access APIs
+
+The steps to create a Sign-in risk-based Conditional Access policy with Conditional Access APIs is documented in a sample here, [Conditional Access APIs](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). We will use the sample as a reference to create a policy called "Template 1: Require MFA for medium + sign-in risk" using the APIs.
+
+To create a Conditional Access policy, use the following `POST` operation.
+
+```http
+POST https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies
+```
+
+#### Create a POST request
+
+To create the `POST` request
+
+The following headers are required:
+
+| Request header | Description |
+| --- | --- |
+| *Content-Type:* | Required. Set to `application/json`. |
+| *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+
+For more information about how to create the request, see [Components of API request/response](https://docs.microsoft.com/rest/api/azure/#components-of-a-rest-api-requestresponse).
+
+#### Create the POST request body
+
+The following common definitions are used to build a request body:
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| displayName | true | String | Policy name |
+| state | true | String | Policy state |
+| conditions | true | [Condition Set](https://docs.microsoft.com/graph/api/resources/conditionalaccessconditionset?view=graph-rest-1.0) | Represents the type of conditions that govern when the policy applies |
+| grantControls | true | [Grant Controls Set](https://docs.microsoft.com/graph/api/resources/conditionalaccessgrantcontrols?view=graph-rest-1.0) | Represents grant controls that must be fulfilled to pass the policy |
+
+#### Example POST request body
+
+The following template is used to create a Conditional Access policy with display name "CA002: Require MFA for medium + sign-in risk" in report-only mode.
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium + sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
+
+#### POST response
+
+A successful response for the operation to create a Conditional Access policy:
+
+| Name | Description |
+| --- | --- |
+| 201 Created | Created |
+
+For more information about REST API responses, see the article [Process the response message](https://docs.microsoft.com/rest/api/azure/#process-the-response-message).
+
 ## Enable multi-factor authentication (optional)
 
 When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can set MFA to **Always On** so that MFA is always required regardless of your Conditional Access setup. Or, you can set MFA to **Conditional** so that MFA is required only when an active Conditional Access Policy requires it.
