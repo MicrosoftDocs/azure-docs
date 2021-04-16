@@ -3,7 +3,7 @@ title: Proxy server guidelines Windows Virtual Desktop
 description: Some guidelines and recommendations for using proxy servers in Windows Virtual Desktop deployments.
 author: sefriend
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 04/19/2021
 ms.author: sefriend
 manager: rkiran
 ---
@@ -20,7 +20,7 @@ Most proxy servers aren't designed for supporting long running web socket connec
 
 If the proxy server's geography is far from the host, then this distance will cause more latency to your user connections. More latency means slower connection time and worse user experience in scenarios that need graphics, audio, or low-latency interactions with input devices. If you must use a proxy server, keep in mind that you need to place the server in the same geography as the Windows Virtual Desktop Agent and client.
 
-If you configure your proxy server as the only path for Windows Virtual Desktop traffic to take, the Remote Desktop Protocol (RDP) data will be forced over TCP instead of UDP. This move lowers the visual quality and responsiveness of the remote connection.
+If you configure your proxy server as the only path for Windows Virtual Desktop traffic to take, the Remote Desktop Protocol (RDP) data will be forced over Transmission Control Protocol (TCP) instead of User Datagram Protocol (UDP). This move lowers the visual quality and responsiveness of the remote connection.
 
 In summary, using proxy servers on Windows Virtual Desktop causes performance-related issues from latency degradation and packet loss. 
 
@@ -32,7 +32,7 @@ If your organization's network and security policies require proxy servers for w
 - Proxy server bypass using Proxy Auto Configuration (.PAC) files
 - Bypass list in the local proxy configuration 
 - Using proxy servers for per-user configuration 
-- Using RDP Shortpath for the RDP connection while keeping the service traffic over the proxy 
+- Using RDP shortpath for the RDP connection while keeping the service traffic over the proxy 
 
 ## Recommendations for using proxy servers
 
@@ -42,9 +42,9 @@ Some organizations require that all user traffic goes through a proxy server for
 
 When you use a proxy server, it handles all communication with the Windows Virtual Desktop infrastructure and performs DNS resolution and Anycast routing to the nearest Azure Front Door. If your proxy servers are distant or distributed across an Azure geography, your geographical resolution will be less accurate. Less accurate geographical resolution means connections will be routed to a more distant Windows Virtual Desktop cluster. To avoid this issue, only use proxy servers that are geographically close to your Windows Virtual Desktop cluster.
 
-### Use RDP Shortpath for desktop connectivity
+### Use RDP shortpath for desktop connectivity
 
-When RDP Shortpath is enabled, RDP data will bypass the proxy server, if possible. Bypassing the proxy server ensures optimal routing while using performant UDP transport. Other Windows Virtual Desktop traffic, such as brokering, orchestration, and diagnostics will still go through the proxy server. 
+When you enable RDP shortpath, RDP data will bypass the proxy server, if possible. Bypassing the proxy server ensures optimal routing while using the UDP transport. Other Windows Virtual Desktop traffic, such as brokering, orchestration, and diagnostics will still go through the proxy server. 
 
 ### Don't use SSL termination on the proxy server
 
@@ -72,9 +72,9 @@ Windows Virtual Desktop doesn't support proxy servers for Teams optimization.
 
 To configure a session host level proxy server, you need to enable a systemwide proxy. Remember that systemwide configuration affects all OS components and applications running on the session host. The following sections are recommendations for configuring systemwide proxies.
  
-### Use the Web Proxy Auto Discovery (WPAD) protocol
+### Use the Web Proxy Auto-Discovery (WPAD) protocol
 
-The Windows Virtual Desktop agent automatically tries to locate a proxy server on the network using the Web Proxy Auto Discovery (WPAD) protocol. During a location attempt, the agent searches the domain name server (DNS) for a file named **wpad.domainsuffix**. If the agent finds the file in the DNS, it makes an HTTP request for a file named **wpad.dat**. The response becomes the proxy configuration script that chooses the outbound proxy server.
+The Windows Virtual Desktop agent automatically tries to locate a proxy server on the network using the Web Proxy Auto-Discovery (WPAD) protocol. During a location attempt, the agent searches the domain name server (DNS) for a file named **wpad.domainsuffix**. If the agent finds the file in the DNS, it makes an HTTP request for a file named **wpad.dat**. The response becomes the proxy configuration script that chooses the outbound proxy server.
 
 To configure your network to use DNS resolution for WPAD, follow the instructions in [Auto detect settings Internet Explorer 11](/internet-explorer/ie11-deploy-guide/auto-detect-settings-for-ie11). Make sure the DNS server global query block list allows the WPAD resolution by following the directions in [Set-DnsServerGlobalQueryBlockList](/powershell/module/dnsserver/set-dnsserverglobalqueryblocklist?view=windowsserver2019-ps&preserve-view=true).
 
@@ -87,6 +87,7 @@ You can also configure the proxy server for the local system account by running 
 ```console
 bitsadmin /util /setieproxy LOCALSYSTEM AUTOSCRIPT http://server/proxy.pac 
 ```
+
 ## Client-side proxy support
 
 The Windows Virtual Desktop client supports proxy servers configured with system settings or a [Network Proxy CSP](/windows/client-management/mdm/networkproxy-csp).
@@ -101,7 +102,7 @@ Windows Virtual Desktop doesn't support proxy servers for third-party clients. W
 
 ## Support limitations
 
-There are many third-party services and applications that act as a proxy server. These third-party services include distributed next-gen firewalls, web security systems, and basic proxy servers. We can't guarantee that every configuration is compatible. Microsoft only provides limited support for connections established over a proxy server. If you're experiencing connectivity issues while using a proxy server, Microsoft support recommends you configure a proxy bypass and then try to reproduce the issue.
+There are many third-party services and applications that act as a proxy server. These third-party services include distributed next-gen firewalls, web security systems, and basic proxy servers. We can't guarantee that every configuration is compatible with Windows Virtual Desktop. Microsoft only provides limited support for connections established over a proxy server. If you're experiencing connectivity issues while using a proxy server, Microsoft support recommends you configure a proxy bypass and then try to reproduce the issue.
 
 ## Next steps
 
