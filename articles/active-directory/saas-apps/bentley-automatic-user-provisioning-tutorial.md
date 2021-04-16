@@ -147,7 +147,7 @@ Once you've configured provisioning, use the following resources to monitor your
 2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## Additional resources
+## Connector Limitations
 * The enterprise extension attribute "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager" is not supported and will be removed.
 
 ## Additional resources
