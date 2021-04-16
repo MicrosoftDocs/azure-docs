@@ -313,37 +313,37 @@ sections:
 
           # [Speech-to-text](#tab/stt)
          
-         | Container      | Minimum             | Recommended         |
-         |----------------|---------------------|---------------------|
-         | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
+          | Container      | Minimum             | Recommended         |
+          |----------------|---------------------|---------------------|
+          | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
          
-         # [Custom Speech-to-text](#tab/cstt)
+          # [Custom Speech-to-text](#tab/cstt)
          
-         | Container             | Minimum             | Recommended         |
-         |-----------------------|---------------------|---------------------|
-         | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
+          | Container             | Minimum             | Recommended         |
+          |-----------------------|---------------------|---------------------|
+          | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
          
-         # [Text-to-speech](#tab/tts)
+          # [Text-to-speech](#tab/tts)
          
-         | Container      | Minimum             | Recommended         |
-         |----------------|---------------------|---------------------|
-         | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
+          | Container      | Minimum             | Recommended         |
+          |----------------|---------------------|---------------------|
+          | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
          
-         # [Custom Text-to-speech](#tab/ctts)
+          # [Custom Text-to-speech](#tab/ctts)
          
-         | Container             | Minimum             | Recommended         |
-         |-----------------------|---------------------|---------------------|
-         | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
+          | Container             | Minimum             | Recommended         |
+          |-----------------------|---------------------|---------------------|
+          | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
          
          
-         - Each core must be at least 2.6 GHz or faster.
-         - For files, the throttling will be in the Speech SDK, at 2x (first 5 seconds of audio are not throttled).
-         - The decoder is capable of doing about 2-3x real time. For this, the overall CPU usage will be close to two cores for a single recognition. That's why we do not recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real time in an eight core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
-         - For microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
+          - Each core must be at least 2.6 GHz or faster.
+          - For files, the throttling will be in the Speech SDK, at 2x (first 5 seconds of audio are not throttled).
+          - The decoder is capable of doing about 2-3x real time. For this, the overall CPU usage will be close to two cores for a single recognition. That's why we do not recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real time in an eight core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
+          - For microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
          
-         Consider the total number of hours of audio you have. If the number is large, to improve reliability/availability, we suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer. Orchestration could be done using Kubernetes (K8S) and Helm, or with Docker compose.
+          Consider the total number of hours of audio you have. If the number is large, to improve reliability/availability, we suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer. Orchestration could be done using Kubernetes (K8S) and Helm, or with Docker compose.
          
-         As an example, to handle 1000 hours/24 hours, we have tried setting up 3-4 VMs, with 10 instances/decoders per VM.
+          As an example, to handle 1000 hours/24 hours, we have tried setting up 3-4 VMs, with 10 instances/decoders per VM.
 
       - question: |
           Does the Speech container support punctuation?
