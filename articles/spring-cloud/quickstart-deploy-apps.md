@@ -343,7 +343,6 @@ You can repeat the steps above to deploy `auth-service` and the `account-service
 1. In the **Before launch** section of the dialog, switch the **Working directory** to the *piggymetrics/auth-service* folder.
 1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. 
 1. Repeat these procedures to configure and deploy the `account-service`.
----
 
 Navigate to the URL provided in the output the previous steps to access the PiggyMetrics application. For example: `https://<service instance name>-gateway.azuremicroservices.io`
 
