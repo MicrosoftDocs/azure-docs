@@ -37,6 +37,9 @@ You will learn how to:
 * Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
 * Make sure you have an Azure Functions app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-get-started.md). Functions must have HTTP trigger and authorization level set to *Anonymous* or *Function*.
 
+> [!NOTE]
+> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](https://docs.microsoft.com/en-us/azure/api-management/visual-studio-code-tutorial) to install and get started.
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-new-api-from-azure-function-app"></a> Import an Azure Function App as a new API
