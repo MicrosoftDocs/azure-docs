@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/08/2021
+ms.date: 04/16/2021
 ms.author: apimpm
 ---
 
@@ -39,22 +39,22 @@ In this article, you learn how to:
 1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. Select **Logic App** from the **Add a new API** list.
 
-    ![Select logic app category](./media/import-logic-app-as-api/logic-app-select.png)
+    :::image type="content" source="./media/import-logic-app-as-api/logic-app-select.png" alt-text="Select logic app category":::
 
 3. Press **Browse** to see the list of Logic Apps with HTTP trigger in your subscription. 
     * Logic apps *without* HTTP trigger will not appear in the list.
-    
-    ![Browse for existing logic apps with correct trigger](./media/import-logic-app-as-api/browse-logic-apps.png)
+
+    :::image type="content" source="./media/import-logic-app-as-api/browse-logic-apps.png" alt-text="Browse for existing logic apps with correct trigger":::
 
 1. Select the logic app. 
 
-    ![Select logic app](./media/import-logic-app-as-api/select-logic-app-import.png)
+    :::image type="content" source="./media/import-logic-app-as-api/select-logic-app-import-2.png" alt-text="Select logic app":::
 
 1. API Management finds the swagger associated with the selected app, fetches it, and imports it.
 1. Add an API URL suffix. 
     * The suffix uniquely identifies this specific API in this API Management instance.
 
-    ![Finish up fields](./media/import-logic-app-as-api/create-from-logic-app.png)
+    :::image type="content" source="./media/import-logic-app-as-api/create-from-logic-app.png" alt-text="Finish up fields":::
 
 1. If you want the API to be published and available to developers, Switch to the **Full** view and associate it with a **Product**. We use the *"Unlimited"* product in this example. 
     * You can add your API to a product either during creation or later via the **Settings** tab.
@@ -74,8 +74,7 @@ In this article, you learn how to:
 
 Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
 
-![Test the logic app](./media/import-logic-app-as-api/test-logic-app-api.png)
-
+:::image type="content" source="./media/import-logic-app-as-api/test-logic-app-api.png" alt-text="Test the logic app":::
 
 1. Select the API you created in the previous step.
 2. Press the **Test** tab.

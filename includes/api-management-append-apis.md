@@ -2,7 +2,7 @@
 author: vladvino
 ms.service: api-management
 ms.topic: include
-ms.date: 04/08/2021
+ms.date: 04/16/2021
 ms.author: vlvinogr
 ---
 ## Append other APIs
@@ -22,17 +22,17 @@ Append a different API to your existing API using the following steps.
 
 1. Go to your Azure API Management instance in the Azure portal.
 
-    ![Go to Azure API Mgmt instance](./media/api-management-append-apis/service-page.png)
+    :::image type="content" source="./media/api-management-append-apis/service-page.png" alt-text="Go to Azure API Mgmt instance":::
 
 1. Select **APIs** from the menu on the left.
 
-    ![Select APIs](./media/api-management-append-apis/api-select.png)
+    :::image type="content" source="./media/api-management-append-apis/api-select.png" alt-text="Select APIs":::
 
 1. Click **...** next to the API that you want to append another API to.
 1. Select **Import** from the drop-down menu.
 
-    ![Select import](./media/api-management-append-apis/append-01.png)
+    :::image type="content" source="./media/api-management-append-apis/append-01.png" alt-text="Select import":::
 
 1. Select a service from which to import an API.
 
-    ![Select service](./media/api-management-append-apis/select-to-import.png)
+    :::image type="content" source="./media/api-management-append-apis/select-to-import.png" alt-text="Select service":::
