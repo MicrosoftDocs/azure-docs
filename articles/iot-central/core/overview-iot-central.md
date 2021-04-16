@@ -14,7 +14,7 @@ ms.custom: mvc, contperf-fy21q2
 
 IoT Central is an IoT application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with IoT Central gives you the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
-The web UI lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications.
+The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications.
 
 This article outlines, for IoT Central:
 
@@ -36,14 +36,13 @@ The IoT Central documentation refers to four user roles that interact with an Io
 
 ## Create your IoT Central application
 
-As a solution builder, you use IoT Central to create a custom, cloud-hosted IoT solution for your organization. A custom IoT solution typically consists of:
+You can quickly deploy a new IoT Central application and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
 
-- A cloud-based application that receives telemetry from your devices and enables you to manage those devices.
-- Multiple devices running custom code connected to your cloud-based application.
+See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk through of how to create your first application.
 
-You can quickly deploy a new IoT Central application and then customize it to your specific requirements in your browser. You can start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+## Connect devices
 
-As a solution builder, you use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
+After creating your application, the first step is to create an connect devices. Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
@@ -51,9 +50,9 @@ As a solution builder, you use the web-based tools to create a _device template_
 - Properties, that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
 - Commands, that an operator can call, that run on a device. For example, a command to remotely reboot a device.
 
-This [device template](howto-set-up-template.md) includes:
+Every [device template](howto-set-up-template.md) includes:
 
-- A _device model_ that describes the capabilities a device should implement. The device capabilities include:
+- A _device model_ describing the capabilities a device should implement. The device capabilities include:
 
   - The telemetry it streams to IoT Central.
   - The read-only properties it uses to report state to IoT Central.
@@ -63,25 +62,21 @@ This [device template](howto-set-up-template.md) includes:
 - Cloud properties that aren't stored on the device.
 - Customizations, dashboards, and forms that are part of your IoT Central application.
 
-### Create device templates
-
-As a solution builder, you have several options for creating device templates:
+You have several options for creating device templates:
 
 - Design the device template in IoT Central and then implement its device model in your device code.
 - Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
 - Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 
-As a solution builder, you can use IoT Central to generate code for test devices to validate your device templates.
-
-If you're a device developer, see [IoT Central device development overview](./overview-iot-central-developer.md) for an introduction to implementing devices that use these device templates.
+See the [Add a simulated device](quick-create-simulated-device.md) quickstart for a walk through of how to create and connect your first device.
 
 ### Customize the UI
 
-As a solution builder, you can also customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations that a solution builder can make include:
+You can also customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations you can make include:
 
-- Defining the layout of properties and settings on a device template.
 - Configuring custom dashboards to help operators discover insights and resolve issues faster.
 - Configuring custom analytics to explore time series data from your connected devices.
+- Defining the layout of properties and settings on a device template.
 
 ## Manage your devices
 
@@ -91,9 +86,9 @@ As an operator, you use the IoT Central application to [manage the devices](howt
 - Troubleshooting and remediating issues with devices.
 - Provisioning new devices.
 
-As a solution builder, you can [define custom rules and actions](howto-configure-rules.md) that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
+You can [define custom rules and actions](howto-configure-rules.md) that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
 
-With any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. An operator can use the following IoT Central capabilities to manage your devices throughout the application life cycle:
+With any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. Use the following IoT Central capabilities to manage your devices throughout the application life cycle:
 
 ### Dashboards
 
