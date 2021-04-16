@@ -1786,6 +1786,8 @@
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
     href: /azure/architecture/
+  - name: Migration tools
+    href: https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
   - name: Azure Quickstart templates

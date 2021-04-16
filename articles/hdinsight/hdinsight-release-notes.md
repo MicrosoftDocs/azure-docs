@@ -69,6 +69,9 @@ You need to drop and recreate your clusters if you’d like to move existing clu
 
 It’s highly recommended that you test your script actions and custom applications deployed on edge nodes on an Ubuntu 18.04 virtual machine (VM) in advance. You can [create a simple Ubuntu Linux VM on 18.04-LTS](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/), then create and use a [secure shell (SSH) key pair](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm) on your VM to run and test your script actions and custom applications deployed on edge nodes.
 
+### Disable Stardard_A5 VM size as Head Node for HDInsgiht 4.0
+HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from the next release in May 2021, customers will not be able to create new clusters with Standard_A5 VM size as Head Node. You can use other 2-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A 4-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
+
 ### Basic support for HDInsight 3.6 starting July 1, 2021
 Starting July 1, 2021, Microsoft will offer [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You'll automatically be enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
 

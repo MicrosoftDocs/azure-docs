@@ -25,7 +25,7 @@ For public preview, the following provider types are supported:
 - High-availability cluster
 - Operating System
 
-![Azure Monitor for SAP solutions providers](./media/azure-monitor-sap/azure-monitor-providers.png)
+![Azure Monitor for SAP solutions providers](https://user-images.githubusercontent.com/75772258/115047655-5a5b2c00-9ef6-11eb-9e0c-073e5e1fcd0e.png)
 
 Customers are recommended to configure at least one provider from the available provider types at the time of deploying the SAP Monitor resource. By configuring a provider, customers initiate data collection from the corresponding component for which the provider is configured.   
 
