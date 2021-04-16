@@ -104,7 +104,7 @@ Specify the backup level when you take a backup.
 - Level 1 – Incremental
 - LongTerm/ Archievelog - except for backup retention policy, use non-FRA location (for example, /u95).
 
-## Next Steps
+## Next steps
 
 Learn how to recover your Oracle database when a failure does occur:
 
