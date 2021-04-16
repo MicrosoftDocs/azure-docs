@@ -14,13 +14,13 @@ This article describes causes and resolution steps for receiving a 404 error fro
 
 ## Symptoms
 
-This error may occur when accessing an Azure Digital Twins instance using a service principal or user account that lives in a different [Azure Active Directory (Azure AD) tenant](../active-directory/develop/quickstart-create-new-tenant.md) from the instance. The correct [roles](concepts-security.md) seem to be assigned to the identity, but API requests fail with an error status of `404 Sub-Domain not found`.
+This error may occur when accessing an Azure Digital Twins instance using a service principal or user account that belongs to a different [Azure Active Directory (Azure AD) tenant](../active-directory/develop/quickstart-create-new-tenant.md) from the instance. The correct [roles](concepts-security.md) seem to be assigned to the identity, but API requests fail with an error status of `404 Sub-Domain not found`.
 
 ## Causes
 
 ### Cause #1
 
-While [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) allows for the mapping of identities from one tenant into a second tenant, other Azure services may not support multiple tenants. Azure Digital Twins is a service that only supports one tenant: the main tenant from the subscription where the Azure Digital Twins instance is located.
+Azure Digital Twins requires that all authenticating users belong to the same Azure AD tenant as the Azure Digital Twins instance.
 
 [!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
 
