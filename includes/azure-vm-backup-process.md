@@ -8,8 +8,8 @@ ms.author: v-amallick
 
 1. For Azure VMs that are selected for backup, Azure Backup starts a backup job according to the backup schedule you specify.
 1. During the first backup, a backup extension is installed on the VM if the VM is running.
-    - For Windows VMs, the [VMSnapshot extension](../virtual-machines/extensions/vmsnapshot-windows.md) is installed.
-    - For Linux VMs, the [VMSnapshotLinux extension](../virtual-machines/extensions/vmsnapshot-linux.md) is installed.
+    - For Windows VMs, the [VMSnapshot extension](articles/virtual-machines/extensions/vmsnapshot-windows.md) is installed.
+    - For Linux VMs, the [VMSnapshotLinux extension](articles/virtual-machines/extensions/vmsnapshot-linux.md) is installed.
 1. For Windows VMs that are running, Backup coordinates with Windows Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM.
     - By default, Backup takes full VSS backups.
     - If Backup can't take an app-consistent snapshot, then it takes a file-consistent snapshot of the underlying storage (because no application writes occur while the VM is stopped).
@@ -25,4 +25,4 @@ ms.author: v-amallick
 
 1. When the data transfer is complete, the snapshot is removed, and a recovery point is created.
 
-![Azure virtual machine backup architecture](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
+![Azure virtual machine backup architecture](/articles/backup/media/backup-azure-vms-introduction/vmbackup-architecture.png)
