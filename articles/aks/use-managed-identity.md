@@ -116,7 +116,7 @@ Confirm your AKS cluster is using managed identity with the following CLI comman
 az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
 ```
 
-If the cluster is using managed identities, you will see a `clientId` value of "msi". A cluster using a Service Principal instead will instead show the object Id. For example: 
+If the cluster is using managed identities, you will see a `clientId` value of "msi". A cluster using a Service Principal instead will instead show the object ID. For example: 
 
 ```output
 {
