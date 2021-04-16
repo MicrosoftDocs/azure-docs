@@ -3,10 +3,12 @@ title: Create an Azure custom resource provider with Azure PowerShell
 description: Describes how to create an Azure custom resource provider with Azure PowerShell
 author: MSEvanhi
 ms.author: evanhi
+ms.date: 09/22/2020
 ms.topic: quickstart
 ms.devlang: azurepowershell
-ms.date: 09/22/2020
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
 ---
 
 # Quickstart: Create an Azure custom resource provider with Azure PowerShell
