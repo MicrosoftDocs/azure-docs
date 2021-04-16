@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 04/15/2021
 ---
 
-# Publish and process messages from Azure Purview's Atlas Kafka topics through Event Hubs using .NET 
+# Publish messages to and process messages from Azure Purview's Atlas Kafka topics through Event Hubs using .NET 
 This quickstart shows how to send events to and receive events from Azure Purview's Atlas Kafka topics via event hub using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!IMPORTANT]
@@ -26,7 +26,7 @@ To complete this quickstart, you need the following prerequisites:
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2019**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, it is recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 
-## Publish messages from Purview 
+## Publish messages to Purview 
 This section shows you how to create a .NET Core console application to send events to an Purview via event hub kafka topic **ATLAS_HOOK**. 
 
 ## Create a Visual Studio project
