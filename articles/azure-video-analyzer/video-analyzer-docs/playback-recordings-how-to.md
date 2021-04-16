@@ -220,7 +220,7 @@ Here are the constraints on the filters.
 |Present|Present|Return a VoD manifest with whatever video is available between startTime and endTime.<br/>The span (startTime, endTime) cannot exceed 24 hours.|
 
 > [!NOTE]
-> The other `format` strings for HLS protocol are documented [here](../media-services/latest/encode-dynamic-packaging-concept.md#hls-protocol) and [here](../media-services/latest/encode-dynamic-packaging-concept.md#mpeg-dash-protocol) for DASH protocol.
+> The other `format` strings for HLS protocol are documented [here](../../media-services/latest/encode-dynamic-packaging-concept.md#hls-protocol) and [here](../../media-services/latest/encode-dynamic-packaging-concept.md#mpeg-dash-protocol) for DASH protocol.
 
 ### Response examples  
 
