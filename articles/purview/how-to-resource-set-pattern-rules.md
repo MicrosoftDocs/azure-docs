@@ -166,7 +166,7 @@ Rule 2
 
 **Qualified Name:** `raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### *Resource Set: true*
+**Resource Set:** true
 
 #### Outputs
 
