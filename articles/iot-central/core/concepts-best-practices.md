@@ -33,9 +33,9 @@ On success, DPS returns a connection string the device can use to connect to you
 
 The device can cache the connection string to use for later connections. However, the device must be prepared to [handle connection failures](#handle-connection-failures).
 
-## Connect to IoT Central
+## Connect to IoT Central using DPS
 
-Use the connection string to connect IoT Central's internal IoT Hub endpoint. The connection lets you send telemetry to your IoT Central application, synchronize property values with your IoT Central application, and respond to commands sent by your IoT Central application.
+Use the DPS connection string (see above) to connect the device to IoT Central's internal IoT Hub endpoint. The connection lets you send telemetry, synchronize property values, and respond to commands sent.
 
 ## Handle connection failures
 
