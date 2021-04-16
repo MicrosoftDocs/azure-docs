@@ -25,15 +25,11 @@ In this article, you learn how to:
 >
 > -   Import a Logic App as an API
 > -   Test the API in the Azure portal
-> -   Test the API in the Developer portal
 
 ## Prerequisites
 
 -   Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
 -   Make sure there is a Logic App in your subscription that exposes an HTTP endpoint. For more information, [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
-
-> [!NOTE]
-> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](https://docs.microsoft.com/azure/api-management/visual-studio-code-tutorial) to install and get started.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -89,7 +85,7 @@ Operations can be called directly from the Azure portal, which provides a conven
 
 4. Press **Send**.
 
-    * Backend responds with **200 OK** and data.
+    * When the test succeeds, the backend responds with **200 OK** and data.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

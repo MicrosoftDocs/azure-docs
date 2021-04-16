@@ -30,7 +30,6 @@ You will learn how to:
 > * Append an Azure Function App to an API
 > * View the new Azure Function App host key and Azure API Management named value
 > * Test the API in the Azure portal
-> * Test the API in the developer portal
 
 ## Prerequisites
 
@@ -38,7 +37,7 @@ You will learn how to:
 * Make sure you have an Azure Functions app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-get-started.md). Functions must have HTTP trigger and authorization level set to *Anonymous* or *Function*.
 
 > [!NOTE]
-> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](https://docs.microsoft.com/azure/api-management/visual-studio-code-tutorial) to install and get started.
+> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](../visual-studio-code-tutorial.md) to install and get started.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -169,7 +168,7 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 
 4. Select **Send**.
 
-    * The back end responds with **200 OK** and some data.
+    * When the test succeeds, the back end responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
