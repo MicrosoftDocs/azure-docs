@@ -85,7 +85,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    **Step 1. Get list of AD forests where Seamless SSO has been enabled**
 
    1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+   2. Navigate to the `$env:programfiles\Microsoft Azure Active Directory Connect` folder.
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
    5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
@@ -130,7 +130,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    Run the following steps on the on-premises server where you are running Azure AD Connect:
 
    1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+   2. Navigate to the `$env:ProgramFiles\Microsoft Azure Active Directory Connect` folder.
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
    5. Call `Enable-AzureADSSO -Enable $false`.
@@ -145,7 +145,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    Follow tasks 1 through 4 below if you have disabled Seamless SSO using Azure AD Connect. If you have disabled Seamless SSO using PowerShell instead, jump ahead to task 5 below.
 
    1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+   2. Navigate to the `$env:ProgramFiles\Microsoft Azure Active Directory Connect` folder.
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
    5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.

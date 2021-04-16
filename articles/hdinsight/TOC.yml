@@ -246,6 +246,8 @@
         href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
       - name: Spark and Hive Tools for VSCode
         href: ./hdinsight-for-vscode.md
+      - name: HDInsight Configuration Settings Reference
+        href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
       - name: Use Azure Monitor logs
