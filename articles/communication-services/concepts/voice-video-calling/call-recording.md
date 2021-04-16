@@ -26,11 +26,11 @@ Call Recording provides a set of server APIs to start, stop, pause and resume re
 - **File Download** - Recordings are stored for 48 hours on built-in transitory storage, for retrieval and movement to a long-term storage solution of choice.
 
 ## Run-time Control APIs
-Run-time control APIs can be used to manage recording via either internal business logic triggers such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. In either scenario, `<conversation-id>` is required to record a specific meeting or call. 
+Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. In either scenario, `<conversation-id>` is required to record a specific meeting or call. 
 
 #### Getting Conversation ID from a server initiated call
 
-ConversationId is returned in the CallEstablished event sent to <recording-state-callback-uri>, within the data.ConversationId field. This value can be used directly as the '{conversationId}' parameter in run-time control APIs:
+ConversationId is returned via the Microsoft.Communication.CallLegStateChanged event that is sent after the call has been established. It can be found in the data.ConversationId field. This value can be used directly as the '{conversationId}' parameter in run-time control APIs:
 ```
       {
         "id": null,
@@ -61,7 +61,7 @@ From the Javascript `@azure/communication-calling` library, after establishing a
   "name": "start-recording"
 }-->
 ```
-POST /calling/conversations/{conversationId}/Recordings
+POST /conversations/{conversationId}/Recordings
 Content-Type: application/json
 
 {
@@ -98,7 +98,7 @@ HTTP/1.1 200 Success
 Content-Type: application/json
 
 {
-  "RecordingId": "string"
+  "recordingId": "string"
 }
 ```
 ```
@@ -148,7 +148,7 @@ Content-Type: application/json
   "name": "get-recording-state"
 }-->
 ```http
-GET /calling/conversations/{conversationId}/recordings/{recordingId}
+GET /conversations/{conversationId}/recordings/{recordingId}
 Content-Type: application/json
 
 {
@@ -218,7 +218,7 @@ Content-Type: application/json
   "name": "stop-recording"
 }-->
 ```
-DELETE /calling/conversations/{conversationId}/recordings/{recordingId}
+DELETE /conversations/{conversationId}/recordings/{recordingId}
 Content-Type: application/json
 
 {
@@ -290,7 +290,7 @@ Pausing and Resuming call recording enables you to skip recording a portion of a
   "name": "pause-recording"
 }-->
 ```
-POST /calling/conversations/{conversationId}/recordings/{recordingId}/Pause
+POST /conversations/{conversationId}/recordings/{recordingId}/Pause
 Content-Type: application/json
 
 {
@@ -361,7 +361,7 @@ Content-Type: application/json
   "name": "resume-recording"
 }-->
 ```
-POST /calling/conversations/{conversationId}/recordings/{recordingId}/Resume
+POST /conversations/{conversationId}/recordings/{recordingId}/Resume
 Content-Type: application/json
 
 {
