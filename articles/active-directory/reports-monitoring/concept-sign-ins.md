@@ -92,7 +92,7 @@ Select an item in the list view to get more detailed information.
 > For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
 
 
-##Sign-in error code
+## Sign-in error code
 
 If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. 
 
