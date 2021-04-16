@@ -290,7 +290,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max data size (GB)|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|
 |TempDB max data size (GB)|64|96|128|160|192|
-|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1356|1356|1356|1356|1356|1356|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1356|1356|1356|1356|1356|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|9,000|13,500|18,000|22,500|27,000|
 |Max log rate per pool (MBps)|20|30|40|50|60|
@@ -357,7 +357,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max data size (GB)|1024|1536|1536|1536|3072|3072|
 |Max log size (GB)|307|307|461|461|922|922|
 |TempDB max data size (GB)|128|192|256|320|384|448|
-|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|4829|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|18,000|27,000|36,000|45,000|54,000|63,000|
