@@ -187,7 +187,7 @@ To register the Automation resource provider, follow these steps in the Azure po
 
 ### Issue
 
-Machines included in an update preview don't all appear in the list of machines patched during a scheduled run or VMs for selected scopes of a dynamic group are not showing up in the update preview list in the portal.
+Machines included in an update preview don't all appear in the list of machines patched during a scheduled run, or VMs for selected scopes of a dynamic group are not showing up in the update preview list in the portal.
 
 The update preview list consists of all machines retrieved by an [Azure Resource Graph](../../governance/resource-graph/overview.md) query for the selected scopes. The scopes are filtered for machines that have a system Hybrid Runbook Worker installed and for which you have access permissions.
 
