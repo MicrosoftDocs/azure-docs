@@ -340,7 +340,7 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
     Here is an example of connection string: 
     
         ```
-        Data Source=<Server>,<Port>;Initial Catalog=<db-name>;User Id=<user-name>;Password=<password>
+        Data Source=<Server>;Initial Catalog=<db-name>;User Id=<user-name>;Password=<password>
         ```
     
     * **Managed Identity** : Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
@@ -356,22 +356,22 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
           ALTER ROLE db_datareader ADD MEMBER [MI Name]
           ```
        
-       * Note: The [MI Name] is the workspace name in Metrics Advisor.
+     * Note: The [MI Name] is the workspace name in Metrics Advisor.
     
-       Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+     Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
 
-       Here is an example of connection string: 
+     Here is an example of connection string: 
 
-       ```
-       Data Source=<Server>,<Port>;Initial Catalog=<Database>
-       ```
+          ```
+          Data Source=<Server>;Initial Catalog=<Database>
+          ```
     
     * **Azure SQL Connection String**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
         Here is an example of connection string: 
         
         ```
-        Data Source=<Server>,[Port];Initial Catalog=<Database>
+        Data Source=<Server>;Initial Catalog=<Database>
         ```
   
 
@@ -385,14 +385,14 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
         Here is an example of connection string: 
         
         ```
-        Data Source=<Server>,[Port];Initial Catalog=<Database>
+        Data Source=<Server>;Initial Catalog=<Database>
         ```
   
     * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
         Here is an example of connection string: 
         
         ```
-        Data Source=<Server>,[Port];Initial Catalog=<Database>
+        Data Source=<Server>;Initial Catalog=<Database>
         ```
 
 * **Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use `@IntervalStart` and `@IntervalEnd` in your query to help with getting expected metrics value in an interval. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
