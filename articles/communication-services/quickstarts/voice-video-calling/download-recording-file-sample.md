@@ -14,12 +14,12 @@ ms.service: azure-communication-services
 # Handling Recording File Events and Download Sample
 
 ## Prerequisites
-As a prerequisite you need to create a valid ACS resource.
+As a prerequisite you need to create a valid Azure Communication Services resource.
 
-## Create a web hook and subscribing to recording events
-Before subscribing to the recording event, we need to create a Web hook through which we will get the notification when the recording event is triggered and download the recording files.
+## Create a web hook and subscribe to recording events
+Before subscribing to the recording event, we need to create a web hook through which we will get the notification when the recording event is triggered and download the recording files.
 
-You can write your own custom web hook to receive event notifications, the key is to send back the Validation code as response for successful handshake while subscribing the web hook to the event service.
+You can write your own custom web hook to receive event notifications. The key is to send back the validation code as a response for successful handshake while subscribing the web hook to the event service.
 ```
 public async Task<ActionResult> PostAsync([FromBody] object request)
   {
@@ -48,28 +48,28 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
   }
 ```
 **Note:**
-- You will need to add a dependency Microsoft.Azure.EventGrid NuGet package  just for using the models.
-- The Web hook endpoint needs to be a POST method to allow the event service to send the validation code.
-- (Documentation link for endpoint validation and handshake)[https://docs.microsoft.com/en-us/azure/event-grid/receive-events#endpoint-validation]
+- You will need to add the Microsoft.Azure.EventGrid NuGet package as a dependency to use the models.
+- The web hook endpoint needs to be a POST method to allow the event service to send the validation code.
+- [Documentation link for endpoint validation and handshake](https://docs.microsoft.com/en-us/azure/event-grid/receive-events#endpoint-validation)
 
 Now once you have a Web hook, we need to subscribe it to the recording event.
-1. Click on Events under the newly created ACS resource and then click on event subscription as shown below.
+1. Click on Events under the newly created Azure Communication Services resource and then click on Event Subscription as shown below.
 ![Screenshot showing event grid UI](./media/call-recording/image1-event-grid.png)
 
-2. Now configure the event subscription and select the appropriate Event Type as Call Recording File Status Update, and Endpoint type as Web hook. We are using web hook as an example to get notification once the recording event is invoked.
+2. Now configure the event subscription and select the appropriate Event Type as Call Recording File Status Update, and Endpoint type as Web Hook. We are using web hook as an example to get notification once the recording event is invoked.
 ![Create Event Subscription](./media/call-recording/image2-create-subscription.png)
 
 3. Now subscribe to the recording event by adding the URL for the web hook as the Subscriber Endpoint.
 ![Subscribe to Event](./media/call-recording/image3-subscribe-to-event.png)
 
 ## Notification Schema
-Once the recoding is available to download, the recording service will send a notification on the Recording event with the following schema:
+Once the recording is available to download, the recording service will send a notification of the event with the following schema:
 > The document ids for the recording can be fetched from the documentId fields in the recordingChunks for each chunk.
 
 ```
 {
     "id": string, // Unique guid for event
-    "topic": string, // Acs resource id
+    "topic": string, // Azure Communication Services resource id
     "subject": string, // /recording/call/{call-id}
     "data": {
         "recordingStorageInfo": {
@@ -92,17 +92,17 @@ Once the recoding is available to download, the recording service will send a no
 }
 ```
 ## Download recording files
-Now once we get the document ID for the file to download, we shall call below ACS apis for downloading the recording file and metadata using HMAC authentication.
-The maximum recording file size is currently 1.5 GB. After that point, recorder will split the recording into multiple files.
-Client should be able to download a recording file with a single request. If there is an issue, the client can retry with a range header to avoid redownloading the whole thing.
+Now once we get the document ID for the file to download, we will call the below Azure Communication Services APIs for downloading the recording file and metadata using HMAC authentication.
+The maximum recording file size is currently 1.5 GB. After that point, the recorder will split the recording into multiple files.
+The client should be able to download a recording file with a single request. If there is an issue, the client can retry with a range header to avoid redownloading the whole thing.
 
 Download call recording file: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}?api-version=2021-04-15-preview1
 
-Download call recording meta-data: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}/metadata?api-version=2021-04-15-preview1
+Download call recording metadata: Method: GET URL: https://contoso.communication.azure.com/recording/download/{documentId}/metadata?api-version=2021-04-15-preview1
 
 ### Authentication
-In order to call ACS APIs for downloading recording file and meta data, we need HMAC authentication to authenticate the request.
-Create an Http client and add the necessary headers using the HmacAuthentication utility provided below:
+In order to call Azure Communication Services APIs for downloading recording file and metadata, we need HMAC authentication to authenticate the request.
+Create an `HttpClient` and add the necessary headers using the `HmacAuthenticationUtils` provided below:
 ```
   var client = new HttpClient();
 
@@ -113,8 +113,8 @@ Create an Http client and add the necessary headers using the HmacAuthentication
   // Build request
   var request = new HttpRequestMessage
   {
-      Method = method, // Http GET mmethod
-      RequestUri = new Uri(<Download_Recording_Url>), // Download recording Urls
+      Method = method, // Http GET method
+      RequestUri = new Uri(<Download_Recording_Url>), // Download recording Url
       Content = content // content if required for POST methods
   };
 
@@ -133,7 +133,7 @@ Create an Http client and add the necessary headers using the HmacAuthentication
   // Add HAMC headers.
   HmacAuthenticationUtils.AddHmacHeaders(request, contentHashed, accessKey, method);
 
-  // Make a request to the ACS apis mentioned above
+  // Make a request to the Azure Communication Services APIs mentioned above
   var response = await client.SendAsync(request).ConfigureAwait(false);
 ```
 #### HmacAuthenticationUtils 
