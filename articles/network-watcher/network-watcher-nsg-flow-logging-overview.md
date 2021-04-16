@@ -90,10 +90,10 @@ Flow logs include the following properties:
 					* **Traffic Flow** - The direction of the traffic flow. Valid values are **I** for inbound and **O** for outbound.
 					* **Traffic Decision** - Whether traffic was allowed or denied. Valid values are **A** for allowed and **D** for denied.
                     * **Flow State - Version 2 Only** - Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided.
-                    * **Packets - Source to destination - Version 2 Only** The total number of TCP or UDP packets sent from source to destination since last update.
-                    * **Bytes sent - Source to destination - Version 2 Only** The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload.
-                    * **Packets - Destination to source - Version 2 Only** The total number of TCP or UDP packets sent from destination to source since last update.
-                    * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
+                    * **Packets - Source to destination - Version 2 Only** The total number of TCP packets sent from source to destination since last update.
+                    * **Bytes sent - Source to destination - Version 2 Only** The total number of TCP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload.
+                    * **Packets - Destination to source - Version 2 Only** The total number of TCP packets sent from destination to source since last update.
+                    * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
 
 
 **NSG flow logs Version 2 (vs Version 1)** 

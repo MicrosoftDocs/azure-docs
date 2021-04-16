@@ -36,22 +36,20 @@ Create a virtual machine with trusted launch enabled.
 5. Under **Project details**, make sure the correct subscription is selected.
 6. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 7. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
-8. Under **Image**, select a Gen 2 [image that supports trusted launch](trusted-launch.md#public-preview-limitations). 
+8. Under **Image**, select a Gen 2 [image that supports trusted launch](trusted-launch.md#public-preview-limitations). Make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**.
    > [!TIP]
    > If you don't see the Gen 2 version of the image you want in the drop-down, select **See all images** and then change the **VM Generation** filter to only show Gen 2 images. Find the image in the list, then use the **Select** drop-down to select the Gen 2 version.
- 
+
+    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports trusted launch.":::
+
+13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
+14.	Fill in the **Administrator account** information and then **Inbound port rules**. 
 1. Switch over to the **Advanced** tab by selecting it at the top of the page.
 1. Scroll down to the **VM generation** section. Make sure **Gen 2** is selected.
 1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for trusted launch.":::
 
-12. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The gen 2 image should now be selected.
-
-    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports trusted launch.":::
-
-13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
-14.	Fill in the **Administrator account** information and then **Inbound port rules**.
 15.	At the bottom of the page, select **Review + Create**
 16.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
 
