@@ -2,7 +2,7 @@
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 04/16/2021
 ---
 
 # Message sessions
@@ -19,15 +19,6 @@ Any sender can create a session when submitting messages into a topic or queue b
 On session-aware queues or subscriptions, sessions come into existence when there's at least one message with the session ID. Once a session exists, there's no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the session ID matches, the session is the same from the Service Bus perspective.
 
 Typically, however, an application has a clear notion of where a set of related messages starts and ends. Service Bus doesn't set any specific rules. For example, your application could set the **Label** property for the first message to **start**, for intermediate messages to **content**, and for the last message to **end**. The relative position of the content messages can be computed as the current message *SequenceNumber* delta from the **start** message *SequenceNumber*.
-
-You enable the feature by setting the [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property on the queue or subscription via Azure Resource Manager, or by setting the flag in the portal. It's required before you attempt to use the related API operations.
-
-In the portal, you can enable sessions while creating an entity (queue or subscription) as shown in the following examples. 
-
-:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
-
-:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
-
 
 > [!IMPORTANT]
 > When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by accepting the session.
