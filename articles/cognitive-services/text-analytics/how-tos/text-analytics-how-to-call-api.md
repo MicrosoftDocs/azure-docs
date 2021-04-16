@@ -36,7 +36,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
     2. Click **Metrics**, located under **Monitoring** in the left navigation menu. 
     3. Select *Processed text records* in the dropdown box for **Metric**.
     
-A text record a unit of input text up to 1000 characters.  For example, 1500 characters submitted as input text will count as 2 text records.
+A text record is a unit of input text up to 1000 characters.  For example, 1500 characters submitted as input text will count as 2 text records.
 
 ## Change your pricing tier 
 
