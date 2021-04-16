@@ -50,7 +50,11 @@ The following procedure sets up the config server using the Azure portal to depl
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-2. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
+2. In the **Default repository** section, set **URI** to "https://github.com/azure-samples/spring-petclinic-microservices-config".
+
+3. Specify the *application.yml* file in the root of the [Pet Clinic project](https://github.com/azure-samples/spring-petclinic-microservices) to load configuration data into the Config Server in Azure Spring Cloud.
+
+    ![Specify application.yml config](media/build-and-deploy/application-config-file.png)
 
 3. Click **Validate**.
 
@@ -76,7 +80,7 @@ The following procedure uses the Azure CLI to set up the config server to deploy
     az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
     ```
 
-2. Use the application.yml in the root of the [Pet Clinic project](https://github.com/azure-samples/spring-petclinic-microservices) to load configuration into the Config Server in Azure Spring Cloud.
+2. Specify the *application.yml* file in the root of the [Pet Clinic project](https://github.com/azure-samples/spring-petclinic-microservices) to load configuration data into the Config Server in Azure Spring Cloud.
 
     ```azurecli
     az spring-cloud config-server set --name <spring cloud service name> --config-file application.yml
