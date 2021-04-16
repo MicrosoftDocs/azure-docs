@@ -1,6 +1,6 @@
 ---
-title: Comparison of Azure Video Analyzer for Media (former Video Indexer) and Azure Media Services v3 presets
-description: This article compares Azure Video Analyzer for Media (former Video Indexer) capabilities and Azure Media Services v3 presets.
+title: Comparison of Azure Video Analyzer for Media (formerly Video Indexer) and Azure Media Services v3 presets
+description: This article compares Azure Video Analyzer for Media (formerly Video Indexer) capabilities and Azure Media Services v3 presets.
 services: media-services
 documentationcenter: ''
 author: juliako

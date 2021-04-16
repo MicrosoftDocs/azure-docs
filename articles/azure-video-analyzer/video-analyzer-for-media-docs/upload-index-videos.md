@@ -1,7 +1,7 @@
 ---
-title: Upload and index videos with Azure Video Analyzer for Media (former Video Indexer)
+title: Upload and index videos with Azure Video Analyzer for Media (formerly Video Indexer)
 titleSuffix: Azure Media Services
-description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (former Video Indexer).
+description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (formerly Video Indexer).
 services: media-services
 author: Juliako
 manager: femila
@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Upload and index your videos  
 
-Once your video has been uploaded, Azure Video Analyzer for Media (former Video Indexer) encodes (optionally) the video (discussed in the article). When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+Once your video has been uploaded, Azure Video Analyzer for Media (formerly Video Indexer) encodes (optionally) the video (discussed in the article). When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 When uploading videos with Video Analyzer for Media API, you have the following upload options: 
 

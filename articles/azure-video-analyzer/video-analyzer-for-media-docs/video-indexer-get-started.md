@@ -1,7 +1,7 @@
 ---
-title: Sign up for Azure Video Analyzer for Media (former Video Indexer) and upload your first video - Azure
+title: Sign up for Azure Video Analyzer for Media (formerly Video Indexer) and upload your first video - Azure
 titleSuffix: Azure Media Services
-description: Learn how to sign up and upload your first video using the Azure Video Analyzer for Media (former Video Indexer) portal.
+description: Learn how to sign up and upload your first video using the Azure Video Analyzer for Media (formerly Video Indexer) portal.
 services: media-services
 author: Juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.author: juliako
 
 # Quickstart: How to sign up and upload your first video
 
-This getting started quickstart shows how to sign in to the Azure Video Analyzer for Media (former Video Indexer) website and how to upload your first video.
+This getting started quickstart shows how to sign in to the Azure Video Analyzer for Media (formerly Video Indexer) website and how to upload your first video.
 
 When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/). 
 

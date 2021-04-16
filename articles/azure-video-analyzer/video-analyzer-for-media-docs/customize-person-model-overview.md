@@ -1,7 +1,7 @@
 ---
-title: Customize a Person model in Azure Video Analyzer for Media (former Video Indexer) - Azure  
+title: Customize a Person model in Azure Video Analyzer for Media (formerly Video Indexer) - Azure  
 titleSuffix: Azure Media Services
-description: This article gives an overview of what is a Person model in Azure Video Analyzer for Media (former Video Indexer) and how to customize it. 
+description: This article gives an overview of what is a Person model in Azure Video Analyzer for Media (formerly Video Indexer) and how to customize it. 
 services: media-services
 author: anikaz
 manager: johndeu
@@ -12,7 +12,7 @@ ms.author: kumud
 
 # Customize a Person model in Video Analyzer for Media
 
-Azure Video Analyzer for Media (former Video Indexer) supports celebrity recognition in your videos. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that are not recognized by Video Analyzer for Media are still detected but are left unnamed. Customers can build custom Person models and enable Video Analyzer for Media to recognize faces that are not recognized by default. Customers can build these Person models by pairing a person's name with image files of the person's face.  
+Azure Video Analyzer for Media (formerly Video Indexer) supports celebrity recognition in your videos. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that are not recognized by Video Analyzer for Media are still detected but are left unnamed. Customers can build custom Person models and enable Video Analyzer for Media to recognize faces that are not recognized by default. Customers can build these Person models by pairing a person's name with image files of the person's face.  
 
 If your account caters to different use-cases, you can benefit from being able to create multiple Person models per account. For example, if the content in your account is meant to be sorted into different channels, you might want to create a separate Person model for each channel. 
 

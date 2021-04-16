@@ -1,6 +1,6 @@
 ---
-title: Manage multiple tenants with Azure Video Analyzer for Media (former Video Indexer) - Azure 
-description: This article suggests different integration options for managing multiple tenants with Azure Video Analyzer for Media (former Video Indexer).
+title: Manage multiple tenants with Azure Video Analyzer for Media (formerly Video Indexer) - Azure 
+description: This article suggests different integration options for managing multiple tenants with Azure Video Analyzer for Media (formerly Video Indexer).
 services: media-services
 documentationcenter: ''
 author: ika-microsoft
@@ -15,7 +15,7 @@ ms.author: ikbarmen
 
 # Manage multiple tenants
 
-This article discusses different options for managing multiple tenants with Azure Video Analyzer for Media (former Video Indexer). Choose a method that is most suitable for your scenario:
+This article discusses different options for managing multiple tenants with Azure Video Analyzer for Media (formerly Video Indexer). Choose a method that is most suitable for your scenario:
 
 * Video Analyzer for Media account per tenant
 * Single Video Analyzer for Media account for all tenants
