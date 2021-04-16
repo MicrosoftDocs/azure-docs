@@ -19,7 +19,7 @@ ms.service: azure-communication-services
 > Many countries and states have laws and regulations that apply to the recording of PSTN, voice, and video calls, which often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
 > [!NOTE]
-> Regulations such as GDPR require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the participants[] array. You can cross-reference the MRIs in the participants[] array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
+> Regulations such as GDPR require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
 
 Call Recording provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in `MP4 Audio+Video` format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. 
 
@@ -48,7 +48,7 @@ A `ConversationId` is returned via the `Microsoft.Communication.CallLegStateChan
                                                             
 #### Getting the conversation ID from a user triggered event on the client
 
-From the Javascript `@azure/communication-calling` library, after establishing a call invoke `let result = call.info.getConversationUrl()` to get the `conversationUrl`, then 
+From the JavaScript `@azure/communication-calling` library, after establishing a call invoke `let result = call.info.getConversationUrl()` to get the `conversationUrl`, then 
 **Base64Url encode the `conversationUrl` to get the `{conversationId}` for use in the run-time control APIs**. Encoding can be done either on the client before sending the event to the server, or server side.
 
 Note that the `conversationUrl` *must* be Base64Url encoded, not to be confused with just Base64 encoding (i.e. btoa).                                                            
