@@ -18,7 +18,7 @@ summary:  Find answers to commonly asked questions about concepts, code, and sce
 
 
 sections:
-  - name: General
+  - name: General
     questions:
       - question: |
           What is the maximum size and number of requests I can make to the API?
