@@ -24,7 +24,7 @@ Get started with Azure Communication Services by recording your Communication Se
 ## Create a webhook and subscribe to the recording events
 We'll use *webhooks* and *events* to facilitate call recording and media file downloads. 
 
-First, we'll create a webhook. Our Communication Services resource will use Event Grid to notify this webhook when the `recording` event is triggered, and then again when recorded media is ready to be downloaded.
+First, we'll create a webhook. Your Communication Services resource will use Event Grid to notify this webhook when the `recording` event is triggered, and then again when recorded media is ready to be downloaded.
 
 You can write your own custom webhook to receive these event notifications. It's important for this webhook to respond to inbound messages with the validation code to successfully subscribe the webhook to the event service.
 
