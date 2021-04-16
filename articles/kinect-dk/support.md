@@ -56,4 +56,4 @@ EU Declarations of Conformity for Microsoft hardware products is [here](https://
 
 ## Next steps
 
-[Azure Kinect troubleshooting](troubleshooting.yml)
+[Azure Kinect troubleshooting](troubleshooting.md)

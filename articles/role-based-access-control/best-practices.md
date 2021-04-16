@@ -45,4 +45,4 @@ To make role assignments more manageable, avoid assigning roles directly to user
 
 ## Next steps
 
-- [Troubleshoot Azure RBAC](troubleshooting.yml)
+- [Troubleshoot Azure RBAC](troubleshooting.md)
