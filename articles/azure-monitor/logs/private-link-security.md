@@ -227,7 +227,7 @@ Restricting access as explained above doesn't apply to the Azure Resource Manage
 
 ### Log Analytics solution packs download
 
-To allow the Log Analytics Agent to download solution packs, add the appropriate fully qualified domain names to your firewall allow list. 
+To allow the Log Analytics Agent to download solution packs, add the appropriate fully qualified domain names to your firewall allowlist. 
 
 
 | Cloud environment | Agent Resource | Ports | Direction |
@@ -235,6 +235,10 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 |Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
+
+
+>[!NOTE]
+> Starting April 19, 2021 the above setting won't be required, and you'll be able to reach the solution packs storage account through the private link. The new capability requires re-creating the AMPLS (on April 19th, 2021 or later) and the Private Endpoint connected to it. It will not apply to existing AMPLSs and Private Endpints.
 
 ## Configure Application Insights
 
@@ -244,7 +248,7 @@ Go to the Azure portal. In your Azure Monitor Application Insights component res
 
 First, you can connect this Application Insights resource to Azure Monitor Private Link scopes that you have access to. Select **Add** and select the **Azure Monitor Private Link Scope**. Select Apply to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). 
 
-Second, you can control how this resource can be reached from outside of the private link scopes (AMPLS) listed previously. If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes can't upload data to this component. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes can't access data in this Application Insights resource. That data includes access to APM logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. 
+Then, you can control how this resource can be reached from outside of the private link scopes (AMPLS) listed previously. If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes can't upload data to this component. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes can't access data in this Application Insights resource. That data includes access to APM logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. 
 
 > [!NOTE]
 > Non-portal consumption experiences must also run on the private-linked VNET that includes the monitored workloads.

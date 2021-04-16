@@ -7,7 +7,7 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
-ms.date: 2/25/2020
+ms.date: 04/08/2021
 ---
 # Use managed identities to access App Configuration
 
@@ -139,7 +139,7 @@ To set up a managed identity in the portal, you first create an application and 
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid posible runtime issues in the future (for instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled). So, you will need to specify the clientId even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
+    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid posible runtime issues in the future (for instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled). So, you will need to specify the clientId even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
 
 
 1. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code calls `SetCredential` as part of `ConfigureKeyVault` to tell the config provider what credential to use when authenticating to Key Vault.

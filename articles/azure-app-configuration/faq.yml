@@ -40,10 +40,6 @@ sections:
       - question: Does App Configuration encrypt my data?
         answer: Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names and labels are used as indexes for retrieving configuration data and aren't encrypted.
 
-      - question: Where does data stored in App Configuration reside? 
-        answer: |
-          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. This applies to all available regions. Customers and end users may move, copy, or access their customer data from any location globally.
-
       - question: How is App Configuration different from Azure App Service settings?
         answer: |
           Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](../app-service/configure-common.md#configure-app-settings).
@@ -98,6 +94,14 @@ sections:
           You can upgrade from the Free tier to the Standard tier at any time.
           
           You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
+          
+      - question: Where does data stored in App Configuration reside? 
+        answer: |
+          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. This applies to all available regions. Customers and end users may move, copy, or access their customer data from any location globally.
+
+      - question: How does App Configuration ensure high data availability? 
+        answer: |
+         Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone enabled regions consists of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Regions that App Configuration has enabled Availability Zones are East US, East US 2, West US 2, North Europe, France Central, and Japan East. For more information, see [Regions and Availability Zones in Azure.](/azure/availability-zones/az-overview)
           
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |

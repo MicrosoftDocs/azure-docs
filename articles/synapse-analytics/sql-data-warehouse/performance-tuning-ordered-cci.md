@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 09/05/2019
+ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
@@ -128,6 +128,11 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 4.    Run ALTER INDEX <Ordered_CCI_Index> ON <Table_B> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
 5.    Repeat step 3 and 4 for each partition in Table_A.
 6.    Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
+
+>[!TIP]
+> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REBUILD will re-sort the data using tempdb. Monitor tempdb during rebuild operations. If you need more tempdb space, scale up the pool. Scale back down once the index rebuild is complete.
+>
+> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REORGANIZE does not re-sort the data. To resort data, use ALTER INDEX REBUILD.
 
 ## Examples
 

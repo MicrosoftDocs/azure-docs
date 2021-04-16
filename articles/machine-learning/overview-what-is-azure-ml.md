@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/04/2020
+ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
 ---
@@ -35,7 +35,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 ## Machine learning tools to fit each task 
 
 Azure Machine Learning provides all the tools developers and data scientists need for their machine learning workflows, including:
-+ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy pipelines.
++ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy pipelines in a low-code environment.
 
 + Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK for Python</a> samples for your machine learning. 
 
@@ -43,11 +43,11 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
-+ [Machine learning extension for Visual Studio Code users](tutorial-setup-vscode-extension.md)
++ [Machine learning extension for Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md) provides you with a full-featured development environment for building and managing your machine learning projects.
 
-+ [Machine learning CLI](reference-azure-machine-learning-cli.md)
++ [Machine learning CLI](reference-azure-machine-learning-cli.md) is an Azure CLI extension that provides commands for managing with Azure Machine Learning resources from the command line.
 
-+ Open-source frameworks such as PyTorch, TensorFlow, and scikit-learn and many more
++ [Integration with open-source frameworks](concept-open-source.md) such as PyTorch, TensorFlow, and scikit-learn and many more for training, deploying, and managing the end-to-end machine learning process.
 
 + [Reinforcement learning](how-to-use-reinforcement-learning.md) with Ray RLlib
 
@@ -125,6 +125,8 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 - + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
   + [Use Jupyter notebooks on a compute instance to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
   + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
+  + [Manage resources in Visual Studio Code](how-to-manage-resources-vscode.md)
+  + [Use Visual Studio Code to train and deploy an image classification model](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 

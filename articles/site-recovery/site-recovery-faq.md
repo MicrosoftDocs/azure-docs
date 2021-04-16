@@ -3,7 +3,7 @@ title: General questions about the Azure Site Recovery service
 description: This article discusses popular general questions about Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.author: raynew
+
 
 ---
 # General questions about Azure Site Recovery

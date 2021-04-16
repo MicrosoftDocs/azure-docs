@@ -64,7 +64,7 @@ The following architecture diagram shows the implementation.
 ## Set up the solution
 
 1. [Create a Facebook application](./identity-provider-facebook.md#create-a-facebook-application) configured to allow federation to Azure AD B2C.
-2. [Add the Facebook secret](./custom-policy-get-started.md#create-the-facebook-key) you created as an Identity Experience Framework policy key.
+2. [Add the Facebook secret](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#create-the-facebook-key) you created as an Identity Experience Framework policy key.
 
 ## Configure your application under Microsoft DFP
 
@@ -144,7 +144,7 @@ The value of the userID needs to be the same as the one in the corresponding Azu
 
 1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies) in the Policies folder.
 
-2. Follow this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Follow this [document](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configure the policy for the Azure AD B2C tenant.
 
@@ -180,4 +180,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

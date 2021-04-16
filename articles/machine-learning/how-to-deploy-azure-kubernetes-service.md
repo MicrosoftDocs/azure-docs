@@ -134,7 +134,7 @@ At model deployment time, for a successful model deployment AKS node should be a
 
 After the model is deployed and service starts, azureml-fe will automatically discover it using AKS API and will be ready to route request to it. It must be able to communicate to model PODs.
 >[!Note]
->If the deployed model requires any connectivity (e.g. querying external database or other REST service, downloading a BLOG etc), then both DNS resolution and outbound communication for these services should be enabled.
+>If the deployed model requires any connectivity (e.g. querying external database or other REST service, downloading a BLOB etc), then both DNS resolution and outbound communication for these services should be enabled.
 
 ## Deploy to AKS
 
@@ -174,7 +174,7 @@ For more information on the classes, methods, and parameters used in this exampl
 To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
 ```azurecli-interactive
-az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]

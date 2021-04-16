@@ -3,8 +3,7 @@ title: Alert schema definitions in Azure Monitor
 description: Understanding the common alert schema definitions for Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 09/22/2020
-
+ms.date: 04/12/2021
 ---
 
 # Common alert schema definitions
@@ -68,7 +67,7 @@ Any alert instance describes the resource that was affected and the cause of the
 
 | Field | Description|
 |:---|:---|
-| alertId | The GUID uniquely identifying the alert instance. |
+| alertId | The unique resource ID identifying the alert instance. |
 | alertRule | The name of the alert rule that generated the alert instance. |
 | Severity | The severity of the alert. Possible values: Sev0, Sev1, Sev2, Sev3, or Sev4. |
 | signalType | Identifies the signal on which the alert rule was defined. Possible values: Metric, Log, or Activity Log. |
@@ -106,7 +105,7 @@ Any alert instance describes the resource that was affected and the cause of the
 
 ## Alert context
 
-### Metric alerts
+### Metric alerts (excluding availability tests)
 
 #### `monitoringService` = `Platform`
 
@@ -132,6 +131,37 @@ Any alert instance describes the resource that was affected and the cause of the
               }
             ],
             "metricValue": 31.1105
+          }
+        ],
+        "windowStartTime": "2019-03-22T13:40:03.064Z",
+        "windowEndTime": "2019-03-22T13:45:03.064Z"
+      }
+    }
+}
+```
+
+### Metric alerts (availability tests)
+
+#### `monitoringService` = `Platform`
+
+**Sample values**
+```json
+{
+  "alertContext": {
+      "properties": null,
+      "conditionType": "WebtestLocationAvailabilityCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "Failed Location",
+            "metricNamespace": null,
+            "operator": "GreaterThan",
+            "threshold": "2",
+            "timeAggregation": "Sum",
+            "dimensions": [],
+            "metricValue": 5,
+            "webTestName": "myAvailabilityTest-myApplication"
           }
         ],
         "windowStartTime": "2019-03-22T13:40:03.064Z",
