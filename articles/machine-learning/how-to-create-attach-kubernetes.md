@@ -10,7 +10,7 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/11/2021
+ms.date: 04/08/2021
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
@@ -43,12 +43,8 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
-- The compute name for the AKS cluster MUST be unique within your Azure ML workspace.
-    - Name is required and must be between 3 to 24 characters long.
-    - Valid characters are upper and lower case letters, digits, and the - character.
-    - Name must start with a letter.
-    - Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique.
-   
+- The compute name for the AKS cluster MUST be unique within your Azure ML workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
+ 
  - If you want to deploy models to **GPU** nodes or **FPGA** nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
  
 - When creating or attaching a cluster, you can select whether to create the cluster for __dev-test__ or __production__. If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, set the __cluster purpose__ to __dev-test__. If you do not specify the cluster purpose, a __production__ cluster is created. 
@@ -66,6 +62,10 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
 - __Do not directly update the cluster by using a YAML configuration__. While Azure Kubernetes Services supports updates via YAML configuration, Azure Machine Learning deployments will override your changes. The only two YAML fields that will not overwritten are __request limits__ and and __cpu and memory__.
+
+- Creating an AKS cluster using the Azure Machine Learning studio UI, SDK, or CLI extension is __not__ idempotent. Attempting to create the resource again will result in an error that a cluster with the same name already exists.
+    
+    - Using an Azure Resource Manager template and the [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) resource to create an AKS cluster is also __not__ idempotent. If you attempt to use the template again to update an already existing resource, you will receive the same error.
 
 ## Azure Kubernetes Service version
 

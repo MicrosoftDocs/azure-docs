@@ -33,7 +33,12 @@ landingContent:
           - text: What's new?
             url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
-            url: skus.md     
+            url: skus.md
+      - linkListType: learn
+        links:
+          - text: Improve application scalability and resiliency by using Azure Load Balancer
+            url: /learn/modules/improve-app-scalability-resiliency-with-load-balancer/
+
   # Card (optional)
   - title: Get started
     linkLists:

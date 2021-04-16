@@ -96,7 +96,7 @@ In the application's **CustomVisionQuickstart** class, create variables for your
 
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages. You'll need to get both your training and prediction keys, along with the training resources' endpoint.
+> Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages. You'll need to get the keys for both your training and prediction resources, along with the API endpoint for your training resource.
 >
 > You can find the prediction resource ID value on the resource's **Properties** tab, listed as **Subscription ID**.
 > 

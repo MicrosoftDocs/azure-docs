@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Create a suggester to enable autocomplete and suggested results in a query
 
-In Azure Cognitive Search, typeahead or "search-as-you-type" is enabled through a *suggester*. A suggester is an internal data structure that consists of a fields collection. The fields undergo additional tokenization, generating prefix sequences to support matches on partial terms. For example, a suggester that includes a City field will have prefix combinations of "sea", "seat", "seatt", and "seattl"  for the term "Seattle".
+In Azure Cognitive Search, typeahead or "search-as-you-type" is enabled through a *suggester*. A suggester provides a list of fields that undergo additional tokenization, generating prefix sequences to support matches on partial terms. For example, a suggester that includes a City field with a value for "Seattle" will have prefix combinations of "sea", "seat", "seatt", and "seattl" to support typeahead.
 
 Matches on partial terms can be either an autocompleted query or a suggested match. The same suggester supports both experiences.
 
@@ -167,11 +167,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## Sample code
 
-+ [Create your first app in C# (lesson 3 - Add search-as-you-type)](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates suggested queries, autocomplete, and faceted navigation. This code sample runs on a sandbox Azure Cognitive Search service and uses a pre-loaded Hotels index with a suggester already created, so all you have to do is press F5 to run the application. No subscription or sign-in is necessary.
++ [Add search to a web site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) uses an open source Suggestions package for partial term completion in the client app.
+
++ [Create your first app in C# (lesson 3 - Add search-as-you-type)](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates suggested queries, autocomplete, and faceted navigation. This code provides native support for typeahead instead of using a widget.
 
 ## Next steps
 
-We recommend the following article to learn more about how requests formulation.
+Learn more about requests\ formulation.
 
 > [!div class="nextstepaction"]
 > [Add autocomplete and suggestions to client code](search-add-autocomplete-suggestions.md)

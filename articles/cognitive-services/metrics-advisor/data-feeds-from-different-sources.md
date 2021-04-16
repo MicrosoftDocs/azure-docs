@@ -14,13 +14,13 @@ ms.author: mbullwin
 
 # Add data feeds from different data sources to Metrics Advisor
 
-Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. Make sure to read how to [Onboard your data](how-tos/onboard-your-data.md) to learn about the key concepts for using your data with Metrics Advisor. 
+Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. Make sure to read how to [Onboard your data](how-tos/onboard-your-data.md) to learn about the key concepts for using your data with Metrics Advisor. \
 
 ## Supported authentication types
 
 | Authentication types | Description |
 | ---------------------|-------------|
-|**Basic** | You will need to be able to provide basic parameters for accessing data sources. For example a connection string or key. Data feed admins are able to view these credentials. |
+|**Basic** | You will need to be able to provide basic parameters for accessing data sources. For example, a connection string or key. Data feed admins are able to view these credentials. |
 | **AzureManagedIdentity** | [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
 | **AzureSQLConnectionString**| Store your AzureSQL connection string as a **credential entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
 | **DataLakeGen2SharedKey**| Store your data lake account key as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
@@ -46,7 +46,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Create an **Credential entity** and use it for authenticating to your data sources. The following sections specify the parameters required by for *Basic* authentication. 
+Create a Credential entity** and use it for authenticating to your data sources. The following sections specify the parameters required by for *Basic* authentication. 
 
 ## <span id="appinsights">Azure Application Insights</span>
 
@@ -156,7 +156,7 @@ This is the file template of the Blob file. For example: *X_%Y-%m-%d-%h-%M.json*
   * `%h` is the hour formatted as `HH`
   * `%M` is the minute formatted as `mm`
 
-Currently Metrics Advisor supports the data schema in the JSON files as follow. For example:
+Currently Metrics Advisor supports the data schema in the JSON files as follows. For example:
 
 ``` JSON
 [
@@ -222,14 +222,14 @@ You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy
 
 ## <span id="es">Elasticsearch</span>
 
-* **Host**:Specify the master host of Elasticsearch Cluster.
-* **Port**:Specify the master port of Elasticsearch Cluster.
-* **Authorization Header**:Specify the authorization header value of Elasticsearch Cluster.
-* **Query**:Specify the query to get data. Placeholder @StartTime is supported.(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00)
+* **Host**: Specify the master host of Elasticsearch Cluster.
+* **Port**: Specify the master port of Elasticsearch Cluster.
+* **Authorization Header**: Specify the authorization header value of Elasticsearch Cluster.
+* **Query**: Specify the query to get data. Placeholder @StartTime is supported.(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00)
 
 ## <span id="http">HTTP request</span>
 
-* **Request URL**: A HTTP url which can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **Request URL**: An HTTP url that can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Request HTTP method**: Use GET or POST.
 * **Request header**: Could add basic authentication. 
 * **Request payload**: Only JSON payload is supported. Placeholder @StartTime is supported in the payload. The response should be in the following JSON format: [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}].(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00.0000000+00:00)

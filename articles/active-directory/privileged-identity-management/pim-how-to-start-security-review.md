@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/16/2021
+ms.date: 4/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -23,6 +23,13 @@ To reduce the risk associated with stale role assignments, you should regularly 
 
 This article describes how to create one or more access reviews for privileged Azure AD roles.
 
+## Prerequisite license
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+
 ## Prerequisites
 
 [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator)
@@ -31,9 +38,11 @@ This article describes how to create one or more access reviews for privileged A
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the Privileged role administrator role.
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure AD roles**.
+1. Select **Identity Governance**
+ 
+1. Select **Azure AD roles** under **Azure AD Privileged Identity Management**.
+ 
+1. Select **Azure AD roles** again under **Manage**.
 
 1. Under Manage, select **Access reviews**, and then select **New**.
 
@@ -53,9 +62,11 @@ Click **New** to create a new access review.
 
 1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-1. In the **Users** section, select one or more roles that you want to review membership of.
+1. In the **Users Scope** section, select the scope of the review. To review users and groups with access to the Azure AD role, select **Users and Groups**, or select **(Preview) Service Principals** to review the machine accounts with access to the Azure AD role.
 
     ![Users scope to review role membership of](./media/pim-how-to-start-security-review/users.png)
+
+1. Under **Review role membership**, select the privileged Azure AD roles to review. 
 
     > [!NOTE]
     > - Roles selected here include both [permanent and eligible roles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -73,9 +84,9 @@ Click **New** to create a new access review.
 
     ![Reviewers list of selected users or members (self)](./media/pim-how-to-start-security-review/reviewers.png)
 
-    - **Selected users** - Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
-    - **Members (self)** - Use this option to have the users review their own role assignments. Groups assigned to the role will not be a part of the review when this option is selected.
-    - **Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. Groups assigned to the role will be reviewed by the Fallback reviewer if one is selected. 
+    - **Selected users** - Use this option to designate a specific user to complete the review. This option is available regardless of the Scope of the review, and the selected reviewers can review users, groups and service principals. 
+    - **Members (self)** - Use this option to have the users review their own role assignments. Groups assigned to the role will not be a part of the review when this option is selected.This option is only available if the review is scoped to **Users and Groups**.
+    - **Manager** – Use this option to have the user’s manager review their role assignment. This option is only available if the review is scoped to **Users and Groups**. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. Groups assigned to the role will be reviewed by the Fallback reviewer if one is selected. 
 
 ### Upon completion settings
 

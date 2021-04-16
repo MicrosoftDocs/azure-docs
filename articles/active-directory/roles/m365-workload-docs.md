@@ -13,8 +13,8 @@ ms.date: 11/05/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, to delegate permissions across Microsoft 365 services quickly and accurately I want to know where the content is for admin roles.
 ms.collection: M365-identity-device-management
+#Customer intent: As an Azure AD administrator, to delegate permissions across Microsoft 365 services quickly and accurately I want to know where the content is for admin roles.
 ---
 
 # Roles for Microsoft 365 services in Azure Active Directory

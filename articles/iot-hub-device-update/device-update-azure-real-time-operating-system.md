@@ -1,6 +1,6 @@
 ---
-title: Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub using Azure-Real-Time-Operating-System
+title: Device Update for Azure Real-time-operating-system | Microsoft Docs
+description: Get started with Device Update for Azure Real-time-operating-system
 author: valls
 ms.author: valls
 ms.date: 3/18/2021

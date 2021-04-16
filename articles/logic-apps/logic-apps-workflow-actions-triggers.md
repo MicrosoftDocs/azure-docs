@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -2420,11 +2420,11 @@ By default, logic app workflow instances all run at the same time (concurrently 
 
 When you turn on the trigger's concurrency control, trigger instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel.
 
-Here are some considerations for when you want to enable concurrency on a trigger:
-
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+Here are some considerations to review before you enable concurrency on a trigger:
 
 * You can't disable concurrency after you enable the concurrency control.
+
+* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 
@@ -2457,9 +2457,9 @@ Here are some considerations for when you want to enable concurrency on a trigge
 
 #### Edit in code view 
 
-In the underlying trigger definition, add the `runtimeConfiguration.concurrency.runs` property, which can have a value that ranges from `1` to `50`.
+In the underlying trigger definition, add the `runtimeConfiguration.concurrency.runs` property, and set the value based on the [trigger concurrency limits](logic-apps-limits-and-config.md#concurrency-debatching). To run your workflow sequentially, set the property value to `1`.
 
-Here is an example that limits concurrent runs to 10 instances:
+This example limits concurrent runs to 10 instances:
 
 ```json
 "<trigger-name>": {

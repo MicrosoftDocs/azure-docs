@@ -15,6 +15,8 @@
     href: quickstart-create-data-factory-portal.md
   - name: Create data factory - Copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
+  - name: Create data factory - Azure CLI
+    href: quickstart-create-data-factory-azure-cli.md
   - name: Create data factory - Azure PowerShell
     href: quickstart-create-data-factory-powershell.md
   - name: Create data factory - .NET
@@ -105,6 +107,8 @@
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Best practices for landing data in the lake with ADLS Gen2
+        href: tutorial-data-flow-write-to-lake.md
       - name: Transform data in the lake with Delta Lake
         href: tutorial-data-flow-delta-lake.md
       - name: Transform data with mapping data flows
@@ -789,9 +793,7 @@
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
-      items:
-      - name: Data flows overview
-        href: data-flow-troubleshoot-guide.md
+      href: data-flow-troubleshoot-guide.md
     - name: Continuous Integration and Deployment 
       href: ci-cd-github-troubleshoot-guide.md      
     - name: Security and access control
@@ -820,6 +822,8 @@
     href: /python/api/overview/azure/datafactory
   - name: Azure Policy built-ins
     href: policy-reference.md
+  - name: Azure CLI
+    href: /cli/azure/ext/datafactory/datafactory
 - name: Resources
   items:
   - name: Whitepapers
