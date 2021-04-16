@@ -251,6 +251,8 @@
         href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
+    - name: States and billing
+      href: states-billing.md
     - name: vCPU quotas
       items:
       - name: CLI
@@ -795,6 +797,8 @@
         href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
       - name: Create a VM from Image Version
         href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+    - name: Ansible
+      href: https://docs.microsoft.com/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
       displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting
       href: troubleshooting-shared-images.md
@@ -944,8 +948,6 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
-  - name: States and billing
-    href: states-billing.md
   - name: Azure Regions
     href: regions.md
 - name: Disks

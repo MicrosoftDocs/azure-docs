@@ -3,7 +3,7 @@ title: Security for Device Update for Azure IoT Hub | Microsoft Docs
 description: Understand how Device Update for IoT Hub ensures devices are updated securely.
 author: lichris
 ms.author: lichris
-ms.date: 2/11/2021
+ms.date: 4/15/2021
 ms.topic: conceptual
 ms.service: iot-hub
 ---
@@ -12,15 +12,17 @@ ms.service: iot-hub
 
 Device Update for IoT Hub offers a secure method to deploy updates for device firmware, images, and applications to your IoT devices. The workflow provides an end-to-end secure channel with a full chain-of-custody model that a device can use to prove an update is trusted, unmodified and intentional.
 
-Each step in the Device Update workflow is protected through various security features and processes to ensure that every step in the pipeline performs a secured handoff to the next. The Device Update client identifies and properly manages any illegitimate update requests. The client also checks every download to ensure that the content is trusted, unmodified, and is intentional.
+Each step in the Device Update workflow is protected through various security features and processes to ensure that every step in the pipeline performs a secured handoff to the next. The Device Update client identifies and properly manages any illegitimate update requests. The client also checks every download to ensure that the content is trusted, unmodified, and intentional.
 
 ## For Solution Operators
 
 As Solution Operators import updates into their Device Update instance, the service uploads and checks the update binary files to ensure that they haven't been modified or swapped out by a malicious user. Once verified, the Device Update service generates an internal [update manifest](./update-manifest.md) with file hashes from the import manifest and other metadata. This update manifest is then signed by the Device Update service.
 
+Once ingested into the service and stored in Azure, the update binary files and associated customer metadata are automatically encrypted at rest by the Azure storage service. The Device Update service does not automatically provide additional encryption, but does allow developers to encrypt content themselves before the content reaches the Device Update service.
+
 When the Solution Operator requests to update a device, a signed message is sent over the protected IoT Hub channel to the device. The request’s signature is validated by the device’s Device Update agent as authentic. 
 
-Any resulting binary download is secured through validation of the update manifest signature. The update manifest contains the binary file hashes, so once the manifest is trusted the Device Update agent trusts the hashes and matches them against the binaries. Once the update binary has been downloaded and verified, it is then handed off to the installer on the device.
+Any resulting binary download is secured through validation of the update manifest signature. The update manifest contains the binary file hashes, so once the manifest is trusted the Device Update agent trusts the hashes and matches them against the binaries. Once the update binary has been downloaded and verified, it is then securely handed off to the installer on the device.
 
 ## For Device Builders
 

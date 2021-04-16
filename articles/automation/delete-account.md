@@ -4,7 +4,7 @@ description: This article tells how to delete your Automation account across the
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 03/18/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
 ---
 
@@ -23,7 +23,10 @@ Removing your Automation account can be done using one of the following methods 
 * Unlink the Log Analytics workspace from the Automation account and delete the Automation account.
 * Delete the feature from your linked workspace, unlink the account from the workspace, and then delete the Automation account.
 
-This article tells you how to completely remove your Automation account through the Azure portal, PowerShell, the Azure CLI, or the REST API.
+This article tells you how to completely remove your Automation account through the Azure portal, using Azure PowerShell, the Azure CLI, or the REST API.
+
+> [!NOTE]
+> Before proceeding, verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource which prevents accidental deletion or modification of critical resources. If you have deployed the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Any locks need to be removed before you can delete the Automation account.
 
 ## Delete the dedicated resource group
 
