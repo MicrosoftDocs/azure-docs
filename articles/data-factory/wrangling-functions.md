@@ -127,10 +127,9 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Table.Pivot | Not supported |
 | Table.SplitColumn | Partially supported |
 
-
 ## M script workarounds
 
-### For ``SplitColumn`` there is an alternate for split by length and by position
+### For ```SplitColumn``` there is an alternate for split by length and by position
 
 * Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
 * Table.AddColumn(#"Inserted first characters", "Text range", each Text.Middle([Email], 4, 9), type text)
@@ -139,10 +138,9 @@ This option is accessible from the Extract option in the ribbon
 
 ![Power Query Add Column](media/data-flow/pq-split.png)
 
-### For ``Table.CombineColumns``
+### For ```Table.CombineColumns```
 
 * Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
-
 
 
 ## Next steps
