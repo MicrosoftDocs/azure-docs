@@ -428,9 +428,9 @@ To enable the CAPTCHA in your self-hosted portal:
     |  | `"useHipCaptcha": true` | Change the value to `true` |
     | `config.runtime.json` | `"backendUrl": "https://<custom-domain>"` | Replace `<custom-domain>` with the custom domain you set up in the first step. |
 
-1. [Publish](#publish-locally) the portal.
+1. [Publish](#step-5-publish-locally) the portal.
 
-1. [Upload](#upload-static-files-to-a-blob) and host the newly published portal.
+1. [Upload](#step-2-upload-static-files-to-a-blob) and host the newly published portal.
 
 1. Expose the self-hosted portal through a custom domain.
 
