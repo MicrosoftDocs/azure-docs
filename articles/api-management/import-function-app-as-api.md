@@ -69,18 +69,17 @@ Follow the steps below to create a new API from an Azure Function App.
     :::image type="content" source="./media/import-function-app-as-api/add-05.png" alt-text="Screenshot that highlights the Functions to import and the Select button.":::
 
 7. Switch to the **Full** view and assign **Product** to your new API. 
-1. If needed, specify other fields during creation or configure them later via the **Settings** tab. 
+8. If needed, specify other fields during creation or configure them later via the **Settings** tab. 
     * The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
->[!NOTE]
-> Products are associations of one or more APIs offered to developers through the developer portal. First, developers must subscribe to a product to get access to the API. Once subscribed, they get a subscription key for any API in that product. As creator of the API Management instance, you are an administrator and are subscribed to every product by default.
->
-> Each API Management instance comes with two default sample products:
-> - **Starter**
-> - **Unlimited**
+    >[!NOTE]
+    > Products are associations of one or more APIs offered to developers through the developer portal. First, developers must subscribe to a product to get access to the API. Once subscribed, they get a subscription key for any API in that product. As creator of the API Management instance, you are an administrator and are subscribed to every product by default.
+    >
+    > Each API Management instance comes with two default sample products:
+    > - **Starter**
+    > - **Unlimited**
 
-
-1. Click **Create**.
+9. Click **Create**.
 
 ## <a name="append-azure-function-app-to-api"></a> Append Azure Function App to an existing API
 
@@ -138,7 +137,7 @@ For APIs created after April 4th 2019, the host key is passed in HTTP requests f
 
 2. In the **Functions** section of the side navigation menu, select **App keys**.
 
-    :::image type="content" source="./media/import-function-app-as-api/keys-02.png" alt-text="Screenshot that highlights the Function Apps settings option.":::
+    :::image type="content" source="./media/import-function-app-as-api/keys-02b.png" alt-text="Screenshot that highlights the Function Apps settings option.":::
 
 3. Find the keys under the **Host keys** section.
 

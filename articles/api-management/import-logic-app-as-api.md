@@ -36,11 +36,11 @@ In this article, you learn how to:
 ## <a name="create-api"> </a>Import and publish a back-end API
 
 1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
-2. Select **Logic App** from the **Add a new API** list.
+1. Select **Logic App** from the **Add a new API** list.
 
     :::image type="content" source="./media/import-logic-app-as-api/logic-app-select.png" alt-text="Select logic app category":::
 
-3. Press **Browse** to see the list of Logic Apps with HTTP trigger in your subscription. 
+1. Press **Browse** to see the list of Logic Apps with HTTP trigger in your subscription. 
     * Logic apps *without* HTTP trigger will not appear in the list.
 
     :::image type="content" source="./media/import-logic-app-as-api/browse-logic-apps.png" alt-text="Browse for existing logic apps with correct trigger":::
@@ -58,14 +58,14 @@ In this article, you learn how to:
 1. If you want the API to be published and available to developers, Switch to the **Full** view and associate it with a **Product**. We use the *"Unlimited"* product in this example. 
     * You can add your API to a product either during creation or later via the **Settings** tab.
 
->[!NOTE]
-> Products are associations of one or more APIs offered to developers through the developer portal. First, developers must subscribe to a product to get access to the API. Once subscribed, they get a subscription key for any API in that product. As creator of the API Management instance, you are an administrator and are subscribed to every product by default.
->
-> Each API Management instance comes with two default sample products:
-> - **Starter**
-> - **Unlimited**
+    >[!NOTE]
+    > Products are associations of one or more APIs offered to developers through the developer portal. First, developers must subscribe to a product to get access to the API. Once subscribed, they get a subscription key for any API in that product. As creator of the API Management instance, you are an administrator and are subscribed to every product by default.
+    >
+    > Each API Management instance comes with two default sample products:
+    > - **Starter**
+    > - **Unlimited**
 
-7. Enter other API settings. 
+1. Enter other API settings. 
     * You can set these values during creation or later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 1. Select **Create**.
 
