@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
+ms.date: 04/14/2021
 ---
 
 # Transform data securely by using mapping data flow
