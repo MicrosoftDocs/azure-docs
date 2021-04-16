@@ -21,7 +21,7 @@ To help you in the development process, refer to the completed widget located in
 
 ## Prerequisites
 
-* Set up a [local environment](developer-portal-self-host.md#set-up-local-environment) for the latest release of the developer portal.
+* Set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
 * You should understand the [Paperbits widget anatomy](https://paperbits.io/wiki/widget-anatomy).
 

@@ -156,7 +156,7 @@ The call failure may also be caused by an TLS/SSL certificate, which is assigned
 
 ## Local development of my self-hosted portal is no longer working
 
-If your local version of the developer portal cannot save or retrieve information from the storage account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to the tutorial to [self-host the developer portal](developer-portal-self-host.md#configure-json-files-static-website-and-cors-settings).
+If your local version of the developer portal cannot save or retrieve information from the storage account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to the tutorial to [self-host the developer portal](developer-portal-self-host.md#step-2-configure-json-files-static-website-and-cors-settings).
 
 ## How can I remove the developer portal content provisioned to my API Management service?
 

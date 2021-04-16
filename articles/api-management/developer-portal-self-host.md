@@ -416,7 +416,7 @@ To enable the CAPTCHA in your self-hosted portal:
 
     This domain applies to the managed version of your portal and the CAPTCHA endpoint. For steps, see [Configure a custom domain name for your Azure API Management instance](configure-custom-domain.md).
 
-1. Go to the `src` folder in the [local environment](#set-up-local-environment) for your self-hosted portal.
+1. Go to the `src` folder in the [local environment](#step-1-set-up-local-environment) for your self-hosted portal.
 
 1. Update the configuration `json` files:
 

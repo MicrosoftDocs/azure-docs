@@ -21,7 +21,7 @@ There are several alternative approaches you can explore when you [self-host a d
 
 This article provides information on each of these approaches. 
 
-If you have not already done so, set up a [local environment](developer-portal-self-host.md#set-up-local-environment) for the latest release of the developer portal.
+If you have not already done so, set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
 ## Build for production
 

@@ -22,7 +22,7 @@ Follow these steps to plug Google Tag Manager into your managed or self-hosted d
 > [!IMPORTANT]
 > Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 4.
 
-1. Set up a [local environment](developer-portal-self-host.md#set-up-local-environment) for the latest release of the developer portal.
+1. Set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
 1. Install the **npm** package to add [Paperbits for Google Tag Manager](https://github.com/paperbits/paperbits-gtm):
 
