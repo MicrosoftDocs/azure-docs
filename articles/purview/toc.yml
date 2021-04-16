@@ -75,6 +75,8 @@ items:
       href: manage-integration-runtimes.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
+    - name: Resource set pattern rules
+      href: how-to-resource-set-pattern-rules.md
     - name: Sources
       items:
       - name: Manage data sources

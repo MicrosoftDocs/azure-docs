@@ -969,7 +969,8 @@
       }
     },
     "template": [
-      "docs.html"
+      "docs.html",
+      "default","DocFx.Plugins.PlantUml/template"
     ],
     "dest": "azure",
     "rules": {

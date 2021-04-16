@@ -115,34 +115,62 @@ If you can't find any self-signed certificates by following these steps, contact
 
 ## Sign-in issues
 
-### Blank sign-in dialog box
+### Understanding sign-in
 
-Blank sign-in dialog boxes most often occur when Active Directory Federation Services (AD FS) prompts Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can try to use Device Code Flow for sign-in. To do so, follow these steps:
+Make sure you have read the [Sign in to Storage Explorer](./storage-explorer-sign-in.md) documentation.
 
-1. On the left vertical tool bar, open **Settings**. In the Settings Panel, go to **Application** > **Sign in**. Enable **Use device code flow sign-in**.
-2. Open the **Connect** dialog box (either through the plug icon on the left-side vertical bar or by selecting **Add Account** on the account panel).
-3. Choose the environment you want to sign in to.
-4. Select **Sign In**.
-5. Follow the instructions on the next panel.
+### Frequently having to reenter credentials
 
-If you can't sign in to the account you want to use because your default browser is already signed in to a different account, do one of the following:
+Having to reenter credentials is most likely the result of conditional access policies set by your AAD administrator. When Storage Explorer asks you to reenter credentials from the account panel, you should see an **Error details...** link. Click on that to see why Storage Explorer is asking you to reenter credentials. Conditional access policy errors that require reentering of credentials may look something like these:
+- The refresh token has expired...
+- You must use multi-factor authentication to access...
+- Due to a configuration change made by your administrator...
 
-- Manually copy the link and code into a private session of your browser.
-- Manually copy the link and code into a different browser.
+To reduce the frequency of having to reenter credentials due to errors like the ones above, you will need to talk to your AAD administrator.
+
+### Conditional access policies
+
+If you have conditional access policies that need to be satisfied for your account, make sure you are using the **Default Web Browser** value for the **Sign in with** setting. For information on that setting, see [Changing where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
+### Unable to acquire token, tenant is filtered out
+
+If you see an error message saying that a token cannot be acquired because a tenant is filtered out, that means you are trying to access a resource which is in a tenant you have filtered out. To unfilter the tenant, go to the **Account Panel** and make sure the checkbox for the tenant specified in the error is checked. Refer to the [Managing accounts](./storage-explorer-sign-in.md#managing-accounts) for more information on filtering tenants in Storage Explorer.
+
+## Authentication library failed to start properly
+
+If on startup you see an error message which says that Storage Explorer's authentication library failed to start properly then make sure your install environment meets all [prerequisites](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). Not meeting prerequisites is the most likely cause of this error message.
+
+If you believe that your install environment meets all prerequisites, then [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new). When you open your issue, make sure to include:
+- Your OS.
+- What version of Storage Explorer you are trying to use.
+- If you checked the prerequisites.
+- [Authentication logs](#authentication-logs) from an unsuccessful launch of Storage Explorer. Verbose authentication logging is automatically enabled after this type of error occurs.
+
+### Blank window when using integrated sign-in
+
+If you have chosen to use **Integrated Sign-in** and are seeing a blank sign window, you will likely need to switch to a different sign-in method. Blank sign-in dialog boxes most often occur when an Active Directory Federation Services (ADFS) server prompts Storage Explorer to perform a redirect that is unsupported by Electron.
+
+To change to a different sign-in method by changing the **Sign in with** setting under **Settings** > **Application** > **Sign-in**. For information on the different types of sign-in methods, see [Changing where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
 ### Reauthentication loop or UPN change
 
-If you're in a reauthentication loop or have changed the UPN of one of your accounts, follow these steps:
+If you're in a reauthentication loop or have changed the UPN of one of your accounts then try these steps:
 
-1. Remove all accounts and then close Storage Explorer.
-2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
-3. If you're running Mac or Linux, you'll also need to delete the Microsoft.Developer.IdentityService entry from your operating system's keystore. On the Mac, the keystore is the *Gnome Keychain* application. In Linux, the application is typically called _Keyring_, but the name might differ depending on your distribution.
+1. Open Storage Explorer
+2. Go to Help > Reset
+3. Make sure at least Authentication is checked. You can uncheck other items you do not want to reset.
+4. Click the Reset button
+5. Restart Storage Explorer and try signing in again.
 
-### Conditional Access
+If you continue to have issues after doing a reset then try these steps:
 
-Because of a limitation in the Azure AD Library used by Storage Explorer, Conditional Access isn't supported when Storage Explorer is being used on Windows 10, Linux, or macOS.
+1. Open Storage Explorer
+2. Remove all accounts and then close Storage Explorer.
+3. Delete the `.IdentityService` folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
+4. If you're running Mac or Linux, you'll also need to delete the Microsoft.Developer.IdentityService entry from your operating system's keystore. On the Mac, the keystore is the *Gnome Keychain* application. In Linux, the application is typically called _Keyring_, but the name might differ depending on your distribution.
+6. Restart Storage Explorer and try signing in again.
 
-## Mac Keychain errors
+### macOS: keychain errors or no sign-in window
 
 The macOS Keychain can sometimes enter a state that causes issues for the Storage Explorer authentication library. To get the Keychain out of this state, follow these steps:
 
@@ -157,15 +185,16 @@ The macOS Keychain can sometimes enter a state that causes issues for the Storag
 6. You're prompted with a message like "Service hub wants to access the Keychain." Enter your Mac admin account password and select **Always Allow** (or **Allow** if **Always Allow** isn't available).
 7. Try to sign in.
 
-### General sign-in troubleshooting steps
+### Default browser doesn't open
 
-* If you're on macOS, and the sign-in window never appears over the **Waiting for authentication** dialog box, try [these steps](#mac-keychain-errors).
-* Restart Storage Explorer.
-* If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
-* Make sure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.
-* If you're running Windows and have access to Visual Studio 2019 on the same machine and to the sign-in credentials, try signing in to Visual Studio 2019. After a successful sign-in to Visual Studio 2019, you can open Storage Explorer and see your account in the account panel.
+If your default browser does not open when trying to sign in try all of the following techniques:
+- Restart Storage Explorer
+- Open your browser manually before starting sign-in
+- Try using **Integrated Sign-In**, see [Changing where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens) for instructions on how to do this.
 
-If none of these methods work, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+### Other sign-in issues
+
+If none of the above apply to your sign-in issue or if they fail to resolve you sign-in issue [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### Missing subscriptions and broken tenants
 
@@ -175,9 +204,9 @@ If you can't retrieve your subscriptions after you successfully sign in, try the
 * Make sure you've signed in through the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
 * If you're behind a proxy server, make sure you've configured the Storage Explorer proxy correctly.
 * Try removing and re-adding the account.
-* If there's a "More information" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, feel free to [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, feel free to [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## Can't remove an attached account or storage resource
+## Can't remove an attached storage account or resource
 
 If you can't remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
 
@@ -521,6 +550,8 @@ Part 3: Sanitize the Fiddler trace
 
 ## Next steps
 
-If none of these solutions work for you, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). You can also do this by selecting the **Report issue to GitHub** button in the lower-left corner.
+If none of these solutions work for you, you can:
+- Create a support ticket
+- [Open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). You can also do this by selecting the **Report issue to GitHub** button in the lower-left corner.
 
 ![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)
