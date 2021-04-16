@@ -16,6 +16,10 @@ ms.author: inhenkel
 
 Create a Media Services account and Storage Account with Private Links to a VNet. The ARM template also sets up DNS for both the Private Links. Finally the template creates a VM to allow the user to try out the Private Links.
 
+## Prerequisites
+
+Read [Quickstart: Create and deploy ARM templates by using the Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+
 ## Limitations
 
 - For Media Services, the template only sets up Private Link for Key Delivery.
