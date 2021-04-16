@@ -13,24 +13,20 @@ ms.service: azure-communication-services
 ---
 # Calling Recording overview
 
+> [!NOTE]
 > Many countries and states have laws and regulations that apply to the recording of PSTN, voice, and video calls, which often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
+> [!NOTE]
 > Regulations such as GDPR require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the participants[] array. You can cross-reference the MRIs in the participants[] array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
 
-Call Recording provides a set of server APIs to start, stop, pause and resume recording, which can be triggered from server-side business logic or events received from user actions. Recorded media output is in MP4 Audio+Video format (same as Teams recordings). Notifications that a recording media and metadata files are ready for retrieval are provided via Event Grid. Recordings are stored for 48 hours on built-in temporary storage, for retrieval and movement to a long-term storage solution of choice. 
-
-**Key Features of Call Recording**
-- **Run-time Control APIs** - Server-side control APIs for Start, Stop, Pause, and Resume Recording. 
-- **Media Output Types** - Recorded media output is MP4 Audio+Video format (same as Teams recordings), with more formats planned in future releases.
-- **Event Grid Notifications** - Notifications are sent via an Event Grid configured in your ACS resource when a recording file is ready for retrieval. 
-- **File Download** - Recordings are stored for 48 hours on built-in transitory storage, for retrieval and movement to a long-term storage solution of choice.
+Call Recording provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in `MP4 Audio+Video` format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. 
 
 ## Run-time Control APIs
 Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. In either scenario, `<conversation-id>` is required to record a specific meeting or call. 
 
 #### Getting Conversation ID from a server initiated call
 
-ConversationId is returned via the Microsoft.Communication.CallLegStateChanged event that is sent after the call has been established. It can be found in the data.ConversationId field. This value can be used directly as the '{conversationId}' parameter in run-time control APIs:
+A `ConversationId` is returned via the `Microsoft.Communication.CallLegStateChanged` event. This event notification is emitted after a call has been established. It can be found in the `data.ConversationId` field. This value can be used directly as the `{conversationId}` parameter in run-time control APIs:
 ```
       {
         "id": null,
@@ -48,13 +44,17 @@ ConversationId is returned via the Microsoft.Communication.CallLegStateChanged e
     }
 ```
                                                             
-#### Getting Conversation ID from a user triggered event on the client
-From the Javascript `@azure/communication-calling` library, after establishing a call invoke `let result = call.info.getConversationUrl()` to get the conversationUrl, then 
-**Base64Url encoded the conversationUrl to get the `{conversationId}` for use in the run-time control APIs**. Encoding can be done either on the client before sending the event to the server, or server side.
-> Note that the conversationUrl must be Base64Url encoded, not to be confused with just Base64 encoding (i.e. btoa).                                                            
+#### Getting the conversation ID from a user triggered event on the client
 
-### Start Recording
+From the Javascript `@azure/communication-calling` library, after establishing a call invoke `let result = call.info.getConversationUrl()` to get the `conversationUrl`, then 
+**Base64Url encode the `conversationUrl` to get the `{conversationId}` for use in the run-time control APIs**. Encoding can be done either on the client before sending the event to the server, or server side.
+
+Note that the `conversationUrl` *must* be Base64Url encoded, not to be confused with just Base64 encoding (i.e. btoa).                                                            
+
+### Start recording
+
 #### Request
+
 **HTTP**
 <!-- {
   "blockType": "request",
@@ -86,7 +86,9 @@ StartRecordingResponse startRecordingResponse = await conversationClient.StartRe
 
 string recordingId = startRecordingResponse.RecordingId;
 ```
+
 #### Response
+
 **HTTP**
 <!-- {
   "blockType": "response",
@@ -140,8 +142,11 @@ Content-Type: application/json
   ]
 }
 ```
-### Get Call Recording State
+
+### Get call recording state
+
 #### Request
+
 **HTTP**
 <!-- {
   "blockType": "request",
@@ -169,6 +174,7 @@ GetCallRecordingStateResponse recordingState = await conversationClient.GetRecor
     recordingId: <recordingId>).ConfigureAwait(false);
 ```
 #### Response
+
 **HTTP**
 <!-- {
   "blockType": "response",
@@ -210,7 +216,7 @@ Content-Type: application/json
 }
 ```
 
-### Stop Recording
+### Stop recording
 #### Request
 **HTTP**
 <!-- {
@@ -281,8 +287,8 @@ Content-Type: application/json
 }
 ```
 
-### Pause Recording
-Pausing and Resuming call recording enables you to skip recording a portion of a call or meeting, and resume recording to a single file. 
+### Pause recording
+Pausing and resuming call recording enables you to skip recording a portion of a call or meeting, and resume recording to a single file. 
 #### Request
 **HTTP**
 <!-- {
@@ -353,7 +359,7 @@ Content-Type: application/json
 }
 ```
 
-### Resume Recording
+### Resume recording
 #### Request
 **HTTP**
 <!-- {
@@ -424,15 +430,16 @@ Content-Type: application/json
 }
 ```
 
-## Media Output Types
-Call Recording currently supports mixed audio+video MP4 output format. The output media matches meeting recordings produced via Microsoft Teams recording. Additional output formats, such as audio only MP3, are planned for future releases and will be specified as an input parameter to the Start Recording call.
+## Media output types
+Call recording currently supports mixed audio+video MP4 output format. The output media matches meeting recordings produced via Microsoft Teams recording.
 
 | Channel Type | Content Format | Video | Audio |
 | :----------- | :------------- | :---- | :--------------------------- |
 | audioVideo | mp4 | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants |
 
-## Event Grid Notifications
+## Event Grid notifications
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically 1-2 minutes after the recording process has completed (e.g. meeting ended, recording stopped). Recording event notifications include a document ID, which can be used to retrieve both recorded media and a recording metadata file:
+
 - <Azure_Communication_Service_Endpoint>/recording/download/{documentId}
 - <Azure_Communication_Service_Endpoint>/recording/download/{documentId}/metadata
 
@@ -468,7 +475,7 @@ Sample code for handling event grid notifications and downloading recording and 
 
 > Azure Communication Services provides short term media storage for recordings. **Export any recorded content you wish to preserve within 48 hours.** After 48 hours, recordings will no longer be available.
 
-### Download Recording
+### Download recording
 #### Request
 **HTTP**
 <!-- {
@@ -523,7 +530,7 @@ Content-Type: application/json
   ]
 }
 ```
-### Download Recording Metadata
+### Download recording metadata
 #### Request
 **HTTP**
 <!-- {
