@@ -11,7 +11,7 @@ ms.subservice: disks
 ---
 # Use Site Recovery to migrate to Premium Storage
 
-**Applies to:** :heavy_check_mark: Linux VMs
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 [Azure premium SSDs](../disks-types.md) delivers high-performance, low-latency disk support for virtual machines (VMs) that are running I/O-intensive workloads. This guide helps you migrate your VM disks from a standard storage account to a premium storage account by using [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
