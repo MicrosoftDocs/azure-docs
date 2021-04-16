@@ -16,7 +16,7 @@ ms.author: apimpm
 
 ## What if I need functionality that isn't supported in the portal?
 
-You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn also about developer portal [extensibility](api-management-howto-developer-portal.md#extensibility).
+You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn also about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 
 
 ## Can I have multiple developer portals in one API Management service?

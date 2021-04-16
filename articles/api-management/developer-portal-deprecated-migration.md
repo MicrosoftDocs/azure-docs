@@ -32,7 +32,7 @@ The new developer portal addresses many limitations of the deprecated portal. It
 The new developer portal is incompatible with the deprecated portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance. Remaining configuration, like the list of APIs, products, users, identity providers, is automatically shared across both portals.
 
 > [!IMPORTANT]
-> If you've launched the new developer portal before, but you haven't made any changes, [reset the default content](api-management-howto-developer-portal.md#preview-to-ga) to update it to the latest version.
+> If you've launched the new developer portal before, but you haven't made any changes, [reset the default content](developer-portal-faq.md#preview-to-ga) to update it to the latest version.
 
 When you migrate from the deprecated portal, keep in mind the following changes:
 
