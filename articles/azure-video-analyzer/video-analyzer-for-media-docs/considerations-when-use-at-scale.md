@@ -1,7 +1,7 @@
 ---
-title: Things to consider when using Azure Video Analyzer for Media (former Video Indexer) at scale - Azure
+title: Things to consider when using Azure Video Analyzer for Media (formerly Video Indexer) at scale - Azure
 titleSuffix: Azure Media Services
-description: This topic explains what things to consider when using Azure Video Analyzer for Media (former Video Indexer) at scale.
+description: This topic explains what things to consider when using Azure Video Analyzer for Media (formerly Video Indexer) at scale.
 services: media-services
 author: Juliako
 manager: femila
@@ -13,7 +13,7 @@ ms.author: juliako
 
 # Things to consider when using Video Analyzer for Media at scale
 
-When using Azure Video Analyzer for Media (former Video Indexer) to index videos and your archive of videos is growing, consider scaling. 
+When using Azure Video Analyzer for Media (formerly Video Indexer) to index videos and your archive of videos is growing, consider scaling. 
 
 This article answers questions like:
 

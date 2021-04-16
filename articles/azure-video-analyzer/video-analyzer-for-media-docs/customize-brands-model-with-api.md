@@ -1,7 +1,7 @@
 ---
-title: Customize a Brands model with Azure Video Analyzer for Media (former Video Indexer) API
+title: Customize a Brands model with Azure Video Analyzer for Media (formerly Video Indexer) API
 titleSuffix: Azure Media Services
-description: Learn how to customize a Brands model with the Azure Video Analyzer for Media (former Video Indexer) API.
+description: Learn how to customize a Brands model with the Azure Video Analyzer for Media (formerly Video Indexer) API.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -12,7 +12,7 @@ ms.author: kumud
 
 # Customize a Brands model with the Video Analyzer for Media API
 
-Azure Video Analyzer for Media (former Video Indexer) supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Video Analyzer for Media detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database. For more information, see [Overview](customize-brands-model-overview.md).
+Azure Video Analyzer for Media (formerly Video Indexer) supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Video Analyzer for Media detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database. For more information, see [Overview](customize-brands-model-overview.md).
 
 > [!NOTE]
 > If your video was indexed prior to adding a brand, you need to reindex it.

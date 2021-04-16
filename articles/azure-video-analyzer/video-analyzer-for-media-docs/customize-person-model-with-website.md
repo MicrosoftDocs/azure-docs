@@ -1,7 +1,7 @@
 ---
-title: Customize a Person model with Azure Video Analyzer for Media (former Video Indexer) website
+title: Customize a Person model with Azure Video Analyzer for Media (formerly Video Indexer) website
 titleSuffix: Azure Media Services
-description: Learn how to customize a Person model with the Azure Video Analyzer for Media (former Video Indexer) website.
+description: Learn how to customize a Person model with the Azure Video Analyzer for Media (formerly Video Indexer) website.
 services: media-services
 author: Juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.author: juliako
 
 # Customize a Person model with the Video Analyzer for Media website
 
-Azure Video Analyzer for Media (former Video Indexer) supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Video Analyzer for Media](customize-person-model-overview.md).
+Azure Video Analyzer for Media (formerly Video Indexer) supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Video Analyzer for Media](customize-person-model-overview.md).
 
 You can use the Video Analyzer for Media website to edit faces that were detected in a video, as described in this topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
 

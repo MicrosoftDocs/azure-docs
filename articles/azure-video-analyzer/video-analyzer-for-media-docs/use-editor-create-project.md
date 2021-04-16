@@ -1,7 +1,7 @@
 ---
-title: Use the Azure Video Analyzer for Media (former Video Indexer) editor to create projects and add video clips
+title: Use the Azure Video Analyzer for Media (formerly Video Indexer) editor to create projects and add video clips
 titleSuffix: Azure Media Services
-description: This topic demonstrates how to use the Azure Video Analyzer for Media (former Video Indexer) editor to create projects and add video clips.
+description: This topic demonstrates how to use the Azure Video Analyzer for Media (formerly Video Indexer) editor to create projects and add video clips.
 services: media-services
 author: Juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.author: juliako
 
 # Add video clips to your projects
 
-The [Azure Video Analyzer for Media (former Video Indexer)](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
+The [Azure Video Analyzer for Media (formerly Video Indexer)](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
 
 Once created, the project can be rendered and downloaded from Video Analyzer for Media and be used in your own editing applications or downstream workflows.
 

@@ -1,7 +1,7 @@
 ---
-title: Examine the  Azure Video Analyzer for Media (former Video Indexer) output produced by v2 API - Azure
+title: Examine the  Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API - Azure
 titleSuffix: Azure Media Services
-description: This topic examines the Azure Video Analyzer for Media (former Video Indexer) output produced by v2 API.
+description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API.
 services: media-services
 author: Juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.author: juliako
 
 # Examine the Video Analyzer for Media output
 
-When a video is indexed, Azure Video Analyzer for Media (former Video Indexer) produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Analyzer for Media (formerly Video Indexer) produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Analyzer for Media](https://www.videoindexer.ai/) website. 
 

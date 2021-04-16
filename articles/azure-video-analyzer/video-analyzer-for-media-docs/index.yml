@@ -1,11 +1,11 @@
 ### YamlMime:Landing
  
-title: Learn about Azure Video Analyzer for Media (former Video Indexer)
-summary: Azure Video Analyzer for Media (former Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Analyzer for Media video and audio models.
+title: Learn about Azure Video Analyzer for Media (formerly Video Indexer)
+summary: Azure Video Analyzer for Media (formerly Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Analyzer for Media video and audio models.
 
 metadata:
-  title: Azure Video Analyzer for Media (former Video Indexer) documentation
-  description: Azure Video Analyzer for Media (former Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Analyzer for Media video and audio models.
+  title: Azure Video Analyzer for Media (formerly Video Indexer) documentation
+  description: Azure Video Analyzer for Media (formerly Video Indexer) is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Analyzer for Media video and audio models.
   services: azure-video-analyzer
   ms.service: azure-video-analyzer
   ms.topic: landing-page # Required
@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Video Analyzer for Media (former Video Indexer)
+  - title: About Azure Video Analyzer for Media (formerly Video Indexer)
     linkLists:
       - linkListType: overview
         links:

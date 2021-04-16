@@ -1,7 +1,7 @@
 ---
-title: Frequently asked questions about Azure Video Analyzer for Media (former Video Indexer) - Azure
+title: Frequently asked questions about Azure Video Analyzer for Media (formerly Video Indexer) - Azure
 titleSuffix: Azure Media Services
-description: This article gives answers to frequently asked questions about Azure Video Analyzer for Media (former Video Indexer).
+description: This article gives answers to frequently asked questions about Azure Video Analyzer for Media (formerly Video Indexer).
 services: media-services
 author: Juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.author: juliako
 
 # Video Analyzer for Media frequently asked questions
 
-This article answers frequently asked questions about Azure Video Analyzer for Media (former Video Indexer).
+This article answers frequently asked questions about Azure Video Analyzer for Media (formerly Video Indexer).
 
 ## General questions
 

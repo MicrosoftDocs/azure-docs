@@ -1,5 +1,5 @@
 ---
-title: Customizing content models in Azure Video Analyzer for Media (former Video Indexer)
+title: Customizing content models in Azure Video Analyzer for Media (formerly Video Indexer)
 titleSuffix: Azure Media Services
 description: This article gives links to the conceptual articles that explain the benefits of each type of customization. This article also links to how-to guides that show how you can implement the customization of each model.
 services: media-services
@@ -12,7 +12,7 @@ ms.author: kumud
 
 # Customizing content models in Video Analyzer for Media
 
-Azure Video Analyzer for Media (former Video Indexer) allows you to customize some of its models to be adapted to your specific use case. These models include [brands](customize-brands-model-overview.md), [language](customize-language-model-overview.md), and [person](customize-person-model-overview.md). You can easily customize these models using the Video Analyzer for Media website or API.
+Azure Video Analyzer for Media (formerly Video Indexer) allows you to customize some of its models to be adapted to your specific use case. These models include [brands](customize-brands-model-overview.md), [language](customize-language-model-overview.md), and [person](customize-person-model-overview.md). You can easily customize these models using the Video Analyzer for Media website or API.
 
 This article gives links to articles that explain the benefits of each type of customization. The article also links to how-to guides that show how you can implement the customization of each model.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Video Analyzer for Media (former Video Indexer) release notes | Microsoft Docs
-description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (former Video Indexer).
+title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | Microsoft Docs
+description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 services: media-services
 documentationcenter: ''
 author: Juliako
