@@ -28,7 +28,7 @@ The Oracle Database keeps flashback logs in the fast recovery area (FRA). These 
 
 As shown in the following figure from Oracle's [High Availability Overview and Best Practices](https://docs.oracle.com/en/database/oracle/oracle-database/19/haovw/ha-features.html), a single RAC database is presented to the application layer. The applications connect to the SCAN listener, which directs traffic to a specific database instance. RAC controls access from multiple instances to maintain data consistency across separate compute nodes.
 
-[ ![Diagram showing an overview of the architecture of Oracle RAC.](media/oracle-high-availability/oracle-real-application-clusters.png) ](media/oracle-high-availability/oracle-real-application-clusters.png#lightbox)
+![Diagram showing an overview of the architecture of Oracle RAC.](media/oracle-high-availability/oracle-real-application-clusters.png)
 
 If one instance fails, the service continues on all other remaining instances. Each database deployed on the solution will be in a RAC configuration of n+1, where n is the minimum processing power required to support the service.
 
