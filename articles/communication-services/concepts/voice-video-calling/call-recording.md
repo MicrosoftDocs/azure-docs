@@ -427,12 +427,12 @@ Content-Type: application/json
 ## Media Output Types
 Call Recording currently supports mixed audio+video MP4 output format. The output media matches meeting recordings produced via Microsoft Teams recording. Additional output formats, such as audio only MP3, are planned for future releases and will be specified as an input parameter to the Start Recording call.
 
-| Channel Type | Content Format | Video | Audio | Notes |
-| :----------- | :------------- | :---- | :--------------------------- | :-- |
-| audioVideo | mp4 | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants | |
+| Channel Type | Content Format | Video | Audio |
+| :----------- | :------------- | :---- | :--------------------------- |
+| audioVideo | mp4 | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants |
 
 ## Event Grid Notifications
-An Event Grid notification `Call Recording File Status Updated` is published when a recording is ready for retrieval, typically 1-2 minutes after the recording process has completed (e.g. meeting ended, recording stopped). Recording event notifications include a document ID, which can be used to retrieve both recorded media and a recording metadata file:
+An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically 1-2 minutes after the recording process has completed (e.g. meeting ended, recording stopped). Recording event notifications include a document ID, which can be used to retrieve both recorded media and a recording metadata file:
 - <Azure_Communication_Service_Endpoint>/recording/download/{documentId}
 - <Azure_Communication_Service_Endpoint>/recording/download/{documentId}/metadata
 
@@ -456,7 +456,7 @@ Sample code for handling event grid notifications and downloading recording and 
         },
         "recordingStartTime": string, // ISO 8601 date time for the start of the recording
         "recordingDurationMs": int, // Duration of recording in milliseconds
-        "sessionEndReason": string // Reason for call ending: "CallEnded", "InitiatorLeft”, etc.
+        "sessionEndReason": string // Reason for call ending: "CallEnded", "InitiatorLeft", etc.
     },
     "eventType": string, // "Microsoft.Communication.RecordingFileStatusUpdated"
     "dataVersion": string, // "1.0"
