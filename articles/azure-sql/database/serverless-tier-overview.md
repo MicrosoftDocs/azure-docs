@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 2/22/2021
+ms.date: 4/16/2021
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,7 @@ Auto-pausing is triggered if all of the following conditions are true for the du
 
 An option is provided to disable auto-pausing if desired.
 
-The following features do not support auto-pausing, but do support auto-scaling.  If any of the following features are used, then auto-pausing should be disabled and the database will remain online regardless of the duration of database inactivity:
+The following features do not support auto-pausing, but do support auto-scaling.  If any of the following features are used, then auto-pausing must be disabled and the database will remain online regardless of the duration of database inactivity:
 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
@@ -260,7 +260,7 @@ The resources of a serverless database are encapsulated by app package, SQL inst
 
 #### App package
 
-The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The app package contains the SQL instance and external services that together scope all user and system resources used by a database in SQL Database. Examples of external services include R and full-text search. The SQL instance generally dominates the overall resource utilization across the app package.
+The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The app package contains the SQL instance and external services like full-text search that all together scope all user and system resources used by a database in SQL Database. The SQL instance generally dominates the overall resource utilization across the app package.
 
 #### User resource pool
 

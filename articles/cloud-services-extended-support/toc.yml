@@ -81,6 +81,8 @@
     href: generate-template-portal.md
   - name: Swap two cloud services
     href: swap-cloud-service.md
+  - name: Override SKU details
+    href: override-sku.md
   - name: Troubleshoot
     items:
     - name: Role startup failure

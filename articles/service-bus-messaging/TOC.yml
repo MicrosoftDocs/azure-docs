@@ -92,14 +92,34 @@
   items:
   - name: Queues, topics, and subscriptions
     href: service-bus-queues-topics-subscriptions.md
-  - name: Topic filters and actions
-    href: topic-filters.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-  - name: Optimize performance
-    href: service-bus-performance-improvements.md
+  - name: Advanced features
+    items: 
+    - name: Message sessions
+      href: message-sessions.md
+    - name: Topic filters and actions
+      href: topic-filters.md
+    - name: Message browsing
+      href: message-browsing.md
+    - name: Message transfers, locks, and settlement
+      href: message-transfers-locks-settlement.md
+    - name: Dead-letter queues
+      href: service-bus-dead-letter-queues.md
+    - name: Message counters
+      href: message-counters.md
+    - name: Optimize performance
+      href: service-bus-performance-improvements.md
+    - name: Geo-disaster recovery and geo-replication
+      href: service-bus-geo-dr.md
+    - name: Asynchronous messaging and high availability
+      href: service-bus-async-messaging.md
+    - name: Handling outages and disasters
+      href: service-bus-outages-disasters.md
+    - name: Throttling
+      href: service-bus-throttling.md
   - name: Federation 
     items:
       - name: Message replication and cross-region federation
@@ -116,14 +136,6 @@
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
       - name: Acquire messages from Event Hubs
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
-  - name: Geo-disaster recovery and geo-replication
-    href: service-bus-geo-dr.md
-  - name: Asynchronous messaging and high availability
-    href: service-bus-async-messaging.md
-  - name: Handling outages and disasters
-    href: service-bus-outages-disasters.md
-  - name: Throttling
-    href: service-bus-throttling.md
   - name: Security
     items:
     - name: Security baseline
@@ -162,16 +174,12 @@
       href: service-bus-filter-examples.md    
     - name: Message handling
       items:
-      - name: Queues, topics, and subscriptions
-        href: service-bus-queues-topics-subscriptions.md
       - name: Java message service (JMS) 2.0 entities
         href: java-message-service-20-entities.md
       - name: Java Message Service (JMS) Developer guide.md
         href: jms-developer-guide.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
-      - name: Message transfers, locks, and settlement
-        href: message-transfers-locks-settlement.md
       - name: Message sequencing and timestamps
         href: message-sequencing.md
       - name: Message expiration (Time to Live)
@@ -180,8 +188,6 @@
       href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
       href: service-bus-partitioning.md
-    - name: Message sessions
-      href: message-sessions.md
     - name: AMQP
       items:
       - name: AMQP overview
@@ -198,18 +204,12 @@
         href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
-      - name: Dead-letter queues
-        href: service-bus-dead-letter-queues.md
       - name: Prefetch messages
         href: service-bus-prefetch.md
       - name: Duplicate message detection
         href: duplicate-detection.md
-      - name: Message counters
-        href: message-counters.md
       - name: Message deferral
         href: message-deferral.md
-      - name: Message browsing
-        href: message-browsing.md
       - name: Chain entities with auto-forwarding
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
@@ -317,6 +317,8 @@
     href: https://github.com/Azure/azure-sdk-for-ruby
   - name: Go
     href: https://github.com/Azure/azure-service-bus-go
+  - name: Azure CLI
+    href: /cli/azure/servicebus
   - name: Azure PowerShell
     href: /powershell/module/az.servicebus
   - name: REST

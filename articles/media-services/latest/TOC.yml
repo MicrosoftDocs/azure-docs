@@ -242,9 +242,7 @@
       href: media-services-apis-overview.md
       displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
-      href: filter-order-page-entitites-how-to.md 
-    - name: Azure RBAC
-      href: security-rbac-concept.md
+      href: filter-order-page-entitites-how-to.md
     - name: Error codes
       items:
       - name: Streaming endpoint error codes  
@@ -334,18 +332,43 @@
       href: asset-upload-media-how-to.md
     - name: Manage multiple storage accounts
       href: storage-managing-multiple-storage-accounts-how-to.md
-  - name: Create transforms and jobs
+  - name: Create transforms
     items:
-    - name: Create transforms
+    - name: Create a transform
       href: transform-create-transform-how-to.md
     - name: Create a basic audio transform with REST
       href: transform-create-basic-audio-how-to.md
     - name: Create thumbnail sprites
-      href: transform-create-thumbnail-sprites-how-to.md 
+      href: transform-create-thumbnail-sprites-how-to.md
+    - name: Stitch two or more video files with .NET
+      href: transform-stitch-how-to.md
+    - name: Subclip a video .NET
+      href: transform-subclip-video-dotnet-how-to.md
+      displayName: subclipping, clip, edit, trim, clipping
+    - name: Subclip a video REST
+      href: transform-subclip-video-rest-how-to.md
+      displayName: subclipping, clip, edit, trim, clipping
+    - name: Customize encoder presets .NET
+      href: transform-custom-presets-how-to.md
+    - name: Create an overlay transform .NET
+      href: transform-create-overlay-how-to.md
+    - name: Generate thumbnails .NET
+      href: transform-generate-thumbnails-dotnet-how-to.md
+    - name: Crop videos with .NET
+      href: crop-howto.md
+    - name: Customize encoder presets CLI
+      href: transform-custom-preset-cli-how-to.md
+    - name: Customize encoder presets REST
+      displayName: encode, encoding, custom, transform
+      href: transform-custom-preset-rest-how-to.md
+    - name: Generate thumbnails REST
+      href: transform-generate-thumbnails-rest-how-to.md
     - name: Create a copyAllBitrateNonInterleaved transform with REST
       href: transform-create-copyallbitratenoninterleaved-how-to.md
     - name: Copy videos without encoding with REST
       href: transform-create-copy-video-audio-how-to.md
+  - name: Create jobs
+    items:
     - name: Create jobs with CLI
       href: job-create-cli-how-to.md
     - name: Create job input with a local file and .NET
@@ -353,47 +376,10 @@
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
       href: job-multiple-transform-outputs-how-to.md
-    - name: Stitch two or more video files with .NET
-      href: transform-stitch-how-to.md
-  - name: Encode content 
-    items:
     - name: HTTPS as job input
       href: job-input-from-http-how-to.md
-    - name: Local file as job input
-      href: job-input-from-local-file-how-to.md    
-    - name: Encode with a custom transform
-      items:
-      - name: With .NET
-        displayName: encode, encoding, custom, transform
-        items:
-        - name: Customize encoder presets
-          href: encode-custom-presets-how-to.md
-        - name: Create an overlay transform
-          href: transform-create-overlay-how-to.md
-        - name: Generate thumbnails with .NET
-          href: transform-generate-thumbnails-dotnet-how-to.md
-        - name: Crop videos with .NET
-          href: crop-howto.md
-      - name: With CLI
-        displayName: encode, encoding, custom, transform
-        href: encode-custom-preset-cli-how-to.md
-      - name: With REST
-        displayName: encode, encoding, custom, transform
-        href: encode-custom-preset-rest-how-to.md
-      - name: Generate thumbnails with REST
-        href: transform-generate-thumbnails-rest-how-to.md
-      - name: Scale media reserved units
-        href: media-reserved-units-cli-how-to.md
-    - name: Subclip a video
-      items:
-      - name: With .NET
-        href: transform-subclip-video-dotnet-how-to.md
-        displayName: subclipping, clip, edit, trim, clipping
-      - name: With REST
-        href: transform-subclip-video-rest-how-to.md
-        displayName: subclipping, clip, edit, trim, clipping  
-    - name: Job error codes
-      href: job-error-codes-reference.md         
+  - name: Scale media reserved units CLI
+    href: media-reserved-units-cli-how-to.md       
   - name: Stream live
     items:
     - name: Live event with portal and Wirecast
@@ -455,8 +441,18 @@
       href: asset-publish-cli-how-to.md
   - name: Security
     items:
+    - name: Azure RBAC
+      href: security-rbac-concept.md
     - name: Roll storage access keys
       href: security-storage-roll-access-keys-how-to.md
+    - name: Enable trusted storage
+      href: security-trusted-storage-rest-tutorial.md
+    - name: Azure Media PlayerPass authentication tokens
+      href: security-pass-authentication-tokens-how-to.md
+    - name: Enable trusted storage
+      href: security-trusted-storage-rest-tutorial.md
+    - name: Customer managed keys with REST API
+      href: security-customer-managed-keys-rest-postman-tutorial.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up

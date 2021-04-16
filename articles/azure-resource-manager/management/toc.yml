@@ -169,6 +169,8 @@
     href: /dotnet/api/microsoft.azure.management.resourcemanager
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
+  - name: JavaScript
+    href: /javascript/api/overview/azure/resources
   - name: Python
     href: /python/api/overview/azure/resources
   - name: Azure Policy built-ins

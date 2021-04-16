@@ -307,7 +307,7 @@ Now that we've issued the verifiable credential from our own tenant with claims 
     
    ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
 
-8. You have no successfully verified your credential and the website should display your first and last name from your Azure AD's user account. 
+8. You have now successfully verified your credential and the website should display your first and last name from your Azure AD's user account. 
 
 You have now completing the tutorial and are officially a Verified Credential Expert! Your sample app is using your DID for both issuing and verifying, while writing claims into a verifiable credential from your Azure AD. 
 

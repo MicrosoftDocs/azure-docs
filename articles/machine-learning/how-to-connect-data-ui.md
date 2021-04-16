@@ -67,7 +67,7 @@ After you create a datastore, create a dataset to interact with your data. Datas
 
 There are two types of datasets, FileDataset and TabularDataset. 
 [FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas,
-[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. 
+[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
 

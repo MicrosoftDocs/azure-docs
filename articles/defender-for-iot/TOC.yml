@@ -6,10 +6,10 @@
   items:
   - name: What's new?
     href: release-notes.md
-  - name: Agentless solution architecture
+  - name: What is Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
-  - name: Agent-based solution architecture 
+  - name: What is Agent-based solution architecture 
     href: architecture-agent-based.md
 - name: Quickstarts
   expanded: true

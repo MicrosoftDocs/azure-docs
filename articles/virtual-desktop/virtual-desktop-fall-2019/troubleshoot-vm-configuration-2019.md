@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Windows Virtual Desktop (classic) session host virtual machine configuration
 
