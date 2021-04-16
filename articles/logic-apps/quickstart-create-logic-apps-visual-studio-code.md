@@ -21,6 +21,8 @@ For this article, you can create the same logic app from this [quickstart](../lo
 
 ![Example logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
+## Prerequisites
+
 Before you start, make sure that you have these items:
 
 * If you don't have an Azure account and subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
@@ -46,6 +48,8 @@ Before you start, make sure that you have these items:
     ![Confirm extension correctly installed](./media/quickstart-create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
 
     For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). To contribute to this extension's open-source version, visit the [Azure Logic Apps extension for Visual Studio Code on GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
+
+* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
 
 <a name="access-azure"></a>
 

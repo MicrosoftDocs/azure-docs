@@ -2,12 +2,12 @@
 title: Tutorial - Configure networking for your VMware private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 03/13/2021
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway are also required.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +32,7 @@ A virtual network that you created an [Azure VMware Solution private cloud](tuto
 
 1. On the **Create Virtual Network** page, enter the details for your virtual network.
 
-1. On the **Basics** tab, enter a name for the virtual network and select the appropriate region and select **Next : IP Addresses**.
+1. On the **Basics** tab, enter a name for the virtual network, select the appropriate region, and select **Next : IP Addresses**.
 
 1. On the **IP Addresses** tab, under **IPv4 address space**, enter the address space you created in the previous tutorial.
 
@@ -67,7 +67,7 @@ Now that you've created a virtual network, you'll create a virtual network gatew
    | **Region** | Select the geographical location of the virtual network gateway. |
    | **Gateway type** | Select **ExpressRoute**. |
    | **SKU** | Leave the default value: **standard**. |
-   | **Virtual network** | Select the virtual network you created previously. If you don't see the virtual network, make sure the region of the gateway matches the region of your virtual network. |
+   | **Virtual network** | Select the virtual network you created previously. If you don't see the virtual network, make sure the gateway's region matches the region of your virtual network. |
    | **Gateway subnet address range** | This value is populated when you select the virtual network. Don't change the default value. |
    | **Public IP address** | Select **Create new**. |
 
@@ -85,15 +85,15 @@ Now that you've deployed a virtual network gateway, you'll add a connection betw
 
 ## Locate the URLs for vCenter and NSX Manager
 
-To sign in to vCenter and NSX manager you'll need the URLs to the vCenter web client and the NSX-T manager site. 
+To sign in to vCenter and NSX manager, you'll need the URLs to the vCenter web client and the NSX-T manager site. 
 
 Navigate to your Azure VMware Solution private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Navigate to your Azure VMware Solution private cloud, under Manage, select Identity, here you'll find the information needed." border="true":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot of the vCenter and NSX-T credentials and web client URLs." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 ## Next steps
 
-In this tutorial you learned how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a virtual network

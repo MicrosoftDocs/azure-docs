@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot Azure Data Factory UX
 description: Learn how to troubleshoot Azure Data Factory UX issues.
-services: data-factory
 author: ceespino
 ms.service: data-factory
 ms.topic: troubleshooting
@@ -24,7 +23,7 @@ This article explores common troubleshooting methods for Azure Data Factory UX.
 ### Third-party cookies blocked
 
 ADF UX uses browser cookies to persist user session and enable interactive development and monitoring experiences. 
-It is possible your browser blocks third-party cookies  because you are using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal, such as being redirected to a blank page, https://adf.azure.com/accesstoken.html, or getting a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
+It is possible your browser blocks third-party cookies  because you are using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal, such as being redirected to a blank page, 'https://adf.azure.com/accesstoken.html', or getting a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
 
 ### Google Chrome
 

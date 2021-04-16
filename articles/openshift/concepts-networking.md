@@ -4,7 +4,7 @@ description: Networking diagram and overview for Azure Red Hat OpenShift network
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
 #Customer intent: As a cluster administrator, I want to understand networking in a Azure Red Hat OpenShift cluster.
 # Diagram here: https://microsofteur-my.sharepoint.com/:p:/g/personal/asabbour_microsoft_com/Ee8GdDIG9f5Er43CXb3irEkBU0ZeSNLNymx38dhB46FfTg?e=rfmUdA
@@ -12,7 +12,7 @@ ms.date: 11/23/2020
 
 # Network concepts for Azure Red Hat OpenShift (ARO)
 
-This guide covers an overview of networking in Azure Red Hat OpenShift on OpenShift 4 clusters, along with a diagram and a list of important endpoints. For more information on core OpenShift networking concepts, see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
+This guide covers an overview of networking in Azure Red Hat OpenShift on OpenShift 4 clusters, along with a diagram and a list of important endpoints. For more information on core OpenShift networking concepts, see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html).
 
 ![Azure Red Hat OpenShift 4 networking diagram](./media/concepts-networking/aro4-networking-diagram.png)
 
@@ -57,23 +57,26 @@ The following list covers important networking components in an Azure Red Hat Op
 
 * **Ingress**: The ingress networking policy is supported as a part of [OpenShift SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). This network policy is enabled by default, and the enforcement is carried out by users. While the ingress network policy is V1 NetworkPolicy compliant, the Egress and IPBlock Types are not supported.
 
-* **Egress**: The egress network policies are supported by using the [egress firewall](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) feature in OpenShift. There is only one egress policy per namespace/project. Egress policies are not supported on the"default" namespace and are evaluated in order (first to last).
+* **Egress**: The egress network policies are supported by using the [egress firewall](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) feature in OpenShift. There is only one egress policy per namespace/project. Egress policies are not supported on the "default" namespace and are evaluated in order (first to last).
 
 ## Networking basics in OpenShift
 
-OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html) is used to configure an overlay network using Open vSwitch [(OVS)](https://www.openvswitch.org/), an OpenFlow implementation based on Container Network Interface (CNI) specification. The SDN supports different plugins -- Network Policy is the plugin used in Azure Red Hat on OpenShift 4. All network communication is managed by the SDN, so no extra routes are needed on your virtual networks to achieve pod to pod communication.
+OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/about-openshift-sdn.html) is used to configure an overlay network using Open vSwitch [(OVS)](https://www.openvswitch.org/), an OpenFlow implementation based on Container Network Interface (CNI) specification. The SDN supports different plugins -- Network Policy is the plugin used in Azure Red Hat on OpenShift 4. All network communication is managed by the SDN, so no extra routes are needed on your virtual networks to achieve pod to pod communication.
 
 ## Networking  for Azure Red Hat OpenShift
 
-The following networking features are specific to Azure Red Hat OpenShift:
+The following networking features are specific to Azure Red Hat OpenShift:	
 * Users can create their ARO cluster in an existing virtual network or create an virtual network when creating their ARO cluster.
 * Pod and Service Network CIDRs are configurable.
 * Nodes and masters are in different subnets.
 * Nodes and masters virtual network subnets should be minimum /27.
-* Pod CIDR should be minimum /18 in size (The pod network is non-routable IPs, and is only used inside the OpenShift SDN).
+* Default Pod CIDR is 10.128.0.0/14.
+* Default Service CIDR is 172.30.0.0/16.
+* Pod and Service Network CIDRs shouldn't overlap with other address ranges in use on your network, and must not be within the virtual network IP address range of your cluster.
+* Pod CIDR should be minimum /18 in size. (The pod network is non-routable IPs, and is only used inside the OpenShift SDN.)
 * Each node is allocated /23 subnet (512 IPs) for its pods. This value cannot be changed.
 * You cannot attach a pod to multiple networks.
-* You cannot configure Egress static IP. (This is an OpenShift feature. For information, see [configuring egress IPs](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)).
+* You cannot configure Egress static IP. (This is an OpenShift feature. For information, see [configuring egress IPs](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/assigning-egress-ips.html)).
 
 ## Network settings
 
@@ -92,7 +95,7 @@ Network security groups are created in the node's resource group, which is locke
 With a publicly visible API server, you cannot create network security groups and assign them to the NICs.
 
 ## Domain forwarding
-Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured. You cannot bring your own DNS to your virtual networks. For more information, see the documentation on [using DNS forwarding](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator).
+Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured. You cannot bring your own DNS to your virtual networks. For more information, see the documentation on [using DNS forwarding](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
 ## What's new in OpenShift 4.5
 

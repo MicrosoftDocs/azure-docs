@@ -1,12 +1,8 @@
 ---
 title: Track sensor activity
 description: The event timeline presents a timeline of activity detected on your network, including alerts and alert management actions, network events, and user operations such as user sign-in and user deletion.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
-ms.service: azure
 ---
 
 # Track sensor activity
@@ -54,15 +50,15 @@ To filter the timeline:
 
 2. Set event filters, as follows:
 
-   - **Include Address**: Display specific event devices.
+   - **Include Address**: Display events for specific devices.
 
-   - **Exclude Address**: Hide specific event devices.
+   - **Exclude Address**: Hide events for specific devices.
 
-   - **Include Event Types**: Display specific event types.
+   - **Include Event Types**: Display specific events types.
 
-   - **Exclude Event Types**: Hide specific event types.
+   - **Exclude Event Types**: Hide specific events types.
 
-   - **Device Group**: Select a device group, as it was defined in the device map. Only the events of this group are presented.
+   - **Device Group**: Select a device group, as it was defined in the device map. Only the events from this group are presented.
 
 3. Select **Clear All** to clear all the selected filters.
 
@@ -82,7 +78,7 @@ To filter the timeline:
 
     - Select **PCAP File** to download the PCAP file (if it exists) that contains a packet capture of the whole network at a specific time. 
     
-      The PCAP file contains technical information that can help engineers determine exactly where the event was and what's happening there. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, a free application.
+      The PCAP file contains technical information that can help network engineers determine the exact parameters of the event. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, an open-source application.
 
 ## See also
 

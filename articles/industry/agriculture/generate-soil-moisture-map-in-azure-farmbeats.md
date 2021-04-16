@@ -4,7 +4,7 @@ description: Describes how to generate Soil Moisture Heatmap in Azure FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 # Generate Soil Moisture Heatmap

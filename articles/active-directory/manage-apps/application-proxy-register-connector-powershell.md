@@ -4,7 +4,7 @@ description: Covers how to perform an unattended installation of Azure AD Applic
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

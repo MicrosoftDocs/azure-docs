@@ -45,7 +45,7 @@ For additional pricing and feature details, see:
 
 ### Using monetary credit with API Management
 
-You can pay for API Management charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
+You can pay for API Management charges with your Azure Prepayment (previously called monetary commitment). However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
 ## Monitor costs
 
@@ -85,10 +85,10 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 
 ### Choose tier
 
-Review the [Feature-based comparison of the Azure API Management tiers](api-management-features.md) to help decide which service tier may be appropriate for your scenarios. The different service tiers support combinations of features and capabilities designed for various use cases, with different costs. [Upgrade](upgrade-and-scale.md) to a different service tier at any time.
+Review the [Feature-based comparison of the Azure API Management tiers](api-management-features.md) to help decide which service tier may be appropriate for your scenarios. The different service tiers support combinations of features and capabilities designed for various use cases, with different costs. 
 
 * The **Consumption** service tier provides a lightweight, serverless option that incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. Capacity also scales automatically based on the load on the service.
-* Other API Management tiers incur monthly costs, and provide greater throughput and richer feature sets for evaluation and production workloads.
+* The **Developer**, **Basic**, **Standard**, and **Premium** API Management tiers incur monthly costs, and provide greater throughput and richer feature sets for evaluation and production workloads. [Upgrade](upgrade-and-scale.md) to a different service tier at any time.
 
 ### Scale using capacity units
 
@@ -104,7 +104,7 @@ As you add or remove units, capacity and cost scale proportionally. For example,
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Learn about how to [prevent unexpected costs](../cost-management-billing/manage/getting-started.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - Learn about API Management [capacity](api-management-capacity.md).
 - See steps to scale and upgrade API Management using the [Azure portal](upgrade-and-scale.md), and learn about [autoscaling](api-management-howto-autoscale.md).

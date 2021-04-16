@@ -4,7 +4,7 @@ description: This article describes how data recovery protects from losing your 
 author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 # Disaster recovery for FarmBeats

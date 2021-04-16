@@ -1,19 +1,11 @@
 ﻿---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Tutorial: Create a pipeline with Copy Activity using .NET API

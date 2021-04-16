@@ -2,8 +2,8 @@
 title: Debug SAML-based single sign-on - Azure Active Directory
 description: Debug SAML-based single sign-on to applications in Azure Active Directory.
 services: active-directory
-ms.author: kenwith
-author: kenwith
+ms.author: iangithinji
+author: iantheninja
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt

@@ -1,5 +1,5 @@
 ---
-title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
+title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 author: jmprieur
@@ -13,7 +13,7 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 
 ---
 
@@ -32,6 +32,20 @@ ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
+# [Java](#tab/java)
+
+```Java
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
+```
+
+# [Node.js](#tab/nodejs)
+
+```JavaScript
+const tokenRequest = {
+	scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
+};
+```
+
 # [Python](#tab/python)
 
 In MSAL Python, the configuration file looks like this code snippet:
@@ -40,12 +54,6 @@ In MSAL Python, the configuration file looks like this code snippet:
 {
     "scope": ["https://graph.microsoft.com/.default"],
 }
-```
-
-# [Java](#tab/java)
-
-```Java
-final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
 ---
@@ -96,30 +104,6 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
 Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
 
-# [Python](#tab/python)
-
-```Python
-# The pattern to acquire a token looks like this.
-result = None
-
-# First, the code looks up a token from the cache.
-# Because we're looking for a token for the current app, not for a user,
-# use None for the account parameter.
-result = app.acquire_token_silent(config["scope"], account=None)
-
-if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
-    result = app.acquire_token_for_client(scopes=config["scope"])
-
-if "access_token" in result:
-    # Call a protected API with the access token.
-    print(result["token_type"])
-else:
-    print(result.get("error"))
-    print(result.get("error_description"))
-    print(result.get("correlation_id"))  # You might need this when reporting a bug.
-```
-
 # [Java](#tab/java)
 
 This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
@@ -167,6 +151,43 @@ private static IAuthenticationResult acquireToken() throws Exception {
      }
      return result;
  }
+```
+
+# [Node.js](#tab/nodejs)
+
+The code snippet below illustrates token acquisition in an MSAL Node confidential client application:
+
+```JavaScript
+try {
+    const authResponse = await cca.acquireTokenByClientCredential(tokenRequest);
+    console.log(authResponse.accessToken) // display access token
+} catch (error) {
+    console.log(error);
+}
+```
+
+# [Python](#tab/python)
+
+```Python
+# The pattern to acquire a token looks like this.
+result = None
+
+# First, the code looks up a token from the cache.
+# Because we're looking for a token for the current app, not for a user,
+# use None for the account parameter.
+result = app.acquire_token_silent(config["scope"], account=None)
+
+if not result:
+    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token.
+    print(result["token_type"])
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You might need this when reporting a bug.
 ```
 
 ---
@@ -242,14 +263,19 @@ For details, see [Exposing application permissions (app roles)](scenario-protect
 Move on to the next article in this scenario,
 [Calling a web API](./scenario-daemon-call-api.md?tabs=dotnet).
 
-# [Python](#tab/python)
-
-Move on to the next article in this scenario,
-[Calling a web API](./scenario-daemon-call-api.md?tabs=python).
-
 # [Java](#tab/java)
 
 Move on to the next article in this scenario,
 [Calling a web API](./scenario-daemon-call-api.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=nodejs).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=python).
 
 ---

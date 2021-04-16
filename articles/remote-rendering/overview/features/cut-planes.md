@@ -20,9 +20,9 @@ The image below demonstrates the effect. The left shows the original mesh, on th
 You add a cut plane to the scene by creating a *CutPlaneComponent*. The location and orientation of the plane is determined by the component's owner [entity](../../concepts/entities.md).
 
 ```cs
-void CreateCutPlane(AzureSession session, Entity ownerEntity)
+void CreateCutPlane(RenderingSession session, Entity ownerEntity)
 {
-    CutPlaneComponent cutPlane = (CutPlaneComponent)session.Actions.CreateComponent(ObjectType.CutPlaneComponent, ownerEntity);
+    CutPlaneComponent cutPlane = (CutPlaneComponent)session.Connection.CreateComponent(ObjectType.CutPlaneComponent, ownerEntity);
     cutPlane.Normal = Axis.X; // normal points along the positive x-axis of the owner object's orientation
     cutPlane.FadeColor = new Color4Ub(255, 0, 0, 128); // fade to 50% red
     cutPlane.FadeLength = 0.05f; // gradient width: 5cm
@@ -30,9 +30,9 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 ```
 
 ```cpp
-void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEntity)
+void CreateCutPlane(ApiHandle<RenderingSession> session, ApiHandle<Entity> ownerEntity)
 {
-    ApiHandle<CutPlaneComponent> cutPlane = session->Actions()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();;
+    ApiHandle<CutPlaneComponent> cutPlane = session->Connection()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();;
     cutPlane->SetNormal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
     Color4Ub fadeColor;
     fadeColor.channels = { 255, 0, 0, 128 }; // fade to 50% red

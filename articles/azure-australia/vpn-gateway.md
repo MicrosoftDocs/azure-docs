@@ -200,4 +200,4 @@ This article covered the specific configuration of VPN Gateway to meet the requi
 - [Azure virtual network gateway overview](../vpn-gateway/index.yml)  
 - [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md)  
 - [Create a virtual network with a site-to-site VPN connection by using PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)  
-- [Create and manage a VPN gateway](../vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md)
+- [Create and manage a VPN gateway](../vpn-gateway/tutorial-create-gateway-portal.md)

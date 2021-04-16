@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Azure Blob storage client library v8 for Java"
 description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library v8 for Java to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-author: mhopkins-msft
+author: twooley
 
 ms.custom: devx-track-java
-ms.author: mhopkins
-ms.date: 07/24/2020
+ms.author: twooley
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -197,5 +197,5 @@ sourceFile.deleteOnExit();
 In this article, you learned how to transfer files between a local disk and Azure Blob storage using Java. To learn more about working with Java, continue to our GitHub source code repository.
 
 > [!div class="nextstepaction"]
-> [Java API Reference](/java/api/overview/azure/storage?view=azure-java-legacy)
+> [Java API Reference](/java/api/overview/azure/storage?view=azure-java-legacy&preserve-view=true)
 > [Code Samples for Java](../common/storage-samples-java.md)

@@ -2,14 +2,12 @@
 title: Red Hat Enterprise Linux bring-your-own-subscription Azure images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure.
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
-ms.reviewer: cynthn
-
-
 ---
 
 # Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure
@@ -27,10 +25,6 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - The VMs provisioned from Red Hat Gold Images don't carry RHEL fees associated with RHEL pay-as-you-go images.
 - The images are unentitled. You must use Red Hat Subscription-Manager to register and subscribe the VMs to get updates from Red Hat directly.
 - It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). However it's not possible to  switch from an initially deployed BYOS to pay-as-you-go billing models for Linux images. To switch the billing model from BYOS to pay-as-you-go, you must redeploy the VM from the respective image.
-
->[!NOTE]
-> Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a
-Generation 2 RHEL BYOS image, visit the Cloud Access dashboard in Red Hat subscription management. For more information, see the [Red Hat documentation](https://access.redhat.com/articles/4847681).
 
 ## Requirements and conditions to access the Red Hat Gold Images
 
@@ -192,7 +186,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     In this case, contact Microsoft or Red Hat to enable your subscription.
 
-- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../linux/shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
+- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
 
     ```azurecli
     az vm create –image \

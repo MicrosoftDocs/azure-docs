@@ -2,12 +2,13 @@
 title: Create Linux Azure VM Images with Packer 
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
+ms.collection: linux
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure

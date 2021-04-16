@@ -2,9 +2,6 @@
 title: Double encryption for data at rest
 titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
@@ -73,25 +70,25 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
 1. From your new key vault, navigate to **Settings** > **Keys** > **+ Generate/Import**.
 
-    ![Generate a new key in Azure Key Vault](./media/disk-encryption/create-new-key.png "Generate a new key in Azure Key Vault")
+    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Generate a new key in Azure Key Vault":::
 
 1. Provide a name, then select **Create**. Maintain the default **Key Type** of **RSA**.
 
-    ![generates key name](./media/disk-encryption/create-key.png "Generate key name")
+    :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="generates key name":::
 
 1. When you return to the **Keys** page, select the key you created.
 
-    ![key vault key list](./media/disk-encryption/key-vault-key-list.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="key vault key list":::
 
 1. Select the version to open the **Key Version** page. When you use your own key for HDInsight cluster encryption, you need to provide the key URI. Copy the **Key identifier** and save it somewhere until you're ready to create your cluster.
 
-    ![get key identifier](./media/disk-encryption/get-key-identifier.png)
+    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="get key identifier":::
 
 ### Create access policy
 
 1. From your new key vault, navigate to **Settings** > **Access policies** > **+ Add Access Policy**.
 
-    ![Create new Azure Key Vault access policy](./media/disk-encryption/key-vault-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="Create new Azure Key Vault access policy":::
 
 1. From the **Add access policy** page, provide the following information:
 
@@ -101,19 +98,19 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
     |Secret Permissions|Select **Get**, **Set**, and **Delete**.|
     |Select principal|Select the user-assigned managed identity you created earlier.|
 
-    ![Set Select Principal for Azure Key Vault access policy](./media/disk-encryption/azure-portal-add-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Set Select Principal for Azure Key Vault access policy":::
 
 1. Select **Add**.
 
 1. Select **Save**.
 
-    ![Save Azure Key Vault access policy](./media/disk-encryption/add-key-vault-access-policy-save.png)
+    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Save Azure Key Vault access policy":::
 
 ### Create cluster with customer-managed key disk encryption
 
 You're now ready to create a new HDInsight cluster. Customer-managed keys can only be applied to new clusters during cluster creation. Encryption can't be removed from customer-managed key clusters, and customer-managed keys can't be added to existing clusters.
 
-Beginning with the [November 2020 release](hdinsight-release-notes.md#release-date-11182020), HDInsight supports the creation of clusters using both versioned and version-less key URIs. If you create the cluster with a version-less key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
+Beginning with the November 2020 release, HDInsight supports the creation of clusters using both versioned and version-less key URIs. If you create the cluster with a version-less key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
 
 For clusters created before the November 2020 release, you will have to perform key rotation manually using the versioned key URI.
 
@@ -126,7 +123,7 @@ During cluster creation, you can either use a versioned key, or a versionless ke
 
 You also need to assign the managed identity to the cluster.
 
-![Create new cluster](./media/disk-encryption/create-cluster-portal.png)
+:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="Create new cluster":::
 
 #### Using Azure CLI
 
@@ -364,7 +361,7 @@ You can change the encryption keys used on your running cluster, using the Azure
 
 To rotate the key, you need the base key vault URI. Once you've done that, go to the HDInsight cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
 
-![rotate disk encryption key](./media/disk-encryption/change-key.png)
+:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="rotate disk encryption key":::
 
 #### Using Azure CLI
 
@@ -397,7 +394,7 @@ No, all managed disks and resource disks are encrypted by the same key.
 
 If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
 
-![key access Ambari alert](./media/disk-encryption/ambari-alert.png)
+:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="key access Ambari alert":::
 
 **How can I recover the cluster if the keys are deleted?**
 

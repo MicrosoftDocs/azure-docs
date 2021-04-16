@@ -25,9 +25,9 @@ landingContent:
         links:
           - text: What is Azure Defender for IoT?
             url: overview.md
-          - text: Solution Architecture
+          - text: Solution architecture
             url: architecture.md
-          - text: Setup Overview
+          - text: Solution setup overview
             url: getting-started.md
           - text: What's new?
             url: release-notes.md        
@@ -53,8 +53,6 @@ landingContent:
             url: how-to-investigate-sensor-detections-in-a-device-inventory.md
           - text: Investigate Alerts
             url: how-to-work-with-alerts-on-your-sensor.md
-          - text: Generate Reports
-            url: how-to-generate-reports.md
           - text: Control what Traffic is Detected
             url:  how-to-control-what-traffic-is-monitored.md
           - text: Connect to Azure Sentinel
@@ -65,7 +63,7 @@ landingContent:
     linkLists:
     - linkListType: overview
       links:
-        - text: Edge security module
+        - text: Edge Defender-IoT-micro-agent
           url: security-edge-architecture.md
         
     - linkListType: quickstart
@@ -74,7 +72,7 @@ landingContent:
           url: quickstart-onboard-iot-hub.md
         - text: Configure your IoT security solution
           url: quickstart-configure-your-solution.md
-        - text: Configure your Security Module for Azure RTOS 
+        - text: Configure your Defender-IoT-micro-agent for Azure RTOS 
           url: quickstart-azure-rtos-security-module.md
         - text: Create an Azure Defender for IoT module twin
           url: quickstart-create-security-twin.md

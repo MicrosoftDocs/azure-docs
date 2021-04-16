@@ -84,6 +84,9 @@ For web pages, Application Insights JavaScript SDK automatically collects AJAX c
 
 ## Advanced SQL tracking to get full SQL Query
 
+> [!NOTE]
+> Azure Functions requires separate settings to enable SQL text collection, see [configure monitoring for Azure Functions](../../azure-functions/configure-monitoring.md) to learn more.
+
 For SQL calls, the name of the server and database is always collected and stored as name of the collected `DependencyTelemetry`. There's an additional field called 'data', which can contain the full SQL query text.
 
 For ASP.NET Core applications, It is now required to opt-in to SQL Text collection by using
@@ -104,9 +107,10 @@ For ASP.NET applications, full SQL query text is collected with the help of byte
 In addition to the platform specific steps above, you **must also explicitly opt-in to enable SQL command collection** by modifying the applicationInsights.config file with the following:
 
 ```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
+<TelemetryModules>
+  <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+    <EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+  </Add>
 ```
 
 In the above cases, the correct way of validating that instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is 'rddp'. 'rdddsd' or 'rddf' indicates dependencies are collected via DiagnosticSource or EventSource callbacks, and hence full SQL query won't be captured.

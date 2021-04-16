@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Azure Cosmos DB (SQL API)
 description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and transform data in Azure Cosmos DB (SQL API) by using Data Factory.
-services: data-factory, cosmosdb
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-ms.service: multiple
-ms.workload: data-services
+ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
+ms.date: 03/17/2021
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -155,6 +151,7 @@ The following properties are supported in the Copy Activity **source** section:
 | query |Specify the Azure Cosmos DB query to read data.<br/><br/>Example:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>If not specified, this SQL statement is executed: `select <columns defined in structure> from mycollection` |
 | preferredRegions | The preferred list of regions to connect to when retrieving data from Cosmos DB. | No |
 | pageSize | The number of documents per page of the query result. Default is "-1" which means uses the service side dynamic page size up to 1000. | No |
+| detectDatetime | Whether to detect datetime from the string values in the documents. Allowed values are: **true** (default), **false**. | No |
 
 If you use "DocumentDbCollectionSource" type source, it is still supported as-is for backward compatibility. You are suggested to use the new model going forward which provide richer capabilities to copy data from Cosmos DB.
 
@@ -207,6 +204,8 @@ The following properties are supported in the Copy Activity **sink** section:
 | writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same ID already exists; otherwise, insert the document.<br /><br />**Note**: Data Factory automatically generates an ID for a document if an ID isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
 | writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that ADF provides to the library. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large - see below tips. |No<br />(the default is **10,000**) |
 | disableMetricsCollection | Data Factory collects metrics such as Cosmos DB RUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+
 
 >[!TIP]
 >To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Migrate from relational database to Cosmos DB](#migrate-from-relational-database-to-cosmos-db).
@@ -290,13 +289,16 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 * None: No action will be done to the collection.
 * Recreate: The collection will get dropped and recreated
 
-**Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
+**Batch size**: An integer that represents how many objects are being written to Cosmos DB collection in each batch. Usually, starting with the default batch size is sufficient. To further tune this value, note:
 
-**Partition Key:** Enter a string that represents the partition key for your collection. Example: ```/movies/title```
+- Cosmos DB limits single request's size to 2MB. The formula is "Request Size = Single Document Size * Batch Size". If you hit error saying "Request size is too large", reduce the batch size value.
+- The larger the batch size, the better throughput ADF can achieve, while make sure you allocate enough RUs to empower your workload.
+
+**Partition key:** Enter a string that represents the partition key for your collection. Example: ```/movies/title```
 
 **Throughput:** Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
 
-**Write throughput budget:** An integer that represents the number of RUs you want to allocate to the bulk ingestion Spark job. This number is out of the total throughput allocated to the collection.
+**Write throughput budget:** An integer that represents the RUs you want to allocate for this Data Flow write operation, out of the total throughput allocated to the collection.
 
 ## Lookup activity properties
 

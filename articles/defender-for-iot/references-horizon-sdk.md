@@ -1,13 +1,8 @@
 ---
 title: Horizon SDK 
-titleSuffix: Azure Defender for IoT
 description: The Horizon SDK lets Azure Defender for IoT developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Horizon proprietary protocol dissector
@@ -880,7 +875,7 @@ You can also use values from protocols previously parsed to extract additional i
 
 For example, for the value, which is based on TCP, you can use the values from IPv4 layer. From this layer you can extract values such as the source of the packet, and the destination.
 
-In order to achieve this, the JSON configuration file needs to be updated using the `whitelist` property.
+In order to achieve this, the JSON configuration file needs to be updated using the `whitelists` property.
 
 ## Allow list (data mining) fields
 

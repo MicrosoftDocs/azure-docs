@@ -1,9 +1,6 @@
 ---
 title: Optimize Hive queries in Azure HDInsight 
 description: This article describes how to optimize your Apache Hive queries in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -32,11 +29,11 @@ Increasing the number of worker nodes in an HDInsight cluster allows the work to
 
 * When you create a cluster, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
   
-    ![Azure portal cluster size nodes](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png" alt-text="Azure portal cluster size nodes":::
 
 * After creation, you can also edit the number of worker nodes to scale out a cluster further without recreating one:
 
-    ![Azure portal scale cluster size](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png " alt-text="Azure portal scale cluster size":::
 
 For more information about scaling HDInsight, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md)
 
@@ -44,7 +41,7 @@ For more information about scaling HDInsight, see [Scale HDInsight clusters](hdi
 
 [Apache Tez](https://tez.apache.org/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
-![HDInsight Apache Tez overview diagram](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png" alt-text="HDInsight Apache Tez overview diagram":::
 
 Tez is faster because:
 
@@ -68,7 +65,7 @@ I/O operations are the major performance bottleneck for running Hive queries. Th
 
 Hive partitioning is implemented by reorganizing the raw data into new directories. Each partition has its own file directory. The partitioning is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
 
-![HDInsight Apache Hive partitioning](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png" alt-text="HDInsight Apache Hive partitioning":::
 
 Some partitioning considerations:
 

@@ -23,7 +23,7 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, follow the instructions under the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> section of the _About the Speech SDK_ article.
+Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, follow the instructions under the <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK </a> section of the _About the Speech SDK_ article.
 
 ## Import dependencies
 

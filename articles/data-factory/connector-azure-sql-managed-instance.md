@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Azure SQL Managed Instance
 description: Learn how to copy and transform data in Azure SQL Managed Instance by using Azure Data Factory.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ---
 
 # Copy and transform data in Azure SQL Managed Instance by using Azure Data Factory
@@ -386,6 +382,7 @@ To copy data to SQL Managed Instance, the following properties are supported in 
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is "00:30:00," which is 30 minutes. |No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example 1: Append data**
 
@@ -760,7 +757,7 @@ More specifically:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - To use **Data Factory Managed Identity authentication**: 
+    - If you run Self-hosted Integration Runtime on Azure Virtual Machine, you can use **Managed Identity authentication** with Azure VM's identity: 
 
         1. Follow the same [prerequisites](#managed-identity) to create database user for the managed identity and grant the proper role in your database.
         2. In linked service, specify the ODBC connection string as below, and select **Anonymous** authentication as the connection string itself indicates`Authentication=ActiveDirectoryMsi`.

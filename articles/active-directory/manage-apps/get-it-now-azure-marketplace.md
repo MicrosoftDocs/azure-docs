@@ -2,14 +2,14 @@
 title: 'Add an app from the Azure Marketplace'
 description: This article acts as a landing page from the Get It Now button on the Azure Marketplace.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2020
-ms.author: kenwith
+ms.author: iangithinji
 ROBOTS: NOINDEX
 ---
 

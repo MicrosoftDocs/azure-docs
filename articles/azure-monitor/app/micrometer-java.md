@@ -12,6 +12,8 @@ ms.date: 11/01/2018
 # How to use Micrometer with Azure Application Insights Java SDK (not recommended)
 
 > [!IMPORTANT]
+> The approach described in this document is no longer recommended.
+> 
 > The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Micrometer telemetry is auto-collected with the Application Insights Java 3.0 agent - follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
 > [!NOTE]
@@ -278,4 +280,4 @@ Add the following binding code to the configuration  file:
 ## Next steps
 
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/?view=azure-java-stable).
+* To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/).

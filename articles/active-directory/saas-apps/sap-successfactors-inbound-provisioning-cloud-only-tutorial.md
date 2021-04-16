@@ -219,9 +219,8 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 1. In the **Attribute mappings** section, you can define how individual SuccessFactors attributes map to Active Directory attributes.
 
-  >[!NOTE]
-  >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
         mappings. An individual attribute mapping supports these properties:

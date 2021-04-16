@@ -83,6 +83,8 @@
       href: how-tos/set-up-coarse-reloc-cpp-ndk.md
     - name: In C++/WinRT
       href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+  - name: Use coarse relocalization without an anchor session
+    href: how-tos/use-coarse-relocalization-without-anchor-session.md
   - name: Project setup
     items:
     - name: C++/WinRT
@@ -105,6 +107,8 @@
     href: concepts/logging-diagnostics.md
   - name: Coarse relocalization
     href: concepts/coarse-reloc.md
+  - name: Anchor locate strategy
+    href: concepts/anchor-locate-strategy.md    
 - name: References
   items:
   - name: SDK for Unity

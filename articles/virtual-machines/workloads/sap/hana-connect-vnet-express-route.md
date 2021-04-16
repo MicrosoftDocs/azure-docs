@@ -6,8 +6,7 @@ documentationcenter:
 author: msjuergent
 manager: bburns
 editor:
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -44,7 +43,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
+$myGWSku = "UltraPerformance" # Supported values for HANA large instances are: UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -60,10 +59,7 @@ New-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Loc
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-In this example, the HighPerformance gateway SKU was used. Your options are HighPerformance or UltraPerformance as the only gateway SKUs that are supported for SAP HANA on Azure (large instances).
-
-> [!IMPORTANT]
-> For HANA large instances of the Type II class SKU, you must use the UltraPerformance Gateway SKU.
+The only supported gateway SKU for SAP HANA on Azure (large instances) is **UltraPerformance**.
 
 ## Link virtual networks
 

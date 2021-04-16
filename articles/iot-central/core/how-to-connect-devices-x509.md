@@ -16,6 +16,13 @@ IoT Central supports both shared access signatures (SAS) and X.509 certificates 
 
 This article shows two ways of using X.509 - [group enrollments](how-to-connect-devices-x509.md#use-a-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-an-individual-enrollment) useful for testing.
 
+The code snippets in this article use JavaScript. For code samples in other languages, see:
+
+- [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_ll_client_x509_sample)
+- [C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/X509DeviceCertWithChainSample)
+- [Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
+- [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
+
 ## Prerequisites
 
 - Completion of [Create and connect a client application to your Azure IoT Central application (JavaScript)](./tutorial-connect-device.md) tutorial.
@@ -194,7 +201,7 @@ The device is now provisioned with X.509 certificate.
 
 1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
 
-1. Modify the environment variables you used in  as follows:
+1. Modify the environment variables you used in the sample above as follows:
 
     ```cmd/sh
     set IOTHUB_DEVICE_DPS_DEVICE_ID=mytestselfcertprimary

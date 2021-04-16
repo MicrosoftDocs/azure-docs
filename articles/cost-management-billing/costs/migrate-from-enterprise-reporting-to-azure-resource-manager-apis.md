@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 03/10/2021
 ms.author: banders
 ---
 
@@ -46,28 +46,7 @@ After you create a Service Principal to programmatically call the Azure Resource
 
 ### Azure Billing Hierarchy Access
 
-To assign Service Principal permissions to your Enterprise Billing Account, Departments, or Enrollment Account scopes, use [Billing Permissions](/rest/api/billing/2019-10-01-preview/billingpermissions), [Billing Role Definitions](/rest/api/billing/2019-10-01-preview/billingroledefinitions), and [Billing Role Assignments](/rest/api/billing/2019-10-01-preview/billingroleassignments) APIs.
-
-- Use the Billing Permissions APIs to identify the permissions that a Service Principal already has on a given scope, like a Billing Account or Department.
-- Use the Billing Role Definitions APIs to enumerate the available roles that can be assigned to your Service Principal.
-  - Only Read-Only EA Admin and Read-Only Department Admin roles can be assigned to Service Principals at this time.
-- Use the Billing Role Assignments APIs to assign a role to your Service Principal.
-
-The following example shows how to call the Role Assignments API to grant a Service Principal access to your billing account. We recommend using [PostMan](https://postman.com) to do these one-time permission configurations.
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### Request Body
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+To assign Service Principal permissions to your Enterprise Billing Account, Departments, or Enrollment Account scopes, see [Assign roles to Azure Enterprise Agreement service principal names](../manage/assign-roles-azure-service-principals.md).
 
 ### Azure role-based access control
 
