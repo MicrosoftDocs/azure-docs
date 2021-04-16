@@ -47,11 +47,7 @@ Unzip and open the folder. In the *_KeyframeThumbnail* folder, and you will find
 
 #### With the Video Analyzer for Media API
 
-<<<<<<< HEAD:articles/azure-video-analyzer/video-analyzer-for-media-docs/scenes-shots-keyframes.md
-To get keyframes using the Video Analyzer for Media API, upload and index your video using the [Upload Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) call. Once the indexing job is complete, call [Get Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). This will give you all of the insights that Video Analyzer for Media extracted from your content in a JSON file.  
-=======
 To get keyframes using the Video Indexer API, upload and index your video using the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) call. Once the indexing job is complete, call [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index). This will give you all of the insights that Video Indexer extracted from your content in a JSON file.  
->>>>>>> 5be596f0b83c14e3560ecddb60b5a4f6e8dc13c8:articles/media-services/video-indexer/scenes-shots-keyframes.md
 
 You will get a list of keyframe IDs as part of each shot's metadata. 
 

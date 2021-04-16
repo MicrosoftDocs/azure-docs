@@ -211,13 +211,8 @@ In the coming weeks we will change it and return the [Video Analyzer for Media w
 
    You can do it it by either:
 
-<<<<<<< HEAD:articles/azure-video-analyzer/video-analyzer-for-media-docs/release-notes.md
-    * Replacing the URL with a URL pointing to the Video Analyzer for Media widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
-    * Using the Video Analyzer for Media website to generate a new embedded URL:
-=======
     * Replacing the URL with a URL pointing to the Video Indexer widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Insights-Widget))
     * Using the Video Indexer website to generate a new embedded URL:
->>>>>>> 5be596f0b83c14e3560ecddb60b5a4f6e8dc13c8:articles/media-services/video-indexer/release-notes.md
          
          Press **Play** to get to your video's page -> click the **&lt;/&gt; Embed** button -> copy the URL into your application:
    
@@ -240,11 +235,7 @@ https://github.com/Azure-Samples/media-services-video-indexer
  
 ### Swagger update
 
-<<<<<<< HEAD:articles/azure-video-analyzer/video-analyzer-for-media-docs/release-notes.md
-Video Analyzer for Media unified **authentications** and **operations** into a single [Video Analyzer for Media OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Developers can find the APIs in [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai/).
-=======
 Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
->>>>>>> 5be596f0b83c14e3560ecddb60b5a4f6e8dc13c8:articles/media-services/video-indexer/release-notes.md
 
 ## December 2019
 
@@ -394,11 +385,7 @@ You can now see a preview of all the insights that are selected as a result of c
 
 [Create custom language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Language-Model) and [Update custom language models](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) APIs now support VTT, SRT, and TTML file formats as input for language models.
 
-<<<<<<< HEAD:articles/azure-video-analyzer/video-analyzer-for-media-docs/release-notes.md
-When calling the [Update Video transcript API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), the transcript is added automatically. The training model associated with the video is updated automatically as well. For information on how to customize and train your language models, see [Customize a Language model with Video Analyzer for Media](customize-language-model-overview.md).
-=======
 When calling the [Update Video transcript API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Transcript), the transcript is added automatically. The training model associated with the video is updated automatically as well. For information on how to customize and train your language models, see [Customize a Language model with Video Indexer](customize-language-model-overview.md).
->>>>>>> 5be596f0b83c14e3560ecddb60b5a4f6e8dc13c8:articles/media-services/video-indexer/release-notes.md
 
 ### New download transcript formats – TXT and CSV
 
