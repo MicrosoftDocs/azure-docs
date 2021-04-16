@@ -33,7 +33,7 @@ In this article, you learn how to:
 -   Make sure there is a Logic App in your subscription that exposes an HTTP endpoint. For more information, [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
 
 > [!NOTE]
-> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](https://docs.microsoft.com/en-us/azure/api-management/visual-studio-code-tutorial) to install and get started.
+> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](https://docs.microsoft.com/azure/api-management/visual-studio-code-tutorial) to install and get started.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
