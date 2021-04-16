@@ -18,6 +18,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 
 | Sample | Description |
 |-|-|
+| [Front Door (quick create)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium/) | Creates a basic Front Door profile including an endpoint, origin group, origin, and route.  |
 | [Rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Creates a Front Door profile and rule set.  |
 | [WAF policy with managed rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-waf-managed/) | Creates a Front Door profile and WAF with managed rule set.  |
 | [WAF policy with custom rule](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Creates a Front Door profile and WAF with custom rule.  |
