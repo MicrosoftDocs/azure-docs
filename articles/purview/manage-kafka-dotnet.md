@@ -1,5 +1,5 @@
 ---
-title: Send or receive events about metadata changes from Azure Purview's Atlas Kafka topics through Event Hub using .NET 
+title: Publish messages to and process messages from Azure Purview's Atlas Kafka topics via Event Hubs using .NET
 description: This article provides a walkthrough to create a .NET Core application that sends/receives events to/from Purview's Apache Atlas Kafka topics by using the latest Azure.Messaging.EventHubs package. 
 ms.topic: quickstart
 author: nayenama
@@ -10,7 +10,7 @@ ms.devlang: dotnet
 ms.date: 04/15/2021
 ---
 
-# Publish messages to and process messages from Azure Purview's Atlas Kafka topics through Event Hubs using .NET 
+# Publish messages to and process messages from Azure Purview's Atlas Kafka topics via Event Hubs using .NET 
 This quickstart shows how to send events to and receive events from Azure Purview's Atlas Kafka topics via event hub using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!IMPORTANT]
