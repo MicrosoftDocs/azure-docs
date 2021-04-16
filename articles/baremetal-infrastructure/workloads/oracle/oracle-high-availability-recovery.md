@@ -28,5 +28,5 @@ Keep in mind this example decision tree is only viewed from the lens of a databa
 
 Learn more about BareMetal Infrastructure:
 
-- [What is BareMetal Infrastructure on Azure?](concepts-baremetal-infrastructure-overview.md)
-- [Connect BareMetal Infrastructure instances in Azure](connect-baremetal-infrastructure.md)
+- [What is BareMetal Infrastructure on Azure?](../../concepts-baremetal-infrastructure-overview.md)
+- [Connect BareMetal Infrastructure instances in Azure](../../connect-baremetal-infrastructure.md)

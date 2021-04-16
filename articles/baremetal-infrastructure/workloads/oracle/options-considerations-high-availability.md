@@ -64,10 +64,6 @@ The white paper available at [https://www.oracle.com/technetwork/database/availa
 
 :::image type="content" source="media/oracle-high-availability/active-data-guard-features.png" alt-text="Diagram showing an overview of Oracle's Active Data Guard features.":::
 
-## Azure NetApp Files snapshot recommendations
-
-For information on Azure NetApp Files snapshot recommendations, see [NetApp SnapCenter integration in Azure Oracle BareMetal Infrastructure](netapp-snapcenter-integration-oracle-baremetal.md).
-
 ## Backup recommendations
 
 Be sure to back up your databases. Use the restore and recover features to restore a database to the same or another system, or to recover database files.

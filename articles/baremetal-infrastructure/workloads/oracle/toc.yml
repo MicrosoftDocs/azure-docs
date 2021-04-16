@@ -21,4 +21,4 @@
     - name: Options and considerations
       href: options-considerations-high-availability.md
     - name: Choose how to recover 
-      href: oracle-high-availabity-recovery.md
+      href: oracle-high-availability-recovery.md
