@@ -181,13 +181,13 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
     :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
 
-    In addition to labeling tables, you and now label empty values and regions; if some documents in your training set do not have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
+    In addition to labeling tables, you can now label empty values and regions; if some documents in your training set do not have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
 
 * **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
 
   [Learn more about Form Recognizer's language support](language-support.md)
 
-* **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and to-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
+* **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and top-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
 
 * **Prebuilt receipt model quality improvements** This update includes many quality improvements for the prebuilt Receipt model, especially around line item extraction.
 

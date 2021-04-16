@@ -7,6 +7,7 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020

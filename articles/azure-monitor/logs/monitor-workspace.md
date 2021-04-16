@@ -106,7 +106,7 @@ The following example creates a warning alert when the data collection has reach
 - Target: Select your Log Analytics workspace
 - Criteria:
   - Signal name: Custom log search
-  - Search query: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Search query: `_LogOperation | where Category == "Ingestion" | where Operation == "Data collection Status" | where Level == "Warning"`
   - Based on: Number of results
   - Condition: Greater than
   - Threshold: 0
