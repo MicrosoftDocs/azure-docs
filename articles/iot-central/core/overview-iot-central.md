@@ -50,9 +50,9 @@ After creating your application, the first step is to create an connect devices.
 - Properties, that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
 - Commands, that an operator can call, that run on a device. For example, a command to remotely reboot a device.
 
-[Device templates](howto-set-up-template.md) include:
+Every [device template](howto-set-up-template.md) includes:
 
-- A _device model_ that describes the capabilities a device should implement. The device capabilities include:
+- A _device model_ describing the capabilities a device should implement. The device capabilities include:
 
   - The telemetry it streams to IoT Central.
   - The read-only properties it uses to report state to IoT Central.
