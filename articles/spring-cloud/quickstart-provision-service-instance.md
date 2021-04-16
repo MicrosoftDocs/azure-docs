@@ -127,6 +127,12 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Cloud.
 
+1. Update Azure CLI with Azure Spring Cloud extension.
+
+    ```azurecli
+    az extension update --name spring-cloud
+    ```
+
 1. Log in to the Azure CLI and choose your active subscription.
 
     ```azurecli

@@ -260,7 +260,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 1. Create the 2 core microservices for PetClinic: API gateway and customer-service.
 
     ```azurecli
-    az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --is-public
+    az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --assign-endpoint
     az spring-cloud app create --name customers-service --instance-count 1 --memory 2
     ```
 
