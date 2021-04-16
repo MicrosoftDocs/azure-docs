@@ -1,5 +1,5 @@
 ---
-title: Playback of recordings - Azure Video Analyzer
+title: Playback of video recordings - Azure Video Analyzer
 description: You can use Azure Video Analyzer on IoT Edge for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback such recordings.
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 04/13/2021
 ## Pre-read  
 
 * [Video playback]()<!--video-playback-concept.md-->
-* [Continuous video recording](continuous-video-recording-concept.md)
+* [Continuous video recording](continuous-video-recording.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
 
 ## Background  
