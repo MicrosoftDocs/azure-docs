@@ -9,6 +9,6 @@ ms.date: 11/27/2018
 ms.author: ponatara
 
 ---
-## End of support for disaster recovery of Citrix workloads
+# End of support for disaster recovery of Citrix workloads
 
 As of March 2020, Citrix has announced deprecation and end-of-support for public cloud hosted workloads. Therefore, we do not recommend using Site Recovery for protecting Citrix workloads.
