@@ -42,7 +42,7 @@ See the [Create a new application](quick-deploy-iot-central.md) quickstart for a
 
 ## Connect devices
 
-After creating your application, the first step is to create an connect devices. Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
+After creating your application, the first step is to create and connect devices. Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
