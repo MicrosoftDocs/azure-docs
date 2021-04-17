@@ -19,7 +19,7 @@ ms.reviewer: paulgarn, hirsin, jeedes, luleon
 
 In Azure AD, a **Policy** object represents a set of rules enforced on individual applications or on all applications in an organization. Each type of policy has a unique structure, with a set of properties that are then applied to objects to which they are assigned.
 
-A claims mapping policy is a type of **Policy** object that modifies the claims emitted in tokens issued for specific applications.
+A claims mapping policy is a type of **Policy** object that [modifies the claims emitted in tokens](active-directory-claims-mapping.md) issued for specific applications.
 
 ## Claim sets
 
