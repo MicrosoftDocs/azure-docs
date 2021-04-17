@@ -50,7 +50,7 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
-Yes, Azure Route Server propogates the route with the BGP communities as is.
+Yes, Azure Route Server propagates the route with the BGP communities as is.
 
 ### What Autonomous System Numbers (ASNs) can I use?
 
