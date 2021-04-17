@@ -196,8 +196,29 @@ You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled.
 
 11. Select **Add**.
 
-12. 
+12. Select **Load balancing rules**. 
 
+13. Select **+ Add**.
+
+14. Enter or select the following information in **Add load balancing rule**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myHTTPRule**. |
+    | IP Version | Leave the default of **IPv4**. |
+    | Frontend IP address | Select **LoadBalancerFrontEnd**. |
+    | Protocol | Select the default of **TCP**. |
+    | Port | Enter **80**. |
+    | Backend port | Enter **80**. |
+    | Backend pool | Select **myBackendPool**. |
+    | Health probe | Select **myHTTPProbe**. |
+    | Session persistence | Leave the default of **None**. |
+    | Idle timeout (minutes) | Change the slider to **15**. |
+    | TCP reset | Select **Enabled**. |
+    | Floating IP | Leave the default of **Disabled**. |
+    | Outbound source network address translation (SNAT) | Leave the default of **	(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
+
+5. Select **Add**.
 
 ## Create virtual machines
 
