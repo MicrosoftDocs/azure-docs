@@ -193,30 +193,6 @@ To **create a subscription for a topic with message sessions enabled**, set `req
 }
 ```
 
-## Management library SDKs
-
-# [.NET](#tab/dotnet)
-
-# [Java](#tab/java)
-
-# [JavaScript](#tab/javascript)
-
-# [Python](#tab/python)
-
----
-
-## Client library SDKs
-
-# [.NET](#tab/dotnet)
-
-# [Java](#tab/java)
-
-# [JavaScript](#tab/javascript)
-
-# [Python](#tab/python)
-
----
-
 
 ## Next steps
 
