@@ -228,6 +228,6 @@ sections:
           
 additionalContent: |
   ## Next steps
-      To learn more about Azure AD Domain Services, see [What is Azure Active Directory Domain Services?](overview.md).
+    To learn more about Azure AD Domain Services, see [What is Azure Active Directory Domain Services?](overview.md).
           
-      To get started, see [Create and configure an Azure Active Directory Domain Services managed domain](tutorial-create-instance.md).
+    To get started, see [Create and configure an Azure Active Directory Domain Services managed domain](tutorial-create-instance.md).
