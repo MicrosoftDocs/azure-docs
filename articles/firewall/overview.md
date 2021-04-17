@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.author: victorh
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -50,7 +50,6 @@ Azure Firewall has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
-|If you update a rule from IP address to IP Group or vice-versa using the portal, both types are saved, but only one is presented on the portal.|This issue happens with Classic rules.<br><br>When you use the portal to update a NAT rule source type from IP address to IP Group or vice-versa, it saves both types in the backend but presents only the newly updated type.<br><br>The same issue exists when you update a Network or Application rule destination type from IP address to IP Group type or vice-versa.|A portal fix is targeted for March, 2021.<br><br>In the meantime, use Azure PowerShell, Azure CLI, or API to modify a rule from IP address to IP Group or vice versa.|
 |Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work for Internet bound traffic|Network filtering rules for non-TCP/UDP protocols don't work with SNAT to your public IP address. Non-TCP/UDP protocols are supported between spoke subnets and VNets.|Azure Firewall uses the Standard Load Balancer, [which doesn't support SNAT for IP protocols today](../load-balancer/load-balancer-overview.md). We're exploring options to support this scenario in a future release.|
 |Missing PowerShell and CLI support for ICMP|Azure PowerShell and CLI don't support ICMP as a valid protocol in network rules.|It's still possible to use ICMP as a protocol via the portal and the REST API. We're working to add ICMP in PowerShell and CLI soon.|
 |FQDN tags require a protocol: port to be set|Application rules with FQDN tags require port: protocol definition.|You can use **https** as the port: protocol value. We're working to make this field optional when FQDN tags are used.|
@@ -74,6 +73,7 @@ Azure Firewall has the following known issues:
 |Start/Stop doesn’t work with a firewall configured in forced-tunnel mode|Start/stop doesn’t work with Azure firewall configured in forced-tunnel mode. Attempting to start Azure Firewall with forced tunneling configured results in the following error:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuration cannot be added to an existing firewall. Redeploy with a management IP configuration if you want to use forced tunneling support.<br>StatusCode: 400<br>ReasonPhrase: Bad Request*|Under investigation.<br><br>As a workaround, you can delete the existing firewall and create a new one with the same parameters.|
 |Can't add firewall policy tags using the portal|Azure Firewall Policy has a patch support limitation that prevents you from adding a tag using the Azure portal. The following  error is generated: *Could not save the tags for the resource*.|A fix is being investigated. Or, you can use the Azure PowerShell cmdlet `Set-AzFirewallPolicy` to update tags.|
 |IPv6 not yet supported|If you add an IPv6 address to a rule, the firewall fails.|Use only IPv4 addresses. IPv6 support is under investigation.|
+|Updating multiple IP Groups fails with conflict error.|When you update two or more IPGroups attached to the same firewall, one of the resource goes into a failed state.|This is a known issue/limitation. <br><br>When you update an IPGroup, it triggers an update on all firewalls that the IPGroup is attached to. If an update to a second IPGroup is started while the firewall is still in the *Updating* state, then the IPGroup update fails.<br><br>To avoid the failure, IPGroups attached to the same firewall must be updated one at a time. Allow enough time between updates to allow the firewall to get out of the *Updating* state.| 
 
 
 ## Next steps

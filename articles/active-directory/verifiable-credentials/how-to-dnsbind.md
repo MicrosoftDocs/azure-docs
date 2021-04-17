@@ -120,7 +120,7 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 
 4. Copy your DID and open the [ION Network Explorer](https://identity.foundation/ion/explorer) to verify the same domain is included in the DID Document. 
 
-5. Host the well-known config resource at the location specified. Example: https://www.example.com/.well-known/did-configuration.json
+5. Host the well-known config resource at the location specified. Example: `https://www.example.com/.well-known/did-configuration.json`
 
 6. Test out issuing or presenting with Microsoft Authenticator to validate. Make sure the setting in Authenticator 'Warn about unsafe apps' is toggled on.
 

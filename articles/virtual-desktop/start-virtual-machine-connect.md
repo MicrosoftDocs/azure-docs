@@ -3,9 +3,9 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Start virtual machine on connect (preview)
 
@@ -30,8 +30,7 @@ The following remote desktop clients support the Start VM on Connect feature:
 
 You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
 
->[!IMPORTANT]
->The Start VM on Connect feature currently only supports PowerShell and REST API, not the Azure portal. For more information, see [Create or update a host pool](/rest/api/desktopvirtualization/hostpools/createorupdate).
+The Azure Government cloud doesn't currently support Start VM on Connect.
 
 ## Create a custom role for Start VM on Connect
 
@@ -110,6 +109,24 @@ Start VM on Connect is a host pool setting. If you only want a select group of u
 
 >[!IMPORTANT]
 > You can only configure this feature in existing host pools. This feature isn't available when you create a new host pool.
+
+### Use the Azure portal
+
+To use the Azure portal to configure Start VM on Connect:
+
+1. Open your browser and go to [the Azure portal](https://portal.azure.com).
+
+2. In the Azure portal, go to **Windows Virtual Desktop**.
+
+3. Select **Host pools**, then find the host pool that contains the personal desktops you assigned the role to.
+
+   >[!NOTE]
+   > The host pool you configure this feature in must have personal desktops with direct role assignments. If the desktops in the host pool aren't configured correctly, the configuration process won't work.
+
+4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Properties window. The Start VM on connect option is highlighted in red.](media/properties-start-vm-on-connect.png)
 
 ### Use PowerShell
 

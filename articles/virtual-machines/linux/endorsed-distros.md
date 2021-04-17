@@ -2,17 +2,12 @@
 title: Linux distributions endorsed on Azure
 description: Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, CentOS, Oracle, and SUSE.
 services: virtual-machines
-documentationcenter: ''
 author: danielsollondon
-manager: gwallace
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 01/03/2021
+ms.date: 04/06/2021
 ms.author: guybo
 ---
 
@@ -30,9 +25,9 @@ The Azure Linux Agent is already pre-installed on Azure Marketplace images and i
 
 | Distribution | Version | Drivers | Agent |
 | --- | --- | --- | --- |
-| CentOS by Rogue Wave Software |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [LIS download](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Package: In [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS by Rogue Wave Software (formerly known as OpenLogic) |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [LIS download](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Package: In [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS is now [end of life](https://coreos.com/os/eol/) as of May 26, 2020. |No Longer Available | | |
-| Debian by Credativ |8.x, 9.x, 10.x |In kernel |Package: In repo under "waagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian by credativ |8.x, 9.x, 10.x |In kernel |Package: In repo under "waagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar Container Linux by Kinvolk| Pro, Stable, Beta| In kernel | wa-linux-agent is installed already in /usr/share/oem/bin/waagent |
 | Oracle Linux by Oracle |6.x, 7.x, 8.x |In kernel |Package: In repo under "WALinuxAgent" <br/>Source code: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux by Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |In kernel |Package: In repo under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
