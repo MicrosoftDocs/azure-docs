@@ -6,7 +6,7 @@ ms.date: 04/12/2021
 ---
 
 # Enable message sessions for an Azure Service Bus queue or subscription
-Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For conceptual information about sessions, see [Message sessions](message-sessions.md). This article shows how to enable sessions for a Service Bus queue or subscription. 
+Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. See [Message sessions](message-sessions.md) to learn more about this concept. This article shows how to enable sessions for a Service Bus queue or subscription. 
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -80,4 +80,3 @@ For a tutorial on using PowerShell to create a Service Bus namespace and a queue
 - [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Sessions and SessionState samples)  
-
