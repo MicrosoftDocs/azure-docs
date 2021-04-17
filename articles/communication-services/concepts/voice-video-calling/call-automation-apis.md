@@ -58,13 +58,13 @@ var targets = new List<CommunicationIdentifier>()
     new PhoneNumberIdentifier("<phone-number e.g. +14251001000>"),
     new CommunicationUserIdentifier("<communication-user-identity e.g. 8:acs:guid_guid>")
 };
-var createCallOption = new CreateCallOptions(
+var createCallOptions = new CreateCallOptions(
     new Uri("<callback-url>"), 
     new List<CallModality> { CallModality.Audio }, 
     new List<EventSubscritionType> { EventSubscritionType.ParticipantsUpdated, EventSubscritionType.DtmfReceived });
 
 //phone number associated with the resource
-createCallOption.AlternateCallerId = new PhoneNumberIdentifier("<phone-number>");
+createCallOptions.AlternateCallerId = new PhoneNumberIdentifier("<phone-number>");
 
 //Starting the call
 var call = await callClient.CreateCallAsync(source, targets, createCallOption).ConfigureAwait(false);
@@ -91,12 +91,8 @@ HTTP/1.1 400 Bad request
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -104,12 +100,8 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -117,12 +109,8 @@ HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ### Hangup a call
@@ -159,12 +147,8 @@ HTTP/1.1 400 Bad request
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -172,12 +156,8 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -185,80 +165,8 @@ HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
-}
-```
-### Delete a call
-#### Request
-**HTTP**
-<!-- {
-  "blockType": "request",
-  "name": "delete-call"
-}-->
-```
-DELETE /calls/{callId}
-Content-Type: application/json
-
-```
-**C# SDK**
-
-```C#
-await callClient.DeleteCallAsync("<call-leg-id>").ConfigureAwait(false);
-```
-#### Response
-**HTTP**
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-} -->
-
-```http
-HTTP/1.1 202 Accepted
-Content-Type: application/json
-
-```
-```
-HTTP/1.1 400 Bad request
-Content-Type: application/json
-
-{
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
-}
-```
-```
-HTTP/1.1 401 Unauthorized
-Content-Type: application/json
-
-{
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
-}
-```
-```
-HTTP/1.1 500 Internal server error
-Content-Type: application/json
-
-{
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ### Play audio in call
@@ -321,12 +229,8 @@ HTTP/1.1 400 Bad request
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -334,12 +238,8 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -347,12 +247,8 @@ HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ### Cancel media processing
@@ -402,12 +298,8 @@ HTTP/1.1 400 Bad request
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -415,12 +307,8 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -428,12 +316,8 @@ HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ### Invite participant
@@ -482,12 +366,8 @@ HTTP/1.1 400 Bad request
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -495,12 +375,8 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -508,12 +384,8 @@ HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ### Remove participant
@@ -550,12 +422,8 @@ HTTP/1.1 400 Bad request
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -563,12 +431,8 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 ```
@@ -576,11 +440,7 @@ HTTP/1.1 500 	Internal server error
 Content-Type: application/json
 
 {
-  "code": "string",
-  "message": "string",
-  "target": "string",
-  "details": [
-    null
-  ]
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
