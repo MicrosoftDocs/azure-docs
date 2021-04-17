@@ -191,6 +191,7 @@ The following table shows the supported log types and descriptions:
 | AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
 
 <sup>1</sup> For Java Tomcat apps, add "TOMCAT_USE_STARTUP_BAT" to the app settings and set it to false or 0. Need to be on the *latest* Tomcat version and use *java.util.logging*.
+
 <sup>2</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to true or to 1.
 
 ## <a name="nextsteps"></a> Next steps
