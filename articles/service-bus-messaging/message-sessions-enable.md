@@ -6,7 +6,7 @@ ms.date: 04/12/2021
 ---
 
 # Enable message sessions for an Azure Service Bus queue or subscription
-Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. See [Message sessions](message-sessions.md) to learn more about this concept. This article shows how to enable sessions for a Service Bus queue or subscription. 
+Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For more information, See [Message sessions](message-sessions.md). This article shows you how to enable sessions for a Service Bus queue or subscription. 
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -43,13 +43,13 @@ az servicebus topic subscription create \
 ```
 
 ## Azure PowerShell
-To **create a queue with message sessions enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `true`. 
+To **create a queue with message sessions enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `$True`. 
 
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -QueueName myqueue `
-    -RequiresSession true
+    -RequiresSession $True
 ```
 
 To **create a subscription for a topic with message sessions enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-RequiresSession` set to `true`. 
@@ -59,10 +59,10 @@ New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -TopicName mytopic `
     -SubscriptionName mysubscription `
-    -RequiresSession true
+    -RequiresSession $True
 ```
 
-## Azure Resource Manager template
+## Resource Manager template
 To **create a queue with message sessions enabled**, set `requiresSession` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
 
 ```json
