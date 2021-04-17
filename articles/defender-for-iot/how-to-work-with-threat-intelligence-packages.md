@@ -32,9 +32,9 @@ Threat intelligence packages are provided approximately once a month, or if need
 
 Three options are available for updating threat intelligence packages to your sensors:
 
-- Automatically push packages to sensors as they are delivered by Defender for IoT
-- Manually push threat intelligence package to sensors as required
-- Download a package and then upload it to a sensor or multiple sensors
+- Automatically push packages to sensors as they are delivered by Defender for IoT.
+- Manually push threat intelligence package to sensors as required.
+- Download a package and then upload it to a sensor or multiple sensors.
 
 Users with Defender for IoT Security Reader permissions can automatically and manually push packages to sensors.
 

@@ -28,7 +28,7 @@ To register:
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-   For cloud-connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
+   For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
 
 ### Download the sensor activation file
 
@@ -45,12 +45,12 @@ On the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure
 
 1. Select **Sites and Sensors**. The page shows how many sensors were onboarded, the number of sensors that are cloud connected and locally managed, as well as:
 
-- the sensor name assigned during onboarding
+- the sensor name assigned during onboarding.
 - the connection type (cloud connected or locally managed)
-- the zone associated with the sensor
+- the zone associated with the sensor.
 - The sensor version installed
-- The sensor connection status to the cloud
-- The last time the sensor was detected connecting to the cloud
+- The sensor connection status to the cloud.
+- The last time the sensor was detected connecting to the cloud.
 
 ## Manage onboarded sensors
 
