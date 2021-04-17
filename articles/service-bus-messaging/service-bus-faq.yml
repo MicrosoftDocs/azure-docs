@@ -12,11 +12,8 @@ summary: |
   
 
 sections:
-  - name: Ignored
+  - name: General questions about Azure Service Bus
     questions:
-      - question: |
-          General questions about Azure Service Bus
-        answer: |
       - question: |
           What is Azure Service Bus?
         answer: |
@@ -114,9 +111,8 @@ sections:
           
           If you're using a **premium** namespace, use [IP filtering](service-bus-ip-filtering.md), [virtual network service endpoints](service-bus-service-endpoints.md), and [private endpoints](private-link-service.md) to limit access to the namespace. 
           
-      - question: |
-          Best practices
-        answer: |
+  - name: Best practices
+    questions:
       - question: |
           What are some Azure Service Bus best practices?
         answer: |
@@ -132,9 +128,8 @@ sections:
           * Duplicate detection
           * Express entity
           
-      - question: |
-          Pricing
-        answer: |
+          ## Pricing
+
           This section answers some frequently asked questions about the Service Bus pricing structure.
           
           The [Service Bus pricing and billing](https://azure.microsoft.com/pricing/details/service-bus/) article explains the billing meters in Service Bus. For specific information about Service Bus pricing options, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -165,9 +160,8 @@ sections:
           
           It's important to note that these charges aren't new, that is, they existed in the previous billing model too. The only change is that they're now listed under '$system'. It's done because of constraints in the new billing system that groups subscription level charges, not tied to a specific resource, under the '$system' resource ID.
           
-      - question: |
-          Quotas
-        answer: |
+          ## Quotas
+
           For a list of Service Bus limits and quotas, see the [Service Bus quotas overview](/azure/service-bus-messaging/service-bus-quotas).
           
       - question: |
@@ -175,9 +169,8 @@ sections:
         answer: |
           Service Bus messaging services (queues and topics/subscriptions) allow application to send messages of size up to 256 KB (standard tier) or 1 MB (premium tier). If you're dealing with messages of size greater than 1 MB, use the claim check pattern described in [this blog post](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
           
-      - question: |
-          Troubleshooting
-        answer: |
+  - name: Troubleshooting
+    questions:
       - question: |
           Why am I not able to create a namespace after deleting it from another subscription? 
         answer: |
@@ -193,9 +186,8 @@ sections:
         answer: |
           Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Java, Python, and C#, see the [Shared Access Signatures](/azure/service-bus-messaging/service-bus-sas) article.
           
-      - question: |
-          Subscription and namespace management
-        answer: |
+  - name: Subscription and namespace management
+    questions:
       - question: |
           How do I migrate a namespace to another Azure subscription?
         answer: |
@@ -221,23 +213,15 @@ sections:
           $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
           Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
           ```
-      - question: |
-          Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
-        answer: |
+          ## Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
+
           No. It's not possible to disable TLS 1.0 or 1.1 on Service Bus namespaces. In your client applications connecting to Service Bus, use TLS 1.2 or above. For more information, see [Enforcing TLS 1.2 use with Azure Service Bus - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
           
 additionalContent: |
   ## Next steps
-     To learn more about Service Bus, see the following articles:
+  To learn more about Service Bus, see the following articles:
           
-     * [Introducing Azure Service Bus Premium (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-     * [Introducing Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-     * [Service Bus overview](service-bus-messaging-overview.md)
-     * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-          
-     [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md
-     [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
-     [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
-     [Quotas overview]: service-bus-quotas.md
-     [Exceptions overview]: service-bus-messaging-exceptions.md
-     [Shared Access Signatures]: service-bus-sas.md
+  * [Introducing Azure Service Bus Premium (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+  * [Introducing Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+  * [Service Bus overview](service-bus-messaging-overview.md)
+  * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
