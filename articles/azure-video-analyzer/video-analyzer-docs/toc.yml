@@ -24,6 +24,13 @@
       href: analyze-live-video-use-your-model-grpc.md
     - name: with your own HTTP model
       href: analyze-live-video-use-your-model-http.md
+- name: Tutorials
+  items:
+  - name: Analyze live video
+    items:
+    - name: With OVMS via HTTP extension
+      displayName: intel, OpenVINO 
+      href: use-intel-openvino-tutorial.md
 - name: Concepts
   items:
   - name: Pipeline
@@ -33,7 +40,9 @@
   - name: Continuous video recording
     href: continuous-video-recording.md
   - name: Record video for playback
-    href: video-recording.md    
+    href: video-recording.md
+  - name: Video playback
+    href: video-playback-concept.md
   - name: Analyze live videos without recording
     href: analyze-live-video-without-recording.md
   - name: AI composition overview

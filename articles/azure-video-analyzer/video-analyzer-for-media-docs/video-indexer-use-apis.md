@@ -1,7 +1,7 @@
 ---
-title: Use the Azure Video Analyzer for Media (former Video Indexer) API
+title: Use the Azure Video Analyzer for Media (formerly Video Indexer) API
 titleSuffix: Azure Media Services
-description: This article describes how to get started with Azure Video Analyzer for Media (former Video Indexer) API.
+description: This article describes how to get started with Azure Video Analyzer for Media (formerly Video Indexer) API.
 services: media-services
 author: Juliako
 manager: femila
@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Use the Video Analyzer for Media API
 
-Azure Video Analyzer for Media (former Video Indexer) consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
+Azure Video Analyzer for Media (formerly Video Indexer) consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
 When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With a paid option, you create a Video Analyzer for Media account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -81,7 +81,7 @@ The Account ID parameter is required in all operational API calls. Account ID is
 
 * Use **Video Analyzer for Media Developer Portal** to programmatically get the Account ID.
 
-    Use the [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) API.
+    Use the [Get account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account) API.
 
     > [!TIP]
     > You can generate access tokens for the accounts by defining `generateAccessTokens=true`.

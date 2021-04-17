@@ -1,7 +1,7 @@
 ---
-title: Customize a Language model with Azure Video Analyzer for Media (former Video Indexer) API
+title: Customize a Language model with Azure Video Analyzer for Media (formerly Video Indexer) API
 titlesuffix: Azure Media Services
-description: Learn how to customize a Language model with the Azure Video Analyzer for Media (former Video Indexer) API.
+description: Learn how to customize a Language model with the Azure Video Analyzer for Media (formerly Video Indexer) API.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -12,7 +12,7 @@ ms.author: kumud
 
 # Customize a Language model with the Video Analyzer for Media API
 
-Azure Video Analyzer for Media (former Video Indexer) lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
+Azure Video Analyzer for Media (formerly Video Indexer) lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
 
 For a detailed overview and best practices for custom Language models, see [Customize a Language model with Video Analyzer for Media](customize-language-model-overview.md).
 

@@ -1,7 +1,7 @@
 ---
-title: Upload and index videos with Azure Video Analyzer for Media (former Video Indexer)
+title: Upload and index videos with Azure Video Analyzer for Media (formerly Video Indexer)
 titleSuffix: Azure Media Services
-description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (former Video Indexer).
+description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (formerly Video Indexer).
 services: media-services
 author: Juliako
 manager: femila
@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Upload and index your videos  
 
-Once your video has been uploaded, Azure Video Analyzer for Media (former Video Indexer) encodes (optionally) the video (discussed in the article). When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+Once your video has been uploaded, Azure Video Analyzer for Media (formerly Video Indexer) encodes (optionally) the video (discussed in the article). When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 When uploading videos with Video Analyzer for Media API, you have the following upload options: 
 
@@ -55,11 +55,11 @@ See the [input container/file formats](../../media-services/latest/encode-media-
 
 ## Upload and index with API
 
-Use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
+Use the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
 
 ### Configurations and params
 
-This section describes some of the optional parameters and when you would want to set them. For the most up to date params info, see the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API.
+This section describes some of the optional parameters and when you would want to set them. For the most up to date params info, see the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API.
 
 #### externalID 
 
@@ -103,7 +103,7 @@ Videos are indexed by Video Analyzer for Media according to their priority. Use 
 
 Once your video has been uploaded, Video Analyzer for Media, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Analyzer for Media is done analyzing, you will get a notification with the video ID.  
 
-When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
+When using the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) or [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
 For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Analyzer for Media encodes it as 1280x720. Otherwise, as 640x468.
 The Default setting is [content aware encoding](../../media-services/latest/encode-content-aware-concept.md).

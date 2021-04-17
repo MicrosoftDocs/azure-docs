@@ -53,7 +53,7 @@ Follow these steps to run the sample code:
          
     ```
     {
-      "@apiVersion": "2.0",
+      "@apiVersion": "1.0",
       "name": "Sample-LivePipeline",
       "properties": {
         "topologyName": "MotionDetection",

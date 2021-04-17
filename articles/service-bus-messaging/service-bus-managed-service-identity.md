@@ -87,7 +87,7 @@ Once the application is created, follow these steps:
 Once you've enabled this setting, a new service identity is created in your Azure Active Directory (Azure AD) and configured into the App Service host.
 
 > [!NOTE]
-> When you use a managed identity, the connection string should be in the format: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity`.
+> When you use a managed identity, the connection string should be in the format: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity`.
 
 Now, assign this service identity to a role in the required scope in your Service Bus resources.
 

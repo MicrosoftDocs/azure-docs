@@ -1,7 +1,7 @@
 ---
-title: Embed Azure Video Analyzer for Media (former Video Indexer) widgets in your apps
+title: Embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps
 titleSuffix: Azure Media Services
-description: Learn how to embed Azure Video Analyzer for Media (former Video Indexer) widgets in your apps.
+description: Learn how to embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps.
 services: media-services
 author: Juliako
 manager: femila
@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Embed Video Analyzer for Media widgets in your apps
 
-This article shows how you can embed Azure Video Analyzer for Media (former Video Indexer) widgets in your apps. Video Analyzer for Media supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
+This article shows how you can embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps. Video Analyzer for Media supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
 Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
@@ -90,13 +90,13 @@ You can embed public videos assembling the URL as follows:
   
 #### Private videos
 
-To embed a private video, you must pass an access token (use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) in the `src` attribute of the iframe:
+To embed a private video, you must pass an access token (use [Get Video Access Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) in the `src` attribute of the iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
   
 ### Provide editing insights capabilities
 
-To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) with `&allowEdit=true`.
+To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Video Access Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) with `&allowEdit=true`.
 
 ## Widgets interaction
 

@@ -1,7 +1,7 @@
 ---
-title: Manage a Azure Video Analyzer for Media (former Video Indexer) account
+title: Manage a Azure Video Analyzer for Media (formerly Video Indexer) account
 titleSuffix: Azure Media Services
-description: Learn how to manage a Azure Video Analyzer for Media (former Video Indexer) account connected to Azure.
+description: Learn how to manage a Azure Video Analyzer for Media (formerly Video Indexer) account connected to Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.author: juliako
 
 # Manage a Video Analyzer for Media account connected to Azure
 
-This article demonstrates how to manage a Azure Video Analyzer for Media (former Video Indexer) account that's connected to your Azure subscription and an Azure Media Services account.
+This article demonstrates how to manage a Azure Video Analyzer for Media (formerly Video Indexer) account that's connected to your Azure subscription and an Azure Media Services account.
 
 > [!NOTE]
 > You have to be the Video Analyzer for Media account owner to do account configuration adjustments discussed in this topic.

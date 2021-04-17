@@ -1,7 +1,7 @@
 ---
-title: Examine the  Azure Video Analyzer for Media (former Video Indexer) output produced by v2 API - Azure
+title: Examine the  Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API - Azure
 titleSuffix: Azure Media Services
-description: This topic examines the Azure Video Analyzer for Media (former Video Indexer) output produced by v2 API.
+description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API.
 services: media-services
 author: Juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.author: juliako
 
 # Examine the Video Analyzer for Media output
 
-When a video is indexed, Azure Video Analyzer for Media (former Video Indexer) produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Analyzer for Media (formerly Video Indexer) produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Analyzer for Media](https://www.videoindexer.ai/) website. 
 
@@ -39,8 +39,8 @@ For more information, see [View and edit video insights](video-indexer-view-edit
 
 ## Insights/output produced by API
 
-1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
-1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)
+1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)
 
 	In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
 
@@ -93,7 +93,7 @@ This section shows the summary of the insights.
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
 |faces/animatedCharacters|May contain zero or more faces. For more detailed information, see [faces/animatedCharacters](#facesanimatedcharacters).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
@@ -120,7 +120,7 @@ This section shows the summary of the insights.
 |metadata|The video's external metadata (if specified by the user).|
 |isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object. For more information, see [insights](#insights).|
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it the video ID and thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it the video ID and thumbnailId.|
 |publishedUrl|A url to stream the video.|
 |publishedUrlProxy|A url to stream the video from (for Apple devices).|
 |viewToken|A short lived view token for streaming the video.|

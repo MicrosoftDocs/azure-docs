@@ -91,6 +91,9 @@ In this procedure, you import glossary terms via a .csv file:
 
    This file contains a list of pre-populated terms that are relevant to your data estate.
 
+ > [!Important]
+   > The email address for Stewards and Experts in the .CSV file should be the primary address of the user from AAD group. Alternate email, user principal name and non-AAD emails are not yet supported. You need to replace the email addresses with the AAD primary address from your organization.
+
 1. To begin importing, select **Glossary**, and then select **Import terms**.
 
     :::image type="content" source="./media/tutorial-import-create-glossary-terms/import-glossary-terms-select.png" alt-text="Screenshot showing how to import glossary terms.":::
