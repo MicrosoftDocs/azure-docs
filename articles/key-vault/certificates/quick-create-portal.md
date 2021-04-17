@@ -57,7 +57,8 @@ To add a certificate to the vault, you just need to take a couple of additional 
     - **Method of Certificate Creation**: Generate.
     - **Certificate Name**: ExampleCertificate.
     - **Subject**: CN=ExampleDomain
-    - Leave the other values to their defaults. Click **Create**.
+    - Leave the other values to their defaults. (By default, if you don't specify anything special in Advanced policy, it'll be usable as a client auth certificate.)
+ 4. Click **Create**.
 
 Once that you receive the message that the certificate has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 

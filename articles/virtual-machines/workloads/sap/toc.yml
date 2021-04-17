@@ -62,6 +62,8 @@
       href: hana-concept-preparation.md
     - name: Disaster recovery failover procedure
       href: hana-failover-procedure.md
+    - name: Large instances HA for SAP on RHEL
+      href: large-instance-high-availability-rhel.md
   - name: Troubleshoot and monitor
     items:
     - name: Monitoring HLI
@@ -112,6 +114,8 @@
       href: sap-hana-high-availability-rhel.md
     - name: Set up SAP HANA System Replication with ANF on RHEL
       href: sap-hana-high-availability-netapp-files-red-hat.md
+    - name: SAP HANA scale-out HSR with Pacemaker on SLES
+      href: sap-hana-high-availability-scale-out-hsr-suse.md
     - name: Troubleshoot SAP HANA scale-out and Pacemaker on SLES
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out HSR with Pacemaker on RHEL
@@ -120,11 +124,25 @@
       href: sap-hana-scale-out-standby-netapp-files-suse.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
       href: sap-hana-scale-out-standby-netapp-files-rhel.md
-  - name: SAP HANA backup overview
-    href: sap-hana-backup-guide.md
-  - name: SAP HANA file level backup
-    href: sap-hana-backup-file-level.md
-- name: SAP NetWeaver and Business One on Azure Virtual Machines
+  - name: SAP HANA database backup with Azure Backup
+    items:
+    - name: SAP HANA database backup in Azure VMs
+      href: ../../../backup/sap-hana-db-about.md
+    - name: Back up SAP HANA databases in Azure VMs
+      href: ../../../backup/backup-azure-sap-hana-database.md
+    - name: Restore SAP HANA databases on Azure VMs
+      href: ../../../backup/sap-hana-db-restore.md
+    - name: Manage and monitor
+      href: ../../../backup/sap-hana-db-manage.md
+    - name: Support matrix for backup of SAP HANA databases
+      href: ../../../backup/sap-hana-backup-support-matrix.md
+    - name: FAQ – Back up SAP HANA databases on Azure VMs
+      href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
+    - name: Troubleshoot backup of SAP HANA databases on Azure
+      href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
+    - name: Tutorial - Back up SAP HANA databases in an Azure VM
+      href: ../../../backup/tutorial-backup-sap-hana-db.md
+- name: SAP NetWeaver, S/4HANA and Business One on Azure Virtual Machines
   items:
   - name: SAP workload planning and deployment checklist
     href: sap-deployment-checklist.md
@@ -197,8 +215,6 @@
         href: high-availability-guide-rhel.md
       - name: HA on Red Hat Enterprise Linux for (A)SCS Instance with Azure NetApp Files
         href: high-availability-guide-rhel-netapp-files.md
-      - name: Large instances HA for SAP on RHEL
-        href: large-instance-high-availability-rhel.md
     - name: Azure Infrastructure Preparation
       items:
       - name: Windows with Shared Disk for (A)SCS Instance

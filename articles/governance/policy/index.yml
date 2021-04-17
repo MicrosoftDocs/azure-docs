@@ -55,6 +55,8 @@ landingContent:
             url: ./assign-policy-rest-api.md
           - text: Assign a policy (ARM template)
             url: ./assign-policy-template.md
+          - text: Assign a policy (Bicep)
+            url: ./assign-policy-bicep.md
           - text: Assign a policy (Terraform)
             url: ./assign-policy-terraform.md
       - linkListType: tutorial

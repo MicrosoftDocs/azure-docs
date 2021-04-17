@@ -503,7 +503,7 @@
           href: service-fabric-how-to-remove-node-type.md
       - name: Upgrade
         items:
-        - name: Upgrade the Service Fabric version 
+        - name: Manage Service Fabric cluster upgrades
           href: service-fabric-cluster-upgrade-version-azure.md    
         - name: Upgrade cluster configuration
           href: service-fabric-cluster-config-upgrade-azure.md

@@ -10,7 +10,7 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 02/25/2021
 ms.custom: responsible-ml
-#intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning
+#Customer intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning.
 ---
 
 # What is responsible machine learning? (preview)

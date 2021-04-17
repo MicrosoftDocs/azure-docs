@@ -11,7 +11,8 @@ ms.author: denisgun
 
 Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device. Depending on the use case, availability of computing resources, and network bandwidth, RDP dynamically adjusts various parameters to deliver the best user experience.
 
-Remote Desktop Protocol multiplexes multiple Dynamic Virtual Channels (DVCs) into a single data channel sent over different network transports. There are separate DVCs for remote graphics, input, device redirection, printing, and others. WVD Partners may also implement their extensions that use DVC interfaces.
+Remote Desktop Protocol multiplexes multiple Dynamic Virtual Channels (DVCs) into a single data channel sent over different network transports. There are separate DVCs for remote graphics, input, device redirection, printing, and more. Windows Virtual Desktop partners can also use their extensions that use DVC interfaces.
+
 The amount of the data sent over RDP depends on the user activity. For example, a user may work with basic textual content for most of the session and consume minimal bandwidth, but then generate a printout of a 200-page document to the local printer. This print job will use a significant amount of network bandwidth.
 
 When using a remote session, your network's available bandwidth dramatically impacts the quality of your experience. Different applications and display resolutions require different network configurations, so it's essential to make sure your network configuration meets your needs.

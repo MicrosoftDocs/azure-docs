@@ -4,7 +4,7 @@ description: This quickstart will show you how to use Azure Front Door to create
 services: front-door
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.assetid:
 ms.service: frontdoor
 ms.devlang: na

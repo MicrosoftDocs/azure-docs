@@ -4,7 +4,7 @@ description: Learn how to copy data from file system to supported sink data stor
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 ms.author: jingwang
 ---
 
@@ -30,6 +30,9 @@ Specifically, this file system connector supports:
 - Copying files from/to local machine or network file share. To use a Linux file share, install [Samba](https://www.samba.org/) on your Linux server.
 - Copying files using **Windows** authentication.
 - Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+
+> [!NOTE]
+> Mapped network drive is not supported when loading data from a network file share. Use the actual path instead e.g. ` \\server\share`.
 
 ## Prerequisites
 

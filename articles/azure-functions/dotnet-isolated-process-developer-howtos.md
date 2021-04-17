@@ -156,7 +156,7 @@ At this point, you can run the `func start` command from the root of your projec
 
 1. Into your browser's address bar, type your local function URL, which looks like the following, and run the request. 
 
-    <http://localhost:7071/api/HttpExample>
+    `http://localhost:7071/api/HttpExample`
 
     You should see trace output from the request written to the running terminal. Code execution stops at any break points you set in your function code.
 

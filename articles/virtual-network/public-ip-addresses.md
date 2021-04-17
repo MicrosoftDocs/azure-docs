@@ -160,7 +160,7 @@ For more information about Azure load balancer SKUs, see [Azure load balancer st
 A public IP address is assigned to the VPN Gateway to enable communication with the remote network. 
 
 * Assign a **dynamic** basic public IP to a VPNGw 1-5 SKU front-end configuration.
-* Assign a **static** standard public IP address to a a VPNGwAZ 1-5 SKU front-end configuration.
+* Assign a **static** standard public IP address to a VPNGwAZ 1-5 SKU front-end configuration.
 
 ## Application gateways
 

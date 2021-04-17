@@ -147,6 +147,8 @@ az vm create \
     --admin-username azureuser
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create private endpoint
 
 In this section, you'll create the private endpoint.

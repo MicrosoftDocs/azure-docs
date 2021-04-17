@@ -15,10 +15,9 @@ ms.author: mikben
 ## Install the SDK
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.6 of the Calling SDK.
+> This document uses ACS Calling Web SDK.
 
 Use the `npm install` command to install the Azure Communication Services calling and common SDKs for JavaScript.
-This document references types in version 1.0.0-beta.5 of calling library.
 
 ```console
 npm install @azure/communication-common --save
@@ -45,9 +44,13 @@ When you have a `CallClient` instance, you can create a `CallAgent` instance by 
 
 The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../access-tokens.md).
 
-After you create a `callAgent` instance, you can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
+You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
 
 ```js
+// Set the logger's log level
+setLogLevel('verbose');
+// Redirect logger output to wherever desired. By default it logs to console
+AzureLogger.log = (...args) => { console.log(...args) };
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
@@ -100,15 +103,16 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCaller
 > [!IMPORTANT]
 > There can currently be no more than one outgoing local video stream.
 
-To place a video call, you have to specify your cameras by using the `getCameras()` method in `deviceManager`.
+To place a video call, you have to  enumerate local cameras by using the `getCameras()` method in `deviceManager`.
 
 After you select a camera, use it to construct a `LocalVideoStream` instance. Pass it within `videoOptions` as an item within the `localVideoStream` array to the `startCall` method.
+
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const cameras = await deviceManager.getCameras();
-videoDeviceInfo = cameras[0];
-localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const camera = cameras[0]
+localVideoStream = new LocalVideoStream(camera);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 
@@ -117,6 +121,12 @@ const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
 
 ### Join a group call
+
+> [!NOTE]
+> The `groupId` parameter is considered system metadata and may be used by Microsoft for operations that are required to run the system. Don't include personal data in the `groupId` value. Microsoft doesn't treat this parameter as personal data and its content may be visible to Microsoft employees or stored long-term.
+>
+> The `groupId` parameter requires data to be in GUID format. We recommend using randomly generated GUIDs that aren't considered personal data in your systems.
+>
 
 To start a new group call or join an ongoing group call, use the `join` method and pass an object with a `groupId` property. The `groupId` value has to be a GUID.
 
@@ -127,9 +137,11 @@ const call = callAgent.join(context);
 
 ```
 
-### Join a Teams meeting
+### Join a Teams Meeting
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
-To join a Teams meeting, use the `join` method and pass a meeting link or coordinates.
+To join a Teams meeting, use the `join` method and pass a meeting link or a meeting's coordinates.
 
 Join by using a meeting link:
 
@@ -156,14 +168,30 @@ The `callAgent` instance emits an `incomingCall` event when the logged-in identi
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
-    //Get information about caller
-    var callerInfo = incomingCall.callerInfo
+	const incomingCall = args.incomingCall;	
+	// Get incoming call ID
+	var incomingCallId = incomingCall.id
+	// Get information about this Call. This API is provided as a preview for developers
+	// and may change based on feedback that we receive. Do not use this API in a production environment.
+	// To use this api please use 'beta' release of ACS Calling Web SDK
+	var callInfo = incomingCall.info;
 
-    //Accept the call
-    var call = await incomingCall.accept();
+	// Get information about caller
+	var callerInfo = incomingCall.callerInfo
 
-    //Reject the call
-    incomingCall.reject();
+	// Accept the call
+	var call = await incomingCall.accept();
+
+	// Reject the call
+	incomingCall.reject();
+
+	// Subscribe to callEnded event and get the call end reason
+	 incomingCall.on('callEnded', args => {
+		console.log(args.callEndReason);
+	});
+
+	// callEndReason is also a property of IncomingCall
+	var callEndReason = incomingCall.callEndReason;
 };
 callAgentInstance.on('incomingCall', incomingCallHander);
 ```
@@ -181,8 +209,14 @@ Get the unique ID (string) for a call:
    ```js
     const callId: string = call.id;
    ```
+Get information about the call:
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
+   ```js
+   const callInfo = call.info;
+   ```
 
-Learn about other participants in the call by inspecting the `remoteParticipant` collection:
+Learn about other participants in the call by inspecting the `remoteParticipants` collection on the 'call' instance:
 
    ```js
    const remoteParticipants = call.remoteParticipants;
@@ -205,13 +239,13 @@ Get the state of a call:
    This returns a string representing the current state of a call:
 
   - `None`: Initial call state.
-  - `Incoming`: Indicates that a call is incoming. It has to be either accepted or rejected.
   - `Connecting`: Initial transition state when a call is placed or accepted.
   - `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It's `Incoming` on their side.
   - `EarlyMedia`: Indicates a state in which an announcement is played before the call is connected.
   - `Connected`: Indicates that the call is connected.
   - `LocalHold`: Indicates that the call is put on hold by a local participant. No media is flowing between the local endpoint and remote participants.
   - `RemoteHold`: Indicates that the call was put on hold by remote participant. No media is flowing between the local endpoint and remote participants.
+  - `InLobby`: Indicates that user is in lobby.
   - `Disconnecting`: Transition state before the call goes to a `Disconnected` state.
   - `Disconnected`: Final call state. If the network connection is lost, the state changes to `Disconnected` after two minutes.
 
@@ -219,8 +253,8 @@ Find out why a call ended by inspecting the `callEndReason` property:
 
    ```js
    const callEndReason = call.callEndReason;
-   // callEndReason.code (number) code associated with the reason
-   // callEndReason.subCode (number) subCode associated with the reason
+   const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+   const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
    ```
 
 Learn if the current call is incoming or outgoing by inspecting the `direction` property. It returns `CallDirection`.
@@ -233,7 +267,7 @@ Learn if the current call is incoming or outgoing by inspecting the `direction` 
 Check if the current microphone is muted. It returns `Boolean`.
 
    ```js
-   const muted = call.isMicrophoneMuted;
+   const muted = call.isMuted;
    ```
 
 Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.
@@ -248,17 +282,8 @@ Inspect active video streams by checking the `localVideoStreams` collection. It 
    const localVideoStreams = call.localVideoStreams;
    ```
 
-### Check a callEnded event
 
-The `call` instance emits a `callEnded` event when the call ends. To listen to this event, subscribe by using the following code:
 
-```js
-const callEndHander = async (args: { callEndReason: CallEndReason }) => {
-    console.log(args.callEndReason)
-};
-
-call.on('callEnded', callEndHander);
-```
 
 ### Mute and unmute
 
@@ -276,10 +301,13 @@ await call.unmute();
 
 ### Start and stop sending local video
 
-To start a video, you have to specify cameras by using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` by passing the desired camera into the `startVideo` method as an argument:
+To start a video, you have to enumerate cameras using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and then pass the `LocalVideoStream` object into the `startVideo` method:
 
 ```js
-const localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
 
@@ -299,12 +327,13 @@ You can switch to a different camera device while a video is sending by invoking
 
 ```js
 const cameras = await callClient.getDeviceManager().getCameras();
-localVideoStream.switchSource(cameras[1]);
+const camera = cameras[1];
+localVideoStream.switchSource(camera);
 ```
 
 ## Manage remote participants
 
-All remote participants are represented by `remoteParticipant` and are available through the `remoteParticipants` collection on a call instance.
+All remote participants are represented by `RemoteParticipant` type and available through `remoteParticipants` collection on a call instance.
 
 ### List the participants in a call
 
@@ -329,6 +358,7 @@ Remote participants have a set of associated properties and collections:
   - `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
   - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
   - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
+  - `{ id: string }`: object repredenting identifier that doesn't fit any of the other identifier types
 
 - `state`: Get the state of a remote participant.
 
@@ -344,14 +374,15 @@ Remote participants have a set of associated properties and collections:
   - `Connected`: Participant is connected to the call.
   - `Hold`: Participant is on hold.
   - `EarlyMedia`: Announcement that plays before a participant connects to the call.
+  - `InLobby`: Indicates that remote participant is in lobby.
   - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
 
   ```js
   const callEndReason = remoteParticipant.callEndReason;
-  // callEndReason.code (number) code associated with the reason
-  // callEndReason.subCode (number) subCode associated with the reason
+  const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+  const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
   ```
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
@@ -371,10 +402,15 @@ Remote participants have a set of associated properties and collections:
   ```js
   const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
   ```
+- `displayName`: To get display name for this remote participant, inspect `displayName` property it return string. 
+
+  ```js
+  const displayName = remoteParticipant.displayName;
+  ```
 
 ### Add a participant to a call
 
-To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It returns the `remoteParticipant` instance.
+To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It synchronously returns the `remoteParticipant` instance. The `remoteParticipantsUpdated` event from Call is raised when a participant is successfully added to the call.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
@@ -403,27 +439,28 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-To render `RemoteVideoStream`, you have to subscribe to an `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `Renderer`, and then create a new `RendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
+To render `RemoteVideoStream`, you have to subscribe to it's `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
 
-When the availability of a remote stream changes, you can destroy `Renderer`, destroy a specific `RendererView` instance, or keep it all. Renderers attached to an unavailable stream will result in a blank video frame.
+Whenever availability of a remote stream changes you can choose to destroy the whole `VideoStreamRenderer`, a specific `VideoStreamRendererView`
+or keep them, but this will result in displaying blank video frame.
 
 ```js
 function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
-    let renderer: Renderer = new Renderer(remoteVideoStream);
-    const displayVideo = () => {
-        const view = await renderer.createView();
-        htmlElement.appendChild(view.target);
-    }
-    remoteVideoStream.on('availabilityChanged', async () => {
-        if (remoteVideoStream.isAvailable) {
-            displayVideo();
-        } else {
-            renderer.dispose();
-        }
-    });
-    if (remoteVideoStream.isAvailable) {
-        displayVideo();
-    }
+	let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
+	const displayVideo = () => {
+		const view = await videoStreamRenderer.createView();
+		htmlElement.appendChild(view.target);
+	}
+	remoteVideoStream.on('isAvailableChanged', async () => {
+		if (remoteVideoStream.isAvailable) {
+			displayVideo();
+		} else {
+			videoStreamRenderer.dispose();
+		}
+	});
+	if (remoteVideoStream.isAvailable) {
+		displayVideo();
+	}
 }
 ```
 
@@ -435,12 +472,6 @@ Remote video streams have the following properties:
 
   ```js
   const id: number = remoteVideoStream.id;
-  ```
-
-- `Stream.size`: The height and width of a remote video stream.
-
-  ```js
-  const size: {width: number; height: number} = remoteVideoStream.size;
   ```
 
 - `mediaStreamType`: Can be `Video` or `ScreenSharing`.
@@ -455,32 +486,31 @@ Remote video streams have the following properties:
   const type: boolean = remoteVideoStream.isAvailable;
   ```
 
-### Renderer methods and properties
-
-Create a `rendererView` instance that can be attached in the application UI to render the remote video stream:
-
-  ```js
-  renderer.createView()
-  ```
-
-Dispose of `renderer` and all associated `rendererView` instances:
+### VideoStreamRenderer methods and properties
+Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream, use asynchronous `createView()` method, it resolves when stream is ready to render and returns an object with `target` property that represents `video` element that can be appended anywhere in the DOM tree
 
   ```js
-  renderer.dispose()
+  videoStreamRenderer.createView()
   ```
 
-### RendererView methods and properties
+Dispose of `videoStreamRenderer` and all associated `VideoStreamRendererView` instances:
 
-When you create `rendererView`, you can specify the `scalingMode` and `isMirrored` properties. `scalingMode` can be `Stretch`, `Crop`, or `Fit`. If `isMirrored` is specified, the rendered stream is flipped vertically.
+  ```js
+  videoStreamRenderer.dispose()
+  ```
+
+### VideoStreamRendererView methods and properties
+
+When you create a `VideoStreamRendererView`, you can specify the `scalingMode` and `isMirrored` properties. `scalingMode` can be `Stretch`, `Crop`, or `Fit`. If `isMirrored` is specified, the rendered stream is flipped vertically.
 
 ```js
-const rendererView: RendererView = renderer.createView({ scalingMode, isMirrored });
+const videoStreamRendererView: VideoStreamRendererView = await videoStreamRenderer.createView({ scalingMode, isMirrored });
 ```
 
-Every `RendererView` instance has a `target` property that represents the rendering surface. Attach this property in the application UI:
+Every `VideoStreamRendererView` instance has a `target` property that represents the rendering surface. Attach this property in the application UI:
 
 ```js
-document.body.appendChild(rendererView.target);
+htmlElement.appendChild(view.target);
 ```
 
 You can update `scalingMode` by invoking the `updateScalingMode` method:
@@ -491,12 +521,9 @@ view.updateScalingMode('Crop')
 
 ## Device management
 
-In `deviceManager`, you can specify local devices that can transmit your audio and video streams in a call. It also helps you request permission to access another user's microphone and camera by using the native browser API.
+In `deviceManager`, you can enumerate local devices that can transmit your audio and video streams in a call. You can also use it to request permission to access the local device's microphones and cameras.
 
 You can access `deviceManager` by calling the `callClient.getDeviceManager()` method:
-
-> [!IMPORTANT]
-> You must have a `callAgent` object before you can access `deviceManager`.
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -504,7 +531,7 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### Get local devices
 
-To access local devices, you can use enumeration methods on `deviceManager`.
+To access local devices, you can use enumeration methods on `deviceManager`. Enumeration is an asynchronous action
 
 ```js
 //  Get a list of available video devices for use.
@@ -526,26 +553,26 @@ In `deviceManager`, you can set a default device that you'll use to start a call
 const defaultMicrophone = deviceManager.selectedMicrophone;
 
 // Set the microphone device to use.
-await deviceManager.selectMicrophone(AudioDeviceInfo);
+await deviceManager.selectMicrophone(localMicrophones[0]);
 
 // Get the speaker device that is being used.
 const defaultSpeaker = deviceManager.selectedSpeaker;
 
 // Set the speaker device to use.
-await deviceManager.selectSpeaker(AudioDeviceInfo);
+await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
 ### Local camera preview
 
-You can use `deviceManager` and `Renderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed.
+You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed.
 
 ```js
 const cameras = await deviceManager.getCameras();
-const localVideoDevice = cameras[0];
-const localCameraStream = new LocalVideoStream(localVideoDevice);
-const renderer = new Renderer(localCameraStream);
-const view = await renderer.createView();
-document.body.appendChild(view.target);
+const camera = cameras[0];
+const localCameraStream = new LocalVideoStream(camera);
+const videoStreamRenderer = new VideoStreamRenderer(localCameraStream);
+const view = await videoStreamRenderer.createView();
+htmlElement.appendChild(view.target);
 
 ```
 
@@ -565,8 +592,8 @@ console.log(result.video);
 ```
 
 ## Record calls
-
-[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
@@ -592,6 +619,8 @@ callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler)
 ```
 
 ## Transfer calls
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Call transfer is an extended feature of the core `Call` API. You first need to get the transfer feature API object:
 

@@ -217,7 +217,7 @@ function subscribeToParticipantVideoStreams(remoteParticipant) {
 You have to subscribe to a `isAvailableChanged` event to render the `remoteVideoStream`. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. Whenever availability of a remote stream changes you can choose to destroy the whole `Renderer`, a specific `RendererView` or keep them, but this will result in displaying blank video frame.
 ```JavaScript
 function handleVideoStream(remoteVideoStream) {
-    remoteVideoStream.on('availabilityChanged', async () => {
+    remoteVideoStream.on('isAvailableChanged', async () => {
         if (remoteVideoStream.isAvailable) {
             remoteVideoView(remoteVideoStream);
         } else {

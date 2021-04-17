@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 04/06/2021
 ---
 
 # How to work with search results in Azure Cognitive Search
@@ -133,12 +133,16 @@ Services created after July 15, 2020 will provide a different highlighting exper
 
 With the new behavior:
 
-* Only phrases that match the full phrase query will be returned. The query "super bowl" will return highlights like this:
++ Only phrases that match the full phrase query will be returned. The query phrase "super bowl" will return highlights like this:
 
-    ```html
-    '<em>super bowl</em> is super awesome with a bowl of chips'
-    ```
-  Note that the term *bowl of chips* does not have any highlighting because it does not match the full phrase.
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
+     ]
+  ```
+
+  Note that other instances of *super* and *bowl* do not have any highlighting because those instances do not match the full phrase.
 
 When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
 

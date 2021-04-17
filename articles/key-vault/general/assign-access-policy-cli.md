@@ -1,6 +1,6 @@
 ---
 title: Assign an Azure Key Vault access policy (CLI)
-description: How to use the Azure CLI to assign a Key Vault access policy to a service principal or application identity.
+description: How to use the Azure CLI to assign a Key Vault access policy to a security principal or application identity.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 # Assign a Key Vault access policy
 
-A Key Vault access policy determines whether a given service principal, namely an application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the Azure CLI (this article), or [Azure PowerShell](assign-access-policy-powershell.md).
+A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the Azure CLI (this article), or [Azure PowerShell](assign-access-policy-powershell.md).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -67,7 +67,7 @@ Use the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) com
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
 ```
 
-Replace `<object-id>` with the object ID of your service principal.
+Replace `<object-id>` with the object ID of your security principal.
 
 You need only include `--secret-permissions`, `--key-permissions`, and `--certificate-permissions` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) documentation.
 

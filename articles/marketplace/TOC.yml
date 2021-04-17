@@ -5,21 +5,39 @@
   href: overview.md
 - name: Account management
   items:
-  - name: Create a new Partner Center account
-    href: partner-center-portal/create-account.md
-  - name: Manage your account
-    href: partner-center-portal/manage-account.md
-  - name: Find or create a company work account
-    href: partner-center-portal/company-work-accounts.md  
-  - name: Account migration from CPP to Partner Center
-    href: partner-center-portal/account-migration-from-cpp-to-pc.md 
-  - name: Notifying Microsoft
-    href: submit-legal-notice.md 
+  - name: General account management
+    items:
+    - name: Create a new Partner Center account
+      href: create-account.md
+    - name: Add new publishers
+      href: add-publishers.md  
+    - name: Manage your account
+      href: manage-account.md
+    - name: Switch accounts
+      href: switch-accounts.md
+    - name: Manage tenants
+      href: manage-tenants.md    
+    - name: Find or create a company work account
+      href: company-work-accounts.md  
+    - name: Account migration from CPP to Partner Center
+      href: account-migration-from-cpp-to-pc.md
+    - name: Notifying Microsoft
+      href: submit-legal-notice.md
+  - name: Manage users
+    items:
+    - name: Add and manage users
+      href: add-manage-users.md
+    - name: Assign user roles
+      href: user-roles.md  
+    - name: Manage groups
+      href: manage-groups.md
+    - name: Add and manage Azure AD applications
+      href: manage-aad-apps.md  
 - name: Concepts
   items: 
   - name: Listing options
     href: determine-your-listing-type.md
-  - name: Transacting in the commercial marketplace
+  - name: Transact capabilities
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
   - name: Private offers
     href: private-offers.md

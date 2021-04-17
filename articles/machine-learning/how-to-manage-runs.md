@@ -206,7 +206,7 @@ You'll need the following items:
     1. In the **Destination details**, select the **Send to Log Analytics workspace**  and specify the **Subscription** and **Log Analytics workspace**. 
 
     > [!NOTE]
-    > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md). 
     
     ![Where to save email notification](./media/how-to-manage-runs/log-location.png)
 
@@ -214,7 +214,7 @@ You'll need the following items:
 
     ![New alert rule](./media/how-to-manage-runs/new-alert-rule.png)
 
-1. See [how to create and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+1. See [how to create and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## Run description 
 
