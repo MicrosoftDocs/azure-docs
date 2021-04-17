@@ -7,7 +7,7 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
+ms.date: 04/16/2021
 ---
 
 # Co-sell requirements
@@ -25,6 +25,9 @@ This table shows all possible co-sell statuses:
 |||
 
 ## Requirements for Co-sell ready status
+
+> [!NOTE]
+> Any offer that goes through the commercial marketplace program in Partner Center is eligible for co-sell ready. Office programs or add-ins are not (i.e. Teams, SharePoint, Outlook, Excel)
 
 For an offer to achieve co-sell ready status, you must meet the following requirements:
 
