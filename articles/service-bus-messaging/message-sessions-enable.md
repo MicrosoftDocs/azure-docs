@@ -12,40 +12,186 @@ Azure Service Bus sessions enable joint and ordered handling of unbounded sequen
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Azure portal
-In the portal, you can enable sessions while creating a queue or a topic subscription. 
+When creating a **queue** in the Azure portal, select **Enable sessions** as shown in the following image. 
 
 :::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
+
+When creating a subscription for a topic in the Azure portal, select **Enable sessions** as shown in the following image. 
 
 :::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
 
 ## Azure CLI
-The following table gives you the CLI commands that you can use to enable sessions for queues and topic subscriptions. 
+To **create a queue with message sessions enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-session` set to `true`.
 
-| Task | Command | 
-| ---- | ------- | 
-| Create a queue with sessions enabled | [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-session` set to `true` | 
-| Create a topic subscription with sessions enabled | [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--enable-session` set to `true` |
+```azurecli-interactive
+az servicebus queue create \
+    --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --name myqueue \
+    --enable-session true
+```
 
-For a tutorial on using CLI to create a Service Bus namespace and a queue, see [Use the Azure CLI to create a Service Bus namespace and a queue](service-bus-quickstart-cli.md). 
+To **create a subscription for a topic with message sessions enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--enable-session` set to `true`.
 
+```azurecli-interactive
+az servicebus topic subscription create \
+    --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --topic-name mytopic \
+    --name mysubscription \
+    --enable-session true
+```
 
 ## Azure PowerShell
-The following table gives you the PowerShell commands that you can use to enable sessions for queues and topic subscriptions. 
+To **create a queue with message sessions enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `true`. 
 
-| Task | Command | 
-| ---- | ------- | 
-| Create a queue with sessions enabled | [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `true` | 
-| Create a topic subscription with sessions enabled | [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-RequiresSession` set to `true` | 
+```azurepowershell-interactive
+New-AzServiceBusQueue -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -QueueName myqueue `
+    -RequiresSession true
+```
 
-For a tutorial on using PowerShell to create a Service Bus namespace and a queue, see [Use Azure PowerShell to create a Service Bus namespace and a queue](service-bus-quickstart-powershell.md). 
+To **create a subscription for a topic with message sessions enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-RequiresSession` set to `true`. 
+
+```azurepowershell-interactive
+New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -TopicName mytopic `
+    -SubscriptionName mysubscription `
+    -RequiresSession true
+```
 
 ## Azure Resource Manager template
+To **create a queue with message sessions enabled**, set `requiresSession` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
 
-| Task | Instructions | 
-| ---- | ------- | 
-| Create a queue with sessions enabled | Set `requiresSession` to `true`. For an example, see [Microsoft.ServiceBus namespaces/queues template reference](/templates/microsoft.servicebus/namespaces/queues?tabs=json). |
-| Create a topic subscription with sessions enabled | Set `requiresSession` to `true`. For an example, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). |
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serviceBusNamespaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Service Bus namespace"
+      }
+    },
+    "serviceBusQueueName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Queue"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ServiceBus/namespaces",
+      "apiVersion": "2018-01-01-preview",
+      "name": "[parameters('serviceBusNamespaceName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {},
+      "resources": [
+        {
+          "type": "Queues",
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('serviceBusQueueName')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
+          ],
+          "properties": {
+            "requiresSession": true
+          }
+        }
+      ]
+    }
+  ]
+}
 
+```
+
+To **create a subscription for a topic with message sessions enabled**, set `requiresSession` to `true` in the subscription properties section. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "service_BusNamespace_Name": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Service Bus namespace"
+      }
+    },
+    "serviceBusTopicName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Topic"
+      }
+    },
+    "serviceBusSubscriptionName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Subscription"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-01-01-preview",
+      "name": "[parameters('service_BusNamespace_Name')]",
+      "type": "Microsoft.ServiceBus/namespaces",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {},
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('serviceBusTopicName')]",
+          "type": "topics",
+          "dependsOn": [
+            "[resourceId('Microsoft.ServiceBus/namespaces/', parameters('service_BusNamespace_Name'))]"
+          ],
+          "properties": {
+            "maxSizeInMegabytes": 1024
+          },
+          "resources": [
+            {
+              "apiVersion": "2017-04-01",
+              "name": "[parameters('serviceBusSubscriptionName')]",
+              "type": "Subscriptions",
+              "dependsOn": [
+                "[parameters('serviceBusTopicName')]"
+              ],
+              "properties": {
+                "requiresSession": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Management library SDKs
 
