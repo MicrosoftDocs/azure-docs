@@ -77,7 +77,7 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 ## Create NAT gateway 
 
-In this section, you'll create a NAT gateway for outbound connectivity of the virtual machines that are placed in the virtual and network you created previously.
+In this section, you'll create a NAT gateway for outbound connectivity of the virtual machines that are placed in the virtual network and subnet you created previously.
 
 1. In the search box at the top of the portal, enter **NAT gateway**.
 
@@ -216,7 +216,7 @@ You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled.
     | Idle timeout (minutes) | Change the slider to **15**. |
     | TCP reset | Select **Enabled**. |
     | Floating IP | Leave the default of **Disabled**. |
-    | Outbound source network address translation (SNAT) | Leave the default of **	(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
+    | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
 5. Select **Add**.
 
