@@ -43,7 +43,6 @@ To download an activation file:
 
 On the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), you can view important operational information about onboarded sensors.
 
-1. Select **Sites and Sensors**. The page shows the how many sensors were onboarded, the number of sensors that are cloud connected and locally managed as well as:
 
 - the sensor name assigned during onboarding
 - the connection type (cloud connected or locally managed)
