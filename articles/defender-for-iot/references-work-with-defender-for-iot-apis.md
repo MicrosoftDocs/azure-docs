@@ -622,6 +622,12 @@ Array of JSON objects that represent alerts.
 | **remediationSteps** | String | Yes | Remediation steps described in alert |
 | **additionalInformation** | Additional information object | Yes | - |
 
+Note that /api/v2/ is needed for the following information:
+
+- sourceDeviceAddress 
+- destinationDeviceAddress
+- remediationSteps
+
 #### Additional information fields
 
 | Name | Type | Nullable | List of values |
@@ -2051,9 +2057,18 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 | **destinationDeviceAddress** | Numeric | Yes | IP, MAC, Null |
 | **remediationSteps** | String | Yes | Remediation steps shown in alert|
 | **sensorName** | String | Yes | Name of sensor defined by user in the console|
-|**sensorName** | String | Yes | Name of zone associated with sensor in the console|
-| **sensorName** | String | Yes | Name of site associated with sensor in the console |
+|**zoneName** | String | Yes | Name of zone associated with sensor in the console|
+| **siteName** | String | Yes | Name of site associated with sensor in the console |
 | **additionalInformation** | Additional information object | Yes | - |
+
+Note that /api/v2/ is needed for the following information:
+
+- sourceDeviceAddress 
+- destinationDeviceAddress
+- remediationSteps
+- sensorName
+- zoneName
+- siteName
 
 #### Additional information fields
 
