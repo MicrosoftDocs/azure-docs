@@ -27,6 +27,8 @@ landingContent:
       links:
           - text: Create a device update account
             url: create-device-update-account.md
+          - text: Provisioning Device Update Agent
+            url: device-update-agent-provisioning.md
           - text: Import an update
             url: import-update.md
           - text: Create an update group
@@ -49,8 +51,8 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Build, run and modify device update agent
-          url: device-update-agent-provisioning.md
+        - text: How to build and run Device Update Agent
+          url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
   - title: Get started
     linkLists:
     - linkListType: tutorial

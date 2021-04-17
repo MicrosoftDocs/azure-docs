@@ -246,6 +246,8 @@
         href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
       - name: Spark and Hive Tools for VSCode
         href: ./hdinsight-for-vscode.md
+      - name: HDInsight Configuration Settings Reference
+        href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
       - name: Use Azure Monitor logs
@@ -268,10 +270,14 @@
         href: ./troubleshoot-resource-creation-fails.md
       - name: Troubleshoot Apache Oozie
         href: ./troubleshoot-oozie.md
+      - name: Troubleshoot Apache Sqoop
+        href: ./troubleshoot-sqoop.md
       - name: Understand and resolve WebHCat errors
         href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
   - name: Reference
     items:
+    - name: Azure CLI
+      href: /cli/azure/hdinsight
     - name: Azure PowerShell
       href: /powershell/module/az.hdinsight
     - name: SDK for .NET

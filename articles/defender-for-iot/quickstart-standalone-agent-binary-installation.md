@@ -1,11 +1,11 @@
 ---
-title: Install Defender for IoT micro agent (Preview)
-description: Learn how to install, and authenticate the Defender Micro Agent.
+title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
+description: In this quickstart, learn how to install, and authenticate the Defender Micro Agent.
 ms.date: 3/9/2021
 ms.topic: quickstart
 ---
 
-# Install Defender for IoT micro agent (Preview)
+# Quickstart: Install Defender for IoT micro agent (Preview)
 
 This article provides an explanation of how to install, and authenticate the Defender micro agent.
 
@@ -143,4 +143,5 @@ sudo apt-get install defender-iot-micro-agent=<version>
 
 ## Next steps
 
-[Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
+> [!div class="nextstepaction"]
+> [Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)

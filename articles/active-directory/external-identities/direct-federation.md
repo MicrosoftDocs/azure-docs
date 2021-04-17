@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 
 ms.author: mimart
 author: msmimart
@@ -30,12 +30,12 @@ After you set up direct federation with an organization, any new guest users you
  - If you set up direct federation with a partner organization and invite guest users, and then the partner organization later moves to Azure AD, the guest users who have already redeemed invitations will continue to use direct federation, as long as the direct federation policy in your tenant exists.
  - If you delete direct federation with a partner organization, any guest users currently using direct federation will be unable to sign in.
 
-In any of these scenarios, you can update a guest user’s authentication method by deleting the guest user account from your directory and reinviting them.
+In any of these scenarios, you can update a guest user’s authentication method by [resetting their redemption status](reset-redemption-status.md).
 
 Direct federation is tied to domain namespaces, such as contoso.com and fabrikam.com. When establishing a direct federation configuration with AD FS or a third-party IdP, organizations associate one or more domain namespaces to these IdPs. 
 
 ## End-user experience 
-With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their IdP. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes.md#exceptions) in Azure AD. If the federated IdP has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
+With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their IdP. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties) in Azure AD. If the federated IdP has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
 
 ## Sign-in endpoints
 
@@ -86,7 +86,7 @@ When direct federation is established with a partner organization, it takes prec
 ### Does direct federation address sign-in issues due to a partially synced tenancy?
 No, the [email one-time passcode](one-time-passcode.md) feature should be used in this scenario. A “partially synced tenancy” refers to a partner Azure AD tenant where on-premises user identities aren't fully synced to the cloud. A guest whose identity doesn’t yet exist in the cloud but who tries to redeem your B2B invitation won’t be able to sign in. The one-time passcode feature would allow this guest to sign in. The direct federation feature addresses scenarios where the guest has their own IdP-managed organizational account, but the organization has no Azure AD presence at all.
 ### Once Direct Federation is configured with an organization, does each guest need to be sent and redeem an individual invitation?
-Setting up direct federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. You can update a guest user’s authentication method by deleting the guest user account from your directory and reinviting them.
+Setting up direct federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. You can update a guest user’s authentication method by [resetting their redemption status](reset-redemption-status.md).
 ## Step 1: Configure the partner organization’s identity provider
 First, your partner organization needs to configure their identity provider with the required claims and relying party trusts. 
 
@@ -209,7 +209,7 @@ Now test your direct federation setup by inviting a new B2B guest user. For deta
 
 
 ## How do I remove direct federation?
-You can remove your direct federation setup. If you do, direct federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and reinviting them. 
+You can remove your direct federation setup. If you do, direct federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md). 
 To remove direct federation with an identity provider in the Azure AD portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 

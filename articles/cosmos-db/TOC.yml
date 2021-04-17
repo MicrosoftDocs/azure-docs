@@ -152,6 +152,8 @@
               href: create-sql-api-java.md
             - name: Spring Data app
               href: create-sql-api-spring-data.md
+            - name: Spark v3 app
+              href: create-sql-api-spark.md              
             - name: Node.js app
               href: create-sql-api-nodejs.md
             - name: Python app
@@ -757,6 +759,8 @@
                   href: troubleshoot-unauthorized.md
                 - name: Troubleshoot forbidden
                   href: troubleshoot-forbidden.md
+                - name: Troubleshoot bad request
+                  href: troubleshoot-bad-request.md
                 - name: Availability issues in multiregional environments
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -833,7 +837,7 @@
               href: visualize-qlik-sense.md
         - name: Built-in analytics with Apache Spark
           items:
-            - name: Azure Databricks Spark connector
+            - name: Azure Databricks Spark 2 OLTP connector
               href: spark-connector.md
             - name: Streaming with Apache Kafka and Cosmos DB
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -913,10 +917,14 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: Spring Data Connector v3
               href: sql-api-sdk-java-spring-v3.md
-            - name: Spark Connector
+            - name: Spark 3 OLTP Connector (Preview)
+              href: sql-api-sdk-java-spark-v3.md              
+            - name: Spark 2 OLTP Connector
               href: sql-api-sdk-java-spark.md
             - name: Java bulk executor library v2
               href: sql-api-sdk-bulk-executor-java.md
+        - name: Azure CLI
+          href: /cli/azure/cosmosdb
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python

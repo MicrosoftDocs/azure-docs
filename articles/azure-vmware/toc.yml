@@ -64,8 +64,6 @@
     href: manage-dhcp.md
   - name: Configure NSX network components
     href: configure-nsx-network-components-azure-portal.md
-  - name: Deploy disaster recovery for VMs
-    href: disaster-recovery-for-virtual-machines.md
   - name: Set up GitHub Enterprise Server
     href: github-enterprise-server.md
   - name: Public IP usage
@@ -76,6 +74,26 @@
     href: windows-server-failover-cluster.md
   - name: Reset vSphere credentials
     href: reset-vsphere-credentials.md
+  - name: Disaster recovery
+    items:
+    - name: Deploy disaster recovery for VMs
+      href: disaster-recovery-for-virtual-machines.md
+    - name: Disaster recovery to Azure
+      items:
+      - name: Prepare Azure
+        href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+      - name: Prepare Azure VMware Solution 
+        href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+      - name: Set up replication
+        href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+      - name: Run a disaster recovery drill 
+        href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+      - name: Fail over to Azure 
+        href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+      - name: Reprotect VMs
+        href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+      - name: Fail back from Azure 
+        href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
   - name: Azure native integration
     items:
     - name: API Management
@@ -107,7 +125,7 @@
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
-      href: ./deploy-vm-content-library.md
+      href: deploy-vm-content-library.md
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs
@@ -126,16 +144,20 @@
       href: /azure/azure-vmware/faq#general
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
-    - name: Azure VMware Solution and VMware software
-      href: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
-    - name: Compute, network, storage, and backup
-      href: /azure/azure-vmware/faq#compute,-network,-storage,-and-backup
+    - name: Configuration and setup 
+      href: /azure/azure-vmware/faq#configuration-and-setup
+    - name: VMware software 
+      href: /azure/azure-vmware/faq#vmware-software
+    - name: Compute, backup and disaster recovery
+      href: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+    - name: Networking and interconnectivity
+      href: /azure/azure-vmware/faq#networking-and-interconnectivity
+    - name: Storage
+      href: /azure/azure-vmware/faq#storage
     - name: Hosts, clusters, and private clouds
       href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-    - name: Connectivity
-      href: /azure/azure-vmware/faq#connectivity
-    - name: Accounts and privileges
-      href: /azure/azure-vmware/faq#accounts-and-privileges
+    - name: Identity management
+      href: /azure/azure-vmware/faq#identity-management
     - name: Billing and support
       href: /azure/azure-vmware/faq#billing-and-support
   - name: Videos 

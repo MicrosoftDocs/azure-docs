@@ -23,6 +23,7 @@ May include one or more of the following:
 * Unable to add or modify virtual network settings or public access rules
 * ACR Tasks is unable to push or pull images
 * Azure Security Center can't scan images in registry, or scan results don't appear in Azure Security Center
+* You receive error `host is not reachable` when attempting to access a registry configured with a private endpoint.
 
 ## Causes
 
@@ -81,6 +82,8 @@ Related links:
 
 Confirm that the virtual network is configured with either a private endpoint for Private Link or a service endpoint (preview). Currently an Azure Bastion endpoint isn't supported.
 
+If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address. Use a network utility such as `dig` or `nslookup` for DNS lookup. Ensure that [DNS records are configured](container-registry-private-link.md#dns-configuration-options) for the registry FQDN and for each of the data endpoint FQDNs.
+
 Review NSG rules and service tags used to limit traffic from other resources in the network to the registry. 
 
 If a service endpoint to the registry is configured, confirm that a network rule is added to the registry that allows access from that network subnet. The service endpoint only supports access from virtual machines and AKS clusters in the network.
@@ -89,11 +92,10 @@ If you want to restrict registry access using a virtual network in a different A
 
 If Azure Firewall or a similar solution is configured in the network, check that egress traffic from other resources such as an AKS cluster is enabled to reach the registry endpoints.
 
-If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address. Use a network utility such as `dig` or `nslookup` for DNS lookup.
-
 Related links:
 
 * [Connect privately to an Azure container registry using Azure Private Link](container-registry-private-link.md)
+* [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
 * [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md)
 * [Required outbound network rules and FQDNs for AKS clusters](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 * [Kubernetes: Debugging DNS resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
