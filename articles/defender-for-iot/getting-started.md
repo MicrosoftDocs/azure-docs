@@ -2,7 +2,7 @@
 title: "Quickstart: Getting started"
 description: In this quickstart you will learn how to get started with understanding the basic workflow for Defender for IoT deployment.
 ms.topic: quickstart
-ms.date: 2/18/2021
+ms.date: 04/17/2021
 ---
 
 # Quickstart: Get started with Defender for IoT

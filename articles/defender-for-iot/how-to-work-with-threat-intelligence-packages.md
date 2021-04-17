@@ -54,7 +54,7 @@ This gives you the ability to control when a package is installed, without the n
 
 #### Change the threat intelligence update mode ####
 
- You can change the sensor threat intelligence update mode after initial onboarding.
+You can change the sensor threat intelligence update mode after initial onboarding.
 
 **To change the update mode:**
 
