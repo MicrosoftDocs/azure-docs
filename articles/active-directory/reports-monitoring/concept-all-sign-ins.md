@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2021
+ms.date: 04/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -22,14 +22,12 @@ ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory sign-in activity reports - preview
 
-The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
+The Azure Active Directory portal gives you access to three activity logs:
 
-- **Activity** 
-    - **Sign-ins** – Information about when users, applications, and managed resources sign in to Azure AD and access resources.
-    - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications, and directory activities.
-- **Security** 
-    - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt by someone who isn't the legitimate owner of a user account.
-    - **Users flagged for risk** - A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.
+- **Sign-ins** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
+
 
 The classic sign-ins report in Azure Active Directory provides you with an overview of interactive user sign-ins. In addition, you now have access to three additional sign-in reports that are now in preview:
 
@@ -126,7 +124,8 @@ Interactive user sign-ins are sign-ins where a user provides an authentication f
 
 
 
-Note: The interactive user sign-ins report used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non interactive, they were included in the interactive user sign-ins report for additional visibility. Once the non-interactive user sign-ins report entered public preview in November 2020, those non-interactive sign-in event logs were moved to the non-interactive user sign in report for increased accuracy. 
+> [!NOTE] 
+> The interactive user sign-ins report used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-ins report for additional visibility. Once the non-interactive user sign-ins report entered public preview in November 2020, those non-interactive sign-in event logs were moved to the non-interactive user sign in report for increased accuracy. 
 
 
 **Report size:** small <br> 
@@ -322,6 +321,18 @@ To make it easier to digest the data, managed identities for Azure resources sig
 Select an item in the list view to display all sign-ins that are grouped under a node.
 
 Select a grouped item to see all details of the sign-in. 
+
+
+## Sign-in error code
+
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. 
+
+![Screenshot shows a detailed information view.](./media/concept-all-sign-ins/error-code.png)
+ 
+While the log item provides you with a failure reason, there are cases where you might get more information using the [sign-in error lookup tool](https://login.microsoftonline.com/error). For example, if available, this tool provides you with remediation steps.  
+
+![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
 
 
 ## Filter sign-in activities

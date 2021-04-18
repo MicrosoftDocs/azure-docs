@@ -19,6 +19,7 @@ In this article, we'll cover some important terms related to the BareMetal Infra
 - **Tenant**: A customer deploying a BareMetal instance stamp gets isolated as a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the BareMetal instance stamp level. A customer can choose to have deployments into different tenants. Even then, there's no communication between tenants on the BareMetal instance stamp level.
 
 ## Next steps
+
 Now that you've been introduced to important terminology of the BareMetal Infrastructure, you may want to learn about:
 - More details of the [BareMetal Infrastructure](concepts-baremetal-infrastructure-overview.md).
 - How to [Connect BareMetal Infrastructure instances in Azure](connect-baremetal-infrastructure.md).
