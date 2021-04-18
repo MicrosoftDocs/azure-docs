@@ -1,11 +1,11 @@
 ---
-title: Manage sensors and subscriptions in the Defender for IoT portal
+title: Manage sensors in the Defender for IoT portal
 description: Learn how to onboard, view, and manage sensors in the Defender for IoT portal.
-ms.date: 2/18/2021
+ms.date: 4/18/2021
 ms.topic: how-to
 ---
 
-# Manage sensors and subscriptions in the Defender for IoT portal
+# Manage sensors ain the Defender for IoT portal
 
 This article describes how to onboard, view, and manage sensors in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -113,24 +113,6 @@ To reactivate a sensor:
 8. Select **Upload** and select the file you saved from the Onboard sensor page.
 
 9. Select **Activate**.
-
-## Offboard a subscription
-
-Subscriptions are managed on a monthly basis. When you offboard a subscription, you will be billed for that subscription until the end of the month. 
-
-Uninstall all sensors that are associated with the subscription prior to offboarding the subscription. For more information on how to delete a sensor, see [Delete a sensor](#delete-a-sensor). 
-
-To offboard a subscription:
-
-1. Navigate to the **Pricing** page.
-1. Select the subscription, and then select the **delete** icon :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false":::.
-1. In the confirmation popup, select the checkbox to confirm you have deleted all sensors associated with the subscription.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Select the checkbox and select offboard to offboard your sensor.":::
-
-1. Select the **Offboard** button. 
-
-The on-premises environment is not affected, but you should uninstall the sensor from the on-premises environment, or reassign the sensor to another subscription, so as to prevent any related data from flowing to the on-premises management console. 
 
 ## Next steps
 
