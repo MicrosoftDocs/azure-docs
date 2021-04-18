@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 In this section, you'll create a virtual network for the load balancer and the other resources used in the tutorial.
 
-1. Sign in to the [Azure portal](url).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual network**.
 
@@ -404,11 +404,11 @@ In this section, you'll discover the public IP address of the load balancer. You
 
 4. Note the public IP address listed in **IP address** in the **Overview** page of **myPublicIP-lb**:
 
-    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/find-public-ip.png" alt-text="Alt text here." border="true":::
+    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/find-public-ip.png" alt-text="Find the public IP address of the load balancer." border="true":::
 
 5. Open a web browser and enter the public IP address in the address bar:
 
-    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/verify-load-balancer.png" alt-text="Alt text here." border="true":::
+    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/verify-load-balancer.png" alt-text="Test load balancer with web browser." border="true":::
 
 6. Select refresh in the browser to see the traffic balanced to the other virtual machines in the backend pool.
 
@@ -440,5 +440,5 @@ In this tutorial, you:
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer:
 > [!div class="nextstepaction"]
-> [Create a cross-region load balancer](cross-region-portal.md)
+> [Create a cross-region load balancer](tutorial-cross-region-portal.md)
 
