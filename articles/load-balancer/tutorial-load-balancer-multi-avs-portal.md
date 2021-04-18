@@ -264,7 +264,7 @@ In this section, you'll create two availability groups with two virtual machines
     | Subnet | Select **myBackendSubnet**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
-    | Configure network security group | Select **Create new**. </br> In Name,** enter **myNSG**. </br> Select **+Add an inbound rule** in **Inbound rules**. </br> Select **HTTP** for **Service**. </br> Enter **myHTTPrule** for **Name**. </br> Select **Add**. </br> Select **OK**. | 
+    | Configure network security group | Select **Create new**. </br> In **Name**, enter **myNSG**. </br> Select **+Add an inbound rule** in **Inbound rules**. </br> Select **HTTP** for **Service**. </br> Enter **myHTTPrule** for **Name**. </br> Select **Add**. </br> Select **OK**. | 
     | **Load balancing** |   |
     | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
     | **Load-balancing settings** |   |
