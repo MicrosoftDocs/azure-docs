@@ -14,7 +14,6 @@ manager: philmea
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-
 You can use the [Azure portal](https://portal.azure.com) to create and manage IoT Central applications, similar to the functionality in IoT Central's [application manager](https://apps.azureiotcentral.com/myapps).
 
 ## Create IoT Central applications
