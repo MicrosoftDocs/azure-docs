@@ -162,6 +162,12 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
+> [!NOTE] 
+> Only running queries against, and functions on, properties in the body reference is supported.  Running queries against, or functions on, the entire body reference is not supported.  For example, the following query is <b>not</b> supported and will return <b>undefined</b>:
+> ```sql
+> $body[0] = 'Feb'
+> ```
+
 ## Message routing query based on device twin 
 
 Message routing enables you to query on [Device Twin](iot-hub-devguide-device-twins.md) tags and properties, which are JSON objects. Querying on module twin is also supported. A sample of Device Twin tags and properties is shown below.
