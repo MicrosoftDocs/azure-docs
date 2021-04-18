@@ -126,7 +126,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 If an instance participates in an [auto-failover group](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), changing the instance's [connection type](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) does not take effect for the connections established through the failover group listener endpoint.
 
-**Workaround**: Drop and reecreate auto-failover group afer changing the connection type.
+**Workaround**: Drop and recreate auto-failover group afer changing the connection type.
 
 ### Procedure sp_send_dbmail may transiently fail when @query parameter is used
 
