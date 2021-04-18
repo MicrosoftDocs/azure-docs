@@ -209,7 +209,7 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The shutdown script runs the destage script.
 
 >[!TIP]
->You can choose using the task scheduler to run the stage script.
+>You can run the task scheduler with the stage script.
 >In this case, You should set that task trigger is "When the computers starts", and turn on of "Run with highest privileges".
 
 ## Use packages offline
