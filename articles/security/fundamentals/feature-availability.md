@@ -186,15 +186,15 @@ The following table lists the current Sentinel feature availability between Azur
 | - [Threat Intelligence Platform](/azure/sentinel/connect-threat-intelligence)s                   | Public Preview | Not Available      |
 | - [Threat Intelligence TAXII](/azure/sentinel/connect-threat-intelligence)                       | Public Preview | Not Available      |
 | - [Thycotic Secret Server](/azure/sentinel/connect-thycotic-secret-server)                          | Public Preview | Public Preview |
-| - [Trend Micro Deep Security](/azure/sentinel/connect-trend-micro)                       | GA             | GA             |
+| - [Trend Micro Deep Security](/azure/sentinel/connect-trend-micro)                  | GA             | GA             |
 | - [Trend Micro TippingPoint](/azure/sentinel/connect-trend-micro-tippingpoint)                         | Public Preview | Public Preview |
 | - [Trend Micro XDR](/azure/sentinel/connect-data-sources)                                  | Public Preview | Not Available      |
 | - [Vmware Carbon Black Endpoint Standard](/azure/sentinel/connect-vmware-carbon-black)           | Public Preview | Public Preview |
 | - [Vmware ESXi](/azure/sentinel/connect-vmware-esxi)                                      | Public Preview | Public Preview |
 | - [WireX Network Forensics Platform](/azure/sentinel/connect-wirex-systems)                | Public Preview | Public Preview |
-| - [Zimperium Mobile Threat Defense](/azure/sentinel/connect-zimperium-mtd)                  | Public Preview | Not Available      |
+| - [Zimperium Mobile Threat Defense](/azure/sentinel/connect-zimperium-mtd)                | Public Preview | Not Available      |
 | - [Zscaler](/azure/sentinel/connect-zscaler)                                         | GA             | GA             |
-| | | | 
+| | | |
 
 
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
@@ -301,7 +301,7 @@ The following table lists the current Sentinel feature availability between Azur
 
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
-### Microsoft 365 data connectors
+#### Microsoft 365 data connectors
 
 Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, while Azure Sentinel in Azure Government clouds supports GCC and Office DoD services.
 
