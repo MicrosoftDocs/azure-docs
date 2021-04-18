@@ -404,11 +404,11 @@ In this section, you'll discover the public IP address of the load balancer. You
 
 4. Note the public IP address listed in **IP address** in the **Overview** page of **myPublicIP-lb**:
 
-    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/find-public-ip.png" alt-text="Find the public IP address of the load balancer." border="true":::
+    :::image type="content" source="./media/tutorial-multi-availability-sets-portal/find-public-ip.png" alt-text="Find the public IP address of the load balancer." border="true":::
 
 5. Open a web browser and enter the public IP address in the address bar:
 
-    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/verify-load-balancer.png" alt-text="Test load balancer with web browser." border="true":::
+    :::image type="content" source="./media/tutorial-multi-availability-sets-portal/verify-load-balancer.png" alt-text="Test load balancer with web browser." border="true":::
 
 6. Select refresh in the browser to see the traffic balanced to the other virtual machines in the backend pool.
 
