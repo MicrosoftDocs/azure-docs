@@ -122,8 +122,8 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |  {your_tenant_extensions_appid}   |  App ID of your tenant's storage application   |  01234567-89ab-cdef-0123-456789abcdef  |
 |   {your_tenant_extensions_app_objectid}  | Object ID of your tenant's storage application    | 01234567-89ab-cdef-0123-456789abcdef   |
 |   {your_app_insights_instrumentation_key}  |   Instrumentation key of your app insights instance*  |   01234567-89ab-cdef-0123-456789abcdef |
-|  {your_ui_base_url}   | Endpoint in your app service from where your UI files are served    | https://yourapp.azurewebsites.net/B2CUI/GetUIPage   |
-|   {your_app_service_url}  | URL of your app service    |  https://yourapp.azurewebsites.net  |
+|  {your_ui_base_url}   | Endpoint in your app service from where your UI files are served    | `https://yourapp.azurewebsites.net/B2CUI/GetUIPage`   |
+|   {your_app_service_url}  | URL of your app service    |  `https://yourapp.azurewebsites.net`  |
 |   {your-facebook-app-id}  |  App ID of the facebook app you configured for federation with Azure AD B2C   | 000000000000000   |
 |  {your-facebook-app-secret}   |  Name of the policy key you've saved facebook's app secret as   | B2C_1A_FacebookAppSecret   |
 

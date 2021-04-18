@@ -14,9 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Add a simulated device to your IoT Central application
 
-*This article applies to operators, builders, and administrators.*
-
-A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. From a device template, a builder or operator can add both real and simulated devices to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
+A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. Using a device template you can add both real and simulated devices to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
 
 In this quickstart, you add a device template for an ESP32-Azure IoT Kit development board and create a simulated device. To complete this quickstart you don't need a real device, you work with a simulation of the device. An ESP32 device:
 
@@ -30,8 +28,6 @@ In this quickstart, you add a device template for an ESP32-Azure IoT Kit develop
 Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Custom application** template.
 
 ## Create a device template
-
-As a builder, you can create and edit device templates in your IoT Central application. After you publish a device template, you can generate simulated device or connect real devices from the device template. Simulated devices let you test the behavior of your application before you connect a real device.
 
 To add a new device template to your application, select the **Device Templates** tab in the left pane.
 
@@ -53,7 +49,7 @@ The following steps show you how to use the device catalog to import the model f
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
 
-1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a preconfigured device template** section.
+1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
 
 1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
 
@@ -82,7 +78,7 @@ A device template can include cloud properties. Cloud properties only exist in t
 
 ## Views
 
-As a builder, you can customize the application to display relevant information about the device to an operator. Your customizations enable the operator to manage the devices connected to the application. You can create two types of views for an operator to use to interact with devices:
+You can customize the application to display relevant information about the device. Customizations enable other to manage the devices connected to the application. You can create two types of views to interact with devices:
 
 * Forms to view and edit device and cloud properties.
 * Dashboards to visualize devices including the telemetry they send.
@@ -91,13 +87,13 @@ As a builder, you can customize the application to display relevant information 
 
 Default views are a quick way to get started with visualizing your important device information. You can have up to three default views generated for your device template:
 
-* The **Commands** view lets your operator dispatch commands to your device.
+* The **Commands** view lets you dispatch commands to your device.
 * The **Overview** view uses charts and metrics to display device telemetry.
 * The **About** view displays device properties.
 
 Select the **Views** node in the device template. You can see that IoT Central generated an **Overview** and an **About** view for you when you added the template.
 
-To add a new **Manage device** form that an operator can use to manage the device:
+To add a new form to manage the device:
 
 1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
 
@@ -117,25 +113,23 @@ To publish a device template:
 
 1. Navigate to your **Sensor Controller** device template from the **Device templates** page.
 
-1. Select **Publish**:
+1. Select **Publish** from the command bar at the top of the page.
 
-    :::image type="content" source="media/quick-create-simulated-device/published-model.png" alt-text="Screenshot showing location of publish icon":::
+1. On the dialog that appears, select **Publish**.
 
-1. On the **Publish this device template to the application** dialog, select **Publish**.
-
-After you publish a device template, it's visible on the **Devices** page. In a published device template, you can't edit a device model without creating a new version. However, you can modify cloud properties, customizations, and views in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
+After you publish a device template, it's visible on the **Devices** page. In a published device template, you can't edit a device model without creating a new version. However, you can modify cloud properties, customizations, and views in a published device template without versioning. After making any changes, select **Publish**  to push those changes for real and simulated devices to use.
 
 ## Add a simulated device
 
 To add a simulated device to your application, you use the **ESP32** device template you created.
 
-1. To add a new device as an operator choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **Sensor Controller** device template for the ESP32 device. Select **Sensor Controller**.
+1. To add a new device choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **Sensor Controller** device template for the ESP32 device. Select **Sensor Controller**.
 
 1. To add a simulated DevKit device, select **+ New**. Use the suggested **Device ID** or enter your own. A device ID can contain letters, numbers, and the `-` character. You can also enter a name for your new device. Make sure the **Simulate this device** is set to **Yes** and then select **Create**.
 
     :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Screenshot that shows the simulated Sensor Controller device":::
 
-Now you can interact with the views that were created by the builder for the device template using simulated data:
+Now you can interact with the views that created earlier using simulated data:
 
 1. Select your simulated device on the **Devices** page
 
@@ -147,25 +141,9 @@ Now you can interact with the views that were created by the builder for the dev
 
     * The **Commands** view lets you run commands, such as **reboot** on the device.
 
-    * The **Manage devices** view is the form you created for the operator to manage the device.
+    * The **Manage devices** view is the form you created to manage the device.
 
     * The **Raw data** view lets you view the raw telemetry and property values sent by the device. This view is useful for debugging devices.
-
-## Use a simulated device to improve views
-
-After you create a new simulated device, the builder can use this device to continue to improve and build upon the views for the device template.
-
-1. Choose **Device templates** in the left pane and select the **Sensor Controller** template.
-
-1. Select any of the views you'd like to edit such as **Overview**, or create a new view. Select **Configure preview device**, then **Select from a running device**. Here you can choose to have no preview device, a real device configured for testing, or an existing device you've added into IoT Central.
-
-1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
-
-    :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Screenshot showing a configured preview device":::
-
-## Clean up resources
-
-[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 
