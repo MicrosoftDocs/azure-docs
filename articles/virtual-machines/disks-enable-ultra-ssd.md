@@ -20,6 +20,13 @@ Azure ultra disks offer high throughput, high IOPS, and consistent low latency d
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
++
+As there is no option to change the disk configuration(SKU) from Ultra SSD to any. If the SKU has to changed 
+1. Create an empty disk 
+2. Attach it to the same VM
+3.  Manually copy the data from ultrassd disk to the newly created disk within the VM.
++
+
 ## Determine VM size and region availability
 
 ### VMs using availability zones
