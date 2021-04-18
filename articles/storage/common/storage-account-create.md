@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/19/2021
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -100,9 +100,9 @@ N/A
 
 ## Create a storage account
 
-A storage account is an Azure Resource Manager resource. Azure Resource Manager is the deployment and management service for Azure. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
+A storage account is an Azure Resource Manager resource. Resource Manager is the deployment and management service for Azure. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-Every Azure Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This how-to shows how to create a new resource group.
+Every Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This how-to shows how to create a new resource group.
 
 # [Portal](#tab/azure-portal)
 
@@ -115,7 +115,7 @@ Options for your new storage account are organized into tabs in the **Create a s
 
 ### Basics tab
 
-On the **Basics** tab, you will provide the essential information for your storage account. After you complete the **Basics** tab, you can choose to further customize your new storage account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
+On the **Basics** tab, provide the essential information for your storage account. After you complete the **Basics** tab, you can choose to further customize your new storage account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
 
 The following table describes the fields on the **Basics** tab.
 
@@ -179,7 +179,7 @@ The following table describes the fields on the **Data protection** tab.
 
 ### Tags tab
 
-On the Tags tab, you can specify Azure Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
+On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
 
 ### Review + create tab
 
@@ -189,7 +189,7 @@ If validation fails, then the portal indicates which settings need to be modifie
 
 # [PowerShell](#tab/azure-powershell)
 
-To create a general-purpose v2 storage account with PowerShell, first create a new resource group by calling the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
+To create a standard general-purpose v2 storage account with PowerShell, first create a new resource group by calling the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
 ```azurepowershell-interactive
 $resourceGroup = "<resource-group>"
@@ -213,22 +213,22 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account in order to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `-EnableHierarchicalNamespace $True` parameter on the call to the **New-AzStorageAccount** command.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `-EnableHierarchicalNamespace $True` parameter on the call to the **New-AzStorageAccount** command.
 
 The following table shows which values to use for the `-SkuName` and `-Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
 | Type of storage account | Supported redundancy configurations | Value for the -Kind parameter | Possible values for the -SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
-| Premium block blob | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
-| Premium file share | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
-| Premium page blob | LRS | StorageV2 | Premium_LRS | No |
+| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
+| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
 | Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 | Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az_group_create) command.
+To create a standard general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create \
@@ -244,7 +244,7 @@ az account list-locations \
   --out table
 ```
 
-Next, create a general-purpose v2 storage account with read-access geo-redundant storage by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Next, create a standard general-purpose v2 storage account with read-access geo-redundant storage by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurecli-interactive
 az storage account create \
@@ -255,16 +255,16 @@ az storage account create \
   --kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account in order to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
 
 The following table shows which values to use for the `-sku` and `-kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
 | Type of storage account | Supported redundancy configurations | Value for the -kind parameter | Possible values for the -sku parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
-| Premium block blob | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
-| Premium file share | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
-| Premium page blob | LRS | StorageV2 | Premium_LRS | No |
+| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
+| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
 | Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 | Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
@@ -290,7 +290,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri "h
 ```
 
 > [!NOTE]
-> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabledad` property of the `StorageAccountPropertiesCreateParameters` object to `true`. 
+> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabledad` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
 
 To learn how to modify this template or create new ones, see:
 
@@ -356,5 +356,5 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 
 - [Storage account overview](storage-account-overview.md)
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
-- [Move an Azure Storage account to another region](storage-account-move.md)
+- [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
