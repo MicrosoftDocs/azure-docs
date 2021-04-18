@@ -19,7 +19,7 @@ ms.author: janutter
 
 # Quickstart: Sign in users and get an access token in an Angular single-page application
 
-In this quickstart, you'll download and run a code sample that demonstrates how an Angular single-page application (SPA) can sign in users and call Microsoft Graph. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
+In this quickstart, you download and run a code sample that demonstrates how an Angular single-page application (SPA) can sign in users and call Microsoft Graph. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In this quickstart, you'll download and run a code sample that demonstrates how 
 >
 > ### Option 1 (express): Register and automatically configure the app, and then download the code sample
 >
-> 1. Go to the [Azure portal - app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
 > 1. On the quickstart pane, find the Angular quickstart. Follow the instructions to download and automatically configure your new application.
 >
@@ -43,7 +43,7 @@ In this quickstart, you'll download and run a code sample that demonstrates how 
 >
 > #### Step 1: Register the application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com/).
+> 1. Sign in to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
 > 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.
@@ -65,7 +65,7 @@ In this quickstart, you'll download and run a code sample that demonstrates how 
 >To run the project with a web server by using Node.js, clone the [sample repository](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) or [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Open the files in an editor such as Visual Studio Code.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip).
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
 
 > [!div renderon="docs"]
 >#### Step 3: Configure the JavaScript app
