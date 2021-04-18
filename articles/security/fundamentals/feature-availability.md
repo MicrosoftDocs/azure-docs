@@ -172,6 +172,7 @@ The following table lists the current Sentinel feature availability between Azur
 | - [Proofpoint On Demand Email Security](/azure/sentinel/connect-proofpoint-pod)             | Public Preview | Not Available      |
 | - [Proofpoint TAP](/azure/sentinel/connect-proofpoint-tap)                                   | Public Preview | Public Preview |
 | - [Pulse Connect Secure](/azure/sentinel/connect-proofpoint-tap)                             | Public Preview | Public Preview |
+| - [Qualys  VM KnowledgeBase](/azure/sentinel/connect-data-sources)                  | Public Preview | Public Preview |
 | - [Qualys Vulnerability Management](/azure/sentinel/connect-qualys-vm)                  | Public Preview | Public Preview |
 | - [Salesforce Service Cloud](/azure/sentinel/connect-salesforce-service-cloud)                         | Public Preview | Not Available      |
 | - [SonicWall Firewall ](/azure/sentinel/connect-sophos-cloud-optix)                              | Public Preview | Public Preview |
@@ -371,7 +372,7 @@ Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, wh
 | - GCC | Public Preview| -|
 | - GCC High |-|Public Preview |
 | - Office DoD |- |Public Preview |
-| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security))**                  <br>Alerts                    |              |                      |
+| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)**                  <br>Alerts                    |              |                      |
 | - GCC | Public Preview| -|
 | - GCC High |-|Public Preview |
 | - Office DoD |- |Public Preview |
