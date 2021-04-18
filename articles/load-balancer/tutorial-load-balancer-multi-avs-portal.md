@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Create a load balancer with multiple virtual machine availability sets - Azure portal'
+title: 'Tutorial: Create a load balancer with more than one availability set in the backend pool - Azure portal'
 titleSuffix: Azure Load Balancer
-description: In this tutorial, deploy an Azure Load Balancer with multiple virtual machine availability sets in the backend pool. 
+description: In this tutorial, deploy an Azure Load Balancer with more than one availability set in the backend pool.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -10,9 +10,11 @@ ms.topic: tutorial
 ms.date: 04/16/2021
 ms.custom: template-tutorial
 ---
-# Tutorial: Create a load balancer with multiple virtual machine availability sets using the Azure portal 
+# Tutorial: Create a load balancer with more than one availability set in the backend pool using the Azure portal
 
-As part of a high availability deployment, virtual machines are often grouped into multiple Azure Virtual Machine availability sets. Azure Load Balancer supports multiple groups of virtual machines in availability sets in the backend pool of the load balancer.
+As part of a high availability deployment, virtual machines are often grouped into multiple availability sets. 
+
+Load Balancer supports more than one availability set with virtual machines in the backend pool.
 
 In this tutorial, you learn how to:
 
@@ -40,7 +42,7 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 4. Select **+ Create**.
 
-5. In the **Basics** tab of the **Create virtual network**, enter or select the following information:
+5. In the **Basics** tab of the **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ------|
@@ -51,7 +53,7 @@ In this section, you'll create a virtual network for the load balancer and the o
     | Name | Enter **myVNet**. |
     | Region | Select **(US) West US 2**. |
 
-6. Select the **IP addresses** tab, or the **Next:IP Addresses** button at the bottom of the page.
+6. Select the **IP addresses** tab, or the **Next: IP Addresses** button at the bottom of the page.
 
 7. In the **IP addresses** tab, under **Subnet name** select **default**.
 
@@ -59,7 +61,7 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 9. Select **Save**.
 
-10. Select the **Security** tab, or the **Next:Security** button at the bottom of the page.
+10. Select the **Security** tab, or the **Next: Security** button at the bottom of the page.
 
 11. In the **Security** tab, in **BastionHost** select **Enable**.
 
@@ -77,7 +79,7 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 ## Create NAT gateway 
 
-In this section, you'll create a NAT gateway for outbound connectivity of the virtual machines that are placed in the virtual network and subnet you created previously.
+In this section, you'll create a NAT gateway for outbound connectivity of the virtual machines.
 
 1. In the search box at the top of the portal, enter **NAT gateway**.
 
@@ -98,7 +100,7 @@ In this section, you'll create a NAT gateway for outbound connectivity of the vi
     | Availability zone | Select **None**. |
     | Idle timeout (minutes) | Enter **15**. |
 
-5. Select the **Outbound IP** tab, or select the **Next:Outbound IP** button at the bottom of the page.
+5. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
 
 6. Select **Create a new public IP address** next to **Public IP addresses** in the **Outbound IP** tab.
 
@@ -106,7 +108,7 @@ In this section, you'll create a NAT gateway for outbound connectivity of the vi
 
 8. Select **OK**.
 
-9. Select the **Subnet** tab, or select the **Next:Subnet** button at the bottom of the page.
+9. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
 
 10. Select **myVNet** in the pull-down menu under **Virtual network**.
 
@@ -118,7 +120,7 @@ In this section, you'll create a NAT gateway for outbound connectivity of the vi
 
 ## Create load balancer
 
-In this section you'll create a load balancer for the virtual machines.
+In this section, you'll create a load balancer for the virtual machines.
 
 1. In the search box at the top of the portal, enter **Load balancer**.
 
@@ -126,7 +128,7 @@ In this section you'll create a load balancer for the virtual machines.
 
 3. Select **+ Create**.
 
-4. In the **Basics** tab of **Create load balancer**, enter or select the following information:
+4. In the **Basics** tab of **Create load balancer**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -154,7 +156,7 @@ In this section you'll create a load balancer for the virtual machines.
 
 In this section, you'll create a backend pool for **myLoadBalancer**.
 
-You'll create a health probe to monitor **HTTP** and **Port 80**. The health probe will monitor the health of the virtual machines in the backend pool. Traffic will be redirected to the healthy virtual machines.
+You'll create a health probe to monitor **HTTP** and **Port 80**. The health probe will monitor the health of the virtual machines in the backend pool. 
 
 You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled. The NAT gateway you created earlier will handle the outbound connectivity of the virtual machines.
 
@@ -196,11 +198,11 @@ You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled.
 
 11. Select **Add**.
 
-12. Select **Load balancing rules**. 
+12. Select **Load-balancing rules**. 
 
 13. Select **+ Add**.
 
-14. Enter or select the following information in **Add load balancing rule**:
+14. Enter or select the following information in **Add load-balancing rule**:
 
     | Setting | Value |
     | ------- | ----- |
@@ -222,7 +224,7 @@ You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled.
 
 ## Create virtual machines
 
-In this section you'll create two availability groups with two virtual machines per group. These machines will be added to the backend pool of the load balancer during creation. 
+In this section, you'll create two availability groups with two virtual machines per group. These machines will be added to the backend pool of the load balancer during creation. 
 
 ### Create first set of VMs
 
@@ -230,7 +232,7 @@ In this section you'll create two availability groups with two virtual machines 
 
 2. In **New**, select **Compute** > **Virtual machine**.
 
-3. In the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+3. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -251,7 +253,7 @@ In this section you'll create two availability groups with two virtual machines 
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
-4. Select the **Networking** tab, or select the **Next:Disks**, then **Next:Networking** button at the bottom of the page.
+4. Select the **Networking** tab, or select the **Next: Disks**, then **Next: Networking** button at the bottom of the page.
 
 5. In the **Networking** tab, enter or select the following information:
 
@@ -262,11 +264,11 @@ In this section you'll create two availability groups with two virtual machines 
     | Subnet | Select **myBackendSubnet**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
-    | Configure network security group | Select **Create new**. </br> In **Name** enter **myNSG**. </br> Select **+Add an inbound rule** in **Inbound rules**. </br> Select **HTTP** for **Service**. </br> Enter **myHTTPrule** for **Name**. </br> Select **Add**. </br> Select **OK**. | 
+    | Configure network security group | Select **Create new**. </br> In Name,** enter **myNSG**. </br> Select **+Add an inbound rule** in **Inbound rules**. </br> Select **HTTP** for **Service**. </br> Enter **myHTTPrule** for **Name**. </br> Select **Add**. </br> Select **OK**. | 
     | **Load balancing** |   |
-    | Place this virtual machine behind an existing load balancing solution? | Select the check box. |
-    | **Load balancing settings** |   |
-    | Load balancing options | Select **Azure load balancer**. |
+    | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
+    | **Load-balancing settings** |   |
+    | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
 
@@ -274,7 +276,7 @@ In this section you'll create two availability groups with two virtual machines 
 
 7. Select **Create**.
 
-8. Repeat steps one through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
+8. Repeat steps 1 through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -284,7 +286,7 @@ In this section you'll create two availability groups with two virtual machines 
     | Subnet | Select **myBackendSubnet**. |
     | Public IP | Select **None**. |
     | Network security group | Select **myNSG**. |
-    | Load balancing options | Select **Azure load balancer**. |
+    | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
 
@@ -294,7 +296,7 @@ In this section you'll create two availability groups with two virtual machines 
 
 2. In **New**, select **Compute** > **Virtual machine**.
 
-3. In the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+3. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -315,7 +317,7 @@ In this section you'll create two availability groups with two virtual machines 
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
-4. Select the **Networking** tab, or select the **Next:Disks**, then **Next:Networking** button at the bottom of the page.
+4. Select the **Networking** tab, or select the **Next: Disks**, then **Next: Networking** button at the bottom of the page.
 
 5. In the **Networking** tab, enter or select the following information:
 
@@ -328,9 +330,9 @@ In this section you'll create two availability groups with two virtual machines 
     | NIC network security group | Select **Advanced**. |
     | Configure network security group | Select **myNSG**. | 
     | **Load balancing** |   |
-    | Place this virtual machine behind an existing load balancing solution? | Select the check box. |
-    | **Load balancing settings** |   |
-    | Load balancing options | Select **Azure load balancer**. |
+    | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
+    | **Load-balancing settings** |   |
+    | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
 
@@ -338,7 +340,7 @@ In this section you'll create two availability groups with two virtual machines 
 
 7. Select **Create**.
 
-8. Repeat steps one through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
+8. Repeat steps 1 through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -346,13 +348,13 @@ In this section you'll create two availability groups with two virtual machines 
     | Availability set | Select **myAvailabilitySet2**. |
     | Virtual Network | Select **myVNet**. |
     | Network security group | Select **myNSG**. |
-    | Load balancing options | Select **Azure load balancer**. |
+    | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
 
 ## Install IIS
 
-In this section, you'll use the Azure Bastion host you created during the virtual network creation to connect to the virtual machines and install IIS.
+In this section, you'll use the Azure Bastion host you created previously to connect to the virtual machines and install IIS.
 
 1. In the search box at the top of the portal, enter **Virtual machine**.
 
@@ -388,11 +390,11 @@ In this section, you'll use the Azure Bastion host you created during the virtua
    ```
 8. Close the Bastion session with **myVM1**.
 
-9. Repeat steps one through eight for **myVM2**, **myVM3**, and **myVM4**.
+9. Repeat steps 1 through eight for **myVM2**, **myVM3**, and **myVM4**.
 
 ## Test the load balancer
 
-In this section, you'll discover the public IP address of the load balancer. You'll open a web browser and connect to the public IP address and verify the operation of the load balancer.
+In this section, you'll discover the public IP address of the load balancer. You'll use the IP address to test the operation of the load balancer.
 
 1. In the search box at the top of the portal, enter **Public IP**.
 
@@ -400,7 +402,7 @@ In this section, you'll discover the public IP address of the load balancer. You
 
 3. Select **myPublicIP-lb**.
 
-4. Note the public IP address listed in **IP address** in the **Overiew** page of **myPublicIP-lb**:
+4. Note the public IP address listed in **IP address** in the **Overview** page of **myPublicIP-lb**:
 
     :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/find-public-ip.png" alt-text="Alt text here." border="true":::
 
@@ -423,16 +425,16 @@ the load balancer and the supporting resources with the following steps:
 
 4. In the overview page of **TutorLBmultiAVS-rg**, select **Delete resource group**.
 
-5. Enter **TutorLBmultiAVS-rg** in **TYPE THE RESOURCE GROUP NAME:**.
+5. Enter **TutorLBmultiAVS-rg** in **TYPE THE RESOURCE GROUP NAME**.
 
 6. Select **Delete**.
 
 ## Next steps
 
-In this tutorial you:
+In this tutorial, you:
 
 * Created a virtual network and Azure Bastion host.
-* Created a Azure Standard Load Balancer.
+* Created an Azure Standard Load Balancer.
 * Created two availability sets with two virtual machines per set.
 * Installed IIS and tested the load balancer.
 
