@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network
 > * Create a NAT gateway for outbound connectivity
-> * Create an standard SKU Azure Load Balancer
+> * Create a standard SKU Azure Load Balancer
 > * Create four virtual machines and two availability sets
 > * Add virtual machines in availability sets to backend pool of load balancer
 > * Test the load balancer
@@ -85,7 +85,7 @@ In this section, you'll create a NAT gateway for outbound connectivity of the vi
 
 3. Select **+ Create**.
 
-4. In the **Basics** tab of **Create network address translation (NAT) gateway, enter or select the following information:
+4. In the **Basics** tab of **Create network address translation (NAT) gateway**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -267,30 +267,176 @@ In this section you'll create two availability groups with two virtual machines 
     | Place this virtual machine behind an existing load balancing solution? | Select the check box. |
     | **Load balancing settings** |   |
     | Load balancing options | Select **Azure load balancer**. |
-    | Select a load balancer | 
+    | Select a load balancer | Select **myLoadBalancer**. |
+    | Select a backend pool | Select **myBackendPool**. |
 
+6. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+7. Select **Create**.
+
+8. Repeat steps one through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myVM2**. |
+    | Availability set | Select **myAvailabilitySet1**. |
+    | Virtual Network | Select **myVNet**. |
+    | Subnet | Select **myBackendSubnet**. |
+    | Public IP | Select **None**. |
+    | Network security group | Select **myNSG**. |
+    | Load balancing options | Select **Azure load balancer**. |
+    | Select a load balancer | Select **myLoadBalancer**. |
+    | Select a backend pool | Select **myBackendPool**. |
+
+### Create second set of VMs
+
+1. Select **+ Create a resource** in the upper left-hand section of the portal.
+
+2. In **New**, select **Compute** > **Virtual machine**.
+
+3. In the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription |
+    | Resource group | Select **TutorLBmultiAVS-rg**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **myVM3**. |
+    | Region | Select **(US) West US 2**. |
+    | Availability options | Select **Availability set**. |
+    | Availability set | Select **Create new**. </br> Enter **myAvailabilitySet2** in **Name**. </br> Select **OK**. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen1**. |
+    | Azure Spot instance | Leave the default of unchecked. |
+    | Size | Select a size for the virtual machine. |
+    | **Administrator account** |   |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | **Inbound port rules** |   |
+    | Public inbound ports | Select **None**. |
+
+4. Select the **Networking** tab, or select the **Next:Disks**, then **Next:Networking** button at the bottom of the page.
+
+5. In the **Networking** tab, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |   |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **myBackendSubnet**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Select **myNSG**. | 
+    | **Load balancing** |   |
+    | Place this virtual machine behind an existing load balancing solution? | Select the check box. |
+    | **Load balancing settings** |   |
+    | Load balancing options | Select **Azure load balancer**. |
+    | Select a load balancer | Select **myLoadBalancer**. |
+    | Select a backend pool | Select **myBackendPool**. |
+
+6. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+7. Select **Create**.
+
+8. Repeat steps one through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myVM4**. |
+    | Availability set | Select **myAvailabilitySet2**. |
+    | Virtual Network | Select **myVNet**. |
+    | Network security group | Select **myNSG**. |
+    | Load balancing options | Select **Azure load balancer**. |
+    | Select a load balancer | Select **myLoadBalancer**. |
+    | Select a backend pool | Select **myBackendPool**. |
+
+## Install IIS
+
+In this section, you'll use the Azure Bastion host you created during the virtual network creation to connect to the virtual machines and install IIS.
+
+1. In the search box at the top of the portal, enter **Virtual machine**.
+
+2. Select **Virtual machines** in the search results.
+
+3. Select **myVM1**.
+
+4. In the **Overview** page of myVM1, select **Connect** > **Bastion**.
+
+5. Select **Use Bastion**.
+
+6. Enter the **Username** and **Password** you created when you created the virtual machine.
+
+7. Select **Connect**.
+
+7. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
+
+8. In the PowerShell Window, run the following commands to:
+
+    * Install the IIS server
+    * Remove the default iisstart.htm file
+    * Add a new iisstart.htm file that displays the name of the VM:
+
+   ```powershell
+    # Install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # Remove default htm file
+    Remove-Item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+8. Close the Bastion session with **myVM1**.
+
+9. Repeat steps one through eight for **myVM2**, **myVM3**, and **myVM4**.
+
+## Test the load balancer
+
+In this section, you'll discover the public IP address of the load balancer. You'll open a web browser and connect to the public IP address and verify the operation of the load balancer.
+
+1. In the search box at the top of the portal, enter **Public IP**.
+
+2. Select **Public IP addresses** in the search results.
+
+3. Select **myPublicIP-lb**.
+
+4. Note the public IP address listed in **IP address** in the **Overiew** page of **myPublicIP-lb**:
+
+    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/find-public-ip.png" alt-text="Alt text here." border="true":::
+
+5. Open a web browser and enter the public IP address in the address bar:
+
+    :::image type="content" source="./media/tutorial-load-balancer-multi-avs-portal/verify-load-balancer.png" alt-text="Alt text here." border="true":::
+
+6. Select refresh in the browser to see the traffic balanced to the other virtual machines in the backend pool.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+the load balancer and the supporting resources with the following steps:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+1. In the search box at the top of the portal, enter **Resource group**.
 
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+2. Select **Resource groups** in the search results.
+
+3. Select **TutorLBmultiAVS-rg**.
+
+4. In the overview page of **TutorLBmultiAVS-rg**, select **Delete resource group**.
+
+5. Enter **TutorLBmultiAVS-rg** in **TYPE THE RESOURCE GROUP NAME:**.
+
+6. Select **Delete**.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+In this tutorial you:
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+* Created a virtual network and Azure Bastion host.
+* Created a Azure Standard Load Balancer.
+* Created two availability sets with two virtual machines per set.
+* Installed IIS and tested the load balancer.
+
+Advance to the next article to learn how to create a cross-region Azure Load Balancer:
+> [!div class="nextstepaction"]
+> [Create a cross-region load balancer](cross-region-portal.md)
+
