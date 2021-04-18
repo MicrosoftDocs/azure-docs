@@ -305,7 +305,7 @@ The following table lists the current Sentinel feature availability between Azur
 
 Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, while Azure Sentinel in Azure Government clouds supports GCC and Office DoD services.
 
-| Connector | Azure <sup>[1](#1)</sup> | Azure Government <sup>[2](#2)</sup> |
+| Connector | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
 | ------------------------------------ | -------------- | ---------------------- |
 | [**Azure Activity Logs**](/azure/sentinel/connect-azure-activity)                                  |              |             |
 | - GCC |GA | -|
