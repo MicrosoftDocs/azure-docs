@@ -97,6 +97,8 @@ A public IP address is one setting for a public IP address resource. If you have
 5. Click **Save** and the panes close. If you don't have an existing public IP address, you can create one by completing the steps in the [Create a public IP address resource](#create-public-ip) section of this article.
 3. Review the new IP configuration.
 4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses. Do not add the public IP address to the operating system.
-
++
+Note : Virtual machine has to be restarted after changing the IP configurations for the changes to be reflected.
++
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
