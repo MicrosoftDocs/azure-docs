@@ -1,5 +1,5 @@
 ---
-title: Face API enrollment overview
+title: Best practices for adding users to a Face service
 titleSuffix: Azure Cognitive Services
 description: Learn about the process of Face enrollment to register users in a face recognition service.
 author: PatrickFarley
@@ -12,7 +12,7 @@ ms.date: 11/17/2020
 ms.author: pafarley
 ---
 
-# Face API enrollment
+# Best practices for adding users to a Face service
 
 In order to use the Cognitive Services Face API for face verification or identification, you need to enroll faces into a **LargePersonGroup**. This deep-dive demonstrates best practices for gathering meaningful consent from users as well as example logic to create high-quality enrollments that will optimize recognition accuracy.  
 
