@@ -323,11 +323,11 @@ To install:
 
 1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows version selection.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select your sensor version and enterprise type.":::   
 
-1. Define the appliance profile and network properties:
+1. Define the appliance profile, and network properties:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile, and network properties.":::   
 
    | Parameter | Configuration |
    |--|--|
@@ -465,7 +465,7 @@ To install the software:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
-1. In the Installation Wizard, define the appliance profile and network properties:
+1. In the Installation Wizard, define the appliance profile, and network properties:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -549,7 +549,7 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
-1. In the Installation Wizard, define the appliance profile and network properties.
+1. In the Installation Wizard, define the appliance profile, and network properties.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -675,7 +675,7 @@ To install:
 
 1. Select the required architecture.
 
-1. Define the appliance profile and network properties:
+1. Define the appliance profile, and network properties:
 
     | Parameter | Configuration |
     | ----------| ------------- |
@@ -700,17 +700,21 @@ To install:
 
 ## Dell R340 on-premises management console installation
 
+The installation process takes about 20 minutes. After the installation, the system is restarted several times. 
+
+During the installation process you will have the option to add a secondary NIC. If you choose not to install the secondary NIC during installation you can [add a secondary NIC](#add-a-secondary-nic)at a later time. 
+
 To install the software:
 
-1. Select **English**.
+1. Select your preferred language for the installation process.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preffered language for the installation process.":::     
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::     
 
 1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Screenshot that shows version selection.":::   
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::   
 
-1. Define the appliance profile and network properties:
+1. In the Installation Wizard, define the appliance profile, and network properties:
 
    :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::   
 
@@ -722,7 +726,7 @@ To install the software:
    | **configure DNS:** | **provided by the customer** |
    | **configure default gateway IP address:** | **provided by the customer** |
    
-1. **(Optional)** If you would like to install a secondary network interface (NIC)
+1. **(Optional)** If you would like to install a secondary network interface (NIC), define the following appliance profile, and network properties:
 
     :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
 
@@ -738,7 +742,7 @@ To install the software:
 
    :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::  
 
-   Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
+   Save the usernames, and passwords, you'll need these credentials to access the platform the first time you use it.
 
 1. Select **Enter** to continue.
 
@@ -750,7 +754,7 @@ Both NICs have the user interface (UI) enabled. When routing is not neccessary, 
 
 If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
 
-If you have already configured your on-premises management console and would like to add a second NIC on your on-premises management console you can by using the following steps:
+If you have already configured your on-premises management console and would like to add a second NIC on your on-premises management console, you can by using the following steps:
 
 1. Use the network reconfigure command:
     ```bash
@@ -765,7 +769,7 @@ If you have already configured your on-premises management console and would lik
     | **Subnet mask** | `N` |
     | **DNS** | `N` |
     | **Default gateway IP Address** | `N` |
-    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions)**| `Y`, `eth1` |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, `eth1` |
     | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `y`, **provided by the customer**|
     | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `y`, **provided by the customer** |
     | **Hostname** | **provided by the customer** |
@@ -892,11 +896,7 @@ To create a virtual machine by using Hyper-V:
 
 ### Software installation (ESXi and Hyper-V)
 
-Starting the virtual machine will start the installation process from the ISO image. To enhance security, you can create a second network interface on your on-premises management console. One network interface is dedicated for your users, and can support the configuration of a gateway for routed networks. The second network interface is dedicated to the all attached sensors within an IP address range.
-
-Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. High Availability will run on the secondary network interface.
-
-If you choose not to deploy a secondary network interface, all of the features will be available through the primary network interface. 
+Starting the virtual machine will start the installation process from the ISO image.
 
 To install the software:
 
@@ -906,22 +906,9 @@ To install the software:
 
 1. Define the network interface for the sensor management network: interface, IP, subnet, DNS server, and default gateway.
 
-1. (Optional) Add a second network interface to your on-premises management console.
+1. Sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
 
-    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
-    
-    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
-    
-    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
-
-1. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
-
-    | Username | Description |
-    |--|--|
-    | Support | The administrative user for user management. |
-    | CyberX | The equivalent of root for accessing the appliance. |
-
-1. The appliance restarts.
+   The appliance will then reboot.
 
 1. Access the management console via the IP address previously configured: `<https://ip_address>`.
 
