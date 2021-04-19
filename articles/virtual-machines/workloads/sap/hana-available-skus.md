@@ -14,6 +14,7 @@ ms.workload: infrastructure
 ms.date: 4/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+ms.custom: references_regions
 
 ---
 # Available SKUs for HANA Large Instances
