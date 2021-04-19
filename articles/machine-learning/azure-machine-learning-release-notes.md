@@ -23,10 +23,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.27.0
 + **Bug fixes and improvements**
-  + **azureml-automl-core**
-    + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
-  + **azureml-automl-runtime**
-    + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
   + **azureml-core**
     + Added the ability to override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable.
     + Fixed a bug where docker settings in Environment object on ScriptRunConfig are not respected.
