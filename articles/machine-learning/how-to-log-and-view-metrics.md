@@ -96,7 +96,7 @@ For the individual Experiment view, select the **All experiments** tab. On the e
 You can also edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs. You can plot multiple metrics on the y-axis of your chart and customize your x-axis to plot your logged metrics. 
 
 
-![Run details in the Azure Machine Learning studio](media/how-to-log-and-view-metrics/metricslog.gif)
+![Run details in the Azure Machine Learning studio](media/how-to-log-and-view-metrics/metrics-log.gif)
 
 
 ### View and download log files for a run 
