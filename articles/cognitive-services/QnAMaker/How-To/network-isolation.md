@@ -17,7 +17,7 @@ You should follow the steps below to restrict public access to QnA Maker resourc
 
 You can add IPs to App service allow list to restrict access or Configure App Service Environment to host QnA Maker App Service.
 
-### Add IPs to App Service allow list
+#### Add IPs to App Service allow list
 
 1. Allow traffic only from Cognitive Services IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
 2. Make sure you also allow other entry points like Azure Bot Service, QnA Maker portal, etc. for prediction "GenerateAnswer" API access.
@@ -29,7 +29,7 @@ You can add IPs to App service allow list to restrict access or Configure App Se
 
 We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allow list](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allow list.
 
-### Configure App Service Environment to host QnA Maker App Service
+#### Configure App Service Environment to host QnA Maker App Service
     
 The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
 
