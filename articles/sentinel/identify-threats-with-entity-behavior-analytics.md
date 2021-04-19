@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2021
+ms.date: 04/19/2021
 ms.author: yelevin
 
 ---
@@ -140,7 +140,7 @@ You can use the [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Noteb
 
 Permission analytics helps determine the potential impact of the compromising of an organizational asset by an attacker. This impact is also known as the asset's "blast radius." Security analysts can use this information to prioritize investigations and incident handling.
 
-Azure Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Alex Johnson. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Alex has Contributor access to the Azure subscription *Contoso Hotels Tenant*. The access control model of the subscription is Azure RBAC.   
+Azure Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Alex Johnson. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Alex has Contributor access to the Azure subscription *Contoso Hotels Tenant*. The access control model of the subscription is Azure RBAC.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screen shot of user access analytics table":::
 
@@ -157,50 +157,12 @@ For more information, see:
 
 As legacy defense tools become obsolete, organizations may have such a vast and porous digital estate that it becomes unmanageable to obtain a comprehensive picture of the risk and posture their environment may be facing. Relying heavily on reactive efforts, such as analytics and rules, enable bad actors to learn how to evade those efforts. This is where UEBA comes to play, by providing risk scoring methodologies and algorithms to figure out what is really happening.
 
-## Common methods for using UEBA data
-
-The following sections describe common methods for using UEBA analytics data in your regular workflows.
-### Proactive, routine searches in entity data
-
-We recommend running regular, proactive searches through user activity to create leads for further investigation.
-
-Use the Azure Sentinel [User and Entity Behavior Analytics workbook](#hunting-queries-and-exploration-queries) to query your data, such as for:
-
-- **Top risky users**, with anomalies or attached incidents
-- **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile.
-
-Use the **User and Entity Behavior Analytics** workbook to capture non-routine actions and find anomalous activities and potentially non-compliance practices. For example, a user who connects to a VPN when they never have before would be an anomalous activity.
-
-In this case, search for the user 
-
-### Use UEBA data to analyze false positives
-
-Sometimes, an incident captured in an investigation is a false positive.
-
-A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour. While Azure Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was.
-
-For example, in an **Impossible travel** incident, the incident description includes details about the impossible activity detected. 
-
-1. Select **Investigate** to find out more.
-1. In the **Investigation** page, select an user entity to view the full entity details page for that user. 
-
-    - Use the [Timeline](#the-timeline) to view the chronological succession of events.
-    - Select the [user entity](#entity-pages) to view the full entity details page. 
-    - Select **Insights** on the right to help you determine whether the locations captured are included in the user's commonly known locations.
-
-> [!TIP]
-> - When dealing with an impossible travel detection, you can also use the **Anomalous Geo Location** UEBA hunting query, which picks up any critical information such as user insights, device insights, and activity insights for defined users.
->
->- You might also want to run another query to verify whether the user with anomalous location activity has peers who often connect from the same locations. If so, this incident would be more clearly a false positive.
-
-### Identify password spray and spear phishing attempts
-
-If you are investigating a Potential Password Spray or Spear Phishing incident, you might want to use the built-in **Insights** area on the investigation graph for the relevant user before your restrict the account.
-
-For even more details, view the full [Entity Behavior](#entity-pages) page for your user, which displays any historical alerts or past sign-in anomalies.
 
 ## Next steps
 In this document, you learned about Azure Sentinel's entity behavior analytics capabilities. For practical guidance on implementation, and to use the insights you've gained, see the following articles:
 
 - [Enable entity behavior analytics](./enable-entity-behavior-analytics.md) in Azure Sentinel.
+- [Investigate incidents with UEBA data](investigate-with-ueba.md).
 - [Hunt for security threats](./hunting.md).
+
+For more information, also see the [Azure Sentinel UEBA enrichments reference](ueba-enrichments.md).
