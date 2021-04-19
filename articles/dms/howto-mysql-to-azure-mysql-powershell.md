@@ -62,7 +62,7 @@ To complete these steps, you need:
 
 * Azure Database for MySQL supports only InnoDB tables. To convert MyISAM tables to InnoDB, see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html)
 * The user must have the privileges to read data on the source database.
-* The guide uses PowerShell v7.1 with PSEdition Core which can be installed as per the [installation guide](/powershell/scripting/install/installing-powershell?view=powershell-7.1)
+* The guide uses PowerShell v7.1 with PSEdition Core which can be installed as per the [installation guide](/powershell/scripting/install/installing-powershell?view=powershell-7.1&preserve-view=true)
 * Download and install following modules from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](/powershell/module/powershellget/Install-Module); be sure to open the PowerShell command window using run as an Administrator:
     * Az.Resources
     * Az.Network
@@ -191,7 +191,7 @@ else { LogMessage -Message "Resource group $ResourceGroupName exists." }
 
 ## Step 4: Create an instance of Azure Database Migration Service
 
-You can create new instance of Azure Database Migration Service by using the [New-AzDataMigrationService](powershell/module/az.datamigration/new-azdatamigrationservice) command. This command expects the following required parameters:
+You can create new instance of Azure Database Migration Service by using the [New-AzDataMigrationService](/powershell/module/az.datamigration/new-azdatamigrationservice) command. This command expects the following required parameters:
 * *Azure Resource Group name*. You can use [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command to create Azure Resource group as previously shown and provide its name as a parameter.
 * *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service 
 * *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia
