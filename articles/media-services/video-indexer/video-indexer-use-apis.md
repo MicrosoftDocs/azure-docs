@@ -60,7 +60,9 @@ Each call to the Operations API should be associated with an access token, match
 - Account level: Account level access tokens let you perform operations on the **account** level or the **video** level. For example, upload video, list all videos, get video insights, and so on.
 - Video level: Video level access tokens let you perform operations on a specific **video**. For example, get video insights, download captions, get widgets, and so on.
 
-You can control whether these tokens are read-only or if they allow editing by specifying **allowEdit=true/false**.
+You can control the permission level of tokens in 2 ways:
+1. For **Account** tokens you can use the **Get Account Access Token With Permission** API and specify the permission type (**Reader**/**Contributor**/**MyAccessManager**/**Owner**).
+2. For all types of tokens (including **Account** tokens) you can specify **allowEdit=true/false**. **false** is the equivalent of a **Reader** permission (read-only) and **true** is the equivalent of a **Contributor** permission (read-write).
 
 For most server-to-server scenarios, you'll probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you're planning to make client side calls to Video Indexer (for example, from JavaScript), you would want to use a **video** access token to prevent clients from getting access to the entire account. That's also the reason that when embedding Video Indexer client code in your client (for example, using **Get Insights Widget** or **Get Player Widget**), you must provide a **video** access token.
 
