@@ -4,7 +4,7 @@ description: Learn how to trian models (create jobs) using Azure CLI extension f
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: how-to
 
 ms.author: lostmygithubaccount
 author: copeters
@@ -24,6 +24,8 @@ Words
 ## Basic job
 
 ## Override? 
+
+
 
 ## Next steps
 

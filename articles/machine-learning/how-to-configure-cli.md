@@ -4,7 +4,7 @@ description: Learn how to use the new Azure CLI extension for Machine Learning t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: how-to
 
 ms.author: lostmygithubaccount
 author: copeters
@@ -31,9 +31,13 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ## Installation
 
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="create_resource_group":::
+
 ## Setup
 
 ## Hello world
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
 
 ## Creating and using remote compute
 
@@ -42,6 +46,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 ## Known limitations
 
 ## Tips & tricks
+
 
 ## Next steps
 
