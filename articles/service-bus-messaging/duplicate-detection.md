@@ -41,30 +41,8 @@ Enabling duplicate detection and the size of the window directly impact the queu
 
 Keeping the window small means that fewer message-ids must be retained and matched, and throughput is impacted less. For high throughput entities that require duplicate detection, you should keep the window as small as possible.
 
-### Using the portal
-
-In the portal, the duplicate detection feature is turned on during entity creation with the **Enable duplicate detection** check box, which is off by default. The setting for creating new topics is equivalent.
-
-![Screenshot of the Create queue dialog box with the Enable duplicate detection option selected and outlined in red.][1]
-
-> [!IMPORTANT]
-> You can't enable/disable duplicate detection after the queue is created. You can only do so at the time of creating the queue. 
-
-The duplicate detection history time window can be changed in the queue and topic properties window in the Azure portal.
-
-![Screenshot of the Service Bus feature with the Properties setting highlighted adn the Duplicate detection history option outlined in red.][2]
-
-### Using SDKs
-
-You can any of our SDKs across .NET, Java, JavaScript, Python and Go to enable duplicate detection feature when creating queues and topics. You can also change the duplicate detection history time window.
-The properties to update when creating queues and topics to achieve this are:
-- `RequiresDuplicateDetection`
-- `DuplicateDetectionHistoryTimeWindow`
-
-Please note that while the property names are provided in pascal casing here, JavaScript and Python SDKs will be using camel casing and snake casing respectively.
-
 ## Next steps
-You can enable duplicate message detection using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable duplicate message detection](duplicate-detection-enable.md). 
+You can enable duplicate message detection using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable duplicate message detection](enable-duplicate-detection.md). 
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

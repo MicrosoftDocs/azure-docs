@@ -9,7 +9,8 @@ ms.date: 04/19/2021
 Enabling duplicate detection helps keep track of the application-controlled message ID of all messages sent into a queue or topic during a specified time window. If any new message is sent with the message ID that was logged during the time window, the message is considered a duplicate. For more information, See [Duplicate detection](duplicate-detection.md). This article shows you how to enable duplicate message detection for a Service Bus queue or a topic. 
 
 > [!NOTE]
-> The basic tier of Service Bus doesn't support duplicate detection. The standard and premium tiers support duplicate detection. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+> - The basic tier of Service Bus doesn't support duplicate detection. The standard and premium tiers support duplicate detection. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+> - You can't enable or disable duplicate detection after the queue or topic is created. You can only do so at the time of creating the queue or topic. 
 
 ## Azure portal
 When creating a **queue** in the Azure portal, select **Enable duplicate detection** as shown in the following image. 
