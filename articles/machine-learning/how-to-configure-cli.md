@@ -41,7 +41,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-command: >-
+command: |
   python -c "print('hello world')"
 environment:
   docker:
@@ -58,6 +58,7 @@ compute:
 
 ## Tips & tricks
 
+open
 
 ## Next steps
 
