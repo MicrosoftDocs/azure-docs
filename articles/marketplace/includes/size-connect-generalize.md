@@ -36,7 +36,7 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 ### Capture image
 
 > [!NOTE]
-> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have an Owner access to the SIG.
+>  The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have an Owner access to the SIG.
 
 Once your VM is ready, you can capture it in a Azure shared image gallery. Follow the below steps to capture:
 
