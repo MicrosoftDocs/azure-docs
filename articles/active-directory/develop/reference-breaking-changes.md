@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 2/22/2021
+ms.date: 3/30/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -31,9 +31,21 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
+### Bug fix: Azure AD will no longer URL encode the state parameter twice.
+
+**Effective date**: May 2021
+
+**Endpoints impacted**: v1.0 and v2.0 
+
+**Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
+
+A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
+
+Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
+
 ### Conditional Access will only trigger for explicitly requested scopes
 
-**Effective date**: March 2021
+**Effective date**: May 2021, with gradual rollout starting in April. 
 
 **Endpoints impacted**: v2.0
 
@@ -44,6 +56,8 @@ Applications using dynamic consent today are given all of the permissions they h
 In order to reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications so that only explicitly requested scopes trigger Conditional Access. This change may cause apps reliant on Azure AD's previous behavior (namely, providing all permissions even when they were not requested) to break, as the tokens they request will be missing permissions.
 
 Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter. 
+
+This change will be made for all apps except those with an observed dependency on this behavior.  Developers will receive outreach if they are exempted from this change, as them may have a dependency on the additional conditional access prompts. 
 
 **Examples**
 

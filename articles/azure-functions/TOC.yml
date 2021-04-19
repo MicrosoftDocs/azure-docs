@@ -360,8 +360,6 @@
           displayName: keda, container, docker
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
-        - name: On-premises functions
-          href: functions-runtime-install.md
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true

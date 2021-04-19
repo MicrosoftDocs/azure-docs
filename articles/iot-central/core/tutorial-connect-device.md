@@ -33,7 +33,7 @@ zone_pivot_groups: programming-languages-set-twenty-six
 
 *This article applies to solution builders and device developers.*
 
-This tutorial shows you how, as a device developer, to connect a client application to your Azure IoT Central application. The application simulates the behavior of a thermostat device. When the application connects to IoT Central, it sends the model ID of the thermostat device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add customizations and views to the device template to enable an operator to interact with a device.
+This tutorial shows you how, as a device developer, to connect a client application to your Azure IoT Central application. The application simulates the behavior of a temperature controller device. When the application connects to IoT Central, it sends the model ID of the temperature controller device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add customizations and views to the device template to enable an operator to interact with a device.
 
 In this tutorial, you learn how to:
 
@@ -81,7 +81,7 @@ As a device developer, you can use the **Raw data** view to examine the raw data
 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="The raw data view":::
 
-On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
+On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows device data that doesn't match any property or telemetry definitions in the device template.
 
 ## Clean up resources
 

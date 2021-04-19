@@ -5,7 +5,7 @@ description: Auto-failover groups allow you to manage replication and automatic 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2, devx-track-azurecli
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960

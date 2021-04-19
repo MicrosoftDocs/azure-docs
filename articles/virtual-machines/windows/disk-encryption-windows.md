@@ -272,6 +272,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](../disk-encryption.md).
 - Encrypting VMs in failover clusters.
+- Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
 
 ## Next steps
 

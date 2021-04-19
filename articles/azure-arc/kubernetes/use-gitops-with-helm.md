@@ -17,9 +17,17 @@ Helm is an open-source packaging tool that helps you install and manage the life
 
 This article shows you how to configure and use Helm with Azure Arc enabled Kubernetes.
 
-## Before you begin
+## Prerequisites
 
-Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./quickstart-connect-cluster.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing Azure Arc enabled Kubernetes connected cluster.
+    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
+- An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
+- Install the `k8s-configuration` Azure CLI extension of version >= 1.0.0:
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
 
 ## Overview of using GitOps and Helm with Azure Arc enabled Kubernetes
 

@@ -39,7 +39,7 @@ You can monitor the following account metrics.
 |StreamingPolicyQuota|Streaming Policy quota|Streaming Policies quota in your account.|
 |StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage|The percentage of the Streaming Policy quota already used.|
 
-You should also review [account quotas and limits](../limits-quotas-constraints.md).
+You should also review [account quotas and limits](../limits-quotas-constraints-reference.md).
 
 ### Streaming Endpoint
 

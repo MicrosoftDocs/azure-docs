@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 04/14/2021
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -144,7 +144,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 1. Select **Secondary Region** to view the items in the secondary region.
 
 >[!NOTE]
->Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
+>Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.<br></br>CRR for Azure VMs is supported for Azure Managed VMs (including encrypted Azure VMs).
 
 ![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 

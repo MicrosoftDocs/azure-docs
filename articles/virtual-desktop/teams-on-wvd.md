@@ -3,14 +3,14 @@ title: Microsoft Teams on Windows Virtual Desktop - Azure
 description: How to use Microsoft Teams on Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Use Microsoft Teams on Windows Virtual desktop
 
 >[!IMPORTANT]
->Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for GCC-High or DoD.
+>Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for Microsoft 365 DoD.
 
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
@@ -142,11 +142,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - The Teams app doesn't support HID buttons or LED controls with other devices.
 - New Meeting Experience (NME) is not currently supported in VDI environments.
 
-For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues)
-
-## UserVoice site
-
-Provide feedback for Microsoft Teams on Windows Virtual Desktop on the Teams [UserVoice site](https://microsoftteams.uservoice.com/).
+For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
 ## Collect Teams logs
 

@@ -171,17 +171,17 @@ List of one or more strings that define which monitors in health hierarchy will 
 The following table lists the current available monitor names.
 
 | Type name | Name | Description |
-|:---|:---|:---|
-| root | root | Top level monitor representing virtual machine health. | |
-| cpu-utilization | cpu-utilization | CPU utilization monitor. | |
-| logical-disks | logical-disks | Aggregate monitor for health state of all monitored disks on Windows virtual machine. | |
-| logical-disks\|* | logical-disks\|C:<br>logical-disks\|D: | Aggregate monitor tracking health of a given disk on Windows virtual machine. | 
-| logical-disks\|*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Disk free space monitor on Windows virtual machine. |
+|:----------|:-----|:------------|
+| root | root | Top level monitor representing virtual machine health. |
+| cpu-utilization | cpu-utilization | CPU utilization monitor. |
+| logical-disks | logical-disks | Aggregate monitor for health state of all monitored disks on Windows virtual machine. |
+| logical-disks\|\* | logical-disks\|C:<br>logical-disks\|D: | Aggregate monitor tracking health of a given disk on Windows virtual machine. |
+| logical-disks\|\*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Disk free space monitor on Windows virtual machine. |
 | filesystems | filesystems | Aggregate monitor for health of all filesystems on Linux virtual machine. |
-| filesystems\|* | filesystems\|/<br>filesystems\|/mnt | Aggregate monitor tracking health of a filesystem of Linux virtual machine. | filesystems|/var/log |
-| filesystems\|*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Disk free space monitor on Linux virtual machine filesystem. | 
-| memory | memory | Aggregate monitor for health of virtual machine memory. | |
-| memory\|available| memory\|available | Monitor tracking available memory on the virtual machine. | |
+| filesystems\|\* | filesystems\|/<br>filesystems\|/mnt | Aggregate monitor tracking health of a filesystem of Linux virtual machine. |
+| filesystems\|\*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Disk free space monitor on Linux virtual machine filesystem. |
+| memory | memory | Aggregate monitor for health of virtual machine memory. |
+| memory\|available | memory\|available | Monitor tracking available memory on the virtual machine. |
 
 
 ## alertConfiguration element

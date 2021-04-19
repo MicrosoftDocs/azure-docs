@@ -12,6 +12,12 @@ items:
     href: create-catalog-portal.md
   - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
+  - name: Create a Purview account - .NET SDK
+    href: create-purview-dotnet.md
+  - name: Create a Purview account - Python
+    href: create-purview-python.md
+  - name: Manage Kafka notifications - .NET
+    href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
   - name: Starter kit
@@ -71,6 +77,8 @@ items:
       href: manage-integration-runtimes.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
+    - name: Resource set pattern rules
+      href: how-to-resource-set-pattern-rules.md
     - name: Sources
       items:
       - name: Manage data sources
@@ -79,6 +87,8 @@ items:
         href: purview-connector-overview.md
       - name: Azure Multiple Source
         href: register-scan-azure-multiple-sources.md
+      - name: Azure Synapse Analytics (Workspace)
+        href: register-scan-synapse-workspace.md
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
         displayName: Register and scan azure blob storage
@@ -100,7 +110,7 @@ items:
       - name: Azure SQL Database Managed Instance
         href: register-scan-azure-sql-database-managed-instance.md
         displayName: Register and scan Azure SQL DB Managed Instance
-      - name: Azure Synapse Analytics
+      - name: Azure Dedicated SQL pool (formerly SQL DW)
         href: register-scan-azure-synapse-analytics.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
@@ -178,4 +188,11 @@ items:
       href: supported-classifications.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
-#- name: Resources
+- name: Resources
+  items:
+    - name: Feature feedback (User voice)
+      href: https://feedback.azure.com/forums/932437-azure-purview
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/details/azure-purview/
+    - name: Microsoft Q&A forum
+      href: https://docs.microsoft.com/answers/topics/azure-purview.html

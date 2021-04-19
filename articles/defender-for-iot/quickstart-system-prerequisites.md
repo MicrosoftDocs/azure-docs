@@ -1,12 +1,17 @@
 ---
-title: System prerequisites
-description: Get system prerequisites needed to run Azure Defender for IoT.
+title: 'Quickstart: System prerequisites'
+description: In this quickstart, get the system prerequisites needed to run Azure Defender for IoT.
 ms.date: 11/30/2020
 ms.topic: quickstart
 ---
 
-# System prerequisites
+# Quickstart: System prerequisites
+
 This article lists the system prerequisites for running Azure Defender for IoT.
+
+## Prerequisites
+
+- None
 
 ## Minimum requirements
 
@@ -22,7 +27,7 @@ Defender for IoT routes all traffic from all European regions to the West Europe
 
 For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## See also
+## Next steps
 
-- [Identify required appliances](how-to-identify-required-appliances.md)
-- [About Azure Defender for IoT network setup](how-to-set-up-your-network.md)
+> [!div class="nextstepaction"]
+> [Identify required appliances](how-to-identify-required-appliances.md)

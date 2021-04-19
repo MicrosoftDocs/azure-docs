@@ -105,4 +105,4 @@ You can also find the status information in the event log under: **Applications 
 
 ## Next steps
 
-For questions, see the [device management FAQ](faq.md)  
+For questions, see the [device management FAQ](faq.yml)  

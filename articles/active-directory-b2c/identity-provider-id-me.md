@@ -162,7 +162,7 @@ Next, you need a claims transformation to create the displayName claim. Add the 
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **ID.me** to sign in with ID.me account.
 

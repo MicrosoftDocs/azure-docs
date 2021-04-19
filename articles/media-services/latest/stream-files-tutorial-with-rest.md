@@ -122,7 +122,7 @@ In this section, we send requests that are relevant to encoding and creating URL
 
 ### Start a Streaming Endpoint
 
-To enable streaming, you first have to start the [Streaming Endpoint](./streaming-endpoint-concept.md) from which you want to stream the video.
+To enable streaming, you first have to start the [Streaming Endpoint](./stream-streaming-endpoint-concept.md) from which you want to stream the video.
 
 > [!NOTE]
 > You are only billed when your Streaming Endpoint is in the running state.
@@ -179,7 +179,7 @@ The output [Asset](/rest/api/media/assets) stores the result of your encoding jo
 
 ### Create a transform
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](./transforms-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](./transform-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
 When creating a new [Transform](/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](encode-autogen-bitrate-ladder.md).
 
