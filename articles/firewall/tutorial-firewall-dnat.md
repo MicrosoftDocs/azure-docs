@@ -138,6 +138,8 @@ Review the summary, and then select **Create**. This will take a few minutes to 
 
 After deployment finishes, note the private IP address for the virtual machine. It will be used later when you configure the firewall. Select the virtual machine name, and under **Settings**, select **Networking** to find the private IP address.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Deploy the firewall
 
 1. From the portal home page, select **Create a resource**.

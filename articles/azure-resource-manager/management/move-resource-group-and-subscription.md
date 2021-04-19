@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 03/23/2021 
+ms.date: 04/16/2021
 ms.custom: devx-track-azurecli
 ---
 
@@ -155,7 +155,7 @@ retry-after: 15
 ...
 ```
 
-The 202 status code indicates the validation request was accepted, but it hasn't yet determined if the move operation will succeed. The `location` value contains a URL that you use to check the status of the long-running operation.  
+The 202 status code indicates the validation request was accepted, but it hasn't yet determined if the move operation will succeed. The `location` value contains a URL that you use to check the status of the long-running operation.
 
 To check the status, send the following request:
 
@@ -204,8 +204,6 @@ After validating that the resources can be moved, you see a notification that th
 
 When it has completed, you're notified of the result.
 
-If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
-
 ## Use Azure PowerShell
 
 To move existing resources to another resource group or subscription, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command. The following example shows how to move several resources to a new resource group.
@@ -218,8 +216,6 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 To move to a new subscription, include a value for the `DestinationSubscriptionId` parameter.
 
-If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
-
 ## Use Azure CLI
 
 To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
@@ -231,8 +227,6 @@ az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
-
-If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
 
 ## Use REST API
 
@@ -250,8 +244,6 @@ In the request body, you specify the target resource group and the resources to 
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
-
-If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
 
 ## Frequently asked questions
 
@@ -298,6 +290,18 @@ Another common example involves moving a virtual network. You may have to move s
 **Question: Why can't I move some resources in Azure?**
 
 Currently, not all resources in Azure support move. For a list of resources that support move, see [Move operation support for resources](move-support-resources.md).
+
+**Question: How many resources can I move in a single operation?**
+
+When possible, break large moves into separate move operations. Resource Manager immediately returns an error when there are more than 800 resources in a single operation. However, moving less than 800 resources may also fail by timing out.
+
+**Question: What is the meaning of the error that a resource isn't in succeeded state?**
+
+When you get an error message that indicates a resource can't be moved because it isn't in a succeeded state, it may actually be a dependent resource that is blocking the move. Typically, the error code is **MoveCannotProceedWithResourcesNotInSucceededState**.
+
+If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. The check includes those resources directly and indirectly dependent on the virtual network. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move.
+
+When you receive this error, you have two options. Either move your resources to a resource group that doesn't have a virtual network, or [contact support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Next steps
 

@@ -5,7 +5,7 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom:
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
@@ -15,7 +15,7 @@ ms.date: 08/25/2020
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn how to migrate your Oracle schemas to Azure SQL Database by using SQL Server Migration Assistant for Oracle (SSMA for Oracle).
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your Oracle schemas to Azure SQL Database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Oracle (SSMA for Oracle).
 
 For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration).
 
@@ -24,13 +24,13 @@ For other migration guides, see [Azure Database Migration Guides](https://docs.m
 Before you begin migrating your Oracle schema to SQL Database:
 
 - Verify that your source environment is supported.
-- Download [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+- Download [SSMA for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 - Have a target [SQL Database](../../database/single-database-create-quickstart.md) instance.
 - Obtain the [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
 ## Pre-migration
 
-After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your migration. This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
+After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your [Azure cloud migration](https://azure.microsoft.com/migration). This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
 
 ### Assess
 
@@ -38,7 +38,7 @@ By using SSMA for Oracle, you can review database objects and data, assess datab
 
 To create an assessment:
 
-1. Open [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+1. Open [SSMA for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 1. Select **File**, and then select **New Project**.
 1. Enter a project name and a location to save your project. Then select **Azure SQL Database** as the migration target from the drop-down list and select **OK**.
 
@@ -176,11 +176,12 @@ The Data SQL Engineering team developed these resources. This team's core charte
 
 - To learn more about SQL Database, see:
   - [An overview of Azure SQL Database](../../database/sql-database-paas-overview.md)
-  - [Azure Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
+  - [Azure Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/pricing/tco/calculator/)
 
 - To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Cloud Migration Resources](https://azure.microsoft.com/migration/resources)
 
 - For video content, see:
     - [Overview of the migration journey and the tools and services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
