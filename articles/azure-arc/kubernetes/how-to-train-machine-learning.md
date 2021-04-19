@@ -1,5 +1,5 @@
 ---
-title: Configure cluster for machine learning training (preview)
+title: Train machine learning models (preview)
 description: Configure Azure Arc enabled Kubernetes Cluster to train machine learning models with Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
@@ -26,9 +26,9 @@ Once the above step is complete, one can attach the Kubernetes cluster to the Az
 ## Install AMLK8s extension using Arc
 
 #### Prerequisite: You need to connect your Kubernetes cluster to Arc before installing the AMlK8s extension.  
-1. Follow the guide [here](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster) to install the correct `connectedk8s` CLI version.  
+<!-- 1. Follow the guide [here](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster) to install the correct `connectedk8s` CLI version.   -->
 
-   Next, install the **preview version of the Arc extensions CLI** as follows:
+1. Next, install the **preview version of the Arc extensions CLI** as follows:
 
 2. Install the preview version of k8s-extensions CLI extension.  You can find the Python wheel file under `files` from the root of this repository. Download the file to your local machine and set the correct path
 
