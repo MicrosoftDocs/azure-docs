@@ -18,17 +18,31 @@ QnA Maker allows multiple people to collaborate on all knowledge bases in the sa
 
 ## Access at the QnA Maker resource level
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker resources, then add roles to each resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+You cannot share a particular knowledge base created with Text Analytics service. If you want more granular access control, consider distributing your knowledge bases across different Text Analytics resources, then add roles to each resource.
 
 ## Add a role to a resource
 
-### Add a user account to the QnA Maker resource
+### Add a user account to the cognitive resource
 
 The following steps use the collaborator role but any of the roles can be added using these steps
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your QnA Maker resource.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.png)
+    
+# [Custom question answering (preview release)](#tab/v2)
+
+1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your Text Analytics resource.
+
+---
 
 1. Go to the **Access Control (IAM)** tab.
 
