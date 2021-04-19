@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 04/19/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -20,175 +20,49 @@ To learn how to create an Azure storage account, see [Create a storage account](
 
 ## Types of storage accounts
 
-Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications. The types of storage accounts are:
+Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications.
 
-- **General-purpose v2 accounts**: Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
-- **General-purpose v1 accounts**: Legacy account type for blobs, files, queues, and tables. Use general-purpose v2 accounts instead when possible.
-- **BlockBlobStorage accounts**: Storage accounts with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency.
-- **FileStorage accounts**: Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.
-- **BlobStorage accounts**: Legacy Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
+The following table describes the types of storage accounts recommended by Microsoft for most scenarios:
 
-The following table describes the types of storage accounts, the services they support, and the supported deployment models for each account type:
+| Type of storage account | Supported services | Redundancy options | Deployment model | Usage |
+|--|--|--|--|--|
+| Standard general-purpose v2 | Blob, File, Queue, Table, and Data Lake Storage<sup>1</sup> | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage. |
+| Premium block blobs<sup>4</sup> | Block blobs only | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Storage accounts with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency.<br />[Learn more...](../blobs/storage-blob-performance-tiers.md) |
+| Premium file shares<sup>4</sup> | File shares only | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.<br />[Learn more...](../files/storage-files-planning.md#management-concepts) |
+| Premium page blobs<sup>4</sup> | Page blobs only | LRS | Resource Manager<sup>3</sup> | Premium storage account type for page blobs only.<br />[Learn more...](../blobs/storage-blob-pageblob-overview.md) |
 
-| Storage account type | Supported services | Redundancy options | Deployment model<sup>1</sup> |
-|--|--|--|--|
-| General-purpose V2 | Blob, File, Queue, Table, Disk, and Data Lake Gen2<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Resource Manager |
-| General-purpose V1 | Blob, File, Queue, Table, and Disk | LRS, GRS, RA-GRS | Resource Manager, Classic |
-| BlockBlobStorage | Blob (block blobs and append blobs only) | LRS, ZRS<sup>3</sup> | Resource Manager |
-| FileStorage | File only | LRS, ZRS<sup>3</sup> | Resource Manager |
-| BlobStorage | Blob (block blobs and append blobs only) | LRS, GRS, RA-GRS | Resource Manager |
+<sup>1</sup> Azure Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage is only supported on general-purpose V2 storage accounts with a hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
 
-<sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../../azure-resource-manager/management/deployment-models.md).
+<sup>2</sup> Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose v2, premium block blob, and premium file share accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
-<sup>2</sup>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 is only supported on General-purpose V2 storage accounts with Hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+<sup>3</sup> Azure Resource Manager is the recommended deployment model for Azure resources, including storage accounts. For more information, see [Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-<sup>3</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
+<sup>4</sup> Storage accounts in a premium performance tier use solid state disks (SSDs) for low latency and high throughput.
 
-### Storage account redundancy
+Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
-Redundancy options for a storage account include:
+## Storage account endpoints
 
-- **Locally redundant storage (LRS)**: A simple, low-cost redundancy strategy. Data is copied synchronously three times within a single physical location in the primary region.
-- **Zone-redundant storage (ZRS)**: Redundancy for scenarios requiring high availability. Data is copied synchronously across three Azure availability zones in the primary region.
-- **Geo-redundant storage (GRS)**: Cross-regional redundancy to protect against regional outages. Data is copied synchronously three times in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
-- **Geo-zone-redundant storage (GZRS)**: Redundancy for scenarios requiring both high availability and maximum durability. Data is copied synchronously across three Azure availability zones in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
-
-For more information about redundancy options in Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
-
-### General-purpose v2 accounts
-
-General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 storage accounts support these Azure Storage services:
-
-- Blobs (all types: Block, Append, Page)
-- Data Lake Gen2
-- Files
-- Disks
-- Queues
-- Tables
-
-> [!NOTE]
-> Microsoft recommends using a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data. However, the upgrade cannot be undone.
->
-> For more information on upgrading to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).
-
-General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
-
-### General-purpose v1 accounts
-
-General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. General-purpose v1 storage accounts support these Azure Storage services:
-
-- Blobs (all types)
-- Files
-- Disks
-- Queues
-- Tables
-
-You can use general-purpose v1 accounts for these scenarios:
-
-- Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
-
-- Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.
-
-- You use a version of the [Storage Services REST API](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) that is earlier than 2014-02-14 or a client library with a version lower than 4.x. You can't upgrade your application.
-
-> [!NOTE]
-> Although Microsoft recommends general-purpose v2 accounts for most scenarios, Microsoft will continue to support general-purpose v1 accounts for new and existing customers. You can create general-purpose v1 storage accounts in new regions whenever Azure Storage is available in those regions. Microsoft does not currently have a plan to deprecate support for general-purpose v1 accounts and will provide at least one year's advance notice before deprecating any Azure Storage feature. Microsoft will continue to provide security updates for general-purpose v1 accounts, but no new feature development is expected for this account type.
->
-> As of October 1, 2020, pricing for general-purpose v1 accounts in new Azure Storage regions is equivalent to pricing for general-purpose v2 accounts in those regions. Pricing in existing Azure Storage regions has not changed. For pricing details for general-purpose v1 accounts in a specific region, see the Azure Storage pricing page. Choose your region, and then next to **Pricing offers**, select **Other**.
-
-### BlockBlobStorage accounts
-
-A BlockBlobStorage account is a specialized storage account in the premium performance tier for storing unstructured object data as block blobs or append blobs. Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low, consistent latency and higher transaction rates.
-
-BlockBlobStorage accounts don't currently support tiering to hot, cool, or archive access tiers. This type of storage account does not support page blobs, tables, or queues.
-
-### FileStorage accounts
-
-A FileStorage account is a specialized storage account used to store and create premium file shares. This storage account kind supports files but not block blobs, append blobs, page blobs, tables, or queues.
-
-FileStorage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share storage tiers](../files/storage-files-planning.md#storage-tiers) section of the Files planning guide.
-
-## Naming storage accounts
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
 
 When naming your storage account, keep these rules in mind:
 
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
-## Performance tiers
-
-Depending on the type of storage account you create, you can choose between standard and premium performance tiers. The following table summarizes which performance tiers are available for which type of storage account.
-
-| Storage account type | Supported performance tiers |
-|--|--|
-| General-purpose V2 | Standard, Premium<sup>1</sup> |
-| General-purpose V1 | Standard, Premium<sup>1</sup> |
-| BlockBlobStorage | Premium |
-| FileStorage | Premium |
-| BlobStorage | Standard |
-
-<sup>1</sup>Premium performance for general-purpose v2 and general-purpose v1 accounts is available for disk and page blob only. Premium performance for block or append blobs are only available on BlockBlobStorage accounts. Premium performance for files are only available on FileStorage accounts.
-
-### General-purpose storage accounts
-
-General-purpose storage accounts may be configured for either of the following performance tiers:
-
-- A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks. For more information about scalability targets for standard storage accounts, see [Scalability targets for standard storage accounts](scalability-targets-standard-account.md).
-- A premium performance tier for storing unmanaged virtual machine disks. Microsoft recommends using managed disks with Azure virtual machines  instead of unmanaged disks. For more information about scalability targets for the premium performance tier, see [Scalability targets for premium page blob storage accounts](../blobs/scalability-targets-premium-page-blobs.md).
-
-### BlockBlobStorage storage accounts
-
-BlockBlobStorage storage accounts provide a premium performance tier for storing block blobs and append blobs. For more information, see [Scalability targets for premium block blob storage accounts](../blobs/scalability-targets-premium-block-blobs.md).
-
-### FileStorage storage accounts
-
-FileStorage storage accounts provide a premium performance tier for Azure file shares. For more information, see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md).
-
-## Access tiers for block blob data
-
-Azure Storage provides different options for accessing block blob data based on usage patterns. Each access tier in Azure Storage is optimized for a particular pattern of data usage. By selecting the right access tier for your needs, you can store your block blob data in the most cost-effective manner.
-
-The available access tiers are:
-
-- The **Hot** access tier. This tier is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are higher. New storage accounts are created in the hot tier by default.
-- The **Cool** access tier. This tier is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be more expensive than accessing data in the hot tier.
-- The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data is more expensive than accessing data in the hot or cool tiers.
-
-If there's a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
-
-The following table shows which access tiers are available for blobs in each type of storage account.
-
-| Storage account type | Supported access tiers |
-|--|--|
-| General-purpose V2 | Hot, Cool, Archive<sup>1</sup> |
-| General-purpose V1 | N/A |
-| BlockBlobStorage | N/A |
-| FileStorage | N/A |
-| BlobStorage | Hot, Cool, Archive<sup>1</sup> |
-
-<sup>1</sup> Archive storage and blob-level tiering only support block blobs. The Archive tier is available at the level of an individual blob only, not at the storage account level. For more information, see [Access tiers for Azure Blob Storage - hot, cool, and archive](../blobs/storage-blob-storage-tiers.md).
-
-> [!IMPORTANT]
-> Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see [Storage account billing](#storage-account-billing).
-
-## Storage account endpoints
-
-A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
-
-The following table lists the endpoints for each of the Azure Storage services.
+The following table lists the format of the endpoint for each of the Azure Storage services.
 
 | Storage service | Endpoint |
 |--|--|
 | Blob storage | `https://<storage-account>.blob.core.windows.net` |
-| Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
 | Azure Files | `https://<storage-account>.file.core.windows.net` |
 | Queue storage | `https://<storage-account>.queue.core.windows.net` |
 | Table storage | `https://<storage-account>.table.core.windows.net` |
 
-> [!NOTE]
-> Block blob and blob storage accounts expose only the Blob service endpoint.
+Construct the URL for accessing an object in a storage account by appending the object's location in the storage account to the endpoint. For example, the URL for a blob will be similar to:
 
-Construct the URL for accessing an object in a storage account by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+`http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
 You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).  
 
@@ -204,32 +78,13 @@ The following table summarizes and points to guidance on moving, upgrading, or m
 | Upgrade to a general-purpose v2 storage account | You can upgrade a general-purpose v1 storage account or Blob storage account to a general-purpose v2 account. Note that this action cannot be undone. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). |
 | Migrate a classic storage account to Azure Resource Manager | The Azure Resource Manager deployment model is superior to the classic deployment model in terms of functionality, scalability, and security. For more information about migrating a classic storage account to Azure Resource Manager, see [Migration of storage accounts](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) in **Platform-supported migration of IaaS resources from classic to Azure Resource Manager**. |
 
-## Copying data into a storage account
+## Transferring data into a storage account
 
-Microsoft provides utilities and libraries for importing your data from on-premises storage devices or third-party cloud storage providers. Which solution you use depends on the quantity of data you're transferring.
+Microsoft provides services and utilities for importing your data from on-premises storage devices or third-party cloud storage providers. Which solution you use depends on the quantity of data you're transferring. For more information, see [Azure Storage migration overview](storage-migration-overview.md).
 
-When you upgrade to a general-purpose v2 account from a general-purpose v1 or Blob storage account, your data is automatically migrated. Microsoft recommends this pathway for upgrading your account. However, if you decide to move data from a general-purpose v1 account to a Blob storage account, then you'll migrate your data manually, using the tools and libraries described below.
+## Storage account encryption
 
-### AzCopy
-
-AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into a Blob storage account from an existing general-purpose storage account, or to upload data from on-premises storage devices. For more information, see [Transfer data with the AzCopy Command-Line Utility](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-### Data movement library
-
-The Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. You can use the data movement library to take advantage of AzCopy features natively. For more information, see [Azure Storage Data Movement Library for .NET](https://github.com/Azure/azure-storage-net-data-movement)
-
-### REST API or client library
-
-You can create a custom application to migrate your data from a general-purpose v1 storage account into a Blob storage account. Use one of the Azure client libraries or the Azure Storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
-
-For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](/rest/api/storageservices/).
-
-> [!IMPORTANT]
-> Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-## Encryption
-
-All data in your storage account is encrypted on the service side. For more information about encryption, see [Azure Storage Service Encryption for data at rest](storage-service-encryption.md).
+All data in your storage account is automatically encrypted on the service side. For more information about encryption and key management, see [Azure Storage encryption for data at rest](storage-service-encryption.md).
 
 ## Storage account billing
 
@@ -239,17 +94,25 @@ Azure Storage bills based on your storage account usage. All objects in a storag
 - **Account type** refers to the type of storage account you're using.
 - **Access tier** refers to the data usage pattern you've specified for your general-purpose v2 or Blob storage account.
 - **Capacity** refers to how much of your storage account allotment you're using to store data.
-- **Replication** determines how many copies of your data are maintained at one time, and in what locations.
+- **Redundancy** determines how many copies of your data are maintained at one time, and in what locations.
 - **Transactions** refer to all read and write operations to Azure Storage.
 - **Data egress** refers to any data transferred out of an Azure region. When the data in your storage account is accessed by an application that isn't running in the same region, you're charged for data egress. For information about using resource groups to group your data and services in the same region to limit egress charges, see [What is an Azure resource group?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group).
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+The [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/) provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers pricing details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
+## Legacy storage account types
+
+The following table describes the legacy storage account types. These account types are not recommended by Microsoft, but may be used in certain scenarios:
+
+| Type of legacy storage account | Supported services | Redundancy options | Deployment model | Usage |
+|--|--|--|--|--|
+| Standard general-purpose v1 | Blob, File, Queue, Table, and Data Lake Storage | LRS/GRS/RA-GRS | Resource Manager, Classic | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using for these scenarios:<br /><ul><li>Your applications require the Azure classic deployment model.</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and you can't upgrade your application.</li></ul> |
+| Standard Blob storage | Blob (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
 
 ## Next steps
 
 - [Create a storage account](storage-account-create.md)
-- [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md)
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Recover a deleted storage account](storage-account-recover.md)

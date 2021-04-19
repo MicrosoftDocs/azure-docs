@@ -137,5 +137,7 @@
     href: https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
-  - name: Blog
+  - name: Azure Blog
     href: https://azure.microsoft.com/blog/topics/cognitive-services/
+  - name: Azure AI Blog
+    href: https://techcommunity.microsoft.com/t5/azure-ai/bg-p/AzureAIBlog

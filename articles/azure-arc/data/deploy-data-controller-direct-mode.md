@@ -59,14 +59,9 @@ $ENV:location="<Azure location>"
 ### Create the Arc data services extension
 
 #### Linux
+
 ```bash
-export ADSExtensionName=ads-extension
-export CustomLocationsRpOid=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query '[].objectId' -o tsv)
-
-
-az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc \
-  --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper \
-  --config aad.customLocationObjectId=${CustomLocationsRpOid}
+az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --version "1.0.015564" --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensionName} --cluster-type connectedclusters
 ```
@@ -74,9 +69,8 @@ az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensi
 #### Windows PowerShell
 ```PowerShell
 $ENV:ADSExtensionName="ads-extension"
-$CustomLocationsRpOid = az ad sp list --filter "displayname eq 'Custom Locations RP'" --query [].objectId -o tsv
 
-az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config aad.customLocationObjectId="$ENV:CustomLocationsRpOid"
+az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --version "1.0.015564" --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --name "$ENV:ADSExtensionName" --cluster-type connectedclusters
 ```
