@@ -104,34 +104,39 @@ Here is the JSON payload that's returned from this query:
 
 ```json
 {
-  "result": [
+  "value": [
     {
-      "T": {
-        "$dtId": "FactoryA",
-        "$etag": "W/\"d22267a0-fd4f-4f6b-916d-4946a30453c9\"",
-        "$metadata": {
-          "$model": "dtmi:contosocom:DigitalTwins:Factory;1",
-          "name": {
-            "lastUpdateTime": "2021-04-19T17:15:54.4977151Z"
+      "result": [
+        {
+          "T": {
+            "$dtId": "FactoryA",
+            "$etag": "W/\"d22267a0-fd4f-4f6b-916d-4946a30453c9\"",
+            "$metadata": {
+              "$model": "dtmi:contosocom:DigitalTwins:Factory;1",
+              "name": {
+                "lastUpdateTime": "2021-04-19T17:15:54.4977151Z"
+              }
+            },
+            "name": "FactoryA"
           }
         },
-        "name": "FactoryA"
-      }
-    },
-    {
-      "T": {
-        "$dtId": "Contoso",
-        "$etag": "W/\"a96dc85e-56ae-4061-866b-058a149e03d8\"",
-        "$metadata": {
-          "$model": "dtmi:com:contoso:Consumer;1",
-          "name": {
-            "lastUpdateTime": "2021-04-19T17:16:30.2154166Z"
+        {
+          "T": {
+            "$dtId": "Contoso",
+            "$etag": "W/\"a96dc85e-56ae-4061-866b-058a149e03d8\"",
+            "$metadata": {
+              "$model": "dtmi:com:contoso:Consumer;1",
+              "name": {
+                "lastUpdateTime": "2021-04-19T17:16:30.2154166Z"
+              }
+            },
+            "name": "Contoso"
           }
-        },
-        "name": "Contoso"
-      }
+        }
+      ]
     }
-  ]
+  ],
+  "continuationToken": "null"
 }
 ```
 
@@ -148,40 +153,45 @@ Here is the JSON payload that's returned from this query:
 
 ```json
 {
-  "result": [
+  "value": [
     {
-      "Consumer": {
-        "$dtId": "Contoso",
-        "$etag": "W/\"a96dc85e-56ae-4061-866b-058a149e03d8\"",
-        "$metadata": {
-          "$model": "dtmi:com:contoso:Consumer;1",
-          "name": {
-            "lastUpdateTime": "2021-04-19T17:16:30.2154166Z"
+      "result": [
+        {
+          "Consumer": {
+            "$dtId": "Contoso",
+            "$etag": "W/\"a96dc85e-56ae-4061-866b-058a149e03d8\"",
+            "$metadata": {
+              "$model": "dtmi:com:contoso:Consumer;1",
+              "name": {
+                "lastUpdateTime": "2021-04-19T17:16:30.2154166Z"
+              }
+            },
+            "name": "Contoso"
+          },
+          "Factory": {
+            "$dtId": "FactoryA",
+            "$etag": "W/\"d22267a0-fd4f-4f6b-916d-4946a30453c9\"",
+            "$metadata": {
+              "$model": "dtmi:contosocom:DigitalTwins:Factory;1",
+              "name": {
+                "lastUpdateTime": "2021-04-19T17:15:54.4977151Z"
+              }
+            },
+            "name": "FactoryA"
+          },
+          "Relationship": {
+            "$etag": "W/\"f01e07c1-19e4-4bbe-a12d-f5761e86d3e8\"",
+            "$relationshipId": "FactoryA-consumerRelationship-Contoso",
+            "$relationshipName": "consumerRelationship",
+            "$sourceId": "FactoryA",
+            "$targetId": "Contoso",
+            "managedBy": "Jeff"
           }
-        },
-        "name": "Contoso"
-      },
-      "Factory": {
-        "$dtId": "FactoryA",
-        "$etag": "W/\"d22267a0-fd4f-4f6b-916d-4946a30453c9\"",
-        "$metadata": {
-          "$model": "dtmi:contosocom:DigitalTwins:Factory;1",
-          "name": {
-            "lastUpdateTime": "2021-04-19T17:15:54.4977151Z"
-          }
-        },
-        "name": "FactoryA"
-      },
-      "Relationship": {
-        "$etag": "W/\"f01e07c1-19e4-4bbe-a12d-f5761e86d3e8\"",
-        "$relationshipId": "FactoryA-consumerRelationship-Contoso",
-        "$relationshipName": "consumerRelationship",
-        "$sourceId": "FactoryA",
-        "$targetId": "Contoso",
-        "managedBy": "Jeff"
-      }
+        }
+      ]
     }
-  ]
+  ],
+  "continuationToken": "null"
 }
 ```
 
@@ -199,12 +209,17 @@ Here is the JSON payload that's returned from this query:
 
 ```json
 {
-  "result": [
+  "value": [
     {
-      "managedBy": "Jeff",
-      "name": "Contoso"
+      "result": [
+        {
+          "managedBy": "Jeff",
+          "name": "Contoso"
+        }
+      ]
     }
-  ]
+  ],
+  "continuationToken": "null"
 }
 ```
 
