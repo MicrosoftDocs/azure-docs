@@ -23,7 +23,8 @@ To create an Azure file share:
 
 1. Select the storage account from your dashboard.
 1. On the storage account page, in the **Services** section, select **Files**.
-	![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
+	
+    ![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
 1. On the menu at the top of the **File service** page, click **File share**. The **New file share** page drops down.
 1. In **Name** type *myshare*, enter a quoate, and leave **Transaction optimized** selected for **Tiers**.
@@ -64,7 +65,8 @@ To demonstrate uploading a file, you first need to create or select a file to be
 
 1. Click on the **myDirectory** directory. The **myDirectory** panel opens.
 1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
-	![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
+	
+    ![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
 
 1. Click on the folder icon to open a window to browse your local files. 
 1. Select a file and then click **Open**. 
