@@ -12,18 +12,16 @@ ms.date: 04/16/2021
 ms.author: yitoh
 ms.topic: article
 ---
-# Azure DDoS Protection Standard – Business Continuity
+# Azure DDoS Protection Standard – business continuity
+
+Business continuity and disaster recovery in Azure DDoS Protection Standard enables your business to continue operating in the face of a disruption. This article discusses availability (intra-region) and disaster recovery.
 
 ## Overview
 Azure DDoS Protection Standard protects public IP addresses in virtual networks. Protection is simple to enable on any new or existing virtual network and does not require any application or resource changes.
 
-A Virtual Network (VNet) is a logical representation of your network in the cloud. 
+A Virtual Network (VNet) is a logical representation of your network in the cloud. VNets serve as a trust boundary to host your resources such as Azure Application Gateway, Azure Firewall and Azure Virtual Machines. It is created within the scope of a region. You can *create* VNets with same address space in two different regions (For example, US East and US West), but because they have the same address space, you can't connect them together. 
 
-VNets serve as a trust boundary to host your resources such as Azure Application Gateway, Azure Firewall and Azure Virtual Machines.
-
-It is created within the scope of a region. You can *create* VNets with same address space in two different regions (For example, US East and US West), but because they have the same address space, you can't connect them together. 
-
-## Business Continuity
+## Business continuity
 
 There could be several different ways that your application could be disrupted. A region could be completely cut off due to a natural disaster, or a partial disaster, due to a failure of multiple devices or services. The impact on your protected VNets is different in each of these situations.
 
@@ -31,7 +29,7 @@ There could be several different ways that your application could be disrupted. 
 
 A: The virtual network and the resources in the affected region remains inaccessible during the time of the service disruption.
 
-![Simple Virtual Network Diagram](../virtual-network/media/virtual-network-disaster-recovery-guidance/vnet.png)
+![Simple Virtual Network Diagram.](../virtual-network/media/virtual-network-disaster-recovery-guidance/vnet.png)
 
 **Q: What can I to do re-create the same virtual network in a different region?**
 
@@ -44,3 +42,7 @@ To create a virtual network, see [Create a virtual network](../virtual-network/m
 A: Yes, you can create two VNets using the same private IP address space and resources in two different regions ahead of time. If you are hosting internet-facing services in the VNet, you could have set up Traffic Manager to geo-route traffic to the region that is active. However, you cannot connect two VNets with the same address space to your on-premises network, as it would cause routing issues. At the time of a disaster and loss of a VNet in one region, you can connect the other VNet in the available region, with the matching address space to your on-premises network.
 
 To create a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
+
+## Next steps
+
+- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
