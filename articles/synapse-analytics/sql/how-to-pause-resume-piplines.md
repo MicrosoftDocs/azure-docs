@@ -43,7 +43,7 @@ Synapse Pipelines allow for the automation of pause and resume, but you can exec
 
 - An existing [Azure Synapse workspace](../get-started-create-workspace.md)
 - At least one [Dedicated SQL pool](../get-started-analyze-sql-pool.md)
-- You must assign your workspace assigned the contributor role. See [Grant Synapse administrators the Azure Contributor role on the workspace](https://review.docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-set-up-access-control?branch=pr-en-us-146232#step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace).
+- You must assign your workspace the Azure contributor role. See [Grant Synapse administrators the Azure Contributor role on the workspace](https://review.docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-set-up-access-control?branch=pr-en-us-146232#step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace).
 
 ## Step 1: Create a pipeline in Synapse Studio.
 1. Navigate to your workspace and open Synapse Studio. 
@@ -197,9 +197,13 @@ The POST request can be parameterized using the @concat string function as shown
 
 ## Pipeline run output
 
-When the full pipeline is run, you will see the output listed below. For the pipeline results below, the pipeline parameter named "ResourceGroup" was set to a single resource group that had two Synapse Workspaces. One was named testprod and was filtered out, the second was named test1. The test dedicated SQL pool was paused, so the job initiated a resume.
+When the full pipeline is run, you will see the output listed below. You can run your pipeline by selecting **Debug** mode or by selecting **add trigger**.For the pipeline results below, the pipeline parameter named "ResourceGroup" was set to a single resource group that had two Synapse Workspaces. One was named testprod and was filtered out, the second was named test1. The test1 dedicated SQL pool was paused, so the job initiated a resume.
 
 ![Pipeline run output](./media/how-to-pause-resume-pipelines/pipeline-run-output.png)
+
+## Save your pipeline
+
+To save your pipeline select **Publish all** above your pipeline.
 
 ## Schedule your pause or resume pipeline to run
 
