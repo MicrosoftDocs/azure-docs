@@ -33,11 +33,7 @@ The introductory paragraph helps customers quickly determine whether an article 
 An example of the introductory paragraph in the feature parity article:
 --->
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
-
-- Azure Security Center
-- Azure Sentinel
-- Azure Key Vault
+This article describes feature availability in the Microsoft Azure and Azure Government clouds for Azure Sentinel. Stay tuned as we add data for additional Azure security services.
 
 ## Azure Government
 
