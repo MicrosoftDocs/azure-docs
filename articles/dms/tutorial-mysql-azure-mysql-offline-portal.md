@@ -231,7 +231,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Post migration activities
 
-Migration cutover in an offline migration is a application dependent process which is out of scope for this document, but following post-migration activities are prescribed:
+Migration cutover in an offline migration is an application dependent process which is out of scope for this document, but following post-migration activities are prescribed:
 
 1. Create logins, roles and permissions as per the application requirements.
 2. Recreate all the triggers on the target database as extracted during the pre-migration step.
