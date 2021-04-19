@@ -163,7 +163,8 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
 > [!NOTE] 
-> Only running queries against, and functions on, properties in the body reference is supported.  Running queries against, or functions on, the entire body reference is not supported.  For example, the following query is <b>not</b> supported and will return <b>undefined</b>:
+> You can run queries and functions only on properties in the body reference. You can't run queries or functions on the entire body reference. For example, the following query is *not* supported and will return `undefined`:
+> 
 > ```sql
 > $body[0] = 'Feb'
 > ```
