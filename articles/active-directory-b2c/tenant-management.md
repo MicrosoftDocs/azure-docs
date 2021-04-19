@@ -158,7 +158,16 @@ As part of an auditing process, you typically review which users are assigned to
 1. Under **Manage**, select **Roles and administrators**.
 1. Select a role, such as **Global administrator**. The **Role | Assignments** page lists the users with that role.
 
-## Protect administrative accounts 
+## Delete an administrator account
+
+To delete an existing user using Azure Active Directory portal, you must have a *Global administrator* role assignment. Global admins can delete any user, including other admins. *User administrators* can delete any non-admin user.
+
+1. In your Azure AD B2C directory, select **Users**, and then select the user you want to delete.
+1. Select **Delete**, and then **Yes** to confirm the deletion.
+
+The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
+
+## Protect administrative accounts
 
 It's recommended that you protect all administrator accounts with multi-factor authentication (MFA) for more security. MFA is an identity verification process during sign-in that prompts the user for a more form of identification, such as a verification code on their mobile device or a request in their Microsoft Authenticator app.
 
