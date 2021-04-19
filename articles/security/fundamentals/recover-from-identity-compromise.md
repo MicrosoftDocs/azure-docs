@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.author: bagol
 
 ---
@@ -27,7 +27,7 @@ This article describes Microsoft resources and recommendations for recovering fr
 
 ## Overview
 
-An advanced attack on an organization occurs when an attacker successfully gains a foothold into the organization's network and elevated credentials.
+An advanced systemic identity compromise attack on an organization occurs when an attacker successfully gains a foothold into the organization's network and elevated credentials.
 
 Intruders who are able to use administrator permissions, acquired through an on-premises compromise, can gain access to the organization's trusted SAML token-signing certificate, and then forge SAML tokens to impersonate any of the organization's existing users and accounts. 
 
@@ -44,7 +44,7 @@ The response to such an advanced attack should include the following objectives:
 1. **Improve posture** by enabling security features and capabilities following best practice recommendations.
 
 
-## Establish secure communications and productivity
+## Establish secure communications
 
 Before you start responding, you must be sure that you can communicate safely without the attacker eavesdropping. Make sure to isolate any communications related to the incident so that the attacker is not tipped-off to your investigation and is taken by surprise at your response actions.
 
@@ -143,13 +143,13 @@ For example, the following Microsoft security services may have specific resourc
 
     Search or filter your results further to exclude extra noise. For example, you may want to include results only from federated domains. If you find suspicious sign-ins, drill down even further based on IP addresses, user accounts, and so on.
 
-    For more information, see [More Azure Active Directory monitoring methods](#more-azure-active-directory-monitoring-methods).
+    For more information, see [Monitoring with Azure Active Directory](#monitoring-with-azure-active-directory).
 
 > [!IMPORTANT]
 > If your investigation finds evidence of administrative permissions acquired through the compromise on your system, which have provided access to your organization's global administrator account and/or trusted SAML token-signing certificate, we recommend taking action to [remediate and retain administrative control](#remediate-and-retain-administrative-control).
 > 
 
-### More Azure Active Directory monitoring methods
+### Monitoring with Azure Active Directory
 
 The following table describes more methods for using Azure Active directory logs in your investigation:
 
@@ -279,9 +279,9 @@ If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-
 
 For more information, see [Remove a configuration](/azure/active-directory/cloud-provisioning/how-to-configure#remove-a-configuration). 
 
-### More cloud remediation activities
+### Cloud remediation activities
 
-We also recommend the following activities for your cloud environments:
+In addition to the recommendations listed earlier in this article, we also recommend the following activities for your cloud environments:
 
 |Activity  |Description  |
 |---------|---------|
@@ -292,9 +292,9 @@ We also recommend the following activities for your cloud environments:
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles. <br>- Reading, sending email, or accessing all mailboxes. <br>- Accessing OneDrive, Teams, or SharePoint content. <br>- Adding Service Principals that can read/write to the directory. <br>- Application Permissions versus Delegated Access.       |
 |     |         |
 
-### More on-premises remediation activities
+### On-premises remediation activities
 
-We also recommend the following activities for your on-premises environments:
+In addition to the recommendations listed earlier in this article, we also recommend the following activities for your on-premises environments:
 
 |Activity  |Description  |
 |---------|---------|
