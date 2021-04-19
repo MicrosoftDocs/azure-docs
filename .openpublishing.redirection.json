@@ -36462,7 +36462,7 @@
     },
     {
       "source_path_from_root": "/articles/storage/files/storage-sync-files-server-endpoint.md",
-      "redirect_url": "/azure/storage/filesync/file-sync-server-endpoint.md",
+      "redirect_url": "/azure/storage/filesync/file-sync-server-endpoint",
       "redirect_document_id": false
     },
     {
