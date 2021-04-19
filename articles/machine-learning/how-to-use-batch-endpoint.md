@@ -1,14 +1,14 @@
 ---
 title: 'Use batch endpoints for batch scoring'
 titleSuffix: Azure Machine Learning
-description: In this artical, you learn how to create a batch endpoint to continuously batch score large data.
+description: In this article, learn how to create a batch endpoint to continuously batch score large data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 author: tracych
 ms.author: tracych
-ms.reviewer: 
+ms.reviewer: laobri
 ms.date: 4/16/2021
 ms.custom: how-to
 
@@ -17,7 +17,7 @@ ms.custom: how-to
 
 # Use Batch Endpoints (Preview) for batch scoring
 
-In this article, you learn how to use [Batch Endpoints](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplfies the process to host your models for batch scoring, so you can focus on machine learning instead of infrastructure. After you create a batch endpoint, you can use it to trigger batch scoring job from CLI or any HTTP library on any platform through REST api.
+In this article, you learn how to use [Batch Endpoints](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use it to trigger batch scoring jobs from the Azure CLI or any HTTP library on any platform through the REST API.
 
 In this how-to, you learn to do the following tasks:
 
@@ -25,13 +25,13 @@ In this how-to, you learn to do the following tasks:
 > * Create a batch endpoint with no-code experience for MLflow model
 > * Check a batch endpoint detail
 > * Start a batch scoring job using CLI
-> * Monitor batch scoring job execution progress and check scoring resutls
+> * Monitor batch scoring job execution progress and check scoring results
 > * Add a new deployment to a batch endpoint
-> * Start a batch scrong job using REST
-
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+> * Start a batch scoring job using REST
 
 ## Prerequisites
+
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete [setup](https://github.com/Azure/azureml-examples/blob/cli-preview/experimental/using-cli/setup.sh).
 * Install Command Line Interface (CLI) and ML extension.
@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Create a compute target
 
-Batch scoring can't be run locally, so you run them on cloud resources. A compute target is a reusable virtual compute where you run batch scoring workflows.
+Batch scoring runs only on cloud resources, not locally. The cloud resource is called a "compute target." A compute target is a reusable virtual computer where you can run batch scoring workflows.
 
 Run the following code to create a CPU-enabled [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) target. For more information about compute targets, see the [conceptual article](./concept-compute-target.md).
 
@@ -58,8 +58,7 @@ az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-
 
 Below is the yml file. To use a registered model, please replace the model section in yml with **model:azureml:<modelName>:<modelVersion>**.
 
-.. literalinclude:: https://github.com/Azure/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.yml
-   :language: yaml
+:::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.yml:::
 
 ## Check batch endpoint details
 
@@ -71,7 +70,7 @@ az ml endpoint show -n mybatchedp -t batch
 
 ## Start a batch scoring job using CLI
 
-Batch scoring workload runs as an offline job. It processes all the data inputs at once, and stores the scoring outputs by default. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
+A batch scoring workload runs as an offline job. It processes all the data inputs at once, and, by default, stores the scoring outputs. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
 ### Start a bath scoring job with different inputs options
 
@@ -112,10 +111,10 @@ az ml endpoint invoke --name mybatchedp --type batch --input-local-path <localPa
 
 ### Configure outputs location
 
-The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job Id (a system generated GUID). You can configure where to store the scoring outputs when start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path.
+The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job Id (a system generated GUID). You can configure where to store the scoring outputs when you start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path.
 
 > [!IMPORTANT]
-> Please use a unique output location. If the output exists, the batch scoring job will fail. 
+> You must use a unique output location. If the output location exists, the batch scoring job will fail. 
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --output-datastore azureml:workspaceblobstore --output-path mypath
@@ -123,7 +122,8 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 ### Overwrite settings
 
-Some settings can be overwritten when start a batch scoring job to make best use of the compute resouce and improve performance.
+Some settings can be overwritten when you start a batch scoring job to make best use of the compute resource and to improve performance: 
+
 * Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
 * Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold` and `logging_level`.
