@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Run offline migration from MySQL database to Azure Database for MySQL" 
+title: "PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS" 
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate an on-premise MySQL database to Azure Database for MySQL by using Azure Database Migration Service through Powershell script.
 services: dms
@@ -16,12 +16,15 @@ ms.date: 04/11/2021
 
 # Migrate an on-premise MySQL database to Azure Database for MySQL by using Azure Database Migration Service through PowerShell script
 
-In this article, you migrate a MySQL database restored to an on-premises instance to Azure Database for MySQL by using the Offline migration capability of Azure Database Migration Service through Microsoft Azure PowerShell. You can migrate databases from a MySQL instance to Azure Database for MySQL instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell. The article documents a collection of PowerShell scripts which can be executed in sequence to perform the offline migration of MySQL database to Azure.
+In this article, you migrate a MySQL database restored to an on-premises instance to Azure Database for MySQL by using the offline migration capability of Azure Database Migration Service through Microsoft Azure PowerShell. The article documents a collection of PowerShell scripts which can be executed in sequence to perform the offline migration of MySQL database to Azure.
+
+> [!NOTE]
+> It is not possible to run complete database migration using the Az.DataMigration module, but that capability will come online by the time of GA. In the meantime, the sample PowerShell script is provided "as-is" that uses the [DMS Rest API](https://docs.microsoft.com/rest/api/datamigration/tasks/get) and allows you to automate migration. This script will be modified or deprecated, once official support is added in the Az.DataMigration module and Azure CLI. 
 
 > [!IMPORTANT]
 > The “MySQL to Azure Database for MySQL” online migration scenario is being replaced with a parallelized, highly performant offline migration scenario from June 1, 2021. For online migrations, you can use this new offering together with [data-in replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). Alternatively, use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with data-in replication for online migrations. 
 
-The article helps to automate the scenario where source and target database names can be different and as part of migration either all or few of the tables in the target database need to be migrated which have the same name and table structure. Although the articles assumes the source to be a MySQL database instance and target to be Azure Database for MySQL, it can be used to migrate from one Azure Database for MySQL to another just by changing the source server name and credentials. Also, migration from lower version MySQL servers (v5.6 and above) to higher versions is also supported.
+The article helps to automate the scenario where source and target database names can be same or different and as part of migration either all or few of the tables in the target database need to be migrated which have the same name and table structure. Although the articles assumes the source to be a MySQL database instance and target to be Azure Database for MySQL, it can be used to migrate from one Azure Database for MySQL to another just by changing the source server name and credentials. Also, migration from lower version MySQL servers (v5.6 and above) to higher versions is also supported.
 
 > [!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
@@ -32,7 +35,7 @@ In this article, you learn how to:
 > * Create a resource group.
 > * Create an instance of the Azure Database Migration Service.
 > * Create a migration project in an Azure Database Migration Service instance.
-> * Configure the migration project to use the Offline migration capability for MySQL.
+> * Configure the migration project to use the offline migration capability for MySQL.
 > * Run the migration.
 
 ## Prerequisites
@@ -40,8 +43,8 @@ In this article, you learn how to:
 To complete these steps, you need:
 
 * Have an Azure account with an active subscription. [Create an account for free] (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Have an on-premises MySQL database with version 5.7 or 8. If not, then download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.7 or 8.
-* [Create an instance in Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Refer to the article [Use MySQL Workbench to connect and query data](../mysql/connect-workbench.md) for details about how to connect and create a database using the Workbench application. The on-premises MySQL version must match with Azure Database for MySQL version. For example, MySQL 5.7 can only migrate to Azure Database for MySQL 5.7 and not upgraded to 8. 
+* Have an on-premises MySQL database with version 5.6 or above. If not, then download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.6 or above.
+* [Create an instance in Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Refer to the article [Use MySQL Workbench to connect and query data](../mysql/connect-workbench.md) for details about how to connect and create a database using the Workbench application. The Azure Database for MySQL version should be equal to or higher than the on-premises MySQL version . For example, MySQL 5.7 can migrate to Azure Database for MySQL 5.7 or upgraded to 8.  
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
@@ -104,7 +107,7 @@ mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p mig
 
 If you have foreign keys in your schema, the parallel data load during migration will be handled by the migration task. There is no need to drop foreign keys during schema migration.
 
-If you have triggers in the database (insert or update triggers), it will enforce data integrity in the target ahead of full data migration from the source. The recommendation is to disable triggers on all the tables in the target during migration, and then enable the triggers after migration is done.
+If you have triggers in the database, it will enforce data integrity in the target ahead of full data migration from the source. The recommendation is to disable triggers on all the tables in the target during migration, and then enable the triggers after migration is done.
 
 Execute the following script in MySQL Workbench on the target database to extract the drop trigger script and add trigger script.
 
@@ -112,17 +115,18 @@ Execute the following script in MySQL Workbench on the target database to extrac
 SELECT
 	SchemaName,
     GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery,
-    Concat('DELIMITER $$ \n\n', GROUP_CONCAT(AddQuery SEPARATOR '$$\n'), '\n\nDELIMITER ;') as AddQuery
+    Concat('DELIMITER $$ \n\n', GROUP_CONCAT(AddQuery SEPARATOR '$$\n'), '$$\n\nDELIMITER ;') as AddQuery
 FROM
 (
 SELECT 
 	TRIGGER_SCHEMA as SchemaName,
-	Concat('DROP TRIGGER ', TRIGGER_NAME) as DropQuery,
-    Concat('CREATE TRIGGER ', TRIGGER_NAME, ' ', ACTION_TIMING, ' ', EVENT_MANIPULATION, 
-			'\nON ', EVENT_OBJECT_TABLE, '\n' , 'FOR EACH ', ACTION_ORIENTATION, ' ',
+	Concat('DROP TRIGGER `', TRIGGER_NAME, "`") as DropQuery,
+    Concat('CREATE TRIGGER `', TRIGGER_NAME, '` ', ACTION_TIMING, ' ', EVENT_MANIPULATION, 
+			'\nON `', EVENT_OBJECT_TABLE, '`\n' , 'FOR EACH ', ACTION_ORIENTATION, ' ',
             ACTION_STATEMENT) as AddQuery
 FROM  
 	INFORMATION_SCHEMA.TRIGGERS
+ORDER BY EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, ACTION_TIMING, EVENT_MANIPULATION, ACTION_ORDER ASC
 ) AS Queries
 GROUP BY SchemaName
 ```
@@ -165,7 +169,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DataMigration
 
 ## Step 3: Create a resource group
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group before you can create a virtual machine.
+An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group before you create any DMS resources.
 
 Create a resource group by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
 
@@ -331,7 +335,7 @@ function RunScenario([object] $MigrationService,
     [string] $ScenarioTaskName, 
     [object] $TaskProperties, 
     [bool] $WaitForScenario = $true) {
-    # Check if the migration task already exists, if so remove it
+    # Check if the scenario task already exists, if so remove it
     LogMessage -Message "Removing scenario if already exists..." -IsProcessing $true
     Remove-AzDataMigrationTask `
         -ResourceGroupName $MigrationService.ResourceGroupName `
@@ -340,7 +344,7 @@ function RunScenario([object] $MigrationService,
         -TaskName $ScenarioTaskName `
         -Force;
 
-    # Start the new migration using the provided properties
+    # Start the new scenario task using the provided properties
     LogMessage -Message "Initializing scenario..." -IsProcessing $true
     New-AzResource `
         -ApiVersion 2018-03-31-preview `
@@ -442,9 +446,12 @@ The following script creates a mapping based on the target and source table list
 ```powershell
 # Create the source to target table map
 # Optional table settings
-# DEFAULT: $SelectedTables = $null => migrate all tables
-# Array of qualified target table names which should be migrated 
-[string[]] $SelectedTables = @("migtargetdb.coupons", "migtargetdb.daily_cash_sheets");
+# DEFAULT: $IncludeTables = $null => include all tables for migration
+# DEFAULT: $ExcludeTables = $null => exclude no tables from migration
+# Exclude list has higher priority than include list
+# Array of qualified source table names which should be migrated
+[string[]] $IncludeTables = @("migsourcedb.coupons", "migsourcedb.daily_cash_sheets");
+[string[]] $ExcludeTables = $null;
 
 LogMessage -Message "Creating the table map based on the user input and database table information ..." `
     -IsProcessing $true
@@ -453,53 +460,42 @@ $targetTables = $getTargetTablesTask.Output.DatabasesToTables."$TargetDatabaseNa
 $sourceTables = $getSourceTablesTask.Output.DatabasesToTables."$SourceDatabaseName";
 $tableMap = New-Object 'system.collections.generic.dictionary[string,string]';
 
-$schemaPrefixLength = $($TargetDatabaseName + ".").Length;
-foreach ($tgtTable in $targetTables) {
+$schemaPrefixLength = $($SourceDatabaseName + ".").Length;
+$tableMappingError = $false
+foreach ($srcTable in $sourceTables) {
     # Removing the database name prefix from the table name so that comparison
     # can be done in cases where database name given are different
-    $tableName = $tgtTable.Name.Substring($schemaPrefixLength, `
-            $tgtTable.Name.Length - $schemaPrefixLength)
+    $tableName = $srcTable.Name.Substring($schemaPrefixLength, `
+            $srcTable.Name.Length - $schemaPrefixLength)
 
-    # Check if the table exists in the source
-    $sourceExists = $false
-    foreach ($sourceTable in $sourceTables) {
-        if ($sourceTable -ieq "$($SourceDatabaseName).$tableName") {
-            $sourceExists = $true
-            break;
-        }
+    # In case the table is part of exclusion list then ignore the table
+    if ($null -ne $ExcludeTables -and $ExcludeTables -contains $srcTable.Name) {
+        continue;
     }
 
-    # If source does not exists then ignore the table and continue
-    if (-not $sourceExists) { continue; }
-
-    # Check if only a subset of tables on the target should be migrated
-    if ($null -ne $SelectedTables) {
-        $isSelected = $false;
-
-        # Check if this table is on the selected list
-        foreach ($nextSelectedTable in $SelectedTables) {
-            $isSelected = $tgtTable.Name -ieq $nextSelectedTable;
-
-            if ($isSelected) {
-                break;
-            }
-        }
-
-        if (-not $isSelected) {
+    # Either the include list is null or the table is part of the include list then add it in the mapping
+    if ($null -eq $IncludeTables -or $IncludeTables -contains $srcTable.Name) {
+        # Check if the table exists in the target. If not then log TABLE MAPPING ERROR
+        if (-not ($targetTables | Where-Object { $_.name -ieq "$($TargetDatabaseName).$tableName" })) {
+            $tableMappingError = $true
+            Write-Host "TABLE MAPPING ERROR: $($targetTables.name) does not exists in target." -ForegroundColor Red
             continue;
-        }
-    }
+        }  
 
-    $tableMap.Add("$($SourceDatabaseName).$tableName", "$($TargetDatabaseName).$tableName");
+        $tableMap.Add("$($SourceDatabaseName).$tableName", "$($TargetDatabaseName).$tableName");
+    }     
 }
 
+# In case of any table mapping errors identified, throw an error and stop the process
+if ($tableMappingError) { throw "ERROR: One or more table mapping errors were identified. Please see previous messages." }
+# In case no tables are in the mapping then throw error
 if ($tableMap.Count -le 0) { throw "ERROR: Could not create table mapping." }
 LogMessage -Message "Migration table mapping created for $($tableMap.Count) tables."
 ```
 
-## Step 9: Create and configure the migration task
+## Step 9: Create and configure the migration task inputs
 
-After building the table mapping, you will create the the migration task of type *Migrate.MySql.AzureDbForMySql* and configure the properties.
+After building the table mapping, you will create the inputs for migration task of type *Migrate.MySql.AzureDbForMySql* and configure the properties.
 
 The following script creates the migration task and sets the connections, database names and table mapping.
 
@@ -598,9 +594,9 @@ AddOptionalSetting $offlineMigTaskProperties.input.optionalAgentSettings "Thrott
 AddOptionalSetting $offlineMigTaskProperties.input.optionalAgentSettings "DelayProgressUpdatesInStorageInterval" $DelayProgressUpdatesInStorageInterval;
 ```
 
-## Step 11: Running the migration task
+## Step 11: Creating and running the migration task
 
-After configuration of the task, you will now execute the task and wait for the migration to complete.
+After configuring the input for the task, now the task will be created and executed on the agent. The script triggers the task execution and wait for the migration to complete.
 
 The following script invokes the configured migration task and waits for it to complete.
 
@@ -636,11 +632,14 @@ if ($dbLevelResult.exceptionsAndWarnings) {
 if ($migrationLevelResult.exceptionsAndWarnings) {
     Write-Host "Following migration errors were captured: $($migrationLevelResult.exceptionsAndWarnings)" -ForegroundColor Red
 }
+if ($migrationResult.errors.details) {
+    Write-Host "Following task level migration errors were captured: $($migrationResult.errors.details)" -ForegroundColor Red
+}
 ```
 
 ## Step 12: Deleting the Database Migration Service
 
-If you're not going to continue to use the Database Migration Service, then you can delete the service using the [Remove-AzDataMigrationService](/powershell/module/az.datamigration/remove-azdatamigrationservice?) command.
+The same Database Migration Service can be used for multiple migrations so the instance once created can be re-used. If you're not going to continue to use the Database Migration Service, then you can delete the service using the [Remove-AzDataMigrationService](/powershell/module/az.datamigration/remove-azdatamigrationservice?) command.
 
 The following script deletes the Azure Database Migration Service instance and its associated projects.
 

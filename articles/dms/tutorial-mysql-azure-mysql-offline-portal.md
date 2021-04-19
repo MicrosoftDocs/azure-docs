@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate MySQL offline to Azure Database for MySQL"
+title: "Tutorial: Migrate MySQL to Azure Database for MySQL offline using DMS"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an offline migration from MySQL on-premises to Azure Database for MySQL by using Azure Database Migration Service."
 services: dms
@@ -39,8 +39,8 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need to:
 
 * Have an Azure account with an active subscription. [Create an account for free] (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Have an on-premises MySQL database with version 5.7 or 8. If not, then download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.7 or 8.
-* [Create an instance in Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Refer to the article [Use MySQL Workbench to connect and query data](../mysql/connect-workbench.md) for details about how to connect and create a database using the Workbench application. The on-premises MySQL version must match with Azure Database for MySQL version. For example, MySQL 5.7 can only migrate to Azure Database for MySQL 5.7 and not upgraded to 8. 
+* Have an on-premises MySQL database with version 5.7. If not, then download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.7.
+* [Create an instance in Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Refer to the article [Use MySQL Workbench to connect and query data](../mysql/connect-workbench.md) for details about how to connect and create a database using the Workbench application. The Azure Database for MySQL version should be equal to or higher than the on-premises MySQL version . For example, MySQL 5.7 can migrate to Azure Database for MySQL 5.7 or upgraded to 8. 
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
@@ -89,7 +89,7 @@ mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p mig
 
 If you have foreign keys in your schema, the parallel data load during migration will be handled by the migration task. There is no need to drop foreign keys during schema migration.
 
-If you have triggers in the database (insert or update triggers), it will enforce data integrity in the target ahead of full data migration from the source. The recommendation is to disable triggers on all the tables in the target during migration, and then enable the triggers after migration is done.
+If you have triggers in the database, it will enforce data integrity in the target ahead of full data migration from the source. The recommendation is to disable triggers on all the tables in the target during migration, and then enable the triggers after migration is done.
 
 Execute the following script in MySQL Workbench on the target database to extract the drop trigger script and add trigger script.
 
@@ -97,17 +97,18 @@ Execute the following script in MySQL Workbench on the target database to extrac
 SELECT
 	SchemaName,
     GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery,
-    Concat('DELIMITER $$ \n\n', GROUP_CONCAT(AddQuery SEPARATOR '$$\n'), '\n\nDELIMITER ;') as AddQuery
+    Concat('DELIMITER $$ \n\n', GROUP_CONCAT(AddQuery SEPARATOR '$$\n'), '$$\n\nDELIMITER ;') as AddQuery
 FROM
 (
 SELECT 
 	TRIGGER_SCHEMA as SchemaName,
-	Concat('DROP TRIGGER ', TRIGGER_NAME) as DropQuery,
-    Concat('CREATE TRIGGER ', TRIGGER_NAME, ' ', ACTION_TIMING, ' ', EVENT_MANIPULATION, 
-			'\nON ', EVENT_OBJECT_TABLE, '\n' , 'FOR EACH ', ACTION_ORIENTATION, ' ',
+	Concat('DROP TRIGGER `', TRIGGER_NAME, "`") as DropQuery,
+    Concat('CREATE TRIGGER `', TRIGGER_NAME, '` ', ACTION_TIMING, ' ', EVENT_MANIPULATION, 
+			'\nON `', EVENT_OBJECT_TABLE, '`\n' , 'FOR EACH ', ACTION_ORIENTATION, ' ',
             ACTION_STATEMENT) as AddQuery
 FROM  
 	INFORMATION_SCHEMA.TRIGGERS
+ORDER BY EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, ACTION_TIMING, EVENT_MANIPULATION, ACTION_ORDER ASC
 ) AS Queries
 GROUP BY SchemaName
 ```
@@ -170,7 +171,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     
     ![Create a new migration project](media/tutorial-mysql-to-azure-mysql-offline-portal/08-02-dms-portal-newproject.png)
 
-3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration**
+3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration \[preview\]**
 
     ![Create Database Migration Service Project](media/tutorial-mysql-to-azure-mysql-offline-portal/09-dms-portal-project-mysql-create.png)
 
@@ -187,7 +188,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Add target details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/11-dms-portal-project-mysql-target.png)
 
-3. On the **Select databases** screen, map the source and the target database for migration, and select **Next : Configure migration settings>>**
+3. On the **Select databases** screen, map the source and the target database for migration, and select **Next : Configure migration settings>>**. You can select the **Make Source Server Readonly** option to make the source as read-only, but be cautious that this is a server level setting. If selected, it sets the entire server to read-only, not just the selected databases.
     
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
     ![Select database details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/12-dms-portal-project-mysql-selectdb.png)
@@ -195,7 +196,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     > [!NOTE] 
     > Though you can select multiple databases in this step, each instance of Azure Database Migration Service supports up to 4 databases for concurrent migration. Also, there is a limit of 10 instances of Azure Database Migration Service per subscription per region. For example, if you have 80 databases to migrate, you can migrate 40 of them to the same region concurrently, but only if you have created 10 instances of the Azure Database Migration Service.
 
-4. On the **Configure migration settings** screen, select the tables to be part of migration, and select **Next : Summary>>**
+4. On the **Configure migration settings** screen, select the tables to be part of migration, and select **Next : Summary>>**. If the target tables have any data, they are not selected by default but you can explicitly select them and they will be truncated before starting the migration.
 
     ![Select tables screen](media/tutorial-mysql-to-azure-mysql-offline-portal/13-dms-portal-project-mysql-selecttbl.png)
 
@@ -221,11 +222,11 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Complete migration](media/tutorial-mysql-to-azure-mysql-offline-portal/17-dms-portal-project-mysql-complete.png)
 
-## Perform migration cutover
+## Post migration activities
 
-Migration cutover in an offline migration is a application dependent process which is out of scope for this document, but activities that are needed to be done before the target database becomes cutover ready are as follows:
+Migration cutover in an offline migration is a application dependent process which is out of scope for this document, but following post-migration activities are prescribed:
 
-1. Migrate/Create logins, roles and permissions as oer the application requirements.
+1. Create logins, roles and permissions as per the application requirements.
 2. Recreate all the triggers on the target database as extracted during the pre-migration step.
 3. Perform sanity testing of the application against the target database to certify the migration. 
 
