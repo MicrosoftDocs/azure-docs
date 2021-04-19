@@ -20,6 +20,8 @@ The Azure Cosmos DB API for MongoDB makes it easy to use Cosmos DB as if it were
 * Upgrades take seconds: All API versions are contained within one codebase, making version changes as simple as flipping a switch, with zero downtime.
 * Cost efficient, unlimited scalability: Sharded collections can scale to any size, in a cost-efficient manner, in increments as small as 1/100th of a VM utilizing our economies of scale. 
 
+And more...
+
 ## How the API works
 
 Azure Cosmos DB API for MongoDB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB does not host the MongoDB database engine. Any MongoDB client driver compatible with the API version you are using should be able to connect, with no special configuration.
@@ -35,15 +37,17 @@ All Azure Cosmos DB API for MongoDB API versions run on the same codebase, makin
 
 ## What you need to know to get started
 
-The key benefits of Cosmos DB as a fully managed, globally distributed, database as a service are described [here](introduction.md). Additionally, by natively implementing wire protocols of popular NoSQL APIs, Cosmos DB provides the following benefits:
+* You are not billed for virtual machines in a cluster. Pricing is based on throughput in request units (RUs) configured on a per database or per collection basis. The first 400 RUs per second are free with Free Tier.
 
-* Easily migrate your application to Cosmos DB while preserving significant portions of your application logic.
-* Keep your application portable and continue to remain cloud vendor-agnostic.
-* Get industry leading, financially backed SLAs for the common NoSQL APIs powered by Cosmos DB.
-* Elastically scale the provisioned throughput and storage for your Cosmos databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
-* Turnkey, global distribution with multi-region writes replication.
+* There are three ways to deploy Azure Cosmos DB API for MongoDB:
+     * Provisioned throughput: Set a RU/sec number and change it manually. Great for consistent workloads.
+     * Autoscale: Set an upper bound on the throughput you need. Thoughput will instantly scale to match your needs. Great for workloads that always change.
+     * Serverless (preview): Only pay for the throughput you use, period. Great for dev/test workloads. 
 
-## Cosmos DB's API for MongoDB
+* Sharded cluster performance is dependent on the shard key chosen when a collection is created. Choose a shard key carefully to ensure that your data is evenly distributed across shards.
+
+
+## Quickstart
 
 Follow the quickstarts to create an Azure Cosmos account and migrate your existing MongoDB application to use Azure Cosmos DB, or build a new one:
 
@@ -52,8 +56,6 @@ Follow the quickstarts to create an Azure Cosmos account and migrate your existi
 * [Build a console app using Azure Cosmos DB's API for MongoDB and Java SDK](create-mongodb-java.md)
 
 ## Next steps
-
-Here are a few pointers to get you started:
 
 * Follow the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
 * Follow the [Use Studio 3T with Azure Cosmos DB](mongodb-mongochef.md) tutorial to learn how to create a connection between your Cosmos database and MongoDB app in Studio 3T.
