@@ -1,0 +1,248 @@
+---
+title: 'Use batch endpoints for batch scoring'
+titleSuffix: Azure Machine Learning
+description: In this artical, you learn how to create a batch endpoint to continuously batch score large data.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+author: tracych
+ms.author: tracych
+ms.reviewer: 
+ms.date: 4/16/2021
+ms.custom: how-to
+
+# Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
+---
+
+# Use Batch Endpoints (Preview) for batch scoring
+
+In this article, you learn how to use [Batch Endpoints](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplfies the process to host your models for batch scoring, so you can focus on machine learning instead of infrastructure. After you create a batch endpoint, you can use it to trigger batch scoring job from CLI or any HTTP library on any platform through REST api.
+
+In this how-to, you learn to do the following tasks:
+
+> [!div class="checklist"]
+> * Create a batch endpoint with no-code experience for MLflow model
+> * Check a batch endpoint detail
+> * Start a batch scoring job using CLI
+> * Monitor batch scoring job execution progress and check scoring resutls
+> * Add a new deployment to a batch endpoint
+> * Start a batch scrong job using REST
+
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+
+## Prerequisites
+
+* If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete [setup](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/setup-workspace.sh).
+* Install Command Line Interface (CLI) and ML extension.
+* If you have access to multiple subscriptions and workspace, set the defaults.
+* When you finish the setup, use the assets on [GitHub](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/batch) to run the example.
+
+## Create a compute target
+
+Batch scoring can't be run locally, so you run them on cloud resources. A compute target is a reusable virtual compute where you run batch scoring workflows.
+
+Run the following code to create a CPU-enabled [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) target. For more information about compute targets, see the [conceptual article](./concept-compute-target.md).
+
+```
+az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
+```
+
+## Create a batch endpoint
+
+If you are using an MLflow model, no-code batch endpoint creation experience is supported, that is, you don't need to prepare scoring script and environment, both can be auto generated.
+
+```
+az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-endpoint.yml
+```
+
+Below is the yml file. To use a registered model, please replace the model section in yml with **model:azureml:<modelName>:<modelVersion>**.
+
+.. literalinclude:: https://github.com/Azure/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.yml
+   :language: yaml
+
+## Check batch endpoint details
+
+After a batch endpoint is created, you can use `show` to check the details. Use the [`--query parameter`](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli) to get only specific attributes from the returned data.
+
+```
+az ml endpoint show -n mybatchedp -t batch
+```
+
+## Start a batch scoring job using CLI
+
+Batch scoring workload runs as an offline job. It processes all the data inputs at once, and stores the scoring outputs by default. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
+
+### Start a bath scoring job with different inputs options
+
+You have three options to specify the data inputs.
+
+Option 1: registered data
+
+Use `--input-data` to pass in an AML registered data.
+
+> **_NOTE:_** 
+> During Preview, only FileDataset is supported. 
+
+```
+az ml endpoint invoke --name mybatchedp --type batch --input-data azureml:<dataName>:<dataVersion>
+```
+
+Option 2: data in the cloud
+
+Use `--input-datastore` to specify an AML registered datastore, and use `--input-path` to specify the relative path in the datastore.
+
+```
+az ml endpoint invoke --name mybatchedp --type batch --input-datastore azureml:<datastoreName> --input-path <relativePath>
+```
+
+If your data in publicly available, use `--input-path` to specify the public path.
+
+If you are using the provided example, you can run below command to start a batch scoring job.
+
+```
+az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv
+```
+
+Option 3: data in local
+
+```
+az ml endpoint invoke --name mybatchedp --type batch --input-local-path <localPath>
+```
+
+### Configure outputs location
+
+The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job Id (a system generated GUID). You can configure where to store the scoring outputs when start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path.
+
+> [!IMPORTANT]
+> Please use a unique output location. If the output exists, the batch scoring job will fail. 
+
+```
+az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --output-datastore azureml:workspaceblobstore --output-path mypath
+```
+
+### Overwrite settings
+
+Some settings can be overwritten when start a batch scoring job to make best use of the compute resouce and improve performance.
+* Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
+* Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
+* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold` and `logging_level`.
+
+```
+az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
+```
+
+## Check batch scoring job execution progress
+
+Batch scoring job usually takes time to process the entire inputs. You can monitor the job progress from Azure portal. The portal link is provided in the response of `invoke`, check `interactionEndpoints.studio`.
+
+You can also check job details along with status using CLI.
+
+Get the job name from the invoke response.
+
+```
+job_name=`az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv`
+```
+
+Use `job show` to check details and status of a batch scoring job.
+
+```
+az ml job show --name <job_name>
+```
+
+Stream the job logs using `job stream`.
+
+```
+az ml job stream --name <job_name>
+```
+
+## Check batch scoring results
+
+Follow below steps to view scoring results.
+
+* Go to the batchscoring step’s Outputs + logs tab, click Show data outputs, and click View output icon.
+* On the popup panel, copy the path and click Open Datastore link.
+* On the bloblstore page, paste above path in the search box. You will find the scoring outputs in the folder.
+
+## Add a deployment to the batch endpoint
+
+One batch endpoint can have multiple deployments, and one deployment hosts one model for batch scoring. 
+
+### Add a new deployment
+
+Use below command to add a new deployment to an exisitng batch endpoint.
+
+```
+az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployment --deployment-file examples/endpoints/batch/add-deployment.yml
+```
+
+This sample uses a non-MLflow model, you will need to provide environment and scoring script.
+
+.. literalinclude:: https://github.com/Azure/azureml-examples/blob/cli-preview/cli/endpoints/batch/add-deployment.yml
+   :language: yaml
+
+### Activate the new deployment
+
+When invoking an endpoint, the deployment with 100 traffic is in use. Use the command below to activate the new deployment by switching the traffic (can only be 0 or 100). 
+
+```
+az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
+```
+
+Now you can invoke a batch scoring job with this new deployment.
+
+```
+az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist --mini-batch-size 10 --instance-count 2
+```
+
+## Start a batch scoring job using REST
+
+After you create a batch endpoint, you can get a `scoring_uri`. Use it from any HTTP library on any platform to start a batch scoring job.
+
+Get the scoring_uri.
+
+```
+az ml endpoint show --name mybatchedp --type batch --query scoring_uri
+```
+
+Get the access token.
+
+```
+az account get-access-token
+```
+
+Use the scoring_uri and the token to POST a request and start a batch scoring job.
+
+```JSON
+{
+    "properties": {
+        "dataset": {
+            "dataInputType": "DatasetId",
+            "datasetId": "/subscriptions/{{subscription}}/resourceGroups/{{resourcegroup}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/data/{{datasetName}}/versions/1"
+            },
+        "outputDataset" : {
+          "datastoreId": "/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/datastores/{{datastorename}}",
+          "path": "mypath"
+      }
+    }
+}
+```
+
+## Clean up resources
+
+Don't complete this section if you plan to run other Azure Machine Learning tutorials.
+
+### Stop the compute instance
+
+[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
+
+### Delete everything
+
+If you don't plan to use the resources you created, delete them, so you don't incur any charges:
+
+1. In the Azure portal, in the left menu, select **Resource groups**.
+1. In the list of resource groups, select the resource group you created.
+1. Select **Delete resource group**.
+1. Enter the resource group name. Then, select **Delete**.
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties, and then select **Delete**.
