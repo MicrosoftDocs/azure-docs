@@ -7,7 +7,7 @@
     href: overview.md
   - name: Language support
     href: language-support.md
-  - name: Pricing and limits
+  - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
   - name: What's new
     href: whats-new.md
@@ -50,6 +50,14 @@
       href: ../containers/index.yml
   - name: Back up and recover models
     href: disaster-recovery.md
+  - name: Enterprise readiness
+    items:
+    - name: Set up Virtual Networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: Use customer-managed keys
+      href: encrypt-data-at-rest.md
+    - name: Use Azure AD authentication
+      href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Concepts
   items:
   - name: Layout API
@@ -95,15 +103,15 @@
       href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Resources
   items:
-  - name: Support & help options
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://go.microsoft.com/fwlink/?linkid=2087185
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Regional availability
-    href: https://go.microsoft.com/fwlink/?linkid=2087185
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Encryption
-    href: encrypt-data-at-rest.md
   - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement
