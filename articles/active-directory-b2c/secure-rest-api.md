@@ -244,7 +244,7 @@ To acquire an Azure AD access token, create an application in your Azure AD tena
 2. Record the **Application (client) ID**. 
 
 
-For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. The secret will be used by your application to aquire an access token.
+For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. The secret will be used by your application to acquire an access token.
 
 1. In the **Azure AD B2C - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
 1. In the left menu, under **Manage**, select **Certificates & secrets**.
