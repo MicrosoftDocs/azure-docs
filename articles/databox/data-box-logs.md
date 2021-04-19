@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 04/19/2021
 ms.author: alkohli
 ---
 
@@ -24,7 +24,7 @@ The following table shows a summary of the Data Box or Data Box Heavy import ord
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
 | Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
-| Data upload to Azure       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
+| Data upload to Azure<!--Update for ICM-->       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy import order. The information in this article applies to both, Data Box and Data Box Heavy import orders. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
@@ -193,6 +193,8 @@ The BOM or manifest files are also copied to the Azure storage account. You can 
 
 During the data upload to Azure, a copy log is created.
 
+<!--Check for ICM updates throughout the section. Certain customer configuration errors cause the job to pause for customer review and release.-->
+
 ### Copy log
 
 For each order that is processed, the Data Box service creates copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
@@ -222,11 +224,11 @@ The following sample describes the general format of a copy log for a Data Box u
 
 ### Upload completed with errors 
 
-Upload to Azure may also complete with errors.
+<!--Scenario that triggers ICM operational improvements.-->Upload to Azure may also complete with errors.
 
 ![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
 
-Here is an example of a copy log where the upload completed with errors:
+Here is an example of a copy log where the upload completed with errors:<!--Compare with log format and example in "ICM Operational Improvements documentation" at https://microsoft.sharepoint.com/:w:/t/CloudintegratedStorage/EYipXh5wyv1PkQVUfGE0NhkBqIAkrsWs0BPaz8yiILE4UA?e=xh9BtZ.-->
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -245,15 +247,16 @@ Here is an example of a copy log where the upload completed with errors:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+
 ### Upload completed with warnings
 
-Upload to Azure completes with warnings if your data had container/blob/file names that didn't conform to Azure naming conventions and the names were modified to upload the data to Azure.
+Upload to Azure completes with warnings if your data had container, blob, or file names that didn't conform to Azure naming conventions and the names were modified in order to upload the data to Azure.
 
 ![Path to copy log in Overview blade when completed with warnings](media/data-box-logs/copy-log-path-3.png)
 
-Here is an example of a copy log where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
+Here is an example of a copy log where the containers that didn't conform to Azure naming conventions were renamed during the data upload to Azure.
 
-The new unique names for containers are in the format `DataBox-GUID` and the data for the container are put into the new renamed container. The copy log specifies the old and the new container name for container.
+The unique names for the new containers are in the format `DataBox-GUID`. The data from the original containers is put in the new, renamed containers. The copy log specifies the old and new container names.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -264,7 +267,7 @@ The new unique names for containers are in the format `DataBox-GUID` and the dat
 </ErroredEntity>
 ```
 
-Here is an example of a copy log where the blobs or files that did not conform to Azure naming conventions, were renamed during the data upload to Azure. The new blob or file names are converted to SHA256 digest of relative path to container and are uploaded to path based on destination type. The destination can be block blobs, page blobs, or Azure Files.
+Here is an example of a copy log in which blobs or files that didn't conform to Azure naming conventions were renamed during the data upload to Azure. The new blob or file names are converted to SHA256 digest of relative path to container and are uploaded to the path based on the destination type. The destination can be block blobs, page blobs, or Azure Files.
 
 The `copylog` specifies the old and the new blob or file name and the path in Azure.
 
