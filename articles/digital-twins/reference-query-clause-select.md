@@ -74,6 +74,8 @@ A collection of twins, properties, or relationships.
 
 ### Examples
 
+#### Example scenario
+
 For the following examples, consider a twin graph that contains the following data elements:
 * A Factory twin called `FactoryA`
     - Contains a property called `name` with a value of `FactoryA`
@@ -92,6 +94,7 @@ Here's a diagram illustrating this scenario:
     :::column-end:::
 :::row-end:::
 
+#### Project collection example
 
 Below is an example query that projects a collection from this graph. The following query returns all digital twins in the instance, by naming the entire twin collection `T` and projecting `T` as the collection to return. 
 
@@ -139,6 +142,8 @@ Here is the JSON payload that's returned from this query:
   "continuationToken": "null"
 }
 ```
+
+#### Project with JOIN example
 
 Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
@@ -194,6 +199,8 @@ Here is the JSON payload that's returned from this query:
   "continuationToken": "null"
 }
 ```
+
+#### Project property example
 
 Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship. Note that the query uses `IS_PRIMITIVE` to verify that the property names are of primitive types, since complex properties are not currently supported by projection.
 
