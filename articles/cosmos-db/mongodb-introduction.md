@@ -11,18 +11,26 @@ ms.author: sivethe
 # Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-[Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partitioning-overview.md) worldwide, single-digit millisecond latencies at the 99th percentile, and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. Azure Cosmos DB service implements wire protocols for common NoSQL APIs including Cassandra, MongoDB, Gremlin, and Azure Table Storage. This allows you to use your familiar NoSQL client drivers and tools to interact with your Cosmos database.
+## The basics
+Azure Cosmos DB API for MongoDB empowers developers to treat Cosmos DB as a MongoDB database. You can continue to use your favorite MongoDB drivers, SDKs, and tooling by simply pointing your application to your Azure Cosmos DB API for MongoDB account's connection string. It's the database API you love, with the added benefits of being built off Azure Cosmos DB such as:
 
-> [!NOTE]
-> The [serverless capacity mode](serverless.md) is now available on Azure Cosmos DB's API for MongoDB.
+* Autoscale instant scalability: With Autoscale throughput enabled, your database will scale up/down with **zero** warmup period, keeping your apps running in tip-top shape. 
+* Fully managed sharding: 
+* Five 9's of availability
+* Upgrading in seconds
 
-## Wire protocol compatibility
 
-Azure Cosmos DB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB does host the MongoDB database engine. The details of the supported features by MongoDB can be found here: 
+
+## How the API works
+
+Azure Cosmos DB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB does host the MongoDB database engine. Any MongoDB client driver that understands this protocol version should be able to connect to Cosmos DB, with no special configuration.
+
+MongoDB feature compatibility:
+- [Azure Cosmos DB's API for Mongo DB engine version 4.0](mongodb-feature-support-40.md)
 - [Azure Cosmos DB's API for Mongo DB engine version 3.6](mongodb-feature-support-36.md)
 - [Azure Cosmos DB's API for Mongo DB engine version 3.2](mongodb-feature-support.md)
 
-By default, new accounts created using Azure Cosmos DB's API for MongoDB are compatible with version 3.6 of the MongoDB wire protocol. Any MongoDB client driver that understands this protocol version should be able to natively connect to Cosmos DB.
+All Azure Cosmos DB API for MongoDB API versions run on the same codebase making upgrades a simple task that can be completed in seconds with zero downtime. Azure Cosmos DB simply flips a few feature flags to go from version to version!
 
 :::image type="content" source="./media/mongodb-introduction/cosmosdb-mongodb.png" alt-text="Azure Cosmos DB's API for MongoDB" border="false":::
 
@@ -55,5 +63,7 @@ Here are a few pointers to get you started:
 * Learn how to [Configure read preferences for globally distributed apps](../cosmos-db/tutorial-global-distribution-mongodb.md).
 * Find the solutions to commonly found errors in our [Troubleshooting guide](mongodb-troubleshoot.md)
 
+## About Azure Cosmos DB
+[Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partitioning-overview.md) worldwide, single-digit millisecond latencies at the 99th percentile, and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. Azure Cosmos DB service implements wire protocols for common NoSQL APIs including Cassandra, MongoDB, Gremlin, and Azure Table Storage. This allows you to use your familiar NoSQL client drivers and tools to interact with your Cosmos database.
 
 <sup>Note: This article describes a feature of Azure Cosmos DB that provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Azure Cosmos DB is not affiliated with MongoDB, Inc.</sup>
