@@ -9,7 +9,7 @@ ms.date: 04/07/2021
 ms.author: chrhar
 ---
 
-# Troubleshooting Azure Static Web Apps
+# Troubleshooting deployment and runtime errors
 
 When deploying your application things may not go exactly as planned despite best efforts. This article provides a set of steps to walk through when troubleshooting deployment and other issues for your app on Static Web Apps, and includes the most common issues.
 

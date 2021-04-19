@@ -47,6 +47,8 @@
       href: front-end-frameworks.md
     - name: Reset deployment tokens
       href: deployment-token-management.md
+    - name: Troubleshooting deployment and runtime errors
+      href: troubleshooting.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
