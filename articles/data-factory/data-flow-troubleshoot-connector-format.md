@@ -48,7 +48,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
     
     Afterwards, the ADF data flow runtime will honor and use the customized schema to read data from the original data store. <br/>
 
-- **Option-2**: If you are familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: <br/> 
+- **Option-2**: If you are familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: 
 
     ![Screenshot that shows the Option-2 of the Recommendation](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
 
