@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ---
 # Call Automation APIs Overview
 
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 Call Automation APIs enable organizations to connect with their customers or employees at scale through automated business logic running on server applications. With these APIs you can use Azure Communication Services to create automated outbound reminder calls for appointments or to provide pro-active notifications for events like power outages or wildfires. These capabilities also enable companies to use IVR applications to answer incoming calls to Azure Communication Services phone numbers, and then route calls to the correct agent based on customer inputs. Applications added to a call can also monitor updates as participants join or leave for added reporting and/or logging. 
 
 ## In-Call APIs
