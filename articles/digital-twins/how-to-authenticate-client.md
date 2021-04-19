@@ -109,6 +109,20 @@ Also, to use authentication in a function, remember to:
 * Use [environment variables](/sandbox/functions-recipes/environment-variables?tabs=csharp) as appropriate
 * Assign permissions to the functions app that enable it to access the Digital Twins APIs. For more information on Azure Functions processes, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
+## Authenticate across tenants
+
+Azure Digital Twins is a service that only supports one  [Azure Active Directory (Azure AD) tenant](../active-directory/develop/quickstart-create-new-tenant.md): the main tenant from the subscription where the Azure Digital Twins instance is located.
+
+[!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
+
+If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different tenant from the instance, you can have each federated identity from another tenant request a **token** from the Azure Digital Twins instance's "home" tenant. 
+
+[!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
+
+You can also specify the home tenant in the credential options in your code. 
+
+[!INCLUDE [digital-twins-tenant-solution-2](../../includes/digital-twins-tenant-solution-2.md)]
+
 ## Other credential methods
 
 If the highlighted authentication scenarios above do not cover the needs of your app, you can explore other types of authentication offered in the [**Microsoft identity platform**](../active-directory/develop/v2-overview.md#getting-started). The documentation for this platform covers additional authentication scenarios, organized by application type.
