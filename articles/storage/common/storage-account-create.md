@@ -189,7 +189,7 @@ If validation fails, then the portal indicates which settings need to be modifie
 
 # [PowerShell](#tab/azure-powershell)
 
-To create a standard general-purpose v2 storage account with PowerShell, first create a new resource group by calling the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
+To create a general-purpose v2 storage account with PowerShell, first create a new resource group by calling the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
 ```azurepowershell-interactive
 $resourceGroup = "<resource-group>"
@@ -228,7 +228,7 @@ The following table shows which values to use for the `-SkuName` and `-Kind` par
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a standard general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az_group_create) command.
+To create a general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create \
