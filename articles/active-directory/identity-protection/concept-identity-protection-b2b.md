@@ -27,7 +27,7 @@ If you are attempting to sign-in to another organization as a guest and are bloc
 
 ![Guest account blocked, contact your organization's administrator](./media/concept-identity-protection-b2b/risky-guest-user-blocked.png)
 
-If enabled, you can use self-service password reset unblock your account and get your credentials back to a safe state.
+If your organization enables it, you can use self-service password reset unblock your account and get your credentials back to a safe state.
 1. Go to the  [Password reset portal](https://passwordreset.microsoftonline.com/) and initiate the password reset. If self-service password reset is not enabled for your account and you cannot proceed, reach out to your IT administrator with the information [below](#how-to-remediate-a-users-risk-as-an-administrator)
 2. If self-service password reset is enabled for your account, you will be prompted to verify your identity using security methods prior to changing your password. For assistance, see the [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md) article
 3. Once you have successfully and securely reset your password, your user risk will be remediated. You can now try again to sign-in as a guest user
@@ -36,7 +36,7 @@ If after resetting your password you are still blocked as a guest due to risk, r
 
 ## How to remediate a user's risk as an administrator
 
-Identity Protection is enabled by default for Azure AD tenants. If you have not previously checked the Identity Protection reports, there may be a large number of users with risk. Since resource tenants can apply user risk policies to guest users, your users can be blocked due to risk even if they were previously unaware of their risky state. If your user reports they have been blocked as a guest user in another tenant due to risk, it is important to remediate the user to protect their account and enable collaboration. 
+Identity Protection automatically detects risky users for Azure AD tenants. If you have not previously checked the Identity Protection reports, there may be a large number of users with risk. Since resource tenants can apply user risk policies to guest users, your users can be blocked due to risk even if they were previously unaware of their risky state. If your user reports they have been blocked as a guest user in another tenant due to risk, it is important to remediate the user to protect their account and enable collaboration. 
 
 ### Reset the user's password
 
