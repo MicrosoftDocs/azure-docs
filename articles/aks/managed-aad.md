@@ -15,7 +15,7 @@ AKS-managed Azure AD integration is designed to simplify the Azure AD integratio
 
 Cluster administrators can configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
-Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
+Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-ad-integration).
 
 ## Limitations 
 

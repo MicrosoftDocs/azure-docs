@@ -42,7 +42,7 @@ If you decide to sign up for the free Microsoft 365 developer program, you need 
 
 At this point, you have created a tenant with 25 E5 user licenses. The E5 licenses include Azure AD P2 licenses. Optionally, you can add sample data packs with users, groups, mail, and SharePoint to help you test in your development environment. For the Verifiable Credential Issuing service, they are not required.
 
-For your convenience, you could add your own work account as [guest](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) in the newly created tenant and use that account to administer the tenant. If you want the guest account to be able to manage the Verifiable Credential Service you need to assign the role 'Global Administrator' to that user.
+For your convenience, you could add your own work account as [guest](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal) in the newly created tenant and use that account to administer the tenant. If you want the guest account to be able to manage the Verifiable Credential Service you need to assign the role 'Global Administrator' to that user.
 
 ## Next steps
 

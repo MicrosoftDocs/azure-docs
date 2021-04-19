@@ -15,8 +15,6 @@ ms.custom: how-to, devx-track-python, responsible-ml
 
 # Use the interpretability package to explain ML models & predictions in Python (preview)
 
-
-
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
 
@@ -291,7 +289,7 @@ The following example shows how you can use the `ExplanationClient` class to ena
 
 ## Visualizations
 
-After you download the explanations in your local Jupyter Notebook, you can use the visualization dashboard to understand and interpret your model. To load the visualization dashboard widget in your Jupyter Notebook, use the following code:
+After you download the explanations in your local Jupyter Notebook, you can use the visualizations in the explanations dashboard to understand and interpret your model. To load the explanations dashboard widget in your Jupyter Notebook, use the following code:
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -299,7 +297,7 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
-The visualization supports explanations on both engineered and raw features. Raw explanations are based on the features from the original dataset and engineered explanations are based on the features from the dataset with feature engineering applied.
+The visualizations support explanations on both engineered and raw features. Raw explanations are based on the features from the original dataset and engineered explanations are based on the features from the dataset with feature engineering applied.
 
 When attempting to interpret a model with respect to the original dataset it is recommended to use raw explanations as each feature importance will correspond to a column from the original dataset. One scenario where engineered explanations might be useful is when examining the impact of individual categories from a categorical feature. If a one-hot encoding is applied to a categorical feature, then the resulting engineered explanations will include a different importance value per category, one per one-hot engineered feature. This can be useful when narrowing down which part of the dataset is most informative to the model.
 
@@ -348,11 +346,11 @@ The fourth tab of the explanation tab lets you drill into an individual datapoin
 
 ### Visualization in Azure Machine Learning studio
 
-If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above. What-If datapoint generation and ICE plots are disabled as there is no active compute in Azure Machine Learning studio that can perform their real time computations.
+If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanations to Azure Machine Learning Run History), you can view the visualizations on the explanations dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the dashboard widget thats generated within your Jupyter notebook. What-If datapoint generation and ICE plots are disabled as there is no active compute in Azure Machine Learning studio that can perform their real time computations.
 
 If the dataset, global, and local explanations are available, data populates all of the tabs. If only a global explanation is available, the Individual feature importance tab will be disabled.
 
-Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
+Follow one of these paths to access the explanations dashboard in Azure Machine Learning studio:
 
 * **Experiments** pane (Preview)
   1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
@@ -363,7 +361,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
 
 * **Models** pane
   1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md), you can select **Models** in the left pane to view it.
-  1. Select a model, and then the **Explanations** tab to view the explanation visualization dashboard.
+  1. Select a model, and then the **Explanations** tab to view the explanations dashboard.
 
 ## Interpretability at inference time
 

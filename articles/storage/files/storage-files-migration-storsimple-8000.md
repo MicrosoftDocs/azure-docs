@@ -155,7 +155,7 @@ You can pick a different region from where your StorSimple data (storage account
 
 #### Performance
 
-You have the option to pick premium storage (SSD) for Azure file shares or standard storage. Standard storage includes [several tiers for a file share](storage-how-to-create-file-share.md#changing-the-tier-of-an-azure-file-share). Standard storage is the right option for most customers migrating from StorSimple.
+You have the option to pick premium storage (SSD) for Azure file shares or standard storage. Standard storage includes [several tiers for a file share](storage-how-to-create-file-share.md#change-the-tier-of-an-azure-file-share). Standard storage is the right option for most customers migrating from StorSimple.
 
 Still not sure?
 

@@ -94,7 +94,7 @@ The following section describes the configuration of auditing using the Azure po
 
   > [!NOTE]
   > - Enabling auditing on a paused dedicated SQL pool is not possible. To enable auditing, un-pause the dedicated SQL pool. Learn more about [dedicated SQL pool](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
-  > - When auditing is configured to a Log Analytics workspace or to an Even Hub destination via the Azure portal or PowerShell cmdlet, a [Diagnostic Setting](../../azure-monitor/essentials/diagnostic-settings.md) is created with "SQLSecurityAuditEvents" category enabled.
+  > - When auditing is configured to a Log Analytics workspace or to an Event Hub destination via the Azure portal or PowerShell cmdlet, a [Diagnostic Setting](../../azure-monitor/essentials/diagnostic-settings.md) is created with "SQLSecurityAuditEvents" category enabled.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Auditing** under the Security heading in your **SQL database** or **SQL server** pane.

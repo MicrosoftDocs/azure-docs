@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 03/19/2021
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ---
@@ -90,9 +90,11 @@ If you want to submit your pipeline with variable datasets, you must promote you
 
 You can now specify a different dataset by using the pipeline parameter the next time you run the pipeline.
 
-## Attach module parameter to pipeline parameter 
+## Attach and detach module parameter to pipeline parameter 
 
-In this section, you will learn how to attach module parameter to pipeline parameter.
+In this section, you will learn how to attach and detach module parameter to pipeline parameter.
+
+### Attach module parameter to pipeline parameter
 
 You can attach the same module parameters of duplicated modules to the same pipeline parameter if you want to alter the value at one time when triggering the pipeline run.
 
@@ -110,10 +112,16 @@ The following example has duplicated **Clean Missing Data** module. For each **C
 
    ![Screenshot that shows how to attach a pipeline parameter](media/how-to-use-pipeline-parameter/attach-replace-value-to-pipeline-parameter.png)
 
-You have successfully attached the **Replacement value** field to your pipeline parameter. The **Replacement value** in the modules are non-actionable.
+You have successfully attached the **Replacement value** field to your pipeline parameter. 
+
+
+### Detach module parameter to pipeline parameter
+
+After you attach **Replacement value** to pipeline parameter, it is non-actionable.
+
+You can detach module parameter to pipeline parameter by clicking the ellipses (**...**) next to the module parameter, and select **Detach from pipeline parameter**.
 
  ![Screenshot that shows non-actionable after attaching to pipeline parameter](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
-
 
 ## Update and delete pipeline parameters
 
@@ -128,7 +136,7 @@ Use the following steps to update a module pipeline parameter:
 
 ### Delete a dataset pipeline parameter
 
-Use the following steps to detach a dataset pipeline parameter:
+Use the following steps to delete a dataset pipeline parameter:
 
 1. Select the dataset module.
 1. Uncheck the option **Set as pipeline parameter**.
@@ -142,22 +150,14 @@ Use the following steps to delete a module pipeline parameter:
 
 1. Select the ellipses (**...**) next to the pipeline parameter.
 
-    This view shows you which modules the pipeline parameter is attached to. To delete a pipeline parameter, you must first detach it from any module parameters.
+    This view shows you which modules the pipeline parameter is attached to.
 
-    ![Screenshot that shows the current pipeline parameter applied to a module](media/how-to-use-pipeline-parameter/current-pipeline-parameter.png)
+    ![Screenshot that shows the current pipeline parameter applied to a module](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
-1. In the canvas, select a module that the pipeline parameter is still attached to.
-1. In the module properties pane to the right, find the field that the pipeline parameter is attached to.
-1. Mouseover the attached field. Then, select the ellipses (**...**) that appear.
-1. Select **Detach from pipeline parameter**
-
-    ![Screenshot that shows detaching from pipeline parameters](media/how-to-use-pipeline-parameter/detach-from-pipeline-parameter.png)
-
-1. Repeat the previous steps until you detached the pipeline parameter from all fields.
-1. Select the ellipses (**...**) next to the pipeline parameter.
 1. Select **Delete parameter** to delete the pipeline parameter.
 
-    ![Screenshot that shows deleting pipeline parameters](media/how-to-use-pipeline-parameter/delete-pipeline-parameter.png)
+    > [!NOTE]
+    > Deleting a pipeline parameter will cause all attached module parameters to be detached and the value of detached module parameters will keep current pipeline parameter value.     
 
 ## Trigger a pipeline run with pipeline parameters 
 

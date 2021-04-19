@@ -188,6 +188,7 @@ This article provides answers to some of the most common questions about running
    1. Uninstall SQL Server completely, including the SQL IaaS extension (if present).
    1. Install the free [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads).
    1. Register with the SQL IaaS Agent extension in [lightweight mode](sql-agent-extension-manually-register-single-vm.md).
+   1. [Change the edition of SQL Server](change-sql-server-edition.md#change-edition-in-portal) in the [Azure portal](https://portal.azure.com) to Express to stop billing.  
    1. (optional) Disable the Express SQL Server service by disabling service startup. 
 
 1. **Can I use the Azure portal to manage multiple instances on the same VM?**

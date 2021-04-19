@@ -117,7 +117,7 @@ ORDER BY
 
 You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files.
 
-The sample below shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2017 without specifying a schema.
+The sample below shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2018 without specifying a schema.
 
 > [!NOTE]
 > You don't have to specify columns in the OPENROWSET WITH clause when reading Parquet files. In that case, serverless SQL pool query service will utilize metadata in the Parquet file and bind columns by name.
@@ -126,7 +126,7 @@ The sample below shows the automatic schema inference capabilities for Parquet f
 SELECT TOP 10 *
 FROM  
     OPENROWSET(
-        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        BULK 'puYear=2018/puMonth=9/*.snappy.parquet',
         DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) AS nyc
