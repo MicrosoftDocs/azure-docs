@@ -15,12 +15,13 @@ Pause and resume for dedicated SQL pools can be automated using Synapse Pipeline
 
 The following steps will guide you through setting up automated pause and resume.
 
+1. Create a pipeline.
 1. Set up parameters in your pipeline.
 1. Identify the list of dedicated SQL pools in your Synapse workspace.
 1. Filter any dedicated SQL pools that you don't want to pause or resume from the list. 
 1. Loop over each dedicated SQL pool and:
     1. Check the state of the dedicated SQL pool.
-    1.Pause or resume the dedicated SQL pools.
+    1. Pause or resume the dedicated SQL pools.
 
 These steps are laid out in a simple pipeline in Synapse:
 
@@ -132,7 +133,7 @@ Create a ForEach activity to loop over each dedicated SQL pool.
     
     The output is a JSON string that contains details of the dedicated SQL pool, including its status (in properties.status). The JSON string is passed to the next activity.
     
-## Step 6: Check the state of the dedicated SQL pools
+### Step 5a: Check the state of the dedicated SQL pools
 Evaluate the desired state, Pause or Resume, and the current status, Online, or Paused, and then initiate Pause or Resume as needed.
 
 1. Select and drag a **Switch** activity, under **Iteration & conditionals**, to the pipeline canvas.    
@@ -153,7 +154,7 @@ Evaluate the desired state, Pause or Resume, and the current status, Online, or 
 1. On the Activities tab, select **+ Add Case**.  Add the cases `Paused-Resume` and `Online-Pause`. 
     ![Check status condition of the dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-condition.png)
 
-## Step 7: Pause or Resume dedicated SQL pools     
+### Step 5b: Pause or Resume dedicated SQL pools     
 
 The final and only relevant step for some requirements, is to initiate the pause or resume of your dedicated SQL pool. Like steps 1 and 3a, use a Web activity, calling the [Pause or Resume compute REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute). 
 1. Select the activity edit pencil and add a **Web** activity to the State-PauseorResume canvas. 
@@ -201,7 +202,7 @@ When the full pipeline is run, you will see the output listed below. For the pip
 
 To schedule your pipeline, select **Add trigger** at the top of your pipeline. Follow the screens to schedule your pipeline to run at a specified time.
 
-![Select trigger to set time for pipline to run](./media/how-to-pause-resume-pipelines/trigger.png)
+![Select trigger to set time for pipeline to run](./media/how-to-pause-resume-pipelines/trigger.png)
 
 ## Next steps
 
