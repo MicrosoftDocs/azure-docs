@@ -105,15 +105,15 @@ The high-level idea as represented above is as follows:
 
 1. Finally, use the traffic manager endpoint in your Bot or App.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-### Configure QnA Maker managed (Preview) service to use different Cognitive Search resource
+### Configure Text Analytics resource with Custom question answering to use different Cognitive Search resource
 
-If you create a QnA service managed (Preview) and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker managed (Preview) service. After these resources are created, you can update the Search service in the **Configuration** tab.
+If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics service. After these resources are created, you can update the Search service in the **Features** tab.
 
-1. Go to your QnA Maker managed (Preview) service in the Azure portal.
+1. Go to your Text Analytics service in the Azure portal.
 
-1. Select **Configuration** and select the Azure Cognitive Search service you want to link with your QnA Maker managed (Preview) service.
+1. Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics service.
 
     ![Screenshot of QnA Maker managed (Preview) configuration page](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
 
