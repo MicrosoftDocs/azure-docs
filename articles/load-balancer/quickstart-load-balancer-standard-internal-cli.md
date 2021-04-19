@@ -225,6 +225,9 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create). Spe
 
 It can take a few minutes for the VMs to deploy.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+
 ### Create the load balancer
 
 This section details how you can create and configure the following components of the load balancer:
@@ -532,6 +535,9 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create). Spe
   done
 ```
 It can take a few minutes for the VMs to deploy.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 
 ### Create the load balancer
 
