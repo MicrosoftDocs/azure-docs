@@ -41,9 +41,10 @@ These prerequisites and configurations must be in place to automate the deployme
 
 ### Azure Synapse Analytics
 
-> [!NOTE] You can automate and deploy these prerequisites by using the same pipeline, an ARM template, or the Azure CLI, but the process isn't described in this article.
+> [!NOTE]
+> You can automate and deploy these prerequisites by using the same pipeline, an ARM template, or the Azure CLI, but the process isn't described in this article.
 
-- The "source" workspace that's used for development must be configured with a Git repository in Synapse Studio. For more information, see [Source control in Synapse Studio](source-control#:~:text=Go%20to%20the%20Manage%20hub,no%20repository%20connected%2C%20click%20Configure.&text=You%20can%20connect%20either%20Azure,git%20repository%20in%20your%20workspace).
+- The "source" workspace that's used for development must be configured with a Git repository in Synapse Studio. For more information, see [Source control in Synapse Studio](source-control.md#configuration-method-2-manage-hub).
 
 - A blank workspace to deploy to. To set up the blank workspace:
 
