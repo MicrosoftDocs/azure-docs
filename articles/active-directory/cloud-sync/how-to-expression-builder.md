@@ -29,7 +29,7 @@ To access the expression builder, use the following steps.
  8. Select **Try the expression builder (Preview)**.
  ![Use expression builder](media/how-to-expression-builder/expression-1.png)
 
-### Build an expression
+## Build an expression
 This sections allows you to use the drop-down to select from a list of supported functions.  Then it provides additonal fields for you to fill in, depending on the function selected.  Once you select **Apply expression**, the syntax will appear in the **Expression input** box.
 
 For example, by selecting **Replace** from the drop-down, additonal boxes are provided.  The first is a list of attributes that you would like to occur on.  In our example, we selected the **mail** attribute.  Next, a box is provided for the value that you would like the current attribute to be replaced with.  In the example, we use @contoso.com.  So our expression, basically says, replace the mail attribute on user objects with the @contoso.com value.  By clicking the **Add expression** button, we can see the syntax in the **Expression input**
@@ -38,7 +38,7 @@ For example, by selecting **Replace** from the drop-down, additonal boxes are pr
 
 For additional information on supported expressions see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md)
 
-### Test an expression
+## Test an expression
 In this section, you can test your expressions.
 
 
