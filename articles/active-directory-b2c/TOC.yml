@@ -96,6 +96,8 @@
     href: policy-keys-overview.md
 - name: How-to guides
   items:
+  - name: Manage your tenant
+    href: tenant-management.md
   - name: App integration
     items:
     - name: Register a web application
@@ -458,6 +460,8 @@
           href: aad-sspr-technical-profile.md
         - name: Claims transformation
           href: claims-transformation-technical-profile.md
+        - name: Conditional access
+          href: conditional-access-technical-profile.md
         - name: ID token hint
           href: id-token-hint.md
         - name: JWT token issuer

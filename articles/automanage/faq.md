@@ -99,7 +99,10 @@ No, Automanage will not reconfigure it. We will begin to monitor the resources a
 
 **Why does my VM have a Failed status in the Automanage portal?**
 
-If you see the status as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
+If you see the status as *Failed*, you can troubleshoot the deployment in a few different ways:
+* Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
+* Go to **Subscriptions**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
+* You can also visit the activity log of a VM, which will contain an entry for "Create or Update Configuration Profile Assignments". This may also contain more details on your deployment.
 
 **How can I get troubleshooting support for Automanage?**
 
