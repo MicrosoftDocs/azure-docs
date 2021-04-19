@@ -16,7 +16,8 @@ This quickstart shows you how to create an Azure IoT Central application.
 
 ## Prerequisite 
 
-You'll need an Azure subscription with *Contributor* access. If you don't have an Azure subscription, you can create one for free on the [Azure sign-up page](https://aka.ms/createazuresubscription).
+ - An Azure account with an active subscription. Create an account for [free](https://aka.ms/createazuresubscription).
+ - Your Azure subscription should have Contributor access
 
 ## Create an application
 
@@ -32,11 +33,11 @@ To create a new Azure IoT Central application from the **Custom application** te
 
 1. Choose **Custom app**
 
-1. On the **New application** page, make sure that **Custom application** is selected under the **application template**.
+1. On the **New application** page, make sure that **Custom application** is selected under the **Application template**.
 
-1. Azure IoT Central automatically suggests an **application name** based on the application template you've selected. You can use this name or enter your own friendly application name.
+1. Azure IoT Central automatically suggests an **Application name** based on the application template you've selected. You can use this name or enter your own friendly application name.
 
-1. Azure IoT Central also generates a unique **application URL** prefix for you, based on the application name. You use this URL to access your application. Change this URL prefix to something more memorable if you'd like.
+1. Azure IoT Central also generates a unique **URL** prefix for you, based on the application name. You use this URL to access your application. Change this URL prefix to something more memorable if you'd like.
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Azure IoT Central Create an application page":::
 
