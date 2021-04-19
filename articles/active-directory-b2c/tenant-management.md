@@ -160,7 +160,7 @@ As part of an auditing process, you typically review which users are assigned to
 
 ## Delete an administrator account
 
-To delete an existing user using Azure Active Directory portal, you must have a *Global administrator* role assignment. Global admins can delete any user, including other admins. *User administrators* can delete any non-admin user.
+To delete an existing user, you must have a *Global administrator* role assignment. Global admins can delete any user, including other admins. *User administrators* can delete any non-admin user.
 
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
