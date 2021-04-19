@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to enable logging with diagnostics settings and query the logs for immediate viewing.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/24/2021
+ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
 ---
@@ -64,7 +64,7 @@ Here are more details about the categories of logs that Azure Digital Twins coll
 | ADTModelsOperation | Log all API calls pertaining to Models |
 | ADTQueryOperation | Log all API calls pertaining to Queries |
 | ADTEventRoutesOperation | Log all API calls pertaining to Event Routes as well as egress of events from Azure Digital Twins to an endpoint service like Event Grid, Event Hubs and Service Bus |
-| ADTDigitalTwinsOperation | Log all API calls pertaining individual twins |
+| ADTDigitalTwinsOperation | Log all API calls pertaining to Azure Digital Twins |
 
 Each log category consists of operations of write, read, delete, and action.  These map to REST API calls as follows:
 
@@ -100,13 +100,11 @@ Here is a comprehensive list of the operations and corresponding [Azure Digital 
 
 Each log category has a schema that defines how events in that category are reported. Each individual log entry is stored as text and formatted as a JSON blob. The fields in the log and example JSON bodies are provided for each log type below. 
 
-`ADTDigitalTwinsOperation`, `ADTModelsOperation`, and `ADTQueryOperation` use a consistent API log schema. `ADTEventRoutesOperation` extends the schema to contain an `endpointName` field in properties.
+`ADTDigitalTwinsOperation`, `ADTModelsOperation`, and `ADTQueryOperation` use a consistent API log schema; `ADTEventRoutesOperation` has its own separate schema.
 
 ### API log schemas
 
-This log schema is consistent for `ADTDigitalTwinsOperation`, `ADTModelsOperation`, `ADTQueryOperation`. The same schema is also used for `ADTEventRoutesOperation`, with the **exception** of the `Microsoft.DigitalTwins/eventroutes/action` operation name (for more information about that schema, see the next section, [*Egress log schemas*](#egress-log-schemas)).
-
-The schema contains information pertinent to API calls to an Azure Digital Twins instance.
+This log schema is consistent for `ADTDigitalTwinsOperation`, `ADTModelsOperation`, and `ADTQueryOperation`. It contains information pertinent to API calls to an Azure Digital Twins instance.
 
 Here are the field and property descriptions for API logs.
 
@@ -123,15 +121,9 @@ Here are the field and property descriptions for API logs.
 | `DurationMs` | String | How long it took to perform the event in milliseconds |
 | `CallerIpAddress` | String | A masked source IP address for the event |
 | `CorrelationId` | Guid | Customer provided unique identifier for the event |
-| `ApplicationId` | Guid | Application ID used in bearer authorization |
-| `Level` | Int | The logging severity of the event |
+| `Level` | String | The logging severity of the event |
 | `Location` | String | The region where the event took place |
 | `RequestUri` | Uri | The endpoint utilized during the event |
-| `TraceId` | String | `TraceId`, as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of the whole trace used to uniquely identify a distributed trace across systems. |
-| `SpanId` | String | `SpanId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of this request in the trace. |
-| `ParentId` | String | `ParentId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). A request without a parent ID is the root of the trace. |
-| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, etc. |
-| `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
 
 Below are example JSON bodies for these types of logs.
 
@@ -147,25 +139,12 @@ Below are example JSON bodies for these types of logs.
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": 8,
+  "durationMs": "314",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -181,25 +160,12 @@ Below are example JSON bodies for these types of logs.
   "resultType": "Success",
   "resultSignature": "201",
   "resultDescription": "",
-  "durationMs": "80",
+  "durationMs": "935",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
 }
 ```
 
@@ -215,67 +181,18 @@ Below are example JSON bodies for these types of logs.
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": "314",
+  "durationMs": "255",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
 }
-```
-
-#### ADTEventRoutesOperation
-
-Here is an example JSON body for an `ADTEventRoutesOperation` that is **not** of `Microsoft.DigitalTwins/eventroutes/action` type (for more information about that schema, see the next section, [*Egress log schemas*](#egress-log-schemas)).
-
-```json
-  {
-    "time": "2020-10-30T22:18:38.0708705Z",
-    "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
-    "operationName": "Microsoft.DigitalTwins/eventroutes/write",
-    "operationVersion": "2020-10-31",
-    "category": "EventRoutesOperation",
-    "resultType": "Success",
-    "resultSignature": "204",
-    "resultDescription": "",
-    "durationMs": 42,
-    "callerIpAddress": "212.100.32.*",
-    "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
-    "identity": {
-      "claims": {
-        "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-      }
-    },
-    "level": "4",
-    "location": "southcentralus",
-    "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/EventRoutes/egressRouteForEventHub?api-version=2020-10-31",
-    "properties": {},
-    "traceContext": {
-      "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-      "spanId": "b630da57026dd046",
-      "parentId": "9f0de6dadae85945",
-      "traceFlags": "01",
-      "tracestate": "k1=v1,k2=v2"
-    }
-  },
 ```
 
 ### Egress log schemas
 
-This is the schema for `ADTEventRoutesOperation` logs specific to the `Microsoft.DigitalTwins/eventroutes/action` operation name. These contain details pertaining to exceptions and the API operations around egress endpoints connected to an Azure Digital Twins instance.
+This is the schema for `ADTEventRoutesOperation` logs. These contain details pertaining to exceptions and the API operations around egress endpoints connected to an Azure Digital Twins instance.
 
 |Field name | Data type | Description |
 |-----|------|-------------|
@@ -284,55 +201,28 @@ This is the schema for `ADTEventRoutesOperation` logs specific to the `Microsoft
 | `OperationName` | String  | The type of action being performed during the event |
 | `Category` | String | The type of resource being emitted |
 | `ResultDescription` | String | Additional details about the event |
-| `CorrelationId` | Guid | Customer provided unique identifier for the event |
-| `ApplicationId` | Guid | Application ID used in bearer authorization |
-| `Level` | Int | The logging severity of the event |
+| `Level` | String | The logging severity of the event |
 | `Location` | String | The region where the event took place |
-| `TraceId` | String | `TraceId`, as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of the whole trace used to uniquely identify a distributed trace across systems. |
-| `SpanId` | String | `SpanId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of this request in the trace. |
-| `ParentId` | String | `ParentId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). A request without a parent ID is the root of the trace. |
-| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, etc. |
-| `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
 | `EndpointName` | String | The name of egress endpoint created in Azure Digital Twins |
 
 Below are example JSON bodies for these types of logs.
 
-#### ADTEventRoutesOperation for Microsoft.DigitalTwins/eventroutes/action
-
-Here is an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.DigitalTwins/eventroutes/action` type.
+#### ADTEventRoutesOperation
 
 ```json
 {
   "time": "2020-11-05T22:18:38.0708705Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/eventroutes/action",
-  "operationVersion": "",
   "category": "EventRoutesOperation",
-  "resultType": "",
-  "resultSignature": "",
-  "resultDescription": "Unable to send EventHub message to [myPath] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
-  "durationMs": -1,
-  "callerIpAddress": "",
+  "resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
   "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
-  "level": "4",
+  "level": "3",
   "location": "southcentralus",
-  "uri": "",
   "properties": {
-    "endpointName": "myEventHub"
-  },
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
+    "endpointName": "endpointEventGridInvalidKey"
   }
-},
+}
 ```
 
 ## View and query logs
