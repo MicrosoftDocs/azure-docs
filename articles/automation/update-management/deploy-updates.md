@@ -64,7 +64,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 7. Use the **Update classifications** region to specify [update classifications](view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
-   :::image type="content" source="/media/deploy-updates/update-classification-example.png" alt-text="Example showing selection of specific update classifications.":::
+   :::image type="content" source="./media/deploy-updates/update-classification-example.png" alt-text="Example showing selection of specific update classifications.":::
 
     If your deployment is meant to apply only a select set of updates, it is necessary to deselect all the pre-selected update classifications when configuring the **Include/exclude updates** option as described in the next step. This ensures only the updates you have specified to *include* in this deployment are installed on the target machines.
 
@@ -73,7 +73,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 8. Use the **Include/exclude updates** region to add or exclude selected updates from the deployment. On the **Include/Exclude** page, you enter KB article ID numbers to include or exclude for Windows updates. For supported Linux distros, you specify the package name.
 
-   :::image type="content" source="/media/deploy-updates/include-specific-updates-example.png" alt-text="Example showing how to include specific updates.":::
+   :::image type="content" source="./media/deploy-updates/include-specific-updates-example.png" alt-text="Example showing how to include specific updates.":::
 
    > [!IMPORTANT]
    > Remember that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management excludes all patches or packages from the installation. Excluded patches still show as missing from the machines. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
