@@ -35261,6 +35261,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-create-account-block-blob.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-manage-access-to-resources.md",
       "redirect_url": "/azure/storage/blobs/anonymous-read-access-configure",
       "redirect_document_id": true
