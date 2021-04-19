@@ -186,6 +186,7 @@ import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
 import com.azure.android.communication.ui.meetings.MeetingUIClientJoinOptions;
 import com.azure.android.communication.ui.meetings.MeetingUIClient;
+import com.azure.android.communication.ui.meetings.MeetingUIClientTeamsMeetingLinkLocator;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
