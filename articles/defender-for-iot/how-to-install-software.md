@@ -702,7 +702,7 @@ To install:
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times. 
 
-During the installation process you will have the option to add a secondary NIC. If you choose not to install the secondary NIC during installation you can [add a secondary NIC](#add-a-secondary-nic)at a later time. 
+During the installation process you will have the option to add a secondary NIC. If you choose not to install the secondary NIC during installation you can [add a secondary NIC](#add-a-secondary-nic) at a later time. 
 
 To install the software:
 
@@ -754,9 +754,10 @@ Both NICs have the user interface (UI) enabled. When routing is not neccessary, 
 
 If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
 
-If you have already configured your on-premises management console and would like to add a second NIC on your on-premises management console, you can by using the following steps:
+If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
 
 1. Use the network reconfigure command:
+
     ```bash
     sudo cyberx-management-network-reconfigure
     ```
