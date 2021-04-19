@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Files documentation # < 60 chars
-summary: Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. # < 160 chars
+title: Azure File Sync documentation # < 60 chars
+summary: Azure File Sync extends your on-premises Windows Server or cloud virtual machine by enabling you to sync file shares to Azure. # < 160 chars
 
 metadata:
   title: Azure File Sync documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: roygara #Required; your GitHub user alias, with correct capitalization.
   ms.author: rogarana #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/09/2021 #Required; mm/dd/yyyy format.
+  ms.date: 04/19/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,6 +29,10 @@ landingContent:
             url: file-sync-planning.md
           - text: What is Azure File Sync?
             url: file-sync-introduction.md
+          - text: Cloud tiering overview
+            url: file-sync-cloud-tiering-overview.md
+          - text: Identity-based authentication
+            url: ../files/storage-files-active-directory-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
 
 
   # Card (optional)
@@ -38,8 +42,6 @@ landingContent:
         links:
           - text: Create/use file shares - Windows
             url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
-          - text: Create premium file shares
-            url: ../files/storage-how-to-create-premium-fileshare.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
           - text: Manage your server with Azure File Sync
             url: file-sync-server-registration.md
       - linkListType: tutorial
