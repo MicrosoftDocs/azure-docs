@@ -26,7 +26,7 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 
 ### Aggregation Types:
 
-Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts#aggregation). Customer should use recommended Aggregation type for different ExpressRoute Metrics for insights.
+Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). Customer should use recommended Aggregation type for different ExpressRoute Metrics for insights.
 
 * Sum: The sum of all values captured during the aggregation interval. 
 * Count: The number of measurements captured during the aggregation interval. 
