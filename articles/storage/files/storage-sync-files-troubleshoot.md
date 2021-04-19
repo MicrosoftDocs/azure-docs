@@ -374,11 +374,12 @@ The table below contains all of the unicode characters Azure File Sync does not 
 
 | Character set | Character count |
 |---------------|-----------------|
+| 0x00000000 - 0x0000001F (control characters) | 32 |
+| <ul><li>0x00000022 (quotation mark)</li><li>0x0000002A (asterisk)</li><li>0x0000002F (forward slash)</li><li>0x0000003A (colon)</li><li>0x0000003C (less than)</li><li>0x0000003E (greater than)</li><li>0x0000003F (question mark)</li><li>0x0000005C (backslash)</li><li>0x0000007C (pipe or bar)</li></ul> | 9 |
+| <ul><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x0010FFFE - 0x0010FFFF = 2 (noncharacter)</li></ul> | 8 |
 | <ul><li>0x0000009D (osc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
-| 0x0000FFF0 - 0x0000FFFF (specials) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
-| 0x0010FFFE, 0x0010FFFF | 2 |
+| 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (specials) | 4 |
+| Files or directories that end with a period | 1 |
 
 ### Common sync errors
 <a id="-2147023673"></a>**The sync session was canceled.**  
