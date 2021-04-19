@@ -91,7 +91,7 @@ Default views are a quick way to get started with visualizing your important dev
 * The **Overview** view uses charts and metrics to display device telemetry.
 * The **About** view displays device properties.
 
-Select the **Views** node in the device template. You can see that IoT Central generated an **Overview** and an **About** view for you when you added the template.
+Select the **Views** node in the device template. You can see that IoT Central generated an **Overview**, an **About** view, and a **Raw Data** view for you when you added the template.
 
 To add a new form to manage the device:
 
