@@ -387,7 +387,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ActiveListeners |Uint, default is 50 |Static| Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Time in seconds, default is 30 |Static|Specify timespan in seconds. The interval at which the Http Gateway sends accumulated health reports to the Health Manager. |
 |HttpStrictTransportSecurityHeader|string,default is ""|Dynamic| Specify the HTTP Strict Transport Security header value to be included in every response sent by the HttpGateway. When set to empty string; this header will not be included in the gateway response.|
-|IsEnabled|Bool, default is false |Static| Enables/Disables the HttpGateway. HttpGateway is disabled by default. |
+|IsEnabled|Bool, default is true |Static| Enables/Disables the HttpGateway. HttpGateway is enabled by default. |
 |MaxEntityBodySize |Uint, default is 4194304 |Dynamic|Gives the maximum size of the body that can be expected from an http request. Default value is 4MB. Httpgateway will fail a request if it has a body of size > this value. Minimum read chunk size is 4096 bytes. So this has to be >= 4096. |
 
 ## ImageStoreService
