@@ -26,7 +26,7 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 
 ### Aggregation Types:
 
-Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). Customer should use recommended Aggregation type for different ExpressRoute Metrics for insights.
+Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metrics.
 
 * Sum: The sum of all values captured during the aggregation interval. 
 * Count: The number of measurements captured during the aggregation interval. 
@@ -62,7 +62,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 ### Bits In and Out - Metrics across all peerings
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view metrics across all peerings on a given ExpressRoute circuit.
 
@@ -70,7 +70,7 @@ You can view metrics across all peerings on a given ExpressRoute circuit.
 
 ### Bits In and Out - Metrics per peering
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view metrics for private, public, and Microsoft peering in bits/second.
 
@@ -78,7 +78,7 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 ### BGP Availability - Split by Peer  
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view near to real-time availability of BGP (Layer-3 connectivity) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Primary BGP session status is up for private peering and the Second BGP session status is down for private peering. 
 
@@ -86,7 +86,7 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 
 ### ARP Availability - Split by Peering  
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view near to real-time availability of [ARP](./expressroute-troubleshooting-arp-resource-manager.md) (Layer-3 connectivity) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session status is up across both peers, but down for Microsoft peering for both peers. The default aggregation (Average) was utilized across both peers.  
 
@@ -96,7 +96,7 @@ You can view near to real-time availability of [ARP](./expressroute-troubleshoot
 
 ### Admin State - Split by link
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view the Admin state for each link of the ExpressRoute Direct port pair. The Admin state represents if the physical port is on or off. This state is required to pass traffic across the ExpressRoute Direct connection.
 
@@ -104,7 +104,7 @@ You can view the Admin state for each link of the ExpressRoute Direct port pair.
 
 ### Bits In Per Second - Split by link
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view the bits in per second across both links of the ExpressRoute Direct port pair. Monitor this dashboard to compare inbound bandwidth for both links.
 
@@ -112,7 +112,7 @@ You can view the bits in per second across both links of the ExpressRoute Direct
 
 ### Bits Out Per Second - Split by link
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can also view the bits out per second across both links of the ExpressRoute Direct port pair. Monitor this dashboard to compare outbound bandwidth for both links.
 
@@ -120,7 +120,7 @@ You can also view the bits out per second across both links of the ExpressRoute 
 
 ### Line Protocol - Split by link
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view the line protocol across each link of the ExpressRoute Direct port pair. The Line Protocol indicates if the physical link is up and running over ExpressRoute Direct. Monitor this dashboard and set alerts to know when the physical connection has gone down.
 
@@ -128,7 +128,7 @@ You can view the line protocol across each link of the ExpressRoute Direct port 
 
 ### Rx Light Level - Split by link
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view the Rx light level (the light level that the ExpressRoute Direct port is **receiving**) for each port. Healthy Rx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Rx light level falls outside of the healthy range.
 
@@ -136,7 +136,7 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 
 ### Tx Light Level - Split by link
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Tx light level falls outside of the healthy range.
 
@@ -144,7 +144,7 @@ You can view the Tx light level (the light level that the ExpressRoute Direct po
 
 ## ExpressRoute Virtual Network Gateway Metrics
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are six gateway metrics available to you to better understand the performance of your gateway:
 
@@ -159,7 +159,7 @@ It's highly recommended you set alerts for each of these metrics so that you are
 
 ### CPU Utilization - Split Instance
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 You can view the CPU utilization of each gateway instance. The CPU utilization may spike briefly during routine host maintenance but prolong high CPU utilization could indicate your gateway is reaching a performance bottleneck. Increasing the size of the ExpressRoute gateway may resolve this issue. Set an alert for how frequent the CPU utilization exceeds a certain threshold.
 
@@ -167,7 +167,7 @@ You can view the CPU utilization of each gateway instance. The CPU utilization m
 
 ### Packets Per Second - Split by Instance
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 This metric captures the number of inbound packets traversing the ExpressRoute gateway. You should expect to see a consistent stream of data here if your gateway is receiving traffic from your on-premises network. Set an alert for when the number of packets per second drops below a threshold indicating that your gateway is no longer receiving traffic.
 
@@ -175,7 +175,7 @@ This metric captures the number of inbound packets traversing the ExpressRoute g
 
 ### Count of Routes Advertised to Peer - Split by Instance
 
-Aggregation Type: *Count*
+Aggregation type: *Count*
 
 This metric is the count for the number of routes the ExpressRoute gateway is advertising to the circuit. The address spaces may include virtual networks that are connected using VNet peering and uses remote ExpressRoute gateway. You should expect the number of routes to remain consistent unless there are frequent changes to the virtual network address spaces. Set an alert for when the number of advertised routes drop below the threshold for the number of virtual network address spaces you're aware of.
 
@@ -183,7 +183,7 @@ This metric is the count for the number of routes the ExpressRoute gateway is ad
 
 ### Count of Routes Learned from Peer - Split by Instance
 
-Aggregation Type: *Max*
+Aggregation type: *Max*
 
 This metric shows the number of routes the ExpressRoute gateway is learning from peers connected to the ExpressRoute circuit. These routes can be either from another virtual network connected to the same circuit or learned from on-premises. Set an alert for when the number of learned routes drop below a certain threshold. This could indicate either the gateway is seeing a performance problem or remote peers are no longer advertising routes to the ExpressRoute circuit. 
 
@@ -191,7 +191,7 @@ This metric shows the number of routes the ExpressRoute gateway is learning from
 
 ### Frequency of Routes change - Split by Instance
 
-Aggregation Type: *Sum*
+Aggregation type: *Sum*
 
 This metric shows the frequency of routes being learned from or advertised to remote peers. You should first investigate your on-premises devices to understand why the network is changing so frequently. A high frequency in routes change could indicate a performance problem on the ExpressRoute gateway where scaling the gateway SKU up may resolve the problem. Set an alert for a frequency threshold to be aware of when your ExpressRoute gateway is seeing abnormal route changes.
 
@@ -199,7 +199,7 @@ This metric shows the frequency of routes being learned from or advertised to re
 
 ### Number of VMs in the Virtual Network
 
-Aggregation Type: *Max*
+Aggregation type: *Max*
 
 This metric shows the number of virtual machines that are using the ExpressRoute gateway. The number of virtual machines may include VMs from peered virtual networks that use the same ExpressRoute gateway. Set an alert for this metric if the number of VMs goes above a certain threshold that could affect the gateway performance. 
 
@@ -207,7 +207,7 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 
 ## ExpressRoute gateway connections in bits/seconds
 
-Aggregation Type: *Avg*
+Aggregation type: *Avg*
 
 This metric shows the bandwidth usage for a specific connection to an ExpressRoute circuit.
 
