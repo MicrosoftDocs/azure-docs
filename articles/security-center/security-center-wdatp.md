@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/19/2021
 ms.author: memildin
 ---
 
@@ -33,7 +33,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 | Release state:                  | Generally available (GA)                                                                                                                                                                                                                                                                                      |
 | Pricing:                        | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Supported platforms:            |  • Azure machines running Windows<br> • Azure Arc machines running Windows|
-| Supported versions of Windows:  |  • **General Availability (GA) -** Detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1<br> • **Preview -** Detection on Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), and [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)|
+| Supported versions of Windows for detection:  |  • Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)|
 | Unsupported operating systems:  |  • Windows 10 (other than EVD or WVD)<br> • Linux|
 | Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
 | Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
@@ -64,20 +64,22 @@ When you use Azure Security Center to monitor your servers, a Microsoft Defender
 After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
-## Enabling the Microsoft Defender for Endpoint integration
+## Enable the Microsoft Defender for Endpoint integration
 
-1. Confirm that your machine meets the necessary requirements for Defender for Endpoint:
+### Prerequisites
 
-    - For **all versions of Windows**:
-        - Configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
-        - If you're deploying Defender to Endpoint to an on-premises machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
-    - In addition, for **Windows Server 2019 machines**, confirm that they're running a valid agent and have the MicrosoftMonitoringAgent extension
+Confirm that your machine meets the necessary requirements for Defender for Endpoint:
 
+1. Configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+1. If you're deploying Defender to Endpoint to an on-premises machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
+1. For Windows Server 2019 machines only, confirm that your machines are running a valid agent and have the MicrosoftMonitoringAgent extension
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
-
 1. If you've already licensed and deployed Microsoft Defender for Endpoints on your servers, remove it using the procedure described in [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
-1. From Security Center's menu, select **Pricing & settings**.
-1. Select the subscription you want to change.
+1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+
+### Enable the integration
+1. From Security Center's menu, select **Pricing & settings** and select the subscription you want to change.
 1. Select **Threat detection**.
 1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
