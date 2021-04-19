@@ -13,9 +13,9 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, I want to reduce overusing the Global Administrator role by delegating app access management to lower-privilege roles.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an Azure AD administrator, I want to reduce overusing the Global Administrator role by delegating app access management to lower-privilege roles.
+
 ---
 
 # Delegate app registration permissions in Azure Active Directory

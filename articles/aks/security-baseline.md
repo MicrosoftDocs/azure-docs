@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,17 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Kubernetes Service
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Azure Kubernetes. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Azure Kubernetes. **Controls** not applicable to Azure Kubernetes have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Azure Kubernetes. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Kubernetes. **Controls** not applicable to Azure Kubernetes, or for which the responsibility is Microsoft's, have been excluded.
 
- 
-To see how Azure Kubernetes completely maps to the Azure
-Security Benchmark, see the [full Azure Kubernetes security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Azure Kubernetes completely maps to the Azure Security Benchmark, see the [full Azure Kubernetes security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
@@ -118,7 +110,7 @@ Network Watcher is enabled automatically in your virtual network's region when y
 
 If intrusion detection and/or prevention based on payload inspection or behavior analytics is not a requirement, an Azure Application Gateway with WAF can be used and configured in "detection mode" to log alerts and threats, or "prevention mode" to actively block detected intrusions and attacks.
 
-- [Understand best practices for securing your AKS cluster with a WAF](./operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
+- [Understand best practices for securing your AKS cluster with a WAF](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
 
 - [How to deploy Azure Application Gateway (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
@@ -162,7 +154,7 @@ Additional information is available at the referenced links.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
+- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 **Responsibility**: Customer
 
@@ -195,11 +187,11 @@ Create alerts within Azure Monitor that will trigger when changes to critical ne
 Use Azure Monitor logs to enable and query the logs from AKS the master components, kube-apiserver and kube-controller-manager. 
 Create and manage the nodes that run the kubelet with container runtime and deploy their applications through the managed Kubernetes API server. 
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](./view-control-plane-logs.md)
+- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
 
 **Responsibility**: Customer
 
@@ -237,13 +229,13 @@ Export these logs to Log Analytics or another storage platform. In Azure Monitor
 
 Enable and on-board this data to Azure Sentinel or a third-party SIEM based on your organizational business requirements.
 
-- [Review the Log schema including log roles here](./view-control-plane-logs.md)
+- [Review the Log schema including log roles here](/azure/aks/view-master-logs)
 
-- [Understand Azure Monitor for Containers](../azure-monitor/containers/container-insights-overview.md)
+- [Understand Azure Monitor for Containers](/azure/azure-monitor/insights/container-insights-overview)
 
-- [How to enable Azure Monitor for Containers](../azure-monitor/containers/container-insights-onboard.md)
+- [How to enable Azure Monitor for Containers](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](./view-control-plane-logs.md)
+- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
 
 **Responsibility**: Customer
 
@@ -270,7 +262,7 @@ Enable audit logs on AKS master components, such as:
 
 Turn on other audit logs such as kube-audit as well. 
 
-- [How to enable and review Kubernetes master node logs in AKS](./view-control-plane-logs.md)
+- [How to enable and review Kubernetes master node logs in AKS](/azure/aks/view-master-logs)
 
 **Responsibility**: Customer
 
@@ -293,7 +285,7 @@ Data collection is required to provide visibility into missing updates, misconfi
 
 **Guidance**: Onboard your Azure Kubernetes Service (AKS) instances to Azure Monitor and set the corresponding Azure Log Analytics workspace retention period according to your organization's compliance requirements. 
 
-- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -307,11 +299,11 @@ Use Azure Monitor's Log Analytics workspace to review logs and perform queries o
 
 View the logs generated by AKS master components (kube-apiserver and kube-controllermanager) for troubleshooting your application and services. Enable and on-board data to Azure Sentinel or a third-party SIEM for centralized log management and monitoring.
 
-- [How to enable and review Kubernetes master node logs in AKS](./view-control-plane-logs.md)
+- [How to enable and review Kubernetes master node logs in AKS](/azure/aks/view-master-logs)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
 
 **Responsibility**: Customer
 
@@ -339,7 +331,7 @@ Review Security Center alerts on threats and malicious activity detected at the 
 
 - [Security alerts reference guide](../security-center/alerts-reference.md)
 
-- [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alerts for containers - Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
 **Responsibility**: Customer
 
@@ -423,7 +415,7 @@ Create policies and procedures around the use of dedicated administrative accoun
 
 **Guidance**: Use single sign-on for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD) integrated authentication for an AKS cluster.
 
-- [How to view Kubernetes logs, events, and pod metrics in real-time](../azure-monitor/containers/container-insights-livedata-overview.md)
+- [How to view Kubernetes logs, events, and pod metrics in real-time](/azure/azure-monitor/insights/container-insights-livedata-overview)
 
 **Responsibility**: Customer
 
@@ -520,7 +512,7 @@ Be aware of roles used for support or troubleshooting purposes. For example, any
 **Guidance**: Integrate user authentication for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD). Create Diagnostic Settings for Azure AD, sending the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired Alerts (such as when a deactivated account attempts to log in) within an Azure Log Analytics workspace.
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
+- [How to create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/platform/alerts-log)
 
 **Responsibility**: Customer
 
@@ -670,11 +662,11 @@ Configure alerts for proactive notification or log creation when CPU and memory 
 
 Use Azure Activity Log to monitor your AKS clusters and related resources at a high level. Integrate with Prometheus to view application and workload metrics it collects from nodes and Kubernetes using queries to create custom alerts, dashboards, and detailed perform detailed analysis.
 
-- [Understand Azure Monitor for Containers](../azure-monitor/containers/container-insights-overview.md)
+- [Understand Azure Monitor for Containers](/azure/azure-monitor/insights/container-insights-overview)
 
-- [How to enable Azure Monitor for containers](../azure-monitor/containers/container-insights-onboard.md)
+- [How to enable Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
 **Responsibility**: Customer
 
@@ -710,7 +702,7 @@ Note that the process to keep Windows Server nodes up to date differs from nodes
 
 - [Understand how updates are applied to AKS cluster nodes running Linux](node-updates-kured.md)
 
-- [How to upgrade an AKS node pool for AKS clusters that use Windows Server nodes](./use-multiple-node-pools.md#upgrade-a-node-pool)
+- [How to upgrade an AKS node pool for AKS clusters that use Windows Server nodes](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
 
 - [Azure Kubernetes Service (AKS) node image upgrades](node-image-upgrade.md)
 
@@ -798,7 +790,7 @@ Taints, labels or tags can be used to reconcile inventory on a regular basis and
 
 - [Managed Clusters - Update Tags](/rest/api/aks/managedclusters/updatetags)
 
-- [Specify a taint, label, or tag for a node pool](./use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
+- [Specify a taint, label, or tag for a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **Responsibility**: Customer
 
@@ -893,7 +885,7 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
+- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsibility**: Customer
 
@@ -1037,7 +1029,7 @@ Refer to the list of Center for Internet Security (CIS) controls which are built
 
 - [Security hardening for AKS agent node host OS](security-hardened-vm-host-image.md)
 
-- [Understand state configuration of AKS clusters](./concepts-clusters-workloads.md#control-plane)
+- [Understand state configuration of AKS clusters](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 - [Understand security hardening in AKS virtual machine hosts](security-hardened-vm-host-image.md)
 
@@ -1077,7 +1069,7 @@ Create custom policies to audit, and enforce system configurations. Develop a pr
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
+- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Responsibility**: Customer
 
@@ -1093,7 +1085,7 @@ Refer to the list of Center for Internet Security (CIS) controls which are built
 
 - [Understand security hardening in AKS virtual machine hosts](security-hardened-vm-host-image.md)
 
-- [Understand state configuration of AKS clusters](./concepts-clusters-workloads.md#control-plane)
+- [Understand state configuration of AKS clusters](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 **Responsibility**: Customer
 
@@ -1132,7 +1124,7 @@ Avoid the use of fixed or shared credentials.
 
 - [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](concepts-security.md)
 
-- [How to use Key Vault with your AKS cluster](./developer-best-practices-pod-security.md#limit-credential-exposure)
+- [How to use Key Vault with your AKS cluster](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 **Responsibility**: Customer
 
@@ -1146,7 +1138,7 @@ Note that Pod managed identities are intended for use with Linux pods and contai
 
 Service principals can also be used in AKS clusters. However, clusters using service principals eventually may reach a state in which the service principal must be renewed to keep the cluster working. Managing service principals adds complexity, which is why it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities.
 
-- [Understand Managed Identities and Key Vault with Azure Kubernetes Service (AKS)](./developer-best-practices-pod-security.md#limit-credential-exposure)
+- [Understand Managed Identities and Key Vault with Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 - [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity)
 
@@ -1178,9 +1170,9 @@ Limit credential exposure by not defining credentials in your application code. 
 
 - [Security alerts reference guide](../security-center/alerts-reference.md)
 
-- [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alerts for containers - Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS shared responsibility and Daemon Sets](./support-policies.md#shared-responsibility)
+- [AKS shared responsibility and Daemon Sets](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Responsibility**: Shared
 
@@ -1202,9 +1194,9 @@ Limit credential exposure by not defining credentials in your application code. 
 
 - [Security alerts reference guide](../security-center/alerts-reference.md)
 
-- [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alerts for containers - Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS shared responsibility and Daemon Sets](./support-policies.md#shared-responsibility)
+- [AKS shared responsibility and Daemon Sets](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Responsibility**: Shared
 
@@ -1246,7 +1238,7 @@ Perform regular automated backups of Key Vault Certificates, Keys, Managed Stora
 
 - [How to backup Key Vault Secrets](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [How to enable Azure Backup](../backup/index.yml)
+- [How to enable Azure Backup](/azure/backup/)
 
 **Responsibility**: Customer
 
@@ -1258,15 +1250,15 @@ Perform regular automated backups of Key Vault Certificates, Keys, Managed Stora
 
 Periodically perform data restoration of Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with PowerShell commands.
 
-- [How to restore Key Vault Certificates](/powershell/module/az.keyvault/restore-azkeyvaultcertificate?amp;preserve-view=true&view=azps-4.8.0)
+- [How to restore Key Vault Certificates](/powershell/module/az.keyvault/restore-azkeyvaultcertificate)
 
-- [How to restore Key Vault Keys](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to restore Key Vault Keys](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 - [How to restore Key Vault Managed Storage Accounts](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [How to restore Key Vault Secrets](/powershell/module/az.keyvault/restore-azkeyvaultsecret?amp;preserve-view=true&view=azps-4.8.0)
+- [How to restore Key Vault Secrets](/powershell/module/az.keyvault/restore-azkeyvaultsecret)
 
-- [How to recover files from Azure Virtual Machine backup](../backup/backup-azure-restore-files-from-vm.md)
+- [How to recover files from Azure Virtual Machine backup](/azure/backup/backup-azure-restore-files-from-vm)
 
 **Responsibility**: Customer
 
@@ -1280,7 +1272,7 @@ Enable Soft-Delete in Key Vault to protect keys against accidental or malicious 
 
 - [Understand Azure Storage Service Encryption](../storage/common/storage-service-encryption.md)
 
-- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
 
 **Responsibility**: Customer
 
@@ -1379,5 +1371,5 @@ Choose the Security Center data connector to stream the alerts to Azure Sentinel
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
-- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
+- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)

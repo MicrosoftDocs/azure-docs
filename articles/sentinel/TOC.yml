@@ -35,6 +35,8 @@
       href: roles.md
     - name: Manage access by resource
       href: resource-context-rbac.md
+    - name: Protect MSSP intellectual property
+      href: mssp-protect-intellectual-property.md
   - name: Advanced multistage attack detection
     href: fusion.md
   - name: Automation (SOAR)
@@ -118,6 +120,8 @@
         href: connect-windows-firewall.md
       - name: Windows security events
         href: connect-windows-security-events.md
+      - name: Windows Virtual Desktop
+        href: connect-windows-virtual-desktop.md
     - name: Connect external solutions
       items:
       - name: Agari Phishing Defense and Brand Protection
@@ -291,6 +295,8 @@
   items:
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
+  - name: Azure CLI
+    href: /cli/azure/ext/sentinel/sentinel
   - name: Azure RBAC roles
     items:
     - name: All Azure roles

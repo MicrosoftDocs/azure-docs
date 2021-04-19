@@ -18,13 +18,13 @@ For deployments, Resource Manager retains parameter values and status messages i
 
 To list **deployments** in the history, use:
 
-* [List By Resource Group](/rest/api/resources/resources/deployments/listbyresourcegroup)
+* [List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup)
 * [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
 * [az deployment group list](/cli/azure/deployment/group#az_deployment_group_list)
 
 To delete **deployments** from the history, use:
 
-* [Delete](/rest/api/resources/resources/deployments/delete)
+* [Delete](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [az deployment group delete](/cli/azure/deployment/group#az_deployment_group_delete)
 
@@ -34,13 +34,13 @@ The name of the resource group persists until you delete the resource group. To 
 
 To list **resource groups**, use:
 
-* [List](/rest/api/resources/resources/resourcegroups/list)
+* [List](/rest/api/resources/resourcegroups/list)
 * [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
 * [az group list](/cli/azure/group#az-group-list)
 
 To delete **resource groups**, use:
 
-* [Delete](/rest/api/resources/resources/resourcegroups/delete)
+* [Delete](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
 * [az group delete](/cli/azure/group#az-group-delete)
 
@@ -50,13 +50,13 @@ Tags names and values persist until you delete or modify the tag. To see if you 
 
 To list **tags**, use:
 
-* [List](/rest/api/resources/resources/tags/list)
+* [List](/rest/api/resources/tags/list)
 * [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
 * [az tag list](/cli/azure/tag#az-tag-list)
 
 To delete **tags**, use:
 
-* [Delete](/rest/api/resources/resources/tags/delete)
+* [Delete](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 

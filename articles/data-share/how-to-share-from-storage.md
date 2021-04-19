@@ -195,7 +195,7 @@ Storage snapshot performance is impacted by a number of factors in addition to n
 
 * Concurrent access to the source and target data stores.  
 * Location of source and target data stores. 
-* For incremental snapshot, number of files in the shared dataset can impact the time takes to find the list of files with last modified time after the last successful snapshot. 
+* For incremental snapshot, the number of files in the shared dataset can impact the time it takes to find the list of files with last modified time after the last successful snapshot. 
 
 
 ## Next steps

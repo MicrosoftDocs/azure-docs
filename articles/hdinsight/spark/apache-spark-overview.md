@@ -6,7 +6,7 @@ ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
 
-#customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
+# Customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
 # What is Apache Spark in Azure HDInsight

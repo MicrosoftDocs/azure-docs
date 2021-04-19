@@ -24,11 +24,18 @@ This feature can only be set at cluster creation or node pool creation time.
 - Ensure you have the `aks-preview` CLI extension v0.4.73 or higher version installed.
 - Ensure you have the `EnableEncryptionAtHostPreview` feature flag under `Microsoft.ContainerService` enabled.
 
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for your subscriptions. 
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your Azure Kubernetes Service cluster. Please follow the steps below to enable the feature for your subscription:
 
-> [!IMPORTANT]
-> You must email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for compute resources. You cannot enable it yourself for compute resources.
+1. Execute the following command to register the feature for your subscription
 
+```azurecli-interactive
+Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
+2. Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+
+```azurecli-interactive
+Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
 
 ### Install aks-preview CLI extension
 

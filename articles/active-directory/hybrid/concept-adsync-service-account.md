@@ -51,7 +51,7 @@ Legend:
 - sMSA - [standalone Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 - gMSA - [group Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
- ||**LocalDB</br> Express**|**LocalDB/LocalSQL</br> Custom**|**Remote SQL</br> Custom**|
+|Machine type |**LocalDB</br> Express**|**LocalDB/LocalSQL</br> Custom**|**Remote SQL</br> Custom**|
 |-----|-----|-----|-----|
 |**domain-joined machine**|**VSA**|**VSA**</br> *sMSA*</br> *gMSA*</br> Local account</br> Domain account| *gMSA* </br>Domain account|
 |Domain Controller| **sMSA**|**sMSA** </br>*gMSA*</br> Domain account|*gMSA*</br>Domain account| 

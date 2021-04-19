@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Manage app groups using PowerShell
 

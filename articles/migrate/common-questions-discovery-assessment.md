@@ -82,6 +82,10 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
 - For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
+## > The number of Azure VM or AVS assessments on the Discovery and assessment tool are incorrect
+ To remediate this, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessment. The discovery and assessment tool will then show the correct count for that assessment type.
+
+
 ## I want to try out the new Azure SQL assessment
 Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 

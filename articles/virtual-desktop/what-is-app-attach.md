@@ -8,7 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # What is MSIX app attach?
 

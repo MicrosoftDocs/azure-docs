@@ -11,7 +11,7 @@ ms.author: trstalna
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The sampling overrides feature is in preview, starting from 3.0.3-BETA.2.
+> The sampling overrides feature is in preview, starting from 3.0.3.
 
 Sampling overrides allow you to override the [default sampling percentage](./java-standalone-config.md#sampling),
 for example:
@@ -81,7 +81,7 @@ If no sampling overrides match:
   is used.
 * If this is not the first span in the trace, then the parent sampling decision is used.
 
-> [!IMPORTANT]
+> [!WARNING]
 > When a decision has been made to not collect a span, then all downstream spans will also not be collected,
 > even if there are sampling overrides that match the downstream span.
 > This behavior is necessary because otherwise broken traces would result, with downstream spans being collected

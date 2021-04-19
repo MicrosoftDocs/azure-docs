@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/16/2021
 ms.author: thweiss
 ---
 
@@ -40,6 +40,13 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 
 ## <a id="permission-model"></a> Permission model
 
+> [!IMPORTANT]
+> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
+> - [ARM templates](manage-with-templates.md)
+> - [Azure PowerShell scripts](manage-with-powershell.md),
+> - [Azure CLI scripts](manage-with-cli.md),
+> - [Azure management libraries](https://azure.github.io/azure-sdk/releases/latest/index.html).
+
 The table below lists all the actions exposed by the permission model.
 
 | Name | Corresponding database operation(s) |
@@ -59,9 +66,6 @@ Wildcards are supported at both *containers* and *items* levels:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. To authenticate management operations with an AAD identity, use [Azure RBAC](role-based-access-control.md) instead.
 
 ### <a id="metadata-requests"></a> Metadata requests
 
@@ -380,6 +384,7 @@ This additional information flows in the **DataPlaneRequests** log category and 
 ## Limits
 
 - You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
+- You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
 - Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
 - The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
 - Accessing your data with Azure AD through the [Azure Cosmos DB Explorer](data-explorer.md) isn't supported yet. Using the Azure Cosmos DB Explorer still requires the user to have access to the account's primary key for now.

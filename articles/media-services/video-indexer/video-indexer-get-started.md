@@ -32,7 +32,7 @@ Once you start using Video Indexer, all your stored data and uploaded content ar
 
 ### Supported file formats for Video Indexer
 
-See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
+See the [input container/file formats](../latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Indexer.
 
 ### Upload a video
 

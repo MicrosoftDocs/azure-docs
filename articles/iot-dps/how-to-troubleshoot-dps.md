@@ -8,8 +8,9 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.author: xujing
-# As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
+#Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
+
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
 Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](../azure-monitor/overview.md).

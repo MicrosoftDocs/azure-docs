@@ -1,7 +1,7 @@
 ---
 title: How to create Guest Configuration policies for Windows
 description: Learn how to create an Azure Policy Guest Configuration policy for Windows.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # How to create Guest Configuration policies for Windows
@@ -28,9 +28,9 @@ non-Azure machine.
 > Custom policy definitions with Guest Configuration in the Azure Government and
 > Azure China environments is a Preview feature.
 >
-> The Guest Configuration extension is required to perform audits in Azure virtual machines.
-> To deploy the extension at scale across all Windows machines, assign the following policy definitions:
-> `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> The Guest Configuration extension is required to perform audits in Azure virtual machines. To
+> deploy the extension at scale across all Windows machines, assign the following policy
+> definitions: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 > 
 > Don't use secrets or confidential information in custom content packages.
 
@@ -167,10 +167,10 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
-If the resource has required properties, those must also be returned by `Get-TargetResource`
-in parallel with the `reasons` class. If `reasons` isn't included, the service includes a
-"catch-all" behavior that compares the values input to `Get-TargetResource` and the values
-returned by `Get-TargetResource`, and provides a detailed comparison as `reasons`.
+If the resource has required properties, those properties must also be returned by
+`Get-TargetResource` in parallel with the `reasons` class. If `reasons` isn't included, the service
+includes a "catch-all" behavior that compares the values input to `Get-TargetResource` and the
+values returned by `Get-TargetResource`, and provides a detailed comparison as `reasons`.
 
 ### Configuration requirements
 
@@ -227,9 +227,9 @@ package consists of:
   - DscNativeResources module
   - (Windows) DSC resource modules required by the MOF
 
-PowerShell cmdlets assist in creating the package.
-No root level folder or version folder is required.
-The package format must be a .zip file and cannot exceed a total size of 100MB when uncompressed.
+PowerShell cmdlets assist in creating the package. No root level folder or version folder is
+required. The package format must be a .zip file and can't exceed a total size of 100 MB when
+uncompressed.
 
 ### Storing Guest Configuration artifacts
 
@@ -271,8 +271,8 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Run this script in a PowerShell terminal or save this file with name `config.ps1` in the project folder.
-Run it in PowerShell by executing `./config.ps1` in the terminal. A new mof file is created.
+Run this script in a PowerShell terminal or save this file with name `config.ps1` in the project
+folder. Run it in PowerShell by executing `./config.ps1` in the terminal. A new mof file is created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
 `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
@@ -328,10 +328,10 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to Azure Blob Storage. There are no special requirements for the storage account,
-but it's a good idea to host the file in a region near your machines. If you don't have a storage account,
-use the following example. The commands below, including `Publish-GuestConfigurationPackage`,
-require the `Az.Storage` module.
+The next step is to publish the file to Azure Blob Storage. There are no special requirements for
+the storage account, but it's a good idea to host the file in a region near your machines. If you
+don't have a storage account, use the following example. The commands below, including
+`Publish-GuestConfigurationPackage`, require the `Az.Storage` module.
 
 ```azurepowershell-interactive
 # Creates a new resource group, storage account, and container
@@ -344,7 +344,8 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
 - **Path**: Location of the package to be published
 - **ResourceGroupName**: Name of the resource group where the storage account is located
 - **StorageAccountName**: Name of the storage account where the package should be published
-- **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
+- **StorageContainerName**: (default: _guestconfiguration_) Name of the storage container in the
+  storage account
 - **Force**: Overwrite existing package in the storage account with the same name
 
 The example below publishes the package to a storage container name 'guestconfiguration'.
@@ -452,7 +453,7 @@ An example snippet of a policy definition that filters for tags is given below.
 
 Guest Configuration supports overriding properties of a Configuration at run time. This feature
 means that the values in the MOF file in the package don't have to be considered static. The
-override values are provided through Azure Policy and don't impact how the Configurations are
+override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
@@ -479,7 +480,7 @@ $PolicyParameterInfo = @(
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
+        ResourceId = 'UserSelectedNameExample'                          # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -522,8 +523,8 @@ content for the third-party platform in the content artifact.
 
 ## Policy lifecycle
 
-If you would like to release an update to the policy, make the change for both the Guest Configuration
-package and the Azure Policy definition details.
+If you would like to release an update to the policy, make the change for both the Guest
+Configuration package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
@@ -531,9 +532,9 @@ package and the Azure Policy definition details.
 > the version in the file name.
 
 First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
-unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
-The number in this example is only used to make the package unique, not to specify that the package
-should be considered newer or older than other packages.
+unique from previous versions. You can include a version number in the name such as
+`PackageName_1.0.0`. The number in this example is only used to make the package unique, not to
+specify that the package should be considered newer or older than other packages.
 
 Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
 the explanations below.

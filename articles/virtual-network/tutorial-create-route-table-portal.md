@@ -5,7 +5,7 @@ description: In this tutorial, learn how to route network traffic with a route t
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
