@@ -439,7 +439,7 @@ To configure the device bridge to transform the exported device data:
 
 1. In the left navigation, in **Development Tools**, select **App Service Editor (Preview)**.
 
-1. Select "Go -&gt;" to open the **App Service Editor** page. Make the following changes:
+1. Select **Go &rarr;** to open the **App Service Editor** page. Make the following changes:
 
     1. Open the *wwwroot/IoTCIntegration/index.js* file. Replace all the code in this file with the code in [index.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/index.js).
 
