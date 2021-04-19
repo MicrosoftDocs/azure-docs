@@ -4,7 +4,7 @@ description: Learn about the changes to the Azure Monitor integration and best-p
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/16/2020
+ms.date:04/19/2020
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -108,7 +108,7 @@ You can enter your own queries in the Logs query editor. Queries used on the old
 
 Insights are cluster-specific visualization dashboards made using [Azure Workbooks](../azure-monitor/platform/workbooks-overview.md). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
 
-:::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" lightbox="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard." border="false":::
+:::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" lightbox="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard.":::
 
 #### Custom Azure workbooks
 
