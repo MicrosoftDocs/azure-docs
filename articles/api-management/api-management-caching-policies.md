@@ -4,15 +4,10 @@ description: Learn about the caching policies available for use in Azure API Man
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 
-ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 03/08/2021
 ms.author: apimpm
 ---
 # API Management caching policies
@@ -24,8 +19,8 @@ This topic provides a reference for the following API Management policies. For i
 ## <a name="CachingPolicies"></a> Caching policies
 
 - Response caching policies
-    - [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache look up and return a valid cached responses when available.
-    - [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches responses according to the specified cache control configuration.
+    - [Get from cache](#GetFromCache) - Perform cache look up and return a valid cached responses when available.
+    - [Store to cache](#StoreToCache) - Caches responses according to the specified cache control configuration.
 - Value caching policies
     - [Get value from cache](#GetFromCacheByKey) - Retrieve a cached item by key.
     - [Store value in cache](#StoreToCacheByKey) - Store an item in the cache by key.
@@ -35,7 +30,7 @@ This topic provides a reference for the following API Management policies. For i
 Use the `cache-lookup` policy to perform cache look up and return a valid cached response when available. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
 
 > [!NOTE]
-> This policy must have a corresponding [Store to cache](api-management-caching-policies.md#StoreToCache) policy.
+> This policy must have a corresponding [Store to cache](#StoreToCache) policy.
 
 ### Policy statement
 
@@ -130,7 +125,7 @@ The `cache-store` policy caches responses according to the specified cache setti
 ### Policy statement
 
 ```xml
-<cache-store duration="seconds" />
+<cache-store duration="seconds" cache-response="true | false" />
 ```
 
 ### Examples
@@ -185,7 +180,8 @@ For more information, see [Policy expressions](api-management-policy-expressions
 
 | Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Required | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Time-to-live of the cached entries, specified in seconds.                                                                                                                                                                                                                                                                                                   | Yes      | N/A               |
+| duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
+| cache-response         | Set to true to cache the current HTTP response. If the attribute is omitted or set to false, only HTTP responses with the status code `200 OK` are cached.                           | No      | false               |
 
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).

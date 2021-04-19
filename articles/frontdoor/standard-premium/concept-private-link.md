@@ -25,7 +25,7 @@ ms.custom: references_regions
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Premium SKU can connect to your origin behind Web App and Storage Account using the Private Link service, removing the need for your origin to be publically accessible.
+Azure Front Door Premium SKU can connect to your origin via private link service. Your applications can be hosted in your private VNet or behind a PaaS service such as Web App and Storage Account, removing the need for your origin to be publically accessible.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Front Door Private Endpoints architecture":::
 
@@ -38,7 +38,7 @@ When you enable Private Link to your origin in Azure Front Door Premium configur
 
 ## Limitations
 
-Azure Front Door private endpoints are available in the following regions during public preview: East US, West 2 US, and South Central US.
+Azure Front Door private endpoints are available in the following regions during public preview: East US, West 2 US, South Central US, and UK South.
 
 For the best latency, you should always pick an Azure region closest to your origin when choosing to enable Front Door private link endpoint.
 

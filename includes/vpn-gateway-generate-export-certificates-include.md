@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 
-# this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
+# This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 
 ## <a name="rootcert"></a>Create a self-signed root certificate

@@ -5,21 +5,23 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
 ---
 
 # Advanced development with Azure Percept
-With Azure Percept, software developers and data scientists are able to use advanced code workflows for AI Lifecycle management. Through a growing open source library, they can use samples to get started with their AI development journey and build production ready solutions.
 
-## Get started with the advanced development tutorials
+With Azure Percept, software developers and data scientists can use advanced code workflows for AI lifecycle management. Through a growing open source library, they can use samples to get started with their AI development journey and build production-ready solutions.
 
-This [Jupyter notebook](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) performs transfer learning, using a pre-trained TensorFlow model (MobileNetSSDV2Lite) on AzureML in Python with a custom dataset to detect bowls. There are two tutorial options to guide you through working with the notebook to train and deploy your bowl detector to the Project Santa Cruz devkit:
+## Get started with advanced development
 
-- [Cloud development](./advanced-development-cloud.md): in this tutorial, you will run the notebook in the [Azure Machine Learning Portal](https://ml.azure.com) with a remote compute instance.
+See the [Azure Percept DK advanced development GitHub](https://github.com/microsoft/azure-percept-advanced-development) for
+up-to-date guidance, tutorials, and examples for things like:
 
-- [Local development](./advanced-development-local.md): in this tutorial, you will run the notebook locally within VS Code with a remote compute instance.
+- Deploying a custom AI model to your Azure Percept DK
+- Updating a supported model with transfer learning
+- And more
 
 ## Next steps
 
-Learn about all of the available [Azure Percept AI models](./overview-ai-models.md).
+Learn more about the available [Azure Percept AI models](./overview-ai-models.md). If none of these models suit your needs, use the advanced code journey to bring your own model or computer vision pipeline to the Percept DK. If you have a contribution that you think would help others, feel free open a pull request too.

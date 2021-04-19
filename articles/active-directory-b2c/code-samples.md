@@ -43,9 +43,10 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
+| [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | A single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL React. This sample uses the authorization code flow with PKCE. |
 | [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | A single page application (SPA) calling Microsoft Graph to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE.|
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the implicit flow.|
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | A single page application (SPA) calling Microsoft Graph to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE.|
 
 ## Console/Daemon apps
 

@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Data and metadata locations for Windows Virtual Desktop
 

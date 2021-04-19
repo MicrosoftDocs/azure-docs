@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 02/17/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate Dropbox Business with Azure Active Directory
@@ -32,9 +32,9 @@ To get started, you need the following items:
 
 ## Scenario description
 
-* In this tutorial, you configure and test Azure AD SSO in a test environment. Dropbox Business supports **SP** initiated SSO
+* In this tutorial, you configure and test Azure AD SSO in a test environment. Dropbox Business supports **SP** initiated SSO.
 
-* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md)
+* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -77,12 +77,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://www.dropbox.com/sso/<id>`
-
-    b. In the **Identifier (Entity ID)** text box, type the value:
+	
+	 b. In the **Identifier (Entity ID)** text box, type the value:
     `Dropbox`
-
+	
 	> [!NOTE]
-	> The preceding Sign-on URL value is not real value. You will update the value with the actual Sign-on URL, which is explained later in the tutorial.
+	> The **Dropbox Sign SSO ID** can be found in the Dropbox site at Dropbox > Admin console > Settings > Single sign-on > SSO sign-in URL.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -133,23 +133,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Click on the **User Icon** and select **Settings** tab.
 
-	![Screenshot that shows the "USER ICON" action and "Settings" selected.](./media/dropboxforbusiness-tutorial/configure1.png "Configure single sign-on")
+	![Screenshot that shows the "USER ICON" action and "Settings" selected.](./media/dropboxforbusiness-tutorial/configure-1.png "Configure single sign-on")
 
 5. In the navigation pane on the left side, click **Admin console**.
 
-	![Screenshot that shows "Admin console" selected.](./media/dropboxforbusiness-tutorial/configure2.png "Configure single sign-on")
+	![Screenshot that shows "Admin console" selected.](./media/dropboxforbusiness-tutorial/configure-2.png "Configure single sign-on")
 
 6. On the **Admin console**, click **Settings** in the left navigation pane.
 
-	![Screenshot that shows "Settings" selected.](./media/dropboxforbusiness-tutorial/configure3.png "Configure single sign-on")
+	![Screenshot that shows "Settings" selected.](./media/dropboxforbusiness-tutorial/configure-3.png "Configure single sign-on")
 
 7. Select **Single sign-on** option under the **Authentication** section.
 
-	![Screenshot that shows the "Authentication" section with "Single sign-on" selected.](./media/dropboxforbusiness-tutorial/configure4.png "Configure single sign-on")
+	![Screenshot that shows the "Authentication" section with "Single sign-on" selected.](./media/dropboxforbusiness-tutorial/configure-4.png "Configure single sign-on")
 
 8. In the **Single sign-on** section, perform the following steps:  
 
-	![Screenshot that shows the "Single sign-on" configuration settings.](./media/dropboxforbusiness-tutorial/configure5.png "Configure single sign-on")
+	![Screenshot that shows the "Single sign-on" configuration settings.](./media/dropboxforbusiness-tutorial/configure-5.png "Configure single sign-on")
 
 	a. Select **Required** as an option from the dropdown for the **Single sign-on**.
 
@@ -170,7 +170,7 @@ In this section, a user called B.Simon is created in Dropbox Business. Dropbox B
 >[!Note]
 >If you need to create a user manually, Contact [Dropbox Business Client support team](https://www.dropbox.com/business/contact)
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 

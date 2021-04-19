@@ -2,7 +2,7 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 03/23/2021
 ---
 # Automatic deletions from deployment history
 
@@ -47,6 +47,12 @@ To use Azure CLI to delete a lock, run the following commands:
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## Required permissions
+
+The deletions are requested under the identity of the user who deployed the template. To delete deployments, the user must have access to the **Microsoft.Resources/deployments/delete** action. If the user doesn't have the required permissions, deployments aren't deleted from the history.
+
+If the current user doesn't have the required permissions, automatic deletion is attempted again during the next deployment.
 
 ## Opt out of automatic deletions
 

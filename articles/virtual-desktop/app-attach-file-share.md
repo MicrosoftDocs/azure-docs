@@ -1,22 +1,17 @@
 ---
-title: Windows Virtual Desktop set up file share MSIX app attach preview - Azure
+title: Windows Virtual Desktop set up file share MSIX app attach - Azure
 description: How to set up a file share for MSIX app attach for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Set up a file share for MSIX app attach (preview)
-
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Set up a file share for MSIX app attach
 
 All MSIX images must be stored on a network share that can be accessed by users in a host pool with read-only permissions.
 
-MSIX app attach (preview) doesn't have any dependencies on the type of storage fabric the file share uses. The considerations for the MSIX app attach share are same as those for an FSLogix share. To learn more about storage requirements, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).
+MSIX app attach doesn't have any dependencies on the type of storage fabric the file share uses. The considerations for the MSIX app attach share are same as those for an FSLogix share. To learn more about storage requirements, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).
 
 ## Performance requirements
 

@@ -3,18 +3,16 @@ title: Azure Media Services concepts | Microsoft Docs
 description: This article gives a brief overview of Microsoft Azure Media Services concepts and links to other articles for details.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Azure Media Services concepts
 
@@ -153,7 +151,7 @@ When configuring the token restricted policy, you must specify the primary verif
 
 For more information, see the following articles:
 - [Protect content overview](media-services-content-protection-overview.md)
-- [Protect with AES-128](media-services-protect-with-aes128.md)
+- [Protect with AES-128](media-services-playready-license-template-overview.md)
 - [Protect with PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## Delivering

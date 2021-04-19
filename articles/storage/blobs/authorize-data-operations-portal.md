@@ -62,9 +62,9 @@ Custom roles can support different combinations of the same permissions provided
 
 ## Navigate to blobs in the Azure portal
 
-To view blob data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Blobs**. Alternatively you can navigate to the **Blob service** section in the menu.
+To view blob data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Blobs**. Alternatively you can navigate to the **Containers** section in the menu.
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to navigate to blob data in the Azure portal":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Screenshot showing how to navigate to blob data in the Azure portal":::
 
 ## Determine the current authentication method
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/13/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -113,8 +113,8 @@ The following claims transformation outputs a JSON string claim that will be the
 - Input claims :
   - **email**,  transformation claim type  **customerEntity.email**: "john.s@contoso.com"
   - **objectId**, transformation claim type **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
-  - **objectId**, transformation claim type **customerEntity.firstName** "John"
-  - **objectId**, transformation claim type **customerEntity.lastName** "Smith"
+  - **givenName**, transformation claim type **customerEntity.firstName** "John"
+  - **surname**, transformation claim type **customerEntity.lastName** "Smith"
 - Input parameter:
   - **customerEntity.role.name**: "Administrator"
   - **customerEntity.role.id** 1

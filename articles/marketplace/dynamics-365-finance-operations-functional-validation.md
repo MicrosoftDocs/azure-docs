@@ -51,7 +51,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
       2. Go to **LCS** > **Solution Management** > **Test Solution Package**. Take screenshots that include the package overview and contents shown in these examples:
 
-    | Field | Image <img src="" width="400px">|
+    | Field | Image |
     | --- | --- |
     | Package overview | [![Screenshot that shows the "Package overview" window.](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Solution approvers</li></ul> | [![Package overview screen](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |

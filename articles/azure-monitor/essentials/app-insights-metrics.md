@@ -91,6 +91,8 @@ Browser metrics are collected by the Application Insights JavaScript SDK from re
 
 ### Browser page load time (browserTimings/totalDuration)
 
+Time from user request until DOM, stylesheets, scripts and images are loaded.
+
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
@@ -106,6 +108,8 @@ browserTimings
 ```
 
 ### Client processing time (browserTiming/processingDuration)
+
+Time between receiving the last byte of a document until the DOM is loaded. Async requests may still be processing.
 
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
@@ -123,6 +127,8 @@ browserTimings
 
 ### Page load network connect time (browserTimings/networkDuration)
 
+Time between user request and network connection. Includes DNS lookup and transport connection.
+
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
@@ -139,6 +145,8 @@ browserTimings
 
 ### Receiving response time (browserTimings/receiveDuration)
 
+Time between the first and last bytes, or until disconnection.
+
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
@@ -154,6 +162,8 @@ browserTimings
 ```
 
 ### Send request time (browserTimings/sendDuration)
+
+Time between network connection and receiving the first byte.
 
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|

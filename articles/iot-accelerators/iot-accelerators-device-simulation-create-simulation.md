@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 
-# As an IT Pro, I need to create simulated devices to test my IoT solution.
+#Customer intent: As an IT Pro, I need to create simulated devices to test my IoT solution.
 ---
 
 # Tutorial: Create and run an IoT device simulation
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To follow this tutorial, you need a deployed instance of the Device Simulation in your Azure subscription.
 
-If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
+If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) on GitHub.
 
 ## View simulations
 

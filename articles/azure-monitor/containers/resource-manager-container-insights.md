@@ -1,7 +1,6 @@
 ---
 title: Resource Manager template samples for Container insights
 description: Sample Azure Resource Manager templates to deploy and configureContainer insights.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren

@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) Simulator Reference Agent | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
@@ -26,10 +26,8 @@ In this tutorial you will learn how to:
 > * Deploy an image update
 > * Monitor the update deployment
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
-* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
+* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
 ### Download and install
 
@@ -100,7 +98,7 @@ There are two versions of the agent. If you're exercising image-based scenario, 
   ```
 Device Update for Azure IoT Hub software is subject to the following license terms:
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
 
@@ -145,9 +143,9 @@ Agent running. [main]
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin.
+2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin or Module Twin.
 
-3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
 
 4. Add a new Device Update tag value as shown below.
 
@@ -159,29 +157,30 @@ Agent running. [main]
 
 ## Import update
 
-1. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+1. Create an Import Manifest following these [instructions](import-update.md).
+2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 
-2. Select the Updates tab.
+3. Select the Updates tab.
 
-3. Select "+ Import New Update".
+4. Select "+ Import New Update".
 
-4. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the apt manifest update file you downloaded previously.
-   
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the Ubuntu update image that you downloaded earlier. 
+
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
-5. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
 
-6. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
   
   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
-7. Select "Submit" to start the import process.
+8. Select "Submit" to start the import process.
 
-8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
 [Learn more](import-update.md) about importing updates.
 

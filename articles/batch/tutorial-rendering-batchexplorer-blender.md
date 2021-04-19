@@ -5,6 +5,7 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Render a Blender scene using Batch Explorer

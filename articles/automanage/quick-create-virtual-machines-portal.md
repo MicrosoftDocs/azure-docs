@@ -2,12 +2,14 @@
 title: Quickstart - Enable Azure Automanage for VMs in the Azure portal
 description: Learn how to quickly enable Automanage for virtual machines on a new or existing VM in the Azure portal.
 author: ju-shim
+ms.author: jushiman
+ms.date: 02/17/2021
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 02/17/2021
-ms.author: jushiman
+ms.custom:
+  - mode-portal
 ---
 
 
@@ -84,7 +86,7 @@ Sign into the Azure portal [here](https://aka.ms/AzureAutomanagePreview) to crea
 1. Fill out the **Basics** tab with your VM details.
 
 > [!NOTE]
-> Check the Automanage [supported regions](automanage-virtual-machines#supported-regions) and the Automanage supported [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions) and [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions).
+> Check the Automanage [supported regions](automanage-virtual-machines.md#supported-regions) and the Automanage supported [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions) and [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions).
 
 2. Browse to the **Management** tab and choose your **Automanage Environment**.
 

@@ -11,11 +11,11 @@ ms.date: 09/21/2020
 # Azure Cosmos DB Emulator - Release notes and download information
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-This article shows the Azure Cosmos DB Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
+This article shows the Azure Cosmos DB Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of the emulator to download and use.
 
 ## Download
 
-| | |
+| | Link |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
 |**Get started**|[Develop locally with Azure Cosmos DB Emulator](local-emulator.md)|

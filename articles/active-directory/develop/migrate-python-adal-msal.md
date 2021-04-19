@@ -106,7 +106,7 @@ app = msal.PublicClientApplication(
     "client_id", authority="...",
     # token_cache=...  # Default cache is in memory only.
                        # You can learn how to use SerializableTokenCache from
-                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+                       # https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache
     )
 
 # We choose a migration strategy of migrating all RTs in one loop

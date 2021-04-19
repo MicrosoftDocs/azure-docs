@@ -8,9 +8,12 @@ ms.date: 02/16/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 
 # PowerShell scripts for IoT Edge for Linux on Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Understand the PowerShell scripts that deploy, provision, and get the status your IoT Edge for Linux on Windows virtual machine.
 
@@ -33,17 +36,20 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | identityCertLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | identityCertLocWin | Directory path | Absolute source path of the identity certificate in Windows for provisioning an IoT Edge device (**X509** or **symmetric**). |
-| identityPkLocVm |  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| identityPkLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | identityPkLocWin | Directory path | Absolute source path of the identity private key in Windows for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | vmSizeDefintion | No longer than 30 characters | Definition of the number of cores and available RAM for the virtual machine. **Default value**: Standard_K8S_v1. |
 | vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk. **Default value**: 16 GB. |
 | vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
-| vnetType | **Transparent** or **ICS** | The type of virtual switch. **Default value**: Transparent. |
+| vnetType | **Transparent** or **ICS** | The type of virtual switch. **Default value**: Transparent. Transparent refers to an external switch, while ICS refers to an internal switch. |
 | vnetName | No longer than 64 characters | The name of the virtual switch. **Default value**: External. |
 | enableVtpm | None | **Switch parameter**. Create the virtual machine with TPM enabled or disabled. |
 | mobyPackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine.  **Default value:** 19.03.11. |
 | iotedgePackageVersion | No longer than 30 characters | Version of IoT Edge package to be verified or installed on the virtual machine. **Default value:** 1.1.0. |
 | installPackages | None | **Switch parameter**. When toggled, the script will attempt to install the Moby and IoT Edge packages rather than only verifying the packages are present. |
+
+>[!NOTE]
+>By default, if the process cannot find an external switch with the name `External`, it will search for any existing external switch through which to obtain an IP address. If there is no external switch available, it will search for an internal switch. If there is no internal switch available, it will attempt to create the default switch through which to obtain an IP address.
 
 ## Verify-EflowVm
 
@@ -63,7 +69,7 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DPS**). |
 | identityCertLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
 | identityCertLocWin | Directory path | Absolute source path of the identity certificate in Windows for provisioning an IoT Edge device (**dps**, **X509**). |
-| identityPkLocVm |  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
+| identityPkLocVm  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
 | identityPkLocWin | Directory path | Absolute source path of the identity private key in Windows for provisioning an IoT Edge device (**dps**, **X509**). |
 
 ## Get-EflowVmName
@@ -132,7 +138,7 @@ The **Get-EflowVmSshKey** command is used to query and display the SSH key used 
 
 ## Ssh-EflowVm
 
-The **Ssh-EflowVm** command is used to SSH into the virtual machine. For additional information, use the command `Get-Help Ssh-EflowVm -full`.
+The **Ssh-EflowVm** command is used to SSH into the virtual machine. The only account allowed to SSH to the virtual machine is the user that created it. For additional information, use the command `Get-Help Ssh-EflowVm -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -142,6 +148,6 @@ The **Ssh-EflowVm** command is used to SSH into the virtual machine. For additio
 
 Learn how to use these commands in the following article:
 
-* [Install Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-windows.md)
+* [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)
 
-* Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) for all the commands available through PowerShell.
+* Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) for all the commands available through PowerShell.

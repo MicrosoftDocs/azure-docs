@@ -20,7 +20,7 @@ A device can be connected to an IoT hub directly using a connection string or us
 
 ## To move the device to Azure IoT Central
 
-To connect a device to IoT Central from the IOT Hub a device needs to be updated with:
+To connect a device to IoT Central from the IoT Hub a device needs to be updated with:
 
 * The [Scope ID](../../iot-dps/concepts-service.md) of the IoT Central application.
 * A key derived either from the [group SAS](concepts-get-connected.md) key or [the X.509 cert](../../iot-hub/iot-hub-x509ca-overview.md)

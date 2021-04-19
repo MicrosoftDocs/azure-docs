@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Pro GPU device
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes the types of certificates that can be installed on your Azure Stack Edge Pro device. The article also includes the details for each certificate type along with the procedure to install and identify the expiration date. 
+This article describes the types of certificates that can be installed on your Azure Stack Edge Pro device. The article also includes the details for each certificate type along with the procedure to install and identify the expiration date.  
 
 ## About certificates
 
@@ -395,7 +395,7 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
 ## Supported certificate algorithms
 
- Only the Rivest–Shamir–Adleman (RSA) certificates are supported with your Azure Stack Edge Pro device. If Elliptic Curve Digital Signature Algorithm (ECDSA) certificates are used, then the device behavior is indeterminate.
+ Only the Rivest–Shamir–Adleman (RSA) certificates are supported with your Azure Stack Edge Pro device. Elliptic Curve Digital Signature Algorithm (ECDSA) certificates are not supported.
 
  Certificates that contain an RSA public key are referred to as RSA certificates. Certificates that contain an Elliptic Curve Cryptographic (ECC) public key are referred to as ECDSA (Elliptic Curve Digital Signature Algorithm) certificates. 
 

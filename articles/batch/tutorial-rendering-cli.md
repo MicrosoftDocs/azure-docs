@@ -4,6 +4,7 @@ description: Learn how to render an Autodesk 3ds Max scene with Arnold using the
 ms.topic: tutorial
 ms.date: 12/30/2020
 ms.custom: mvc, devx-track-azurecli
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Render a scene with Azure Batch

@@ -36,7 +36,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 To add a secret to the vault, you just need to take a couple of additional steps. This password could be used by an application. The password will be called **ExamplePassword** and will store the value of **hVFkk965BuUv** in it.
 
-Type the commands below to create a secret in Key Vault called **ExamplePassword** that will store the value **hVFkk965BuUv** :
+Use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command below to create a secret in Key Vault called **ExamplePassword** that will store the value **hVFkk965BuUv** :
 
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -61,5 +61,6 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
+- Learn how to [store multiline secrets in Key Vault](multiline-secrets.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
 - Review the [Key Vault security overview](../general/security-overview.md)
