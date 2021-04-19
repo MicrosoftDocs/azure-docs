@@ -75,7 +75,7 @@ Certain applications can't be application layered, which means they can't be rep
 
 * Drivers 
 - Active-X or Silverlight
-* VPN clients
+- VPN clients
 * Anti-virus
 
 ## Next steps
