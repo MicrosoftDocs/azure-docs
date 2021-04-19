@@ -130,6 +130,22 @@ The Conditional Access protocol provider doesn't return any **OutputClaims**, so
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
+### Example: Remediation
+
+The following example shows a Conditional Access technical profile that is used to remediate the sign-in threat.
+
+```xml
+<TechnicalProfile Id="ConditionalAccessRemediation">
+  <DisplayName>Conditional Access Remediation</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+  <Metadata>
+    <Item Key="OperationType">Remediation</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="conditionalAccessClaimCollection" PartnerClaimType="ChallengesSatisfied" />
+  </InputClaims>
+</TechnicalProfile>
+```
 
 ## Next steps
 
