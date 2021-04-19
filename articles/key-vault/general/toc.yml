@@ -52,7 +52,7 @@
     href: best-practices.md
   - name: Security
     items:
-    - name: Overview
+    - name: Security features
       href: security-overview.md
     - name: Key Vault authentication fundamentals
       href: authentication-fundamentals.md
