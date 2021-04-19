@@ -99,7 +99,28 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model doesn't allow log backup.</li><li>Differential and log backups aren't allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you've configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs](manage-monitor-sql-database-backup.md). After the conflicting operation fails, restart the operation.|
+
+### OperationCancelledBecauseConflictingOperationRunningUserError
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+| Operation cancelled as a conflicting operation was already running on the same database. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
+
+
+### UserErrorFileManipulationIsNotAllowedDuringBackup
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+| Backup, file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | You may get this error when the triggered adhoc  or the scheduled backup job is conflicting with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the cases where this error code might surface:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
+
+
+
+
+
+
+
+
+
 
 ### UserErrorSQLPODoesNotExist
 
