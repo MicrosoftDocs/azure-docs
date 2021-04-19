@@ -43,9 +43,9 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
     :::image type="content" source="./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png" alt-text = "Sync to other databases, Microsoft Azure portal":::
 
-1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)**.
+1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group**.
 
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-private-link.png" alt-text = "Set up new sync group with private link":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/create-sync-group.png" alt-text = "Set up new sync group with private link":::
 
    On the **Create Data Sync Group** page, change the following settings:
 
@@ -64,19 +64,17 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
    
 1. On the **New Sync Group** page, if you selected **Use private link**, you will need to approve the private endpoint connection. The link in the info message will take you to the private endpoint connections experience where you can approve the connection. 
 
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link.png" alt-text = "Approve private link":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link-update.png" alt-text = "Approve private link":::
 
 ## Add sync members
 
-After the new sync group is created and deployed, **Add sync members (step 2)** is highlighted on the **New sync group** page.
+After the new sync group is created and deployed, open the sync group and access the **Databases** page, where you will select sync members.
 
-In the **Hub Database** section, enter existing credentials for the server on which the hub database is located. Don't enter *new* credentials in this section.
-
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo.png" alt-text = "Enter existing credentials for the hub database server":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/add-sync-members.png" alt-text = "Select sync members":::
 
 ### To add a database in Azure SQL Database
 
-In the **Member Database** section, optionally add a database in Azure SQL Database to the sync group by selecting **Add an Azure SQL Database**. The **Configure Azure SQL Database** page opens.
+In the **Select sync members** section, optionally add a database in Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** page opens.
   
    :::image type="content" source="./media/sql-data-sync-sql-server-configure/step-two-configure.png" alt-text = "Add a database to the sync group":::
    
@@ -157,9 +155,9 @@ In the **Member Database** section, optionally add a SQL Server database to the 
 
 ## Configure sync group
 
-After the new sync group members are created and deployed, **Configure sync group (step 3)** is highlighted in the **New sync group** page.
+After the new sync group members are created and deployed, go to the **Tables** section in the **Database Sync Group** page.
 
-![Step 3 settings](./media/sql-data-sync-sql-server-configure/stepthree.png)
+![Step 3 settings](./media/sql-data-sync-sql-server-configure/configure-sync-group.png)
 
 1. On the **Tables** page, select a database from the list of sync group members and select **Refresh schema**.
 
