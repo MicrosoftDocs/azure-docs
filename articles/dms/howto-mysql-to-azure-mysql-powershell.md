@@ -555,19 +555,30 @@ The following script takes the user values of the parameters and sets the parame
 # DEFAULT values for all the configurations is $null
 LogMessage -Message "Adding optional migration performance tuning configuration ..." -IsProcessing $true
 # Partitioning settings
+# Optional setting that configures the maximum number of parallel reads on tables located on the source database.
 [object] $DesiredRangesCount = 4
+# Optional setting that configures that size of the largest batch that will be committed to the target server.
 [object] $MaxBatchSizeKb = 4096
+# Optional setting that configures the minimum number of rows in each batch written to the target.
 [object] $MinBatchRows = $null
 # Task count settings
+# Optional setting that configures the number of databases that will be prepared for migration in parallel.
 [object] $PrepareDatabaseForBulkImportTaskCount = $null
+# Optional setting that configures the number of tables that will be prepared for migration in parallel.
 [object] $PrepareTableForBulkImportTaskCount = $null
+# Optional setting that configures the number of threads available to read ranges on the source.
 [object] $QueryTableDataRangeTaskCount = 8
+# Optional setting that configures the number of threads available to write batches to the target.
 [object] $WriteDataRangeBatchTaskCount = 12
 # Batch cache settings
+# Optional setting that configures how much memory will be used to cache batches in memory before reads on the source are throttled.
 [object] $MaxBatchCacheSizeMb = $null
+# Optional setting that configures the amount of available memory at which point reads on the source will be throttled.
 [object] $ThrottleQueryTableDataRangeTaskAtAvailableMemoryMb = $null
+# Optional setting that configures the number of batches cached in memory that will trigger read throttling on the source.
 [object] $ThrottleQueryTableDataRangeTaskAtBatchCount = 36
 # Performance settings
+# Optional setting that configures the delay between updates of result objects in Azure Table Storage.
 [object] $DelayProgressUpdatesInStorageInterval = "00:00:30"
 
 function AddOptionalSetting($optionalAgentSettings, $settingName, $settingValue) {
