@@ -97,15 +97,15 @@ Consider the following information before you add these routes:
 - The Kubernetes compute need not be configured before you add this route. You can also add or update routes after the Kubernetes compute is configured. You can only add a new route configuration via the PowerShell interface of the device and not through the local UI.
 - Make sure that the network interface that you'll use has a static configuration. 
 
-Consider an example where Port 1 and Port 2 on your device are connected to the internet. Port 3 to Port 6 are on a private network and is the same network that has the Kubernetes master and worker VMs. None of the ports 3 to 6 have a default gateway configured. There are cameras that are connected to the private network. And the camera feed creates a traffic that flows between the camera and the network interfaces on the Kubernetes VMs. 
+Consider an example where Port 1 and Port 2 on your device are connected to the internet. Ports 3 to Port 6 are on a private network and is the same network that has the Kubernetes master and worker VMs. None of the ports 3 to 6 have a default gateway configured. There are cameras that are connected to the private network. And the camera feed creates a traffic that flows between the camera and the network interfaces on the Kubernetes VMs. 
 
 To add a new custom route, use the cmdlet as follows:
 
 ```powershell
-Add-HcsNetRoute -InterfaceAlias "Port2" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
+Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
 ```
 
-Here the compute is enabled on the Port 2 network interface on your device and a vswitch is created. The above route defines a destination subnet 192.168.21.0/24 and specifies the next hop as 192.168.20.1. This routing configuration has a routing metric of 100. Lower the routing metric, higher the priority assigned to the route.
+Here the compute is enabled on the Port 3 network interface on your device and a virtual switch is created. The above route defines a destination subnet 192.168.21.0/24 and specifies the next hop as 192.168.20.1. This routing configuration has a routing metric of 100. Lower the routing metric, higher the priority assigned to the route.
  
 
 #### Check route configuration for an interface 
@@ -122,7 +122,7 @@ Get-HcsNetRoute -InterfaceAlias Port3
 Use this cmdlet to remove a route configuration that you added on your device.
 
 ```powershell
-Remove-HcsNetRoute -InterfaceAlias "Port2" -DestinationPrefix "192.168.21.0/24"
+Remove-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24"
 ```
  
 
