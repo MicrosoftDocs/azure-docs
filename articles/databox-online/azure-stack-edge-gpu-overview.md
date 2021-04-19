@@ -62,16 +62,7 @@ The Azure Stack Edge Pro GPU solution comprises of Azure Stack Edge resource, Az
 
 * **Azure Stack Edge Pro GPU local web UI** - A browser-based local user interface on your Azure Stack Edge Pro GPU device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro GPU device, view copy logs, and contact Microsoft Support to file a service request.
 
-    The local web UI on your device currently supports the following languages with their corresponding language codes:
-
-    | Language             | Code | Language                | Code   | Language                | Code         |
-    |----------------------|------|-------------------------|--------|-------------------------|--------------|
-    | English {default}    | en   |  Czech                  | cs     | German                  | de           |
-    | Spanish              | es   | French                  | fr     | Hungarian               | hu           |
-    | Italian              | it   | Japanese                | ja     | Korean                  | ko           |
-    | Dutch                | nl   | Polish                  | pl     | Portuguese - Brazil     | pt-br        |
-    | Portuguese - Portugal| pt-pt| Russian                 | ru     | Swedish                 | sv           |
-    | Turkish              | tr   | Chinese - simplified    | zh-hans|Chinese - traditional    | zh-hant      |
+    [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
     
     For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
 
