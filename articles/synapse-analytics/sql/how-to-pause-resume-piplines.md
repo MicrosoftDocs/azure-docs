@@ -197,13 +197,13 @@ The POST request can be parameterized using the @concat string function as shown
 
 ## Pipeline run output
 
-When the full pipeline is run, you will see the output listed below. You can run your pipeline by selecting **Debug** mode or by selecting **add trigger**.For the pipeline results below, the pipeline parameter named "ResourceGroup" was set to a single resource group that had two Synapse Workspaces. One was named testprod and was filtered out, the second was named test1. The test1 dedicated SQL pool was paused, so the job initiated a resume.
+When the full pipeline is run, you will see the output listed below. You can run your pipeline by selecting **Debug** mode or by selecting **add trigger**. For the pipeline results below, the pipeline parameter named "ResourceGroup" was set to a single resource group that had two Synapse Workspaces. One was named testprod and was filtered out, the second was named test1. The test1 dedicated SQL pool was paused, so the job initiated a resume.
 
 ![Pipeline run output](./media/how-to-pause-resume-pipelines/pipeline-run-output.png)
 
 ## Save your pipeline
 
-To save your pipeline select **Publish all** above your pipeline.
+To save your pipeline, select **Publish all** above your pipeline.
 
 ## Schedule your pause or resume pipeline to run
 
