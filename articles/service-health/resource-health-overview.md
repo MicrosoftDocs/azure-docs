@@ -63,12 +63,6 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
-## Reporting an incorrect status
-
-If you think that the current health status is incorrect, you can tell us by selecting **Report incorrect health status**. In cases where an Azure problem is affecting you, we encourage you to contact Support from Resource Health.
-
-![Form to submit information about an incorrect status](./media/resource-health-overview/incorrect-status.png)
-
 ## History information
 
 You can access up to 30 days of history in the **Health history** section of Resource Health.
@@ -77,7 +71,7 @@ You can access up to 30 days of history in the **Health history** section of Res
 
 ## Root cause information
 
-If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. 
+If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. This information is only available for virtual machinse at this time. 
 
 ## Get started
 
