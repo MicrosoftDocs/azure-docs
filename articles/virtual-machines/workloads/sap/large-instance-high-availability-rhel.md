@@ -181,7 +181,7 @@ In this section, you learn how to configure Watchdog. This section uses the same
 	```
 
 2. The default Linux watchdog, which will be installed during the installation, is the iTCO watchdog which is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
-    1. The wrong watchdog is installed and loaded on the system :
+    1. The wrong watchdog is installed and loaded on the system:
 	   ```
 	   sollabdsm35:~ # lsmod |grep iTCO
    
@@ -911,7 +911,7 @@ There are two options for integrating HANA. The first option is a cost optimized
 
 #### Log Replication Mode Description
 
-For more information about log replication mode, see the [official SAP documentation](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/627bd11e86c84ec2b9fcdf585d24011c.html).
+For more information about log replication mode, see the [official SAP documentation](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/627bd11e86c84ec2b9fcdf585d24011c.html).
   
 
 #### Network Setup for HANA System Replication
