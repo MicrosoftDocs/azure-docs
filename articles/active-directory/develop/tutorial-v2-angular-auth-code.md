@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow
 
-In this tutorial, you build an Angular single-page application (SPA) that signs in users and calls the Microsoft Graph API by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0.
+In this tutorial, you build an Angular single-page application (SPA) that signs in users and calls the Microsoft Graph API by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL) for Angular v2.
 
 In this tutorial:
 
@@ -28,7 +28,7 @@ In this tutorial:
 > * Add code to call Microsoft Graph API
 > * Test the app
 
-MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
+MSAL Angular v2 improves on MSAL Angular v1 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL Angular v2 does **NOT** support the implicit flow.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in
 
 ![Diagram that shows how the sample app generated in this tutorial works](./media/tutorial-v2-angular-auth-code/diagram-01-auth-code-flow.png)
 
-The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens issued by the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for Angular v2.0, a wrapper of the MSAL.js v2.0 library. MSAL Angular enables Angular 9+ applications to authenticate enterprise users by using Azure Active Directory (Azure AD), and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
+The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens issued by the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for Angular v2, a wrapper of the MSAL.js v2 library. MSAL Angular enables Angular 9+ applications to authenticate enterprise users by using Azure Active Directory (Azure AD), and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
 
 In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. Token acquisition and renewal are handled by MSAL.
 
@@ -49,7 +49,7 @@ This tutorial uses the following library:
 
 |Library|Description|
 |---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Angular Wrapper|
+|[MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular)|Microsoft Authentication Library for JavaScript Angular Wrapper|
 
 You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
