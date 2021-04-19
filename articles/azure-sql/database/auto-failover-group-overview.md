@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 03/26/2021
+ms.date: 04/28/2021
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
