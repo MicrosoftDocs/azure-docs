@@ -16,6 +16,8 @@ items:
     href: create-purview-dotnet.md
   - name: Create a Purview account - Python
     href: create-purview-python.md
+  - name: Manage Kafka notifications - .NET
+    href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
   - name: Starter kit

@@ -76,6 +76,8 @@
       href: hana-li-portal.md
     - name: HA Setup with STONITH
       href: ha-setup-with-stonith.md
+    - name: Azure Large Instances high availability for SAP on RHEL
+      href: large-instance-high-availability-rhel.md
     - name: OS Backup for Type II SKUs
       href: os-backup-type-ii-skus.md
     - name: Enable Kdump for HANA Large Instances

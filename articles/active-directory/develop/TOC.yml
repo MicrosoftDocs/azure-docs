@@ -633,6 +633,8 @@
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
     href: /graph/api/resources/azure-ad-overview
+  - name: Claims mapping policy type
+    href: reference-claims-mapping-policy-type.md
   - name: Authentication and authorization error codes
     displayName: AADSTS
     href: reference-aadsts-error-codes.md
