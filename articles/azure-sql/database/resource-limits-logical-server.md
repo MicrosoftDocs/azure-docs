@@ -175,9 +175,11 @@ When encountering a log rate limit that is hampering desired scalability, consid
 
 ### Storage space governance
 
-In Premium and Business Critical service tiers, data, transaction log, and tempdb files are stored on the local SSD volume of the machine hosting the database or elastic pool. This provides high IOPS and throughput, and low IO latency. The size of this local volume depends on hardware capabilities, and is finite. Local volume space is consumed by customer databases including tempdb, the operating system, management software, monitoring data, logs, etc. 
+In Premium and Business Critical service tiers, customer data including *data files*, *transaction log files*, and *tempdb files* is stored on the local SSD volume of the machine hosting the database or elastic pool. Using local SSD storage provides high IOPS and throughput, and low IO latency. The size of this local volume is finite and depends on the capabilities of each hardware generation. In addition to customer data, local volume space is used for the operating system, management software, monitoring data and logs, and other files necessary for system operation.
 
-The **maximum local storage** set aside for data, transaction log, and tempdb varies depending on hardware capabilities. To find the maximum local storage and how much of this storage is currently used, execute the following query in the user database: 
+Hardware capabilities dictate the size of **maximum local storage** that can be set aside for customer data. This limit is set to maximize customer data storage, while ensuring safe and reliable system operation. To find the **maximum local storage** value, see resource limits documentation for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
+
+You can also find this value and the amount of local storage currently used by a given database or elastic pool by executing the following query:
 
 ```tsql
 SELECT server_name, database_name, slo_name, user_data_directory_space_quota_mb, user_data_directory_space_usage_mb
@@ -189,17 +191,17 @@ WHERE database_id = DB_ID();
 | :----- | :----- |
 |`server_name`|Logical server name|
 |`database_name`|Database name|
-|`slo_name`|Service objective name|
-|`user_data_directory_space_quota_mb`|Maximum local storage, in MB|
+|`slo_name`|Service objective name, including hardware generation|
+|`user_data_directory_space_quota_mb`|**Maximum local storage**, in MB|
 |`user_data_directory_space_usage_mb`|Current local storage consumption by data, transaction log, and tempdb files, in MB|
 |||
 
-For databases in elastic pools, reported values apply to the entire pool.
+The query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
 
 > [!IMPORTANT]
-> Attempts to increase total space consumption by data, transaction log, and tempdb over the maximum local storage will cause an out-of-space error.
+> In Premium and Business Critical service tiers, if the workload attempts to increase combined space consumption by data, transaction log, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
 
-As databases are created, deleted, and increase/decrease their space usage, local space consumption on a machine fluctuates over time. If the system detects that available free space on a machine is low and a database or elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient free space, allowing growth up to maximum size limits of the configured service objective.
+As databases are created, deleted, and increase/decrease their space usage, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low and a database or elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available, allowing growth up to limits of the configured service objective.
 
 This move occurs in an online fashion, similarly to a database scaling operation, and has a similar [impact](single-database-scale.md#impact), including a short (seconds) failover at the end of the operation. This failover terminates open connections and rolls back transactions, potentially impacting applications using the database at that time.
 
