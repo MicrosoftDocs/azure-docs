@@ -15,7 +15,8 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ### Work with automatic threat Intelligence updates (Public Preview)
 
-New threat intelligence packages can now be automatically pushed to cloud connected sensors as they are released by Defender for IoT. Previously, users could only download threat intelligence packages and then upload them to sensors. 
+New threat intelligence packages can now be automatically pushed to cloud connected sensors as they are released by Microsoft Defender for IoT. This is in addition to downloading threat intelligence packages and then uploading them to sensors.
+
 Working with automatic updates helps reduce operational efforts and ensure greater security. 
 Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
 
@@ -36,20 +37,20 @@ View important operational information about cloud connected sensors on the **Si
 - The sensor connection status to the cloud.
 - The last time the sensor was detected connecting to the cloud.
 
-
-
 ### Alert API enhancements
 
 New fields are available for users working with alert APIs.
 
-On-premises management console
+**On-premises management console**
+
 - Source and destination address
 - Remediation steps
 - The name of sensor defined by the user
 - The name of zone associated with the sensor 
 - The name of site associated with the sensor
 
-Sensor
+**Sensor**
+
 - Source and destination address
 - Remediation steps
 
