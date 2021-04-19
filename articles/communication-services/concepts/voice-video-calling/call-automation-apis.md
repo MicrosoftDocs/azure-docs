@@ -20,7 +20,7 @@ Call Automation APIs enable organizations to connect with their customers or emp
 ## In-Call APIs
 
 > [!NOTE] 
-> **Note:** In-Call applications are billed as call participants at standard PSTN and VoIP rates.
+> In-Call applications are billed as call participants at standard PSTN and VoIP rates.
                                                         
 
 ### Create call
