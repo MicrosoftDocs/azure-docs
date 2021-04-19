@@ -107,7 +107,7 @@ WHERE NOT DT.Temperature < 80
 ## Limitations
 
 The following limits apply to queries using operators.
-* [Limit for IN/NIN](#limit-for-in-nin)
+* [Limit for IN/NIN](#limit-for-innin)
 
 See the section below for more details.
 
