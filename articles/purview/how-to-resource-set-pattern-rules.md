@@ -49,6 +49,9 @@ Follow the steps below to create a new resource set pattern rule:
 
 1. Save the rule by clicking **Add**.
 
+> [!NOTE]
+> After a pattern rule is created, all new scans will apply the rule during ingestion. Existing assets in the data catalog will be updated via a background process which can take up to a few hours. 
+
 ## <a name="syntax"></a> Pattern rule syntax
 
 When creating resource set pattern rules, use the following syntax to specify which assets rules apply to.
@@ -163,7 +166,7 @@ Rule 2
 
 **Qualified Name:** `raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### *Resource Set: true*
+**Resource Set:** true
 
 #### Outputs
 

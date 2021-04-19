@@ -245,6 +245,39 @@ Coplanar surfaces can have a number of different causes:
 
 In some cases, custom native C++ apps that use a multi-pass stereo rendering mode for local content (rendering to the left and right eye in separate passes) after calling [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) can trigger a driver bug. The bug results in non-deterministic rasterization glitches, causing individual triangles or parts of triangles of the local content to randomly disappear. For performance reasons, it is recommended anyway to render local content with a more modern single-pass stereo rendering technique, for example using **SV_RenderTargetArrayIndex**.
 
+## Conversion File Download Errors
+
+The Conversion service may encounter errors downloading files from blob storage because of path length limits imposed by Windows and the service. File paths and file names in your blob storage must not exceed 178 characters. For example given a `blobPrefix` of `models/Assets` which is 13 characters:
+
+`models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
+
+The Conversion service will download all files specified under the `blobPrefix`, not just the files used in the conversion. The files/folder causing issues may be less obvious in these cases so it's important to check everything contained in the storage account under `blobPrefix`. See the example inputs below for what gets downloaded.
+``` json
+{
+  "settings": {
+    "inputLocation": {
+      "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
+      "blobPrefix": "models/Assets",
+      "relativeInputAssetPath": "myAsset.fbx"
+    ...
+  }
+}
+```
+
+```
+models
+├───Assets
+│   │   myAsset.fbx                 <- Asset
+│   │
+│   └───Textures
+│   |       myTexture.png           <- Used in conversion
+│   |
+|   └───MyFiles
+|          myOtherFile.txt          <- File also downloaded under blobPrefix      
+|           
+└───OtherFiles
+        myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
+```
 ## Next steps
 
 * [System requirements](../overview/system-requirements.md)

@@ -603,7 +603,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/general/assign-access=policy-portal)
+- [How to provide Key Vault authentication with a managed identity](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad)
 
 **Responsibility**: Customer
 

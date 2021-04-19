@@ -47,7 +47,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 
 ## Code conversion
 
-- [Asysco](https://www.asysco.com/azure-cloud/) system conversion technology covering source code, data, batch, scheduling, TP monitors, interfaces, security, management, and more.
+- [Asysco](https://asysco.com/) system conversion technology covering source code, data, batch, scheduling, TP monitors, interfaces, security, management, and more.
 - [Asysco AMT Services](https://www.asysco.com/migration-services/) end-to-end services for migration projects, including inventory and analysis, design training, dress rehearsals, go-live, and post-migration support.
 - [Blu Age](https://www.bluage.com/) tools for digitizing legacy business applications and databases.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) services to convert mainframe COBOL, CICS, and VSAM to Java.
