@@ -96,6 +96,8 @@
     href: policy-keys-overview.md
 - name: How-to guides
   items:
+  - name: Manage your tenant
+    href: tenant-management.md
   - name: App integration
     items:
     - name: Register a web application
