@@ -131,7 +131,7 @@ To build the custom module in the [Azure Cloud Shell](https://shell.azure.com/):
 
 This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device templates for the gateway and downstream devices in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
 
-To create a device template for the downstream device. This scenario uses a simple thermostat device model:
+To create a device template for the downstream device, this scenario uses a simple thermostat device model:
 
 1. Download the [device model for the thermostat](https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main/dtmi/com/example/thermostat-2.json) device to your local machine.
 
@@ -167,7 +167,7 @@ To create a device template for the IoT Edge gateway device:
 
 1. Select **Publish** to publish the device template.
 
-You now have two device templates. The **IoT Edge gateway device** template, and the **Thermostat** template as the downstream device.
+You now have two device templates in your IoT Central application. The **IoT Edge gateway device** template, and the **Thermostat** template as the downstream device.
 
 To register a gateway device in IoT Central:
 
@@ -421,7 +421,7 @@ This scenario uses the same Azure Functions deployment as the IoT Central device
 | Field | Value |
 | ----- | ----- |
 | Resource group | Create a new resource group called `egress-scenario` |
-| Region | Select the region closes to you. |
+| Region | Select the region closest to you. |
 | Scope ID | Use the **ID scope** you made a note of previously. |
 | IoT Central SAS Key | Use the shared access signature primary key for the **SaS-IoT-Devices** enrollment group. You made a note of this value previously. |
 
@@ -525,7 +525,7 @@ The sample device you use to test the scenario is written in Node.js. Make sure 
 
 To run a sample device that tests the scenario:
 
-1. To clone the GitHub repository that contains the sample code, run the following command:
+1. Clone the GitHub repository that contains the sample code, run the following command:
 
     ```bash
     git clone https://github.com/iot-for-all/iot-central-compute
