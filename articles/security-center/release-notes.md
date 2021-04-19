@@ -325,7 +325,7 @@ When you enable Azure Defender for servers on a Windows server, a license for De
 Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enabling the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### Direct link to policy from recommendation details page
 
@@ -407,7 +407,7 @@ Existing recommendations are unaffected and as the benchmark grows, changes will
 
 To learn more, see the following pages:
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)
@@ -522,7 +522,7 @@ Learn more in [Request tenant-wide permissions when yours are insufficient](tena
 
 ### 35 preview recommendations added to increase coverage of Azure Security Benchmark
 
-Azure Security Benchmark is the default policy initiative in Azure Security Center. 
+[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) is the default policy initiative in Azure Security Center. 
 
 To increase the coverage of this benchmark, the following 35 preview recommendations have been added to Security Center.
 
@@ -540,7 +540,7 @@ To increase the coverage of this benchmark, the following 35 preview recommendat
 
 Related links:
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
 - [Learn more about Azure Database for MySQL](../mysql/overview.md)
 - [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
@@ -783,7 +783,7 @@ Preview recommendations don't render a resource unhealthy, and they aren't inclu
 
 Related links:
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
 - [Learn more about Azure function apps](../azure-functions/functions-overview.md)
 - [Learn more about Azure web apps](../app-service/overview.md)

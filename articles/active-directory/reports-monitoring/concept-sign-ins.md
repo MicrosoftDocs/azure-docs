@@ -4,7 +4,7 @@ description: Introduction to sign-in activity reports in the Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -22,7 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
-The Azure Active Directory portal gives you access to three activity logs:
+As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
+
+To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
 
 - **Sign-ins** – Information about sign-ins and how your resources are used by your users.
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
