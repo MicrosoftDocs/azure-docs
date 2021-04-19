@@ -629,7 +629,7 @@ $migrationResult = RunScenario -MigrationService $dmsService `
     -ScenarioTaskName $TaskName `
     -TaskProperties $offlineMigTaskProperties
 
-LogMessage -Message "Migration completed with status - $($migrationRsult.state)"
+LogMessage -Message "Migration completed with status - $($migrationResult.state)"
 #Checking for any errors or warnings captured by the task during migration
 $dbLevelResult = $migrationResult.output | Where-Object { $_.resultType -eq "DatabaseLevelOutput" } 
 $migrationLevelResult = $migrationResult.output | Where-Object { $_.resultType -eq "MigrationLevelOutput" }
