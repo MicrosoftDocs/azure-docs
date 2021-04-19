@@ -46,9 +46,11 @@ landingContent:
             url: dns-forwarding.md
           - text: Configure built-in container registry for Azure Red Hat OpenShift
             url: built-in-container-registry.md
-          - text: Deploy an application to Azure Red Hat OpenShift using OpenShift Serverless
+          - text: Deploy an application from source
+            url: howto-deploy-with-s2i.md
+          - text: Deploy an application using OpenShift Serverless
             url: howto-deploy-with-serverless.md
-          - text: Deploy an Open Liberty/WebSphere Liberty application on an Azure Red Hat OpenShift 4 cluster
+          - text: Deploy an Open Liberty/WebSphere Liberty application on an Azure Red Hat OpenShift cluster
             url: howto-deploy-java-liberty-app.md
 
   # Card

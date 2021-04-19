@@ -191,7 +191,7 @@ When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup
 Note the volume savings only apply to the server; your data in the Azure file share will not be deduped.
 
 > [!Note]  
-> To support Data Deduplication on volumes with cloud tiering enabled on Windows Server 2019, Windows update [KB4520062](https://support.microsoft.com/help/4520062) must be installed and Azure File Sync agent version 9.0.0.0 or newer is required.
+> To support Data Deduplication on volumes with cloud tiering enabled on Windows Server 2019, Windows update [KB4520062 - October 2019](https://support.microsoft.com/help/4520062) or a later monthly rollup update must be installed and Azure File Sync agent version 12.0.0.0 or newer is required.
 
 **Windows Server 2012 R2**  
 Azure File Sync does not support Data Deduplication and cloud tiering on the same volume on Windows Server 2012 R2. If Data Deduplication is enabled on a volume, cloud tiering must be disabled. 
@@ -304,7 +304,9 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 ### Enable standard file shares to span up to 100 TiB
-[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+
+By default, standard file shares can span only up to 5 TiB, but you can increase the share limit to 100 TiB. To learn how to increase your share limit, see [Enable and create large file shares](storage-files-how-to-create-large-file-share.md).
+
 
 #### Regional availability
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]

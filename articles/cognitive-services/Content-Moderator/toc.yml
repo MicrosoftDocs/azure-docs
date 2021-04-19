@@ -82,6 +82,12 @@
     items:
     - name: Reviews, workflows, and jobs
       href: review-api.md
+  - name: Enterprise readiness
+    items:
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+      - name: Use customer-managed keys
+        href: encrypt-data-at-rest.md
 - name: Concepts
   items:
   - name: Image moderation
@@ -114,19 +120,21 @@
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources
   items:
-  - name: Azure webinar series
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-  - name: Region support
-    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Enterprise readiness
+    items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
   - name: Microsoft Learn modules
     href: /learn/browse/?terms=content+moderator
-  - name: Support & help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+  - name: Azure webinar series
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Azure Government and global Azure
     href: ../../azure-government/compare-azure-government-global-azure.md
   - name: Azure updates
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Encryption
-    href: encrypt-data-at-rest.md
