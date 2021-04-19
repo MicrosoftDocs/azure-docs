@@ -5,7 +5,7 @@ services: synapse-analytics
 author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to
-ms.subservice: 
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick

@@ -21,7 +21,7 @@ This document will cover the following cmdlets: 
 
 `Set-AADCloudSyncRestrictedPermissions`
 
-`Ste-AADCloudSyncPermissions` 
+`Set-AADCloudSyncPermissions` 
 
 ## How to use the cmdlets:  
 

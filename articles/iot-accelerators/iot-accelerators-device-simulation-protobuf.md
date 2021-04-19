@@ -54,7 +54,7 @@ The instructions in this article assume you're using Windows. If you're using an
 
 Download and unzip the [Remote Monitoring Microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine. This repository includes the storage adapter microservice you need for this how-to.
 
-Download and unzip the [device simulation microservice](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine.
+Download and unzip the [device simulation microservice](https://github.com/Azure/azure-iot-pcs-device-simulation/archive/master.zip) from GitHub to a suitable location on your local machine.
 
 ### Run the storage adapter microservice
 
@@ -279,4 +279,4 @@ route based on message headers.
 
 ## Next steps
 
-Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is visit the GitHub repository to learn more [Device simulation](https://github.com/Azure/device-simulation-dotnet).
+Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is visit the GitHub repository to learn more [Device simulation](https://github.com/Azure/azure-iot-pcs-device-simulation).

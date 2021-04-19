@@ -32,12 +32,6 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 | 29630 | ClusterUpgradeRollbackCompleted | Upgrade | A cluster upgrade has completed rolling back | CM | Warning | 
 | 29631 | ClusterUpgradeDomainCompleted | Upgrade | An upgrade domain has finished upgrading during a cluster upgrade | CM | Informational | 
 
-**Placement events**
-| EventId | Name | Category | Description |Source (Task) | Level |
-| --- | --- | ---| --- | --- | --- |
-| 17616 | Decision |StateTransition | Placement operation was scheduled to decide on placement of new replicas. | CRM | Informational |
-
-
 ## Node events
 
 **Node lifecycle events** 

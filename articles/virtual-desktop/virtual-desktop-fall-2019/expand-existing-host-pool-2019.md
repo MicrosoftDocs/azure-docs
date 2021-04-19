@@ -33,7 +33,7 @@ You'll also need the following information from when you first created the host 
 The next three sections are three methods you can use to expand the host pool. You can do either with whichever deployment tool you're comfortable with.
 
 >[!NOTE]
->During the deployment phase, you'll see error messages for the previous session host VM resources if they're currently shut down. These errors happen because Azure can't run the PowerShell DSC extension to validate that the session host VMs are correctly registered to your existing host pool. You can safely ignore these errors, or you can avoid the errors by starting all session host VMs in the existing host pool before starting the deployment process.
+>During the deployment phase, you'll see error messages for the previous session host VM resources if they're currently shut down. These errors happen because Azure can't run the PowerShell DSC extension to validate that the session host VMs are correctly registered to your existing host pool. The session host whose name ends with "-0" must be running however you can safely ignore these errors for other session hosts, or you can avoid the errors by starting all session host VMs in the existing host pool before starting the deployment process.
 
 ## Redeploy from Azure
 

@@ -154,6 +154,14 @@ A rewrite rule set contains:
       * **URL Query String**: The value to which the query string is to be rewritten to. 
       * **Re-evaluate path map**: Used to determine whether the URL path map is to be re-evaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
+## Rewrite configuration common pitfall
+
+* Enabling 'Re-evaluate path map' is not allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
+
+* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which does not have 'Re-evaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
+
+* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway will continue to serve other requests without any degradation in such a scenario.
+
 ### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
 
 When you configure URL rewrite or host header rewrite, the WAF evaluation will happen after the modification to the request header or URL parameters (post-rewrite). And when you remove the URL rewrite or host header rewrite configuration on your Application Gateway, the WAF evaluation will be done before the header rewrite (pre-rewrite). This order ensures that WAF rules are applied to the final request that would be received by your backend pool.

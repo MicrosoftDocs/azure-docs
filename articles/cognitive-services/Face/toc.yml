@@ -3,23 +3,23 @@
 - name: Overview
   expanded: true
   items:
-  - name: Face service overview
+  - name: What is Face service
     href: Overview.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: What's new?
     href: releasenotes.md
-- name: Face quickstart
+- name: Quickstart
   href: Quickstarts/client-libraries.md
 - name: Samples
   href: /samples/browse/?products=azure&term=face
 - name: How-to guides
   items:
-  - name: Detect faces
+  - name: Detect and analyze faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Specify a face recognition model
+  - name: Specify a face recognition model version
     href: Face-API-How-to-Topics/specify-recognition-model.md
-  - name: Specify a face detection model
+  - name: Specify a face detection model version
     href: Face-API-How-to-Topics/specify-detection-model.md
   - name: Add faces to a group
     href: Face-API-How-to-Topics/how-to-add-faces.md
@@ -33,22 +33,26 @@
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
   - name: Migrate face data
     href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-  - name: Deploy the Face service
+  - name: Use the Face container
     items:
-    - name: Containers
-      expanded: true
-      items:
-      - name: Cognitive Services containers documentation
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
-      - name: Containers overview
-        href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
-      - name: Install and run containers
-        href: face-how-to-install-containers.md
-      - name: Configure containers
-        href: face-resource-container-config.md
-      - name: Use container instances
-        maintainContext: true
-        href: ../containers/azure-container-instance-recipe.md
+    - name: Cognitive Services containers documentation
+      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
+    - name: Containers overview
+      href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
+    - name: Install and run containers
+      href: face-how-to-install-containers.md
+    - name: Configure containers
+      href: face-resource-container-config.md
+    - name: Use container instances
+      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+  - name: Enterprise readiness
+    items:
+    - name: Set up Virtual Networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/face/context/context
+    - name: Use customer-managed keys
+      href: encrypt-data-at-rest.md
+    - name: Use Azure AD authentication
+      href: ../authentication.md?context=/azure/cognitive-services/face/context/context
 - name: Concepts
   items:
   - name: Face detection
@@ -57,13 +61,11 @@
     href: concepts/face-recognition.md
 - name: Tutorials
   items:
-  - name: Create a face detector app
-    href: Tutorials/FaceAPIinCSharpTutorial.md
-  - name: Face enrollment tutorial
+  - name: Add users to a Face service
     items:
-    - name: Face enrollment overview
+    - name: Best practices for adding users
       href: enrollment-overview.md
-    - name: Build an enrollment app with React
+    - name: Build a React app to add users
       href: build-enrollment-app.md
 - name: Reference
   items:
@@ -81,16 +83,15 @@
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
 - name: Resources
   items:
-  - name: Region support
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Learn modules
     href: https://docs.microsoft.com/learn/modules/detect-analyze-faces/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
-  - name: Encryption
-    href: encrypt-data-at-rest.md
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services
-

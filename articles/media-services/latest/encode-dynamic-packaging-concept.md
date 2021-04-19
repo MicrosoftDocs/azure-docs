@@ -91,7 +91,7 @@ The following articles show examples of [how to encode a video with Media Servic
 
 * [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](encode-custom-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](transform-custom-presets-how-to.md).
 
 See the list of Standard Encoder [formats and codecs](encode-media-encoder-standard-formats-reference.md).
 

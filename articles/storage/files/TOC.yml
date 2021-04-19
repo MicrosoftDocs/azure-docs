@@ -227,6 +227,10 @@
     items:
     - name: Migrate to Azure file shares
       href: storage-files-migration-overview.md
+    - name: Target a cloud-only deployment
+      items:
+      - name: Migrate from an on-premises NAS to Azure file shares with DataBox
+        href: storage-files-migration-nas-cloud-databox.md
     - name: Target a hybrid deployment
       items:
       - name: Migrate bulk data to Azure File Sync with Azure Data Box
@@ -236,9 +240,7 @@
       - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
         href: storage-files-migration-nas-hybrid.md
       - name: Migrate from an on-premises NAS to a hybrid file server with DataBox
-        href: storage-files-migration-nas-hybrid-databox.md
-      - name: Migrate from an on-premises NAS to Azure file shares with DataBox
-        href: storage-files-migration-nas-cloud-databox.md
+        href: storage-files-migration-nas-hybrid-databox.md      
     - name: From StorSimple
       items:
       - name: StorSimple 8100 and 8600 migration guide

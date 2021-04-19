@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 04/04/2021
+ms.date: 04/08/2021
 ms.author: memildin
 
 ---
@@ -24,26 +24,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change                                                                                                                                                        | Estimated date for change |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | April 2021                |
 | [21 recommendations moving between security controls](#21-recommendations-moving-between-security-controls)                                                           | April 2021                |
-| [Two further recommendations from "Apply system updates" security control being deprecated](#two-further-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | April 2021                |
-| [Recommendations from AWS will be released for general availability (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | April 2021                |
+| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | April 2021                |
+| [Recommendations from AWS will be released for general availability (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | **August** 2021             |
 | [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q2 2021                   |
 |                                                                                                                                                                       |                           |
 
-
-### Two recommendations from "Apply system updates" security control being deprecated 
-
-**Estimated date for change:** April 2021
-
-The following two recommendations are scheduled to be deprecated in April 2021:
-
-- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
-- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
-
-We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
-
-Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
 
 ### 21 recommendations moving between security controls 
 
@@ -60,7 +46,7 @@ Learn which recommendations are in each security control in Security controls an
 |||
 
 
-### Two further recommendations from "Apply system updates" security control being deprecated
+### Two recommendations from "Apply system updates" security control being deprecated
 
 **Estimated date for change:** April 2021
 
@@ -72,7 +58,7 @@ The following two recommendations are being deprecated:
 
 ### Recommendations from AWS will be released for general availability (GA)
 
-**Estimated date for change:** April 2021
+**Estimated date for change:** August 2021
 
 Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
@@ -83,7 +69,7 @@ With this change, two sets of AWS recommendations will move to GA:
 - [Security Hub's PCI DSS controls](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
 - [Security Hub's CIS AWS Foundations Benchmark controls](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
 
-When these are GA and the assessments run on your AWS resources, the results will impact your combined secure score for all your multi and hybrid cloud resources. 
+When these are GA and the assessments run on your AWS resources, the results will impact your combined secure score for all your multi and hybrid cloud resources.
 
 
 
