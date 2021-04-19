@@ -698,6 +698,80 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
 
+## Dell R340 on-premises management console installation
+
+To install the software:
+
+1. Select **English**.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preffered language for the installation process.":::     
+
+1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Screenshot that shows version selection.":::   
+
+1. Define the appliance profile and network properties:
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::   
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure management network interface** | **eth0, eth1** |
+   | **configure management network IP address:** | **provided by the customer** |
+   | **configure subnet mask:** | **provided by the customer** |
+   | **configure DNS:** | **provided by the customer** |
+   | **configure default gateway IP address:** | **provided by the customer** |
+   
+1. **(Optional)** If you would like to install a secondary network interface (NIC)
+
+    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure sensor monitoring interface (Optional):** | **eth1** |
+   | **configure an IP address for the sensor monitoring interface:** | **provided by the customer** |
+   | **configure a subnet mask for the sensor monitoring interface:** | **provided by the customer** |
+
+1. Accept the settlings and continue by typing `Y`. 
+
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
+
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::  
+
+   Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
+
+1. Select **Enter** to continue.
+
+### Add a secondary NIC
+
+You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
+
+Both NICs have the user interface (UI) enabled. When routing is not neccessary, all of the features that are supported by the UI, will be available on the secondary NIC. High Availability will run on the secondary NIC.
+
+If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
+
+If you have already configured your on-premises management console and would like to add a second NIC on your on-premises management console you can by using the following steps:
+
+1. Use the network reconfigure command:
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Enter the following responses to the following questions:
+
+    | Parameters | Response to enter |
+    |--|--|
+    | **Management Network IP address** | `N` |
+    | **Subnet mask** | `N` |
+    | **DNS** | `N` |
+    | **Default gateway IP Address** | `N` |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions)**| `Y`, `eth1` |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `y`, **provided by the customer**|
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `y`, **provided by the customer** |
+    | **Hostname** | **provided by the customer** |
+
+    :::image type="content" source="media/tutorial-install-components/install-screen-second-nic.png" alt-text="Fill in these answers to deploy the secondary NIC.":::
+
 ## Virtual appliance: On-premises management console installation
 
 The on-premises management console VM supports the following architectures:
@@ -976,71 +1050,6 @@ Verify that you can access the console web GUI:
 1. The test is successful when the Defender for IoT sign-in screen appears.
 
    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
-
-## Install the software on a physical device
-
-To install the software:
-
-1. Select **English**.
-
-1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
-
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows version selection.":::   
-
-1. Define the appliance profile and network properties:
-
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile.":::   
-
-   | Parameter | Configuration |
-   |--|--|
-   | **Hardware profile** | **enterprise** |
-   | **Management interface** | **eno1** |
-   | **Network parameters ** | **provided by the customer** |
-   |**management network IP address:** | **provided by the customer** |
-   | **subnet mask:** | **provided by the customer** |
-   | **appliance hostname:** | **provided by the customer** |
-   | **DNS:** | **provided by the customer** |
-   | **default gateway IP address:** | **provided by the customer** |
-   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. You do not have to configure the bridge interface. This option is used for special use cases only. |
-
-    :::image type="content" source="media/how-to-install-software/install-process.jpg" alt-text="Fill in the following answers to each of the posed questions.":::
-
-1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
-
-1. Save the appliance ID and passwords. You'll need these credentials to access the platform the first time you use it.
-
-1. Select **Enter** to continue.
-
-### Add a secondary NIC
-
-To enhance security, you can create a second NIC on your on-premises management console. One NIC is dedicated for your users, and can support the configuration of a gateway for routed networks. The second NIC is dedicated to the all attached sensors within an IP address range.
-
-Both network NICs use the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary NIC when routing in not needed. High Availability will run on the secondary NIC.
-
-If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
-
-To deploy the secondary NIC:
-
-1. Use the network reconfigure command:
-    ```bash
-    sudo cyberx-management-network-reconfigure
-    ```
-
-1. Enter the following responses to the following questions:
-
-    | Parameters | Response to enter |
-    |--|--|
-    | **Management Network IP address** | N |
-    | **Subnet mask** | N |
-    | **DNS** | N |
-    | **Default gateway IP Address** | N |
-    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions)**| Y |
-    | **Possible values** | eth1 |
-    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | y |
-    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | y |
-    | **Hostname** |  |
-
-    :::image type="content" source="media/how-to-install-software/install-screen-second-nic.png" alt-text="Fill in these answers to deploy the secondary NIC.":::
 
 ## Troubleshooting
 
