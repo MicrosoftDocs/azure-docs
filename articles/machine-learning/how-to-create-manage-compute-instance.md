@@ -148,7 +148,7 @@ The setup script is a shell script which runs as *azureuser*.  Create or upload 
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
 
-When the script runs, the root directory will be the current working directory. If you upload the script to **Users>admin**, reference the file at */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* when provisioning the compute instance named **ciname**.
+When the script runs, the current working directory is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/*. If you upload the script to **Users>admin**, reference the file at */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* when provisioning the compute instance named **ciname**.
 
 Script arguments can be referred to in the script as $1, $2, etc. For example, if you execute `scriptname ciname` then in the script you can `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` to navigate to the directory where the script is stored.
 
