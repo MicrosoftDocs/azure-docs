@@ -57,7 +57,7 @@ To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www
 
 ### Scopes not resources
 
-ADAL.NET acquires tokens for *resources*, but MSAL.NET acquires tokens for *scopes*. A number of MSAL.NET AcquireToken overrides require a parameter called scopes(`IEnumerable<string> scopes`). This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well-known scopes are the [Microsoft Graph's scopes](https://docs.microsoft.com/graph/permissions-reference).
+ADAL.NET acquires tokens for *resources*, but MSAL.NET acquires tokens for *scopes*. A number of MSAL.NET AcquireToken overrides require a parameter called scopes(`IEnumerable<string> scopes`). This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well-known scopes are the [Microsoft Graph's scopes](/graph/permissions-reference).
 
 It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes for a v1.0 application](#scopes-for-a-web-api-accepting-v10-tokens).
 
