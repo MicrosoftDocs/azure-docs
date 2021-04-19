@@ -3,7 +3,6 @@ title: Migrate Log Analytics data for Azure HDInsight
 description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 04/19/2021
 ---
 
