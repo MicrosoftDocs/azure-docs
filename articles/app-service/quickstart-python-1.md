@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Python app on Linux'
 description: Get started with Azure App Service by deploying a Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
+ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
 robots: noindex
 ---
@@ -238,7 +238,7 @@ Once deployment is complete, switch back to the browser window open to `http://<
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command:
 
 ```azurecli
 az webapp log tail

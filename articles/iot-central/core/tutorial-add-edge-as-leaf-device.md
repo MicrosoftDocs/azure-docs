@@ -53,6 +53,9 @@ To create a device template from an IoT Edge manifest:
 
 :::image type="content" source="media/tutorial-add-edge-as-leaf-device/imported-manifest.png" alt-text="Device template created from IoT Edge manifest":::
 
+> [!TIP]
+> This deployment manifest pulls module images from an Azure Container Registry repository that doesn't require any credentials to connect. If you want to use module images from a private repository, set the container registry credentials in the manifest.
+
 ### Add telemetry to manifest
 
 An IoT Edge manifest doesn't define the telemetry a module sends. You add the telemetry definitions to the device template in IoT Central. The **SimulatedTemperatureSensor** module sends telemetry messages that look like the following JSON:

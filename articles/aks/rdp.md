@@ -19,7 +19,7 @@ This article shows you how to create an RDP connection with an AKS node using th
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster with a Windows Server node. If you need an AKS cluster, see the article on [creating an AKS cluster with a Windows container using the Azure CLI][aks-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. If you don't know them, you can reset them by following [Reset Remote Desktop Services or its administrator password in a Windows VM
-](../virtual-machines/troubleshooting/reset-rdp.md). You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
+](/troubleshoot/azure/virtual-machines/reset-rdp). You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
 
 You also need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -157,10 +157,10 @@ If you need additional troubleshooting data, you can [view the Kubernetes master
 
 <!-- INTERNAL LINKS -->
 [aks-windows-cli]: windows-container-cli.md
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-vm-delete]: /cli/azure/vm#az-vm-delete
-[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
+[azure-monitor-containers]: ../azure-monitor/containers/container-insights-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [ssh-steps]: ssh.md
 [view-master-logs]: view-master-logs.md

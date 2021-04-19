@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration
@@ -35,7 +35,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
   ### [Java](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 

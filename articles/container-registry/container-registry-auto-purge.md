@@ -2,14 +2,14 @@
 title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
 ms.topic: article
-ms.date: 01/27/2021
+ms.date: 02/19/2021
 ---
 
 # Automatically purge images from an Azure container registry
 
 When you use an Azure container registry as part of a development workflow, the registry can quickly fill up with images or other artifacts that aren't needed after a short period. You might want to delete all tags that are older than a certain duration or match a specified name filter. To delete multiple artifacts quickly, this article introduces the `acr purge` command you can run as an on-demand or [scheduled](container-registry-tasks-scheduled.md) ACR Task. 
 
-The `acr purge` command is currently distributed in a public container image (`mcr.microsoft.com/acr/acr-cli:0.3`), built from source code in the [acr-cli](https://github.com/Azure/acr-cli) repo in GitHub.
+The `acr purge` command is currently distributed in a public container image (`mcr.microsoft.com/acr/acr-cli:0.4`), built from source code in the [acr-cli](https://github.com/Azure/acr-cli) repo in GitHub.
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the ACR task examples in this article. If you'd like to use it locally, version 2.0.76 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install]. 
 
@@ -40,6 +40,7 @@ At a minimum, specify the following when you run `acr purge`:
 * `--untagged` - Specifies that manifests that don't have associated tags (*untagged manifests*) are deleted.
 * `--dry-run` - Specifies that no data is deleted, but the output is the same as if the command is run without this flag. This parameter is useful for testing a purge command to make sure it does not inadvertently delete data you intend to preserve.
 * `--keep` - Specifies that the latest x number of to-be-deleted tags are retained.
+* `--concurrency` - Specifies a number of purge tasks to process concurrently. A default value is used if this parameter is not provided.
 
 For additional parameters, run `acr purge --help`. 
 

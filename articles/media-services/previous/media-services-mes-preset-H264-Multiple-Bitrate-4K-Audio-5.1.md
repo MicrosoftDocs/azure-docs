@@ -1,21 +1,19 @@
 ---
 title: 264 Multiple Bitrate 4K Audio 5.1 | Microsoft Docs
 description: The topic gives an overview of the **264 Multiple Bitrate 4K Audio 5.1** task preset.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: c8e0bd6a-86ef-481f-83fa-453bdb042df8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # H264 Multiple Bitrate 4K Audio 5.1

@@ -95,7 +95,7 @@ If you try connecting to Outlook by using a different account than the one curre
 
   1. On your logic app's resource group menu, select **Access control (IAM)**. Set up the other account with the **Contributor** role. 
   
-     For more information, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+     For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
   1. After you set up this role, sign in to the Azure portal with the account that now has Contributor permissions. You can now use this account to create the connection to Outlook.
 

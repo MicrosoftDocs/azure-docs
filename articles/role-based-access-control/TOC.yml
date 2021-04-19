@@ -55,13 +55,13 @@
       href: role-assignments-list-cli.md
     - name: REST API
       href: role-assignments-list-rest.md
-  - name: Add or remove role assignments
+  - name: Assign roles
     items:
-    - name: Steps to add a role assignment
+    - name: Steps to assign a role
       href: role-assignments-steps.md
     - name: Portal
       items:
-      - name: Add or remove role assignments
+      - name: Assign roles
         href: role-assignments-portal.md
       - name: Subscription administrator
         href: role-assignments-portal-subscription-admin.md
@@ -78,6 +78,8 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
+  - name: Remove role assignments
+    href: role-assignments-remove.md
   - name: List deny assignments
     items:
     - name: Overview
@@ -124,7 +126,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.resources
   - name: Azure CLI
-    href: /cli/azure/role?view=azure-cli-latest
+    href: /cli/azure/role
   - name: REST API
     href: /rest/api/authorization/
   - name: ARM templates

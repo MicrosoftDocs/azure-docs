@@ -2,7 +2,7 @@
 title: 'Tutorial: Performing Packet Capture on Virtual WAN Site-to-site connections'
 description: In this tutorial, learn how to perform packet capture on the Virtual WAN Site-to-site VPN Gateway.
 services: virtual-wan
-author: welee
+author: wellee
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 04/13/2021
@@ -38,7 +38,7 @@ Ensure you are in the right subscription context by running the following script
 
 ## <a name="createstorage"></a> Create a Storage Account
 
-You must create a storage account under your Azure subscription to store the results of your packet capture. Please reference Create a storage account - Azure Storage | Microsoft Docs for instructions on how to create a storage account.
+You must create a storage account under your Azure subscription to store the results of your packet capture. Please reference this [document](../../storage/common/sotrage-account-create.md) for instructions on how to create a storage account.
 
 After creating your account, please run the following commands to generate a sas URL. The results of your packet capture will be stored via this URL.
    ```azurepowershell-interactive
@@ -70,7 +70,8 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 
 ### Packet Capture on Specific Site-to-site VPN Connections
 
-Please run the following command. The Name of the Site-to-site VPN Gateway can be found by navigating to your Virtual Hub, clicking on VPN (Site-to-site) under Connectivity. The name of the VPN connection can be found by editing your VPN sites.
+>[!NOTE]
+> Please note you can only run a packet capture on 5 VPN connections concurrently.
 
 ![Virtual WAN Link Names](./media/virtual-wan-pcap-screenshots/sampleconnection.png)
 
@@ -87,7 +88,7 @@ Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VP
 There are some commonly available packet capture tools. Getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. To simplify your packet captures, you may specify filters on your packet capture to focus on specific behaviors. Below are the available parameters:
 
 
-> !NOTE
+>[!NOTE]
 > For TracingFlags and TCPFlags, you may specify multiple protocols by adding up the numerical values for the protocols you wish to capture (same as a logical OR). For instance, if you wanted to capture only ESP and OPVN packets, you would specify a TracingFlag value of 8+1 = 9.  
 
 | Parameter | Description | Default Values | Available Values|

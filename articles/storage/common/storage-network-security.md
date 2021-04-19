@@ -2,10 +2,10 @@
 title: Configure Azure Storage firewalls and virtual networks | Microsoft Docs
 description: Configure layered network security for your storage account using Azure Storage firewalls and Azure Virtual Network.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
@@ -131,7 +131,7 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Required permissions
 
-To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets being added. The permission needed is *Join Service to a Subnet* and is included in the *Storage Account Contributor* built-in role. It can also be added to custom role definitions.
+To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets being added. Applying a rule can be performed by a [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) or a user that has been given permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
 
 Storage account and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
@@ -239,24 +239,31 @@ You can manage virtual network rules for storage accounts through the Azure port
 
 ## Grant access from an internet IP range
 
-You can configure storage accounts to allow access from specific public internet IP address ranges. This configuration grants access to specific internet-based services and on-premises networks and blocks general internet traffic.
+You can use IP network rules to allow access from specific public internet IP address ranges by creating IP network rules. Each storage account supports up to 200 rules. These rules grant access to specific internet-based services and on-premises networks and blocks general internet traffic.
 
-Provide allowed internet address ranges using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*.
+The following restrictions apply to IP address ranges.
 
-   > [!NOTE]
-   > Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules.
+- IP network rules are allowed only for **public internet** IP addresses. 
 
-IP network rules are only allowed for **public internet** IP addresses. IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with _10.*_, _172.16.*_ - _172.31.*_, and _192.168.*_.
+  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with _10.*_, _172.16.*_ - _172.31.*_, and _192.168.*_.
 
-   > [!NOTE]
-   > IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
+- You must provide allowed internet address ranges using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*. 
 
-  > [!NOTE]
-  > Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
+- Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules. 
 
-Only IPV4 addresses are supported for configuration of storage firewall rules.
+- Only IPV4 addresses are supported for configuration of storage firewall rules.
 
-Each storage account supports up to 200 IP network rules.
+IP network rules can't be used in the following cases:
+
+- To restrict access to clients in same Azure region as the storage account.
+  
+  IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests. 
+
+- To restrict access to clients in a [paired region](../../best-practices-availability-paired-regions.md) which are in a VNet that has a service endpoint.
+
+- To restrict access to Azure services deployed in the same region as the storage account.
+
+  Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you can't restrict access to specific Azure services based on their public outbound IP address range.
 
 ### Configuring access from on-premises networks
 
@@ -366,10 +373,12 @@ In some cases, an application might depend on Azure resources that cannot be iso
 
 The types of operations that a resource instance can perform on storage account data is determined by the [Azure role assignments](storage-auth-aad.md#assign-azure-roles-for-access-rights) of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
 
-The list of supported Azure services appears in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article.
+> [!NOTE]
+> This feature is in public preview and is available in all public cloud regions.
 
 > [!NOTE]
-> This feature is in public preview and is available in all public cloud regions. 
+> Resource instance rules are currently only supported for Azure Synapse. Support for other Azure services listed in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article will be available in the coming weeks.
+
 
 ### [Portal](#tab/azure-portal)
 
@@ -410,7 +419,7 @@ Install **Az. Storage** preview module.
 Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
 ```
 
-For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 #### Grant access
 
@@ -560,7 +569,7 @@ Resources of some services, **when registered in your subscription**, can access
 | Azure File Sync          | Microsoft.StorageSync      | Enables you to transform your on-prem file server to a cache for Azure File shares. Allowing for multi-site sync, fast disaster-recovery, and cloud-side backup. [Learn more](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Azure Import Export      | Microsoft.ImportExport     | Enables import of data to Azure Storage or export of data from Azure Storage using the Azure Storage Import/Export service. [Learn more](../../import-export/storage-import-export-service.md).  |
-| Azure Monitor            | Microsoft.Insights         | Allows writing of monitoring data to a secured storage account, including resource logs, Azure Active Directory sign-in and audit logs, and Microsoft Intune logs. [Learn more](../../azure-monitor/platform/roles-permissions-security.md). |
+| Azure Monitor            | Microsoft.Insights         | Allows writing of monitoring data to a secured storage account, including resource logs, Azure Active Directory sign-in and audit logs, and Microsoft Intune logs. [Learn more](../../azure-monitor/roles-permissions-security.md). |
 | Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs, including through the Network Watcher and Traffic Analytics services. [Learn more](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 

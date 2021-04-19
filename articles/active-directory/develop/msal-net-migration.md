@@ -26,9 +26,17 @@ Both the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authe
 - your application can enable incremental consent, and supporting Conditional Access is easier
 - you benefit from the innovation.
 
-**MSAL.NET is now the recommended auth library to use with the Microsoft identity platform**. No new features will be implemented on ADAL.NET. The efforts are focused on improving MSAL.
+**MSAL.NET or Microsoft.Identity.Web are now the recommended auth libraries to use with the Microsoft identity platform**. No new features will be implemented on ADAL.NET. The efforts are focused on improving MSAL.
 
 This article describes the differences between the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and helps you migrate to MSAL.
+
+## Should you migrate to MSAL.NET or to Microsoft.Identity.Web
+
+Before digging in the details of MSAL.NET vs ADAL.NET, you might want to check if you want to use MSAL.NET or a higher-level abstraction like [Microsoft.Identity.Web](microsoft-identity-web.md)
+
+For details about the decision tree below, read [Should I use MSAL.NET only? or a higher level abstraction?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Is-MSAL.NET-right-for-me%3F)
+
+:::image type="content" source="media/msal-net-migration/decision-diagram.png" alt-text="Block diagram explaining how to choose if you need to use MSAL.NET and Microsoft.Identity.Web or both when migrating from ADAL.NET":::
 
 ## Differences between ADAL and MSAL apps
 
@@ -49,7 +57,7 @@ To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www
 
 ### Scopes not resources
 
-ADAL.NET acquires tokens for *resources*, but MSAL.NET acquires tokens for *scopes*. A number of MSAL.NET AcquireToken overrides require a parameter called scopes(`IEnumerable<string> scopes`). This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph's scopes](/graph/permissions-reference).
+ADAL.NET acquires tokens for *resources*, but MSAL.NET acquires tokens for *scopes*. A number of MSAL.NET AcquireToken overrides require a parameter called scopes(`IEnumerable<string> scopes`). This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well-known scopes are the [Microsoft Graph's scopes](/graph/permissions-reference).
 
 It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes for a v1.0 application](#scopes-for-a-web-api-accepting-v10-tokens).
 
@@ -57,7 +65,7 @@ It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes 
 
 - ADAL.NET uses [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) as the representation of your connection to the Security Token Service (STS) or authorization server, through an Authority. On the contrary, MSAL.NET is designed around [client applications](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). It provides two separate classes: `PublicClientApplication` and `ConfidentialClientApplication`
 
-- Acquiring Tokens: ADAL.NET and MSAL.NET have the same authentication calls (`AcquireTokenAsync` and  `AcquireTokenSilentAsync` for ADAL.NET, and `AcquireTokenInteractive` and `AcquireTokenSilent` in MSAL.NET) but with different parameters required. One difference is the fact that, in MSAL.NET, you no longer have to pass in the `ClientID` of your application in every AcquireTokenXX call. Indeed, the `ClientID` is set only once when building the (`IPublicClientApplication` or `IConfidentialClientApplication`).
+- Acquiring Tokens: ADAL.NET and MSAL.NET have the same authentication calls (`AcquireTokenAsync` and `AcquireTokenSilentAsync` for ADAL.NET, and `AcquireTokenInteractive` and `AcquireTokenSilent` in MSAL.NET) but with different parameters required. One difference is the fact that, in MSAL.NET, you no longer have to pass in the `ClientID` of your application in every AcquireTokenXX call. Indeed, the `ClientID` is set only once when building the (`IPublicClientApplication` or `IConfidentialClientApplication`).
 
 ### IAccount not IUser
 
@@ -168,7 +176,7 @@ If you want to acquire tokens for an application accepting v1.0 tokens (for inst
 For instance, to access in the name of the user a v1.0 web API which App ID URI is `ResourceId`, you'd want to use:
 
 ```csharp
-var scopes = new [] {  ResourceId+"/user_impersonation"};
+var scopes = new [] { ResourceId+"/user_impersonation" };
 ```
 
 If you want to read and write with MSAL.NET Azure Active Directory using the Microsoft Graph API (https://graph.microsoft.com/), you would create a list of scopes like in the following snippet:
@@ -203,7 +211,7 @@ For instance, if you want to acquire a token for all the static scopes of a v1.0
 
 ```csharp
 ResourceId = "someAppIDURI";
-var scopes = new [] {  ResourceId+"/.default"};
+var scopes = new [] { ResourceId+"/.default" };
 ```
 
 ### Scopes to request in the case of client credential flow / daemon app

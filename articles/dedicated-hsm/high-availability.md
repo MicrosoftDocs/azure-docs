@@ -10,8 +10,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.author: mbaldwin
+ms.date: 03/25/2021
+ms.author: keithp
 
 ---
 # Azure Dedicated HSM high availability
@@ -20,7 +20,7 @@ Azure Dedicated HSM is underpinned by Microsoft’s highly available datacenters
 
 ## High availability example
 
-Information on how to configure HSM devices for high availability at the software level is in the 'Thales Luna 7 HSM Administration Guide'. This document is available at the  [Thales HSM Page](https://thalesdocs.com/gphsm/Content/luna/network/luna_network_releases.htm).
+Information on how to configure HSM devices for high availability at the software level is in the 'Thales Luna 7 HSM Administration Guide'. This document is available at the  [Thales HSM Page](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms).
 
 The following diagram shows a highly available architecture. It uses multiple devices in region and multiple devices paired in a separate region. This architecture uses a minimum of four HSM devices and virtual networking components.
 
@@ -37,4 +37,4 @@ Further concept level topics:
 * [Supportability](supportability.md)
 * [Monitoring](monitoring.md)
 
-For specific details on configuring HSM devices for high availability, please refer to the Thales Customer Support Portal for the Administrator Guides and see section 6.
+For specific details on configuring HSM devices for high availability, please refer to the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) for the Administrator Guides and see section 6.

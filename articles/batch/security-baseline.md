@@ -147,9 +147,9 @@ detect changes for network resources related to your Azure Batch pools.
 Create alerts within Azure Monitor that will trigger when changes to 
 critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -207,7 +207,7 @@ If required, you maybe connect to your individual pool nodes via Secured Shell (
 
 - [How to configure Azure Batch monitoring and logging](monitoring-overview.md)
 
-- [How to configure Azure Log Analytics workspace retention period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Azure Log Analytics workspace retention period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -521,9 +521,9 @@ Azure disk encryption can be used to help protect and safeguard your data to mee
 
 Configure Diagnostic Settings for Storage Accounts associated with Azure Batch Pool to monitor and log all CRUD operations against pool data.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [How to enable additional logging/auditing for an Azure Storage Account](../storage/common/storage-monitor-storage-account.md)
+- [How to enable additional logging/auditing for an Azure Storage Account](../storage/common/manage-storage-analytics-logs.md)
 
 **Azure Security Center monitoring**: Yes
 

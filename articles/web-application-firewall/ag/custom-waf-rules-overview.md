@@ -21,7 +21,7 @@ Custom rules support using compounding logic to make more advanced rules that ad
 
 Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they're using a certain browser.
 
-If you want to **or** two different conditions, the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they're using a specific browser.
+If you want to use **or** between two different conditions,then the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they're using a specific browser.
 
 > [!NOTE]
 > The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
@@ -68,7 +68,7 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
               }
             ],
             "operator": "Contains",
-            "negationConditon": false,
+            "negationCondition": false,
             "matchValues": [
               "evilbot"
             ],

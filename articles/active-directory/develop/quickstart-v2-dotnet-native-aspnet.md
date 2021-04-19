@@ -37,6 +37,8 @@ You can obtain the sample in either of two ways:
    ```
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 ## Register your web API
 
 In this section, you register your web API in **App registrations** in the Azure portal.
@@ -175,7 +177,7 @@ You can limit sign-in access to your application to user accounts that are in a 
 
 ### Option 2: Use a custom method to validate issuers
 
-You can implement a custom method to validate issuers by using the `IssuerValidator` parameter. For more information about this parameter, see [TokenValidationParameters class](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true).
+You can implement a custom method to validate issuers by using the `IssuerValidator` parameter. For more information about this parameter, see [TokenValidationParameters class](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

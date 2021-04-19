@@ -330,7 +330,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
       "resources": [
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "demo",
           "properties": {
             "templateLink": {
@@ -592,7 +592,7 @@ Rather than creating a new template spec for the revised template, add a new ver
       "resources": [
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "demo",
           "properties": {
             "templateLink": {

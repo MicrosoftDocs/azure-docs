@@ -346,7 +346,7 @@ Access the blob data via a parameter that matches the name designated by binding
 
 # [Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Refer to the [trigger example](#example) for details.
+Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream). Refer to the [trigger example](#example) for details.
 
 ---
 

@@ -127,7 +127,7 @@ You can click on each individual parser and see the underlying function it uses,
 > You can use your saved functions instead of Azure Sentinel tables in any query, including hunting and detection queries. For more information, see:
 >
 > - [Data normalization in Azure Sentinel](normalization.md#parsers)
-> - [Parse text in Azure Monitor logs](/azure/azure-monitor/log-query/parse-text)
+> - [Parse text in Azure Monitor logs](../azure-monitor/logs/parse-text.md)
 >
 #### Customizing parsers
 
@@ -144,7 +144,7 @@ Once the function is altered, click “Save” again and use the same name, alia
 
 JSON, XML, and CSV are especially convenient for parsing at query time. Azure Sentinel has built-in parsing functions for JSON, XML, and CSV, as well as a JSON parsing tool.  For more information, see [Using JSON fields in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
 
-Learn more about [saved queries](../azure-monitor/log-query/example-queries.md) (the query time parsers implementation) in Log Analytics.
+Learn more about [saved queries](../azure-monitor/logs/example-queries.md) (the query time parsers implementation) in Log Analytics.
 
 
 ## Next steps

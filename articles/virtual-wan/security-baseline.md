@@ -353,9 +353,9 @@ A variety of diagnostic logs are also available for Virtual WAN, and can be conf
 
 Enable Azure resource logs for Virtual WAN. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
@@ -387,9 +387,9 @@ Azure Virtual WAN security is provided through Azure Firewall.
 
 **Guidance**: Configure your log retention according to your compliance, regulation, and business requirements. In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Azure Security Center alerts and recommendations export](../security-center/continuous-export.md)
 

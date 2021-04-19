@@ -1,7 +1,7 @@
 ---
 title: Connect to a Synapse Studio using private links
 description: This article will teach you how to connect to your Azure Synapse Studio using private links
-author: NanditaV 
+author: nanditavalsan 
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security 
@@ -33,6 +33,7 @@ You must connect your Azure virtual network to the Synapse private link hub reso
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Screenshot that shows the private endpoint connections page.":::
 
 Make sure to choose the "Microsoft.Synapse/privateLinkHubs" Resource type on the "Resource" tab.
+
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Screenshot that shows the 'Create a private endpoint' page with 'Resource type' highlighted.":::
 
 On "Configuration" tab, select "privatelink.azuresynapse.net" for Private DNS Zones when integrating with your virtual network and private DNS zone.

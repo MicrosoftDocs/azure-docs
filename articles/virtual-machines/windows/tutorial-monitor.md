@@ -3,7 +3,7 @@ title: Tutorial - Monitor Windows virtual machines in Azure
 description: In this tutorial, you learn how to monitor the performance and discovered application components running on your Windows virtual machines.
 author: mgoedtel
 manager: carmonm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.workload: infrastructure
@@ -83,18 +83,18 @@ To enable monitoring of your Azure VM with Azure Monitor for VMs:
 
 3. On the **Insights (preview)** page, select **Try now**.
 
-    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
 
     The list preselects the default workspace and location where the VM is deployed in the subscription. 
 
     >[!NOTE]
-    >To create a new Log Analytics workspace to store the monitoring data from the VM, see [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). The workspace must belong to one of the [supported regions](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    >To create a new Log Analytics workspace to store the monitoring data from the VM, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). The workspace must belong to one of the [supported regions](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 
 After you've enabled monitoring, you might need to wait several minutes before you can view the performance metrics for the VM.
 
-![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## View VM performance metrics
 

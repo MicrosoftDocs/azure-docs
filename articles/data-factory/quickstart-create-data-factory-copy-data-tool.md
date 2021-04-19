@@ -1,14 +1,9 @@
 ---
 title: Copy data by using the Azure Copy Data tool 
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020 
 ---
@@ -57,7 +52,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
-   ![Home page for the data factory, with the "Author & Monitor" tile](./media/doc-common-process/data-factory-home-page.png)
+:::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 
 ## Start the Copy Data tool
 

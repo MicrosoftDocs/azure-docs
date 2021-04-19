@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 Point-in-time restore provides protection against accidental deletion or corruption by enabling you to restore block blob data to an earlier state. Point-in-time restore is useful in scenarios where a user or application accidentally deletes data or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests.
 
-Point-in-time restore is supported for general-purpose v2 storage accounts only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
+Point-in-time restore is supported for general-purpose v2 storage accounts in the standard performance tier only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
 
 To learn how to enable point-in-time restore for a storage account, see [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md).
 
@@ -43,15 +43,17 @@ The **Restore Blob Ranges** operation returns a restore ID that uniquely identif
 > Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later.
+> Point-in-time restore supports restoring against operations that acted on block blobs only. Any operations that acted on containers cannot be restored. For example, if you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a point-in-time restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later.
 
 ### Prerequisites for point-in-time restore
 
 Point-in-time restore requires that the following Azure Storage features be enabled before you can enable point-in-time restore:
 
-- [Soft delete](./soft-delete-blob-overview.md)
+- [Soft delete](soft-delete-blob-overview.md)
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)
+
+Enabling these features may result in additional charges. Make sure that you understand the billing implications before enabling point-in-time restore and the prerequisite features.
 
 ### Retention period for point-in-time restore
 
@@ -84,6 +86,8 @@ Point-in-time restore for block blobs has the following limitations and known is
 > If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.
 
 ## Pricing and billing
+
+There is no charge to enable point-in-time restore. However, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which which may result in additional charges.
 
 Billing for point-in-time restore depends on the amount of data processed to perform the restore operation. The amount of data processed is based on the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
 

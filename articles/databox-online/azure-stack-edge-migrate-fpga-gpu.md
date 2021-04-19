@@ -7,30 +7,30 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 03/11/2021
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro GPU
 
-This article describes how to migrate workloads and data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro GPU device. The migration procedure involves an overview of migration including a comparison between the two devices, migration considerations, detailed steps, and verification followed by cleanup.
+This article describes how to migrate workloads and data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro GPU device. The migration process begins with a comparison of the two devices, a migration plan, and a review of migration considerations. The migration procedure gives detailed steps ending with verification and device cleanup.
 
-<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 ## About migration
 
 Migration is the process of moving workloads and application data from one storage location to another. This entails making an exact copy of an organization’s current data from one storage device to another storage device - preferably without disrupting or disabling active applications - and then redirecting all input/output (I/O) activity to the new device. 
 
-This migration guide provides a step-by-step walkthrough of the steps required to migrate data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro GPU device. This document is intended for information technology (IT) professionals and knowledge workers who are responsible for operating, deploying, and managing Azure Stack Edge devices in the datacenter. 
+This migration guide provides a step-by-step walkthrough of the steps required to migrate data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro GPU device. This document is intended for information technology (IT) professionals and knowledge workers who are responsible for operating, deploying, and managing Azure Stack Edge devices in the datacenter.
 
 In this article, the Azure Stack Edge Pro FPGA device is referred to as the *source* device and the Azure Stack Edge Pro GPU device is the *target* device. 
 
 ## Comparison summary
 
-This section provides a comparative summary of capabilities between the Azure Stack Edge Pro GPU vs. the Azure Stack Edge Pro FPGA devices. The hardware in both the source and the target device is largely identical and differs only with respect to the hardware acceleration card and the storage capacity. 
+This section provides a comparative summary of capabilities between the Azure Stack Edge Pro GPU vs. the Azure Stack Edge Pro FPGA devices. The hardware in both the source and the target device is largely identical; only the hardware acceleration card and the storage capacity may differ.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs <br> Compute, memory, network interface, power supply unit, power cord specifications are identical to the device with FPGA.  | Hardware acceleration: Intel Arria 10 FPGA <br> Compute, memory, network interface, power supply unit, power cord specifications are identical to the device with GPU.          |
+| Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with FPGA.  | Hardware acceleration: Intel Arria 10 FPGA <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with GPU.          |
 | Usable storage | 4.19 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
@@ -50,11 +50,11 @@ To create your migration plan, consider the following information:
 
 Before you proceed with the migration, consider the following information: 
 
-- An Azure Stack Edge Pro GPU device can't be activated against an Azure Stack Edge Pro FPGA resource. A new resource should be created for the Azure Stack Edge Pro GPU device as described in the [Create an Azure Stack Edge Pro GPU order](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+- An Azure Stack Edge Pro GPU device can't be activated against an Azure Stack Edge Pro FPGA resource. You should create a new resource for the Azure Stack Edge Pro GPU device as described in [Create an Azure Stack Edge Pro GPU order](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 - The Machine Learning models deployed on the source device that used the FPGA will need to be changed for the target device with GPU. For help with the models, you can contact Microsoft Support. The custom models deployed on the source device that did not use the FPGA (used CPU only) should work as-is on the target device (using CPU).
-- The IoT Edge modules deployed on the source device may require changes before these can be successfully deployed on the target device. 
+- The IoT Edge modules deployed on the source device may require changes before the modules can be successfully deployed on the target device. 
 - The source device supports NFS 3.0 and 4.1 protocols. The target device only supports NFS 3.0 protocol.
-- The source device support SMB and NFS protocols. The target device supports storage via REST protocol using storage accounts in addition to SMB and NFS protocols for shares.
+- The source device support SMB and NFS protocols. The target device supports storage via the REST protocol using storage accounts in addition to the SMB and NFS protocols for shares.
 - The share access on the source device is via the IP address whereas the share access on the target device is via the device name.
 
 ## Migration steps at-a-glance
@@ -94,15 +94,15 @@ Edge cloud shares tier data from your device to Azure. Do these steps on your *s
 
 - Make a list of all the Edge cloud shares and users that you have on the source device.
 - Make a list of all the bandwidth schedules that you have. You will recreate these bandwidth schedules on your target device.
-- Depending on the network bandwidth available, configure bandwidth schedules on your device so as to maximize the data tiered to the cloud. This would minimize the local data on the device.
-- Ensure that the shares are fully tiered to the cloud. This can be confirmed by checking the share status in the Azure portal.  
+- Depending on the network bandwidth available, configure bandwidth schedules on your device to maximize the data tiered to the cloud. That minimizes the local data on the device.
+- Ensure that the shares are fully tiered to the cloud. The tiering can be confirmed by checking the share status in the Azure portal.  
 
 #### Data in Edge local shares
 
 Data in Edge local shares stays on the device. Do these steps on your *source* device via the Azure portal. 
 
-- Make a list of the Edge local shares that you have on the device.
-- Given this is one-time migration of the data, create a copy of the Edge local share data to another on-premises server. You can use copy tools such as `robocopy` (SMB) or `rsync` (NFS) to copy the data. Optionally you may have already deployed a third-party data protection solution to back up the data in your local shares. The following third-party solutions are supported for use with Azure Stack Edge Pro FPGA devices:
+- Make a list of the Edge local shares on the device.
+- Since you'll be doing a one-time migration of the data, create a copy of the Edge local share data to another on-premises server. You can use copy tools such as `robocopy` (SMB) or `rsync` (NFS) to copy the data. Optionally you may have already deployed a third-party data protection solution to back up the data in your local shares. The following third-party solutions are supported for use with Azure Stack Edge Pro FPGA devices:
 
     | Third-party software           | Reference to the solution                               |
     |--------------------------------|---------------------------------------------------------|
@@ -152,9 +152,9 @@ You will now copy data from the source device to the Edge cloud shares and Edge 
 
 Follow these steps to sync the data on the Edge cloud shares on your target device:
 
-1. [Add shares](azure-stack-edge-j-series-manage-shares.md#add-a-share) corresponding to the share names created on the source device. Make sure that while creating shares, **Select blob container** is set to **Use existing** option and then select the container that was used with the previous device.
+1. [Add shares](azure-stack-edge-j-series-manage-shares.md#add-a-share) corresponding to the share names created on the source device. When you create the shares, make sure that **Select blob container** is set to **Use existing**, and then select the container that was used with the previous device.
 1. [Add users](azure-stack-edge-j-series-manage-users.md#add-a-user) that had access to the previous device.
-1. [Refresh the share](azure-stack-edge-j-series-manage-shares.md#refresh-shares) data from Azure. This pulls down all the cloud data from the existing container to the shares.
+1. [Refresh the share](azure-stack-edge-j-series-manage-shares.md#refresh-shares) data from Azure. Refreshing the share will pull down all the cloud data from the existing container to the shares.
 1. Recreate the bandwidth schedules to be associated with your shares. See [Add a bandwidth schedule](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) for detailed steps.
 
 
@@ -167,12 +167,12 @@ After the replacement device is fully configured, enable the device for local st
 Follow these steps to recover the data from local shares:
 
 1. [Configure compute on the device](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Add all the local shares on the target device. See the detailed steps in [Add a local share](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
-1. Accessing the SMB shares on the source device will use the IP addresses whereas on the target device, you'll use device name. See [Connect to an SMB share on Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). To connect to NFS shares on the target device, you'll need to use the new IP addresses associated with the device. See [Connect to an NFS share on Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
+1. Add all the local shares on the target device. See the detailed steps in [Add a local share](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
+1. Accessing the SMB shares on the source device will use the IP addresses whereas on the target device, you'll use device name. See [Connect to an SMB share on Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-smb-share). To connect to NFS shares on the target device, you'll need to use the new IP addresses associated with the device. See [Connect to an NFS share on Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-nfs-share). 
 
-    If you copied over your share data to an intermediate server over SMB/NFS, you can copy this data over to shares on the target device. You can also copy the data over directly from the source device if both the source and the target device are *online*.
+    If you copied your share data to an intermediate server over SMB or NFS, you can copy the data from the intermediate server to shares on the target device. If both the source and the target device are *online*, you can also copy the data directly from the source device.
 
-    If you had used a third-party software to back up the data in the local shares, you will need to run the recovery procedure provided by the data protection solution of choice. See references in the following table.
+    If you have used third-party software to back up the data in the local shares, you will need to run the recovery procedure that's provided by the data protection solution of choice. See references in the following table.
 
     | Third-party software           | Reference to the solution                               |
     |--------------------------------|---------------------------------------------------------|
@@ -185,8 +185,8 @@ Follow these steps to recover the data from local shares:
 
 Once the IoT Edge modules are prepared, you will need to deploy IoT Edge workloads on your target device. If you face any errors in deploying IoT Edge modules, see:
 
-- [Common issues and resolutions for Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md), and 
-- [IoT Edge runtime errors][Manage an Azure Stack Edge Pro GPU device via Windows PowerShell](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
+- [Common issues and resolutions for Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md). 
+- [IoT Edge runtime errors](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
 
 ## Verify data
 

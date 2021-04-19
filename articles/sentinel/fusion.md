@@ -17,11 +17,8 @@ ms.author: yelevin
 ---
 # Advanced multistage attack detection in Azure Sentinel
 
-
 > [!IMPORTANT]
-> Some Fusion features in Azure Sentinel are currently in **public preview**.
-> These features are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Some Fusion detections (see those so indicated below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 By using Fusion technology based on machine learning, Azure Sentinel can automatically detect multistage attacks by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill-chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
 
@@ -57,12 +54,12 @@ As mentioned above, since Fusion correlates multiple security alerts from variou
 In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested using the associated Azure Sentinel data connectors.
 
 > [!NOTE]
-> Some of these scenarios are in **public preview**. They will be so indicated.
+> Some of these scenarios are in **PREVIEW**. They will be so indicated.
 
 ## Compute resource abuse
 
 ### Multiple VM creation activities following suspicious Azure Active Directory sign-in
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Impact 
 
@@ -211,7 +208,7 @@ This scenario is currently in **public preview**.
 ### Suspicious inbox manipulation rules set following suspicious Azure AD sign-in
 This scenario belongs to two threat classifications in this list: **data exfiltration** and **lateral movement**. For the sake of clarity, it appears in both sections.
 
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Lateral Movement, Exfiltration
 
@@ -232,7 +229,7 @@ This scenario is currently in **public preview**.
 - **Sign-in event from user with leaked credentials leading to suspicious inbox manipulation rule**
 
 ### Multiple Power BI report sharing activities following suspicious Azure AD sign-in 
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Exfiltration 
 
@@ -253,7 +250,7 @@ This scenario is currently in **public preview**.
 - **Sign-in event from user with leaked credentials leading to multiple Power BI report sharing activities**
 
 ### Suspicious Power BI report sharing following suspicious Azure AD sign-in
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Exfiltration 
 
@@ -296,7 +293,7 @@ This scenario is currently in **public preview**.
 - **Sign-in event from user with leaked credentials leading to mass file deletion**
 
 ### Suspicious email deletion activity following suspicious Azure AD sign-in
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Impact 
 
@@ -319,7 +316,7 @@ This scenario is currently in **public preview**.
 ## Denial of service
 
 ### Multiple VM delete activities following suspicious Azure AD sign-in
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Impact
 
@@ -364,7 +361,7 @@ This scenario is currently in **public preview**.
 ### Suspicious inbox manipulation rules set following suspicious Azure AD sign-in
 This scenario belongs to two threat classifications in this list: **lateral movement** and **data exfiltration**. For the sake of clarity, it appears in both sections.
 
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Lateral Movement, Exfiltration
 
@@ -409,7 +406,7 @@ This scenario is currently in **public preview**.
 ## Malicious execution with legitimate process
 
 ### PowerShell made a suspicious network connection, followed by anomalous traffic flagged by Palo Alto Networks firewall.
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Execution
 
@@ -420,7 +417,7 @@ This scenario is currently in **public preview**.
 **Description:** Fusion incidents of this type indicate that an outbound connection request was made via a PowerShell command, and following that, anomalous inbound activity was detected by the Palo Alto Networks Firewall. This provides an indication that an attacker has likely gained access to your network and is trying to perform malicious actions. Connection attempts by PowerShell that follow this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. As with all “living off the land” attacks, this activity could be a legitimate use of PowerShell. However, the PowerShell command execution followed by suspicious inbound Firewall activity increases the confidence that PowerShell is being used in a malicious manner and should be investigated further. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
 
 ### Suspicious remote WMI execution followed by anomalous traffic flagged by Palo Alto Networks firewall
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Execution, Discovery
 
@@ -453,7 +450,7 @@ This scenario is currently in **public preview**.
 ## Malware C2 or download
 
 ### Network request to TOR anonymization service followed by anomalous traffic flagged by Palo Alto Networks firewall.
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Command and Control
 
@@ -464,7 +461,7 @@ This scenario is currently in **public preview**.
 **Description:** Fusion incidents of this type indicate that an outbound connection request was made to the TOR anonymization service, and following that, anomalous inbound activity was detected by the Palo Alto Networks Firewall. This provides an indication that an attacker has likely gained access to your network and is trying to conceal their actions and intent. Connections to the TOR network following this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
 
 ### Outbound connection to IP with a history of unauthorized access attempts followed by anomalous traffic flagged by Palo Alto Networks firewall
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Command and Control
 
@@ -499,7 +496,7 @@ This scenario is currently in **public preview**.
 ## Remote exploitation
 
 ### Suspected use of attack framework followed by anomalous traffic flagged by Palo Alto Networks firewall
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Execution, Lateral Movement, Privilege Escalation
 

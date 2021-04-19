@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to create common user accounts that can be used across multiple Data Science Virtual Machines. You can use Azure Active Directory or an on-premises Active Directory to authenticate users to the Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual

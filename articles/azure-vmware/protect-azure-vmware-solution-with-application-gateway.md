@@ -2,7 +2,7 @@
 title: Use Azure Application Gateway to protect your web apps on Azure VMware Solution
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution.
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 02/10/2021
 ---
 
 # Use Azure Application Gateway to protect your web apps on Azure VMware Solution
@@ -30,7 +30,7 @@ The diagram shows the testing scenario used to validate the Application Gateway 
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram showing the testing scenario used to validate the Application Gateway with Azure VMware Solution web applications." border="false":::
 
-The Application Gateway instance is deployed on the hub in a dedicated subnet. It has an Azure public IP address. Activating Standard DDoS protection for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 routers. Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
+The Application Gateway instance is deployed on the hub in a dedicated subnet. It has an Azure public IP address. Activating [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 Gateways. Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ The Application Gateway instance is deployed on the hub in a dedicated subnet. I
 
 4. Add a backend pool of the VMs that run on Azure VMware Solution infrastructure. Provide the details of web servers that run on the Azure VMware Solution private cloud and select **Add**.  Then select **Next: Configuration>**.
 
-1. On the **Configuration** tab, select **Add a routing rule**.
+5. On the **Configuration** tab, select **Add a routing rule**.
 
 6. On the **Listener** tab, provide the details for the listener. If HTTPS is selected, you must provide a certificate, either from a PFX file or an existing Azure Key Vault certificate. 
 
@@ -62,7 +62,7 @@ The Application Gateway instance is deployed on the hub in a dedicated subnet. I
 
 9. If you want to configure path-based rules, select **Add multiple targets to create a path-based rule**. 
 
-10. Add a path-based rule and select **Add**. Repeat to add additional path-based rules. 
+10. Add a path-based rule and select **Add**. Repeat to add more path-based rules. 
 
 11. When you have finished adding path-based rules, select **Add** again; then select **Next: Tags>**. 
 
@@ -72,7 +72,7 @@ The Application Gateway instance is deployed on the hub in a dedicated subnet. I
 
 ## Configuration examples
 
-In this section, you'll learn how to configure Application Gateway with Azure VMware Solution VMs as the backend pools for these use cases: 
+Now we'll configure Application Gateway with Azure VMware Solution VMs as backend pools for the following use cases: 
 
 - [Hosting multiple sites](#hosting-multiple-sites)
 - [Routing by URL](#routing-by-url)
@@ -89,7 +89,7 @@ This procedure shows you how to define backend address pools using VMs running o
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Screenshot showing summary of a web server's details in VSphere Client.":::
 
-    We've used Windows Server 2016 with Internet Information Services (IIS) role installed to illustrate this tutorial. Once the VMs are installed, run the following PowerShell commands to configure IIS on each of the VMs. 
+    We've used Windows Server 2016 with the Internet Information Services (IIS) role installed. Once the VMs are installed, run the following PowerShell commands to configure IIS on each of the VMs. 
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -116,7 +116,7 @@ This procedure shows you how to define backend address pools using VMs running o
 
 ### Routing by URL
 
-This procedure shows you how to define backend address pools using VMs running on an Azure VMware Solution private cloud on an existing application gateway. You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
+The following steps define backend address pools using VMs running on an Azure VMware Solution private cloud. The private cloud is on an existing application gateway. You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
 1. In your private cloud, create a virtual machine pool to represent the web farm. 
 
@@ -188,3 +188,4 @@ Now that you've covered using Application Gateway to protect a web app running o
 - [Configuring Azure Application Gateway for different scenarios](../application-gateway/configuration-overview.md).
 - [Deploying Traffic Manager to balance Azure VMware Solution workloads](deploy-traffic-manager-balance-workloads.md).
 - [Integrating Azure NetApp Files with Azure VMware Solution-based workloads](netapp-files-with-azure-vmware-solution.md).
+- [Protecting Azure resources in virtual networks](../ddos-protection/ddos-protection-overview.md).

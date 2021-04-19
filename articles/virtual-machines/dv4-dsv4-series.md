@@ -1,14 +1,14 @@
 ---
- title: Dv4 and Dsv4-series - Azure Virtual Machines
- description: Specifications for the Dv4 and Dsv4-series VMs.
- author: brbell
- ms.author: brbell
- ms.reviewer: cynthn
- ms.custom: mimckitt
- ms.service: virtual-machines
- ms.subservice: sizes
- ms.topic: conceptual
- ms.date: 06/08/2020
+title: Dv4 and Dsv4-series - Azure Virtual Machines
+description: Specifications for the Dv4 and Dsv4-series VMs.
+author: brbell
+ms.author: brbell
+ms.reviewer: cynthn
+ms.custom: mimckitt
+ms.service: virtual-machines
+ms.subservice: vm-sizes-general
+ms.topic: conceptual
+ms.date: 06/08/2020
 ---
 
 # Dv4 and Dsv4-series
@@ -29,7 +29,7 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
@@ -53,7 +53,7 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 

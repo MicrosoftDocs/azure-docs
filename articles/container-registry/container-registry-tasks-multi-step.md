@@ -60,7 +60,7 @@ steps:
     build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t $Registry/hello-world-tests ./funcTests
+    build: -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
     push: ["$Registry/helloworld:$ID"]

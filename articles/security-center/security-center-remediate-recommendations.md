@@ -1,17 +1,11 @@
 ---
 title: Remediate recommendations in Azure Security Center | Microsoft Docs
 description: This article explains how to respond to recommendations in Azure Security Center to protect your resources and satisfy security policies.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/08/2020
+ms.date: 03/04/2021
 ms.author: memildin
 
 ---
@@ -76,5 +70,5 @@ The remediation operation uses a template deployment or REST PATCH API call to a
 
 In this document, you were shown how to remediate recommendations in Security Center. To learn more about Security Center, see the following pages:
 
-* [Setting security policies in Azure Security Center](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups
+* [What are security policies, initiatives, and recommendations?](security-policy-concept.md)

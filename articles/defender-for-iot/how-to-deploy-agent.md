@@ -1,19 +1,8 @@
 ---
 title: Select and deploy security agents
 description: Learn about how select and deploy Defender for IoT security agents on IoT devices.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
 ---
 
 # Select and deploy a security agent on your IoT device
@@ -24,11 +13,9 @@ To learn more, see [Security agent reference architecture](security-agent-archit
 Agents are developed as open-source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
 
 In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Compare security agent flavors
-> * Discover supported agent platforms
-> * Choose the right agent flavor for your solution
+- Compare security agent flavors
+- Discover supported agent platforms
+- Choose the right agent flavor for your solution
 
 ## Understand security agent options
 
@@ -49,7 +36,7 @@ The C-based security agent has a lower memory footprint, and is the ideal choice
 | **[Authentication](concept-security-agent-authentication-methods.md) to IoT Hub** | Yes | Yes |
 | **Security data [collection](how-to-agent-configuration.md#supported-security-events)** | Yes | Yes |
 | **Event aggregation** | Yes | Yes |
-| **Remote configuration through [security module twin](concept-security-module.md)** | Yes | Yes |
+| **Remote configuration through [Defender-IoT-micro-agent twin](concept-security-module.md)** | Yes | Yes |
 
 ## Security agent installation guidelines
 

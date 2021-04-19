@@ -17,7 +17,9 @@ ms.custom: mvc
 
 These steps show you how to use device code from the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to provision an X.509 device. In this article, you will run device sample code on your development machine to connect to an IoT Hub using the Device Provisioning Service.
 
-If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+## Prerequisites
+
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
@@ -43,8 +45,6 @@ This article will demonstrate individual enrollments.
     ```bash
     dotnet --info
     ```
-
-
 
 ## Create a self-signed X.509 device certificate
 

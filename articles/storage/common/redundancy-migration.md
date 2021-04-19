@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common 
@@ -37,7 +37,7 @@ The following table provides an overview of how to switch from each type of repl
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,2</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration | Perform a manual migration <br /><br /> OR <br /><br /> Switch to GRS/RA-GRS first and then request a live migration<sup>1</sup> |
 | <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br /> OR <br /><br /> Switch to LRS first and then request a live migration | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration |
-| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,3</sup> |
+| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Request a live migration |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
@@ -118,25 +118,30 @@ You must perform a manual migration if:
 - You want to migrate data from ZRS to LRS, GRS or RA-GRS.
 - Your storage account includes data in the archive tier.
 
-You can request live migration through the [Azure Support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). From the portal, select the storage account you want to convert to ZRS.
+You can request live migration through the [Azure Support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
-1. Select **New Support Request**.
-2. Complete the **Basics** based on your account information: 
+> [!IMPORTANT]
+> If you need to migrate more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
+
+Follow these steps to request a live migration:
+
+1. In the Azure portal, navigate to a storage account that you want to migrate.
+1. Under **Support + troubleshooting**, select **New Support Request**.
+1. Complete the **Basics** tab based on your account information:
     - **Issue type**: Select **Technical**.
-    - **Service**: Select **My Services** and **Storage Account Management**.
-    - **Resource**: Select the resource you want to convert to ZRS.
-3. Select **Next**.
-4. Specify the following values the **Problem** section:
-    - **Severity**: Leave the default value as-is.
-    - **Problem Type**: Select **Data Migration**.
-    - **Category**: Select **Migrate to ZRS**.
-    - **Title**: Type a descriptive title, for example, **ZRS account migration**.
-    - **Details**: Type additional details in the **Details** box, for example, I would like to migrate to ZRS from [LRS, GRS] in the \_\_ region.
-5. Select **Next**.
-6. Verify that the contact information is correct on the **Contact information** blade.
-7. Select **Create**.
+    - **Service**: Select **My Services**, then **Storage Account Management**.
+    - **Resource**: Select a storage account to migrate. If you need to specify multiple storage accounts, you can do so in the **Details** section.
+    - **Problem type**: Choose **Data Migration**.
+    - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
-A support person will contact you and provide any assistance you need.
+    :::image type="content" source="media/redundancy-migration/request-live-migration-basics-portal.png" alt-text="Screenshot showing how to request a live migration - Basics tab":::
+
+1. Select **Next**. On the **Solutions** tab, you can check the eligibility of your storage accounts for migration.
+1. Select **Next**. If you have more than one storage account to migrate, then on the **Details** tab, specify the name for each account, separated by a semicolon.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a live migration - Details tab":::
+
+1. Fill out the additional required information on the **Details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
 > [!NOTE]
 > Premium file shares (FileStorage accounts) are only available for LRS and ZRS.

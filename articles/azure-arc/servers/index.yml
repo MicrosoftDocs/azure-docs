@@ -8,7 +8,7 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 10/07/2020
+  ms.date: 02/26/2020
   ms.author: magoedte
 
 landingContent:
@@ -19,6 +19,10 @@ landingContent:
         links:
           - text: What is Azure Arc enabled servers?
             url: overview.md
+      - linkListType: deploy
+        links:
+          - text: Plan for deployment
+            url: plan-at-scale-deployment.md
       - linkListType: get-started
         links:
           - text: Connect machines to Azure Arc from the Azure portal

@@ -75,25 +75,24 @@ When you reimport this app, the active learning continues to collect information
 
 A bot or other client application should use the following architectural flow to use active learning:
 
-* Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
+1. Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
 
-    #### Use the top property in the GenerateAnswer request to get several matching answers
-
-    When submitting a question to QnA Maker for an answer, the `top` property of the JSON body sets the number of answers to return.
-
-    ```json
-    {
-        "question": "wi-fi",
-        "isTest": false,
-        "top": 3
-    }
-    ```
-
-* Bot determines explicit feedback:
+2. Bot determines explicit feedback:
     * Using your own [custom business logic](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filter out low scores.
     * In the bot or client-application, display list of possible answers to the user and get user's selected answer.
-* Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
+3. Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
 
+### Use the top property in the GenerateAnswer request to get several matching answers
+
+When submitting a question to QnA Maker for an answer, the `top` property of the JSON body sets the number of answers to return.
+
+```json
+{
+    "question": "wi-fi",
+    "isTest": false,
+    "top": 3
+}
+```
 
 ### Use the score property along with business logic to get list of answers to show user
 

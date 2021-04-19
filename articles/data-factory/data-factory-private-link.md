@@ -2,13 +2,9 @@
 title: Azure Private Link for Azure Data Factory
 description: Learn about how Azure Private Link works in Azure Data Factory.
 
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
@@ -54,7 +50,7 @@ Enabling the Private Link service for each of the preceding communication channe
    - The command communications between the self-hosted integration runtime and the Azure Data Factory service can be performed securely in a private network environment. The traffic between the self-hosted integration runtime and the Azure Data Factory service goes through Private Link. 
 - **Not currently supported**:
    - Interactive authoring that uses a self-hosted integration runtime, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
-   - The new version of the self-hosted integration runtime can be automatically downloaded from Microsoft Download Center if you enable Auto-Update.
+   - The new version of the self-hosted integration runtime which can be automatically downloaded from Microsoft Download Center if you enable Auto-Update , is not supported at this time .
 
    > [!NOTE]
    > For functionality that's not currently supported, you still need to configure the previously mentioned domain and port in the virtual network or your corporate firewall. 

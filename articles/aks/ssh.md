@@ -139,14 +139,14 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 1. Run a `debian` container image and attach a terminal session to it. This container can be used to create an SSH session with any node in the AKS cluster:
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     ```
 
     > [!TIP]
     > If you use Windows Server nodes, add a node selector to the command to schedule the Debian container on a Linux node:
     >
     > ```console
-    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
     > ```
 
 1. Once the terminal session is connected to the container, install an SSH client using `apt-get`:
@@ -166,7 +166,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 1. Return to the terminal session to your container, update the permissions on the copied `id_rsa` private SSH key so that it is user read-only:
 
     ```console
-    chmod 0600 id_rsa
+    chmod 0400 id_rsa
     ```
 
 1. Create an SSH connection to your AKS node. Again, the default username for AKS nodes is *azureuser*. Accept the prompt to continue with the connection as the SSH key is first trusted. You are then provided with the bash prompt of your AKS node:
@@ -209,7 +209,7 @@ If you need additional troubleshooting data, you can [view the kubelet logs][vie
 [az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
-[view-master-logs]: view-master-logs.md
+[view-master-logs]: ./view-control-plane-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

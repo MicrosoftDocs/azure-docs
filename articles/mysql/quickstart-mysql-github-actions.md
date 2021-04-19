@@ -89,8 +89,8 @@ You will use the connection string as a GitHub secret.
 
     ```yaml
     - uses: azure/login@v1
-    with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
    ```
 
 1. Select **New secret** again. 
@@ -122,19 +122,19 @@ You will use the connection string as a GitHub secret.
     name: MySQL for GitHub Actions
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+        push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
     jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
 1. Use the Azure MySQL Deploy action to connect to your MySQL instance. Replace `MYSQL_SERVER_NAME` with the name of your server. You should have a MySQL data file named `data.sql` at the root level of your repository. 
@@ -150,34 +150,34 @@ You will use the connection string as a GitHub secret.
 1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
     ```yaml
-   name: MySQL for GitHub Actions
+    name: MySQL for GitHub Actions
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+         push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
 
-    jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+     jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - uses: azure/mysql@v1
-      with:
-        server-name: MYSQL_SERVER_NAME
-        connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+            - uses: azure/mysql@v1
+                with:
+                    server-name: MYSQL_SERVER_NAME
+                    connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
+                    sql-file: './data.sql'
 
-        # Azure logout 
-    - name: logout
-      run: |
-         az logout
+            # Azure logout 
+            - name: logout
+                run: |
+                    az logout
     ```
 
 ## Review your deployment

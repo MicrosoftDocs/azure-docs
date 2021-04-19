@@ -291,9 +291,6 @@ Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-## Analyzing job history
-
-Using Azure PowerShell to analyze the history of jobs that have run in Data Lake analytics is a powerful technique. You can use it to gain insights into usage and cost. You can learn more by looking at the [Job History Analysis sample repo](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis)  
 
 ## List job pipelines and recurrences
 

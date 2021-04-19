@@ -1,20 +1,13 @@
 ---
 title: Troubleshooting Windows VM extension failures 
 description: Learn about troubleshooting Azure Windows VM extension failures
-services: virtual-machines-windows
-documentationcenter: ''
-author: kundanap
-manager: gwallace
-editor: ''
-tags: top-support-issue,azure-resource-manager
-ms.assetid: 878ab9b6-c3e6-40be-82d4-d77fecd5030f
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 03/29/2016
-ms.author: kundanap
 
 ---
 # Troubleshooting Azure Windows VM extension failures

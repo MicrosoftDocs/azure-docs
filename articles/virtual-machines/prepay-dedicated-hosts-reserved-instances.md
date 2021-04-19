@@ -4,6 +4,7 @@ description: Learn how to buy Azure Dedicated Hosts Reserved Instances to save o
 services: virtual-machines
 author: yashar
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
@@ -26,7 +27,7 @@ Start by going over the supported sizes for [Windows virtual machine](./sizes.md
 
 Next, check whether it is supported on Azure Dedicated Hosts. [Azure Dedicated Hosts pricing](https://aka.ms/ADHPricing) page has the complete list of dedicated hosts SKUs, their CPU information, and various pricing options (including reserved instances).
 
-You may find several SKUs supporting you VM series (with different Types). Identify the best SKU by comparing the capacity of the host (number of vCPUs). Note that you will be able to apply you reservation to multiple dedicated hosts SKUs supporting the same VM series (for example DSv3_Type1 and DSv3_Type2) but not across different VM series (like DSv3 and ESv3).
+You may find several SKUs supporting your selected VM series (with different Types). Identify the best SKU by comparing the capacity of the host (number of vCPUs). Note that you will be able to apply your reservation to multiple dedicated hosts SKUs supporting the same VM series (for example DSv3_Type1 and DSv3_Type2) but not across different VM series (like DSv3 and ESv3).
 
 
 

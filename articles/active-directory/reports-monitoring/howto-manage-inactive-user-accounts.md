@@ -43,10 +43,9 @@ You detect inactive accounts by evaluating the **lastSignInDateTime** property e
 
 - **Users by date**: In this scenario, you request a list of users with a lastSignInDateTime before a specified date: `https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
-
-
-
-
+> [!NOTE]
+> There may be the need to generate a report of the last sign in date of all users, if so you can use the following scenario.
+> **Last Sign In Date and Time for All Users**: In this scenario, you request a list of all users, and the last lastSignInDateTime for each respective user: `https://graph.microsoft.com/beta/users?$select=displayName,signInActivity` 
 
 ## What you need to know
 
@@ -54,7 +53,7 @@ This section lists what you need to know about the lastSignInDateTime property.
 
 ### How can I access this property?
 
-The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta) of the [Microsoft Graph REST API](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
 
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 
@@ -87,5 +86,5 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 ## Next steps
 
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
-* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)
+* [Audit API reference](/graph/api/resources/directoryaudit) 
+* [Sign-in activity report API reference](/graph/api/resources/signin)

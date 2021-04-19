@@ -18,6 +18,9 @@ ms.date: 01/08/2020
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises MySQL instance to [Azure Database for MySQL](../mysql/index.yml) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **Employees** sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL by using an online migration activity in Azure Database Migration Service.
 
+> [!IMPORTANT]
+> The “MySQL to Azure Database for MySQL” online migration scenario is being replaced with a parallelized, highly performant offline migration scenario on June 1, 2021. For online migrations, you can use this new offering together with [data-in replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). Alternatively, use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with data-in replication for online migrations. 
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
@@ -57,8 +60,8 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because Azure Database Migration Service lacks internet connectivity.
 
-* Ensure that your virtual network Network Security Group rules don't block the following outbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules).
+* Ensure that your virtual network Network Security Group rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows firewall to allow Azure Database Migration Service to access the source MySQL Server, which by default is TCP port 3306.
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
 * Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for Azure Database for MySQL to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.

@@ -3,7 +3,7 @@ title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
 ---
 
@@ -22,6 +22,9 @@ The task command line strings will need to reference the applications and paths 
 Most rendering applications will require licenses obtained from a license server. If there's an existing on-premises license server, then both the pool and license server need to be on the same [virtual network](../virtual-network/virtual-networks-overview.md). It is also possible to run a license server on an Azure VM, with the Batch pool and license server VM being on the same virtual network.
 
 ## Batch pools using rendering VM images
+
+> [!IMPORTANT]
+> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on 29 February 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### Rendering application installation
 

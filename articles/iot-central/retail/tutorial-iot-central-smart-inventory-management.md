@@ -16,8 +16,8 @@ This tutorial shows you how to get started by deploying an IoT Central **smart i
 In this tutorial, you learn how to,
 
 > [!div class="checklist"]
-> create smart inventory management application 
-> walk through the application 
+> * create smart inventory management application 
+> * walk through the application 
 
 ## Prerequisites
 

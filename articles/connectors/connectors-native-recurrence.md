@@ -55,15 +55,16 @@ For differences between this trigger and the Sliding Window trigger or for more 
    ||||||
 
    > [!IMPORTANT]
-   > When recurrences don't specify advanced scheduling options, future recurrences are based on the last run time.
-   > The start times for these recurrences might drift due to factors such as latency during storage calls. 
-   > To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, 
-   > use one of these options:
+   > If a recurrence doesn't specify a specific [start date and time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), 
+   > the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, 
+   > provide a start date and time for when you want the first recurrence to run.
+   >
+   > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are 
+   > based on the last run time. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. 
+   > To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, try these options:
    > 
-   > * Provide a start time for the recurrence.
-   > 
-   > * Specify the hours and minutes for when to run the recurrence by using the properties named 
-   > **At these hours** and **At these minutes**.
+   > * Provide a start date and time for the recurrence plus the specific times when to run subsequent recurrences by using the properties 
+   > named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
    > 
    > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), 
    > rather than the Recurrence trigger.

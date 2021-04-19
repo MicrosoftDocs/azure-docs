@@ -9,6 +9,8 @@ ms.date: 3/18/2020
 ---
 
 # How to use EXPLAIN to profile query performance in Azure Database for MySQL
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 **EXPLAIN** is a handy tool to optimize queries. EXPLAIN statement can be used to get information about how SQL statements are executed. The following output shows an example of the execution of an EXPLAIN statement.
 
 ```sql
@@ -162,4 +164,4 @@ Using EXPLAIN and different type of Indexes can increase performance significant
 
 
 ## Next steps
-- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- To find peer answers to your most concerned questions or post a new question/answer, visit [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
