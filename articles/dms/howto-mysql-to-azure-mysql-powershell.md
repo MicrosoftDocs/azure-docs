@@ -540,12 +540,9 @@ $offlineMigTaskProperties.input.startedOn = [System.DateTimeOffset]::UtcNow.ToSt
 As pert of the PowerShell module, there are few optional parameters available, which can be tuned based on the environment. These parameters can be used to improve the performance of the migration task. All these parameters are optional and their default value is NULL.
 
 > [!NOTE]
-> The following performance configurations have shown increased throughput during migration on Premium sku.
-> * DesiredRangesCount = 4
-> * QueryTableDataRangeTaskCount = 8
+> The following performance configurations have shown increased throughput during migration on Premium SKU.
 > * WriteDataRangeBatchTaskCount = 12
 > * DelayProgressUpdatesInStorageInterval = 30 seconds
-> * MaxBatchSize = 4 MB
 > * ThrottleQueryTableDataRangeTaskAtBatchCount = 36
 
 The following script takes the user values of the parameters and sets the parameters in the migration task properties.
@@ -664,4 +661,4 @@ Remove-AzDataMigrationService -ResourceId $($dmsService.ResourceId)
 * For troubleshooting source database connectivity issues while using DMS, see the article [Issues connecting source databases](./known-issues-troubleshooting-dms-source-connectivity.md).
 * For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 * For information about Azure Database for MySQL, see the article [What is Azure Database for MySQL?](../mysql/overview.md).
-* For tutorial about using DMS via portal, see the article [Tutorial: Migrate MySQL offline to Azure Database for MySQL](./tutorial-mysql-azure-mysql-offline-portal.md)
+* For tutorial about using DMS via portal, see the article [Tutorial: Migrate MySQL to Azure Database for MySQL offline using DMS](./tutorial-mysql-azure-mysql-offline-portal.md)

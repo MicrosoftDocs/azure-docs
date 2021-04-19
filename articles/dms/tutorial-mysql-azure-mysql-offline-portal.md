@@ -194,7 +194,8 @@ After the service is created, locate it within the Azure portal, open it, and th
     ![Select database details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/12-dms-portal-project-mysql-selectdb.png)
     
     > [!NOTE] 
-    > Though you can select multiple databases in this step, each instance of Azure Database Migration Service supports up to 4 databases for concurrent migration. Also, there is a limit of 10 instances of Azure Database Migration Service per subscription per region. For example, if you have 80 databases to migrate, you can migrate 40 of them to the same region concurrently, but only if you have created 10 instances of the Azure Database Migration Service.
+    > Though you can select multiple databases in this step, but there are limits to how many and how fast the DBs can be migrated this way, since each database will share compute. With the default configuration of the Premium SKU, each migration task will attempt to migrate two tables in parallel. These tables could be from any of the selected databases. If this isn't fast enough, you can split database migration activities into different migration tasks and scale across multiple services. Also, there is a limit of 10 instances of Azure Database Migration Service per subscription per region.
+    > For more granular control on the migration throughput and parallelization, please refer to the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS](./howto-mysql-to-azure-mysql-powershell.md)
 
 4. On the **Configure migration settings** screen, select the tables to be part of migration, and select **Next : Summary>>**. If the target tables have any data, they are not selected by default but you can explicitly select them and they will be truncated before starting the migration.
 
@@ -252,4 +253,4 @@ If you're not going to continue to use the Database Migration Service, then you 
 * For troubleshooting source database connectivity issues while using DMS, see the article [Issues connecting source databases](./known-issues-troubleshooting-dms-source-connectivity.md).
 * For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 * For information about Azure Database for MySQL, see the article [What is Azure Database for MySQL?](../mysql/overview.md).
-* For guidance about using DMS via PowerShell, see the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL](./howto-mysql-to-azure-mysql-powershell.md)
+* For guidance about using DMS via PowerShell, see the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS](./howto-mysql-to-azure-mysql-powershell.md)
