@@ -1,19 +1,8 @@
 ---
 title: Deploy IoT Edge Defender-IoT-micro-agent
 description: Learn about how to deploy a Defender for IoT security agent on IoT Edge.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/30/2020
-ms.author: mlottner
 ---
 
 # Deploy a Defender-IoT-micro-agent on your IoT Edge device

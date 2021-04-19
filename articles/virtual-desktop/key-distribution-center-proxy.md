@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Configure a Kerberos Key Distribution Center proxy (preview)
 
@@ -23,7 +23,7 @@ There are two components to the Windows Virtual Desktop service that need to be 
 - The feed in the Windows Virtual Desktop client that gives users a list of available desktops or applications they have access to. This authentication process happens in Azure Active Directory, which means this component isn't the focus of this article.
 - The RDP session that results from a user selecting one of those available resources. This component uses Kerberos authentication and requires a KDC proxy for remote users.
 
-This article will show you how to configure the feed in the Windows Virtual Desktop client in the Azure portal. If you want to learn how to configure the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/rd-gateway-role).
+This article will show you how to configure the feed in the Windows Virtual Desktop client in the Azure portal. If you want to learn how to configure the RD Gateway role, see [Deploy the RD Gateway role](/azure/virtual-desktop/rd-gateway-role).
 
 ## Requirements
 
@@ -64,6 +64,6 @@ To configure the KDC proxy:
 
 ## Next steps
 
-To learn how to manage the Remote Desktop Services side of the KDC proxy and assign the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/rd-gateway-role).
+To learn how to manage the Remote Desktop Services side of the KDC proxy and assign the RD Gateway role, see [Deploy the RD Gateway role](rd-gateway-role.md).
 
 If you're interested in scaling your KDC proxy servers, learn how to set up high availability for KDC proxy at [Add high availability to the RD Web and Gateway web front](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).

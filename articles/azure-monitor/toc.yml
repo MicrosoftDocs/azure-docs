@@ -640,7 +640,7 @@
       - name: Non-HTTP/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: ASP.NET Console
+      - name: .NET Console
         displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
         href: app/console.md
       - name: Java
@@ -722,6 +722,8 @@
               items:
               - name: JMX metrics
                 href: app/java-jmx-metrics-configuration.md
+              - name: Sampling overrides
+                href: app/java-standalone-sampling-overrides.md
               - name: Telemetry processors
                 items:
                 - name: Overview
@@ -775,6 +777,8 @@
       displayname: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
+      - name: Overview
+        href: app/availability-overview.md
       - name: URL tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md

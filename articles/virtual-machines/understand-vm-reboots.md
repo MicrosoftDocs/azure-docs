@@ -30,7 +30,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 * Use [Availability Zones](../availability-zones/az-overview.md) to protect from data center failures
 * Configure multiple virtual machines in an [availability set](availability-set-overview.md) for redundancy
-* Use [scheduled events for Linux](/linux/scheduled-events.md) or [scheduled events for Windows](/windows/scheduled-events.md) to proactively respond to VM impacting events
+* Use [scheduled events for Linux](/azure/virtual-machines/linux/scheduled-events) or [scheduled events for Windows](/azure/virtual-machines/windows/scheduled-events) to proactively respond to VM impacting events
 * Configure each application tier into separate availability sets
 * Combine a [load balancer](../load-balancer/load-balancer-overview.md) with availability zones or sets
 

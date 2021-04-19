@@ -18,7 +18,7 @@ Follow these steps to install the Speech CLI on Windows:
 2. Install the Speech CLI using NuGet by entering this command:
 
    ```console
-   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI
    ```
 Type `spx` to see help for the Speech CLI.
 
@@ -51,7 +51,7 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 1. Install [.NET Core 3.1 SDK](/dotnet/core/install/linux).
 2. Install the Speech CLI using NuGet by entering this command:
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
 
 Type `spx` to see help for the Speech CLI.
 

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: rosouz
 ms.custom: devx-track-python
 ---
@@ -24,7 +24,8 @@ ms.custom: devx-track-python
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -38,7 +39,7 @@ ms.custom: devx-track-python
 |**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
-|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.6+](https://www.python.org/downloads/)|
 
 ## Release history
 

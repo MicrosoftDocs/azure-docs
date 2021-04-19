@@ -13,7 +13,7 @@ ms.date: 05/09/2019
 The `app` expression is used in an Azure Monitor query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This is useful to include application data in an Azure Monitor log query and to query data across multiple applications in an Application Insights query.
 
 > [!IMPORTANT]
-> The app() expression is not used if you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md) since log data is stored in a Log Analytics workspace. Use the log() expression to write a query that includes application in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.
+> The app() expression is not used if you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md) since log data is stored in a Log Analytics workspace. Use the workspace() expression to write a query that includes application in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.
 
 ## Syntax
 

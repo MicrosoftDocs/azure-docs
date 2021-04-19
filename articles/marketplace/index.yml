@@ -18,7 +18,7 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Create a new account
-        url: ./partner-center-portal/create-account.md
+        url: create-account.md
       - text: Determine your publishing option
         url: ./determine-your-listing-type.md
       - text: Policies and terms

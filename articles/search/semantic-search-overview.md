@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/01/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview, available through the preview REST API and portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 Semantic search is a collection of query-related capabilities that add semantic relevance and language understanding to search results. *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds *captions* and *answers* within your content that summarize the matching document or answer a question, which can then be rendered on a search results page for a more productive search experience.
 
@@ -39,7 +39,7 @@ Semantic search improves precision and recall with the addition of the following
 
 ### Order of operations
 
-Components of semantic search extend the existing query execution pipeline in both directions. If you enable spelling correction, the [speller](speller-how-to-add.md) corrects typos at the outset, before the query terms reach the search engine.
+Components of semantic search extend the existing query execution pipeline in both directions. If you enable spelling correction, the [speller](speller-how-to-add.md) corrects typos at query onset, before terms reach the search engine.
 
 :::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Semantic components in query execution" border="true":::
 
@@ -59,7 +59,7 @@ Semantic capabilities are available through [sign-up registration](https://aka.m
 
 Spell correction is available in the same regions, but has no tier restrictions. If you have an existing service that meets tier and region criteria, only sign up is required.
 
-Between preview launch on March 2 through April 1, spell correction and semantic ranking are offered free of charge. After April 1, the computational costs of running this functionality will become a billable event. The expected cost is about USD $500/month for 250,000 queries. You can find detailed cost information documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+Between preview launch on March 2 through late April, spell correction and semantic ranking are offered free of charge. Later in April the computational costs of running this functionality will become a billable event. The expected cost is about USD $500/month for 250,000 queries. You can find detailed cost information documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # Determine causes of non-compliance

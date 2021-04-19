@@ -30,6 +30,14 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
+4. To check the number of text records that have been sent using your Text Analytics resource:
+
+    1. Navigate to your Text Analytics resource in the Azure portal. 
+    2. Click **Metrics**, located under **Monitoring** in the left navigation menu. 
+    3. Select *Processed text records* in the dropdown box for **Metric**.
+    
+A text record is 1000 characters.
+
 ## Change your pricing tier 
 
 If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). The S0 through S4 pricing tiers will be retired. To update your resource's pricing:

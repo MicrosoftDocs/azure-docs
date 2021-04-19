@@ -1,20 +1,8 @@
 ---
 title: Defender for IoT Defender-IoT-micro-agent for IoT Edge
 description: Understand the architecture and capabilities of Azure Defender for IoT Defender-IoT-micro-agent for IoT Edge.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Azure Defender for IoT Edge Defender-IoT-micro-agent

@@ -17,7 +17,7 @@ Use the Face client library for .NET to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create a person group](#create-a-person-group)
+* [Create a PersonGroup](#create-a-persongroup)
 * [Identify a face](#identify-a-face)
 
 [Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
@@ -119,7 +119,7 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create a person group](#create-a-person-group)
+* [Create a PersonGroup](#create-a-persongroup)
 * [Identify a face](#identify-a-face)
 
 ## Authenticate the client
@@ -181,7 +181,7 @@ The following code prints the match details to the console:
 
 The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known. In order to do the Identify operation, you first need to create and train a **PersonGroup**
 
-### Create a person group
+### Create a PersonGroup
 
 The following code creates a **PersonGroup** with six different **Person** objects. It associates each **Person** with a set of example images, and then it trains to recognize each person by their facial characteristics. **Person** and **PersonGroup** objects are used in the Verify, Identify, and Group operations.
 

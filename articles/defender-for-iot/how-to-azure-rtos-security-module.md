@@ -1,19 +1,8 @@
 ---
 title: Configure and customize Defender-IoT-micro-agent for Azure RTOS
 description: Learn about how to configure and customize your Defender-IoT-micro-agent for Azure RTOS.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/07/2021
-ms.author: shhazam
 ---
 
 # Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)

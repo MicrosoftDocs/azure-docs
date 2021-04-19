@@ -70,6 +70,9 @@ map.events.add((OnFeatureClick) (features) -> {
     String msg = features.get(0).getStringProperty("title");
 
     //Do something with the message.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
@@ -88,6 +91,9 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
     val msg = features[0].getStringProperty("title")
 
     //Do something with the message.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 }, layer.getId()) //Limit this event to the symbol layer.
 ```
 
@@ -107,6 +113,9 @@ map.events.add((OnFeatureClick) (features) -> {
 
     //Display a toast message with the title information.
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
@@ -122,6 +131,9 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
     //Display a toast message with the title information.
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 }, layer.getId()) //Limit this event to the symbol layer.
 ```
 
@@ -138,7 +150,7 @@ In addition to toast messages, There are many other ways to present the metadata
 
 ## Display a popup
 
-The Azure Maps Android SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups you have to pass in a view with a relative layout into the `content` option of the popup. Here is a simple layout example that displays dark text on top of a while background.
+The Azure Maps Android SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups, you have to pass in a view with a relative layout into the `content` option of the popup. Here is a simple layout example that displays dark text on top of a while background.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -205,6 +217,9 @@ map.events.add((OnFeatureClick)(feature) -> {
 
     //Open the popup.
     popup.open();
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 });
 ```
 
@@ -250,6 +265,9 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
 
     //Open the popup.
     popup.open()
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 })
 ```
 

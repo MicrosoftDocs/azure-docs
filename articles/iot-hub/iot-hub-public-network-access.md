@@ -6,7 +6,7 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/22/2021
 ---
 
 # Managing public network access for your IoT hub
@@ -27,7 +27,7 @@ To turn on public network access, selected **All networks**, then **Save**.
 
 ## Accessing the IoT Hub after disabling public network access
 
-After public network access is disabled, the IoT Hub is only accessible through [its VNet private endpoint using Azure private link](virtual-network-support.md).
+After public network access is disabled, the IoT Hub is only accessible through [its VNet private endpoint using Azure private link](virtual-network-support.md). This restriction includes accessing through Azure portal, because API calls to the IoT Hub service are made directly using your browser with your credentials.
 
 ## IoT Hub endpoint, IP address, and ports after disabling public network access
 

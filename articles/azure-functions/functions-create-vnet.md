@@ -157,7 +157,7 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. | |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
     | **Name** | file-endpoint | The name of the private endpoint for files from your storage account. |
     | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region where you created your storage account. |
 
@@ -329,7 +329,7 @@ Congratulations! You've successfully deployed your sample function app.
 
 Now create the private endpoint to lock down your function app. This private endpoint will connect your function app privately and securely to your virtual network by using a private IP address. 
 
-For more information, see the [private endpoint documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+For more information, see the [private endpoint documentation](../private-link/private-endpoint-overview.md).
 
 1. In your function app, in the menu on the left, select **Networking**.
 

@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring 
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -274,6 +274,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** |**myVM3**|
     | Availability zone | **2** |**3**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create outbound rule configuration
 Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
@@ -560,6 +562,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** |**myVM3**|
     | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### Add virtual machines to the backend pool
 

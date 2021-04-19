@@ -21,8 +21,8 @@ Microsoft recommends locking all of your storage accounts with an Azure Resource
 
 For more information about Azure Resource Manager locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).
 
-> [!IMPORTANT]
-> Locking a storage account does not protect the data within that account from being updated or deleted.
+> [!CAUTION]
+> Locking a storage account does not protect containers or blobs within that account from being deleted or overwritten. For more information about how to protect blob data, see [Data protection overview](../blobs/data-protection-overview.md).
 
 ## Configure an Azure Resource Manager lock
 
@@ -79,4 +79,5 @@ Data in Azure Files or the Table service may become unaccessible to clients who 
 
 ## Next steps
 
-[Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md)
+- [Data protection overview](../blobs/data-protection-overview.md)
+- [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md)

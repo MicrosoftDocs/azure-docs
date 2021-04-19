@@ -27,7 +27,7 @@ Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh netw
 
 The following diagram shows the segregation of cores reserved for Azure Hypervisor and the HC-series VM.
 
-![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/hc-series-overview/segregation-cores.png)
+![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/architecture/hc-segregation-cores.png)
 
 ## Hardware specifications
 

@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Deploy the Windows Virtual Desktop (classic) diagnostics tool
