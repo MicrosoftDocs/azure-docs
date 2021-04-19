@@ -14,7 +14,7 @@ This article lists the recommendations you might see in Azure Security Center. T
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Security Center's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). 
+Security Center's recommendations are based on the [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security 
 and compliance best practices based on common compliance frameworks. This widely respected benchmark 
 builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
