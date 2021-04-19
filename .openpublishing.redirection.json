@@ -21720,6 +21720,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "articles/industrial-iot/overview-what-is-industrial-iot-platform.md",
+      "redirect_url": "articles/industrial-iot/overview-what-is-industrial-iot.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
       "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
       "redirect_document_id": false

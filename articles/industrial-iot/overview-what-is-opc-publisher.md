@@ -1,7 +1,7 @@
 ---
 title: Microsoft OPC Publisher
 description: This article provides an overview of the OPC Publisher Edge module.
-author: jehona-m
+author: v-condav
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.date: 3/22/2021
 
 # What is the OPC Publisher?
 
-OPC Publisher is a fully-supported Microsoft product that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting OPC UA-enabled assets or industrial connectivity software to your Mirosoft Azure cloud. It publishes the telemetry data it gathers to Azure IoT Hub in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards). OPC Publisher runs on Azure IoT Edge as a Module or on plain Docker as a container. Because it leverages the .NET cross-platform runtime, it runs natively on both Linux and Windows 10.
+OPC Publisher is a fully-supported Microsoft product that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting OPC UA-enabled assets or industrial connectivity software to your Microsoft Azure cloud. It publishes the telemetry data it gathers to Azure IoT Hub in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards). OPC Publisher runs on Azure IoT Edge as a Module or on plain Docker as a container. Because it leverages the .NET cross-platform runtime, it runs natively on both Linux and Windows 10.
 
 OPC Publisher is a reference implementation that demonstrates how to:
 
