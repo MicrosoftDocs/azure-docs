@@ -26,9 +26,12 @@ The event source is the link between your hub and your Azure Time Series Insight
 
 You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), [Azure Resource Manager templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
 
+> [!WARNING]
+> Do not restrict Public Internet access to a hub or event source used by Time Series Insights or the necessary connection will be broken.
+
 ## Start options
 
-When creating an event source, you have the option to specify what pre-existing data should be collected. This setting is optional. The following options are available:
+When creating an event source, you can specify what pre-existing data should be collected. This setting is optional. The following options are available:
 
 | Name   |  Description  |  Azure Resource Manager template example |
 |----------|-------------|------|
@@ -41,18 +44,17 @@ When creating an event source, you have the option to specify what pre-existing 
 > - If you select EarliestAvailable and have a lot of pre-existing data, you may experience high initial latency as your Azure Time Series Insights Gen2 environment processes all of your data.
 > - This high latency should eventually subside as data is indexed. Submit a support ticket through the Azure portal if you experience ongoing high latency.
 
-* EarliestAvailable
+- EarliestAvailable
 
 ![EarliestAvailable Diagram](media/concepts-streaming-event-sources/event-source-earliest-available.png)
 
-* EventSourceCreationTime
+- EventSourceCreationTime
 
 ![EventSourceCreationTime Diagram](media/concepts-streaming-event-sources/event-source-creation-time.png)
 
-* CustomEnqueuedTime
+- CustomEnqueuedTime
 
 ![CustomEnqueuedTime Diagram](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
-
 
 ## Streaming ingestion best practices
 
@@ -100,17 +102,17 @@ When configuring an event source, you'll be asked to provide a timestamp ID prop
 
 In general, users will opt to customize the timestamp property and use the time when the sensor or tag generated the reading rather than using the default hub enqueued time. This is particularly necessary when devices have intermittent connectivity loss and a batch of delayed messages are forwarded to Azure Time Series Insights Gen2.
 
-If your custom timestamp is within a nested JSON object or an array you'll need to provide the correct property name following our [flattening and escaping naming conventions](concepts-json-flattening-escaping-rules.md). For example, the event source timestamp for the JSON payload shown [here](concepts-json-flattening-escaping-rules.md#example-a) should be entered as `"values.time"`.
+If your custom timestamp is within a nested JSON object or an array, you'll need to provide the correct property name following our [flattening and escaping naming conventions](concepts-json-flattening-escaping-rules.md). For example, the event source timestamp for the JSON payload shown [here](concepts-json-flattening-escaping-rules.md#example-a) should be entered as `"values.time"`.
 
 ### Time zone offsets
 
-Timestamps must be sent in ISO 8601 format and will be stored in UTC. If a time zone offset is provided, the offset will be applied and then the time stored and returned in UTC format. If the offset is improperly formatted it will be ignored. In situations where your solution might not have context of the original offset, you can send the offset data in an additional separate event property to ensure that it's preserved and that your application can reference in a query response.
+Timestamps must be sent in ISO 8601 format and will be stored in UTC. If a time zone offset is provided, the offset will be applied and then the time stored and returned in UTC format. If the offset is improperly formatted, it will be ignored. In situations where your solution might not have context of the original offset, you can send the offset data in an additional separate event property to ensure that it's preserved and that your application can reference in a query response.
 
 The time zone offset should be formatted as one of the following:
 
-±HHMMZ</br>
-±HH:MM</br>
-±HH:MMZ</br>
+±HHMMZ<br />
+±HH:MM<br />
+±HH:MMZ
 
 ## Next steps
 

@@ -8,8 +8,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -136,7 +136,9 @@ A successful response writes the thumbnail image to the file specified in `<thum
 
 ## Next steps
 
-Explore the Image Analysis API in more depth. To rapidly experiment with the API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
+In this quickstart, you learned how to install make basic image analysis calls using the REST API. Next, learn more about the Analyze API features.
 
 > [!div class="nextstepaction"]
-> [Explore the Image Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)
+>[Call the Analyze API](../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+
+* [Image Analysis overview](../overview-image-analysis.md)
