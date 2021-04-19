@@ -72,7 +72,7 @@
     - name: Anomaly Detector REST API
       href: https://aka.ms/anomaly-detector-rest-api-ref
     - name: Anomaly Detector REST API preview (multivariate)
-      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/post-timeseries-entire-detect 
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
     - name: .NET 
       href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3
     - name: Java
