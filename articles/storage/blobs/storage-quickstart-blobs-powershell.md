@@ -61,21 +61,21 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
 Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
-  -Context $ctx 
+  -Context $ctx `
   -StandardBlobTier Hot
 
 # upload another file to the Cool access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
-  -Context $ctx
+  -Context $ctx `
   -StandardBlobTier Cool
 
 # upload a file to a folder to the Archive access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
   -Container $containerName `
   -Blob "Foldername/Image003.jpg" `
-  -Context $ctx 
+  -Context $ctx `
   -StandardBlobTier Archive
 ```
 

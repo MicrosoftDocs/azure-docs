@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 04/15/2021
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
 
@@ -374,7 +374,7 @@ Supported certificates include:
 
 A device may either use an X.509 certificate or a security token for authentication, but not both. With X.509 certificate authentication, make sure you have a strategy in place to handle certificate rollover when an existing certificate expires.
 
-The following functionality is not supported for devices that use X.509 CA authentication:
+The following functionality for devices that use X.509 certificate authority (CA) authentication is not yet generally available, and [preview mode must be enabled](iot-hub-preview-mode.md):
 
 * HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
 * File uploads (all protocols).

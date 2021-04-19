@@ -76,13 +76,13 @@ The following parameters can be leveraged to configure Private DNS Zone.
 * The AKS Preview version 0.5.7 or later
 * The api version 2020-11-01 or later
 
-### Create a private AKS cluster with Private DNS Zone (Preview)
+### Create a private AKS cluster with Private DNS Zone
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
 
-### Create a private AKS cluster with a Custom Private DNS Zone (Preview)
+### Create a private AKS cluster with a Custom Private DNS Zone
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
