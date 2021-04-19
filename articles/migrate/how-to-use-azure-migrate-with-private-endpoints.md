@@ -42,7 +42,7 @@ Some migration tools may not be able to upload usage data to the Azure Migrate p
 
 To enable public network access for the Azure Migrate project, go to the Azure Migrate **properties page** on the Azure portal, select **No**, and select **Save**.
 
-![Diagram that shows how to change the network access mode.](./media/how-to-use-azure-migrate-with-private-endpoints/Migrate-Project-Properties-Blade.png)
+![Diagram that shows how to change the network access mode.](./media/how-to-use-azure-migrate-with-private-endpoints/migration-project-properties.png)
 
 ### Other considerations   
 
@@ -220,7 +220,7 @@ You can find the details of the Recovery Services vault on the Azure Migrate: Se
 
 1. Go to the **Azure Migrate hub**, select **Overview** on the Azure Migrate: Server Migration tile.
 
-    ![Overview page on the Azure Migrate hub](./media/how-to-use-azure-migrate-with-private-endpoints/overview.png)
+    ![Overview page on the Azure Migrate hub](./media/how-to-use-azure-migrate-with-private-endpoints/hub-overview.png)
 
 2. On the left pane, select **Properties**. Make note of the Recovery Services vault name and managed identity ID. The vault will have _Private endpoint_ as the **connectivity type** and _Other_ as the **replication type**. You will need this information while providing access to the vault.
       
@@ -312,7 +312,7 @@ The private endpoint details and private link resource FQDNs' information is ava
 
  ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
 
- ![Azure Migrate: Server Migration Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-migration-properties.png)
+ ![Azure Migrate: Server Migration Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png)
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
@@ -320,7 +320,7 @@ An illustrative example for DNS resolution of the storage account private link F
 
     You'll receive a message like this:  
 
-   ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution.png)
+   ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
 
 - A private IP address of 10.1.0.5 is returned for the storage account. This address belongs to the private endpoint virtual network subnet.   
 
