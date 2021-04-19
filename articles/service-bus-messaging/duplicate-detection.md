@@ -2,7 +2,7 @@
 title: Azure Service Bus duplicate message detection | Microsoft Docs
 description: This article explains how you can detect duplicates in Azure Service Bus messages. The duplicate message can be ignored and dropped.
 ms.topic: article
-ms.date: 04/14/2021
+ms.date: 04/19/2021
 ---
 
 # Duplicate detection
@@ -64,14 +64,7 @@ The properties to update when creating queues and topics to achieve this are:
 Please note that while the property names are provided in pascal casing here, JavaScript and Python SDKs will be using camel casing and snake casing respectively.
 
 ## Next steps
-
-To learn more about Service Bus messaging, see the following topics:
-
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
-In scenarios where client code is unable to resubmit a message with the same *MessageId* as before, it is important to design messages that can be safely reprocessed. This [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean) describes various techniques for how to do that.
+You can enable duplicate message detection using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable duplicate message detection](duplicate-detection-enable.md). 
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

@@ -2,7 +2,7 @@
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 ms.topic: article
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ---
 
 # Message sessions
@@ -77,13 +77,5 @@ Multiple applications can send their requests to a single request queue, with a 
 
 ## Next steps
 You can enable message sessions using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](message-sessions-enable.md). 
-
-See the following samples on GitHub: 
-- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Azure Service Bus client library for Java - Samples](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
-- [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Sessions and SessionState samples)  
 
 [1]: ./media/message-sessions/sessions.png

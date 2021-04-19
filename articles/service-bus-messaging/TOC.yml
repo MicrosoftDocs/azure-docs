@@ -236,8 +236,10 @@
       href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
-    - name: Enable sessions for a queue or subscription
+    - name: Enable sessions for a queue or a subscription
       href: message-sessions-enable.md
+    - name: Enable duplicate detection for a queue or a topic
+      href: duplicate-detection-enable.md
     - name: Move across regions
       href: move-across-regions.md
     - name: Automatically update messaging units 

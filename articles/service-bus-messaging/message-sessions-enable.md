@@ -1,11 +1,11 @@
 ---
 title: Enable Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to enable message sessions using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
-ms.topic: article
-ms.date: 04/12/2021
+ms.topic: how-to
+ms.date: 04/19/2021
 ---
 
-# Enable message sessions for an Azure Service Bus queue or subscription
+# Enable message sessions for an Azure Service Bus queue or a subscription
 Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For more information, See [Message sessions](message-sessions.md). This article shows you how to enable sessions for a Service Bus queue or subscription. 
 
 > [!NOTE]
@@ -196,9 +196,9 @@ To **create a subscription for a topic with message sessions enabled**, set `req
 
 ## Next steps
 
-- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Azure.Messaging.ServiceBus samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library for Java - Samples](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Sessions and SessionState samples)  
+- [Microsoft.Azure.ServiceBus samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Sessions and SessionState samples)  
