@@ -1,7 +1,7 @@
 ---
-title: Stream live with Media Services v3 Node.JS
-: Azure Media Services
-description: Learn how to stream live using Node.JS.
+title: Stream live with Media Services v3 Node.js
+titleSuffix: Azure Media Services
+description: Learn how to stream live using Node.js.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -19,12 +19,12 @@ ms.author: inhenkel
 
 ---
 
-# Tutorial: Stream live with Media Services using Node.JS and TypeScript
+# Tutorial: Stream live with Media Services using Node.js and TypeScript
 
 > [!NOTE]
-> Even though the tutorial uses Node.JS examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks). 
+> Even though the tutorial uses Node.js examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks). 
 
-In Azure Media Services, [Live Events](/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use Node.JS to create a **pass-through** type of a live event and broadcast a live stream to it using [OBS Studio](https://obsproject.com/download).
+In Azure Media Services, [Live Events](/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use Node.js to create a **pass-through** type of a live event and broadcast a live stream to it using [OBS Studio](https://obsproject.com/download).
 
 The tutorial shows you how to:
 
@@ -58,7 +58,7 @@ The following items are required to complete the tutorial:
 This sample assumes that you will use OBS Studio to broadcast RTMP to the ingest endpoint. Install OBS Studio first.
 Use the following encoding settings in OBS Studio:
 
-- Encoder: NVIDIA NVENC (if avail) or x264
+- Encoder: NVIDIA NVENC (if available) or x264
 - Rate Control: CBR
 - Bitrate: 2500 Kbps (or something reasonable for your laptop)
 - Keyframe Interval: 2 s, or 1 s for low latency  
@@ -72,7 +72,7 @@ Use the following encoding settings in OBS Studio:
 
 ## Download and configure the sample
 
-Clone the following Git Hub repository that contains the live streaming Node.JS sample to your machine using the following command:  
+Clone the following Git Hub repository that contains the live streaming Node.js sample to your machine using the following command:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
@@ -81,7 +81,7 @@ Clone the following Git Hub repository that contains the live streaming Node.JS 
 The live streaming sample is located in the [Live](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live) folder.
 
 In the [AMSv3Samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples) folder copy the file named "sample.env" to a new file called ".env" to store your environment variable settings that you gathered in the article [Access Azure Media Services API with the Azure CLI](./access-api-howto.md).
-Make sure that the file includes the "dot" (.) in front of .env" for this to work with ths code sample correctly.
+Make sure that the file includes the "dot" (.) in front of .env" for this to work with the code sample correctly.
 
 The [.env file](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/sample.env) contains your AAD Application key and secret along with account name and subscription information required to authenticate SDK access to your Media Services account. The .gitignore file is already configured to prevent publishing this file into your forked repository. Do not allow these credentials to be leaked as they are important secrets for your account.
 
@@ -107,30 +107,30 @@ In the package.json, this is already configured for you, so you just need to run
 1. Open a **command prompt**, browse to the sample's directory.
 1. Change directory into the AMSv3Samples folder.
 
-```bash
-cd AMSv3Samples
-```
+    ```bash
+    cd AMSv3Samples
+    ```
 
 1. Install the packages used in the *packages.json* file.
 
-```bash
-npm install 
-```
+    ```bash
+    npm install 
+    ```
 
 1. Launch Visual Studio Code from the *AMSv3Samples* Folder. (This is required to launch from the folder where the *.vscode* folder and *tsconfig.json* files are located.)
 
-```bash
-cd ..
-code .
-```
+    ```bash
+    cd ..
+    code .
+    ```
 
 Open the folder for *Live*, and open the *index.ts* file in the Visual Studio Code editor.
 While in the *index.ts* file, press F5 to launch the debugger.
 
 ### Create the Media Services client
 
-The following code snippet shows how to create the Media Services client in Node.JS.
-Notice that in this code we are first setting the **longRunningOperationRetryTimeout** property of the AzureMediaServicesOptions to 2 seconds to reduce the time it takes to poll for the status of a long running operation on the Azure Resource Management(ARM) endpoint.  Since most of the operations on Live Events are going to be asynchronous, and could take some time to complete, you should reduce this polling interval on the SDK from the default value of 30 seconds to speed up the time it takes to complete major operations like creating Live Events, Starting and Stopping which are all asynchronous calls. Two seconds is the recommended value for most use case scenarios.
+The following code snippet shows how to create the Media Services client in Node.js.
+Notice that in this code we are first setting the **longRunningOperationRetryTimeout** property of the AzureMediaServicesOptions to 2 seconds to reduce the time it takes to poll for the status of a long running operation on the Azure Resource Management endpoint.  Since most of the operations on Live Events are going to be asynchronous, and could take some time to complete, you should reduce this polling interval on the SDK from the default value of 30 seconds to speed up the time it takes to complete major operations like creating Live Events, Starting and Stopping which are all asynchronous calls. Two seconds is the recommended value for most use case scenarios.
 
 [!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateMediaServicesClient)]
 
