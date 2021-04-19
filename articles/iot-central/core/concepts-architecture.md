@@ -21,7 +21,7 @@ Devices exchange data with your Azure IoT Central application. A device can:
 - Send measurements such as telemetry.
 - Synchronize settings with your application.
 
-In Azure IoT Central, the data that a device can exchange with your application is specified in a device template. For more information about device templates, see [Metadata management](#metadata-management).
+In Azure IoT Central, the data that a device can exchange with your application is specified in a device template. For more information about device templates, see [Device Templates](concepts-device-templates.md).
 
 To learn more about how devices connect to your Azure IoT Central application, see [Device connectivity](concepts-get-connected.md).
 
