@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Automate developer portal deployments
 
-The API Management developer portal supports programmatic access to content. It allows you to import data to or export from an API Management service through the [content management REST API](developer-portal-content-management-api.md). The REST API access works for both managed and self-hosted portals.
+The API Management developer portal supports programmatic access to content. It allows you to import data to or export from an API Management service through the [content management REST API](/rest/api/apimanagement/). The REST API access works for both managed and self-hosted portals.
 
 ## Automated migration script
 
@@ -21,7 +21,7 @@ You can use the API to automate migration of content between two API Management 
 > The script removes contents of the developer portal in your destination API Management service. If you're concerned about it, make sure you perform a backup.
 
 > [!NOTE]
-> If you're using a self-hosted portal with an explicitly defined custom storage account to host media files (i.e., you define the `blobStorageUrl` setting in the `config.design.json` configuration file), you need to use the original `scripts/migrate.js` [script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts.v2/migrate.js). The original script doesn't work for managed or self-hosted portals with the media storage account managed by API Management. In that case, use the script from the `/scripts.v2` folder instead.
+> If you're using a self-hosted portal with an explicitly defined custom storage account to host media files (i.e., you define the `blobStorageUrl` setting in the `config.design.json` configuration file), you need to use the original `scripts/migrate.js` [script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts.v2/migrate.js). The original script doesn't work for managed or self-hosted portals with the media storage account managed by API Management. In that case, use the script from the `/scripts.v3` folder instead.
 
 The script performs the following steps:
 
