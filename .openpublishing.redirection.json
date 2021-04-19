@@ -36388,7 +36388,7 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-sync-choose-cloud-tiering-policies.md",
       "redirect_url": "/azure/storage/filesync/file-sync-choose-cloud-tiering-policies",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering-overview.md",
