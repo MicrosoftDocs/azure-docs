@@ -15,7 +15,7 @@ VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It suppo
 >Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises Connector and Cloud Manager, the licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
 
 >[!NOTE]
->VMware HCX Enterprise is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt-out of the service. There is no simple downgrade path from VMware HCX Enterprise to VMware HCX Advanced. If you decide to downgrade, you'll have to redeploy, incurring downtime.
+>VMware HCX Enterprise is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt-out of the service. Downgrading from HCx Enterprise to HCX Advanced is possible without redeploying, but you'll have to log a support ticket for that action to take place. If planning a downgrade please ensure no migrations are scheduled and or features such as RAV, MON are not in use.
 
 First, review [Before you begin](#before-you-begin), [Software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html), and the [Prerequisites](#prerequisites). 
 
@@ -260,7 +260,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 1. From **Select Distributed Switches for Network Extensions**, select the switches that contain the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
 
    > [!NOTE]
-   > If you are not migrating virtual machines on layer-2 extended networks, you can skip this step.
+   > If you are not migrating virtual machines on layer-2 (L2) extended networks, you can skip this step.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot that shows the selection of distributed virtual switches and the Continue button." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -371,3 +371,4 @@ For more information on using HCX, go to the VMware technical documentation:
 * [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [HCX required ports](https://ports.vmware.com/home/VMware-HCX)
+* [Set up an HCX proxy server before you approve the license key](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

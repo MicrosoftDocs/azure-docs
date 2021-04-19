@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
 ---
@@ -29,13 +29,17 @@ The RU charge is exposed by a custom [database command](https://docs.mongodb.com
 
 1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
-1. Select **New Query**.
+1. Select the **...** next to the container name and select **New Query**.
 
 1. Enter a valid query, and then select **Execute Query**.
 
-1. Select **Query Stats** to display the actual request charge for the request you executed.
+1. Select **Query Stats** to display the actual request charge for the request you executed. This query editor allows you to run and view request unit charges for only query predicates. You can't use this editor for data manipulation commands such as insert statements.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot of a MongoDB query request charge in the Azure portal":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot of a MongoDB query request charge in the Azure portal":::
+
+1. To get request charges for data manipulation commands, run the `getLastRequestStatistics` command from a shell based UI such as Mongo shell, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md), or a VS Code extension with shell scripting.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## Use the MongoDB .NET driver
 

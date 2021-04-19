@@ -21,7 +21,7 @@ Open Azure SQL Database with [SQL Server Management Studio](../../azure-sql/data
 
 Run the following script to create a user with the required permissions. Replace *user* with a username and *mystrongpassword* with a password.
 
-```
+```sql
 CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
 GRANT VIEW DATABASE STATE TO [user]; 
@@ -34,11 +34,23 @@ Verify the user was created.
 
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verify telegraf user script." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+       authentication_type_desc as authentication_type
+from sys.database_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
+```
+
 ### Azure SQL Managed Instance
-Log into your Azure SQL Managed Instance and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
+Log into your Azure SQL Managed Instance and use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -53,7 +65,7 @@ GO
 Log into your Azure virtual machine running SQL Server and use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -62,6 +74,19 @@ GRANT VIEW SERVER STATE TO [user];
 GO 
 GRANT VIEW ANY DEFINITION TO [user]; 
 GO
+```
+
+Verify the user was created.
+
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+from sys.server_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
 ```
 
 ## Create Azure Virtual Machine 
@@ -80,20 +105,21 @@ The Azure virtual machines has the following requirements.
 > [!NOTE]
 > The Standard_B2s (2 cpus, 4 GiB memory) virtual machine size will support up to 100 connection strings. You shouldn't allocate more than 100 connections to a single virtual machine.
 
-The virtual machines need to be placed in the same VNET as your SQL systems so they can make network connections to collect monitoring data. If use the monitoring virtual machine to monitor SQL running on Azure virtual machines or as an Azure Managed Instance, consider placing the monitoring virtual machine in an application security group or the same virtual network as those resources so that you don’t need to provide a public network endpoint for monitoring the SQL server. 
+Depending upon the network settings of your SQL resources, the virtual machines may need to be placed in the same virtual network as your SQL resources so they can make network connections to collect monitoring data.  
 
 ## Configure network settings
 Each type of SQL offers methods for your monitoring virtual machine to securely access SQL.  The sections below cover the options based upon the type of SQL.
 
 ### Azure SQL Databases  
 
-[Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure portal](../../private-link/tutorial-private-endpoint-sql-portal.md) provides an example for how to setup a private endpoint that you can use to access your database.  If you use this method, you will need to ensure your monitoring virtual machines is in the same VNET and subnet that you will be using for the private endpoint.  You can then create the private endpoint on your database if you have not already done so. 
+SQL insights supports accessing your Azure SQL Database via it's public endpoint as well as from it's virtual network.
 
-If you use a [firewall setting](../../azure-sql/database/firewall-configure.md) to provide access to your SQL Database, you need to add a firewall rule to provide access from the public IP address of the monitoring virtual machine. You can access the firewall settings from the **Azure SQL Database Overview** page in the portal. 
+For access via the public endpoint, you would add a rule under the **Firewall settings** page and the [IP firewall settings](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) section.  For specifying access from a virtual network, you can set [virtual network firewall rules](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) and set the [service tags required by the Azure Monitor agent](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [This article](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) describes the differences between these two types of firewall rules.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Set server firewall" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Firewall settings." lightbox="media/sql-insights-enable/firewall-settings.png":::
+
 
 ### Azure SQL Managed Instances 
 
@@ -161,7 +187,7 @@ Enter the connection string in the form:
 
 ```
 sqlAzureConnections": [ 
-   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
+   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
 }
 ```
 
@@ -169,7 +195,7 @@ Get the details from the **Connection strings** menu item for the database.
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="SQL database connection string" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
+To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring a single secondary. The collected data will be tagged to reflect primary or secondary. 
 
 
 #### Azure virtual machines running SQL Server 
@@ -177,7 +203,7 @@ Enter the connection string in the form:
 
 ```
 "sqlVmConnections": [ 
-   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
+   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 
@@ -185,15 +211,13 @@ If your monitoring virtual machine is in the same VNET, use the private IP addre
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="SQL virtual machine security" lightbox="media/sql-insights-enable/sql-vm-security.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
-
 
 ### Azure SQL Managed Instances 
 Enter the connection string in the form:
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
     ] 
 ```
 Get the details from the **Connection strings** menu item for the managed instance.
@@ -201,16 +225,19 @@ Get the details from the **Connection strings** menu item for the managed instan
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="SQL Managed Instance connection string" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
+To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary and the collected data will be tagged to reflect Primary or Secondary. 
 
 
+## Monitoring profile created 
 
-## Profile created 
-Select **Add monitoring virtual machine** to configure the virtual machine to collect data from your SQL deployments. Do not return to the **Overview** tab.  In a few minutes, the Status column should change to say "Collecting", you should see data for the systems you have chosen to monitor.
+Select **Add monitoring virtual machine** to configure the virtual machine to collect data from your SQL resources. Do not return to the **Overview** tab.  In a few minutes, the Status column should change to read "Collecting", you should see data for the SQL resources you have chosen to monitor.
 
 If you do not see data, see [Troubleshooting SQL insights](sql-insights-troubleshoot.md) to identify the issue. 
 
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profile created" lightbox="media/sql-insights-enable/profile-created.png":::
+
+> [!NOTE]
+> If you need to update your monitoring profile or the connection strings on your monitoring VMs, you may do so via the SQL insights **Manage profile** tab.  Once your updates have been saved the changes will be applied in approximately 5 minutes.
 
 ## Next steps
 

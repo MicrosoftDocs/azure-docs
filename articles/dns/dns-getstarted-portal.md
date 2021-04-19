@@ -4,10 +4,12 @@ titleSuffix: Azure DNS
 description: Use this step-by-step quickstart guide to learn how to create an Azure DNS zone and record using the Azure portal.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+  - mode-portal
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my name resolution.
 ---
 

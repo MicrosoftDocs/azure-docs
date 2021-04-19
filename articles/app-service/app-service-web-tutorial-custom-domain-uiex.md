@@ -117,7 +117,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
     <details>
         <summary>Can I manage DNS from my domain provider using Azure?</summary>
-        If you like, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see <a href="https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns">Tutorial: Host your domain in Azure DNS></a>.
+        If you like, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see <a href="/azure/dns/dns-delegate-domain-azure-dns">Tutorial: Host your domain in Azure DNS></a>.
     </details>
 
 1. Find the page for managing DNS records. 
@@ -142,7 +142,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
             <ul>
             <li>To map the root domain (for example, <code>contoso.com</code>), use an A record. Don't use the CNAME record for the root record (for information, see the <a href="https://en.wikipedia.org/wiki/CNAME_record">Wikipedia entry</a>).</li>
             <li>To map a subdomain (for example, <code>www.contoso.com</code>), use a CNAME record.</li>
-            <li>You can map a subdomain to the app's IP address directly with an A record, but it's possible for <a href="https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">the IP address to change</a>. The CNAME maps to the app's hostname instead, which is less susceptible to change.</li>
+            <li>You can map a subdomain to the app's IP address directly with an A record, but it's possible for <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">the IP address to change</a>. The CNAME maps to the app's hostname instead, which is less susceptible to change.</li>
             <li>To map a <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">wildcard domain</a> (for example, <code>*.contoso.com</code>), use a CNAME record.</li>
             </ul>
         </div>
@@ -243,7 +243,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     <details>
         <summary>What's with the <strong>Not Secure</strong> warning label?</summary>
-        A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with a TLS/SSL binding in Azure App Service</a>.
+        A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see <a href="/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with a TLS/SSL binding in Azure App Service</a>.
     </details>
 
     If you missed a step or made a typo somewhere earlier, a verification error appears at the bottom of the page.
@@ -270,7 +270,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     <details>
         <summary>What's with the <strong>Not Secure</strong> warning label?</summary>
-        A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with a TLS/SSL binding in Azure App Service</a>.
+        A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see <a href="/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with a TLS/SSL binding in Azure App Service</a>.
     </details>
     
     If you missed a step or made a typo somewhere earlier, a verification error appears at the bottom of the page.
@@ -293,7 +293,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     <details>
         <summary>What's with the <strong>Not Secure</strong> warning label?</summary>
-        A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with a TLS/SSL binding in Azure App Service</a>.
+        A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see <a href="/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with a TLS/SSL binding in Azure App Service</a>.
     </details>
 
 -----

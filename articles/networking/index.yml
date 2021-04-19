@@ -13,14 +13,14 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 09/28/2020
+  ms.date: 03/30/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
     - title: What is Azure Networking? 
       itemType: overview # controls the icon image and super-title text 
-      url: networking-overview.md
+      url: fundamentals/networking-overview.md
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
@@ -42,6 +42,20 @@ highlightedContent:
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
+    - title: Understand Networking Fundamentals in Azure
+      links: 
+        - url: fundamentals/networking-overview.md
+          itemType: overview
+          text:  What is Azure Networking?
+        - url: ../virtual-network/quick-create-portal.md
+          itemType: get-started
+          text:  Create a virtual network
+        - url: microsoft-global-network.md
+          itemType: concept
+          text:  Microsoft global network
+      footerLink:
+        url: ../networking/fundamentals/index.yml
+        text: See more
     - title: Virtual network
       links: 
         - url: ../virtual-network/virtual-networks-overview.md
@@ -335,20 +349,6 @@ conceptualContent:
         url: ../virtual-wan/index.yml
         text: See more
 
-    - title: Peering Services
-      links: 
-        - url: ../peering-service/about.md
-          itemType: overview
-          text:  What is Azure Peering Service?
-        - url: ../internet-peering/overview.md
-          itemType: overview
-          text:  What is Internet Peering?
-        - url: ../internet-peering/overview-peering-service.md
-          itemType: concept
-          text:  Internet peering vs. Peering Service in Azure
-      footerLink:
-        url: ../peering-service/index.yml
-        text: See more
  
 additionalContent:
   sections:

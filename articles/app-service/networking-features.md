@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -125,12 +125,16 @@ Some use cases for this feature:
 ![Diagram that illustrates the use of service endpoints with Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions][serviceendpoints].
-#### Access restriction rules based on service tags (preview)
+
+#### Access restriction rules based on service tags
+
 [Azure service tags][servicetags] are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
 
 For a full list of tags and more information, visit the service tag link above. 
 To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
-#### Http header filtering for access restriction rules (preview)
+
+#### Http header filtering for access restriction rules
+
 For each access restriction rule, you can add additional http header filtering. This allows you to further inspect the incoming request and filter based on specific http header values. Each header can have up to 8 values per rule. The following list of http headers is currently supported: 
 * X-Forwarded-For
 * X-Forwarded-Host
@@ -140,6 +144,7 @@ For each access restriction rule, you can add additional http header filtering. 
 Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name
 * Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
+
 ### Private Endpoint
 
 Private Endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private Endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app.

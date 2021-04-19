@@ -1,19 +1,8 @@
 ---
 title: Security recommendations for IoT Hub 
 description: Learn about the concept of security recommendations and how they are used in the Defender for IoT Hub.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
 ---
 
 # Security recommendations for IoT Hub

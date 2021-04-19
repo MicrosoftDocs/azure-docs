@@ -2,7 +2,7 @@
 title: Azure VMware Solution limits
 description: Azure VMware Solution limitations.
 ms.topic: include
-ms.date: 03/16/2021
+ms.date: 03/24/2021
 ---
 
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->
@@ -14,7 +14,7 @@ The following table describes the maximum limits for Azure VMware Solution.
 | Clusters per private cloud | 12 |
 | Minimum number of nodes per cluster | 3 |
 | Maximum number of nodes per cluster | 16 |
-| Nodes per private cloud | 64 |
+| Nodes per private cloud | 96 |
 | vCenter per private cloud | 1  |
 | HCX site pairings | 3 with Advanced edition, 10 with Enterprise edition |
 | AVS ExpressRoute max linked SDDCs | 4 |

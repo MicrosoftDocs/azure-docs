@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 03/29/2021
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -51,8 +51,8 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 By default, the following users can view and manage reservations:
 
-- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
-- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
+- The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
+-  Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
 
 To allow other people to manage reservations, you have two options:
 

@@ -22,4 +22,4 @@ ADU Agent Connection to Azure IoT Hub  | 8883 (MQTT Protocol)
 ## Use Azure IoT Hub supported protocols
 The ADU agent can be modified to use any of the supported Azure IoT Hub protocols.
 
-[Learn more](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols#:~:text=Table%202%20%20%20,%201%20more%20rows) about the current list of supported protocols.
+[Learn more](../iot-hub/iot-hub-devguide-protocols.md) about the current list of supported protocols.

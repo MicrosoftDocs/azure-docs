@@ -27,7 +27,7 @@ Use the Face REST API to:
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* [PowerShell version 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
+* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 
 ## Detect faces in an image

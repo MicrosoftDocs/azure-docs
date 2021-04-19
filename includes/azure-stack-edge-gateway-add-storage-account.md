@@ -30,4 +30,4 @@ ms.author: alkohli
 
     ![Add a storage account 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
-    You get the access keys by [Connecting to the device local APIs using Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 
+    You get the access keys by [Connecting to the device local APIs using Azure Resource Manager](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).

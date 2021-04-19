@@ -107,7 +107,7 @@ The C# example relies on the [`System.Data.SqlClient`](/dotnet/api/system.data.s
   Use this value for authentication that requires an Azure AD user name and password. Azure SQL Database does the authentication. This method doesn't support Multi-Factor Authentication.
 
 > [!NOTE]
-> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
+> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](/dotnet/api/microsoft.data.sqlclient) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
 ## Set C# parameter values from the Azure portal
 
@@ -142,7 +142,7 @@ For more information, see [Configure Multi-Factor Authentication for SSMS and Az
 ## C# code example
 
 > [!NOTE]
-> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
+> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](/dotnet/api/microsoft.data.sqlclient) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
 The example C# program relies on the [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL assembly.
 

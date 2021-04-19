@@ -7,7 +7,7 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-# As an administrator or developer, I want to use REST APIs to review resource and service usage data under my control.
+# Customer intent: As an administrator or developer, I want to use REST APIs to review resource and service usage data under my control.
 ---
 
 # Review Azure resource usage using the REST API

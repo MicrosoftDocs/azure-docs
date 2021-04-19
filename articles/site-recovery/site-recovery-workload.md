@@ -45,7 +45,7 @@ Site Recovery can replicate any app running on a supported machine. We've partne
 | Linux (operating system and apps) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
 | Dynamics AX |Yes |Yes |Yes |Yes |Yes|
 | Windows File Server |Yes |Yes |Yes |Yes |Yes|
-| Citrix XenApp and XenDesktop |Yes|N/A |Yes |N/A |Yes |
+| Citrix XenApp and XenDesktop |No|N/A |No |N/A |No |
 
 ## Replicate Active Directory and DNS
 
@@ -146,14 +146,7 @@ Azure Site Recovery provides disaster recovery by replicating the critical compo
 
 ## Protect Citrix XenApp and XenDesktop
 
-Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as follows:
-
-- Enable protection of the Citrix XenApp and XenDesktop deployment. Replicate the different deployment layers to Azure: Active Directory, DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server.
-- Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
-- Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
-- This solution only applies to Windows Server virtual desktops and not client virtual desktops. Client virtual desktops aren't yet supported for licensing in Azure. [Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
-
-[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about disaster recovery for Citrix XenApp and XenDesktop deployments. Or, you can refer to the [Citrix whitepaper](https://aka.ms/citrix-xenapp-xendesktop-with-asr).
+As of March 2020, Citrix has announced deprecation and end-of-support for public cloud hosted workloads. Therefore, we do not recommend using Site Recovery for protecting Citrix workloads.
 
 ## Next steps
 

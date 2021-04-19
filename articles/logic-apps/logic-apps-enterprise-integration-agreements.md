@@ -82,14 +82,13 @@ about your agreement, for example:
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Name** | Yes | <*agreement-name*> | The name for your agreement |
-   | **Agreement type** | Yes | **AS2**, **X12**, or **EDIFACT** | The protocol type for your agreement. When you create your agreement file, the content in that file must match the agreement type. | |  
+   | **Agreement type** | Yes | **AS2**, **X12**, or **EDIFACT** | The protocol type for your agreement. When you create your agreement file, the content in that file must match the agreement type. |
    | **Host Partner** | Yes | <*host-partner-name*> | The host partner represents the organization that specifies the agreement |
    | **Host Identity** | Yes | <*host-partner-identifier*> | The host partner's identifier |
    | **Guest Partner** | Yes | <*guest-partner-name*> | The guest partner represents the organization that's doing business with the host partner |
    | **Guest Identity** | Yes | <*guest-partner-identifier*> | The guest partner's identifier |
    | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives all incoming messages from the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    | **Send Settings** | Varies | Varies | These properties specify how the host partner sends all outgoing messages to the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
-   |||||
 
    > [!IMPORTANT]
    > The resolution for an agreement depends on matching these items that are defined in the partner and incoming message:

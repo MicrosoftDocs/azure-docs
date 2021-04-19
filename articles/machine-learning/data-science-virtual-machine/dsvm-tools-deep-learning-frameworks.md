@@ -23,7 +23,7 @@ Deep learning frameworks on the DSVM are listed below.
 | Version(s) supported | |
 | Supported DSVM editions      | Ubuntu 16.04    |
 | How is it configured / installed on the DSVM?  | Caffe is installed in `/opt/caffe`.   Samples are in `/opt/caffe/examples`.|
-| How to run it      | use X2Go to sign in to your VM, and then start a new terminal and enter the following:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>A new browser window opens with sample notebooks. Binaries are installed in /opt/caffe/build/install/bin.<br/><br/>Installed version of Caffe requires Python 2.7 and won't work with Python 3.5, which is activated by default. To switch to Python 2.7, run `source activate root` to switch to Anaconda environment.|    
+| How to run it      | use X2Go to sign in to your VM, and then start a new terminal and enter the following:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>A new browser window opens with sample notebooks. Binaries are installed in /opt/caffe/build/install/bin.<br/><br/>Installed version of Caffe requires Python 2.7 and won't work with Python 3.6, which is activated by default. To switch to Python 2.7, run `source activate root` to switch to Anaconda environment.|    
 
 ## [Caffe2](https://github.com/caffe2/caffe2)
 
@@ -125,14 +125,14 @@ Deep learning frameworks on the DSVM are listed below.
 | How is it configured / installed on the DSVM?  | Installed in Python 3.5 on [Linux](dsvm-tools-languages.md#python-linux-edition) and Python 3.6 on [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | How to run it      | Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples.   |
 
-## [TensorFlow Serving](https://www.tensorflow.org/serving/)
+## [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
 
 | Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 1.12 |
 | Supported DSVM editions      | Ubuntu 16.04 |
 | How is it configured / installed on the DSVM?  | tensorflow_model_server is available at the terminal. |
-| How to run it      |  Samples are available [online](https://www.tensorflow.org/serving/).   |
+| How to run it      |  Samples are available [online](https://www.tensorflow.org/tfx/guide/serving).   |
 
 
 ## [Theano](https://github.com/Theano/Theano)

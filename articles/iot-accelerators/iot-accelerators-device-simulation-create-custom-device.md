@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 
-# As an IT Pro, I need to create simulated devices to test my IoT solution.
+#Customer intent: As an IT Pro, I need to create simulated devices to test my IoT solution.
 ---
 
 # Tutorial: Create a custom simulated device
