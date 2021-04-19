@@ -52,12 +52,9 @@ This guidance is intended to ensure the safety and privacy of our customers and 
     > [!NOTE]
     > You can only collect customer-authored data through the `Logger` interface.
 
-
-If you have questions or comments, contact the team at [apimportalfeedback@microsoft.com](mailto:apimportalfeedback@microsoft.com).
-
-We welcome your contributions!
-
 ## Next steps
+
+- For more information about contributions, see the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal/).
 
 - See [Implement widgets](developer-portal-implement-widgets.md) to learn how to develop your own widget, step by step.
 

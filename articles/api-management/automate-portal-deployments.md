@@ -25,10 +25,10 @@ You can use the API to automate migration of content between two API Management 
 
 The script performs the following steps:
 
-1. Capture the portal content and media from the source API Management service
-1. Remove the portal content and media from the destination API Management service
-1. Upload the portal content and media to the destination API Management service
-1. Optionally and for managed portals only - automatically publish the portal
+1. Capture the portal content and media from the source API Management service.
+1. Remove the portal content and media from the destination API Management service.
+1. Upload the portal content and media to the destination API Management service.
+1. Optionally and for managed portals only - automatically publish the portal.
 
 After the script is successfully executed, the target API Management service should contain the same portal content as the source service and you'll be able to see it as an administrator.
 

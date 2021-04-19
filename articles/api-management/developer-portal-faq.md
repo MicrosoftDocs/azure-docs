@@ -61,6 +61,10 @@ The interactive console makes a client-side API request from the browser. Resolv
 
 You can check the status of the CORS policy in the **Portal overview** section of your API Management service in the Azure portal. A warning box indicates an absent or misconfigured policy.
 
+> [!NOTE]
+> 
+> Only one CORS policy is executed. If you specified multiple CORS policies (for example, on the API level and on the all-APIs level), your interactive console may not work as expected.
+
 ![Screenshot that shows where you can check the status of your CORS policy.](media/developer-portal-faq/cors-azure-portal.png)
 
 Automatically apply the CORS policy by clicking on the **Enable CORS** button.
@@ -79,10 +83,6 @@ You can also enable CORS manually.
 > The browser automatically issues an `OPTIONS` HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the `OPTIONS` call with a Product, so it can't apply the CORS policy.
 >
 > As a workaround you can pass the subscription key in a query parameter.
-
-> [!NOTE]
-> 
-> Only one CORS policy is executed. If you specified multiple CORS policies (for example, on the API level and on the all-APIs level), your interactive console may not work as expected.
 
 ## What is the CORS proxy feature and when should I use it?
 
