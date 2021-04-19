@@ -9,14 +9,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/16/2021
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Custom email verification with SendGrid
 
-Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and the third-party email provider SendGrid, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using the third-party email provider SendGrid, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
 
@@ -27,6 +38,9 @@ Custom email verification requires the use of a third-party email provider like 
 If you don't already have one, start by setting up a SendGrid account (Azure customers can unlock 25,000 free emails each month). For setup instructions, see the [Create a SendGrid Account](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md).
 
 Be sure to complete the section in which you [create a SendGrid API key](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
+
+> [!IMPORTANT]
+> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). When using dedicated IP addresses, you need to building your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
 
 ## Create Azure AD B2C policy key
 
@@ -552,3 +566,5 @@ You can find an example of a custom email verification policy on GitHub:
 
 - [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
+
+::: zone-end

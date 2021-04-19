@@ -3,14 +3,15 @@ title: Create an Azure notification hub using Azure Resource Manager template
 description: Learn how to create an Azure notification hub by using an Azure Resource Manager template (ARM template).
 services: notification-hubs
 author: sethmanheim
-
-ms.service: notification-hubs
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: sethm
-ms.date: 08/04/2020
 ms.reviewer: thsomasu
+ms.date: 08/04/2020
 ms.lastreviewed: 05/15/2020
+ms.topic: quickstart
+ms.service: notification-hubs
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create a notification hub using an ARM template

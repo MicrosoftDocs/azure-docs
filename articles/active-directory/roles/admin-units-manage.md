@@ -95,7 +95,7 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
+Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
 ```
 
 You can modify the values that are enclosed in quotation marks, as required for the specific environment.

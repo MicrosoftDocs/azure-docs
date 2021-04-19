@@ -162,9 +162,9 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Transfer ownership
         href: manage/billing-subscription-transfer.md
-      - name: Request Microsoft Customer Agreement ownership
+      - name: Transfer Microsoft Customer Agreement ownership
         href: manage/mca-request-billing-ownership.md
-      - name: Request Microsoft Partner Agreement ownership
+      - name: Transfer Microsoft Partner Agreement ownership
         href: manage/mpa-request-ownership.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
@@ -388,6 +388,8 @@
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/billing
   - name: Azure Cost Management REST API
     href: /rest/api/cost-management
   - name: Azure Consumption REST API

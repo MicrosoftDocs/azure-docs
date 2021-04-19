@@ -99,7 +99,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/front-door/
+    href: /cli/azure/afd/
   - name: Azure PowerShell
     href: /powershell/module/az.frontdoor
   - name: REST API

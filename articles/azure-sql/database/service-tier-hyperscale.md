@@ -179,6 +179,7 @@ Enabled Regions:
 - Australia Central
 - Brazil South
 - Canada Central
+- Canada East
 - Central US
 - China East 2
 - China North 2
