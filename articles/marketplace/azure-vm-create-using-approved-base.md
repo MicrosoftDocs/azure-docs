@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 03/10/2021
+ms.date: 04/16/2021
 ---
 
 # How to create a virtual machine using an approved base
