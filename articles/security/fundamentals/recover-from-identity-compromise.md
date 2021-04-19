@@ -174,6 +174,12 @@ This section provides possible methods and steps to consider when building your 
 >
 > Ensure that any actions taken are performed from a trusted device, built from a [clean source](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). For example, use a fresh, [privileged access workstation](/security/compass/concept-azure-managed-workstation).
 >
+
+The following sections include the following types of recommendations for remediating and retaining administrative control:
+
+- Removing trust on your current servers
+- Rotating your SAML token-signing certificate, or replacing your ADFS servers if needed
+- Specific remediation activities for cloud or on-premises environments
 ### Remove trust on your current servers
 
 If your organization has lost control of the token-signing certificates or federated trust, the most assured approach is to remove trust, and switch to cloud-mastered identity while remediating on-premises.
@@ -340,8 +346,9 @@ Incident Responders are often asked to provide recommendations after an event on
 
 In addition to the recommendations documented in this article, we recommend that you consider prioritizing the areas of focus that are responsive to the post-exploitation techniques used by this attacker and the common security posture gaps that enable them.
 
+The following sections list recommendations to improve both general and identity security posture.
 
-### General security posture
+### Improve general security posture
 
 We recommend the following actions to ensure your general security posture:
 
@@ -351,7 +358,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 
-### Identity security posture
+### Improve identity security posture
 
 We recommend the following actions to ensure identity-related security posture:
 
