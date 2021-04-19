@@ -11,14 +11,14 @@ ms.date: 04/16/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-# Call Automation APIs Overview
+# Call Automation APIs overview
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-Call Automation APIs enable organizations to connect with their customers or employees at scale through automated business logic. You can use these APIs to create automated outbound reminder calls for appointments or to provide proactive notifications for events like power outages or wildfires. These capabilities also allow you to use IVR applications to answer calls placed to Azure Communication Services phone numbers. You can then route these calls to the correct agent based on customer inputs. Applications added to a call can also monitor updates as participants join or leave, allowing you to implement rich reporting and logging capabilities. 
+Call Automation APIs enable organizations to connect with their customers or employees at scale through automated business logic. You can use these APIs to create automated outbound reminder calls for appointments or to provide proactive notifications for events like power outages or wildfires. Applications added to a call can monitor updates as participants join or leave, allowing you to implement rich reporting and logging capabilities. 
 
 ## In-Call APIs
-> **Note:** In-Call applications are billed as call participants at standard PSTN and VoIP rates.
+> [!Note] **Note:** In-Call applications are billed as call participants at standard PSTN and VoIP rates.
                                                         
 
 ### Create call
@@ -447,4 +447,4 @@ Content-Type: application/json
 }
 ```
 ## Next steps
-Check out our [sample](https://github.com/Azure-Samples/communication-services-dotnet-server-calling-sample-pr) to learn more.
+Check out our [sample](https://github.com/Azure/communication-preview/tree/master/samples/Server-Calling/IncidentReporter) to learn more.
