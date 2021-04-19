@@ -16,7 +16,8 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A QnA Maker [resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A QnA Maker [resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal or a Text Analytics resource with QnA skill. Remember your Azure Active Directory ID, Subscription, QnA/Text Analytics resource name you selected when you created the resource.
+ 
 
 ## Create your first QnA Maker knowledge base
 
@@ -53,7 +54,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
-# [Custom Question Answering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
 
@@ -80,6 +81,8 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select and option|
     |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' 
+    |**Unstructured**| When adding a file, if you check the unstructured box, the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs
+     are extracted from the file. 
     |**Chit-chat**|Select **Professional**|
 
 8. In **Step 5**, Select **Create your KB**.
@@ -126,7 +129,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
 4. Select **Test** again to close the **Test** panel.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
 2. Enter an example user query in the textbox.
