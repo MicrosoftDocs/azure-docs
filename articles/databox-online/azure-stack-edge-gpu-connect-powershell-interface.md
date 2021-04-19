@@ -14,7 +14,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Azure Stack Edge Pro solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge Pro device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
+Azure Stack Edge Pro GPU solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge Pro GPU device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
 This article focuses on how you can connect to the PowerShell interface of the device and the tasks you can do using this interface. 
 
@@ -183,7 +183,7 @@ Before you begin, you must have:
 - Compute network configured. See [Tutorial: Configure network for Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 - Compute role configured on your device.
     
-On an Azure Stack Edge Pro device that has the compute role configured, you can troubleshoot or monitor the device using two different sets of commands.
+On an Azure Stack Edge Pro GPU device that has the compute role configured, you can troubleshoot or monitor the device using two different sets of commands.
 
 - Using `iotedge` commands. These commands are available for basic operations for your device.
 - Using `kubectl` commands. These commands are available for an extensive set of operations for your device.
@@ -295,7 +295,7 @@ Here is a sample output.
 
 ### Use kubectl commands
 
-On an Azure Stack Edge Pro device that has the compute role configured, all the `kubectl` commands are available to monitor or troubleshoot modules. To see a list of available commands, run `kubectl --help` from the command window.
+On an Azure Stack Edge Pro GPU device that has the compute role configured, all the `kubectl` commands are available to monitor or troubleshoot modules. To see a list of available commands, run `kubectl --help` from the command window.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -655,4 +655,4 @@ To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 
-- Deploy [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
