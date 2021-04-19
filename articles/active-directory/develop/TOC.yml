@@ -90,6 +90,8 @@
       href: tutorial-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
+    - name: React
+      href: tutorial-v2-react.md
   - name: Web app
     items:
     - name: ASP.NET
