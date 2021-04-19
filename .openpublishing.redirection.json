@@ -1,6 +1,6 @@
 {
   "redirections": [
-	{
+    {
       "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
       "redirect_document_id": false
@@ -999,11 +999,6 @@
       "source_path_from_root": "/articles/active-directory-b2c/connect-with-saml-service-providers.md",
       "redirect_url": "/azure/active-directory-b2c/saml-service-provider",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
-      "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/identity-provider-google-custom.md",
@@ -13336,7 +13331,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md", 
+      "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md",
       "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
       "redirect_document_id": false
     },
@@ -62106,9 +62101,9 @@
       "redirect_document_id": true
     },
     {
-    "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md",
-    "redirect_url": "/azure/cognitive-services/Speech-Service/get-started-intent-recognition",
-    "redirect_document_id": true
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/get-started-intent-recognition",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
@@ -64291,583 +64286,584 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/allocation-failure.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/allocation-failure",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/allocation-failure.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/allocation-failure",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/boot-diagnostics.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/boot-diagnostics",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/boot-diagnostics.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/boot-diagnostics",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/boot-error-disk-read-error-occurred.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-disk-read-error-occurred",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/boot-error-disk-read-error-occurred.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-disk-read-error-occurred",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/boot-error-status-not-found.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-status-not-found",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/boot-error-status-not-found.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-status-not-found",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/boot-error-troubleshoot-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/boot-error-troubleshoot-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/boot-error-troubleshoot-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-troubleshoot-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/boot-error-troubleshoot-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-troubleshoot-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/boot-error-troubleshoot.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-troubleshoot",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/boot-error-troubleshoot.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-troubleshoot",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/chroot-environment-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/chroot-environment-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/chroot-environment-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/chroot-environment-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/chroot-logical-volume-manager.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/chroot-logical-volume-manager",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/chroot-logical-volume-manager.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/chroot-logical-volume-manager",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/detailed-troubleshoot-rdp.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/detailed-troubleshoot-rdp",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/detailed-troubleshoot-rdp.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/detailed-troubleshoot-rdp",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/disable-guest-os-firewall-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/disable-guest-os-firewall-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/disable-guest-os-firewall-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/disable-guest-os-firewall-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/enable-disable-firewall-rule-guest-os.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/enable-disable-firewall-rule-guest-os",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/enable-disable-firewall-rule-guest-os.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/enable-disable-firewall-rule-guest-os",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/error-messages.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/error-messages",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/error-messages.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/error-messages",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/event-id-troubleshoot-vm-rdp-connecton.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/event-id-troubleshoot-vm-rdp-connecton",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/event-id-troubleshoot-vm-rdp-connecton.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/event-id-troubleshoot-vm-rdp-connecton",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/guest-os-firewall-blocking-inbound-traffic.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/guest-os-firewall-blocking-inbound-traffic.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/guest-os-firewall-misconfigured.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/guest-os-firewall-misconfigured",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/guest-os-firewall-misconfigured.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/guest-os-firewall-misconfigured",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/how-to-use-perfInsights-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/how-to-use-perfInsights-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/how-to-use-perfInsights-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/how-to-use-perfInsights-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/how-to-use-perfInsights.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/how-to-use-perfInsights",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/how-to-use-perfInsights.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/how-to-use-perfInsights",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/index.yml",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/welcome-virtual-machines",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/index.yml",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/welcome-virtual-machines",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/install-vm-agent-offline.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/install-vm-agent-offline",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/install-vm-agent-offline.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/install-vm-agent-offline",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/linux-azure-guest-agent.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/linux-azure-guest-agent",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/linux-azure-guest-agent.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/linux-azure-guest-agent",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/linux-index.yml",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/welcome-virtual-machines",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/linux-index.yml",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/welcome-virtual-machines",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/linux-recovery-cannot-start-file-system-errors.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/linux-recovery-cannot-start-file-system-errors",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/linux-recovery-cannot-start-file-system-errors.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/linux-recovery-cannot-start-file-system-errors",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/linux-upgrade-suse-15sp1.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/linux-upgrade-suse-15sp1",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/linux-upgrade-suse-15sp1.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/linux-upgrade-suse-15sp1",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/linux-virtual-machine-cannot-start-fstab-errors.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/linux-virtual-machine-cannot-start-fstab-errors",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/linux-virtual-machine-cannot-start-fstab-errors.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/linux-virtual-machine-cannot-start-fstab-errors",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/performance-diagnostics-vm-extension.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/performance-diagnostics-vm-extension",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/performance-diagnostics-vm-extension.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/performance-diagnostics-vm-extension",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/performance-diagnostics.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/performance-diagnostics",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/performance-diagnostics.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/performance-diagnostics",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/rdp.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/rdp",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/rdp.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/rdp",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/redeploy-to-new-node-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/redeploy-to-new-node-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/remote-tools-troubleshoot-azure-vm-issues.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/remote-tools-troubleshoot-azure-vm-issues",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/remote-tools-troubleshoot-azure-vm-issues.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/remote-tools-troubleshoot-azure-vm-issues",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/repair-windows-vm-using-azure-virtual-machine-repair-commands",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/repair-windows-vm-using-azure-virtual-machine-repair-commands",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/reset-local-password-without-agent.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/reset-local-password-without-agent",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/reset-local-password-without-agent.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/reset-local-password-without-agent",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/reset-network-interface.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/reset-network-interface",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/reset-network-interface.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/reset-network-interface",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/reset-password.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/reset-password",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/reset-password.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/reset-password",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/reset-rdp.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/reset-rdp",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/reset-rdp.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/reset-rdp",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/restart-resize-error-troubleshooting.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/restart-resize-error-troubleshooting",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/restart-resize-error-troubleshooting.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/restart-resize-error-troubleshooting",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-cmd-ps-commands.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console--ps-commands",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-cmd-ps-commands.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console--ps-commands",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-enable-disable.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-enable-disable",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-enable-disable.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-enable-disable",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-errors.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-errors",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-errors.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-errors",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-grub-proactive-configuration",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-grub-proactive-configuration",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-grub-single-user-mode.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-grub-single-user-mode.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-nmi-sysrq.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-nmi-sysrq",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-nmi-sysrq.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-nmi-sysrq",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-overview.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-overview",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-overview.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-overview",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-power-options.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-power-options",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-power-options.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-power-options",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/serial-console-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/serial-console-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/serial-console-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/storage-classic-cannot-delete-storage-account-container-vhd.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/storage-classic-cannot-delete-storage-account-container-vhd",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/storage-classic-cannot-delete-storage-account-container-vhd.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/storage-classic-cannot-delete-storage-account-container-vhd",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/storage-resource-deletion-errors.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/storage-resource-deletion-errors.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/support-32-bit-operating-systems-virtual-machines.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/support-32-bit-operating-systems-virtual-machines",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/support-32-bit-operating-systems-virtual-machines.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/support-32-bit-operating-systems-virtual-machines",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-activation-problems.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-activation-problems.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-app-connection.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-app-connection",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-app-connection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-app-connection",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-bitlocker-boot-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-bitlocker-boot-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-check-disk-boot-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-check-disk-boot-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-common-blue-screen-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-common-blue-screen-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-common-blue-screen-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-common-blue-screen-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-critical-service-failed-boot-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-critical-service-failed-boot-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-critical-service-failed-boot-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-critical-service-failed-boot-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-device-names-problems.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-device-names-problems.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-directory-service-initialization-failure.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-directory-service-initialization-failure",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-directory-service-initialization-failure.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-directory-service-initialization-failure",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-guide-critical-process-died.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-guide-critical-process-died",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-guide-critical-process-died.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-guide-critical-process-died",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-guide-not-bootable-disk.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-guide-not-bootable-disk",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-guide-not-bootable-disk.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-guide-not-bootable-disk",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-guide-windows-boot-manager-menu.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-guide-windows-boot-manager-menu",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-guide-windows-boot-manager-menu.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-guide-windows-boot-manager-menu",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-high-cpu-issues-azure-windows-vm.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-high-cpu-issues-azure-windows-vm",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-high-cpu-issues-azure-windows-vm.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-high-cpu-issues-azure-windows-vm",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-performance-virtual-machine-linux-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-performance-virtual-machine-linux-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-dhcp-disabled.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-dhcp-disabled",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-dhcp-disabled.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-dhcp-disabled",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-driver-netvsc.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-driver-netvsc",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-driver-netvsc.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-driver-netvsc",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-general-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-general-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-general-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-general-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-intermittent-connectivity.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-intermittent-connectivity",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-intermittent-connectivity.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-intermittent-connectivity",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-internal-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-internal-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-internal-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-internal-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-nic-disabled.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-nic-disabled",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-nic-disabled.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-nic-disabled",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-no-license-server.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-no-license-server",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-no-license-server.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-no-license-server",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-nsg-problem.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-nsg-problem",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-nsg-problem.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-nsg-problem",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-safe-mode.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-safe-mode",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-safe-mode.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-safe-mode",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-static-ip.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-static-ip",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-rdp-static-ip.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-rdp-static-ip",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-reboot-loop.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-reboot-loop",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-reboot-loop.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-reboot-loop",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-portal-linux",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-portal-linux",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-portal-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-portal-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-windows",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-recovery-disks-windows",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-remote-desktop-services-issues.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-remote-desktop-services-issues",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-remote-desktop-services-issues.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-remote-desktop-services-issues",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-specific-rdp-errors",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-specific-rdp-errors",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-ssh-connection.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-ssh-connection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-stuck-updating-boot-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-stuck-updating-boot-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-stuck-updating-boot-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-stuck-updating-boot-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-unexpected-restart-error-during-vm-boot.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-unexpected-restart-error-during-vm-boot",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-unexpected-restart-error-during-vm-boot.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-unexpected-restart-error-during-vm-boot",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-configure-update",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-configure-update",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-boot-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-boot-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-by-use-nested-virtualization.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-by-use-nested-virtualization",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-by-use-nested-virtualization.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-by-use-nested-virtualization",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-deployment-detached.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-deployment-detached",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-deployment-detached.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-deployment-detached",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-windows-stop-error.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-windows-stop-error",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-windows-stop-error.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-windows-stop-error",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/troubleshooting-throttling-errors.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshooting-throttling-errors.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/understand-vm-reboot.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/understand-vm-reboot",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/understand-vm-reboot.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/understand-vm-reboot",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/unexpected-reboots-attached-vhds",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/unexpected-reboots-attached-vhds",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/unresponsive-vm-apply-group-policy",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/unresponsive-vm-apply-group-policy",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/unresponsive-vm-apply-security-policy.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/unresponsive-vm-apply-security-policy",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/unresponsive-vm-apply-security-policy.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/unresponsive-vm-apply-security-policy",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/unresponsive-vm-apply-windows-update",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/unresponsive-vm-apply-windows-update",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/vhd-not-supported-vm-azure.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/vhd-not-supported-vm-azure",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/vhd-not-supported-vm-azure.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/vhd-not-supported-vm-azure",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/virtual-machines-availability-set-supportability.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/virtual-machines-availability-set-supportability",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/virtual-machines-availability-set-supportability.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/virtual-machines-availability-set-supportability",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/vm-unresponsive-applying-audit-configuration-policy.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/vm-unresponsive-applying-audit-configuration-policy",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/vm-unresponsive-applying-audit-configuration-policy.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/vm-unresponsive-applying-audit-configuration-policy",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/vm-unresponsive-domain-controllers-policy.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/vm-unresponsive-domain-controllers-policy",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/vm-unresponsive-domain-controllers-policy.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/vm-unresponsive-domain-controllers-policy",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/vm-unresponsive-wait-local-session-manager.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/vm-unresponsive-wait-local-session-manager",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/vm-unresponsive-wait-local-session-manager.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/vm-unresponsive-wait-local-session-manager",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-azure-guest-agent.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-azure-guest-agent",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-azure-guest-agent.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-azure-guest-agent",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-boot-error-invalid-image-hash.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-boot-error-invalid-image-hash",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-boot-error-invalid-image-hash.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-boot-error-invalid-image-hash",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-could-not-configure-system.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-could-not-configure-system",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-could-not-configure-system.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-could-not-configure-system",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-bad-system-config-info.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-bad-system-config-info",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-bad-system-config-info.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-bad-system-config-info",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-hardware-malfunction.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-hardware-malfunction",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-hardware-malfunction.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-hardware-malfunction",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-system-process-terminated.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-system-process-terminated",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-system-process-terminated.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-system-process-terminated",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-system-thread-exception-not-handled.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-system-thread-exception-not-handled",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-stop-error-system-thread-exception-not-handled.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-stop-error-system-thread-exception-not-handled",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/troubleshooting/windows-update-installation-capacity.md",
-        "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/troubleshooting/windows-update-installation-capacity.md",
+      "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
+      "redirect_document_id": false
     },
-    {   "source_path": "articles/storage/files/storage-sync-cloud-tiering.md",
-        "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
-        "redirect_document_id": false
+    {
+      "source_path": "articles/storage/files/storage-sync-cloud-tiering.md",
+      "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
@@ -64980,9 +64976,9 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/azure-monitor/app/visual-studio-trends.md",
-    "redirect_url": "/azure/azure-monitor/app/visual-studio",
-    "redirect_document_id": false
+      "source_path": "articles/azure-monitor/app/visual-studio-trends.md",
+      "redirect_url": "/azure/azure-monitor/app/visual-studio",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
@@ -65006,6 +65002,11 @@
     {
       "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-sign-ins-error-codes.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
       "redirect_document_id": false
     }
   ]

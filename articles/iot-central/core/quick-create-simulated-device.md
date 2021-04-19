@@ -91,7 +91,7 @@ Default views are a quick way to get started with visualizing your important dev
 * The **Overview** view uses charts and metrics to display device telemetry.
 * The **About** view displays device properties.
 
-Select the **Views** node in the device template. You can see that IoT Central generated an **Overview**, an **About** view, and a **Raw Data** view for you when you added the template.
+Select the **Views** node in the device template. You can see that IoT Central generated the **Overview**, **About**, and **Raw Data** views for you when you added the template.
 
 To add a new form to manage the device:
 
@@ -147,7 +147,7 @@ Now you can interact with the views that created earlier using simulated data:
 
 ## Next steps
 
-In this quickstart, you learned how to you create a **Sensor Controller** device template for an ESP32 device and add a simulated device to your application.
+In this quickstart, you learned how to create a **Sensor Controller** device template for an ESP32 device and add a simulated device to your application.
 
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 
