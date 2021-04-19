@@ -8,7 +8,7 @@ ms.service: dns
 ms.topic: tutorial
 ms.custom:  
 ms.workload: infrastructure-services
-ms.date: 04/19/2020
+ms.date: 04/19/2021
 ms.author: jonbeck
 ---
 # Tutorial: Creating a new Child DNS zone
