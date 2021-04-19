@@ -263,7 +263,7 @@ You need to store the client ID and the client secret that you previously record
 4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Manual`.
-7. Enter a **Name** for the policy key, `1A_SecureRESTClientId`. The prefix `B2C_1A_` is added automatically to the name of your key.
+7. Enter a **Name** for the policy key, `SecureRESTClientId`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. In **Secret**, enter your client ID that you previously recorded.
 9. For **Key usage**, select `Signature`.
 10. Click **Create**.
@@ -288,7 +288,7 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
   </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://secureb2cfunction.azurewebsites.net/.default" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />
