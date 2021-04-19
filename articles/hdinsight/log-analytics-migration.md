@@ -192,9 +192,9 @@ Creating new clusters with classic Azure Monitor integration is not available af
   - If solution requires image change, customers should move to the new integration.
   - We won't patch the classic Azure Monitoring integration clusters except for critical security issues.
 
-## Appendix 1: Table mapping
+## Appendix: Table mapping
 
-The below chart shows the table mappings from the classic Azure Monitoring Integration to our new one. The **Workload** column describes which workload each table is associated with. The **New Table** row shows the name of the new table. The **Description** row describes the type of logs/metrics that will be available in this table. The **Old Table** row is a list of all the tables from the classic Azure Monitor integration whose data will now be present in the table listed in the **New Table** row.
+The following charts show the table mappings from the classic Azure Monitoring Integration to our new one. The **Workload** column describes which workload each table is associated with. The **New Table** row shows the name of the new table. The **Description** row describes the type of logs/metrics that will be available in this table. The **Old Table** row is a list of all the tables from the classic Azure Monitor integration whose data will now be present in the table listed in the **New Table** row.
 
 > [!NOTE]
 > Some tables are new and not based off of old tables.
@@ -273,3 +273,6 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 | New Table | Details |
 | --- | --- |
 | HDInsightOozieLogs | <ul><li>**Description**: This table contains all logs generated from the Oozie framework.</li><li>**Old table**: Log\_oozie\_CL</li></ul>|
+
+## Next steps
+[Query Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
