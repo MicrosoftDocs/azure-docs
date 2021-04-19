@@ -310,14 +310,14 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 
 1. Select `spring-petclinic-microservices` folder.
 
-    ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
+    ![Import Project](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
 
 ### Deploy api-gateway app to Azure Spring Cloud
 In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
-    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
+    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1-pet-clinic.png)
 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
 1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.3.6*.
@@ -327,7 +327,7 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *api-gateway*, then click **OK**.
 
-    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
+    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-spring-cloud-2-pet-clinic.png)
 
 1. In the **Before launch** section of the dialog, double-click *Run Maven Goal*.
 1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/gateway* folder.
@@ -340,7 +340,7 @@ Repeat the steps above to deploy `customers-service` and other Pet Clinic apps t
 1. Modify the **Name** and **Artifact** to identify the `customers-service` app.
 1. In the **App:** textbox, select **Create app...** to create `customers-service` app.
 1. Verify that the **Public Endpoint** option is set to *Disabled*.
-1. In the **Before launch** section of the dialog, switch the **Working directory** to the *piggymetrics/auth-service* folder.
+1. In the **Before launch** section of the dialog, switch the **Working directory** to the *piggymetrics/customers-service* folder.
 1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. 
 
 1. Other microservices included in this sample can be deployed similarly:
