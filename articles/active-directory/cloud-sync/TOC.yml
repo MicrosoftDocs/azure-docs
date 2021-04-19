@@ -74,6 +74,8 @@
       href: how-to-transformation.md
     - name: Programmatically configure cloud sync using MS Graph API
       href: how-to-inbound-synch-ms-graph.md
+    - name: Expression Builder
+      href: how-to-expression-builder.md
     - name: Azure AD synchronization API 
       href: /graph/api/resources/synchronization-overview
   
