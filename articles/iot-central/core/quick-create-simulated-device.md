@@ -147,7 +147,7 @@ Now you can interact with the views that created earlier using simulated data:
 
 ## Next steps
 
-In this quickstart, you learned how to you create a **Sensor Controller** device template for an ESP32 device and add a simulated device to your application.
+In this quickstart, you learned how to create a **Sensor Controller** device template for an ESP32 device and add a simulated device to your application.
 
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 
