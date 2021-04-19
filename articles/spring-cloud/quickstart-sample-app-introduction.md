@@ -59,13 +59,13 @@ The instructions in the following quickstarts refer to the source code as needed
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-In this quickstart, we use a personal finances sample called Pet Clinic to show you how to deploy an app to the Azure Spring Cloud service. Pet Clinic demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how it is deployed to Azure with powerful Azure Spring Cloud capabilities including service discovery, config server, logs, metrics, and distributed tracing.
+In this quickstart, we use a business management sample called Pet Clinic to show you how to deploy an app to the Azure Spring Cloud service. Pet Clinic demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how it is deployed to Azure with powerful Azure Spring Cloud capabilities including service discovery, config server, logs, metrics, and distributed tracing.
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
 
 ## Functional services
 
-Pet Clinic is decomposed into microservices. All of them are independently deployable applications organized by business domains.  For full implementation details, see [Pet Clinic]([Deploy Spring Microservices using Azure Spring Cloud and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices#deploy-spring-microservices-using-azure-spring-cloud-and-mysql)). The following documentation references the source code as needed.
+Pet Clinic is decomposed into microservices. All of them are independently deployable applications organized by business domains.  For full implementation details, see [Deploy Spring Microservices using Azure Spring Cloud and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices#deploy-spring-microservices-using-azure-spring-cloud-and-mysql)). The following documentation references the source code as needed.
 ::: zone-end
 
 ## Next steps
