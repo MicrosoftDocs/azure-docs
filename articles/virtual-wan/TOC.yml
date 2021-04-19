@@ -78,6 +78,10 @@
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
+  - name: Point-to-site
+    items: 
+    - name : About IPsec policies
+      href : #NEED TO FILL THIS REFERENCE IN STILL
   - name: Security
     items:
     - name: Security baseline
@@ -106,6 +110,8 @@
       href: virtual-wan-site-to-site-portal.md
     - name: Connect virtual network gateway to Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
+    - name: Performing a Packet Capture 
+      href: virtual-wan-site-to-site-packet-capture.md
     - name: Configure custom IPsec policy
       href: virtual-wan-custom-ipsec-portal.md
   - name: User VPN (point-to-site)
