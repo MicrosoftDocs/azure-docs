@@ -81,6 +81,7 @@
       href: https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/
     - name: Node.js
       href: https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3
+- name: Resources
   items:
     - name: Enterprise readiness
       items:
