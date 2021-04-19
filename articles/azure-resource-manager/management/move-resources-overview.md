@@ -11,7 +11,7 @@ Azure resources can be moved to a new resource group or subscription, or across 
 
 ## Move resources across resource groups or subscriptions
 
-You can move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources. To learn more about moving resources to a new resource group or subscription, see [Move resources to a new resource group or subscription](move-resource-group-and-subscription.md).
+You can move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources. To learn more, see [Move resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 
 ### Upgrade a subscription
 
@@ -26,15 +26,15 @@ If you can't convert the subscription, [create an Azure support request](../../a
 
 Azure geographies, regions, and availability zones form the foundation of the Azure global infrastructure. Azure [geographies](https://azure.microsoft.com/global-infrastructure/geographies/) typically contain two or more [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). A region is an area within a geography, containing Availability Zones, and multiple data centers.
 
-After deploying resources in specific Azure region, there are a number of reasons that you might want to move resources to a different region.
+After deploying resources in specific Azure region, there are many reasons that you might want to move resources to a different region.
 
 - **Align to a region launch**: Move your resources to a newly introduced Azure region that wasn't previously available.
 - **Align for services/features**: Move resources to take advantage of services or features that are available in a specific region.
 - **Respond to business developments**: Move resources to a region in response to business changes, such as mergers or acquisitions.
 - **Align for proximity**: Move resources to a region local to your business.
-- **Meet data requirements**: Move resources in order to align with data residency requirements, or data classification needs. [Learn more](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
+- **Meet data requirements**: Move resources to align with data residency requirements, or data classification needs. [Learn more](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
 - **Respond to deployment requirements**: Move resources that were deployed in error, or move in response to capacity needs.
-- **Respond to decommissioning**: Move resources due to decommissioning of regions.
+- **Respond to decommissioning**: Move resources because of decommissioned regions.
 
 ### Move resources with Resource Mover
 
@@ -43,14 +43,14 @@ You can move resources to a different region with [Azure Resource Mover](../../r
 - A single hub for moving resources across regions.
 - Reduced move time and complexity. Everything you need is in a single location.
 - A simple and consistent experience for moving different types of Azure resources.
-- An easy way to identify dependencies across resources you want to move. This helps you to move related resources together, so that everything works as expected in the target region, after the move.
+- An easy way to identify dependencies across resources you want to move. This identification helps you to move related resources together, so that everything works as expected in the target region, after the move.
 - Automatic cleanup of resources in the source region, if you want to delete them after the move.
 - Testing. You can try out a move, and then discard it if you don't want to do a full move.
 
 You can move resources to another region using a couple of different methods:
 
-- **Start moving resources from a resource group**: With this method you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resource dependencies, and orchestrate the move process. [Learn more](../../resource-mover/move-region-within-resource-group.md).
-- **Start moving resources directly from the Resource Mover hub**: With this method you kick off the region move process directly in the hub. [Learn more](../../resource-mover/tutorial-move-region-virtual-machines.md).
+- **Start moving resources from a resource group**: With this method, you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resource dependencies, and orchestrate the move process. [Learn more](../../resource-mover/move-region-within-resource-group.md).
+- **Start moving resources directly from the Resource Mover hub**: With this method, you kick off the region move process directly in the hub. [Learn more](../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 ## Next steps
 

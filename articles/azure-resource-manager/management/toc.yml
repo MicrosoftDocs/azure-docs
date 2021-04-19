@@ -43,7 +43,7 @@
       href: move-support-resources.md
     - name: Services
       items:
-      - name: Move across resource groups/subscriptions
+      - name: Resource groups/subscriptions
         items:
         - name: App Service
           href: ./move-limitations/app-service-move-limitations.md
@@ -59,7 +59,7 @@
           href: ../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Virtual Machines
           href: ./move-limitations/virtual-machines-move-limitations.md
-      - name: Move across regions
+      - name: Regions
         items:
         - name: Azure API Management
           href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
