@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        meetingJoinOptions = new MeetingUIClientJoinOptions(displayName);
+        meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
         
         getAllPermissions();
         createMeetingClient();
@@ -312,7 +312,8 @@ Joining a meeting can be done via the `MeetingClient`, and just requires a `meet
  */
 private void joinMeeting() {
     try {
-        meetingUIClient.join("<MEETING_URL>", meetingJoinOptions);
+        MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(meetingUrl);
+        meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
