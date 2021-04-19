@@ -4,7 +4,7 @@ description: Learn about regions and Availability Zones in Azure to meet your te
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
@@ -148,12 +148,17 @@ As mentioned previously, Azure classifies services into three categories: founda
 > |------------------------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
+> | Azure Blockchain Service                             |
 > | Azure Cognitive Services: Anomaly Detector           |
 > | Azure Cognitive Services: Custom Vision              |
 > | Azure Cognitive Services: Form Recognizer            |
+> | Azure Cognitive Services: Immersive Reader           |
+> | Azure Cognitive Services: Language Understanding     |
 > | Azure Cognitive Services: Personalizer               |
 > | Azure Cognitive Services: QnA Maker                  |
+> | Azure Cognitive Services: Speech Services            |
 > | Azure Data Share                                     |
+> | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
 > | Azure Database Migration Service                     |
 > | Azure Dedicated HSM                                  |
@@ -161,15 +166,14 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Health Bot                                     |
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
-> | Azure Machine Learning Studio (classic)              |
 > | Azure NetApp Files                                   |
 > | Azure Red Hat OpenShift                              |
 > | Azure SignalR Service                                |
-> | Azure Spring Cloud Service                           |
+> | Azure Spring Cloud                                   |
+> | Azure Stream Analytics                               |
 > | Azure Time Series Insights                           |
 > | Azure VMware Solution                                |
 > | Azure VMware Solution by CloudSimple                 |
-> | Data Lake Analytics                                  |
 > | Spatial Anchors                                      |
 > | Storage: Archive Storage                             |
 > | Ultra Disk Storage                                   |

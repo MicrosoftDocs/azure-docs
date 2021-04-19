@@ -30,7 +30,7 @@ The predefined datasets for Azure Monitor for Windows Virtual Desktop include:
 - Windows Event Logs from the session hosts
 - Windows Virtual Desktop diagnostics from the service infrastructure
 
-Your data ingestion and storage costs depend on your environment size, health, and usage. The example estimates we'll use in this article to calculate the cost ranges you can expect are based on healthy virtual machines running light to power usage, based on our [virtual machine sizing guidelines](/remote/remote-desktop-services/virtual-machine-recs), to calculate a range of data ingestion and storage costs you could expect.
+Your data ingestion and storage costs depend on your environment size, health, and usage. The example estimates we'll use in this article to calculate the cost ranges you can expect are based on healthy virtual machines running light to power usage, based on our [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs), to calculate a range of data ingestion and storage costs you could expect.
 
 The light usage VM we'll be using in our example includes the following components:
 
