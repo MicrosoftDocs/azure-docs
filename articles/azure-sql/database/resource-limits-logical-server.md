@@ -179,7 +179,7 @@ In Premium and Business Critical service tiers, customer data including *data fi
 
 Hardware capabilities dictate the size of **maximum local storage** that can be set aside for customer data. This limit is set to maximize customer data storage, while ensuring safe and reliable system operation. To find the **maximum local storage** value, see resource limits documentation for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
 
-You can also find this value and the amount of local storage currently used by a given database or elastic pool by executing the following query:
+You can also find this value, and the amount of local storage currently used by a given database or elastic pool, using the following query:
 
 ```tsql
 SELECT server_name, database_name, slo_name, user_data_directory_space_quota_mb, user_data_directory_space_usage_mb
@@ -201,11 +201,14 @@ The query should be executed in the user database, not in the master database. F
 > [!IMPORTANT]
 > In Premium and Business Critical service tiers, if the workload attempts to increase combined space consumption by data, transaction log, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
 
-As databases are created, deleted, and increase/decrease their space usage, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low and a database or elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available, allowing growth up to limits of the configured service objective.
+As databases are created, deleted, and increase/decrease their space usage, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low and a database or elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
 
 This move occurs in an online fashion, similarly to a database scaling operation, and has a similar [impact](single-database-scale.md#impact), including a short (seconds) failover at the end of the operation. This failover terminates open connections and rolls back transactions, potentially impacting applications using the database at that time.
 
-Because data is physically copied to a different machine, moving larger databases may require a substantial amount of time. During that time, if local space consumption by a large user database or elastic pool, or by the tempdb database grows very rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
+Because all data is copied to a different machine, moving larger databases may require a substantial amount of time. During that time, if local space consumption by a large user database or elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
+
+> [!NOTE]
+> Database movement due to insufficient storage does not occur in the Hyperscale service tier, and in most cases in the General Purpose service tier, because in those tiers data files are not stored on local storage.
 
 ## Next steps
 
