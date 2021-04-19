@@ -47,7 +47,7 @@
   - name: Integrate with Azure Machine Learning
     items:
         - name: Track Experiments
-          href: how-to-track-experiments.md
+          href: how-to-log-and-view-metrics.md
   - name: Enterprise guidance
     items:
       - name: Create an autoscaled Data Science Virtual Machine pool 
