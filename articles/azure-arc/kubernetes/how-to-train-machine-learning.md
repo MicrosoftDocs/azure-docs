@@ -1,5 +1,5 @@
 ---
-title: Configure cluster for machine learning training
+title: Configure cluster for machine learning training (preview)
 description: Configure Azure Arc enabled Kubernetes Cluster to train machine learning models with Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
@@ -8,13 +8,17 @@ ms.date: 04/19/2020
 ms.topic: how-to 
 ---
 
-# Configure cluster for machine learning training
+# Configure cluster for machine learning training (preview)
 
 Learn how to configure an Azure Arc enabled Kubernetes cluster to train machine learning models with Azure Machine Learning
 
+## Prerequisites
+
+- Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](quickstart-connect-cluster.md)
+
 ## How does the integration with Azure Arc enabled Kubernetes work?
 
-Learn about Azure Arc Enabled Kubernetes here; once a Kubernetes cluster is registered in Azure (assigned an ARM id to track it as a resource in Azure), one can view those clusters in the AKS portal
+Once a Kubernetes cluster is registered in Azure (assigned an ARM id to track it as a resource in Azure), one can view those clusters in the AKS portal
 Azure Arc enabled Kubernetes has a cluster extensions functionality that enables the ability to install various agents including Azure policy, monitoring, ML, etc.
 Azure ML requires the use of the cluster extension to deploy the Azure ML agent on the Arc Kubernetes cluster
 Once the above step is complete, one can attach the Kubernetes cluster to the Azure ML workspace
@@ -27,6 +31,8 @@ Once the above step is complete, one can attach the Kubernetes cluster to the Az
    Next, install the **preview version of the Arc extensions CLI** as follows:
 
 2. Install the preview version of k8s-extensions CLI extension.  You can find the Python wheel file under `files` from the root of this repository. Download the file to your local machine and set the correct path
+
+
 ```bash
 az extension add --source ./k8s_extension-0.1PP.15-py3-none-any.whl
 ```
@@ -52,7 +58,6 @@ az k8s-extension show --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --cluste
 ```bash
 az k8s-extension delete --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --cluster-type connectedclusters -n azureml-kubernetes-connector
 ```
-
 
 ## Next steps
 
