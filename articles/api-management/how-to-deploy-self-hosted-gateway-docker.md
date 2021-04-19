@@ -40,19 +40,19 @@ This article provides the steps for deploying self-hosted gateway component of A
 6. Select **env.conf** file link next to the **Environment** to download the file.
 7. Select **copy** icon located at the right end of the **Run** text box to copy the Docker command to clipboard.
 8. Paste the command to the terminal (or command) window. Adjust the port mappings and container name as needed. Note that the command assumes that downloaded environment file is present in the current directory.
-```
-    docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
-```
+   ```
+       docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
+   ```
 9. Execute the command. The command instructs your Docker environment to run the container using [container image](https://aka.ms/apim/sputnik/dhub) downloaded from the Microsoft Container Registry, and to map the container's HTTP (8080) and HTTPS (8081) ports to ports 80 and 443 on the host.
 10. Run the below command to check if the gateway container is running:
-```console
-docker ps
-CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
-895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
-```
+    ```console
+    docker ps
+    CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
+    895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
+    ```
 10. Go back to Azure portal, click on **Overview** and confirm that self-hosted gateway container you just deployed is reporting a healthy status.
 
-![gateway status](media/how-to-deploy-self-hosted-gateway-docker/status.png)
+    ![gateway status](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
 > Use <code>console docker container logs <gateway-name></code> command to view a snapshot of self-hosted gateway log.
