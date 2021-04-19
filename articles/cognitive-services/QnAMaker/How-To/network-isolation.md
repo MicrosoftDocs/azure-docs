@@ -57,7 +57,7 @@ If the QnA Maker App Service is restricted using an App Service Environment, use
 
 If an App Service Environment is not used for the QnAMaker App Service, create a new VNet resource first and then create the Private Endpoint connection to the Cognitive Search instance. In this case, the QnA Maker App Service needs [to be integrated with the VNet](../../../app-service/web-sites-integrate-with-vnet.md) to connect to the Cognitive Search instance. 
 
-#  [QnA Maker managed (preview release)](#tab/v2)
+#  [Custom question answering (preview release)](#tab/v2)
 
 [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
