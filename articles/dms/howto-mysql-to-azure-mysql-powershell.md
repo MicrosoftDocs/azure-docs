@@ -219,12 +219,12 @@ if (-not($dmsService)) {
     if (-not ($subnet)) { throw "ERROR: Virtual Network $VirtualNetworkName does not contains Subnet $SubnetName" }
 
     LogMessage -Message "Creating Azure Data Migration Service $ServiceName..." -IsProcessing $true
-    New-AzDataMigrationService `
+    $dmsService = New-AzDataMigrationService `
         -ResourceGroupName $ResourceGroupName `
         -Name $ServiceName `
         -Location $resourceGroup.Location `
         -Sku Premium_4vCores `
-        -VirtualSubnetId $Subnet.Id | Out-Null
+        -VirtualSubnetId $Subnet.Id
     
     $dmsService = Get-AzResource -ResourceId $dmsServiceResourceId
     LogMessage -Message "Created Azure Data Migration Service - $($dmsService.ResourceId)."
@@ -250,14 +250,13 @@ if (-not($dmsProject)) {
     LogMessage -Message "Creating Azure DMS project $projectName for MySQL migration ..." -IsProcessing $true
 
     $newProjectProperties = @{"sourcePlatform" = "MySQL"; "targetPlatform" = "AzureDbForMySQL" }
-    New-AzResource `
+    $dmsProject = New-AzResource `
         -ApiVersion 2018-03-31-preview `
         -Location $dmsService.Location `
         -ResourceId $dmsProjectResourceId `
         -Properties $newProjectProperties `
-        -Force | Out-Null;
+        -Force
 
-    $dmsProject = Get-AzResource -ResourceId $dmsProjectResourceId
     LogMessage -Message "Created Azure DMS project $projectName - $($dmsProject.ResourceId)."
 }
 else { LogMessage -Message "Azure DMS project $projectName exists." }
