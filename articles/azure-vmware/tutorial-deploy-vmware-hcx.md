@@ -194,7 +194,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
 ### Create network profiles
 
-VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](production-ready-deployment-steps.md#vmware-hcx-network-segments).
+VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](production-ready-deployment-steps.md#define-vmware-hcx-network-segments).
 
 You'll create four network profiles:
 

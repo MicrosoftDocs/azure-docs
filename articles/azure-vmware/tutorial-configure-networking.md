@@ -17,8 +17,10 @@ In this tutorial, you learn how to:
 > * Connect your ExpressRoute circuit to the gateway
 > * Locate the URLs for vCenter and NSX Manager
 
+<!--  Not sure if this is still needed since the workflow has changed.
 ## Prerequisites 
 A virtual network that you created an [Azure VMware Solution private cloud](tutorial-create-private-cloud.md). 
+-->
 
 ## Create a virtual network
 

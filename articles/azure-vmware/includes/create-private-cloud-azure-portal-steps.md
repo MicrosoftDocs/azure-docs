@@ -7,7 +7,7 @@ ms.date: 04/23/2021
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
-You can create an Azure VMware Solution private cloud by using the [[Azure portal](#tab/azure-portal)](#portaltabazure-portal) or by using the [[Azure CLI](#tab/azure-cli)](#azure-clitabazure-cli).
+You can create an Azure VMware Solution private cloud by using the Azure portal or by using the Azure CLI.
 
 
 ### [Portal](#tab/azure-portal)
