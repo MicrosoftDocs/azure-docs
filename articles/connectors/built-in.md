@@ -1,33 +1,32 @@
 ---
 title: Built-in triggers and actions for Azure Logic Apps
-description: Use built-in triggers, and actions in Azure Logic Apps to create schedule-based workflows, communicate with other apps and services, control workflows, and manage data.
+description: Use built-in triggers and actions to create automated workflows that integrate apps, data, services, and systems, to control workflows, and to manage data using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
-ms.date: 04/05/2021
+ms.topic: conceptual
+ms.date: 04/20/2021
 ---
 
 # Built-in triggers and actions for Logic Apps
 
-Built-in triggers and actions for [Logic Apps connectors](connectors-overview.md) run natively, and you don't need to create a connection to use them. You can use these built-in triggers and actions to [run code from logic apps](#run-code-from-logic-apps), [control logic app workflows](#control-workflow), and [manage or manipulate data](#manage-or-manipulate-data).
 
-You can [use built-in triggers and actions](#understand-triggers-and-actions) to perform tasks like:
+[Built-in triggers and actions](apis-list.md) provide ways for you to [control your workflow's schedule and structure](#control-workflow), [run your own code](#run-code-from-workflows), [manage or manipulate data](#manage-or-manipulate-data), and complete other tasks in your workflows. Different from [managed connectors](managed.md), many built-in operations aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in operations run natively in the Logic Apps service, and most don't require that you create a connection before you use them. 
 
-- Run logic apps on custom and advanced schedules. For more information about scheduling, see the [overview of recurrence behaviors in Logic Apps connectors](apis-list.md#recurrence-behavior).
-- Organize and control your logic app's workflow; for example, loops and conditions.
-- Work with variables and data operations.
-- Communicate with other endpoints.
+Logic Apps also provides built-in operations for a smaller number of services, systems, and protocols, such as Azure Service Bus, Azure Functions, SQL, AS2, and so on. The number and range varies based on whether you create a multi-tenant logic app or single-tenant logic app. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. For example, to [exchange B2B messages using the AS2 protocol](../logic-apps/logic-apps-enterprise-integration-as2.md), select the built-in version unless you need tracking capabilities, which are available only in the (deprecated) managed connector version.
+
+The following list describes only some of the tasks that you can accomplish with [built-in triggers and actions](#understand-triggers-and-actions):
+
+- Run workflows using custom and advanced schedules. For more information about scheduling, review the [recurrence behavior section in the Logic Apps connector overview](apis-list.md#recurrence-behavior).
+- Organize and control your workflow's structure, for example, using loops and conditions.
+- Work with variables, dates, data operations, content transformations, and batch operations.
+- Communicate with other endpoints using HTTP triggers and actions.
 - Receive and respond to requests.
-- Call Azure functions, Azure API Apps (Web Apps), your own APIs managed and published with Azure API Management, and nested logic apps that can receive requests.
-
-> [!NOTE]
-> Some connectors for Logic Apps have versions for both [managed connectors](managed.md) and built-in connectors.
-> The version you use depends on whether you create a multi-tenant logic app, or a new single-tenant logic app.
+- Call your own functions (Azure Functions), web apps (Azure App Services), APIs (Azure API Management), other Logic Apps workflows that can receive requests, and so on.
 
 ## Understand triggers and actions
 
-Logic Apps provides built-in triggers and actions in the following connectors:
+Logic Apps provides the following built-in triggers and actions:
 
 :::row:::
     :::column:::
@@ -37,16 +36,16 @@ Logic Apps provides built-in triggers and actions in the following connectors:
         [**Schedule**][schedule-doc]
         \
         \
-        Run a logic app on a specified recurrence, ranging from basic to advanced schedules with the [**Recurrence** trigger][schedule-recurrence-doc].
+        [**Recurrence**][schedule-recurrence-doc]: Trigger a workflow based on the specified recurrence.
         \
         \
-        Run a logic app that needs to handle data in continuous chunks with the [**Sliding Window** trigger][schedule-sliding-window-doc]. 
+        [**Sliding Window**][schedule-sliding-window-doc]: Trigger a workflow that needs to handle data in continuous chunks.
         \
         \
-        Pause your logic app for a specified duration with the [**Delay** action][schedule-delay-doc]. 
+        [**Delay**][schedule-delay-doc]: Pause your workflow for the specified duration.
         \
         \
-        Pause your logic app until the specified date and time with the [**Delay until** action][schedule-delay-until-doc].
+        [**Delay until**][schedule-delay-until-doc]: Pause your workflow until the specified date and time.
     :::column-end:::
     :::column:::
         [![Batch icon in Logic Apps][batch-icon]][batch-doc]
@@ -55,10 +54,10 @@ Logic Apps provides built-in triggers and actions in the following connectors:
         [**Batch**][batch-doc]
         \
         \
-        Process messages in batches with the **Batch messages** trigger. 
+        [**Batch messages**][batch-doc]: Trigger a workflow that processes messages in batches.
         \
         \
-        Call logic apps that have existing batch triggers with the **Send messages to batch** action. 
+        [**Send messages to batch**][batch-doc]: Call an existing workflow that currently starts with a **Batch messages** trigger.
     :::column-end:::
     :::column:::
         [![HTTP icon in Logic Apps][http-icon]][http-doc]
@@ -67,10 +66,12 @@ Logic Apps provides built-in triggers and actions in the following connectors:
         [**HTTP**][http-doc]
         \
         \
-        Call HTTP or HTTPS endpoints with triggers and actions for HTTP. 
+        [**HTTP**][http-doc]: Call an HTTP or HTTPS endpoint by using either the HTTP trigger or action. 
         \
         \
-        Other HTTP built-in triggers and actions include [HTTP + Swagger built-in connector][http-swagger-doc] and [HTTP + Webhook][http-webhook-doc].
+        You can also use these other built-in HTTP triggers and actions: 
+        - [HTTP + Swagger][http-swagger-doc]
+        - [HTTP + Webhook][http-webhook-doc]
     :::column-end:::
     :::column:::
         [![Request icon][http-request-icon]][http-request-doc]
@@ -79,10 +80,10 @@ Logic Apps provides built-in triggers and actions in the following connectors:
         [**Request**][http-request-doc]
         \
         \
-        Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger.
+        [**When a HTTP request is received**][http-request-doc]: Wait for a request from another workflow, app, or service. This trigger makes your workflow callable without having to be checked or polled on a schedule.
         \
         \
-        Send responses to an app or service with the **Response** action.
+        [**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -93,7 +94,7 @@ Logic Apps provides built-in triggers and actions in the following connectors:
         [**Azure API Management**][azure-api-management-doc]
         \
         \
-        Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management.
+        [**Azure API Management**][azure-api-management-doc]: Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <p><p>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
     :::column-end:::
     :::column:::
         [![Azure App Services icon in Logic Apps][azure-app-services-icon]][azure-app-services-doc]
@@ -102,10 +103,10 @@ Logic Apps provides built-in triggers and actions in the following connectors:
         [**Azure App Services**][azure-app-services-doc]
         \
         \
-        Call Azure API Apps, or Web Apps, hosted on Azure App Service. 
+        [**Azure App Services**][azure-app-services-doc]: Call apps that you create and host on [Azure App Service](../app-service/overview.md), for example, API Apps and Web Apps.
         \
         \
-        The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included.
+        When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
         [![Azure Logic Apps icon in Logic Apps][azure-logic-apps-icon]][nested-logic-app-doc]
@@ -114,15 +115,15 @@ Logic Apps provides built-in triggers and actions in the following connectors:
         [**Azure Logic Apps**][nested-logic-app-doc]
         \
         \
-        Call other logic apps that start with the **Request** trigger.
+        Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-## Run code from logic apps
+## Run code from workflows
 
-Logic Apps provides built-in actions for running your own code in your logic app's workflow:
+Logic Apps provides built-in actions for running your own code in your workflow:
 
 :::row:::
     :::column:::
@@ -132,7 +133,7 @@ Logic Apps provides built-in actions for running your own code in your logic app
         [**Azure functions**][azure-functions-doc]
         \
         \
-        Call Azure functions from your logic app that run custom code *snippets* (C# or Node.js)
+        Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
     :::column:::
         [![Inline Code icon in Logic Apps][inline-code-icon]][inline-code-doc]
@@ -141,7 +142,7 @@ Logic Apps provides built-in actions for running your own code in your logic app
         [**Inline Code**][inline-code-doc]
         \
         \
-        Add and run JavaScript code snippets from your logic apps.
+        [**Execute JavaScript Code**][inline-code-doc]: Add and run your own inline JavaScript *code snippets* within your workflow.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -151,7 +152,7 @@ Logic Apps provides built-in actions for running your own code in your logic app
 
 ## Control workflow
 
-Logic Apps provides built-in actions for structuring and controlling the actions in your logic app's workflow:
+Logic Apps provides built-in actions for structuring and controlling the actions in your workflow:
 
 :::row:::
     :::column:::

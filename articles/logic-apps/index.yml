@@ -29,9 +29,9 @@ landingContent:
         links:
           - text: Connectors overview for Azure Logic Apps
             url: ../connectors/apis-list.md
-          - text: Managed connectors for Logic Apps
+          - text: Managed connectors
             url: ../connectors/managed.md
-          - text: Built-in connectors for Logic Apps
+          - text: Built-in triggers and actions
             url: ../connectors/built-in.md
           - text: Schedule recurring workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md

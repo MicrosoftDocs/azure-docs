@@ -4,7 +4,7 @@ description: Connect to on-premises data sources from Azure Logic Apps by creati
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2021
 ---
 

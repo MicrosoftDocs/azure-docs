@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 04/05/2021
+ms.date: 04/20/2021
 ---
 
 # Managed connectors for Logic Apps
