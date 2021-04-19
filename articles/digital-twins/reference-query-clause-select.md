@@ -100,12 +100,40 @@ SELECT T
 FROM DIGITALTWINS T
 ```
 
-The result of this query for the scenario described above is this:
+Here is the JSON payload that's returned from this query:
 
-| T |
-| --- |
-| `<JSON data for FactoryA>` | 
-| `<JSON data for Contoso>` |
+```json
+{
+  "result": [
+    {
+      "T": {
+        "$dtId": "FactoryA",
+        "$etag": "W/\"d22267a0-fd4f-4f6b-916d-4946a30453c9\"",
+        "$metadata": {
+          "$model": "dtmi:contosocom:DigitalTwins:Factory;1",
+          "name": {
+            "lastUpdateTime": "2021-04-19T17:15:54.4977151Z"
+          }
+        },
+        "name": "FactoryA"
+      }
+    },
+    {
+      "T": {
+        "$dtId": "Contoso",
+        "$etag": "W/\"a96dc85e-56ae-4061-866b-058a149e03d8\"",
+        "$metadata": {
+          "$model": "dtmi:com:contoso:Consumer;1",
+          "name": {
+            "lastUpdateTime": "2021-04-19T17:16:30.2154166Z"
+          }
+        },
+        "name": "Contoso"
+      }
+    }
+  ]
+}
+```
 
 Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
@@ -116,11 +144,46 @@ JOIN Consumer RELATED Factory.consumerRelationship Relationship
 WHERE Factory.$dtId = 'FactoryA'
 ```
 
-The result of this query for the scenario described above is this:
+Here is the JSON payload that's returned from this query:
 
-| Consumer | Factory | Relationship |
-| --- | --- | --- |
-| `<JSON data for Contoso>` | `<JSON data for FactoryA>` | `<JSON data for FactoryA-consumerRelationship-Contoso>` |
+```json
+{
+  "result": [
+    {
+      "Consumer": {
+        "$dtId": "Contoso",
+        "$etag": "W/\"a96dc85e-56ae-4061-866b-058a149e03d8\"",
+        "$metadata": {
+          "$model": "dtmi:com:contoso:Consumer;1",
+          "name": {
+            "lastUpdateTime": "2021-04-19T17:16:30.2154166Z"
+          }
+        },
+        "name": "Contoso"
+      },
+      "Factory": {
+        "$dtId": "FactoryA",
+        "$etag": "W/\"d22267a0-fd4f-4f6b-916d-4946a30453c9\"",
+        "$metadata": {
+          "$model": "dtmi:contosocom:DigitalTwins:Factory;1",
+          "name": {
+            "lastUpdateTime": "2021-04-19T17:15:54.4977151Z"
+          }
+        },
+        "name": "FactoryA"
+      },
+      "Relationship": {
+        "$etag": "W/\"f01e07c1-19e4-4bbe-a12d-f5761e86d3e8\"",
+        "$relationshipId": "FactoryA-consumerRelationship-Contoso",
+        "$relationshipName": "consumerRelationship",
+        "$sourceId": "FactoryA",
+        "$targetId": "Contoso",
+        "managedBy": "Jeff"
+      }
+    }
+  ]
+}
+```
 
 Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship. Note that the query uses `IS_PRIMITIVE` to verify that the property names are of primitive types, since complex properties are not currently supported by projection.
 
@@ -132,11 +195,18 @@ WHERE Factory.$dtId = 'FactoryA'
 AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Relationship.managedBy)
 ```
 
-The result of this query for the scenario described above is this:
+Here is the JSON payload that's returned from this query:
 
-| name | managedBy |
-| --- | --- |
-| `Contoso` | `Jeff` |
+```json
+{
+  "result": [
+    {
+      "managedBy": "Jeff",
+      "name": "Contoso"
+    }
+  ]
+}
+```
 
 ## SELECT COUNT
 
