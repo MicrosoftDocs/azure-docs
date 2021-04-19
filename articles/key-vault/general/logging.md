@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
@@ -19,7 +19,7 @@ After you create one or more key vaults, you'll likely want to monitor how and w
 
 You can access your logging information 10 minutes (at most) after the key vault operation. In most cases, it will be quicker than this.  It's up to you to manage your logs in your storage account:
 
-* Use standard Azure access control methods to secure your logs by restricting who can access them.
+* Use standard Azure access control methods in your storage account to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
 
 For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
@@ -81,6 +81,8 @@ The following table lists the **operationName** values and corresponding REST AP
 
 ### Operation names table
 
+# [Vault](#tab/Vault)
+
 | operationName | REST API command |
 | --- | --- |
 | **Authentication** |Authenticate via Azure Active Directory endpoint |
@@ -93,6 +95,12 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultRecover** |Recover deleted vault|
 | **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/vaults/getdeleted) |
 | **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
+
+# [Keys](#tab/Keys)
+
+| operationName | REST API command |
+| --- | --- |
 | **KeyCreate** |[Create a key](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Get information about a key](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Import a key into a vault](/rest/api/keyvault/vaults) |
@@ -112,6 +120,32 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyRecover** |[Recover a key](/rest/api/keyvault/recoverdeletedkey) |
 | **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/getdeletedkey) |
 | **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/getdeletedkeys) |
+| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
+| **KeyExpiredEventGridNotification** |Key expired event published |
+
+# [Secrets](#tab/Secrets)
+
+| operationName | REST API command |
+| --- | --- |
+| **SecretSet** |[Create a secret](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Get a secret](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Update a secret](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Delete a secret](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[List secrets in a vault](/rest/api/keyvault/getsecrets) |
+| **SecretListVersions** |[List versions of a secret](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Purge a secret](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Backup a secret](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Restore a secret](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Recover a secret](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/getdeletedsecrets) |
+| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
+| **SecretExpiredEventGridNotification** |Secret expired event published |
+
+# [Certificates](#tab/Cerificates)
+
+| operationName | REST API command |
+| --- | --- |
 | **CertificateGet** |[Get information about a certificate](/rest/api/keyvault/getcertificate) |
 | **CertificateCreate** |[Create a certificate](/rest/api/keyvault/createcertificate) |
 | **CertificateImport** |[Import a certificate into a vault](/rest/api/keyvault/importcertificate) |
@@ -142,25 +176,10 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificatePendingMerge** |Pending a certificate merge |
 | **CertificatePendingUpdate** |Pending a certificate update |
 | **CertificatePendingDelete** |Delete pending certificate |
-| **SecretSet** |[Create a secret](/rest/api/keyvault/updatecertificate) |
-| **SecretGet** |[Get a secret](/rest/api/keyvault/getsecret) |
-| **SecretUpdate** |[Update a secret](/rest/api/keyvault/updatesecret) |
-| **SecretDelete** |[Delete a secret](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[List secrets in a vault](/rest/api/keyvault/getsecrets) |
-| **SecretListVersions** |[List versions of a secret](/rest/api/keyvault/getsecretversions) |
-| **SecretPurge** |[Purge a secret](/rest/api/keyvault/purgedeletedsecret) |
-| **SecretBackup** |[Backup a secret](/rest/api/keyvault/backupsecret) |
-| **SecretRestore** |[Restore a secret](/rest/api/keyvault/restoresecret) |
-| **SecretRecover** |[Recover a secret](/rest/api/keyvault/recoverdeletedsecret) |
-| **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/getdeletedsecret) |
-| **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/getdeletedsecrets) |
-| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
-| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
-| **SecretExpiredEventGridNotification** |Secret expired event published |
-| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
-| **KeyExpiredEventGridNotification** |Key expired event published |
 | **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
 | **CertificateExpiredEventGridNotification** |Certificate expired event published |
+
+---
 
 ## Use Azure Monitor logs
 
@@ -171,6 +190,7 @@ For more information, including how to set this up, see [Azure Key Vault in Azur
 ## Next steps
 
 - [How to enable Key Vault logging](howto-logging.md)
+- [Azure monitor](../../azure-monitor/index.yml)
 - For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
 - For programming references, see [the Azure Key Vault developer's guide](developers-guide.md).
-- For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault).

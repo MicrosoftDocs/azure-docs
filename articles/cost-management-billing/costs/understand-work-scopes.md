@@ -37,7 +37,7 @@ Azure supports three scopes for resource management. Each scope supports managin
 
 - [**Management groups**](../../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
-    Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Resource type: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
 - **Subscriptions** - Primary containers for Azure resources.
 
@@ -110,7 +110,7 @@ Represents a single account owner for one or more Azure subscriptions. It doesn'
 
     Resource type: Not applicable
 
-Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
+Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure portal](https://portal.azure.com) > **Subscriptions** > select a subscription.
 
 Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 

@@ -51,7 +51,7 @@ Perimeter 81 Activity Logs can integrate and export logs directly to Azure Senti
 
 After a successful connection is established, the data appears in **Logs** under **CustomLogs** - **Perimeter81_CL**.
 
-It may take upwards of 20 minutes until your logs start to appear.
+It may take up to 20 minutes until your logs start to appear.
 
 ## Next steps
 

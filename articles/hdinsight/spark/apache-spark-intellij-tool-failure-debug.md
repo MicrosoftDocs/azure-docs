@@ -2,8 +2,6 @@
 title: 'Debug Spark job with IntelliJ Azure Toolkit (preview) - HDInsight'
 description: Guidance using HDInsight Tools in Azure Toolkit for IntelliJ to debug applications
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh  
 ms.service: hdinsight   
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -37,13 +35,13 @@ Create a spark2.3.2 project to continue failure debug, take failure task​ debu
 
    b. Select **Spark Project with Failure Task Debugging Sample(Preview)(Scala)** from the main window.
 
-     ![Intellij Create a debug project](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png" alt-text="Intellij Create a debug project" border="true":::
 
    c. Select **Next**.
 
 2. In the **New Project** window, do the following steps:
 
-   ![Intellij New Project select Spark version](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png" alt-text="Intellij New Project select Spark version" border="true":::
 
    a. Enter a project name and project location.
 
@@ -61,25 +59,25 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 1. Click **Add Configuration** to open **Run/Debug Configurations** window.
 
-   ![HDI Intellij Add configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png" alt-text="HDI Intellij Add configuration" border="true":::
 
 2. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Apache Spark on HDInsight** option.
 
-   ![Intellij Add new configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png" alt-text="Intellij Add new configuration" border="true":::
 
 3. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5, and you'd better not set higher than 3. To reduce the run time, you can add **spark.yarn.maxAppAttempts** into **job Configurations** and set the value to 1. Click **OK** button to save the configuration.
 
-   ![Intellij Run debug configurations new](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png" alt-text="Intellij Run debug configurations new" border="true":::
 
 4. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**.
 
 5. After you complete the configurations settings, you can run the project against the remote cluster.
 
-   ![Intellij Debug Remote Spark Job Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png" alt-text="Intellij Debug Remote Spark Job Remote run button" border="true":::
 
 6. You can check the application ID from the output window.
 
-   ![Intellij Debug Remote Spark Job Remote run result](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png" alt-text="Intellij Debug Remote Spark Job Remote run result" border="true":::
 
 ## Download failed job profile
 
@@ -87,9 +85,9 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 1. Open **Microsoft Azure Storage Explorer**, locate the HDInsight account of the cluster for the failed job, download the failed job resources from the corresponding location: **\hdp\spark2-events\\.spark-failures\\\<application ID>** to a local folder.​ The **activities** window will show the download progress.
 
-   ![Azure Storage Explorer download failure](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png" alt-text="Azure Storage Explorer download failure" border="true":::
 
-   ![Azure Storage Explorer download success](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png" alt-text="Azure Storage Explorer download success" border="true":::
 
 ## Configure local debugging environment and debug on failure​​
 
@@ -97,13 +95,13 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 1. In IntelliJ IDEA, create a **Spark Failure Debug** config file, select the FTD file from the previously downloaded failed job resources for the **Spark Job Failure Context location** field.
 
-   ![crete failure configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png" alt-text="crete failure configuration" border="true":::
 
 1. Click the local run button in the toolbar, the error will display in Run window.
 
-   ![run-failure-configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png" alt-text="run-failure-configuration1" border="true":::
 
-   ![run-failure-configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png" alt-text="run-failure-configuration2" border="true":::
 
 1. Set break point as the log indicates, then click local debug button to do local debugging just as your normal Scala / Java projects in IntelliJ.
 
@@ -137,8 +135,8 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 * [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](./apache-spark-eclipse-tool-plugin.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in the Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter Notebook in the Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources

@@ -48,19 +48,19 @@ To configure the integration of Clear Review into Azure AD, you need to add Clea
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Clear Review**, select **Clear Review** from result panel then click **Add** button to add the application.
 
-	 ![Clear Review in the results list](common/search-new-app.png)
+    ![Clear Review in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -92,7 +92,7 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
@@ -111,38 +111,38 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<customer name>.clearreview.com`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Clear Review Client support team](https://clearreview.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Clear Review Client support team](https://clearreview.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. Clear Review application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Clear Review application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
+    ![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 7. On the **User Attributes & Claims** dialog, perform the following steps:
 
-	a. Click **Edit icon** on the right of **Name identifier value**.
+    a. Click **Edit icon** on the right of **Name identifier value**.
 
-	![Screenshot shows User Attributes & Claims with the Edit icon selected.](./media/clearreview-tutorial/attribute02.png)
+    ![Screenshot shows User Attributes & Claims with the Edit icon selected.](./media/clearreview-tutorial/attribute02.png)
 
-	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](./media/clearreview-tutorial/attribute01.png)
+    ![Screenshot shows the Manage user claims dialog box where you can enter the values described.](./media/clearreview-tutorial/attribute01.png)
 
-	b. From the **Source attribute** list, select the **user.mail** attribute value for that row.
+    b. From the **Source attribute** list, select the **user.mail** attribute value for that row.
 
-	c. Click **Save**.
+    c. Click **Save**.
 
 8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 9. On the **Set up Clear Review** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure AD Identifier
+    b. Azure AD Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure Clear Review Single Sign-On
 
@@ -150,25 +150,25 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 2. Select **Admin** from the left navigation.
 
-	![Screenshot shows the Clear Review portal with Admin selected.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![Screenshot shows the Clear Review portal with Admin selected.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. In the **Integrations** section at the bottom of the page click the **Change** button to the right of **Single Sign-On Settings**.
 
-	![Screenshot shows the Single Sign-On Change button.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Screenshot shows the Single Sign-On Change button.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Perform following steps on **Single Sign-On Settings** page
 
-	![Screenshot shows the Single Sign-On Settings page where you can enter the information in this step.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Screenshot shows the Single Sign-On Settings page where you can enter the information in this step.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-	a. In the **Issuer URL** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
+    a. In the **Issuer URL** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
 
-	b. In the **SAML Endpoint** textbox, paste the value of **Login URL** which you have copied from Azure portal.	
+    b. In the **SAML Endpoint** textbox, paste the value of **Login URL** which you have copied from Azure portal.	
 
-	c. In the **SLO Endpoint** textbox, paste the value of **Logout URL** which you have copied from Azure portal.	
+    c. In the **SLO Endpoint** textbox, paste the value of **Logout URL** which you have copied from Azure portal.	
 
-	d. Open the downloaded certificate in notepad and paste the content in the **X.509 Certificate** textbox.	
+    d. Open the downloaded certificate in notepad and paste the content in the **X.509 Certificate** textbox.	
 
-	e. Click **Save**.
+    e. Click **Save**.
 
 ### Create an Azure AD test user 
 
@@ -187,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -201,11 +201,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Clear Review**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Clear Review**.
 
-	![The Clear Review link in the Applications list](common/all-applications.png)
+    ![The Clear Review link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

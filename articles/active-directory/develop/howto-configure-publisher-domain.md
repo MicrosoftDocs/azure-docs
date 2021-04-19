@@ -44,18 +44,12 @@ If your app was registered before May 21, 2019, your application's consent promp
 
 To set your app's publisher domain, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-
-1. If your account is present in more than one Azure AD tenant:
-   1. Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.
-   1. Change your session to the Azure AD tenant where you want to create your application.
-
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which the app is registered.
 1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to find and select the app that you want to configure.
 
    Once you've selected the app, you'll see the app's **Overview** page.
-
-1. From the app's **Overview** page, select the **Branding** section.
-
+1. Under **Manage**, select the **Branding**.
 1. Find the **Publisher domain** field and select one of the following options:
 
    - Select **Configure a domain** if you haven't configured a domain already.

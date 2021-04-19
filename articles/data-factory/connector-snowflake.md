@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Snowflake
 description: Learn how to copy and transform data in Snowflake by using Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
+ms.date: 03/16/2021
 ---
 
 # Copy and transform data in Snowflake by using Azure Data Factory
@@ -56,11 +52,7 @@ The following properties are supported for a Snowflake-linked service.
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
-            "password": {
-                "type": "SecureString",
-				"value": "<password>"
-			}
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -154,7 +146,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 
 If your sink data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from Snowflake to sink. Data Factory checks the settings and fails the Copy activity run if the following criteria is not met:
 
-- The **sink linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication.
+- The **sink linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data to Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using [staged copy from Snowflake](#staged-copy-from-snowflake).
 
 - The **sink data format** is of **Parquet**, **delimited text**, or **JSON** with the following configurations:
 
@@ -168,7 +160,6 @@ If your sink data store and format meet the criteria described in this section, 
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
         - `filePattern` in copy activity sink is left as default or set to **setOfObjects**.
-
 - In copy activity source, `additionalColumns` is not specified.
 - Column mapping is not specified.
 
@@ -285,7 +276,7 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 
 If your source data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from source to Snowflake. Azure Data Factory checks the settings and fails the Copy activity run if the following criteria is not met:
 
-- The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication.
+- The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data from Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using  [staged copy to Snowflake](#staged-copy-to-snowflake)..
 
 - The **source data format** is **Parquet**, **Delimited text**, or **JSON** with the following configurations:
 

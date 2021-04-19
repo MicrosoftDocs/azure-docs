@@ -1,14 +1,14 @@
 ---
 title: 'Storage overview - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about data storage in Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
 ---
 
@@ -82,7 +82,7 @@ Don't delete your Azure Time Series Insights Gen2 files. Manage related data fro
 
 ### Parquet file format and folder structure
 
-Parquet is an open-source columnar file format designed for efficient storage and performance. Azure Time Series Insights Gen2 uses Parquet to enable Time Series ID-based query performance at scale.  
+Parquet is an open-source columnar file format designed for efficient storage and performance. Azure Time Series Insights Gen2 uses Parquet to enable Time Series ID-based query performance at scale.
 
 For more information about the Parquet file type, read the [Parquet documentation](https://parquet.apache.org/documentation/latest/).
 

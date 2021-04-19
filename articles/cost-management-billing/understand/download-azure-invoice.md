@@ -65,9 +65,9 @@ You must have an account admin role for a subscription to download its invoice. 
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal.
 1. Select **Invoices** from the billing section.  
     ![Screenshot that shows a user selecting invoices option for a subscription](./media/download-azure-invoice/select-subscription-invoice.png)
-1. Select **Download** to download a PDF version of your invoice and then select **Download** under the invoice section.  
-    ![Screenshot that shows billing periods, the download option, and total charges for each billing period for an MOSP invoice](./media/download-azure-invoice/downloadinvoice-subscription.png)
-1. You can also download a daily breakdown of consumed quantities and charges by selecting **Download** under the usage details section. It may take a few minutes to prepare the CSV file.  
+1. Select the invoice that you want to download and then click **Download invoices**.  
+    ![Screenshot that the download option for an MOSP invoice](./media/download-azure-invoice/downloadinvoice-subscription.png)
+1. You can also download a daily breakdown of consumed quantities and charges by clicking the download icon and then clicking **Prepare Azure usage file** button under the usage details section. It may take a few minutes to prepare the CSV file.  
     ![Screenshot that shows Download invoice and usage page](./media/download-azure-invoice/usage-and-invoice-subscription.png)
 
 For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help identify unusual costs, see [Analyze unexpected charges](analyze-unexpected-charges.md).
@@ -82,12 +82,12 @@ You must have an account admin role on the support plan subscription to download
 1. Search for **Cost Management + Billing**.  
     ![Screenshot that shows search in portal for cost management + billing](./media/download-azure-invoice/search-cmb.png)
 1. Select **Invoices** from the left-hand side.
-1. Select your support plan subscription and then select **Download**.  
+1. Select your support plan subscription.  
     [![Screenshot that shows an MOSP support plan invoice billing profile list](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
-1. Select **Download** to download a PDF version of your invoice.  
-    ![Screenshot that shows billing periods, the download option, and total charges for each billing period for an MOSP support plan invoice list](./media/download-azure-invoice/download-invoice-support-plan.png)
+1. Select the invoice that you want to download and then click **Download invoices**.  
+    ![Screenshot that shows  the download option for an MOSP support plan invoice ](./media/download-azure-invoice/download-invoice-support-plan.png)
 
-## Allow others to download the your subscription invoice
+## Allow others to download your subscription invoice
 
 To download an invoice:
 
@@ -102,7 +102,8 @@ To download an invoice:
 4.  Select your Azure subscription and then click **Allow others to download invoice**.
 
     [![Screenshot that shows selecting access to invoice](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
-1.  Select **On** and then **Save** at the top of the page.  
+
+5.  Select **On** and then **Save** at the top of the page.  
     ![Screenshot that shows selecting on for access to invoice](./media/download-azure-invoice/cmb-access-to-invoice.png)
     
 > [!NOTE]
@@ -122,12 +123,12 @@ You must have an account admin role on a subscription or a support plan to opt i
 6. The invoice is sent to your preferred communication email. Select **Update profile** to update the email.  
     ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
-## Share subscription and support plan invoices
+## Share subscription and support plan invoice
 
-You may want to share the invoices for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
+You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
 
 1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-mosp-subscription-invoice-in-email) and select **Configure recipients**.  
-    ![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoice-article-step03.png)
+    [![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoice-article-step03.png)](./media/download-azure-invoice/invoice-article-step03-zoomed.png#lightbox)
 1. Enter an email address, and then select **Add recipient**. You can add multiple email addresses.  
     ![Screenshot that shows a user adding additional recipients](./media/download-azure-invoice/invoice-article-step04.png)
 1. Once you've added all the email addresses, select **Done** from the bottom of the screen.
@@ -168,12 +169,11 @@ You must have an owner or a contributor role on the billing profile or its billi
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Cost Management + Billing**.  
-1.  Select **Invoices** from the left-hand side and then select **Email Invoice** from the top of the page.  
+1.  Select **Invoices** from the left-hand side and then select **Invoice email preference** from the top of the page.  
     [![Screenshot that shows the Email invoice option for invoices](./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png)](./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png#lightbox)
-1.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.  
-    ![Screenshot that shows the opt-in option](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)
-1.  Select **Update**.
-1.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.
+1.  If you have multiple billing profiles, select a billing profile and then select **Yes**.  
+    [![Screenshot that shows the opt-in option](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)](./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png#lightbox)
+1.  Select **Save**.
 
 You give others access to view, download, and pay invoices by assigning them the invoice manager role for an MCA or MPA billing profile. If you've opted in to get your invoice in email, users also get the invoices in email.
 
@@ -186,7 +186,20 @@ You give others access to view, download, and pay invoices by assigning them the
 1. In the Role drop-down list, select **Invoice Manager**. Enter the email address of the user to give access. Select **Save** to assign the role.  
     [![Screenshot that shows adding a user as an invoice manager](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
    
-   
+
+## Share your billing profile's invoice
+
+You may want to share your invoice every month with your accounting team or send them to one of your other email addresses without giving your accounting team or the other email permissions to your billing profile.
+
+1.  Sign in to the [Azure portal](https://portal.azure.com).
+1.  Search for **Cost Management + Billing**.  
+1.  Select **Invoices** from the left-hand side and then select **Invoice email preference** from the top of the page.  
+    [![Screenshot that shows the Email invoice option for invoices](./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png)](./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png#lightbox)
+1.  If you have multiple billing profiles, select a billing profile.
+1.  In the additional recipients section, add the email addresses to receive invoices.
+    [![Screenshot that shows additional recipients for the invoice email](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients.png)](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients-zoomed.png#lightbox)
+1.  Select **Save**.
+
 ##  Why you might not see an invoice
 
 <a name="noinvoice"></a>

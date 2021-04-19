@@ -19,7 +19,7 @@ The following table lists the settings for a series of frameworks and libraries<
 
 The intent of the table columns is explained by the following items:
 
-- **App artifact location**: Lists the value for `app_artifact_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
+- **Output location**: Lists the value for `output_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
 
 - **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](github-actions-workflow.md#custom-build-commands).
 
@@ -47,6 +47,7 @@ The intent of the table columns is explained by the following items:
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
+| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build` |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |

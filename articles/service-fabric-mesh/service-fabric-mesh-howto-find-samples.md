@@ -8,6 +8,11 @@ ms.topic: conceptual
 
 # Find Service Fabric Mesh Samples
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This table outlines the available Service Fabric Mesh sample applications. The source code in these examples shows how to achieve a particular scenario using the Service Fabric Resource Model.
 
 For more information about deploying templates directly to Azure, see the [sample template GitHub page.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)

@@ -97,11 +97,11 @@ If you want to execute a deployment but not use any of the templates in the Mark
     - **Select template**: deploy the template.
     - **Edit template**: edit the quickstart template before you deploy it.
 
-1. Select **Edit template** to explore the portal template editor. The template is loaded in the editor. Notice there are two parameters: **storageAccountType** and **location**.
+1. Select **Edit template** to explore the portal template editor. The template is loaded in the editor. Notice there are two parameters: `storageAccountType` and `location`.
 
    ![Create template](./media/deploy-portal/show-json.png)
 
-1. Make a minor change to the template. For example, update the **storageAccountName** variable to:
+1. Make a minor change to the template. For example, update the `storageAccountName` variable to:
 
     ```json
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"

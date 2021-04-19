@@ -113,8 +113,8 @@ Use `helm list` to list the deployment for your Windows service:
 
 ```cmd
 $ helm list --namespace dev
-NAME         	  REVISION	UPDATED                 	STATUS  	CHART         	APP VERSION	NAMESPACE
-windows-service	1       	Wed Jul 24 15:45:59 2019	DEPLOYED	mywebapi-0.1.0	1.0        	dev  
+NAME             REVISION   UPDATED                    STATUS    CHART            APP VERSION    NAMESPACE
+windows-service	   1       	Wed Jul 24 15:45:59 2019   DEPLOYED  mywebapi-0.1.0   1.0            dev
 ```
 
 In the above example, the name of your deployment is *windows-service*. Update your Windows service with the new configuration using `helm upgrade`:
@@ -174,6 +174,6 @@ Learn more about how Azure Dev Spaces works.
 [helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [using-taints]: ../../aks/use-multiple-node-pools.md#setting-nodepool-taints
 [windows-container-cli]: ../../aks/windows-container-cli.md

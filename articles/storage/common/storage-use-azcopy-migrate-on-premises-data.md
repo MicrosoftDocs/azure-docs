@@ -104,7 +104,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 * Replace the `<container-name>` placeholder with the name of the container that you created.
 
-To learn more about the `sync` command, see [Synchronize files](storage-use-azcopy-blobs.md#synchronize-files).
+To learn more about the `sync` command, see [Synchronize files](./storage-use-azcopy-v10.md#transfer-data).
 
 ## Create a scheduled task
 
@@ -179,7 +179,7 @@ For more information about AzCopy, see any of these articles:
 
 * [Get started with AzCopy](storage-use-azcopy-v10.md)
 
-* [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+* [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
 
 * [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 

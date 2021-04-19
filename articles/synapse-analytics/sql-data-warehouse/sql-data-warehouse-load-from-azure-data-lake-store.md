@@ -2,20 +2,20 @@
 title: 'Tutorial load data from Azure Data Lake Storage'
 description: Use the COPY statement to load data from Azure Data Lake Storage for dedicated SQL pools.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
 # Load data from Azure Data Lake Storage into dedicated SQL pools in Azure Synapse Analytics
 
-This guide outlines how to use the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to load data from Azure Data Lake Storage. For quick examples on using the COPY statement across all authentication methods, visit the following documentation: [Securely load data using dedicated SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+This guide outlines how to use the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to load data from Azure Data Lake Storage. For quick examples on using the COPY statement across all authentication methods, visit the following documentation: [Securely load data using dedicated SQL pools](./quickstart-bulk-load-copy-tsql-examples.md).
 
 > [!NOTE]  
 > To provide feedback or report issues on the COPY statement, send an email to the following distribution list: sqldwcopypreview@service.microsoft.com.
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 To run this tutorial, you need:
 
@@ -60,7 +60,7 @@ WITH
 
 ## Create the COPY statement
 
-Connect to your SQL dedicated pool and run the COPY statement. For a complete list of examples, visit the following documentation: [Securely load data using dedicated SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+Connect to your SQL dedicated pool and run the COPY statement. For a complete list of examples, visit the following documentation: [Securely load data using dedicated SQL pools](./quickstart-bulk-load-copy-tsql-examples.md).
 
 ```sql
 -- B: Create and execute the COPY statement
@@ -128,6 +128,6 @@ Loading data is the first step to developing a data warehouse solution using Azu
 > [Learn how to develop tables for data warehousing](sql-data-warehouse-tables-overview.md)
 
 For more loading examples and references, view the following documentation:
-- [COPY statement reference documentation](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
-- [COPY examples for each authentication method](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
-- [COPY quickstart for a single table](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+- [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
+- [COPY examples for each authentication method](./quickstart-bulk-load-copy-tsql-examples.md)
+- [COPY quickstart for a single table](./quickstart-bulk-load-copy-tsql.md)

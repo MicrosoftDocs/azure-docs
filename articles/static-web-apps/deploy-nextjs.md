@@ -121,7 +121,7 @@ Azure Static Web Apps deploys your app from a GitHub repository and keeps doing 
 1. Push your changes to GitHub.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## Deploy your static website
@@ -151,7 +151,7 @@ The new Static Web Apps account needs access to the repository with your Next.js
 1. Click the **Sign in with GitHub button**
 1. Select the **Organization** under which you created the repo for your Next.js project, which may be your GitHub username.
 1. Find and select the name of the repository you created earlier.
-1. Choose **master** as the branch from the *Branch* drop-down.
+1. Choose **main** as the branch from the *Branch* drop-down.
 
    :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Connect GitHub":::
 
@@ -185,7 +185,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
 
-Return to the terminal and run the following command `git pull origin master`.
+Return to the terminal and run the following command `git pull origin main`.
 
 ## Configure dynamic routes
 

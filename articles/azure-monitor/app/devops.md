@@ -106,7 +106,7 @@ Application Map automatically discovers your application topology, laying the pe
 ![Application Map](./media/devops/0050.png)
 
 ## Application Insights Analytics
-With [Analytics](../log-query/log-query-overview.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
+With [Analytics](../logs/log-query-overview.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
 
 You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation, and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
 

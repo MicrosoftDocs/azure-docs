@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Purview (preview)
 description: This article provides an overview of Azure Purview, including its features and the problems it addresses. Azure Purview enables any user to register, discover, understand, and consume data sources.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
@@ -14,11 +14,15 @@ ms.date: 11/30/2020
 > [!IMPORTANT]
 > Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Purview is a new cloud service for use by data users. You use Azure Purview to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
+Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Empower data consumers to find valuable, trustworthy data.
 
-With the Purview UI or Apache Atlas API, technical users can view metadata and the lineage of data assets in a central catalog.
+Azure Purview Data Map provides the foundation for data discovery and effective data governance. Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
 
-Subject-matter experts, data owners, and security administrators can annotate data assets to share their communal knowledge. They do so with the UI or at scale through automated classification and auto-labeling policies, based on metadata and content inspection.
+Azure Purview Data Map powers the Purview Data Catalog and Purview data insights as unified experiences within the Purview Studio.
+ 
+With the Purview Data Catalog, business and technical users alike can quickly & easily find relevant data using a search experience with filters based on various lenses like glossary terms, classifications, sensitivity labels and more. For subject matter experts, data stewards and officers, the Purview Data Catalog provides data curation features like business glossary management and ability to automate tagging of data assets with glossary terms. Data consumers and producers can also visually trace the lineage of data assets starting from the operational systems on-premises, through movement, transformation & enrichment with various data storage & processing systems in the cloud to consumption in an analytics system like Power BI.
+
+With the Purview data insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
 
 ## Discovery challenges for data consumers
 
@@ -60,6 +64,9 @@ After you register a data source, you can then enrich its metadata. Either the u
 Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, application development, data science, or any other task where the right data is required. They use the data catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice.
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
+
+## In-region data residency
+Azure Purview does not move or store customer data out of the region in which it is deployed.
 
 ## Next steps
 

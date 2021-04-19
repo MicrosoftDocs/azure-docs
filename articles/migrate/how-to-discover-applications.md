@@ -1,78 +1,77 @@
 ---
-title: Discover apps, roles, and features on on-premises servers with Azure Migrate 
-description: Learn how to discover apps, roles, and features on on-premises servers with Azure Migrate Server Assessment.
-ms.topic: article
-ms.date: 06/10/2020
+title: Discover software inventory on on-premises servers with Azure Migrate 
+description: Learn how to discover software inventory on on-premises servers with Azure Migrate Discovery and assessment.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
+ms.topic: how-to
+ms.date: 03/18/2021
 ---
 
-# Discover machine apps, roles, and features
+# Discover installed software inventory, and SQL Server instances and databases
 
-This article describes how to discover applications, roles, and features on on-premises servers, using Azure Migrate:Server Assessment.
+This article describes how to discover installed software inventory, and SQL Server instances and databases on servers running in your VMware environment, using Azure Migrate: Discovery and assessment tool.
 
-Discovering the inventory of apps, roles, and features running on on-premises machines helps identify and tailor a migration path to Azure for your workloads. App-discovery uses the Azure Migrate appliance to perform discovery, using VM guest credentials. App-discovery is agentless. Nothing is installed on VMs.
-
-> [!NOTE]
-> App discovery is currently in preview for VMware VMs only, and is limited to discovery only. We don't yet offer app-based assessment. 
-
+Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It is completely agentless- no agents are installed on the servers to collect this data.
 
 ## Before you start
 
-- Make sure you've:
-    - [Created](./create-manage-projects.md) an Azure Migrate project.
-    - [Added](how-to-assess.md) the Azure Migrate:Server Assessment tool to a project.
-- Review [app-discovery support and requirements](migrate-support-matrix-vmware.md#vmware-requirements).
-- Make sure VMs where you're running app-discovery have PowerShell version 2.0 or later installed, and VMware Tools (later than 10.2.0) is installed.
-- Check the [requirements](migrate-appliance.md) for deploying the Azure Migrate appliance.
+- Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
+- Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory.
+- Review [appliance requirements](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) before setting up the appliance.
+- Review [application discovery requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) before initiating software inventory on servers.
 
-
-## Deploy the Azure Migrate appliance
+## Deploy and configure the Azure Migrate appliance
 
 1. [Review](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Migrate appliance.
 2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 3. [Review data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
 4. [Note](migrate-support-matrix-vmware.md#port-access-requirements) port access requirements for the appliance.
-5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create the appliance as a VMware VM. You configure the appliance and then register it with Azure Migrate.
-6. As you deploy the appliance, to start continuous discovery you specify the following:
-    - The name of the vCenter Server to which you want to connect.
-    - Credentials that you created for the appliance to connect to vCenter Server.
-    - The account credentials you created for the appliance to connect to Windows/Linux VMs.
-
-After the appliance is deployed and you've provided credentials, the appliance starts continuous discovery of VM metadata and performance data, along with and discovery of apps, features, and roles.  The duration of app discovery depends on how many VMs you have. It typically takes an hour for app-discovery of 500 VMs.
+5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create a server running in your vCenter Server. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
+6. As you configure the appliance, you need to specify the following in the appliance configuration manager:
+    - The details of the vCenter Server to which you want to connect.
+    - vCenter Server credentials scoped to discover the servers in your VMware environment.
+    - Server credentials, which can be domain/ Windows(non-domain)/ Linux(non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 
 ## Verify permissions
 
-You [created a vCenter Server read-only account](./tutorial-discover-vmware.md#prepare-vmware) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for app discovery.
+- You need to [create a vCenter Server read-only account](./tutorial-discover-vmware.md#prepare-vmware) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the servers to perform software inventory.
+- You can add multiple domain and non-domain (Windows/Linux) credentials on the appliance configuration manager for application discovery. You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.[Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 
-### Add the user account to the appliance
+### Add credentials and initiate discovery
 
-Add the user account as follows:
+1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
+2. Navigate to the **Manage credentials and discovery sources** panel.
+1.  In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  provide credentials for the vCenter Server account that the appliance will use to discover servers running on the vCenter Server.
+1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server instance
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
+1. In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, click **Add credentials** to provide multiple server credentials to initiate software inventory.
+1. Click on **Start discovery**, to kick off vCenter Server discovery.
 
-1. Open the appliance management app. 
-2. Navigate to the **Provide vCenter details** panel.
-3. In **Discover application and dependencies on VMs**, click **Add credentials**
-3. Choose the **Operating system**, provide a friendly name for the account, and the **User name**/**Password**
-6. Click **Save**.
-7. Click **Save and start discovery**.
-
-    ![Add VM user account](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
-
+ After the vCenter Server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory). The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate portal.
 
 ## Review and export the inventory
 
-After discovery ends, if you provided credentials for app discovery, you can review and export the app inventory in the Azure portal.
+After software inventory has completed, you can review and export the inventory in the Azure portal.
 
-1. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment**, click the displayed count to open the **Discovered servers** page.
+1. In **Azure Migrate - Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, click the displayed count to open the **Discovered servers** page.
 
     > [!NOTE]
-    > At this stage you can also optionally set up dependency analysis for discovered machines, so that you can visualize dependencies across machines you want to assess. [Learn more](concepts-dependency-visualization.md) about dependency analysis.
+    > At this stage you can optionally also enable dependency analysis for the discovered servers, so that you can visualize dependencies across servers you want to assess. [Learn more](concepts-dependency-visualization.md) about dependency analysis.
 
-2. In **Applications discovered**, click the displayed count.
-3. In **Application inventory**, you can review the discovered apps, roles, and features.
+2. In **Software inventory** column, click the displayed count to review the discovered applications, roles, and features.
 4. To export the inventory, in **Discovered Servers**, click **Export app inventory**.
 
-The app inventory is exported and downloaded in Excel format. The **Application Inventory** sheet displays all the apps discovered across all the machines.
+The software inventory is exported and downloaded in Excel format. The **Software Inventory** sheet displays all the apps discovered across all the servers.
+
+## Discover SQL Server instances and databases
+
+- Software inventory also identifies the SQL Server instances running in your VMware environment.
+- If you have not provided Windows authentication or SQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective SQL Server instances.
+
+Once connected, appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours and the performance data are captured every 30 seconds. Hence any change to the properties of the SQL Server instance and databases such as database status, compatibility level etc. can take up to 24 hours to update on the portal.
 
 ## Next steps
 
 - [Create an assessment](how-to-create-assessment.md) for discovered servers.
-- Assess SQL Server databases using [Azure Migrate:Database Assessment](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- [Assess SQL Servers](./tutorial-assess-sql.md) for migration to Azure SQL.

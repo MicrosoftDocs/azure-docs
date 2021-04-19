@@ -1,27 +1,22 @@
 ---
 title: Use the Azure portal to create a data factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/11/2020
+ms.date: 02/18/2021
 ms.author: jingwang
 ---
+
 # Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to a database in Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 > [!NOTE]
-> - If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+> If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 In this tutorial, you perform the following steps:
 
@@ -77,24 +72,26 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**.
-3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
+3. On the **Create Data Factory** page, under **Basics** tab, select the Azure **Subscription** in which you want to create the data factory.
+4. For **Resource Group**, take one of the following steps:
+
+    a. Select an existing resource group from the drop-down list.
+
+    b. Select **Create new**, and enter the name of a new resource group.
+    
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
+5. Under **Region**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
+6. Under **Name**, enter **ADFTutorialDataFactory**.
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-     ![New data factory](./media/doc-common-process/name-not-available-error.png)
-4. Select the Azure **subscription** in which you want to create the data factory.
-5. For **Resource Group**, take one of the following steps:
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
-    a. Select **Use existing**, and select an existing resource group from the drop-down list.
-
-    b. Select **Create new**, and enter the name of a resource group. 
-         
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
-6. Under **Version**, select **V2**.
-7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
-8. Select **Create**.
-9. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
-10. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+7. Under **Version**, select **V2**.
+8. Select **Git configuration** tab on the top, and select the **Configure Git later** check box.
+9. Select **Review + create**, and select **Create** after the validation is passed.
+10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
+11. Select **Author & Monitor** to launch the Azure Data Factory UI in a separate tab.
 
 
 ## Create a pipeline
@@ -110,7 +107,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
 
-1. 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
+1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 

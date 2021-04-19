@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
 ---
 
@@ -88,7 +88,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | ML assisted labeling (Image classification and object detection)           | Public Preview       | YES                | YES         |
 | **Responsible ML** |   | | |
 | Explainability in UI                                                       | Public Preview       | NO                 | NO          |
-| Differential privacy WhiteNoise toolkit                                    | OSS                  | NO                 | NO          |
+| Differential privacy SmartNoise toolkit                                    | OSS                  | NO                 | NO          |
 | custom tags in Azure Machine Learning to implement datasheets              | GA                   | NO                 | NO          |
 | Fairness AzureML Integration                                               | Public Preview       | NO                 | NO          |
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
@@ -201,7 +201,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | ML assisted labeling (Image classification and object detection)           | Public Preview   | YES       | N/A        |
 | **Responsible ML** |    | | |
 | Explainability in UI                                                       | Public Preview   | NO        | N/A        |
-| Differential privacy WhiteNoise toolkit                                    | OSS              | NO        | N/A        |
+| Differential privacy SmartNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | NO        | N/A        |
 | Fairness AzureML Integration                                               | Public Preview   | NO        | N/A        |
 | Interpretability  SDK                                                      | GA               | YES       | N/A        |

@@ -83,7 +83,7 @@ When the *imageAction* is set to a value other then "none", the new *normalized_
 ]
 ```
 
-## Image-related skills
+## Image related skills
 
 There are two built-in cognitive skills that take images as an input: [OCR](cognitive-search-skill-ocr.md) and [Image Analysis](cognitive-search-skill-image-analysis.md). 
 
@@ -208,6 +208,77 @@ As a helper, if you need to transform normalized coordinates to the original coo
             return original;
         }
 ```
+## Passing images to custom skills
+
+For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The [Python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) image-processing demonstrates the workflow. The following skillset is from the sample.
+
+The following skillset takes the normalized image (obtained during document cracking), and outputs slices of the image.
+
+#### Sample skillset
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+          "name": "ImageSkill",
+          "description": "Segment Images",
+          "context": "/document/normalized_images/*",
+          "uri": "https://your.custom.skill.url",
+          "httpMethod": "POST",
+          "timeout": "PT30S",
+          "batchSize": 100,
+          "degreeOfParallelism": 1,
+          "inputs": [
+            {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "slices",
+              "targetName": "slices"
+            }
+          ],
+          "httpHeaders": {}
+        }
+  ]
+}
+```
+
+#### Custom skill
+
+The custom skill itself is external to the skillset. In this case, it is Python code that first loops thorough the batch of request records in the custom skill format, then converts the base64-encoded string to an image.
+
+```python
+# deserialize the request, for each item in the batch
+for value in values:
+  data = value['data']
+  base64String = data["image"]["data"]
+  base64Bytes = base64String.encode('utf-8')
+  inputBytes = base64.b64decode(base64Bytes)
+  # Use numpy to convert the string to an image
+  jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
+  # you now have an image to work with
+```
+Similarly to return an image, return a base64 encoded string within a JSON object with a `$type` property of `file`.
+
+```python
+def base64EncodeImage(image):
+    is_success, im_buf_arr = cv2.imencode(".jpg", image)
+    byte_im = im_buf_arr.tobytes()
+    base64Bytes = base64.b64encode(byte_im)
+    base64String = base64Bytes.decode('utf-8')
+    return base64String
+
+ base64String = base64EncodeImage(jpg_as_np)
+ result = { 
+  "$type": "file", 
+  "data": base64String 
+}
+```
 
 ## See also
 + [Create indexer (REST)](/rest/api/searchservice/create-indexer)
@@ -216,3 +287,4 @@ As a helper, if you need to transform normalized coordinates to the original coo
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)
++ [How to pass images to custom skills](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

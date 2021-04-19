@@ -1,26 +1,15 @@
 ---
-title: Event aggregation
+title: Defender-IoT-micro-agent classic event aggregation
 description: Learn about Defender for IoT event aggregation.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/03/2020
-ms.author: mlottner
+ms.date: 3/23/2021
 ---
 
-# Defender for IoT event aggregation
+# Defender-IoT-micro-agent classic event aggregation
 
-Defender for IoT security agents collect data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the number of messages security agents are forced to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that is crucial to protecting your device.
+Defender for IoT security agents collects data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the number of messages security agents are forced to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that is crucial to protecting your device.
 
-To reduce the additional quota and costs while keeping your devices protected, Defender for IoT Agents aggregate these types of events.
+To reduce the extra quota, and costs while keeping your devices protected, Defender for IoT Agents aggregates these types of events.
 
 Event aggregation is **On** by default, and although not recommended, can be manually turned **Off** at any time.
 
@@ -41,7 +30,7 @@ To reduce the memory footprint of the agent, whenever the agent collects an iden
 Events are considered identical only when the following conditions are met:
 
 * ProcessCreate events - when **commandLine**, **executable**, **username**, and **userid** are identical
-* ConnectionCreate events - when **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol, and **destination port** are identical
+* ConnectionCreate events - when **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol**, and **destination port** are identical.
 * ProcessTerminate events - when **executable** and **exit status** are identical
 
 ### Working with aggregated events
@@ -51,7 +40,7 @@ During aggregation, event properties that are not aggregated are discarded, and 
 * ProcessCreate events - **processId**, and **parentProcessId** are set to 0
 * ConnectionCreate events - **processId**, and **source port** are set to 0
 
-## Event aggregation based alerts
+## Event aggregation-based alerts
 
 After analysis, Defender for IoT creates security alerts for suspicious aggregated events. Alerts created from aggregated events appear only once for each aggregated event.
 
@@ -66,11 +55,11 @@ Make changes to the configuration of Defender for IoT event aggregation inside t
 | Configuration name | Possible values | Details | Remarks |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Enable / disable event aggregation for process create events |
-| aggregationIntervalProcessCreate | ISO8601 Timespan string | Aggregation interval for process create events |
+| aggregationIntervalProcessCreate | ISO8601 Timespan string | Aggregation interval for process creates events |
 | aggregationEnabledConnectionCreate | boolean| Enable / disable event aggregation for connection create events |
-| aggregationIntervalConnectionCreate | ISO8601 Timespan string | Aggregation interval for connection create events |
+| aggregationIntervalConnectionCreate | ISO8601 Timespan string | Aggregation interval for connection creates events |
 | aggregationEnabledProcessTerminate | boolean | Enable / disable event aggregation for process terminate events | Windows only|
-| aggregationIntervalProcessTerminate | ISO8601 Timespan string | Aggregation interval for process terminate events | Windows only|
+| aggregationIntervalProcessTerminate | ISO8601 Timespan string | Aggregation interval for process terminates events | Windows only|
 |
 
 ## Default configurations settings
@@ -93,6 +82,6 @@ To continue getting started with Defender for IoT deployment, use the following 
 
 - Understand [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - Select and deploy a [security agent](how-to-deploy-agent.md)
-- Review Defender for IoT [service prerequisites](service-prerequisites.md)
+- Review Defender for IoT [System prerequisites](quickstart-system-prerequisites.md)
 - Learn how to [Enable Defender for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [Defender for IoT FAQ](resources-frequently-asked-questions.md)

@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Create a virtual machine in Azure with VM templates
 description: Describes how to create virtual machines in Azure using VM templates on the VMware infrastructure for your CloudSimple Private Cloud
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

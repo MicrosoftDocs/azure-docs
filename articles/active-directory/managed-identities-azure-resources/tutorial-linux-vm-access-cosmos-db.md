@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 12/10/2020
 ms.author: barclayn
 
 ms.collection: M365-identity-device-management
@@ -34,8 +34,9 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 ## Prerequisites
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
+- If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
+- If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
     - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account associated with the Azure subscription in which you'd like to create resources.
@@ -44,14 +45,14 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 If you don't already have one, create a Cosmos DB account. You can skip this step and use an existing Cosmos DB account. 
 
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
+1. Click the **+ Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
 3. Enter an **ID** for the Cosmos DB account, which you use later.  
 4. **API** should be set to "SQL." The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.  Select a **Location** where Cosmos DB is available.
 6. Click **Create**.
 
-## Create a collection in the Cosmos DB account
+### Create a collection in the Cosmos DB account
 
 Next, add a data collection in the Cosmos DB account that you can query in later steps.
 
@@ -59,7 +60,7 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
 3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
 
-## Retrieve the `principalID` of the Linux VM's system-assigned managed identity
+## Grant access
 
 To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's system-assigned managed identity.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which your VM resides), and `<VM NAME>` parameter values with your own values.
 
@@ -78,7 +79,7 @@ The response includes the details of the system-assigned managed identity (note 
  }
 ```
 
-## Grant your Linux VM's system-assigned identity access to the Cosmos DB account access keys
+### Grant your Linux VM's system-assigned identity access to the Cosmos DB account access keys
 
 Cosmos DB does not natively support Azure AD authentication. However, you can use a managed identity to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB. In this step, you grant your system-assigned managed identity access to the keys to the Cosmos DB account.
 
@@ -104,9 +105,9 @@ The response includes the details for the role assignment created:
 }
 ```
 
-## Get an access token using the Linux VM's system-assigned managed identity and use it to call Azure Resource Manager
+## Access data
 
-For the remainder of the tutorial, work from the VM created earlier.
+For the remainder of the tutorial, work from the virtual machine.
 
 To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/install-win10). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
@@ -133,7 +134,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
      "client_id":"1ef89848-e14b-465f-8780-bf541d325cd5"}
      ```
     
-## Get access keys from Azure Resource Manager to make Cosmos DB calls  
+### Get access keys from Azure Resource Manager to make Cosmos DB calls  
 
 Now use CURL to call Resource Manager using the access token retrieved in the previous section to retrieve the Cosmos DB account access key. Once we have the access key, we can query Cosmos DB. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier.  If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`:
 
@@ -142,7 +143,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```
 
 > [!NOTE]
-> The text in the prior URL is case-sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
+> The text in the prior URL is case-sensitive, so use the case that matches the case used in the name of your resource group. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
 
 The CURL response gives you the list of Keys.  For example, if you get the read-only keys:  
 

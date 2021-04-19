@@ -1,16 +1,17 @@
 ---
 title: Understand scope in Azure Policy
 description: Describes the concept of scope in Azure Resource Manager and how it applies to Azure Policy to control which resources Azure Policy evaluates.
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
 ---
 # Understand scope in Azure Policy
 
-There are a number of settings that determine which resources are capable of being evaluated and
-which resources are evaluated by Azure Policy. The primary concept for these controls is _scope_.
-For a high-level overview, see
+There are many settings that determine which resources are capable of being evaluated and which
+resources are evaluated by Azure Policy. The primary concept for these controls is _scope_. Scope in
+Azure Policy is based on how scope works in Azure Resource Manager. For a high-level overview, see
 [Scope in Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
-This article explains the impact of _scope_ in Azure Policy and it's related objects and properties.
+This article explains the importance of _scope_ in Azure Policy and it's related objects and
+properties.
 
 ## Definition location
 
@@ -83,4 +84,5 @@ The following table is a comparison of the scope options:
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Review what a management group is with
+  [Organize your resources with Azure management groups](../../management-groups/overview.md).

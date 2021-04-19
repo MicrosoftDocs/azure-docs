@@ -13,12 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 04/12/2021
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
+
+You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**.  Then click **Metric** to view the available metrics: 
+
+[ ![Snapshot that shows how to navigate to the Metric pull-down.](../media/azure-netapp-files/metrics-navigate-volume.png) ](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
@@ -37,10 +41,8 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
-<!-- ANF-5023: fixed version: 2020.08, 2020.09
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
--->
 - *Volume Allocated Size*   
     The provisioned size of a volume
 - *Volume Quota Size*    

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
 ---
 
 # How to: Deploy a People Counting web application
 
-Use this article to learn how to integrate spatial analysis into a web app that understands the movement of people, and monitors the number of people occupying a physical space. 
+Use this article to learn how to integrate Spatial Analysis into a web app that understands the movement of people, and monitors the number of people occupying a physical space. 
 
 In this tutorial you will learn how to:
 
-* Deploy the spatial analysis container
+* Deploy the Spatial Analysis container
 * Configure the operation and camera
 * Configure the IoT Hub connection in the Web Application
 * Deploy and test the Web Application
@@ -29,7 +29,7 @@ In this tutorial you will learn how to:
 * Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](../../iot-hub/index.yml)
 * A configured [host computer](spatial-analysis-container.md).
 
-## Deploy the spatial analysis container
+## Deploy the Spatial Analysis container
 
 Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
 
@@ -58,12 +58,12 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### Deploy the container on Azure IoT Edge on the host computer
 
-Deploy the spatial analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [Azure Stack Edge specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) as well as a [non-Azure Stack Edge specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) on GitHub, which include a basic deployment configuration for the *spatial-analysis* container. 
+Deploy the Spatial Analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [Azure Stack Edge specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), [non-Azure Stack Edge specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2152189), and [Azure VM with GPU specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2152189) on GitHub, which include a basic deployment configuration for the *spatial-analysis* container. 
 
 Alternatively, you can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. Go to [Deploy Azure IoT Edge Modules from Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) to learn more.
 
 > [!NOTE] 
-> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find two sample *DeploymentManifest.json* files on Github, for either a [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179) or another [Desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
+> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find three sample *DeploymentManifest.json* files on GitHub, for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), a [Desktop machine](https://go.microsoft.com/fwlink/?linkid=2152189), or an [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
 
 ### Set environment variables
 
@@ -167,7 +167,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-To install the container, create a new Azure Web App for Containers and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
+To install the container, create a new Azure App Service and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
 
 ![Enter image details](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -181,20 +181,20 @@ Wait for setup to complete, and navigate to your resource in the Azure portal. G
 * `IotHubConnectionString` – The connection string to your Azure IoT Hub, this can be retrieved from the keys section of your Azure IoT Hub resource 
 ![Configure Parameters](./media/spatial-analysis/solution-app-config-page.png)
 
-Once these 2 settings are added, click **Save**. Then click **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Director (Azure AD) express. 
+Once these 2 settings are added, click **Save**. Then click **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Directory (Azure AD) express. 
 
 ### Test the app
 
-Go to the Azure Web App and verify the deployment was successful, and the web app is running. Navigate to the configured url: `<yourapp>.azurewebsites.net` to view the running app.
+Go to the Azure Service and verify the deployment was successful, and the web app is running. Navigate to the configured url: `<yourapp>.azurewebsites.net` to view the running app.
 
 ![Test the deployment](./media/spatial-analysis/solution-app-output.png)
 
 ## Get the PersonCount source code
-If you'd like to view or modify the source code for this application, you can find it [on Github](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
+If you'd like to view or modify the source code for this application, you can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## Next steps
 
-* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Configure Spatial Analysis operations](./spatial-analysis-operations.md)
 * [Logging and troubleshooting](spatial-analysis-logging.md)
 * [Camera placement guide](spatial-analysis-camera-placement.md)
 * [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

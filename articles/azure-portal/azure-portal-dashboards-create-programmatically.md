@@ -1,21 +1,10 @@
 ---
 title: Programmatically create Azure Dashboards
 description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
-
-
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/4/2020
-ms.author: mblythe
-
 ---
+
 # Programmatically create Azure Dashboards
 
 This article walks you through the process of programmatically creating and publishing Azure dashboards. The dashboard shown below is referenced throughout the document.
@@ -52,7 +41,7 @@ After you configure the dashboard, the next step is to publish the dashboard usi
 
 ![sharing a dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ![make changes to sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

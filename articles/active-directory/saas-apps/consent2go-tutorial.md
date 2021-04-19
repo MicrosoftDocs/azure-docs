@@ -45,19 +45,19 @@ To configure the integration of Consent2Go into Azure AD, you need to add Consen
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Consent2Go**, select **Consent2Go** from result panel then click **Add** button to add the application.
 
-	 ![Consent2Go in the results list](common/search-new-app.png)
+    ![Consent2Go in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -89,7 +89,7 @@ To configure Azure AD single sign-on with Consent2Go, perform the following step
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with Consent2Go, perform the following step
 
 5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure Consent2Go Single Sign-On
 
@@ -123,7 +123,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -137,11 +137,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Consent2Go**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Consent2Go**.
 
-	![The Consent2Go link in the Applications list](common/all-applications.png)
+    ![The Consent2Go link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

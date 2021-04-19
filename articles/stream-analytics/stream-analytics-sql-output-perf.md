@@ -3,7 +3,7 @@ title: Increase throughput performance to Azure SQL Database from Azure Stream A
 description: Learn about outputting data to SQL Azure from Azure Stream Analytics and achieve higher write throughput rates.
 author: chetanmsft
 ms.author: chetang
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019

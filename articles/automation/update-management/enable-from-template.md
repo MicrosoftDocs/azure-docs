@@ -1,11 +1,9 @@
 ---
-title: Enable Update Management using Azure Resource Manager template | Microsoft Docs
+title: Enable Update Management using Azure Resource Manager template
 description: This article tells how to use an Azure Resource Manager template to enable Update Management.
-ms.service:  automation
+services:  automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
 ---
 
@@ -24,7 +22,7 @@ The template does not automate enabling Update Management on one or more Azure o
 If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. Using this template successfully creates the link and deploys Update Management.
 
 >[!NOTE]
->Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](../manage-runas-account.md).
+>Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](../create-run-as-account.md).
 
 After you complete these steps, you need to [configure diagnostic settings](../automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 
@@ -61,11 +59,11 @@ The JSON template specifies a default value for the other parameters that would 
 
 If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [additional details](../../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](../../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
 * Review [workspace mappings](../how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../../azure-monitor/platform/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
+* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../../azure-monitor/logs/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy template
 
@@ -149,14 +147,14 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                 "type": "String",
                 "defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
-    		"_artifactsLocation": {
+            "_artifactsLocation": {
                 "type": "string",
                 "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
                 "metadata": {
                     "description": "URI to artifacts location"
                 }
             },
-    		"_artifactsLocationSasToken": {
+            "_artifactsLocationSasToken": {
                 "type": "securestring",
                 "defaultValue": "",
                 "metadata": {
@@ -164,7 +162,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                 }
             }
         },
-    	"variables": {
+        "variables": {
         "Updates": {
             "name": "[concat('Updates', '(', parameters('workspaceName'), ')')]",
             "galleryName": "Updates"
@@ -187,25 +185,25 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                     }
                 }
             },
-    		{
-    			"apiVersion": "2015-11-01-preview",
-    			"location": "[parameters('location')]",
-    			"name": "[variables('Updates').name]",
-    			"type": "Microsoft.OperationsManagement/solutions",
-    			"id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
-    			"dependsOn": [
-    				"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    			],
-    			"properties": {
-    				"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    			},
-    			"plan": {
-    				"name": "[variables('Updates').name]",
-    				"publisher": "Microsoft",
-    				"promotionCode": "",
-    				"product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
-    			}
-    		},
+            {
+                "apiVersion": "2015-11-01-preview",
+                "location": "[parameters('location')]",
+                "name": "[variables('Updates').name]",
+                "type": "Microsoft.OperationsManagement/solutions",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                ],
+                "properties": {
+                    "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                },
+                "plan": {
+                    "name": "[variables('Updates').name]",
+                    "publisher": "Microsoft",
+                    "promotionCode": "",
+                    "product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
+                }
+            },
             {
                 "type": "Microsoft.Automation/automationAccounts",
                 "apiVersion": "2020-01-13-preview",
@@ -310,8 +308,8 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
     **Azure CLI**
 
-    ```cli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    ```azurecli
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:

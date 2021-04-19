@@ -12,6 +12,8 @@
 
 **Application templates**
 
+**IoT Central application templates**
+
 | Template                 | Name        | Description |
 | ------------------------ | ----------- | ----------- |
 | iotc-pnp-preview         | Custom application | Creates an empty application for you to populate with your own device templates and devices. |
@@ -28,3 +30,7 @@
 | iotc-quality             | Water Quality Monitoring | Creates an application to digitally monitor water quality. |
 | iotc-store               | In-store Analytics – Checkout | Creates an application to monitor and manage the checkout flow inside your store. |
 | iotc-waste               | Connected Waste Management | Creates an application to monitor waste bins and dispatch field operators. |
+
+**Custom application template**
+
+If you've created your own application template, you can use it to create a new application. When asked for an application template, enter the app ID shown in the exported app's URL shareable link under the [Application template export](../articles/iot-central/core/howto-use-app-templates.md#create-an-application-template) section of your app. 

@@ -26,8 +26,6 @@ You might move resources to different Azure regions to:
 - **Respond to deployment requirements**: Move resources that were deployed in error, or move in response to capacity needs.
 - **Respond to decommissioning**: Move resources because a region is decommissioned.
 
-> [!IMPORTANT]
-> Azure Resource Mover is currently in public preview.
 
 ## Why use Resource Mover?
 
@@ -59,6 +57,7 @@ You can move resources across regions in the Resource Mover hub, or from within 
 Using Resource Mover, you can currently move the following resources across regions:
 
 - Azure VMs and associated disks
+- Encrypted Azure VMs and associated disks. This includes VMs with Azure disk encryption enabled, and Azure VMs using default server-side encryption (both with platform-managed keys and customer-managed keys)
 - NICs
 - Availability sets 
 - Azure virtual networks 

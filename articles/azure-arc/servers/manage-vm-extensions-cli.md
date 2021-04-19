@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure CLI
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using the Azure CLI.
-ms.date: 11/20/2020
+ms.date: 04/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -9,6 +9,9 @@ ms.custom: devx-track-azurecli
 # Enable Azure VM extensions using the Azure CLI
 
 This article shows you how to deploy and uninstall VM extensions, supported by Azure Arc enabled servers, to a Linux or Windows hybrid machine using the Azure CLI.
+
+> [!NOTE]
+> Azure Arc enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -24,10 +27,10 @@ az extension add --name connectedmachine
 
 To enable a VM extension on your Arc enabled server, use [az connectedmachine extension create](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_create) with the `--machine-name`, `--extension-name`, `--location`, `--type`, `settings`, and `--publisher` parameters.
 
-The following example enables the Log Analytics VM extension on an Arc enabled Linux server:
+The following example enables the Log Analytics VM extension on an Arc enabled server:
 
 ```azurecli
-az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentforLinux" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.EnterpriseCloud.Monitoring" --settings "{\"workspaceId\":\"workspaceId"}" --protected-settings "{\workspaceKey\":"\workspaceKey"} --type-handler-version "1.10" --resource-group "myResourceGroup"
+az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "eastus" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
 ```
 
 The following example enables the Custom Script Extension on an Arc enabled server:
@@ -74,7 +77,7 @@ To remove an installed VM extension on your Arc enabled server, use [az connecte
 For example, to remove the Log Analytics VM extension for Linux, run the following command:
 
 ```azurecli
-az connectedmachine extension delete --machine-name "myMachineName" --name "OmsAgentforLinux" --resource-group "myResourceGroup"
+az connectedmachine extension delete --machine-name "myMachineName" --name "OmsAgentForLinux" --resource-group "myResourceGroup"
 ```
 
 ## Next steps

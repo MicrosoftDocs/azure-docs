@@ -1,12 +1,12 @@
 ---
-title: File extension reporting on your data using Purview Insights 
-description: This how-to guide describes how to view and use the Purview Insights file extension reporting on your data.
+title: File extension reporting on your data in Azure Purview using Purview Insights
+description: This how-to guide describes how to view and use the Purview file extension reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 01/17/2021
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
 ---
 
@@ -14,11 +14,11 @@ ms.date: 11/24/2020
 
 This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data.
 
-Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Amazon S3 buckets
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
-> * Launch your Purview account from Azure. 
+> * Launch your Purview account from Azure 
 > - View file extension insights on your data
 > - Drill down for more file extension details on your data
 
@@ -28,13 +28,19 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- Set up and completed a scan on the test data in each data source
+- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
+
+- Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 
 For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
 
 ## Use Purview File extension insights
 
 When scanning your assets, Azure Purview is able to detect the file types found in your data estate, and provide you more details about each file type. Details include how many files of each type you have, where those files are, and whether they are scannable for sensitive data.
+
+> [!NOTE]
+> After you have scanned your source types, give **File extension** Insights a couple of hours to reflect the new assets.
 
 **To view file extension insights:**
 

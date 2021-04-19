@@ -5,8 +5,8 @@ ms.date: 09/24/2020
 ms.topic: article
 ---
 
-# Integrate Azure Relay with Azure Private Link (Preview)
-Azure **Private Link Service** enables you to access Azure services (for example, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a private endpoint in your virtual network. For more information, see [What is Azure Private Link (Preview)?](../private-link/private-link-overview.md)
+# Integrate Azure Relay with Azure Private Link 
+Azure **Private Link Service** enables you to access Azure services (for example, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a private endpoint in your virtual network. For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
 
@@ -14,7 +14,7 @@ A **private endpoint** is a network interface that allows your workloads running
 ## Add a private endpoint using Azure portal
 
 ### Prerequisites
-To integrate an Azure Relay namespace with Azure Private Link (Preview), you'll need the following entities or permissions:
+To integrate an Azure Relay namespace with Azure Private Link, you'll need the following entities or permissions:
 
 - An Azure Relay namespace.
 - An Azure virtual network.
@@ -32,7 +32,7 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 2. In the search bar, type in **Relays**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections (preview)** tab at the top of the page
+5. Select the **Private endpoint connections** tab at the top of the page
 6. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Add private endpoint button](./media/private-link-service/add-private-endpoint-button.png)
@@ -76,7 +76,7 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you are the owner of the Relay namespace or have the manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
     ![Private endpoint page](./media/private-link-service/private-endpoint-page.png)
-13. Navigate back to the **Networking** page of the **namespace**, and switch to the **Private endpoint connections (preview)** tab. You should see the private endpoint that you created. 
+13. Navigate back to the **Networking** page of the **namespace**, and switch to the **Private endpoint connections** tab. You should see the private endpoint that you created. 
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
@@ -225,8 +225,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ## Limitations and Design Considerations
 
 ### Design considerations
-- Private Endpoint for Azure Relay is in **public preview**. 
-- For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/).
+- For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 ### Limitations 
 - Maximum number of private endpoints per Azure Relay namespace: 64.
@@ -235,5 +234,5 @@ Aliases:  <namespace-name>.servicebus.windows.net
 
 ## Next Steps
 
-- Learn more about [Azure Private Link (Preview)](../private-link/private-link-service-overview.md)
+- Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Relay](relay-what-is-it.md)

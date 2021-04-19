@@ -1,9 +1,9 @@
 ---
 title: Authorize access to Azure App Configuration using Azure Active Directory
 description: Enable Azure RBAC to authorize access to your Azure App Configuration instance
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/13/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 
@@ -32,9 +32,6 @@ Azure provides the following Azure built-in roles for authorizing access to App 
 - **App Configuration Data Reader**: Use this role to give read access to App Configuration data. This does not grant access to the App Configuration resource.
 - **Contributor**: Use this role to manage the App Configuration resource. While the App Configuration data can be accessed using access keys, this role does not grant direct access to the data using Azure AD.
 - **Reader**: Use this role to give read access to the App Configuration resource. This does not grant access to the resource's access keys, nor to the data stored in App Configuration.
-
-> [!NOTE]
-> Currently, the Azure portal and CLI only support HMAC authentication to access App Configuration data. Azure AD authentication is not supported. Therefore, users of the Azure portal and CLI require the *Contributor* role to retrieve the access keys of the App Configuration resource. Granting *App Configuration Data Reader* or *App Configuration Data Owner* roles has no impact on access through the portal and CLI.
 
 ## Next steps
 Learn more about using [managed identities](howto-integrate-azure-managed-service-identity.md) to administer your App Configuration service.

@@ -1,20 +1,19 @@
 ---
 title: Azure virtual machine extensions and features 
 description: Learn more about Azure VM extensions
-services: virtual-machines
-author: amjads1
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 08/03/2020
+author: amjads1
 ms.author: amjads
+ms.date: 08/03/2020
+
 ---
 
 # Azure virtual machine extensions and features
 Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. The Azure platform hosts many extensions covering VM configuration, monitoring, security, and utility applications. Publishers take an application, wrap it into an extension, and simplify the installation. All you need to do is provide mandatory parameters. 
 
-## How can I find What extensions are available?
+## How can I find what extensions are available?
 You can view available extensions by selecting a VM, the selecting **Extensions** in the left menu. To pull a full list of extensions, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
 
 ## How can I install an extension?

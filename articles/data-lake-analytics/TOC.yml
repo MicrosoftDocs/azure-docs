@@ -68,7 +68,7 @@
       - name: Basics
         href: data-lake-analytics-u-sql-get-started.md
       - name: Language reference
-        href: https://docs.microsoft.com/u-sql
+        href: /u-sql
       - name: Catalog
         href: data-lake-analytics-u-sql-catalog.md
       - name: User-defined operators
@@ -111,6 +111,8 @@
         href: data-lake-analytics-data-lake-tools-for-vscode.md
       - name: Custom code
         href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+      - name: Accessing resources
+        href: data-lake-analytics-data-lake-tools-for-vscode-access-resource.md
       - name: Local run & debug
         href: data-lake-tools-for-vscode-local-run-and-debug.md
     - name: Programmability guide

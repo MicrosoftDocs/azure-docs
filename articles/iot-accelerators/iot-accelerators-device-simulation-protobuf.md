@@ -10,7 +10,7 @@ ms.custom:  "mvc, amqp, devx-track-csharp"
 ms.date: 11/06/2018
 ms.author: dobett
 
-# As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
+#Customer intent: As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
 ---
 
 # Serialize telemetry using Protocol Buffers
@@ -279,4 +279,4 @@ route based on message headers.
 
 ## Next steps
 
-Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is to learn now to [Deploy a custom image to the cloud](iot-accelerators-device-simulation-deploy-image.md).
+Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is visit the GitHub repository to learn more [Device simulation](https://github.com/Azure/device-simulation-dotnet).

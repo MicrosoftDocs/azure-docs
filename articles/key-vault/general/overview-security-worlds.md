@@ -37,6 +37,3 @@ In the products by region article, for example, the **Americas** tab contains EA
 >An exception is that US DOD EAST and US DOD CENTRAL have their own security worlds. 
 
 Similarly, on the **Europe** tab, NORTH EUROPE and WEST EUROPE both map to the Europe region. The same is also true on the **Asia Pacific** tab.
-
-
-

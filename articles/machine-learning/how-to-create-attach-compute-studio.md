@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.custom: how-to, contperf-fy21q1
 ---
 # Create compute targets for model training and deployment in Azure Machine Learning studio
 
@@ -141,7 +141,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
 1. Enter a name for the compute target. 
 1. Select the type of compute to attach. Not all compute types can be attached from Azure Machine Learning studio. The compute types that can currently be attached for training include:
-    * A remote VM
+    * An Azure Virtual Machine (to attach a Data Science Virtual Machine)
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight

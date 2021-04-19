@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -37,7 +37,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
 - Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials. This means that devices must either be on the organization's internal network or on a VPN with network access to an on-premises domain controller.
 - If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices:
-    - If Ctrl+Alt+Del is required by policy in versions of Windows 10 before v1909, **Reset password** won't work.
+    - If Ctrl+Alt+Del is required by policy in Windows 10, **Reset password** won't work.
     - If lock screen notifications are turned off, **Reset password** won't work.
     - *HideFastUserSwitching* is set to enabled or 1
     - *DontDisplayLastUserName* is set to enabled or 1
@@ -48,6 +48,10 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - *DisableLockScreenAppNotifications* = 1 or Enabled
     - Windows SKU isn't Home or Professional edition
+
+> [!NOTE]
+> These limitations also apply to Windows Hello for Business PIN reset from the device lock screen.
+>
 
 ## Windows 10 password reset
 

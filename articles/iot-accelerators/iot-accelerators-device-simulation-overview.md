@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
 
-# As a developer or IT Pro, I want to understand what the Device Simulation solution accelerator is so that I can understand if it can help me test my IoT solution.
+#Customer intent: As a developer or IT Pro, I want to understand what the Device Simulation solution accelerator is so that I can understand if it can help me test my IoT solution.
 ---
 
 # Device Simulation solution accelerator overview
@@ -33,7 +33,7 @@ Device Simulation is free. However, Device Simulation deploys to your Azure subs
 
 ## Sample simulations
 
-When you deploy Device Simulation, you get some sample simulations and sample devices. You can use these samples to learn how to use Device Simulation. To get started, run a [sample simulation that simulates 10 trucks](quickstart-device-simulation-deploy.md). You can also [create your own simulation using one of the many sample devices provided](iot-accelerators-device-simulation-create-simulation.md).
+When you deploy Device Simulation, you get some sample simulations and sample devices. You can use these samples to learn how to use Device Simulation. To get started, run a [sample simulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md). You can also [create your own simulation using one of the many sample devices provided](iot-accelerators-device-simulation-create-simulation.md).
 
 ![Simulation configuration](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -57,7 +57,7 @@ Advanced device models let you:
 
 ## Next steps
 
-In this article, you learned about the Device Simulation solution accelerator and its capabilities. To get started using the solution accelerator, continue to the quickstart:
+In this article, you learned about the Device Simulation solution accelerator and its capabilities. To deploy the solution accelerator, visit the GitHub repository:
 
 > [!div class="nextstepaction"]
-> [Deploy and run an IoT device simulation in Azure](quickstart-device-simulation-deploy.md)
+> [Deploy and run an IoT device simulation in Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)

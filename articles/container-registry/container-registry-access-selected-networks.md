@@ -2,7 +2,7 @@
 title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 03/08/2021
 ---
 
 # Configure public IP network rules
@@ -12,6 +12,8 @@ An Azure container registry by default accepts connections over the internet fro
 IP network rules are configured on the public registry endpoint. IP network rules do not apply to private endpoints configured with [Private Link](container-registry-private-link.md)
 
 Configuring IP access rules is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
+
+Each registry supports a maximum of 100 network access rules.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 

@@ -2,7 +2,7 @@
 title: How synchronization works in Azure AD Domain Services | Microsoft Docs
 description: Learn how the synchronization process works for objects and credentials from an Azure AD tenant or on-premises Active Directory Domain Services environment to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.author: joflore
+ms.date: 03/26/2021
+ms.author: justinha
 
 ---
 # How objects and credentials are synchronized in an Azure Active Directory Domain Services managed domain
@@ -59,10 +59,11 @@ The following table illustrates how specific attributes for user objects in Azur
 |:--- |:--- |
 | accountEnabled |userAccountControl (sets or clears the ACCOUNT_DISABLED bit) |
 | city |l |
+| company |companyName |
 | country |co |
 | department |department |
 | displayName |displayName |
-| employeedId |employeeId |
+| employeeId |employeeId |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |title |

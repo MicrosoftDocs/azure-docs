@@ -299,13 +299,18 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 ### Recovering from loss of connectivity
 
-If you have a firewall or a proxy that are preventing access to Azure, you need to allow the following domain addresses in the firewall/proxy profile:
+If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 If you're using ExpressRoute Microsoft peering, select the following services/regions:
 
@@ -357,7 +362,7 @@ Use the following steps to upgrade MABS:
 ## Troubleshooting
 
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
-You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.yml)
 
 ## Next steps
 

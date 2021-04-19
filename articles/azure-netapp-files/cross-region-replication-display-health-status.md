@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/11/2021
 ms.author: b-juche
 ---
 # Display health status of replication relationship 
@@ -52,6 +52,7 @@ You can view replication status on the source volume or the destination volume.
 
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)

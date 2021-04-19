@@ -155,61 +155,61 @@ To configure Azure AD single sign-on with Kantega SSO for JIRA, perform the foll
 
 1. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
 
-	![Screenshot that shows the "Add identity provider" drop-down with "Azure Active Directory (Azure A D)" selected.](./media/kantegassoforjira-tutorial/addon4.png)
+    ![Screenshot that shows the "Add identity provider" drop-down with "Azure Active Directory (Azure A D)" selected.](./media/kantegassoforjira-tutorial/addon4.png)
 
 1. Select subscription level as **Basic**.
 
-	![Screenshot that shows the "Preparing Azure A D" section with "Basic" selected.](./media/kantegassoforjira-tutorial/addon5.png)  	 
+    ![Screenshot that shows the "Preparing Azure A D" section with "Basic" selected.](./media/kantegassoforjira-tutorial/addon5.png)
 
 1. On the **App properties** section, perform following steps: 
 
-	![Screenshot that shows the "App properties" section with the "App I D U R L" textbox and copy button highlighted, and the "Next" button selected.](./media/kantegassoforjira-tutorial/addon6.png)
+    ![Screenshot that shows the "App properties" section with the "App I D U R L" textbox and copy button highlighted, and the "Next" button selected.](./media/kantegassoforjira-tutorial/addon6.png)
 
-	a. Copy the **App ID URI** value and use it as **Identifier, Reply URL, and Sign-On URL** on the **Basic SAML Configuration** section in Azure portal.
+    1. Copy the **App ID URI** value and use it as **Identifier, Reply URL, and Sign-On URL** on the **Basic SAML Configuration** section in Azure portal.
 
-	b. Click **Next**.
+    1. Click **Next**.
 
 1. On the **Metadata import** section, perform following steps: 
 
-	![Screenshot that shows the "Metadata import" section with "Metadata file on my computer" selected.](./media/kantegassoforjira-tutorial/addon7.png)
+    ![Screenshot that shows the "Metadata import" section with "Metadata file on my computer" selected.](./media/kantegassoforjira-tutorial/addon7.png)
 
-	a. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded from Azure portal.
+    1. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded from Azure portal.
 
-	b. Click **Next**.
+    1. Click **Next**.
 
 1. On the **Name and SSO location** section, perform following steps:
 
-	![Screenshot that shows the "Name and S S O location" with the "Identity provider name" textbox highlighted, and the "Next" button selected.](./media/kantegassoforjira-tutorial/addon8.png)
+    ![Screenshot that shows the "Name and S S O location" with the "Identity provider name" textbox highlighted, and the "Next" button selected.](./media/kantegassoforjira-tutorial/addon8.png)
 
-	a. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Azure AD).
+    1. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Azure AD).
 
-	b. Click **Next**.
+    1. Click **Next**.
 
 1. Verify the Signing certificate and click **Next**.
 
-	![Screenshot that shows the "Signature verification" section with the "Next" button selected.](./media/kantegassoforjira-tutorial/addon9.png)
+    ![Screenshot that shows the "Signature verification" section with the "Next" button selected.](./media/kantegassoforjira-tutorial/addon9.png)
 
 1. On the **JIRA user accounts** section, perform following steps:
 
-	![Screenshot that shows the "JIRA user accounts" with the "Create users in JIRA's Internal Directory if needed" option highlighted and the "Next" button selected.](./media/kantegassoforjira-tutorial/addon10.png)
+    ![Screenshot that shows the "JIRA user accounts" with the "Create users in JIRA's Internal Directory if needed" option highlighted and the "Next" button selected.](./media/kantegassoforjira-tutorial/addon10.png)
 
-	a. Select **Create users in JIRA's internal Directory if needed** and enter the appropriate name of the group for users (can be multiple no. of groups separated by comma).
+    1. Select **Create users in JIRA's internal Directory if needed** and enter the appropriate name of the group for users (can be multiple no. of groups separated by comma).
 
-	b. Click **Next**.
+    1. Click **Next**.
 
 1. Click **Finish**.
 
-	![Screenshot that shows the "Summary" section with teh "Finish" button selected.](./media/kantegassoforjira-tutorial/addon11.png)
+    ![Screenshot that shows the "Summary" section with teh "Finish" button selected.](./media/kantegassoforjira-tutorial/addon11.png)
 
 1. On the **Known domains for Azure AD** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon12.png)
+    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon12.png)
 
-	a. Select **Known domains** from the left panel of the page.
+    1. Select **Known domains** from the left panel of the page.
 
-	b. Enter domain name in the **Known domains** textbox.
+    2. Enter domain name in the **Known domains** textbox.
 
-	c. Click **Save**.
+    3. Click **Save**.
 
 ### Create an Azure AD test user
 
@@ -227,13 +227,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
+    1. In the **Name** field enter **BrittaSimon**.
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    1. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
-    d. Click **Create**.
+    1. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+
+    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -241,11 +241,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Kantega SSO for JIRA**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Kantega SSO for JIRA**.
 
-	![The Kantega SSO for JIRA link in the Applications list](common/all-applications.png)
+    ![The Kantega SSO for JIRA link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -275,21 +275,21 @@ To enable Azure AD users to sign in to JIRA, they must be provisioned into JIRA.
 
 1. Under **User management** tab section, click **Create user**.
 
-	![Screenshot that shows the "User management" section with the "Create user" button selected.](./media/kantegassoforjira-tutorial/user2.png) 
+    ![Screenshot that shows the "User management" section with the "Create user" button selected.](./media/kantegassoforjira-tutorial/user2.png) 
 
 1. On the **“Create new user”** dialog page, perform the following steps:
 
-	![Add Employee](./media/kantegassoforjira-tutorial/user3.png) 
+    ![Add Employee](./media/kantegassoforjira-tutorial/user3.png) 
 
-	a. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
+    1. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
 
-	b. In the **Full Name** textbox, type full name of the user like Britta Simon.
+    2. In the **Full Name** textbox, type full name of the user like Britta Simon.
 
-	c. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
+    3. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
 
-	d. In the **Password** textbox, type the password of user.
+    4. In the **Password** textbox, type the password of user.
 
-	e. Click **Create user**.
+    5. Click **Create user**.
 
 ### Test single sign-on 
 

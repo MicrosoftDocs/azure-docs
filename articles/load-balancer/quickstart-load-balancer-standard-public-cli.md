@@ -7,7 +7,7 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 tags: azure-resource-manager
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -47,6 +47,8 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
 
 ## Configure virtual network - Standard
 
@@ -255,6 +257,8 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     --no-wait
 ```
 It may take a few minutes for the VMs to deploy.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create a public IP address - Standard
 
@@ -547,6 +551,8 @@ Add the virtual machines to the outbound pool with [az network nic ip-config add
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::m
+
 ## Configure virtual network - Basic
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
@@ -773,6 +779,8 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     --no-wait
 ```
 It may take a few minutes for the VMs to deploy.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create a public IP address - Basic
 

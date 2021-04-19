@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/27/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ---
 
@@ -16,6 +16,9 @@ Under each scenario, the deployment you create targets that selected machine or 
 * The operating system is automatically pre-selected based on the OS of the machine
 * The target machine to update is set to target itself automatically
 * When configuring the schedule, you can specify **Update now**, occurs once, or uses a recurring schedule.
+
+> [!IMPORTANT]
+> By creating an update deployment, you accept the terms of the Software License Terms (EULA) provided by the company offering updates for their operating system.
 
 ## Sign in to the Azure portal
 
@@ -54,7 +57,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
 
-6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md). You can include up to a maximum of 1000 machines in a scheduled update deployment.
+6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/logs/computer-groups.md). You can include up to a maximum of 1000 machines in a scheduled update deployment.
 
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
@@ -112,7 +115,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 To learn how to create an update deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create).
 
-You can use a sample runbook to create a weekly update deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+You can use a sample runbook to create a weekly update deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://github.com/azureautomation/create-a-weekly-update-deployment-for-one-or-more-vms-in-a-resource-group).
 
 ## Check deployment status
 
@@ -141,4 +144,5 @@ Select **Errors** to see detailed information about any errors from the deployme
 
 ## Next steps
 
-To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](configure-alerts.md).
+* To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](configure-alerts.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).

@@ -4,7 +4,7 @@ description: Troubleshooting common issues faced when you are unable to sign in 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

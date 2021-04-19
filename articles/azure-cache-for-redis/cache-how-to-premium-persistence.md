@@ -2,20 +2,19 @@
 title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
 author: yegu-ms
+
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/08/2021
 ---
-# How to configure data persistence for a Premium Azure Cache for Redis
-In this article, you will learn how to configure persistence in a premium Azure Cache for Redis instance through the Azure portal. Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. 
+# Configure data persistence for a Premium Azure Cache for Redis instance
 
-## What is data persistence?
 [Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
 
 Azure Cache for Redis offers Redis persistence using the following models:
 
-* **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Cache for Redis persists a snapshot of the Azure Cache for Redis in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
+* **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Cache for Redis persists a snapshot of the Azure Cache for Redis in a Redis binary format to disk (in an Azure Storage account) based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 * **AOF persistence** - When AOF (Append only file) persistence is configured, Azure Cache for Redis saves every write operation to a log that is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
 Persistence writes Redis data into an Azure Storage account that you own and manage. You can configure from the **New Azure Cache for Redis** blade during cache creation and on the **Resource menu** for existing premium caches.
@@ -25,6 +24,8 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 > Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
 > 
+
+## Set up data persistence
 
 1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
@@ -61,6 +62,9 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
     The first backup is initiated once the backup frequency interval elapses.
+    
+   > [!NOTE]
+   > When RDB files are backed up to storage, they are stored in the form of page blobs.
 
 9. To enable AOF persistence, click **AOF** and configure the settings. 
    
@@ -91,7 +95,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 * [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 * [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
-
+* [Will I be charged for the storage being used in Data Persistence](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 
 ### RDB persistence
 * [Can I change the RDB backup frequency after I create the cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
@@ -180,6 +184,10 @@ Data stored in AOF files is divided into multiple page blobs per node to increas
 When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 24 page blobs (8 blobs per shard, with 3 shards).
 
 After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files, while set operations that are sent to the cache during the rewrite append to the second set. A backup is temporarily stored during rewrites in case of failure, but is promptly deleted after a rewrite finishes.
+
+### Will I be charged for the storage being used in Data Persistence?
+
+Yes, you will be charged for the storage being used as per the pricing model of the storage account being used.
 
 
 ## Next steps

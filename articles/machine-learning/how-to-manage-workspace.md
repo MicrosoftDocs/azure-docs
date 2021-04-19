@@ -15,18 +15,20 @@ ms.custom: how-to, fasttrack-edit
 
 # Create and manage Azure Machine Learning workspaces 
 
-In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-ml.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
+In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-ml.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
 
 As your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](tutorial-setup-vscode-extension.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
-* If using the Python SDK, [install the SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* If using the Python SDK, [install the SDK](/python/api/overview/azure/ml/install).
 
 ## Limitations
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
 
 ## Create a workspace
 
@@ -105,7 +107,7 @@ As your needs change or requirements for automation increase you can also create
                              exist_ok=False)
    ```
 
-For more information, see [Workspace SDK reference](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
+For more information, see [Workspace SDK reference](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
@@ -151,6 +153,8 @@ If you have problems in accessing your subscription, see [Set up authentication 
  
 ---
 
+
+
 ### Networking	
 
 > [!IMPORTANT]	
@@ -159,7 +163,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 # [Python](#tab/python)
 
-The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) to create a workspace with a private endpoint. This class requires an existing virtual network.
+The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
 
 # [Portal](#tab/azure-portal)
 
@@ -364,6 +368,16 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Troubleshooting
+
+* **Supported browsers in Azure Machine Learning studio**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Safari (latest version, Mac only)
+  * Chrome (latest version)
+  * Firefox (latest version)
+
+* **Azure portal**: 
+  * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
+  * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
 
 ### Resource provider errors
 

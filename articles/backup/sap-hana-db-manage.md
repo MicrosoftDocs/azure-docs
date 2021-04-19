@@ -144,8 +144,6 @@ You can change the underlying policy for an SAP HANA backup item.
 
 >[!NOTE]
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
->
-> Incremental backup policies can't be used for SAP HANA databases. Incremental backup isn't currently supported for these databases.
 
 ### Modify Policy
 

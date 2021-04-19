@@ -19,7 +19,6 @@ You can stream logs from [Azure AD Identity Protection](../active-directory/iden
 - You must have an [Azure AD Premium P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/).
 - You must have a user with global administrator or security administrator permissions.
 
-
 ## Connect to Azure AD Identity Protection
 
 If you have an Azure AD Premium P2 subscription, Azure AD Identity Protection is included. If any [policies are enabled](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) and generating alerts, the alert data can easily be streamed into Azure Sentinel.

@@ -12,6 +12,8 @@ services: iot-edge
 
 # Properties of the IoT Edge agent and IoT Edge hub module twins
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. For more information about the responsibilities of each runtime module, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 This article provides the desired properties and reported properties of the runtime module twins. For more information on how to deploy modules on IoT Edge devices, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).

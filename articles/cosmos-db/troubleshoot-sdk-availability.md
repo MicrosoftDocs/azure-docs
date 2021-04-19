@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multir
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/20/2020
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -37,7 +37,17 @@ If you **don't set a preferred region**, the SDK client defaults to the primary 
 | Multiple write regions | Primary region  | Primary region  |
 
 > [!NOTE]
-> Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md)
+> Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md).
+> If the values specified as regional preference do not match with any existing Azure regions, they will be ignored. If they match an existing region but the account is not replicated to it, then the client will connect to the next preferred region that matches or to the primary region.
+
+> [!WARNING]
+> The failover and availability logic described in this document can be disabled on the client configuration, which is not advised unless the user application is going to handle availability errors itself. This can be achieved by:
+>
+> * Setting the [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) property in .NET V2 SDK to false.
+> * Setting the [CosmosClientOptions.LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) property in .NET V3 SDK to true.
+> * Setting the [CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) method in Java V4 SDK to false.
+> * Setting the [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK to false.
+> * Setting the [CosmosClientOptions.ConnectionPolicy.enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) parameter in JS SDK to false.
 
 Under normal circumstances, the SDK client will connect to the preferred region (if a regional preference is set) or to the primary region (if no preference is set), and the operations will be limited to that region, unless any of the below scenarios occur.
 
@@ -53,7 +63,7 @@ For a comprehensive detail on SLA guarantees during these events, see the [SLAs 
 
 ## <a id="remove-region"></a>Removing a region from the account
 
-When you remove a region from an Azure Cosmos account, any SDK client that actively uses the account will detect the region removal through a backend response code. The client then marks the regional endpoint as unavailable. The client retries the current operation and all the future operations are permanently routed to the next region in order of preference.
+When you remove a region from an Azure Cosmos account, any SDK client that actively uses the account will detect the region removal through a backend response code. The client then marks the regional endpoint as unavailable. The client retries the current operation and all the future operations are permanently routed to the next region in order of preference. In case the preference list only had one entry (or was empty) but the account has other regions available, it will route to the next region in the account list.
 
 ## Adding a region to an account
 
@@ -77,9 +87,9 @@ When using [session consistency](consistency-levels.md#guarantees-associated-wit
 
 ## Transient connectivity issues on TCP protocol
 
-In scenarios where the Azure Cosmos SDK client is configured to use the TCP protocol, for a given request, there might be situations where the network conditions are temporarily affecting the communication with a particular endpoint. These temporary network conditions can surface as TCP timeouts. The client will retry the request locally on the same endpoint for some seconds.
+In scenarios where the Azure Cosmos SDK client is configured to use the TCP protocol, for a given request, there might be situations where the network conditions are temporarily affecting the communication with a particular endpoint. These temporary network conditions can surface as TCP timeouts and Service Unavailable (HTTP 503) errors. The client will retry the request locally on the same endpoint for some seconds before surfacing the error.
 
-If the user has configured a preferred region list with more than one region and the Azure Cosmos account is multiple write regions or single write region and the operation is a read request, the client will retry that single operation in the next region from the preference list.
+If the user has configured a preferred region list with more than one region and the Azure Cosmos account is multiple write regions or single write region and the operation is a read request, the client will detect the local failure, and retry that single operation in the next region from the preference list.
 
 ## Next steps
 

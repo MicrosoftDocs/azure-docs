@@ -1,5 +1,5 @@
 ---
-title: Restore the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
+title: Import the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
 description: Restore the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
 services: azure-arc
 ms.service: azure-arc
@@ -11,7 +11,7 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Restore the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
+# Import the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
 
 [AdventureWorks](/sql/samples/adventureworks-install-configure) is a sample database containing an OLTP database used in tutorials, and examples. It's provided and maintained by Microsoft as part of the [SQL Server samples GitHub repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
@@ -19,7 +19,7 @@ An open-source project has converted the AdventureWorks database to be compatibl
 - [Original project](https://github.com/lorint/AdventureWorks-for-Postgres)
 - [Follow on project that pre-converts the CSV files to be compatible with PostgreSQL](https://github.com/NorfolkDataSci/adventure-works-postgres)
 
-This document describes a simple process to get the AdventureWorks sample database restored into your PostgreSQL Hyperscale server group.
+This document describes a simple process to get the AdventureWorks sample database imported into your PostgreSQL Hyperscale server group.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -33,16 +33,16 @@ Run a command like this to download the files replace the value of the pod name 
 >  Your container will need to have Internet connectivity over 443 to download the file from GitHub.
 
 > [!NOTE]
->  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is <server group name>-0.  If you are not sure of the pod name run the command `kubectl get pod`
+>  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is <server group name>c-0 (for example postgres01c-0, where c stands for Coordinator node).  If you are not sure of the pod name run the command `kubectl get pod`
 
 ```console
-kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 
 #Example:
-#kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+#kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 ```
 
-## Step 2: Restore the AdventureWorks database
+## Step 2: Import the AdventureWorks database
 
 Similarly, you can run a kubectl exec command to use the psql CLI tool that is included in the PostgreSQL Hyperscale server group containers to create and load the database.
 
@@ -55,7 +55,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 #kubectl exec postgres02-0 -n arc -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 ```
 
-Then, run a command like this to restore the database substituting the value of the pod name and the namespace name before you run it.
+Then, run a command like this to import the database substituting the value of the pod name and the namespace name before you run it.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql

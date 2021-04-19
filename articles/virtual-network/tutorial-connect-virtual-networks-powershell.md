@@ -6,7 +6,7 @@ documentationcenter: virtual-network
 author: KumudD
 
 tags: azure-resource-manager
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+# Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 
 ms.assetid: 
 ms.service: virtual-network
@@ -20,8 +20,6 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Connect virtual networks with virtual network peering using PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 You can connect virtual networks to each other with virtual network peering. Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. In this article, you learn how to:
 
@@ -152,6 +150,8 @@ New-AzVm `
 ```
 
 The VM takes a few minutes to create. Do not continue with later steps until Azure creates the VM and returns output to PowerShell.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Communicate between VMs
 

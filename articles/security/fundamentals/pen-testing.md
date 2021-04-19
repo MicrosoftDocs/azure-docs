@@ -4,8 +4,7 @@ description: The article provides an overview of the penetration testing process
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
@@ -14,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2020
+ms.date: 02/03/2021
 ms.author: terrylan
 ---
 
@@ -23,8 +22,6 @@ ms.author: terrylan
 One of the benefits of using Azure for application testing and deployment is that you can quickly get environments created. You don’t have to worry about requisitioning, acquiring, and “racking and stacking” your own on-premises hardware.
 
 Quickly creating environments is great – but you still need to make sure you perform your normal security due diligence. One of the things you likely want to do is penetration test the applications you deploy in Azure.
-
-You might already know that Microsoft performs [penetration testing of our Azure environment](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). This testing helps drive Azure improvements.
 
 We don’t perform penetration testing of your application for you, but we do understand that you want and need to perform testing on your own applications. That’s a good thing, because when you enhance the security of your applications you help make the entire Azure ecosystem more secure.
 
@@ -42,7 +39,7 @@ Standard tests you can perform include:
 One type of pen test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This test includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate, or simulate any type of DoS attack.
 
 >[!Note]
->Microsoft has partnered with BreakingPoint Cloud to build an interface where you can generate traffic against DDoS Protection-enabled public IP addresses for simulations. To learn more about the BreakPoint Cloud simulation, see [validate DDoS detection](../../ddos-protection/manage-ddos-protection.md#validate-and-test).
+>Microsoft has partnered with BreakingPoint Cloud to build an interface where you can generate traffic against DDoS Protection-enabled public IP addresses for simulations. To learn more about the BreakingPoint Cloud simulation, see [testing through simulations](../../ddos-protection/test-through-simulations.md).
 
 ## Next steps
 

@@ -18,8 +18,8 @@ When you enable large file shares on your storage account, your file shares can 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- If you intend to use the Azure PowerShell module, [install the latest version](/powershell/azure/install-az-ps?view=azps-4.6.0).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
+- If you intend to use the Azure PowerShell module, [install the latest version](/powershell/azure/install-az-ps).
 
 ## Restrictions
 
@@ -61,7 +61,7 @@ Enabling large file shares on an account is an irreversible process. After you e
 
 # [Azure CLI](#tab/azure-cli)
 
-First, [install the latest version of the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) so that you can enable large file shares.
+First, [install the latest version of the Azure CLI](/cli/azure/install-azure-cli) so that you can enable large file shares.
 
 To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 
@@ -72,7 +72,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # [PowerShell](#tab/azure-powershell)
 
-First, [install the latest version of PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) so that you can enable large file shares.
+First, [install the latest version of PowerShell](/powershell/azure/install-az-ps) so that you can enable large file shares.
 
 To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 

@@ -66,6 +66,10 @@ Shortly after you save the rule, it becomes live. When the conditions defined in
 > [!NOTE]
 > After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this quickstart, you learned how to:
