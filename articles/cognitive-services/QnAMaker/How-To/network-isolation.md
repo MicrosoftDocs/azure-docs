@@ -13,6 +13,8 @@ You should follow the steps below to restrict public access to QnA Maker resourc
 
 ## Restrict access to App Service (QnA Runtime)
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 You can add IPs to App service allow list to restrict access or Configure App Service Environment to host QnA Maker App Service.
 
 #### Add IPs to App Service allow list
@@ -45,6 +47,10 @@ The App Service Environment(ASE) can be used to host QnA Maker App service. Plea
 
 4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
     
+#  [Custom question answering (preview release)](#tab/v2)
+
+App service is not deployed with Custom question answering.
+
 ---
 
 ## Restrict access to Cognitive Search Resource
