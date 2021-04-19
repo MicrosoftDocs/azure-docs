@@ -56,7 +56,7 @@ To register new multiple sources in your data catalog, do the following:
 1. Go to your Azure Purview account.
 1. Select **Sources** on the left menu.
 1. Select **Register**.
-1. On **Register sources**, select **Azure (multiple)**
+1. On **Register sources**, select **Azure (multiple)**.
 
    :::image type="content" source="media/register-scan-azure-multiple-sources/register-azure-multiple.png" alt-text="Screenshot that shows the tile for Azure Multiple on the screen for registering multiple sources.":::
 1. Select **Continue**.
@@ -97,7 +97,7 @@ To create and run a new scan, do the following:
  
 1. Select **Continue** to proceed. Azure Purview tests access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) to resolve it.
 
-1. Select **Scan rule sets** for each resource type that you chose in the previous step. You can also create scan rule sets inline.
+1. Select scan rule sets for each resource type that you chose in the previous step. You can also create scan rule sets inline.
   
    :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Screenshot that shows scan rules for each resource type.":::
 
@@ -128,7 +128,8 @@ To create and run a new scan, do the following:
 ## Manage your scans: edit, delete, or cancel
 To manage a scan, do the following:
 
-1. Go to the management center. Select **Data sources** under the **Sources and scanning** section, and then select the desired data source.
+1. Go to the management center.
+1. Select **Data sources** under the **Sources and scanning** section, and then select the desired data source.
 1. Select the scan that you want to manage. Then: 
 
    - You can edit the scan by selecting **Edit**.
@@ -137,5 +138,5 @@ To manage a scan, do the following:
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)    
+- [Browse the Azure Purview data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview data catalog](how-to-search-catalog.md)    
