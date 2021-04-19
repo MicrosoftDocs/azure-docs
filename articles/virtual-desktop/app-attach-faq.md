@@ -67,6 +67,14 @@ Yes. You can restage applications you've already restaged, and this shouldn't ca
 
 Yes. You need to install the self-signed certificate on all the session host VMs where MSIX app attach is used to host the self-signed application.
 
+## What applications can I repackage to MSIX?
+
+Each application uses different features of the OS, programming languages, or frameworks. The best way to understand if your application can be repackaged is to follow the process [here](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). There is an article [here](https://aka.ms/msixrules) that covers considerations for repackaging. Additionally, certain type of applications are generally not suited for application layering hence must not be put in an MSIX:
+
+* Drivers 
+* Active-X/Silverlight
+* VPN clients
+* Anti-virus
 
 ## Next steps
 
