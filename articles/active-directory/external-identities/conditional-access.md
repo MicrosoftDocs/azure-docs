@@ -67,7 +67,10 @@ The resource tenant is always responsible for Azure AD Multi-Factor Authenticati
 6. Fabrikam must have sufficient premium Azure AD licenses that support Azure AD Multi-Factor Authentication. The user from Contoso then consumes this license from Fabrikam. See [billing model for Azure AD external identities](./external-identities-pricing.md) for information on the B2B licensing.
 
 >[!NOTE]
->Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability.
+>Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability. When the guest user signs in, they'll see the resource tenant sign-in page displayed in the background, and their own home tenant sign-in page and company logo in the foreground, as shown in the following example.
+>
+>![Sign-in page example](./media/conditional-access-b2b/resource-tenant-mfa.png)
+
 
 ### Set up Azure AD Multi-Factor Authentication for B2B users
 
