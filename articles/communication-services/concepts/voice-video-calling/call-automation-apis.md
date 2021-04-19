@@ -18,7 +18,9 @@ ms.service: azure-communication-services
 Call Automation APIs enable organizations to connect with their customers or employees at scale through automated business logic. You can use these APIs to create automated outbound reminder calls for appointments or to provide proactive notifications for events like power outages or wildfires. Applications added to a call can monitor updates as participants join or leave, allowing you to implement rich reporting and logging capabilities. 
 
 ## In-Call APIs
-> [!Note] **Note:** In-Call applications are billed as call participants at standard PSTN and VoIP rates.
+
+> [!NOTE] 
+> **Note:** In-Call applications are billed as call participants at standard PSTN and VoIP rates.
                                                         
 
 ### Create call
