@@ -64,7 +64,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 7. Use the **Update classifications** region to specify [update classifications](view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
-   :::image type="content" source="./media/deploy-updates/update-classification-example.png" alt-text="Example showing selection of specific update classifications.":::
+   :::image type="content" source="./media/deploy-updates/update-classifications-example.png" alt-text="Example showing selection of specific update classifications.":::
 
     If your deployment is meant to apply only a select set of updates, it is necessary to deselect all the pre-selected update classifications when configuring the **Include/exclude updates** option as described in the next step. This ensures only the updates you have specified to *include* in this deployment are installed on the target machines.
 
