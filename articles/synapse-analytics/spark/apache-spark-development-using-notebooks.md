@@ -35,7 +35,6 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |%load| Not supported |&#9745;|
 |%%html| Not supported |&#9745;|
 |Drag and drop to move a cell| Not supported |&#9745;|
-|Persistent Display() output|&#9745;| Not available |
 |Format text cell with toolbar buttons|&#9745;| Not available |
 |Undo cell operation| &#9745;| Not available |
 

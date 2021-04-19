@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 04/16/2021
 ms.author: duau
 ---
 
@@ -24,24 +24,33 @@ Azure Route Server is a fully managed service that allows you to easily manage r
 
 No. Azure Route Server is a service designed with high availability. If it's deployed in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md), it will have zone-level redundancy.
 
+### How many route servers can I create in a virtual network?
+
+You can create only one route server in a VNet. It must be deployed in a designated subnet called *RouteServerSubnet*.
+
+### Does Azure Route Server support VNet Peering?
+
+Yes. If you peer a VNet hosting the Azure Route Server to another VNet and you enable Use Remote Gateway on the latter VNet, Azure Route Server will learn the address spaces of that VNet and send them to all the peered NVAs. It will also program the routes from the NVAs into the routing table of the VMs in the peered VNet. 
+
+
 ### <a name = "protocol"></a>What routing protocols does Azure Route Server support?
 
 Azure Route Server supports Border Gateway Protocol (BGP) only. Your NVA needs to support multi-hop external BGP because you’ll need to deploy Azure Route Server in a dedicated subnet in your virtual network. The [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) you choose must be different from the one Azure Route Server uses when you configure the BGP on your NVA.
 
 ### Does Azure Route Server route data traffic between my NVA and my VMs?
 
-No. Azure Route Server only exchanges BGP routes with your NVA. The data traffic goes directly from the NVA to the chosen VM and directly from the VM to the NVA.
+No. Azure Route Server only exchanges BGP routes with your NVA. The data traffic goes directly from the NVA to the destination VM and directly from the VM to the NVA.
 
 ### Does Azure Route Server store customer data?
 No. Azure Route Server only exchanges BGP routes with your NVA and then propagates them to your virtual network.
 
-### If Azure Route Server receives the same route from more than one NVA, will it program all copies of the route (but each with a different next hop) to the VMs in the virtual network?
+### If Azure Route Server receives the same route from more than one NVA, how does it handle them?
 
-Yes, only if the route has the same AS path length. When the VMs send traffic to the destination of this route, the VM hosts will do Equal-Cost Multi-Path (ECMP) routing. However, if one NVA sends the route with a shorter AS path length than other NVAs. Azure Route Server will only program the route that has the next hop set to this NVA to the VMs in the virtual network.
+If the route has the same AS path length, Azure Route Server will program multiple copies of the route, each with a different next hop, to the VMs in the virtual network. When the VMs send traffic to the destination of this route, the VM hosts will do Equal-Cost Multi-Path (ECMP) routing. However, if one NVA sends the route with a shorter AS path length than other NVAs, Azure Route Server will only program the route that has the next hop set to this NVA to the VMs in the virtual network.
 
-### Does Azure Route Server support VNet Peering?
+### Does Azure Route Server preserve the BGP communities of the route it receives?
 
-Yes. If you peer a VNet hosting the Azure Route Server to another VNet and you enable Use Remote Gateway on that VNet. Azure Route Server will learn the address spaces of that VNet and send them to all the peered NVAs.
+Yes, Azure Route Server propagates the route with the BGP communities as is.
 
 ### What Autonomous System Numbers (ASNs) can I use?
 
