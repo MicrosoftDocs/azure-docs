@@ -10001,6 +10001,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/management/move-region.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-migrate-account-subscription.md",
       "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false
@@ -10038,6 +10043,11 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/region-move-support.md",
       "redirect_url": "/azure/azure-resource-manager/management/region-move-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/region-move-support.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-support-resources",
       "redirect_document_id": false
     },
     {
@@ -10093,6 +10103,11 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/troubleshoot-move.md",
       "redirect_url": "/azure/azure-resource-manager/management/troubleshoot-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/troubleshoot-move.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false
     },
     {

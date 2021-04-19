@@ -9,7 +9,7 @@ ms.date: 02/14/2021
 ---
 # How to update alert rules or action rules when their target resource moves to a different Azure region
 
-This article describes why existing [alert rules](./alerts-overview.md) and [action rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-region.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
+This article describes why existing [alert rules](./alerts-overview.md) and [action rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-resources-overview.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
 
 ## Why the problem exists
 
@@ -62,7 +62,7 @@ If **only some** of the resources in the scope have moved, you need to remove th
 - **For alert rules** -
 Navigate to Alerts > Manage alert rules > filter by the containing subscription and the moved resource.
 > [!NOTE]
-> Activity Log alert rules do not support this process. It’s not possible to update the scope of an activity log alert rule and have it point to a resource in another subscription. Instead you can create a new rule that will replace the old one.
+> Activity Log alert rules do not support this process. It's not possible to update the scope of an activity log alert rule and have it point to a resource in another subscription. Instead you can create a new rule that will replace the old one.
 
 - **For action rules** - 
 Navigate to Alerts > Manage actions > Action rules (preview) > filter by the containing subscription and the moved resource.
@@ -78,7 +78,7 @@ Navigate to Alerts > Manage actions > Action rules (preview) > filter by the con
 
 ### Change the scope of a rule using Azure Resource Manager templates
 
-1. Obtain the Azure Resource Manager template of the rule. 	To export the template of a rule from the Azure portal:
+1. Obtain the Azure Resource Manager template of the rule.   To export the template of a rule from the Azure portal:
    1. Navigate to the Resource Groups section in the portal and open the resource group containing the rule.
    2. In the Overview section, check the **Show hidden type** checkbox, and filter by the relevant type of the rule.
    3. Select the relevant rule to view its details.
@@ -100,9 +100,9 @@ Navigate to Alerts > Manage actions > Action rules (preview) > filter by the con
 
 ### Change the scope of a rule using Azure CLI
 
-1.	Get the existing rule ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [activity log alerts](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.	Update the rule scope directly ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [activity log alerts](/cli/azure/monitor/activity-log/alert/scope))
-3.	If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
+1.  Get the existing rule ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [activity log alerts](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+2.  Update the rule scope directly ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [activity log alerts](/cli/azure/monitor/activity-log/alert/scope))
+3.  If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
 
 ## Next steps
 
