@@ -411,7 +411,7 @@ az resource delete \
 * **Template deployment failures or errors**
   * If a pipeline run fails, look at the `pipelineRunErrorMessage` property of the run resource.
   * For common template deployment errors, see [Troubleshoot ARM template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
-* **Problems accessing storage**<a name = "problems-accessing-storage"></a>
+* **Problems accessing storage**<a name="problems-accessing-storage"></a>
   * If you see a `403 Forbidden` error from storage, you likely have a problem with your SAS token.
   * The SAS token might not currently be valid. The SAS token might be expired or the storage account keys might have changed since the SAS token was created. Verify that the SAS token is valid by attempting to use the SAS token to authenticate for access to the storage account container. For example, put an existing blob endpoint followed by the SAS token in the address bar of a new Microsoft Edge InPrivate window or upload a blob to the container with the SAS token by using `az storage blob upload`.
   * The SAS token might not have sufficient Allowed Resource Types. Verify that the SAS token has been given permissions to Service, Container, and Object under Allowed Resource Types (`srt=sco` in the SAS token).
