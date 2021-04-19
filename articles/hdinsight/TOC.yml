@@ -176,8 +176,6 @@
         href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
       - name: Best practices - security and DevOps
         href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
-      - name: HDInsight cluster migration
-        href: ./log-analytics-migration.md
     - name: Manage
       items:
       - name: Manage clusters using the Apache Ambari web UI
@@ -262,6 +260,8 @@
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
+      - name: Azure Monitor table updates
+        href: ./log-analytics-migration.md
     - name: Troubleshoot
       items:
       - name: Request increase for CPU core quota
