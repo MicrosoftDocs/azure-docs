@@ -31,7 +31,7 @@ Start looking for machine powered insights about one week after enabling UEBA.
 
 We recommend running regular, proactive searches through user activity to create leads for further investigation.
 
-YOu can use the Azure Sentinel [User and Entity Behavior Analytics workbook](#hunting-queries-and-exploration-queries) to query your data, such as for:
+You can use the Azure Sentinel [User and Entity Behavior Analytics workbook](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries) to query your data, such as for:
 
 - **Top risky users**, with anomalies or attached incidents
 - **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile.
@@ -72,7 +72,7 @@ For example, for an **Impossible travel** incident, after confirming with the us
 1. On the **Investigation** page, select the user entity in the map, and then:
 
     - Select **Insights** on the right to learn more about the user activity related to the incident. 
-    - Select **Info** on the right > **View full details** to jump to the [user entity page](#entity-pages). Use the data displayed there to whether the locations captured are included in the user's commonly known locations. <!--unclear where to find this?-->
+    - Select **Info** on the right > **View full details** to jump to the [user entity page](identify-threats-with-entity-behavior-analytics.md#entity-pages). Use the data displayed there to whether the locations captured are included in the user's commonly known locations. <!--unclear where to find this?-->
 
 1. Jump to the Azure Sentinel **Hunting** area, and search for the **Anomalous Geo Location Logon** query. [Run the query](hunting.md) to determine whether the user's peers usually connect from the same locations as well, which would make an even stronger case for a false positive. <!--unclear how to do this?-->
 
@@ -90,7 +90,7 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 
 1. Select the administrative user entity in the map, and then select **Insights** on the right to find more details, such as the graph of sign-ins over time.
 
-1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](#entity-pages) to drill down further. 
+1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](identify-threats-with-entity-behavior-analytics.md#entity-pages) to drill down further. 
 
     For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign in history to understand whether the failures were anomalous.
 
