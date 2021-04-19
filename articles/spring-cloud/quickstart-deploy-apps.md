@@ -313,7 +313,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
     ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### Deploy api-gateway app to Azure Spring Cloud
-In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
@@ -348,18 +348,18 @@ Repeat the steps above to deploy `customers-service` and other Pet Clinic apps t
     * vets-service
     * visits-service
 
-Navigate to the URL provided in the output the previous steps to access the PiggyMetrics application. For example: `https://<service instance name>-gateway.azuremicroservices.io`
+Navigate to the URL provided in the output the previous steps to access the Pet Clinic application. For example: `https://<service name>-api-gateway.azuremicroservices.io.`
 
-![Access PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 
 You can also navigate the Azure portal to find the URL. 
 1. Navigate to the service
 2. Select **Apps**
-3. Select **gateway**
+3. Select **api-gateway**
 
     ![Navigate app](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
-4. Find the URL on the **gateway | Overview** page
+4. Find the URL on the **api-gateway | Overview** page
 
     ![Navigate app second](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
