@@ -4,7 +4,7 @@ description: Learn about the changes to the Azure Monitor integration and best-p
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date:04/19/2020
+ms.date: 04/19/2021
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
