@@ -30,7 +30,7 @@ These prerequisites and configurations must be in place to automate the deployme
 - [Grant any users who will check in code "Basic" access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page), so they can see the repo.
 - Grant Owner Rights to the Azure Synapse repo.
 - Make sure you have created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent.
-- Permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+- Permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml).
 - An Azure Active Directory (Azure AD) administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
 
@@ -43,7 +43,7 @@ These prerequisites and configurations must be in place to automate the deployme
 
 > [!NOTE] You can automate and deploy these prerequisites by using the same pipeline, an ARM template, or the Azure CLI, but the process isn't described in this article.
 
-- The "source" workspace that's used for development must be configured with a Git repository in Synapse Studio. For more information, see [Source control in Synapse Studio](source-control#:~:text=Go%20to%20the%20Manage%20hub,no%20repository%20connected%2C%20click%20Configure.&text=You%20can%20connect%20either%20Azure,git%20repository%20in%20your%20workspace)
+- The "source" workspace that's used for development must be configured with a Git repository in Synapse Studio. For more information, see [Source control in Synapse Studio](source-control#:~:text=Go%20to%20the%20Manage%20hub,no%20repository%20connected%2C%20click%20Configure.&text=You%20can%20connect%20either%20Azure,git%20repository%20in%20your%20workspace).
 
 - A blank workspace to deploy to. To set up the blank workspace:
 
@@ -99,7 +99,7 @@ For more information, see [CI CD in Azure Synapse Analytics Part 4 - The Release
 
 ## Set up a stage task for an ARM template to create and update resource 
 
-If you have ARM template to deploy a resource, like an Azure Synapse workspace, Spark and SQL pools, or a key vault, add an Azure Resource Manager Deployment task to create or update those resources:
+If you have an ARM template to deploy a resource, like an Azure Synapse workspace, Spark and SQL pools, or a key vault, add an Azure Resource Manager Deployment task to create or update those resources:
 
 1. In the stage view, select **View stage tasks**.
 
