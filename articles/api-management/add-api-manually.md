@@ -103,7 +103,7 @@ Test the operation in the Azure portal.  Alternatively, you can test it in the *
 1. Select the **Test** tab.
 2. Select **WildcardGet**. Try one or more of the GET operations that you tested in previous sections, or try a different supported GET operation. 
 
-    For example, in **Template parameters**,  update the value next to the wildcard (*) name to `headers`. The operation returns the incoming request's HTTP headers.
+    For example, in **Template parameters**, update the value next to the wildcard (*) name to `headers`. The operation returns the incoming request's HTTP headers.
 1. Press **Send**.
 
     The response that the "http://httpbin.org/headers" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).

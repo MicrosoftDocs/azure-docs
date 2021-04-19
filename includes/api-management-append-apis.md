@@ -10,7 +10,7 @@ ms.author: vlvinogr
 You can compose an API of APIs exposed by different services, including:
 * The OpenAPI Specification
 * A SOAP API
-* The Web App hosted in Azure App Service
+* A Web App hosted in Azure App Service
 * Azure Function App
 * Azure Logic Apps
 * Azure Service Fabric
