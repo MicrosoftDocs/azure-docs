@@ -95,7 +95,7 @@ In the application's **Main** method, create variables for your resource's key a
 >
 > You can find the prediction resource ID value on the resource's **Properties** tab, listed as **Subscription ID**.
 > 
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
 
 In the application's **Main** method, add calls for the methods used in this quickstart. You will implement these later.
 
