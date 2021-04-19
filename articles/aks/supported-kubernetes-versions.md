@@ -103,6 +103,7 @@ You can reference upcoming version releases and deprecations on the [AKS Kuberne
 
 For new **minor** versions of Kubernetes:
   * AKS publishes a pre-announcement with the planned date of a new version release and respective old version deprecation on the [AKS Release notes](https://aka.ms/aks/releasenotes) at least 30 days prior to removal.
+  * AKS uses [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) to alert users if a new version will cause issues in their cluster because of deprecated APIs. Azure Advisor is also used to alert the user if they are currently out of support.
   * AKS publishes a [service health notification](../service-health/service-health-overview.md) available to all users with AKS and portal access, and sends an email to the subscription administrators with the planned version removal dates.
 
     ````
@@ -138,16 +139,18 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
-| 1.21  | Apr-08-21* | May 2021   | Jun 2021  | 1.24 GA |
+| 1.21  | Apr-08-21 | May 2021   | Jun 2021  | 1.24 GA |
 
-\* The Kubernetes 1.21 Upstream release is subject to change as the Upstream calender as yet to be finalized.
 
 
 ## FAQ
+
+**How does Microsoft notify me of new Kubernetes versions?**
+
+The AKS team publishes pre-announcements with planned dates of the new Kubernetes versions in our documentation, our [GitHub](https://github.com/Azure/AKS/releases) as well as emails to subscription administrators who own clusters that are going to fall out of support.  In addition to announcements, AKS also uses [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) to notify the customer inside the Azure Portal to alert users if they are out of support, as well as alerting them of deprecated APIs that will affect their application or development process. 
 
 **How often should I expect to upgrade Kubernetes versions to stay in support?**
 
