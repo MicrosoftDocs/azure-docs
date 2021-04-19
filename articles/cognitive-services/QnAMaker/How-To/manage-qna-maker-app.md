@@ -29,7 +29,7 @@ The following steps use the collaborator role but any of the roles can be added 
 1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your QnA Maker resource.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.png)
-    
+
 1. Go to the **Access Control (IAM)** tab.
 
     ![QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.png)
