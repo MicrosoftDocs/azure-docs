@@ -308,12 +308,12 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 
 1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
 
-1. Select `pet-clinic` folder.
+1. Select `spring-petclinic-microservices` folder.
 
     ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### Deploy api-gateway app to Azure Spring Cloud
-In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
@@ -325,7 +325,7 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](./spring-cloud-quickstart-provision-service-instance.md).
 1. Set **Public Endpoint** to *Enable*.
 1. In the **App:** textbox, select **Create app...**.
-1. Enter *gateway*, then click **OK**.
+1. Enter *api-gateway*, then click **OK**.
 
     ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
