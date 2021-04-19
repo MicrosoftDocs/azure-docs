@@ -3,10 +3,9 @@ title: Azure Large Instances high availability for SAP on RHEL
 description: Learn how to automate an SAP HANA database failover using a Pacemaker cluster in Red Hat Enterprise Linux.
 author: jaawasth
 ms.author: jaawasth
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 04/19/2021
 ---
 
 # Azure Large Instances high availability for SAP on RHEL
@@ -43,10 +42,10 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 2. 	Create and exchange the SSH keys.
     1. Generate ssh keys.
 
-	   ```
+	```
 	   [root@sollabdsm35 ~]# ssh-keygen -t rsa -b 1024
 	   [root@sollabdsm36 ~]# ssh-keygen -t rsa -b 1024
-       ```
+	```
     2. Copy keys to the other hosts for passwordless ssh.
     
        ```
@@ -1050,10 +1049,10 @@ Ensure you have met the following prerequisites:
 	   pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1    interleave=true
 	   ```
 
-		| Attribute Name | Description                                                                       |
-		|----------------|-----------------------------------------------------------------------------------|
-		| SID            | SAP System Identifier (SID) of SAP HANA installation. Must be the same for all nodes. |
-		| InstanceNumber | 2-digit SAP Instance identifier.                                                  |
+	| Attribute Name | Description  |
+	|---|---|
+    | SID | SAP System Identifier (SID) of SAP HANA installation. Must be the same for all nodes. |
+	| InstanceNumber | 2-digit SAP Instance Idntifier.|
 
 	* Resource status
 	   ```
