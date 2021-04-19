@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 This document contains reference information on the **FROM clause** for the [Azure Digital Twins query language](concepts-query-language.md).
 
-The FROM clause is the second part of a query. It specifies the connection and any joins that the query will act on.
+The FROM clause is the second part of a query. It specifies the collection and any joins that the query will act on.
 
 This clause is required for all queries.
 

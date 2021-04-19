@@ -33,7 +33,7 @@ The query must then use the `WHERE` clause to specify which specific twin or twi
 ```sql
 --SELECT ...
 FROM DIGITALTWINS <twin-collection-name>
-JOIN <target-twin-collection-name> RELATED <twin-collection-name>.<relationship-type> <OPTIONAL: relationship-collection-name>
+JOIN <target-twin-collection-name> RELATED <twin-collection-name>.<relationship-name> <OPTIONAL: relationship-collection-name>
 WHERE <twin-collection-name-OR-target-twin-collection-name>.$dtId = '<twin-id>'
 ```
 
