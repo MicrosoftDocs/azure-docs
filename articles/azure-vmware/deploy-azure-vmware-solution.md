@@ -18,23 +18,17 @@ In this article, you'll use the information from the [planning section](producti
 
 [!INCLUDE [create-private-cloud-azure-portal-steps](includes/create-private-cloud-azure-portal-steps.md)]
 
-Follow the prerequisites and steps in the [Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md) tutorial. You can create an Azure VMware Solution private cloud by using the [Azure portal](tutorial-create-private-cloud.md#azure-portal) or by using the [Azure CLI](tutorial-create-private-cloud.md#azure-cli).  
-
 >[!NOTE]
 >For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
 
-## Create the jump box
 
->[!IMPORTANT]
->If you left the **Virtual Network** option blank during the initial provisioning step on the **Create a Private Cloud** screen, complete the [Configure networking for your VMware private cloud](tutorial-configure-networking.md) tutorial **before** you proceed with this section.  
+## Connect Azure VMware Solution to Azure Virtual Network with ExpressRoute
 
-After you deploy Azure VMware Solution, you'll create the virtual network's jump box that connects to vCenter and NSX. Once you've configured ExpressRoute circuits and ExpressRoute Global Reach, the jump box isn't needed.  But it's handy to reach vCenter and NSX in your Azure VMware Solution.  
 
-:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution), follow these instructions: 
 
-[!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
+
+-------------------------------------------
 
 ## Connect to a virtual network with ExpressRoute
 

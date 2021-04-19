@@ -81,36 +81,14 @@ This network segment is used primarily for testing purposes during the initial d
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false":::     
 
-## Attach Azure Virtual Network to Azure VMware Solution
+## Attach Azure VMware Solution to an Azure Virtual Network
 
-To provide connectivity to Azure VMware Solution, an ExpressRoute is built from Azure VMware Solution private cloud to an ExpressRoute virtual network gateway.
+To provide connectivity to Azure VMware Solution, an ExpressRoute connects from the private cloud to an Azure Virtual Network  gateway.  
 
-You can use an *existing* OR *new* ExpressRoute virtual network gateway.
+Define whether you want to use an *existing* OR *new* ExpressRoute virtual network gateway.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identity - Azure Virtual Network to attach Azure VMware Solution" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution" border="false":::
 
-### Use an existing ExpressRoute virtual network gateway
-
-If you plan to use an *existing* ExpressRoute virtual network gateway, the Azure VMware Solution ExpressRoute circuit is established as a post-deployment step. In this case, leave the **Virtual Network** field blank.
-
-As a general recommendation, it's acceptable to use an existing ExpressRoute virtual network gateway. For planning purposes, make note of which ExpressRoute virtual network gateway you'll use and then continue to the [next step](#vmware-hcx-network-segments).
-
-### Create a new ExpressRoute virtual network gateway
-
-When you create a *new* ExpressRoute virtual network gateway, you can use an existing Azure Virtual Network or create a new one.  
-
-- For an existing Azure Virtual network:
-   1. Identify an Azure Virtual network where there are no pre-existing ExpressRoute virtual network gateways.
-   2. Prior to deployment, create a [GatewaySubnet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet) in the Azure Virtual Network.
-
-- For a new Azure Virtual Network and virtual network gateway you will create that during the deployment by selecting the **Create new** link under the **Virtual Network** list.  It's important to define the address space and subnets in advance of the deployment, so you're ready to enter that information when you complete the deployment steps.
-
-The following image shows the **Create a private cloud** deployment screen with the **Virtual Network** field highlighted.
-
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot of the Azure VMware Solution deployment screen with Virtual Network field highlighted.":::
-
-> [!NOTE]
-> Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
 ## VMware HCX network segments
 
@@ -118,9 +96,9 @@ VMware HCX is a technology that's bundled with Azure VMware Solution. The primar
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
-## (Optional) Extend your networks
+## Extend your networks
 
-You can extend network segments from on-premises to Azure VMware Solution. If you do extend network segments, identify those networks now.  
+Optionally, you can extend network segments from on-premises to Azure VMware Solution. If you do extend network segments, identify those networks now.  
 
 Here are some factors to consider:
 
