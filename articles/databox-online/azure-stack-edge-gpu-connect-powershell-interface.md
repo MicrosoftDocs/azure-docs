@@ -78,7 +78,7 @@ Use the `Add-HcsNetRoute` cmdlet to enable compute on a private network. This cm
 IP routing is the process of forwarding a packet based on the destination IP address. For the Kubernetes VMs on your device, you can route the traffic by adding a new route configuration.  
 
 A route configuration is a routing table entry that includes the following fields:
-|Column1  |Column2  |
+| Parameter | Description  |
 |---------|---------|
 |Destination     | Either an IP address or an IP address prefix.         |
 |Prefix length     | The prefix length corresponding to the address or range of addresses in the destination.        |
