@@ -3,7 +3,7 @@ title: "Quickstart: New policy assignment with Python"
 description: In this quickstart, you use Python to create an Azure Policy assignment to identify non-compliant resources.
 ms.date: 03/02/2021
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Python
 

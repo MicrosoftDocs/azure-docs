@@ -92,7 +92,7 @@ The following figure highlights the geofence area in blue. The rental car's rout
 
 ## Create an Azure storage account
 
-To store car violation tracking data, create a [general-purpose v2 storage account](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) in your resource group. If you haven't created a resource group, follow the directions in [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). In this tutorial, you'll name your resource group *ContosoRental*.
+To store car violation tracking data, create a [general-purpose v2 storage account](../storage/common/storage-account-overview.md) in your resource group. If you haven't created a resource group, follow the directions in [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). In this tutorial, you'll name your resource group *ContosoRental*.
 
 To create a storage account, follow the instructions in [create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal). In this tutorial, name the storage account *contosorentalstorage*, but in general you can name it anything you like.
 

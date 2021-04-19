@@ -30,7 +30,7 @@ This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concepts/face-detection.md) provide in-depth explanations of the service's functionality and features.
-* The [tutorials](./Tutorials/FaceAPIinCSharpTutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
+* The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Face detection
 
@@ -45,7 +45,7 @@ For more information on face detection, see the [Face detection](concepts/face-d
 
 ## Face verification
 
-The Verify API builds on Detection and addresses the question, "Are these two images the same person?". Verification is also called "one-to-one" matching because the probe image is compared to only one enrolled template. Verification can be used in identity verification or access control scenarios to verify a picture matches a previously captured image (such as from a photo from a government-issued ID card). For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
+The Verify API builds on Detection and addresses the question, "Are these two images the same person?". Verification is also called "one-to-one" matching because the probe image is compared to only one enrolled template. Verification can be used in identity verification or access control scenarios to verify a picture matches a previously captured image (such as from a photo from a government issued ID card). For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
 
 ## Face identification
 
