@@ -139,6 +139,8 @@ az spring-cloud app-insights update --disable â€“name "assignedName" â€�
 
 The java agent will be updated/upgraded regularly with JDK, the updating/upgrading may impact below scenarios.
 
+> Note: The version of JDK will be updated/upgraded quarterly per year.
+
 * Your existed applications with the java agent before updating/upgrading will be unchanged.
 * Your new created applications after updating/upgrading will leverage the new version of the java agent.
 * Your existed applications need to restart or redeploy to leverage the new version of the java agent.
