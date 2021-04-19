@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure File Sync documentation # < 60 chars
-summary: Azure File Sync extends your on-premises Windows Server or cloud virtual machine by enabling you to sync file shares to Azure. # < 160 chars
+summary: Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. # < 160 chars
 
 metadata:
   title: Azure File Sync documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
