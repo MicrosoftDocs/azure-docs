@@ -45,7 +45,7 @@ All images in the Azure Marketplace must be reusable in a generic fashion. To ac
 ## Bring your image into Azure
 
 > [!NOTE]
-> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have an Owner access to the SIG.
+> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing SIG.
 
 There are three ways to bring your image into Azure:
 
