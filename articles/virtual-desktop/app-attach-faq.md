@@ -69,7 +69,9 @@ Yes. You need to install the self-signed certificate on all the session host VMs
 
 ## What applications can I repackage to MSIX?
 
-Each application uses different features of the OS, programming languages, or frameworks. The best way to understand if your application can be repackaged is to follow the process [here](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). There is an article [here](https://aka.ms/msixrules) that covers considerations for repackaging. Additionally, certain type of applications are generally not suited for application layering hence must not be put in an MSIX:
+Each application uses different features of the OS, programming languages, and frameworks. To repackage your application, follow the directions in [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). You can find a list of the things you need in order to repackage an application at [Prepare to package a desktop application](/windows/msix/desktop/desktop-to-uwp-prepare). 
+
+Certain applications can't be application layered, which means they can't be repackaged into an MSIX file. Here's a list of the applications that can't be repackaged:
 
 * Drivers 
 * Active-X/Silverlight
