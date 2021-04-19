@@ -114,8 +114,6 @@
     href: reference-reports-data-retention.md
   - name: Reporting latencies
     href: reference-reports-latencies.md
-  - name: Sign-in error codes
-    href: reference-sign-ins-error-codes.md
   - name: Frequently asked questions
     href: reports-faq.md
   - name: Audit log schema
