@@ -95,7 +95,7 @@ To create and run a new scan, do the following:
     - If you leave the option as **All**, then future resources of that type will also be scanned in future scan runs.
     - If you select specific storage accounts or SQL databases, then future resources of that type created within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future.
  
-1. Select **Continue** to proceed. Azure Purview tests access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If an you get an error message, follow [these instructions](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) to resolve it.
+1. Select **Continue** to proceed. Azure Purview tests access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) to resolve it.
 
 1. Select **Scan rule sets** for each resource type that you chose in the previous step. You can also create scan rule sets inline.
   
@@ -113,7 +113,7 @@ To create and run a new scan, do the following:
 
 1. View scan run details by going to the **Scan details** page.
    
-    The *status bar* is a brief summary of the running status of the child resources. It's displayed on the subscription level or resource group level. The colors have the following meanigs:
+    The *status bar* is a brief summary of the running status of the child resources. It's displayed on the subscription level or resource group level. The colors have the following meanings:
     
     - Green: The scan was successful.
     - Red: The scan failed. 
