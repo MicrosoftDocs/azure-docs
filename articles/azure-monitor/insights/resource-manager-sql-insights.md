@@ -15,16 +15,16 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 
 ## Create a SQL insights monitoring profile
-The following sample creates a SQL insights monitoring profile, which includes the SQl monitoring data to collect, frequency of data collection, and specifies the workspace the data will be sent to.
+The following sample creates a SQL insights monitoring profile, which includes the SQL monitoring data to collect, frequency of data collection, and specifies the workspace the data will be sent to.
 
 
 ### Template file
 
-View the [template file on github](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Create%20new%20profile/CreateNewProfile.armtemplate).
+View the [template file on git hub](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Create%20new%20profile/CreateNewProfile.armtemplate).
 
 ### Parameter file
 
-View the [parameter file on github](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Create%20new%20profile/CreateNewProfile.parameters.json).
+View the [parameter file on git hub](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Create%20new%20profile/CreateNewProfile.parameters.json).
 
 
 ## Add a monitoring VM to a SQL insights monitoring profile
@@ -35,11 +35,11 @@ The following sample configures a monitoring VM to collect the data from hte spe
 
 ### Template file
 
-View the [template file on github](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Add%20monitoring%20virtual%20machine/AddMonitoringVirtualMachine.armtemplate).
+View the [template file on git hub](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Add%20monitoring%20virtual%20machine/AddMonitoringVirtualMachine.armtemplate).
 
 ### Parameter file
 
-View the [parameter file on github](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Add%20monitoring%20virtual%20machine/AddMonitoringVirtualMachine.parameters.json).
+View the [parameter file on git hub](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/Add%20monitoring%20virtual%20machine/AddMonitoringVirtualMachine.parameters.json).
 
 
 ## Create an alert rule for SQL insights
@@ -50,11 +50,11 @@ The parameter file has values from one of the alert templates we provide in SQL 
 
 #### Template file
 
-View the [template file on github](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/Alerts/log-metric-noag.armtemplate).
+View the [template file on git hub](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/Alerts/log-metric-noag.armtemplate).
 
 ### Parameter file
 
-View the [parameter file on github](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/Alerts/sql-cpu-utilization-percent.parameters.json).
+View the [parameter file on git hub](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/Alerts/sql-cpu-utilization-percent.parameters.json).
 
 
 
