@@ -112,7 +112,7 @@ However, if you'd prefer to opt out of the feature and allow it to be automatica
 
 ## Note for Azure US Government customers
 
-The email one-time passcode feature is disabled by default in the Azure US Government cloud.  
+The email one-time passcode feature is disabled by default in the Azure US Government cloud. Your partners will be unable to sign in unless this feature is enabled. Unlike the Azure public cloud, the Azure US Government cloud doesn't support redeeming invitations with self-service Azure Active Directory accounts.
 
  ![Email one-time passcode disabled](media/one-time-passcode/enable-email-otp-disabled.png)
 
@@ -120,7 +120,7 @@ To enable the email one-time passcode feature in Azure US Government cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Select **Organizational relationships** > **Settings**.
+3. Select **Organizational relationships** > **All identity providers**.
 
    > [!NOTE]
    > - If you don't see **Organizational relationships**, search for "External Identities” in the search bar at the top.

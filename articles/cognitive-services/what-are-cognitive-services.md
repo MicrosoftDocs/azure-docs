@@ -38,7 +38,7 @@ The following sections in this article provides a list of services that are part
 |[Custom Vision Service](./custom-vision-service/index.yml "Custom Vision Service")|The Custom Vision Service lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels to images, based on their visual characteristics. |
 |[Face](./face/index.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. See [Face quickstart](./face/quickstarts/client-libraries.md) to get started with the service.|
 |[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer identifies and extracts key-value pairs and table data from form documents; then outputs structured data including the relationships in the original file. See [Form Recognizer quickstart](./form-recognizer/quickstarts/client-library.md) to get started.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer enables you to extract insights from your video. See [Video Indexer quickstart](/media-services/video-indexer/video-indexer-get-started.md) to get started.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer enables you to extract insights from your video. See [Video Indexer quickstart](/azure/media-services/video-indexer/video-indexer-get-started) to get started.|
 
 ## Speech APIs
 

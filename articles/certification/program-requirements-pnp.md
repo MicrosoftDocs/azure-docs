@@ -46,7 +46,7 @@ Promise of IoT Plug and Play certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | Device must implement easy transfer of DPS ID Scope ownership without needing to recompile the embedded code. Microsoft provides the [portal workflow](https://certify.azure.com) to execute the tests to validate that the device supports DPS **1.** User must select one of the attestation methods (X.509, TPM and SAS key) **2.** Depending on the attestation method, user needs to take corresponding action such as **a)** Upload X.509 cert to AICS managed DPS scope **b)** Implement SAS key or endorsement key into the device |
-| **Resources**           | **a)** [Device provisioning service overview](../iot-dps/about-iot-dps.md), **b)** [Sample config file for DPS ID Scope transfer](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/digitaltwin_client/samples/digitaltwin_sample_ll_device/sample_config) |
+| **Resources**           | **a)** [Device provisioning service overview](../iot-dps/about-iot-dps.md), **b)** [Sample config file for DPS ID Scope transfer](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |
 
 **[Required] DTDL v2:  The purpose of test to ensure defined device models and interfaces are compliant with the Digital Twins Definition Language v2.**                                                              
 
@@ -90,7 +90,7 @@ Promise of IoT Plug and Play certification are:
 | **Applies To**          | Any device                                                   |
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
-| **Validation**          | [Portal workflow](https://certify.azure.com) validates the device code implements [device info interface](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-previewureiot:DeviceManagement:DeviceInformation:1) **1.** Checks the values are emitted by the device code to IoT Hub **2.** Checks the interface is implemented in the DCM (this implementation will change in DTDL v2) **3.** Checks properties are not write-able (read only) **4.** Checks the schema type is string and/or long and not null |
+| **Validation**          | [Portal workflow](https://certify.azure.com) validates the device code implements device info interface **1.** Checks the values are emitted by the device code to IoT Hub **2.** Checks the interface is implemented in the DCM (this implementation will change in DTDL v2) **3.** Checks properties are not write-able (read only) **4.** Checks the schema type is string and/or long and not null |
 | **Resources**           | [Microsoft defined interface](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
 | **Azure Recommended**  | N/A                                                          |
 

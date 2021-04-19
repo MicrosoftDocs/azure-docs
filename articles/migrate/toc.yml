@@ -130,6 +130,8 @@
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
+  - name: Use Azure Migrate with private link
+    href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Prepare to work with ISV tools/Movere
     href: prepare-isv-movere.md
   - name: Discover
