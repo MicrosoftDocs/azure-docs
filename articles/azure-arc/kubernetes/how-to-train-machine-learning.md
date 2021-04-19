@@ -51,7 +51,7 @@ az k8s-extension show --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --cluste
 
 ```bash
 az k8s-extension delete --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --cluster-type connectedclusters -n azureml-kubernetes-connector
-
+```
 
 
 ## Next steps
