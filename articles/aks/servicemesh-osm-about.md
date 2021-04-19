@@ -1,10 +1,10 @@
----
+﻿---
 title: Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
 ---
@@ -2145,7 +2145,7 @@ On the **Configure your Prometheus data source below** page, enter the Kubernete
 
 OSM Dashboards are available both through:
 
-- [Our repository](/charts/osm/grafana), and are importable as json blobs through the web admin portal
+- [Our repository](https://github.com/grafana/grafana), and are importable as json blobs through the web admin portal
 - or [online at Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
 To import a dashboard, look for the `+` sign on the left menu and select `import`.
