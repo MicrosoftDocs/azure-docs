@@ -2,12 +2,9 @@
 title: Use Apache Kafka on HDInsight with Azure IoT Hub 
 description: Learn how to use Apache Kafka on HDInsight with Azure IoT Hub. The Kafka Connect Azure IoT Hub project provides a source and sink connector for Kafka. The source connector can read data from IoT Hub, and the sink connector writes to IoT Hub.
 #Customer intent: As a developer, I need to use the Kafka IoT Hub connector with Kafka on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ---
 
@@ -21,7 +18,7 @@ When pulling from the IoT Hub, you use a __source__ connector. When pushing to I
 
 The following diagram shows the data flow between Azure IoT Hub and Kafka on HDInsight when using the connector.
 
-![Image showing data flowing from IoT Hub to Kafka through the connector](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="Image showing data flowing from IoT Hub to Kafka through the connector" border="false":::
 
 For more information on the Connect API, see [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 

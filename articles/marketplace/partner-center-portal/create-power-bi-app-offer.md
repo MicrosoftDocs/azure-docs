@@ -13,7 +13,7 @@ ms.date: 07/22/2020
 
 This article describes how to create and publish a Power BI app offer to [Microsoft AppSource](https://appsource.microsoft.com/).
 
-Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before starting, [Create a Commercial Marketplace account in Partner Center](../create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -104,9 +104,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 #### Terms and conditions
 
-To provide your own custom terms and conditions, enter up to 10,000 characters in the **Terms and conditions** box. If your terms and conditions require a longer description, enter a single web link to where they can be found. It will display to customers as an active link.
-
-Customers must accept these terms before they can try your offer.
+To provide your own custom terms and conditions, enter up to 10,000 characters in the **Terms and conditions** box. Customers must accept these terms before they can try your offer.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 

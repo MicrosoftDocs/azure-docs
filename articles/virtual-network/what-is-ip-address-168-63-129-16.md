@@ -34,7 +34,7 @@ IP address 168.63.129.16 is a virtual public IP address that is used to facilita
 
 ## Scope of IP address 168.63.129.16
 
-The public IP address 168.63.129.16 is used in all regions and all national clouds. This special public IP address is owned by Microsoft and will not change. We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in a variety of scenarios. 168.63.129.16 is a [virtual IP of the host node](../virtual-network/security-overview.md#azure-platform-considerations) and as such it is not subject to user defined routes.
+The public IP address 168.63.129.16 is used in all regions and all national clouds. This special public IP address is owned by Microsoft and will not change. We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in a variety of scenarios. 168.63.129.16 is a [virtual IP of the host node](./network-security-groups-overview.md#azure-platform-considerations) and as such it is not subject to user defined routes.
 
 - The VM Agent requires outbound communication over ports 80/tcp and 32526/tcp with WireServer (168.63.129.16). These should be open in the local firewall on the VM. The communication on these ports with 168.63.129.16 is not subject to the configured network security groups.
 
@@ -46,5 +46,5 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 
 ## Next steps
 
-- [Security groups](security-overview.md)
+- [Security groups](./network-security-groups-overview.md)
 - [Create, change, or delete a network security group](manage-network-security-group.md)

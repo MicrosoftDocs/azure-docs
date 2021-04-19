@@ -43,7 +43,7 @@ Alcide kAudit can export logs directly to Azure Sentinel.
 
 1. Select **Alcide kAudit** from the gallery, and then click the **Open connector page** button.
 
-1. Follow the step-by-step instructions provided in the [Alcide kAudit Installation Guide](https://get.alcide.io/hubfs/Azure%20Sentinel%20Integration%20with%20kAudit.pdf).
+1. Follow the step-by-step instructions provided in the [Alcide kAudit Installation Guide](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit).
 
 1. When asked for the Workspace ID and the Primary Key, you can copy them from the Alcide kAudit data connector page.
 
@@ -60,7 +60,7 @@ After a successful connection is established, the data appears in **Logs** under
 
 To use the relevant schema in Logs for the Alcide kAudit, search for the data types mentioned above.
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics.
+It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 

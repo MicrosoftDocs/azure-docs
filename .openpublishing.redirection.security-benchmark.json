@@ -1,0 +1,145 @@
+{
+  "redirections": [
+    {
+        "source_path_from_root": "/articles/security/benchmarks/index.yml",
+        "redirect_url": "/security/benchmark/azure",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/introduction.md",
+        "redirect_url": "/security/benchmark/azure/introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/overview-v1.md",
+        "redirect_url": "/security/benchmark/azure/overview-v1",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/overview.md",
+        "redirect_url": "/security/benchmark/azure/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-baselines-overview.md",
+        "redirect_url": "/security/benchmark/azure/security-baselines-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-data-protection.md",
+        "redirect_url": "/security/benchmark/azure/security-control-data-protection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-data-recovery.md",
+        "redirect_url": "/security/benchmark/azure/security-control-data-recovery",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-identity-access-control.md",
+        "redirect_url": "/security/benchmark/azure/security-control-identity-access-control",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-incident-response.md",
+        "redirect_url": "/security/benchmark/azure/security-control-incident-response",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-inventory-asset-management.md",
+        "redirect_url": "/security/benchmark/azure/security-control-inventory-asset-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-logging-monitoring.md",
+        "redirect_url": "/security/benchmark/azure/security-control-logging-monitoring",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-malware-defense.md",
+        "redirect_url": "/security/benchmark/azure/security-control-malware-defense",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-network-security.md",
+        "redirect_url": "/security/benchmark/azure/security-control-network-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-penetration-tests-red-team-exercises.md",
+        "redirect_url": "/security/benchmark/azure/security-control-penetration-tests-red-team-exercises",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-secure-configuration.md",
+        "redirect_url": "/security/benchmark/azure/security-control-secure-configuration",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-vulnerability-management.md",
+        "redirect_url": "/security/benchmark/azure/security-control-vulnerability-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-asset-management.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-asset-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-backup-recovery.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-backup-recovery",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-data-protection.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-data-protection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-endpoint-security.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-endpoint-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-governance-strategy.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-governance-strategy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-identity-management.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-identity-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-incident-response.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-incident-response",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-logging-threat-detection.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-logging-threat-detection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-network-security.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-network-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-posture-vulnerability-management.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-posture-vulnerability-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-privileged-access.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-privileged-access",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/v2-cis-benchmark.md",
+        "redirect_url": "/security/benchmark/azure/v2-cis-benchmark",
+        "redirect_document_id": false
+    },
+
+  ]
+}

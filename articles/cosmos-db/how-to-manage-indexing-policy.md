@@ -22,7 +22,7 @@ In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.m
 
 Here are some examples of indexing policies shown in [their JSON format](index-policy.md#include-exclude-paths), which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
 
-### Opt-out policy to selectively exclude some property paths
+### <a id="range-index"></a>Opt-out policy to selectively exclude some property paths
 
 ```json
     {
@@ -141,7 +141,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 > [!NOTE]
 > It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your data model.
 
-### Using a spatial index on a specific property path only
+### <a id="spatial-index"></a>Using a spatial index on a specific property path only
 
 ```json
 {
@@ -171,7 +171,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 }
 ```
 
-## Composite indexing policy examples
+## <a id="composite-index"></a>Composite indexing policy examples
 
 In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a multiple filters or both a filter and an ORDER BY clause.
 

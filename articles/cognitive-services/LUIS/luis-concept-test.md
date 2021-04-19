@@ -30,7 +30,7 @@ See [Prediction score](luis-concept-prediction-score.md) concepts to learn more 
 Interactive testing is done from the **Test** panel of the LUIS portal. You can enter an utterance to see how intents and entities are identified and scored. If LUIS isn't predicting the intents and entities as you expect on an utterance in the testing panel, copy it to the **Intent** page as a new utterance. Then label the parts of that utterance for entities, and train LUIS. 
 
 ## Batch testing
-See [batch testing](luis-concept-batch-test.md) if you are testing more than one utterance at a time.
+See [batch testing](./luis-how-to-batch-test.md) if you are testing more than one utterance at a time.
 
 ## Endpoint testing
 You can test using the [endpoint](luis-glossary.md#endpoint) with a maximum of two versions of your app. With your main or live version of your app set as the **production** endpoint, add a second version to the **staging** endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the [LUIS](luis-reference-regions.md) website, and the two versions at the two different endpoints. 

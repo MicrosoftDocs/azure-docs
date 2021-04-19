@@ -157,9 +157,9 @@ the cluster.
 SELECT * from pg_dist_node;
  nodeid | groupid | nodename  | nodeport | noderack | hasmetadata | isactive | noderole | nodecluster | shouldhaveshards
 --------+---------+-----------+----------+----------+-------------+----------+----------+-------------+------------------
-	  1 |       1 | localhost |    12345 | default  | f           | t        | primary  | default     | t
-	  2 |       2 | localhost |    12346 | default  | f           | t        | primary  | default     | t
-	  3 |       3 | localhost |    12347 | default  | f           | t        | primary  | default     | t
+      1 |       1 | localhost |    12345 | default  | f           | t        | primary  | default     | t
+      2 |       2 | localhost |    12346 | default  | f           | t        | primary  | default     | t
+      3 |       3 | localhost |    12347 | default  | f           | t        | primary  | default     | t
 (3 rows)
 ```
 

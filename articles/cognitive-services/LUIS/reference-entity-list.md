@@ -79,7 +79,6 @@ In the previous utterance, the word `paris` is mapped to the paris item as part 
 
 #### [V3 prediction endpoint response](#tab/V3)
 
-
 This is the JSON if `verbose=false` is set in the query string:
 
 ```json
@@ -124,7 +123,6 @@ This is the JSON if `verbose=true` is set in the query string:
 |Data object|Entity name|Value|
 |--|--|--|
 |List Entity|`Cities`|`paris`|
-
 
 ## Next steps
 

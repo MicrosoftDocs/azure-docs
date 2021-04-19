@@ -26,8 +26,10 @@ Report-only mode is a new Conditional Access policy state that allows administra
 - Results are logged in the **Conditional Access** and **Report-only** tabs of the Sign-in log details.
 - Customers with an Azure Monitor subscription can monitor the impact of their Conditional Access policies using the Conditional Access insights workbook.
 
+> [!VIDEO https://www.youtube.com/embed/NZbPYfhb5Kc]
+
 > [!WARNING]
-> Policies in report-only mode that require compliant devices may prompt users on Mac, iOS, and Android to select a device certificate during policy evaluation, even though device compliance is not enforced. These prompts may repeat until the device is made compliant. To prevent end users from receiving prompts during sign-in, exclude device platforms Mac, iOS and Android from report-only policies that perform device compliance checks. Note that report-only mode is not applicable for CA policies with "User Actions" scope.
+> Policies in report-only mode that require compliant devices may prompt users on Mac, iOS, and Android to select a device certificate during policy evaluation, even though device compliance is not enforced. These prompts may repeat until the device is made compliant. To prevent end users from receiving prompts during sign-in, exclude device platforms Mac, iOS and Android from report-only policies that perform device compliance checks. Note that report-only mode is not applicable for Conditional Access policies with "User Actions" scope.
 
 ![Report-only tab in Azure AD sign-in log](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

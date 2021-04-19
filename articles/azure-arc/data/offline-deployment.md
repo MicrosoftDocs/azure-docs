@@ -17,7 +17,7 @@ Typically the container images used in the creation of the Azure Arc data contro
 
 Because monthly updates are provided for Azure Arc enabled data services and there are a large number of container images, it is best to perform this process of pulling, tagging, and pushing the container images to a private container registry using a script.  The script can either be automated or run manually.
 
-A [sample script](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) can be found in the Azure Arc GitHub repository.
+A [sample script](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) can be found in the Azure Arc GitHub repository.
 
 > [!NOTE]
 > This script requires the installation of python and the [Docker CLI](https://docs.docker.com/install/).

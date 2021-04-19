@@ -1,15 +1,10 @@
 ---
 title: Create data pipelines by using Azure .NET SDK 
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
@@ -23,7 +18,7 @@ ms.custom: devx-track-csharp
 You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. 
 
 > [!NOTE]
-> This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) for comprehensive documentation on .NET API for Data Factory. 
+> This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](/dotnet/api/overview/azure/data-factory) for comprehensive documentation on .NET API for Data Factory. 
 
 ## Prerequisites
 
@@ -39,58 +34,58 @@ Create an Azure Active Directory application, create a service principal for the
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
-	```powershell
-	Connect-AzAccount
-	```
+    ```powershell
+    Connect-AzAccount
+    ```
 3. Run the following command to view all the subscriptions for this account.
 
-	```powershell
-	Get-AzSubscription
-	```
+    ```powershell
+    Get-AzSubscription
+    ```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
-	```powershell
-	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
-	```
+    ```powershell
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+    ```
 
    > [!IMPORTANT]
    > Note down **SubscriptionId** and **TenantId** from the output of this command.
 
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
-	```powershell
-	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-	```
+    ```powershell
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
 
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 6. Create an Azure Active Directory application.
 
-	```powershell
-	$azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
-	```
+    ```powershell
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    ```
 
     If you get the following error, specify a different URL and run the command again.
-	
-	```powershell
-	Another object with the same value for property identifierUris already exists.
-	```
+    
+    ```powershell
+    Another object with the same value for property identifierUris already exists.
+    ```
 7. Create the AD service principal.
 
-	```powershell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-	```
+    ```
 8. Add service principal to the **Data Factory Contributor** role.
 
-	```powershell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-	```
+    ```
 9. Get the application ID.
 
-	```powershell
-	$azureAdApplication	
-	```
+    ```powershell
+    $azureAdApplication    
+    ```
     Note down the application ID (applicationID) from the output.
 
 You should have following four values from these steps:
@@ -137,7 +132,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 5. In the App.Config file, update values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values.
 6. Add the following **using** statements to the **Program.cs** file in the project.
 
-	```csharp
+    ```csharp
     using System.Configuration;
     using System.Collections.ObjectModel;
     using System.Threading;
@@ -150,17 +145,17 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-	```
+    ```
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.
 
     ```csharp
     // create data factory management client
 
-	//IMPORTANT: specify the name of Azure resource group here
+    //IMPORTANT: specify the name of Azure resource group here
     string resourceGroupName = "ADFTutorialResourceGroup";
 
-	//IMPORTANT: the name of the data factory must be globally unique.
-	// Therefore, update this value. For example:APITutorialFactory05122017
+    //IMPORTANT: the name of the data factory must be globally unique.
+    // Therefore, update this value. For example:APITutorialFactory05122017
     string dataFactoryName = "APITutorialFactory";
 
     TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
@@ -221,207 +216,207 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 
     The FolderPath for the output blob is set to: **adftutorial/apifactoryoutput/{Slice}** where **Slice** is dynamically calculated based on the value of **SliceStart** (start date-time of each slice.)
 
-	```csharp
-	// create input and output datasets
-	Console.WriteLine("Creating input and output datasets");
-	string Dataset_Source = "DatasetBlobSource";
-	string Dataset_Destination = "DatasetBlobDestination";
-	
-	client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
-	new DatasetCreateOrUpdateParameters()
-	{
-	    Dataset = new Dataset()
-	    {
-	        Name = Dataset_Source,
-	        Properties = new DatasetProperties()
-	        {
-	            LinkedServiceName = "AzureStorageLinkedService",
-	            TypeProperties = new AzureBlobDataset()
-	            {
-	                FolderPath = "adftutorial/",
-	                FileName = "emp.txt"
-	            },
-	            External = true,
-	            Availability = new Availability()
-	            {
-	                Frequency = SchedulePeriod.Hour,
-	                Interval = 1,
-	            },
-	
-	            Policy = new Policy()
-	            {
-	                Validation = new ValidationPolicy()
-	                {
-	                    MinimumRows = 1
-	                }
-	            }
-	        }
-	    }
-	});
-	
-	client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
-	new DatasetCreateOrUpdateParameters()
-	{
-	    Dataset = new Dataset()
-	    {
-	        Name = Dataset_Destination,
-	        Properties = new DatasetProperties()
-	        {
-	
-	            LinkedServiceName = "AzureStorageLinkedService",
-	            TypeProperties = new AzureBlobDataset()
-	            {
-	                FolderPath = "adftutorial/apifactoryoutput/{Slice}",
-	                PartitionedBy = new Collection<Partition>()
-	                {
-	                    new Partition()
-	                    {
-	                        Name = "Slice",
-	                        Value = new DateTimePartitionValue()
-	                        {
-	                            Date = "SliceStart",
-	                            Format = "yyyyMMdd-HH"
-	                        }
-	                    }
-	                }
-	            },
-	
-	            Availability = new Availability()
-	            {
-	                Frequency = SchedulePeriod.Hour,
-	                Interval = 1,
-	            },
-	        }
-	    }
-	});
-	```
+    ```csharp
+    // create input and output datasets
+    Console.WriteLine("Creating input and output datasets");
+    string Dataset_Source = "DatasetBlobSource";
+    string Dataset_Destination = "DatasetBlobDestination";
+    
+    client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+    new DatasetCreateOrUpdateParameters()
+    {
+        Dataset = new Dataset()
+        {
+            Name = Dataset_Source,
+            Properties = new DatasetProperties()
+            {
+                LinkedServiceName = "AzureStorageLinkedService",
+                TypeProperties = new AzureBlobDataset()
+                {
+                    FolderPath = "adftutorial/",
+                    FileName = "emp.txt"
+                },
+                External = true,
+                Availability = new Availability()
+                {
+                    Frequency = SchedulePeriod.Hour,
+                    Interval = 1,
+                },
+    
+                Policy = new Policy()
+                {
+                    Validation = new ValidationPolicy()
+                    {
+                        MinimumRows = 1
+                    }
+                }
+            }
+        }
+    });
+    
+    client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+    new DatasetCreateOrUpdateParameters()
+    {
+        Dataset = new Dataset()
+        {
+            Name = Dataset_Destination,
+            Properties = new DatasetProperties()
+            {
+    
+                LinkedServiceName = "AzureStorageLinkedService",
+                TypeProperties = new AzureBlobDataset()
+                {
+                    FolderPath = "adftutorial/apifactoryoutput/{Slice}",
+                    PartitionedBy = new Collection<Partition>()
+                    {
+                        new Partition()
+                        {
+                            Name = "Slice",
+                            Value = new DateTimePartitionValue()
+                            {
+                                Date = "SliceStart",
+                                Format = "yyyyMMdd-HH"
+                            }
+                        }
+                    }
+                },
+    
+                Availability = new Availability()
+                {
+                    Frequency = SchedulePeriod.Hour,
+                    Interval = 1,
+                },
+            }
+        }
+    });
+    ```
 10. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
 
     The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.
 
-	```csharp
-	// create a pipeline
-	Console.WriteLine("Creating a pipeline");
-	DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
-	DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
-	string PipelineName = "PipelineBlobSample";
-	
-	client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
-	new PipelineCreateOrUpdateParameters()
-	{
-	    Pipeline = new Pipeline()
-	    {
-	        Name = PipelineName,
-	        Properties = new PipelineProperties()
-	        {
-	            Description = "Demo Pipeline for data transfer between blobs",
-	
-	            // Initial value for pipeline's active period. With this, you won't need to set slice status
-	            Start = PipelineActivePeriodStartTime,
-	            End = PipelineActivePeriodEndTime,
-	
-	            Activities = new List<Activity>()
-	            {
-	                new Activity()
-	                {
-	                    Name = "BlobToBlob",
-	                    Inputs = new List<ActivityInput>()
-	                    {
-	                        new ActivityInput()
-				{
-	                            Name = Dataset_Source
-	                        }
-	                    },
-	                    Outputs = new List<ActivityOutput>()
-	                    {
-	                        new ActivityOutput()
-	                        {
-	                            Name = Dataset_Destination
-	                        }
-	                    },
-	                    TypeProperties = new CopyActivity()
-	                    {
-	                        Source = new BlobSource(),
-	                        Sink = new BlobSink()
-	                        {
-	                            WriteBatchSize = 10000,
-	                            WriteBatchTimeout = TimeSpan.FromMinutes(10)
-	                        }
-	                    }
-	                }
-	
-	            },
-	        }
-	    }
-	});
-	```
+    ```csharp
+    // create a pipeline
+    Console.WriteLine("Creating a pipeline");
+    DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
+    DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
+    string PipelineName = "PipelineBlobSample";
+    
+    client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
+    new PipelineCreateOrUpdateParameters()
+    {
+        Pipeline = new Pipeline()
+        {
+            Name = PipelineName,
+            Properties = new PipelineProperties()
+            {
+                Description = "Demo Pipeline for data transfer between blobs",
+    
+                // Initial value for pipeline's active period. With this, you won't need to set slice status
+                Start = PipelineActivePeriodStartTime,
+                End = PipelineActivePeriodEndTime,
+    
+                Activities = new List<Activity>()
+                {
+                    new Activity()
+                    {
+                        Name = "BlobToBlob",
+                        Inputs = new List<ActivityInput>()
+                        {
+                            new ActivityInput()
+                {
+                                Name = Dataset_Source
+                            }
+                        },
+                        Outputs = new List<ActivityOutput>()
+                        {
+                            new ActivityOutput()
+                            {
+                                Name = Dataset_Destination
+                            }
+                        },
+                        TypeProperties = new CopyActivity()
+                        {
+                            Source = new BlobSource(),
+                            Sink = new BlobSink()
+                            {
+                                WriteBatchSize = 10000,
+                                WriteBatchTimeout = TimeSpan.FromMinutes(10)
+                            }
+                        }
+                    }
+    
+                },
+            }
+        }
+    });
+    ```
 12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only one slice expected in this sample.
 
-	```csharp
-	// Pulling status within a timeout threshold
-	DateTime start = DateTime.Now;
-	bool done = false;
-	
-	while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
-	{
-	    Console.WriteLine("Pulling the slice status");
-	    // wait before the next status check
-	    Thread.Sleep(1000 * 12);
-	
-	    var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
-	        new DataSliceListParameters()
-	        {
-	            DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
-	            DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
-	        });
-	
-	    foreach (DataSlice slice in datalistResponse.DataSlices)
-	    {
-	        if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
-	        {
-	            Console.WriteLine("Slice execution is done with status: {0}", slice.State);
-	            done = true;
-	            break;
-	        }
-	        else
-	        {
-	            Console.WriteLine("Slice status is: {0}", slice.State);
-	        }
-	    }
-	}
-	```
+    ```csharp
+    // Pulling status within a timeout threshold
+    DateTime start = DateTime.Now;
+    bool done = false;
+    
+    while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
+    {
+        Console.WriteLine("Pulling the slice status");
+        // wait before the next status check
+        Thread.Sleep(1000 * 12);
+    
+        var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
+            new DataSliceListParameters()
+            {
+                DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
+                DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
+            });
+    
+        foreach (DataSlice slice in datalistResponse.DataSlices)
+        {
+            if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
+            {
+                Console.WriteLine("Slice execution is done with status: {0}", slice.State);
+                done = true;
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Slice status is: {0}", slice.State);
+            }
+        }
+    }
+    ```
 13. **(optional)** Add the following code to get run details for a data slice to the **Main** method.
 
-	```csharp
-	Console.WriteLine("Getting run details of a data slice");
-	
-	// give it a few minutes for the output slice to be ready
-	Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
-	Console.ReadKey();
-	
-	var datasliceRunListResponse = client.DataSliceRuns.List(
-	    resourceGroupName,
-	    dataFactoryName,
-	    Dataset_Destination,
-	    new DataSliceRunListParameters()
-	    {
-	        DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
-	    });
-	
-	foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
-	{
-	    Console.WriteLine("Status: \t\t{0}", run.Status);
-	    Console.WriteLine("DataSliceStart: \t{0}", run.DataSliceStart);
-	    Console.WriteLine("DataSliceEnd: \t\t{0}", run.DataSliceEnd);
-	    Console.WriteLine("ActivityId: \t\t{0}", run.ActivityName);
-	    Console.WriteLine("ProcessingStartTime: \t{0}", run.ProcessingStartTime);
-	    Console.WriteLine("ProcessingEndTime: \t{0}", run.ProcessingEndTime);
-	    Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
-	}
-	
-	Console.WriteLine("\nPress any key to exit.");
-	Console.ReadKey();
-	```
+    ```csharp
+    Console.WriteLine("Getting run details of a data slice");
+    
+    // give it a few minutes for the output slice to be ready
+    Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
+    Console.ReadKey();
+    
+    var datasliceRunListResponse = client.DataSliceRuns.List(
+        resourceGroupName,
+        dataFactoryName,
+        Dataset_Destination,
+        new DataSliceRunListParameters()
+        {
+            DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+        });
+    
+    foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
+    {
+        Console.WriteLine("Status: \t\t{0}", run.Status);
+        Console.WriteLine("DataSliceStart: \t{0}", run.DataSliceStart);
+        Console.WriteLine("DataSliceEnd: \t\t{0}", run.DataSliceEnd);
+        Console.WriteLine("ActivityId: \t\t{0}", run.ActivityName);
+        Console.WriteLine("ProcessingStartTime: \t{0}", run.ProcessingStartTime);
+        Console.WriteLine("ProcessingEndTime: \t{0}", run.ProcessingEndTime);
+        Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
+    }
+    
+    Console.WriteLine("\nPress any key to exit.");
+    Console.ReadKey();
+    ```
 14. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that lets you provide **user name** and **password** that you use to log in to Azure portal.
 
     ```csharp
@@ -429,11 +424,11 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
     {
         AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
         ClientCredential credential = new ClientCredential(
-	        ConfigurationManager.AppSettings["ApplicationId"],
-	        ConfigurationManager.AppSettings["Password"]);
+            ConfigurationManager.AppSettings["ApplicationId"],
+            ConfigurationManager.AppSettings["Password"]);
         AuthenticationResult result = await context.AcquireTokenAsync(
-	        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-	        clientCredential: credential);
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientCredential: credential);
 
         if (result != null)
             return result.AccessToken;
@@ -446,10 +441,10 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 15. Build the console application. Click **Build** on the menu and click **Build Solution**.
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
-	```
+    ```
     John, Doe
     Jane, Doe
-	```
+    ```
 17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
 18. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
     * Linked service: **AzureStorageLinkedService**
@@ -469,29 +464,29 @@ parameters.WindowState = "Failed";
 var response = dataFactoryManagementClient.ActivityWindows.List(parameters);
 do
 {
-	foreach (var activityWindow in response.ActivityWindowListResponseValue.ActivityWindows)
-	{
-		var row = string.Join(
-			"\t",
-			activityWindow.WindowStart.ToString(),
-			activityWindow.WindowEnd.ToString(),
-			activityWindow.RunStart.ToString(),
-			activityWindow.RunEnd.ToString(),
-			activityWindow.DataFactoryName,
-			activityWindow.PipelineName,
-			activityWindow.ActivityName,
-			string.Join(",", activityWindow.OutputDatasets));
-		Console.WriteLine(row);
-	}
+    foreach (var activityWindow in response.ActivityWindowListResponseValue.ActivityWindows)
+    {
+        var row = string.Join(
+            "\t",
+            activityWindow.WindowStart.ToString(),
+            activityWindow.WindowEnd.ToString(),
+            activityWindow.RunStart.ToString(),
+            activityWindow.RunEnd.ToString(),
+            activityWindow.DataFactoryName,
+            activityWindow.PipelineName,
+            activityWindow.ActivityName,
+            string.Join(",", activityWindow.OutputDatasets));
+        Console.WriteLine(row);
+    }
 
-	if (response.NextLink != null)
-	{
-		response = dataFactoryManagementClient.ActivityWindows.ListNext(response.NextLink, parameters);
-	}
-	else
-	{
-		response = null;
-	}
+    if (response.NextLink != null)
+    {
+        response = dataFactoryManagementClient.ActivityWindows.ListNext(response.NextLink, parameters);
+    }
+    else
+    {
+        response = null;
+    }
 }
 while (response != null);
 ```

@@ -1,21 +1,19 @@
 ---
 title: H264 Multiple Bitrate 16x9 SD Audio 5.1 | Microsoft Docs
 description: The topic gives an overview of the **H264 Multiple Bitrate 16x9 SD Audio 5.1** task preset.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 35007ed3-8b01-44ec-9d1e-1714c7e697e9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # H264 Multiple Bitrate 16x9 SD Audio 5.1

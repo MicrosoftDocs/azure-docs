@@ -3,20 +3,18 @@ title: Redact faces with Azure Media Analytics walkthrough | Microsoft Docs
 description: This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 services: media-services
 documentationcenter: ''
-author: Lichard
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/10/2021
 ms.author: ril
 ms.reviewer: juliako
-
 ---
 # Redact faces with Azure Media Analytics walkthrough
 
@@ -129,6 +127,6 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 ## Related links
 [Azure Media Services Analytics Overview](./legacy-components.md)
 
-[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
 [Announcing Face Redaction for Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

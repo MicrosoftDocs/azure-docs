@@ -107,7 +107,7 @@ You can view and analyze activity log data by using any of the following methods
 
 [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
 
-For Azure Firewall log analytics sample queries, see [Azure Firewall log analytics samples](log-analytics-samples.md).
+For Azure Firewall log analytics sample queries, see [Azure Firewall log analytics samples](./firewall-workbook.md).
 
 [Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple Firewalls deployed across Azure, and combine them into unified interactive experiences.
 

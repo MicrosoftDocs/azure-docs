@@ -1,10 +1,11 @@
 ---
-title: Render a Blender scene using Azure Batch and Batch Explorer
+title: Tutorial - Render a Blender scene using Azure Batch and Batch Explorer
 description: Tutorial - How to render multiple frames from a Blender scene using Azure Batch and the Batch Explorer client application
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Render a Blender scene using Batch Explorer
@@ -71,7 +72,7 @@ Create a Batch pool using rendering Azure Marketplace VM image that contains the
 ![Blender gallery items](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_gallery_item.png)
 
 * Select the button ‘Create pool for later use’
-  *	Leave the Pool name as “blender-windows”
+  * Leave the Pool name as “blender-windows”
   * Set the ‘Dedicated vm count’ to “0”
   * Set the ‘Low priority vm count’ to “3”
   * Set the ‘Node size’ to “Standard_F16” – another VM size can be selected, but time to render a frame will mainly be dependent on the number of cores.
@@ -89,6 +90,7 @@ The status of the pool and VMs can be monitored in the 'Pools' view; the followi
 ## Create a rendering job
 
 Create a rendering job to render some frames using the pool that was created:
+
 * Select the 'Gallery' menu-item from the main menu on the left-hand side.
 * Select the 'Blender' item for the list of application items.
 * Select the items for rendering frames on Windows Server.
@@ -139,6 +141,18 @@ When all tasks have completed, the job will be marked as being completed:
 * Either right-click and 'Delete' or select the trash can icon above the pool
 
 ## Next steps
-* In the ‘Gallery’ section, explore the rendering applications available via Batch Explorer.
-* For each application there are several templates available, which will expand over time.  For example, for Blender templates exist that split up a single image into tiles, so parts of an image can be rendered in parallel.
-* For a comprehensive description of rendering capabilities, see the set of articles [here](./batch-rendering-service.md).
+
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Upload a Blender scene to Azure storage
+> * Create a Batch pool with multiple nodes to perform the rendering
+> * Render multiple frames
+> * View and download the rendered frame files
+
+Continue on by exploring  the rendering applications available via Batch Explorer in the **Gallery** section. For each application there are several templates available, which will expand over time. For example, for Blender templates exist that split up a single image into tiles, so parts of an image can be rendered in parallel.
+
+To learn more about cloud-scale rendering, see the options for the Batch Rendering service.
+
+> [!div class="nextstepaction"]
+> [Batch Rendering service](batch-rendering-service.md)

@@ -21,7 +21,7 @@ Enrollment in the Device Provisioning Service enables a device to be [provisione
 
 ## Disallow devices by using an individual enrollment entry
 
-Individual enrollments apply to a single device and can use either X.509 certificates or SAS tokens (in a real or virtual TPM) as the attestation mechanism. (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To disallow a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
+Individual enrollments apply to a single device and can use X.509 certificates, TPM endorsement keys (in a real or virtual TPM), or SAS tokens as the attestation mechanism. To disallow a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
 
 To temporarily disallow the device by disabling its enrollment entry: 
 

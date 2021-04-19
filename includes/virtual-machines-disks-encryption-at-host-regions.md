@@ -19,6 +19,9 @@ Currently available only in the following regions:
 - Central Canada 
 - East Canada
 - Central France
+- West Europe
+- North Europe
 - East Japan
+- West Japan
 - US Gov Virginia
 - US Gov Arizona

@@ -7,7 +7,7 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: "include file, devx-track-azurecli"
+ms.custom: "include file"
 ---
 
 You can access the console logs generated from inside the container.

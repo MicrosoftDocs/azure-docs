@@ -1,7 +1,7 @@
 ---
 title: Tenants, users, and roles in Azure Lighthouse scenarios
 description: Understand the concepts of Azure Active Directory tenants, users, and roles, as well as how they can be used in Azure Lighthouse scenarios.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
 ---
 
@@ -13,7 +13,10 @@ A *tenant* is a dedicated and trusted instance of Azure AD. Typically, each tena
 
 In order to achieve this logical projection, a subscription (or one or more resource groups within a subscription) in the customer tenant must be *onboarded* to Azure Lighthouse. This onboarding process can be done either [through Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a public or private offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Whichever onboarding method you choose, you will need to define *authorizations*. Each authorization specifies a user account in the managing tenant which will have access to the delegated resources, and a built-in role that sets the permissions that each of these users will have for these resources.
+Whichever onboarding method you choose, you will need to define *authorizations*. Each authorization specifies a **principalId** which will have access to the delegated resources, and a built-in role that sets the permissions that each of these users will have for these resources. This **principalId** defines an Azure AD user, group, or service principal in the managing tenant.
+
+> [!NOTE]
+> Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
 
 ## Best practices for defining users and roles
 

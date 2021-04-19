@@ -39,8 +39,8 @@ Before you begin, verify that you have the following virtual networks and permis
 
 |VNet|Deployment model| Virtual network gateway|
 |---|---|---|---|
-| Hub-RM| [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| [Yes](tutorial-create-gateway-portal.md)|
-| Spoke-RM | [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| No |
+| Hub-RM| [Resource Manager](./tutorial-site-to-site-portal.md)| [Yes](tutorial-create-gateway-portal.md)|
+| Spoke-RM | [Resource Manager](./tutorial-site-to-site-portal.md)| No |
 | Spoke-Classic | [Classic](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | No |
 
 ### <a name="permissions"></a>Permissions

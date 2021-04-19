@@ -116,7 +116,7 @@ This section walks you through the steps to create a Site-to-Site VPN connection
 
 ### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
-Create the following resources, as shown in the screenshots below. For steps, see [Create a Site-to-Site VPN connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Create the following resources, as shown in the screenshots below. For steps, see [Create a Site-to-Site VPN connection](./tutorial-site-to-site-portal.md).
 
 * **Virtual network:**  TestVNet1
 

@@ -18,9 +18,11 @@ ms.custom: "devx-track-csharp, aaddev"
 ---
 
 # Initialize client applications using MSAL.NET
-This article describes initializing public client and confidential client applications using Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
+This article describes initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types, see [Public client and confidential client applications](msal-client-applications.md).
 
 With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application either from the code, or from a configuration file, or even by mixing both approaches.
+
+[API reference documentation](/dotnet/api/microsoft.identity.client) | [Package on NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Library source code](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Code samples](sample-v2-code.md)
 
 ## Prerequisites
 Before initializing an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform.  After registration, you may need the following information (which can be found in the Azure portal):
@@ -163,3 +165,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## Next steps
+
+After you've initialized the client application, your next task is to add support for user sign-in, authorized API access, or both.
+
+Our application scenario documentation provides guidance for signing in a user and acquiring an access token to access an API on behalf of that user:
+
+- [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)
+- [Web app that calls web APIs: Acquire a token](scenario-web-app-call-api-acquire-token.md)

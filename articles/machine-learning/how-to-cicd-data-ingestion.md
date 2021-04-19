@@ -211,18 +211,18 @@ The values in the JSON file are default values configured in the pipeline defini
 
 The Continuous Delivery process takes the artifacts and deploys them to the first target environment. It makes sure that the solution works by running tests. If successful, it continues to the next environment. 
 
-The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) and [jobs](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) that perform the following steps:
+The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](/azure/devops/pipelines/process/deployment-jobs) and [jobs](/azure/devops/pipelines/process/phases?tabs=yaml) that perform the following steps:
 
 * Deploy a Python Notebook to Azure Databricks workspace
 * Deploy an Azure Data Factory pipeline 
 * Run the pipeline
 * Check the data ingestion result
 
-The pipeline stages can be configured with [approvals](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) and [gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) that provide additional control on how the deployment process evolves through the chain of environments.
+The pipeline stages can be configured with [approvals](/azure/devops/pipelines/process/approvals?tabs=check-pass) and [gates](/azure/devops/pipelines/release/approvals/gates) that provide additional control on how the deployment process evolves through the chain of environments.
 
 ### Deploy a Python Notebook
 
-The following code snippet defines an Azure Pipeline [deployment](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) that copies a Python notebook to a Databricks cluster:
+The following code snippet defines an Azure Pipeline [deployment](/azure/devops/pipelines/process/deployment-jobs) that copies a Python notebook to a Databricks cluster:
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ The following code snippet defines an Azure Pipeline [deployment](/azure/devops/
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-The artifacts produced by the CI are automatically copied to the deployment agent and are available in the `$(Pipeline.Workspace)` folder. In this case, the deployment task refers to the `di-notebooks` artifact containing the Python notebook. This [deployment](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) uses the [Databricks Azure DevOps extension](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) to copy the notebook files to the Databricks workspace.
+The artifacts produced by the CI are automatically copied to the deployment agent and are available in the `$(Pipeline.Workspace)` folder. In this case, the deployment task refers to the `di-notebooks` artifact containing the Python notebook. This [deployment](/azure/devops/pipelines/process/deployment-jobs) uses the [Databricks Azure DevOps extension](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) to copy the notebook files to the Databricks workspace.
 
 The `Deploy_to_QA` stage contains a reference to the `devops-ds-qa-vg` variable group defined in the Azure DevOps project. The steps in this stage refer to the variables from this variable group (for example, `$(DATABRICKS_URL)` and `$(DATABRICKS_TOKEN)`). The idea is that the next stage (for example, `Deploy_to_UAT`) will operate with the same variable names defined in its own UAT-scoped variable group.
 
@@ -340,7 +340,7 @@ The complete CI/CD Azure Pipeline consists of the following stages:
     * Deploy to Databricks + Deploy to ADF
     * Integration Test
 
-It contains a number of ***Deploy*** stages equal to the number of target environments you have. Each ***Deploy*** stage contains two [deployments](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) that run in parallel and a [job](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) that runs after deployments to test the solution on the environment.
+It contains a number of ***Deploy*** stages equal to the number of target environments you have. Each ***Deploy*** stage contains two [deployments](/azure/devops/pipelines/process/deployment-jobs) that run in parallel and a [job](/azure/devops/pipelines/process/phases?tabs=yaml) that runs after deployments to test the solution on the environment.
 
 A sample implementation of the pipeline is assembled in the following ***yaml*** snippet:
 

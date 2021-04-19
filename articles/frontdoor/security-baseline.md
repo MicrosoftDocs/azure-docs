@@ -84,9 +84,9 @@ Ensure restricted access to management, identity, and security systems that have
 
 Use highly secured user workstations with Azure Bastion for administrative tasks. Choose Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), and Microsoft Intune to deploy secure and managed user workstations for administrative tasks. The secured workstations must be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -102,7 +102,7 @@ Use built-in roles to allocate permission and only create custom roles based on 
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -204,7 +204,7 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### LT-3: Enable logging for Azure network activities
 
-**Guidance**: Azure Frond Door is not intended to deploy into virtual networks; because of this customers are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
+**Guidance**: Azure Front Door is not intended to deploy into virtual networks; because of this customers are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
 
 Azure Front Door logs all network traffic that it processes for customer access. Enable the network flow logs feature and configure these logs to be sent to a storage account for long term retention and auditing.
 
@@ -220,9 +220,9 @@ Azure Front Door logs all network traffic that it processes for customer access.
 
 Enable Azure resource logs for  Azure Front Door. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 

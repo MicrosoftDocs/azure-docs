@@ -6,19 +6,19 @@ ms.date: 06/26/2020
 ---
 
 # Configure a shared image gallery in Azure DevTest Labs
-DevTest Labs now supports the [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md) feature. It enables lab users to access images from a shared location while creating lab resources. It also helps you build structure and organization around your custom-managed VM images. The Shared Image Gallery feature supports:
+DevTest Labs now supports the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) feature. It enables lab users to access images from a shared location while creating lab resources. It also helps you build structure and organization around your custom-managed VM images. The Shared Image Gallery feature supports:
 
 - Managed global replication of images
 - Versioning and grouping of images for easier management
 - Make your images highly available with Zone Redundant Storage (ZRS) accounts in regions that support availability zones. ZRS offers better resilience against zonal failures.
 - Sharing across subscriptions, and even between tenants, using Azure role-based access control (Azure RBAC).
 
-For more information, see [Shared Image Gallery documentation](../virtual-machines/windows/shared-image-galleries.md). 
+For more information, see [Shared Image Gallery documentation](../virtual-machines/shared-image-galleries.md). 
  
 If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a shared image gallery as a repository that makes it easy to update and share your images. As a lab owner, you can attach an existing shared image gallery to your lab. Once this gallery is attached, lab users can create machines from these latest images. A key benefit of this feature is that DevTest Labs can now take the advantage of sharing images across labs, across subscriptions, and across regions. 
 
 > [!NOTE]
-> To learn about costs associated with the Shared Image Gallery service, see [Billing for Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md#billing).
+> To learn about costs associated with the Shared Image Gallery service, see [Billing for Shared Image Gallery](../virtual-machines/shared-image-galleries.md#billing).
 
 ## Considerations
 - You can only attach one shared image gallery to a lab at a time. If you would like to attach another gallery, you'll need to detach the existing one and attach another. 

@@ -21,6 +21,8 @@ Learn what's new with QnA Maker.
 ### November 2020
 
 * New version of QnA Maker launched in free Public Preview. Read more [here](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
 * Simplified resource creation
 * End to End region support
 * Deep learnt ranking model
@@ -28,8 +30,8 @@ Learn what's new with QnA Maker.
   
 ### July 2020
 
-* [Metadata: `OR` logical combination of multiple metadata pairs](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
-* [Steps](how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) to configure Cognitive Search endpoints to be private, but still accessible to QnA Maker.
+* [Metadata: `OR` logical combination of multiple metadata pairs](how-to/query-knowledge-base-with-metadata.md#logical-or-using-strictfilterscompoundoperationtype-property)
+* [Steps](how-to/network-isolation.md) to configure Cognitive Search endpoints to be private, but still accessible to QnA Maker.
 * Free Cognitive Search resources are removed after [90 days of inactivity](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 
 ### June 2020
@@ -57,11 +59,11 @@ Learn what's new with QnA Maker.
 
 ### October 2019
 
-* [Explicitly setting the language](./index.yml) for all knowledge bases in the  QnA Maker service.
+* Explicitly setting the language for all knowledge bases in the  QnA Maker service.
 
 ### September 2019
 
-* Import and export with [XLS file format](./index.yml)
+* Import and export with XLS file format.
 
 ### June 2019
 

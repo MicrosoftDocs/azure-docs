@@ -1,13 +1,13 @@
 ---
 title: Template syntax and expressions
-description: Describes the declarative JSON syntax for Azure Resource Manager templates.
+description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
 ms.date: 03/17/2020
 ---
 
-# Syntax and expressions in Azure Resource Manager templates
+# Syntax and expressions in ARM templates
 
-The basic syntax of the template is JSON. However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object.
+The basic syntax of the Azure Resource Manager template (ARM template) is JavaScript Object Notation (JSON). However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object.
 
 A template expression can't exceed 24,576 characters.
 
@@ -26,7 +26,7 @@ Azure Resource Manager provides [functions](template-functions.md) that you can 
 
 Within the expression, the syntax `resourceGroup()` calls one of the functions that Resource Manager provides for use within a template. In this case, it's the [resourceGroup](template-functions-resource.md#resourcegroup) function. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. The syntax `.location` retrieves one property from the object returned by that function.
 
-Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements that are separate from how functions are evaluated.
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves `variables('var1')` and `VARIABLES('VAR1')` as the same. When evaluated, unless the function expressly modifies case (such as `toUpper` or `toLower`), the function preserves the case. Certain resource types may have case requirements that are separate from how functions are evaluated.
 
 To pass a string value as a parameter to a function, use single quotes.
 
@@ -118,7 +118,7 @@ The same formatting applies when passing values in from a parameter file. The ch
 
 ## Null values
 
-To set a property to null, you can use **null** or **[json('null')]**. The [json function](template-functions-object.md#json) returns an empty object when you provide `null` as the parameter. In both cases, Resource Manager templates treat it as if the property isn't present.
+To set a property to null, you can use `null` or `[json('null')]`. The [json function](template-functions-object.md#json) returns an empty object when you provide `null` as the parameter. In both cases, Resource Manager templates treat it as if the property isn't present.
 
 ```json
 "stringValue": null,
@@ -127,5 +127,5 @@ To set a property to null, you can use **null** or **[json('null')]**. The [json
 
 ## Next steps
 
-* For the full list of template functions, see [Azure Resource Manager template functions](template-functions.md).
-* For more information about template files, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* For the full list of template functions, see [ARM template functions](template-functions.md).
+* For more information about template files, see [Understand the structure and syntax of ARM templates](template-syntax.md).

@@ -9,6 +9,7 @@ tags: azure-service-management,azure-resource-manager
 
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
+ms.subservice: management
 
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server

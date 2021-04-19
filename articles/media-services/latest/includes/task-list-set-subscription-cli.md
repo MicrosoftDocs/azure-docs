@@ -4,7 +4,7 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
-ms.custom: CLI, devx-track-azurecli
+ms.custom: CLI
 ---
 <!-- List and set subscriptions -->
 

@@ -11,7 +11,7 @@ This article describes the security configuration and considerations you should 
 
 ## Identity and access control
 
-Each Azure Arc enabled server has a managed identity as part of a resource group inside an Azure subscription, this identity represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) page in the Azure portal, you can verify who has access to your Azure Arc enabled server.
+Each Azure Arc enabled server has a managed identity as part of a resource group inside an Azure subscription, this identity represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc enabled server.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc enabled server access control" border="false" lightbox="./media/security-overview/access-control-page.png":::
 

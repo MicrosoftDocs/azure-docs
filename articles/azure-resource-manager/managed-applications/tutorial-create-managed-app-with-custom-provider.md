@@ -344,7 +344,7 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 ## Looking for help
 
-If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
+If you have questions about Azure Managed Applications, you can try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) with tag azure-managed-app or [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-managed-applications.html) with tag azure-managed-application. A similar question may have already been asked and answered, so check first before posting. Please use respective tags for faster response. 
 
 ## Next steps
 

@@ -8,8 +8,8 @@ metadata:
   description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. 
   ms.service: backup
   ms.topic: landing-page 
-  author: dcurwin 
-  ms.author: dacurwin 
+  author: v-amallick
+  ms.author: v-amallick 
   ms.date: 12/01/2019 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -44,10 +44,6 @@ landingContent:
             url: quick-backup-vm-cli.md
           - text: Back up a VM with Resource Manager template
             url: quick-backup-vm-template.md
-
-  # Card
-  - title: Try these step-by-step tutorials
-    linkLists:
       - linkListType: tutorial
         links:
           - text: Back up Azure VMs
@@ -63,6 +59,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Blobs backup
+            url: blob-backup-overview.md
+          - text: Azure Disk Backup
+            url: disk-backup-overview.md
           - text: Backup Center
             url: backup-center-overview.md
           - text: Backup Azure Database for PostgreSQL 
@@ -87,9 +87,24 @@ landingContent:
           - text: Support matrix for Azure VM backup
             url: backup-support-matrix-iaas.md
           - text: FAQ - Azure VM backup
-            url: backup-azure-vm-backup-faq.md
+            url: backup-azure-vm-backup-faq.yml
           - text: Manage Azure VM backups
             url: backup-azure-manage-vms.md
+  # Card
+  - title: Back up Azure Managed Disks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Overview of Azure Disk Backup
+            url: disk-backup-overview.md
+          - text: Support matrix for Azure Disk Backup
+            url: disk-backup-support-matrix.md
+          - text: Back up Azure Managed Disks
+            url: backup-managed-disks.md
+          - text: FAQ - Azure Managed Disks
+            url: disk-backup-faq.yml
+          - text: Troubleshoot Azure Managed Disks backup
+            url: disk-backup-troubleshoot.md
   # Card
   - title: Back up SQL Server on Azure VMs
     linkLists:
@@ -98,7 +113,7 @@ landingContent:
           - text: About SQL Server in Azure VMs backup
             url: backup-azure-sql-database.md
           - text: FAQ - SQL Server in Azure VMs backup
-            url: faq-backup-sql-server.md
+            url: faq-backup-sql-server.yml
           - text: Back up SQL Server databases in Azure VMs
             url: backup-sql-server-database-azure-vms.md
           - text: Manage and monitor backed up SQL Server databases
@@ -113,7 +128,7 @@ landingContent:
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md
           - text: FAQ - Back up SAP HANA databases on Azure VMs
-            url: sap-hana-faq-backup-azure-vm.md
+            url: sap-hana-faq-backup-azure-vm.yml
           - text: Support matrix for backup of SAP HANA databases on Azure VMs
             url: sap-hana-backup-support-matrix.md            
   # Card
@@ -124,7 +139,7 @@ landingContent:
           - text: Back up and restore Azure file shares
             url: backup-afs.md
           - text: FAQ - Back up Azure Files
-            url: backup-azure-files-faq.md
+            url: backup-azure-files-faq.yml
  # Card
   - title: Back up with Microsoft Azure Recovery Services (MARS) agent
     linkLists:
@@ -137,7 +152,7 @@ landingContent:
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
           - text: FAQ - MARS agent
-            url: backup-azure-file-folder-backup-faq.md 
+            url: backup-azure-file-folder-backup-faq.yml 
 # Card
   - title: Back up with Microsoft Azure Backup Server (MABS) and DPM
     linkLists:
@@ -148,7 +163,7 @@ landingContent:
           - text: MABS / DPM support matrix
             url: backup-support-matrix-mabs-dpm.md
           - text: FAQ - MABS and DPM
-            url: backup-azure-dpm-azure-server-faq.md
+            url: backup-azure-dpm-azure-server-faq.yml
           - text: Install and upgrade MABS
             url: backup-azure-microsoft-azure-backup.md
 # Card

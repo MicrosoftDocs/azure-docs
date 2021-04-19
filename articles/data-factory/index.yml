@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.collection: collection
   author: markingmyname
-  ms.author: maghan
+  ms.author: jburchel
   ms.date: 10/02/2019
 
 landingContent:
@@ -161,7 +161,7 @@ landingContent:
           - text: .NET
             url: /dotnet/api/microsoft.azure.management.datafactory/
           - text: Python
-            url: /python/api/overview/azure/datafactory?view=azure-python
+            url: /python/api/overview/azure/datafactory
           - text: REST
             url: /rest/api/datafactory/
           - text: Resource Manager template

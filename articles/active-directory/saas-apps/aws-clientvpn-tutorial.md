@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 12/29/2020
 ms.author: jeedes
 
 ---
@@ -77,11 +77,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<LOCALHOST>`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<LOCALHOST>`
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
+
+    | Reply URL |
+    |------------|
+    | `http://<LOCALHOST>` |
+    | `https://self-service.clientvpn.amazonaws.com/api/auth/sso/saml` |
+    |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Contact [AWS ClientVPN Client support team](https://aws.amazon.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real.  Update these values with the actual Sign on URL and Reply URL.  The Sign on URL and Reply URL can have the same value (http://127.0.0.1:35001).  Refer to [AWS Client VPN Documentation](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad) for details.   You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Contact [AWS ClientVPN support team](https://aws.amazon.com/contact-us/) for any configuration issues. 
 
 1. In the Azure Active Directory service, navigate to **App registrations** and then select **All Applications**.
 
@@ -144,11 +149,11 @@ In this section, a user called Britta Simon is created in AWS ClientVPN. AWS Cli
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to AWS ClientVPN Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to AWS ClientVPN Sign-on URL where you can initiate the login flow. 
 
-2. Go to AWS ClientVPN Sign-on URL directly and initiate the login flow from there.
+* Go to AWS ClientVPN Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the AWS ClientVPN tile in the Access Panel, this will redirect to AWS ClientVPN Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the AWS ClientVPN tile in the My Apps, this will redirect to AWS ClientVPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

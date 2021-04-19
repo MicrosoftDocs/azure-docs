@@ -76,6 +76,8 @@
         items:
         - name: Security baseline
           href: security-baseline.md
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
         - name: Review security 
           href: data-box-security.md
       - name: Transfer ACLs and metadata
@@ -90,6 +92,8 @@
         href: data-box-local-web-ui-admin.md
       - name: Use self-managed shipping
         href: data-box-portal-customer-managed-shipping.md
+      - name: Bring your own certificates
+        href: data-box-bring-your-own-certificates.md
       - name: Enable customer managed key
         href: data-box-customer-managed-encryption-key-portal.md
       - name: Use Customer Lockbox
@@ -241,6 +245,11 @@
       href: /powershell/module/az.databox
     - name: .NET APIs
       href: /dotnet/api/overview/azure/databox/management
+    - name: .NET SDK
+      href: https://www.nuget.org/packages/Microsoft.Azure.Management.DataBox/
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Resources
     items:
     - name: Data Box product

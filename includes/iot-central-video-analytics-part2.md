@@ -29,7 +29,15 @@ Create the [Media Services account in the Azure portal](https://portal.azure.com
 
 Make a note of your **Media Services** account name in the *scratchpad.txt* file.
 
-When the deployment is complete, navigate to the **Properties** page for your **Media Services** account. Make a note of the **Resource ID** in the *scratchpad.txt* file, you use this value later when you configure the IoT Edge module.
+When the deployment is complete, open a Cloud Shell and run the following command to retrieve the **Resource ID** for your media service account:
+
+```azurecli
+az resource list --resource-group lva-rg --resource-type microsoft.media/mediaservices --output table --query "[].{ResourceID:id}"
+```
+
+:::image type="content" source="media/iot-central-video-analytics-part2/get-resource-id.png" alt-text="Use Cloud Shell to get the resource ID":::
+
+Make a note of the **Resource ID** in the *scratchpad.txt* file, you use this value later when you configure the IoT Edge module.
 
 Next, configure an Azure Active Directory service principal for your Media Services resource. Select **API access** and then **Service principal authentication**. Create a new Azure Active Directory app with the same name as your Media Services resource, and create a secret with a description *IoT Edge Access*.
 

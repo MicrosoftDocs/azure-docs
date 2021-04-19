@@ -32,6 +32,11 @@ The general format of the delete command is:
 ```console
 azdata arc postgres server delete -n <server group name>
 ```
+When you execute this command, you will be requested to confirm the deletion of the server group. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
+```console
+azdata arc postgres server delete -n <server group name> --force
+```
+
 For more details about the delete command, run:
 ```console
 azdata arc postgres server delete --help

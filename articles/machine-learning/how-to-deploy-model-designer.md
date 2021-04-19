@@ -10,12 +10,14 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
+ms.custom: how-to, deploy, studio, designer
 ---
 
 # Use the studio to deploy models trained in the designer
 
-In this article, you learn how to deploy a trained model from the designer as a real-time endpoint in Azure Machine Learning studio.
+In this article, you learn how to deploy a designer model as a real-time endpoint in Azure Machine Learning studio.
+
+Once registered or downloaded, you can use designer trained models just like any other model. Exported models can be deployed in use cases such as internet of things (IoT) and local deployments.
 
 Deployment in the studio consists of the following steps:
 
@@ -56,7 +58,6 @@ After the training pipeline completes, register the trained model to your Azure 
 After registering your model, you can find it in the **Models** asset page in the studio.
     
 ![Screenshot of registered model in the Models asset page](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## Download the entry script file and conda dependencies file
 

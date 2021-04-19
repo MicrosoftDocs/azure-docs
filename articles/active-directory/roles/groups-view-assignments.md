@@ -2,14 +2,14 @@
 title: View roles assigned to a group in Azure Active Directory | Microsoft Docs
 description: Learn how the roles assigned to a group can be viewed using Azure AD admin center. Viewing groups and assigned roles are default user permissions.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 
@@ -34,7 +34,7 @@ This section describes how the roles assigned to a group can be viewed using Azu
 ### Get object ID of the group
 
 ```powershell
-Get-AzureADMSGroup -SearchString “Contoso_Helpdesk_Administrators”
+Get-AzureADMSGroup -SearchString "Contoso_Helpdesk_Administrators"
 ```
 
 ### View role assignment to a group
@@ -47,13 +47,13 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>"
 
 ### Get object ID of the group
 
-```powershell
-GET https://graph.microsoft.com/beta/groups?$filter displayName eq ‘Contoso_Helpdesk_Administrator’ 
+```http
+GET https://graph.microsoft.com/beta/groups?$filter=displayName+eq+'Contoso_Helpdesk_Administrator'
 ```
 
 ### Get role assignments to a group
 
-```powershell
+```http
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
 ```
 
