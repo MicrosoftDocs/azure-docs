@@ -71,14 +71,16 @@
   items:
     - name: Anomaly Detector REST API
       href: https://aka.ms/anomaly-detector-rest-api-ref
-    - name: .NET
-      href: https://aka.ms/anomaly-detector-dotnet-ref
-    - name: Go
-      href: https://go.microsoft.com/fwlink/?linkid=2089915
+    - name: Anomaly Detector REST API preview (multivariate)
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
+    - name: .NET 
+      href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3
+    - name: Java
+      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/
     - name: Python
-      href: https://go.microsoft.com/fwlink/?linkid=2090370
+      href: https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/
     - name: Node.js
-      href: https://go.microsoft.com/fwlink/?linkid=2090788
+      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3
 - name: Resources
   items:
     - name: Enterprise readiness
