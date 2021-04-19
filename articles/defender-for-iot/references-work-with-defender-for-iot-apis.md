@@ -2033,10 +2033,8 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **siteId**: The site on which the alert was discovered. [2](#2)
-
-- **zoneId**: The zone on which the alert was discovered. [2](#2)
-
+- **siteId**: The site on which the alert was discovered.
+- **zoneId**: The zone on which the alert was discovered.
 - **sensor**: The sensor on which the alert was discovered.
 
 *You might not have the site and zone ID. If this is the case, query all devices to retrieve the site and zone ID.*
