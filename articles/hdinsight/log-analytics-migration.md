@@ -3,6 +3,8 @@ title: Migrate Log Analytics data for Azure HDInsight
 description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
 ms.service: hdinsight
 ms.topic: how-to
+ms.author: ali
+author: AliciaLiMicrosoft
 ms.date: 04/19/2021
 ---
 
@@ -139,7 +141,7 @@ To enable the new Azure Monitor integration, follow the steps outlined in the [A
 
 Since the new table format is different from the previous one, your queries need to be reworked so you can use our new tables. Once you enable the new Azure Monitor integration, you can browse the tables and schemas to identify the fields that are used in your old queries.
 
-We provide a [mapping table](#appendix-1-table-mapping) between the old table to the new table to help you quickly find the new fields you need to use to migrate your dashboards and queries.
+We provide a [mapping table](#appendix-table-mapping) between the old table to the new table to help you quickly find the new fields you need to use to migrate your dashboards and queries.
 
 **Default queries**: We created default queries that show how to use the new tables for common situations. The default queries also show what information is available in each table. You can access the default queries by following the instructions in the [Default queries to use with new tables](#default-queries-to-use-with-new-tables) section in this article.
 
@@ -147,7 +149,7 @@ We provide a [mapping table](#appendix-1-table-mapping) between the old table to
 
 If you have built multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor integration. The table name or the field name might change in the new integration, but all the information you have in old integration is included.
 
-Refer to the [mapping table](#appendix-1-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
+Refer to the [mapping table](#appendix-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
 
 #### Out-of-box dashboards 
 
