@@ -1,70 +1,68 @@
 ---
-title: Enable partitioning for Azure Service Bus queues or topics
-description: This article explains how to enable message sessions using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
+title: Enable partitioning in Azure Service Bus queues and topics
+description: This article explains how to enable partitioning in Azure Service Bus queues and topics by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021
 ---
 
-# Enable message sessions for an Azure Service Bus queue or a subscription
-Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For more information, See [Message sessions](message-sessions.md). This article shows you how to enable sessions for a Service Bus queue or subscription. 
+# Enable partitioning for an Azure Service Bus queue or a topic
+Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, See [Partitioned queues and topics](service-bus-partitioning.md). This article shows you how to enable duplicate message detection for a Service Bus queue or a topic. 
 
 > [!IMPORTANT]
-> - The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
-> - You can't enable or disable message sessions after the queue or subscription is created. You can only do so at the time of creating the queue or subscription. 
+> - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected.
+> - It's not possible to change the partitioning option on any existing queue or topic. You can only set the option when you create a queue or a topic. 
 
 ## Azure portal
-When creating a **queue** in the Azure portal, select **Enable sessions** as shown in the following image. 
+When creating a **queue** in the Azure portal, select **Enable duplicate detection** as shown in the following image. 
 
-:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
+:::image type="content" source="./media/duplicate-detection-enable/create-queue.png" alt-text="Enable duplicate detection at the time of the queue creation":::
 
-When creating a subscription for a topic in the Azure portal, select **Enable sessions** as shown in the following image. 
+When creating a topic in the Azure portal, select **Enable duplicate detection** as shown in the following image. 
 
-:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
+:::image type="content" source="./media/duplicate-detection-enable/create-topic.png" alt-text="Enable duplicate detection at the time of the topic creation":::
 
 ## Azure CLI
-To **create a queue with message sessions enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-session` set to `true`.
+To **create a queue with duplicate detection enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-duplicate-detection` set to `true`.
 
 ```azurecli-interactive
 az servicebus queue create \
     --resource-group myresourcegroup \
     --namespace-name mynamespace \
     --name myqueue \
-    --enable-session true
+    --enable-duplicate-detection true
 ```
 
-To **create a subscription for a topic with message sessions enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--enable-session` set to `true`.
+To **create a topic with duplicate detection enabled**, use the [`az servicebus topic create`](/cli/azure/servicebus/topic#az_servicebus_topic_create) command with `--enable-duplicate-detection` set to `true`.
 
 ```azurecli-interactive
-az servicebus topic subscription create \
+az servicebus topic create \
     --resource-group myresourcegroup \
     --namespace-name mynamespace \
-    --topic-name mytopic \
-    --name mysubscription \
-    --enable-session true
+    --name mytopic \
+    --enable-duplicate-detection true
 ```
 
 ## Azure PowerShell
-To **create a queue with message sessions enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `$True`. 
+To **create a queue with duplicate detection enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresDuplicateDetection` set to `$True`. 
 
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -QueueName myqueue `
-    -RequiresSession $True
+    -RequiresDuplicateDetection $True
 ```
 
-To **create a subscription for a topic with message sessions enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-RequiresSession` set to `true`. 
+To **create a topic with duplicate detection enabled**, use the [`New-AzServiceBusTopic`](/powershell/module/az.servicebus/new-azservicebustopic) command with `-RequiresDuplicateDetection` set to `true`. 
 
 ```azurepowershell-interactive
-New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+New-AzServiceBusTopic -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
-    -TopicName mytopic `
-    -SubscriptionName mysubscription `
-    -RequiresSession $True
+    -Name mytopic `
+    -RequiresDuplicateDetection $True
 ```
 
 ## Resource Manager template
-To **create a queue with message sessions enabled**, set `requiresSession` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
+To **create a queue with duplicate detection enabled**, set `requiresDuplicateDetection` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
 
 ```json
 {
@@ -110,7 +108,7 @@ To **create a queue with message sessions enabled**, set `requiresSession` to `t
             "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
           ],
           "properties": {
-            "requiresSession": true
+            "requiresDuplicateDetection": true
           }
         }
       ]
@@ -120,7 +118,7 @@ To **create a queue with message sessions enabled**, set `requiresSession` to `t
 
 ```
 
-To **create a subscription for a topic with message sessions enabled**, set `requiresSession` to `true` in the subscription properties section. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
+To **create a topic with duplicate detection enabled**, set `requiresDuplicateDetection` to `true` in the topic properties section. For more information, see [Microsoft.ServiceBus namespaces/topics template reference](/azure/templates/microsoft.servicebus/namespaces/topics?tabs=json). 
 
 ```json
 {
@@ -137,12 +135,6 @@ To **create a subscription for a topic with message sessions enabled**, set `req
       "type": "string",
       "metadata": {
         "description": "Name of the Topic"
-      }
-    },
-    "serviceBusSubscriptionName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Subscription"
       }
     },
     "location": {
@@ -172,21 +164,8 @@ To **create a subscription for a topic with message sessions enabled**, set `req
             "[resourceId('Microsoft.ServiceBus/namespaces/', parameters('service_BusNamespace_Name'))]"
           ],
           "properties": {
-            "maxSizeInMegabytes": 1024
-          },
-          "resources": [
-            {
-              "apiVersion": "2017-04-01",
-              "name": "[parameters('serviceBusSubscriptionName')]",
-              "type": "Subscriptions",
-              "dependsOn": [
-                "[parameters('serviceBusTopicName')]"
-              ],
-              "properties": {
-                "requiresSession": true
-              }
-            }
-          ]
+            "requiresDuplicateDetection": true
+          }
         }
       ]
     }
@@ -202,4 +181,4 @@ To **create a subscription for a topic with message sessions enabled**, set `req
 - [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Microsoft.Azure.ServiceBus samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Sessions and SessionState samples)  
+- [Microsoft.Azure.ServiceBus samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Duplicate Detection sample)  
