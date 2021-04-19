@@ -23,9 +23,9 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ## Prerequisites
 
-* To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
+- To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
@@ -38,6 +38,17 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 ## Hello world
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: >-
+  python -c "print('hello world')"
+environment:
+  docker:
+    image: docker.io/python
+compute:
+  target: local
+```
 
 ## Creating and using remote compute
 
