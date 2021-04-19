@@ -151,7 +151,7 @@ If you are not using a QnA maker resource, you should remove all the resources. 
 
 Free Search resources are deleted after 90 days without receiving an API call.
     
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 ### Upgrade the Azure Cognitive Search service
 
@@ -165,7 +165,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
 1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
+1. Link the new Azure search resource to the QnA Maker feature for the Text Analytics resource in the [features tab of the Text Analytics resource](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/configure-qna-maker-resources?tabs=v2#configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource) .
 
 ### Inactivity policy for free Search resources
 
