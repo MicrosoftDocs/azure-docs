@@ -7,15 +7,14 @@ ms.topic: how-to
 ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.topic: how-to
 ---
 
 # How to use DFS Namespaces with Azure Files
-[Distributed File Systems Namespaces](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview), commonly referred to as DFS Namespaces or DFS-N, is a Windows Server server role that is widely used to simplify the deployment and maintenance of SMB file shares in production. DFS Namespaces is a storage namespace virtualization technology, which means that it enables you to provide a layer of indirection between the UNC path of your file shares and the actual file shares themselves. DFS Namespaces works with SMB file shares, agnostic of those file shares are hosted: it can be used with SMB shares hosted on an on-premises Windows File Server with or without Azure File Sync, Azure file shares directly, SMB file shares hosted in Azure NetApp Files or other third party offerings, and even with file shares hosted in other clouds. 
+[Distributed File Systems Namespaces](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview), commonly referred to as DFS Namespaces or DFS-N, is a Windows Server server role that is widely used to simplify the deployment and maintenance of SMB file shares in production. DFS Namespaces is a storage namespace virtualization technology, which means that it enables you to provide a layer of indirection between the UNC path of your file shares and the actual file shares themselves. DFS Namespaces works with SMB file shares, agnostic of those file shares are hosted: it can be used with SMB shares hosted on an on-premises Windows File Server with or without Azure File Sync, Azure file shares directly, SMB file shares hosted in Azure NetApp Files or other third-party offerings, and even with file shares hosted in other clouds. 
 
-At its core, DFS Namespaces provides a mapping between a user-friendly UNC path, like `\\contoso\shares\ProjectX` and the underlying UNC path of the SMB share like `\\Server01-Prod\ProjectX` or `\\storageaccount.file.core.windows.net\projectx`. When the end-user wants to navigate to their file share, they type in the user-friendly UNC path, but their SMB client accesses the underlying SMB path of the mapping. You can also extend this basic concept to take over an existing file server name, such as `\\MyServer\ProjectX`. You can use this capability to achieve the following scenarios:
+At its core, DFS Namespaces provides a mapping between a user-friendly UNC path, like `\\contoso\shares\ProjectX` and the underlying UNC path of the SMB share like `\\Server01-Prod\ProjectX` or `\\storageaccount.file.core.windows.net\projectx`. When the end user wants to navigate to their file share, they type in the user-friendly UNC path, but their SMB client accesses the underlying SMB path of the mapping. You can also extend this basic concept to take over an existing file server name, such as `\\MyServer\ProjectX`. You can use this capability to achieve the following scenarios:
 
-- Provide a migration-proof name for a logical set of data. In this example, you have a mapping like `\\contoso\shares\Engineering` that maps to `\\OldServer\Engineering`. When you complete your migration to Azure Files, you can change your mapping so your user-friendly UNC path points to `\\storageaccount.file.core.windows.net\engineering`. When an end-user accesses the user-friendly UNC path, they will be seamlessly redirected to the Azure file share path.
+- Provide a migration-proof name for a logical set of data. In this example, you have a mapping like `\\contoso\shares\Engineering` that maps to `\\OldServer\Engineering`. When you complete your migration to Azure Files, you can change your mapping so your user-friendly UNC path points to `\\storageaccount.file.core.windows.net\engineering`. When an end user accesses the user-friendly UNC path, they will be seamlessly redirected to the Azure file share path.
 
 - Establish a common name for a logical set of data that is distributed to multiple servers at different physical sites, such as through Azure File Sync. In this example, a name such as `\\contoso\shares\FileSyncExample` is mapped to multiple UNC paths such as `\\FileSyncServer1\ExampleShare`, `\\FileSyncServer2\DifferentShareName`, `\\FileSyncServer3\ExampleShare`. When the user accesses the user-friendly UNC, they are given a list of possible UNC paths and choose the one closest to them based on Windows Server Active Directory (AD) site definitions.
 
@@ -39,15 +38,15 @@ DFS Namespaces provides two main namespace types:
 To use DFS Namespaces with Azure Files and File Sync, you must have the following resources:
 
 - An Active Directory domain. This can be hosted anywhere you like, such as on-premises, in an Azure virtual machine (VM), or even in another cloud.
-- A Windows Server that can host the namespace. A common pattern deployment pattern for DFS Namespaces is to use the Active Directory domain controller to host the namespaces, however the namespaces can be setup from any server with the DFS Namepsaces server role installed. DFS Namespaces is available on all supported Windows Server versions.
+- A Windows Server that can host the namespace. A common pattern deployment pattern for DFS Namespaces is to use the Active Directory domain controller to host the namespaces, however the namespaces can be setup from any server with the DFS Namespaces server role installed. DFS Namespaces is available on all supported Windows Server versions.
 - An SMB file share hosted in a domain-joined environment, such as an Azure file share hosted within a domain-joined storage account, or a file share hosted on a domain-joined Windows File Server using Azure File Sync. For more on domain-joining your storage account, see [Identity-based authentication](storage-files-active-directory-overview.md). Windows File Servers are domain-joined the same way regardless of whether you are using Azure File Sync.
-- The SMB file shares you want to use with DFS Namepsaces must be reachable from your on-premises networks. This is primarily a concern for Azure file shares, however, technically applies to any file share hosted in Azure or any other cloud. For more information on networking, see [Networking considerations for direct access](storage-files-networking-overview.md).
+- The SMB file shares you want to use with DFS Namespaces must be reachable from your on-premises networks. This is primarily a concern for Azure file shares, however, technically applies to any file share hosted in Azure or any other cloud. For more information on networking, see [Networking considerations for direct access](storage-files-networking-overview.md).
 
-## Install the DFS Namesapces server role
+## Install the DFS Namespaces server role
 If you are already using DFS Namespaces, or wish to set up DFS Namespaces on your domain controller, you may safely skip these steps.
 
 # [Portal](#tab/azure-portal)
-To install the DFS Namepsaces server role, open the Server Manager on your server. Select **Manage**, and then select **Add Roles and Features**. The resulting wizard guides you through the installation of the necessary Windows components to run and manage DFS Namespaces. 
+To install the DFS Namespaces server role, open the Server Manager on your server. Select **Manage**, and then select **Add Roles and Features**. The resulting wizard guides you through the installation of the necessary Windows components to run and manage DFS Namespaces. 
 
 In the **Installation Type** section of the installation wizard, select the **Role-based or feature-based installation** radio button and select **Next**. On the **Server Selection** section, select the desired server(s) on which you would like to install the DFS Namespaces server role, and select **Next**. 
 
@@ -66,12 +65,12 @@ Install-WindowsFeature -Name "FS-DFS-Namespace", "RSAT-DFS-Mgmt-Con"
 ---
 
 ## Take over existing server names with root consolidation
-An important use for DFS Namespaces is to take over an existing server name for the purposes of refactoring the physical layout of the file shares. For example, you may wish to consolidate file shares from multiple old file servers together on a single file server during a modernization migration. Traditionally, end-user familiarity and document-linking limit your ability to consolidate file shares from disparate file servers together on one host, but the DFS Namespaces root consolidation feature allows you to stand-up a single server to multiple server names and route to the appropriate share name.
+An important use for DFS Namespaces is to take over an existing server name for the purposes of refactoring the physical layout of the file shares. For example, you may wish to consolidate file shares from multiple old file servers together on a single file server during a modernization migration. Traditionally, end user familiarity and document-linking limit your ability to consolidate file shares from disparate file servers together on one host, but the DFS Namespaces root consolidation feature allows you to stand-up a single server to multiple server names and route to the appropriate share name.
 
-Although useful for a variety of datacenter migration scenarios, root consolidation is especially useful for adopting cloud-native Azure file shares because:
+Although useful for various datacenter migration scenarios, root consolidation is especially useful for adopting cloud-native Azure file shares because:
 
 - Azure file shares don't allow you to keep existing on-premises server names.
-- Azure file shares must be accessed via the fully qualified domain name (FQDN) of the storage account. For example, an Azure file share called `share` in storage account `storageaccount` is always accessed through the `\\storageaccount.file.core.windows.net\share` UNC path. This can be confusing to end-users who expect a short name (ex. `\\MyServer\share`) or a name that is a subdomain of the organization's domain name (ex. `\\MyServer.contoso.com\share`).
+- Azure file shares must be accessed via the fully qualified domain name (FQDN) of the storage account. For example, an Azure file share called `share` in storage account `storageaccount` is always accessed through the `\\storageaccount.file.core.windows.net\share` UNC path. This can be confusing to end users who expect a short name (ex. `\\MyServer\share`) or a name that is a subdomain of the organization's domain name (ex. `\\MyServer.contoso.com\share`).
 
 Root consolidation may only be used with standalone namespaces. If you already have an existing domain-based namespace for your file shares, you do not need to create a root consolidated namespace.
 
@@ -139,7 +138,7 @@ Select the **Namespaces** section, and select the **New Namespace** button (you 
 
 The first section in the wizard requires you to pick the DFS Namespace server to host the namespace. Multiple servers can host a namespace, but you will need to set up DFS Namespaces with one server at a time. Enter the name of the desired DFS Namespace server and select **Next**. In the **Namespace Name and Settings** section, you can enter the desired name of your namespace and select **Next**. 
 
-The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namepsace**. If you intend to use DFS Namespaces to preserve an existing file server/NAS device name, you should select the standalone namespace option. For any other scenarios, you should select a domain-based namespace. Refer to [namespace types](#namespace-types) above for more information on choosing between namespace types.
+The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namespace**. If you intend to use DFS Namespaces to preserve an existing file server/NAS device name, you should select the standalone namespace option. For any other scenarios, you should select a domain-based namespace. Refer to [namespace types](#namespace-types) above for more information on choosing between namespace types.
 
 ![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**.](./media/files-manage-namespaces/dfs-namespace-type.png)
 
@@ -179,7 +178,7 @@ New-DfsnRoot -Path $namespacePath -TargetPath $targetPath -Type $type
 ## Configure folders and folder targets
 For a namespace to be useful, it must have folders and folder targets. Each folder can have one or more folder targets, which are pointers to the SMB file share(s) that host that content. When users browse a folder with folder targets, the client computer receives a referral that transparently redirects the client computer to one of the folder targets. You can also have folders without folder targets to add structure and hierarchy to the namespace.
 
-You can think of DFS Namespaces folders as analagous to file shares. 
+You can think of DFS Namespaces folders as analogous to file shares. 
 
 # [Portal](#tab/azure-portal)
 In the DFS Management console, select the namespace you just created and select **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
