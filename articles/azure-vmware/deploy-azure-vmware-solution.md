@@ -16,6 +16,8 @@ In this article, you'll use the information from the [planning section](producti
 
 ## Create an Azure VMware Solution private cloud
 
+[!INCLUDE [create-private-cloud-azure-portal-steps](includes/create-private-cloud-azure-portal-steps.md)]
+
 Follow the prerequisites and steps in the [Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md) tutorial. You can create an Azure VMware Solution private cloud by using the [Azure portal](tutorial-create-private-cloud.md#azure-portal) or by using the [Azure CLI](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
