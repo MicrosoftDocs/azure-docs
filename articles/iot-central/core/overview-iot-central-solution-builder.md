@@ -46,6 +46,7 @@ IoT Central has built-in analytics capabilities that an operator can use to anal
 As a solution builder, you can use the data export and rules capabilities in IoT Central to integrate with other service. To learn more, see:
 
 - [Export IoT data to cloud destinations using data export](howto-export-data.md)
+- [Transform data for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)
 - [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)

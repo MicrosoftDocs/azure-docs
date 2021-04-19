@@ -238,6 +238,8 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
+        - name: Transform data for Azure IoT Central
+          href: core/howto-transform-data.md
         - name: Use workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
         - name: Create custom rules
