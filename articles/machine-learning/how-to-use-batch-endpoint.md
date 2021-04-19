@@ -17,7 +17,7 @@ ms.custom: how-to
 
 # Use Batch Endpoints (Preview) for batch scoring
 
-In this article, you learn how to use [Batch Endpoints](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use it to trigger batch scoring jobs from the Azure CLI or any HTTP library on any platform through the REST API.
+In this article, you learn how to use [Batch Endpoints](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
 
 In this how-to, you learn to do the following tasks:
 
@@ -50,19 +50,19 @@ az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-in
 
 ## Create a batch endpoint
 
-If you are using an MLflow model, no-code batch endpoint creation experience is supported, that is, you don't need to prepare scoring script and environment, both can be auto generated.
+If you are using an MLflow model, no-code batch endpoint creation experience is supported, that is, you don't need to prepare a scoring script and environment, both can be auto generated.
 
 ```
 az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-endpoint.yml
 ```
 
-Below is the yml file. To use a registered model, please replace the model section in yml with **model:azureml:<modelName>:<modelVersion>**.
+Below is the yml file. To use a registered model, replace the model section in yml with **model:azureml:<modelName>:<modelVersion>**.
 
 :::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.yml:::
 
 ## Check batch endpoint details
 
-After a batch endpoint is created, you can use `show` to check the details. Use the [`--query parameter`](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli) to get only specific attributes from the returned data.
+After a batch endpoint is created, you can use `show` to check the details. Use the [`--query parameter`](https://docs.microsoft.com/cli/azure/query-azure-cli) to get only specific attributes from the returned data.
 
 ```
 az ml endpoint show -n mybatchedp -t batch
@@ -95,7 +95,7 @@ Use `--input-datastore` to specify an AML registered datastore, and use `--input
 az ml endpoint invoke --name mybatchedp --type batch --input-datastore azureml:<datastoreName> --input-path <relativePath>
 ```
 
-If your data in publicly available, use `--input-path` to specify the public path.
+If your data is publicly available, use `--input-path` to specify the public path.
 
 If you are using the provided example, you can run below command to start a batch scoring job.
 
@@ -111,7 +111,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-local-path <localPa
 
 ### Configure outputs location
 
-The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job Id (a system generated GUID). You can configure where to store the scoring outputs when you start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path.
+The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job ID (a system-generated GUID). You can configure where to store the scoring outputs when you start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path.
 
 > [!IMPORTANT]
 > You must use a unique output location. If the output location exists, the batch scoring job will fail. 
@@ -162,7 +162,7 @@ Follow below steps to view scoring results.
 
 * Go to the batchscoring step’s Outputs + logs tab, click Show data outputs, and click View output icon.
 * On the popup panel, copy the path and click Open Datastore link.
-* On the bloblstore page, paste above path in the search box. You will find the scoring outputs in the folder.
+* On the blobstore page, paste above path in the search box. You will find the scoring outputs in the folder.
 
 ## Add a deployment to the batch endpoint
 
@@ -170,7 +170,7 @@ One batch endpoint can have multiple deployments, and one deployment hosts one m
 
 ### Add a new deployment
 
-Use below command to add a new deployment to an exisitng batch endpoint.
+Use below command to add a new deployment to an existing batch endpoint.
 
 ```
 az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployment --deployment-file examples/endpoints/batch/add-deployment.yml
@@ -178,10 +178,9 @@ az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployme
 
 This sample uses a non-MLflow model, you will need to provide environment and scoring script.
 
-.. literalinclude:: https://github.com/Azure/azureml-examples/blob/cli-preview/cli/endpoints/batch/add-deployment.yml
-   :language: yaml
+:::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/add-deployment.yml" :::
 
-### Actiate the new deployment
+### Activate the new deployment
 
 When invoking an endpoint, the deployment with 100 traffic is in use. Use the command below to activate the new deployment by switching the traffic (can only be 0 or 100). 
 
