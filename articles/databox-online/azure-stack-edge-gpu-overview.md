@@ -60,8 +60,19 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
     For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 
-* **Azure Stack Edge Pro local web UI** - A browser-based local user interface on your Azure Stack Edge Pro device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
+* **Azure Stack Edge Pro GPU local web UI** - A browser-based local user interface on your Azure Stack Edge Pro device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
+    The local web UI on your device currently supports the following languages with their corresponding language codes:
+
+    | Language             | Code | Language                | Code   | Language                | Code         |
+    |----------------------|------|-------------------------|--------|-------------------------|--------------|
+    | English {default}    | en   |  Czech                  | cs     | German                  | de           |
+    | Spanish              | es   | French                  | fr     | Hungarian               | hu           |
+    | Italian              | it   | Japanese                | ja     | Korean                  | ko           |
+    | Dutch                | nl   | Polish                  | pl     | Portuguese - Brazil     | pt-br        |
+    | Portuguese - Portugal| pt-pt| Russian                 | ru     | Swedish                 | sv           |
+    | Turkish              | tr   | Chinese - simplified    | zh-hans|Chinese - traditional    | zh-hant      |
+    
     For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).
 
 ## Region availability
