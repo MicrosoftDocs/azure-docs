@@ -127,7 +127,7 @@ Active Learning is supported in runtime version 4.4.0 and above. If your knowled
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In Custom question answering (Preview), since the runtime is hosted by the QnA Maker service itself, there is no need to upgrade the runtime manually.
+In Custom question answering (Preview), there is no need to upgrade the runtime manually.
 
 ---
 
