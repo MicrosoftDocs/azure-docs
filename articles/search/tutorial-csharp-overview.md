@@ -87,5 +87,5 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
 ## Next steps
 
-* [Create a Search Index and load with documents](tutorial-dotnet-create-load-index.md)
-* [Deploy your Static Web App](tutorial-dotnet-deploy-static-web-app.md)
+* [Create a Search Index and load with documents](tutorial-csharp-create-load-index.md)
+* [Deploy your Static Web App](tutorial-csharp-deploy-static-web-app.md)

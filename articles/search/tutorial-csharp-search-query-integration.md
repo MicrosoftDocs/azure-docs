@@ -27,7 +27,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a local.settings.json file
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/local.settings.json" highlight="3,4" :::
+:::code language="json" source="~/azure-search-dotnet-samples/search-website/api/local.settings.json" highlight="3,4" :::
 
 ## Azure Function: Search the catalog
 
@@ -61,7 +61,7 @@ Th Suggest function API is called in the React app at `\src\components\SearchBar
 
 The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotent-samples/blob/master/search-website/api/Lookup.cs) takes a ID and returns the document object from the Search Index. 
 
-:::code language="csharp" source="~/azure-search-javascript-samples/search-website/api/Lookup.cs" highlight="4-9, 17" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Lookup.cs" highlight="4-9, 17" :::
 
 ## Client: Get specific document 
 
