@@ -428,6 +428,8 @@
       href: /rest/api/consumption/reservationsdetails
 - name: Resources
   items:
+  - name: FAQ
+    href: cost-management-billing-faq.yml
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-cost-management
   - name: Cost Management feedback forum
