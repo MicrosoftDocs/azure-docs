@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: In this tutorial, you create a React SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
 author: tnorling
-manager: Peterzen
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
@@ -154,7 +154,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     ``` 
 
 
-## Use the Microsoft Authentication Library (MSAL) to sign in user
+## Sign in users
 
 Create a folder in *src* called *components* and create a file inside this folder named *SignInButton.jsx*. Add the code from either of the following sections to invoke login using a popup window or a full-frame redirect:
 
@@ -214,7 +214,7 @@ export const SignInButton = () => {
 }
 ```
 
-### Adding your sign in button to your app
+### Add the sign-in button
 
 Create another file in the *components* folder named *PageLayout.jsx* and add the following code to create a navbar component that will contain the sign-in button you just created:
 
@@ -268,7 +268,7 @@ When a user selects the **Sign in using Popup** or **Sign in using Redirect** bu
 
 At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by *msal.js*, and the information contained in the tokens is cached.
 
-## Use the Microsoft Authentication Library (MSAL) to log out
+## Sign users out
 
 In *src/components* create a file named *SignOutButton.jsx*. Add the code from either of the following sections to invoke logout using a popup window or a full-frame redirect:
 
@@ -326,7 +326,7 @@ export const SignOutButton = () => {
 }
 ```
 
-### Adding your sign out button to your app
+### Add the sign-out button
 
 Update your `PageLayout` component in *src/components/PageLayout.jsx* to render the new `SignOutButton` component for authenticated users. Your code should look like this:
 
@@ -583,7 +583,7 @@ You've completed creation of the application and are now ready to launch the web
    ```
 1. A browser window should be opened to your app automatically. If it does not, open your browser and navigate to `http://localhost:3000`. You should see a page that looks like the one below.
 
-:::image type="content" source="media/tutorial-v2-react/react-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
+    :::image type="content" source="media/tutorial-v2-react/react-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
 
 1. Click the sign-in button to sign in.
 
