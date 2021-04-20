@@ -68,3 +68,4 @@ If an App Service Environment is not used for the QnAMaker App Service, create a
 [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
 ---
+
