@@ -52,7 +52,7 @@ Multiple pipelines can be created from a single topology by supplying different 
 
 ## Sources, processors, and sinks
 
-Azure Video Analyzer on IoT Edge supports the following types of nodes within a pipeline:
+Video Analyzer on IoT Edge supports the following types of nodes within a pipeline:
 
 ### Sources
 
@@ -100,7 +100,7 @@ A video sink node enables you to save video and associated metadata to your Azur
 
 #### File sink
 
-The file sink node enables you to write video to a location on the local file system of the edge device. There can only be one file sink node in a pipeline, and it must be downstream of a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties. To ensure that your edge device does not run out of disk space, you can also set the maximum size that the Azure Video Analyzer on IoT Edge module can use to cache data.
+The file sink node enables you to write video to a location on the local file system of the edge device. There can only be one file sink node in a pipeline, and it must be downstream of a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties. To ensure that your edge device does not run out of disk space, you can also set the maximum size that the Video Analyzer on IoT Edge module can use to cache data.
 
 > [!NOTE]
 > If the cache gets full, the Video Analyzer on IoT Edge module will start deleting the oldest data and replace it with the new one.
