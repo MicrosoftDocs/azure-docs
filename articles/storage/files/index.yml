@@ -40,10 +40,6 @@ landingContent:
         links:
           - text: Create/use file shares - Windows
             url: storage-files-quick-create-use-windows.md
-      - linkListType: tutorial
-        links:
-          - text: Extend Windows file servers with Azure File Sync
-            url: ../filesync/file-sync-extend-servers.md
 
   # Card
   - title: Troubleshoot
