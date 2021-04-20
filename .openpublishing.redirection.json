@@ -24422,7 +24422,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/tutorial-certification-test.md",
-      "redirect_url": "/azure/iot-pnp/",
+      "redirect_url": "/azure/certification/tutorial-03-testing-your-device",
       "redirect_document_id": false
     },
     {
@@ -24912,7 +24912,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-secure-your-key-vault.md",
-      "redirect_url": "/azure/key-vault/general/secure-your-key-vault",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/secure-your-key-vault.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
