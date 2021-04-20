@@ -49,6 +49,7 @@ BioCatch integration includes the following components:
   - A userjourney, which evaluates a returned claim, for example, session risk, conditionally executes an action, such as invoke Multi-factor authentication (MFA).
 
 ![image shows biocatch architecture diagram](media/partner-biocatch/biocatch-architecture-diagram.png)
+
 | Step  | Description |
 |:---|:-------------------|
 |1a     | The user browses the web service. The web service then returns HTML, CSS, or JavaScript values and configures to load the BioCatch JavaScript SDK. Client-side JavaScript configures/sets client session ID for the BioCatch SDK. Alternately, the web service can pre-configure client session ID and send to the client.        |
@@ -58,7 +59,7 @@ BioCatch integration includes the following components:
 |3b     | The client session ID is submitted to the BioCatch platform to determine a risk score. |
 |3c     | BioCatch returns information about the session, such as risk score, and a recommendation on what to do – allow or block |
 |3d    |The userjourney has a conditional check step, which acts upon the returned claims|
-| 4   | Based on the conditional check result, an action such as *step-up MFA* is invoked|
+|4   | Based on the conditional check result, an action such as *step-up MFA* is invoked|
 |5    | At any time from when the user first hits the web service page, the web service can use the client session ID to query the BioCatch API to determine risk score and session information in real-time. |
 
 ## Onboard with BioCatch
