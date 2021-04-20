@@ -69,7 +69,7 @@ export storageAccountKey=$(az storage account keys list \
 ```
 
 ## Create an Azure file share
-Now, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest#az_storage_share_rm_create) command. This example creates an Azure file share named *myshare*: 
+Now, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=false#az_storage_share_rm_create) command. This example creates an Azure file share named *myshare*: 
 
 ```azurecli-interactive
 shareName="myshare"
