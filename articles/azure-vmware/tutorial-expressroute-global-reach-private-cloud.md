@@ -53,7 +53,7 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
  
 1. Sign in to the [Azure portal](https://portal.azure.com) using the same subscription as the on-premises ExpressRoute circuit.
 
-1. From the private cloud **Overview**, under Manage, select **Connectivity** > **ExpressRoute Global Reach** > **Add**.
+1. From the private cloud, under Manage, select **Connectivity** > **ExpressRoute Global Reach** > **Add**.
 
     :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="Screenshot showing the ExpressRoute Global Reach tab in the Azure VMware Solution private cloud.":::
 
@@ -62,9 +62,9 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
    - Select the **ExpressRoute circuit** from the list, or
    - If you have the circuit ID, paste it in the field and and provide the authorization key you just created.
 
-   :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Enter the ExpressRoute ID and the authorization key, and then select Create.":::   
+   :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Screenshot that shows the dialog for entering the connection information.":::   
    
-   The new connection shows in the On-premises cloud connections list.
+   The new connection shows in the on-premises cloud connections list.
 
 >[!TIP]
 >You can delete or disconnect a connection from the list by selecting **More**.  
