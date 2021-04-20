@@ -26,7 +26,7 @@ To create a server endpoint, you must first ensure that the following criteria a
 ## Add a server endpoint
 To add a server endpoint, navigate to the desired sync group, and select "Add server endpoint".
 
-![Add a new server endpoint in the sync group pane](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
+![Add a new server endpoint in the sync group pane](media/storage-sync-files-server-endpoint/add-server-endpoint.png)
 
 The following information is required under **Add server endpoint**:
 

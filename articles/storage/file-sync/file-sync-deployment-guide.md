@@ -106,11 +106,11 @@ For each server that you intend to use with Azure File Sync, including each serv
 
 1. Open Server Manager.
 2. Click **Local Server**:  
-    !["Local Server" on the left side of the Server Manager UI](media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-1.png)
+    !["Local Server" on the left side of the Server Manager UI](media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-part-1.png)
 3. On the **Properties** subpane, select the link for **IE Enhanced Security Configuration**.  
-    ![The "IE Enhanced Security Configuration" pane in the Server Manager UI](media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-2.png)
+    ![The "IE Enhanced Security Configuration" pane in the Server Manager UI](media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-part-2.png)
 4. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**:  
-    ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-3.png)
+    ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-part-3.png)
 
 # [PowerShell](#tab/azure-powershell)
 To disable the Internet Explorer Enhanced Security Configuration, execute the following from an elevated PowerShell session:
@@ -319,7 +319,7 @@ The administrator creating the cloud endpoint must be a member of the management
 # [Portal](#tab/azure-portal)
 To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
 
-![Create a new sync group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
+![Create a new sync group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-part-1.png)
 
 In the pane that opens, enter the following information to create a sync group with a cloud endpoint:
 
@@ -405,7 +405,7 @@ A server endpoint represents a specific location on a registered server, such as
 # [Portal](#tab/azure-portal)
 To add a server endpoint, go to the newly created sync group and then select **Add server endpoint**.
 
-![Add a new server endpoint in the sync group pane](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
+![Add a new server endpoint in the sync group pane](media/storage-sync-files-deployment-guide/create-sync-group-part-2.png)
 
 In the **Add server endpoint** pane, enter the following information to create a server endpoint:
 
