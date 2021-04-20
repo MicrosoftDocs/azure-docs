@@ -106,9 +106,9 @@ For new **minor** versions of Kubernetes:
   * AKS uses [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) to alert users if a new version will cause issues in their cluster because of deprecated APIs. Azure Advisor is also used to alert the user if they are currently out of support.
   * AKS publishes a [service health notification](../service-health/service-health-overview.md) available to all users with AKS and portal access, and sends an email to the subscription administrators with the planned version removal dates.
 
-    ````
-    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    ````
+    > [!NOTE]
+    > To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+    
   * Users have **30 days** from version removal to upgrade to a supported minor version release  to continue receiving support.
 
 For new **patch** versions of Kubernetes:
