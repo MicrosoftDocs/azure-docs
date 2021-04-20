@@ -106,11 +106,14 @@ These represent the limits for each update action; that is, clicking *Save and t
 
 ## Add unstructured files limits
 These represent the limits when unstructured files are used to *Create KB* or call the CreateKnowledgeBase API:
-* Length of file: 32000 characters
+* Length of file: We will extract first 32000 characters
+* Maximum 3 responses per file.
 
-## Add Prebuilt question answering limits
+## Prebuilt question answering limits
 These represent the limits when Prebuilt API is used to fetch answer or call the GenerateAnswer API:
 * Number of documents: 5
+* Lemgth per text passage
+* Maximum 3 responses per file.
 
 ## Next steps
 
