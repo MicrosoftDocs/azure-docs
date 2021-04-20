@@ -82,7 +82,7 @@ To create a knowledge base with the REST APIs and cURL, you need to have the fol
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/create \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/create \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
@@ -149,7 +149,7 @@ When you create a knowledge base, because the operation is async, the response i
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and operation ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/operations/REPLACE-WITH-YOUR-OPERATION-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/operations/REPLACE-WITH-YOUR-OPERATION-ID \
 -X GET \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
@@ -214,7 +214,7 @@ This task publishes the knowledge base. Getting the runtime endpoint key is a [s
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
 -v \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
@@ -279,7 +279,7 @@ The runtime endpoint key is the same key for all knowledge bases using the QnA M
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/endpointkeys \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/endpointkeys \
 -X GET \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
@@ -340,7 +340,7 @@ Getting an answer from the knowledge is done from a separate runtime than managi
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
 -X POST \
 -H "Content-Type:application/json" \
 -H "Content-Size:159" \
@@ -389,7 +389,7 @@ When you are done with the knowledge base, delete it.
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
 -X DELETE \
 -v \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
