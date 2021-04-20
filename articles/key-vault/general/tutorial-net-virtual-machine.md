@@ -135,7 +135,7 @@ Create a console app and install the required packages using the `dotnet` comman
 
 ### Install .NET Core
 
-To install .NET Core, go to the [.NET downloads](https://www.microsoft.com/net/download) page.
+To install .NET Core, go to the [.NET downloads](https://dotnet.microsoft.com/download) page.
 
 ### Create and run a sample .NET app
 

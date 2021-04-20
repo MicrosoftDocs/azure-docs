@@ -35,7 +35,7 @@ In this article, you learn how to:
 
 To complete this tutorial, you must have:
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 * [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
