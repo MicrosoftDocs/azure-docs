@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 12/2/2020
+ms.date: 4/19/21/2020
 ms.topic: how-to
 ---
 
@@ -726,7 +726,7 @@ To install the software:
    | **configure DNS:** | **provided by the customer** |
    | **configure default gateway IP address:** | **provided by the customer** |
    
-1. **(Optional)** If you would like to install a secondary network interface (NIC), define the following appliance profile, and network properties:
+1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
 
     :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
 
@@ -771,8 +771,8 @@ If you have already configured your on-premises management console, and would li
     | **DNS** | `N` |
     | **Default gateway IP Address** | `N` |
     | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, `eth1` |
-    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `y`, **provided by the customer**|
-    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `y`, **provided by the customer** |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **provided by the customer**|
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **provided by the customer** |
     | **Hostname** | **provided by the customer** |
 
     :::image type="content" source="media/tutorial-install-components/install-screen-second-nic.png" alt-text="Fill in these answers to deploy the secondary NIC.":::
