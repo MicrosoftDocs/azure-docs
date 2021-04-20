@@ -176,7 +176,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
 
-    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
+    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 

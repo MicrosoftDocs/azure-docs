@@ -47,7 +47,7 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 5. Select your Subscription ID that has been granted access to the Internet Analyzer public preview.
 
-    After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
+    After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az_account_set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     There are ways to sign in non-interactively, which are covered in detail in [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
