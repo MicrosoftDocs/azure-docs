@@ -23,7 +23,7 @@ There is no double NAT with this architecture. Azure Firewall instances sends th
 
 ## Associate NAT gateway with Azure Firewall subnet
 
-The following example creates and attaches a NAT gateway with Azure Firewall subnet.
+The following example creates and attaches a NAT gateway with an Azure Firewall subnet.
 
 ```azurecli-interactive
 # Create public IP addresses
