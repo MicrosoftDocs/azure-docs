@@ -176,7 +176,7 @@ To read a key from Key Vault, use the [get_key](/python/api/azure-keyvault-keys/
 retrieved_key = client.get_key(keyName)
  ```
 
-You can also verify that the key has been set with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show).
+You can also verify that the key has been set with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show).
 
 ### Delete a key
 
@@ -189,7 +189,7 @@ deleted_key = poller.result()
 
 The `begin_delete_key` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the key is deleted with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show).
+You can verify that the key is deleted with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show).
 
 Once deleted, a key remains in a deleted but recoverable state for a time. If you run the code again, use a different key name.
 
