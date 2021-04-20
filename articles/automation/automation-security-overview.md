@@ -4,11 +4,11 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
 ---
 
-# Automation account authentication overview
+# Azure Automation account authentication overview
 
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
 
@@ -25,6 +25,31 @@ An Azure Automation account is different from your Microsoft account or accounts
 The Automation resources for each Automation account are associated with a single Azure region, but the account can manage all the resources in your Azure subscription. The main reason to create Automation accounts in different regions is if you have policies that require data and resources to be isolated to a specific region.
 
 All tasks that you create against resources using Azure Resource Manager and the PowerShell cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory (Azure AD) organizational identity credential-based authentication.
+
+## Managed identities (preview)
+
+A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+
+Here are some of the benefits of using managed identities:
+
+- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication. They can be used for cloud as well as hybrid jobs. Hybrid jobs can use managed identities when run on a Hybrid Runbook Worker that's running on an Azure or non-Azure VM.
+
+- Managed identities can be used without any additional cost.
+
+- You don’t have to renew the certificate used by the Automation Run As account.
+
+- You don't have to specify the Run As connection object in your runbook code. You can access resources using your Automation account's managed identity from a runbook without creating certificates, connections, Run As accounts, etc.
+
+An Automation account can be granted two types of identities:
+
+- A system-assigned identity is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
+
+- A user-assigned identity is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
+
+>[!NOTE]
+> User assigned identities are not supported yet.
+
+For details on using managed identities, see [Enable managed identity for Azure Automation (preview)](enable-managed-identity-for-automation.md).
 
 ## Run As accounts
 
@@ -89,7 +114,7 @@ In a situation where you have separation of duties, the following table shows a 
 
 <sup>1</sup> Non-administrator users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) if the Azure AD tenant's **Users can register applications** option on the **User settings** page is set to **Yes**. If the application registration setting is **No**, the user performing this action must be as defined in this table.
 
-If you aren't a member of the subscription's Active Directory instance before you're added to the Global Administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page.
+If you aren't a member of the subscription's Active Directory instance before you're added to the Global Administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation account** page.
 
 To verify that the situation producing the error message has been remedied:
 
@@ -115,3 +140,4 @@ For runbooks that use Hybrid Runbook Workers on Azure VMs, you can use [runbook 
 * To create an Automation account from the Azure portal, see [Create a standalone Azure Automation account](automation-create-standalone-account.md).
 * If you prefer to create your account using a template, see [Create an Automation account using an Azure Resource Manager template](quickstart-create-automation-account-template.md).
 * For authentication using Amazon Web Services, see [Authenticate runbooks with Amazon Web Services](automation-config-aws-account.md).
+* For a list of Azure services that support the managed identities for Azure resources feature, see [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).

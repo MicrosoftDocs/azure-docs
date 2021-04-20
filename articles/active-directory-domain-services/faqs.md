@@ -32,6 +32,7 @@ This page answers frequently asked questions about Azure Active Directory Domain
 * [Can I add domain controllers to an Azure AD Domain Services managed domain?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Can guest users be invited to my directory use Azure AD Domain Services?](#can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services)
 * [Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Can I rename an existing Azure AD Domain Services domain name?](#can-i-rename-an-existing-azure-ad-domain-services-domain-name)
 * [Does Azure AD Domain Services include high availability options?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### Can I create multiple managed domains for a single Azure AD directory?
@@ -73,6 +74,9 @@ No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../a
 
 ### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
 No. After you create an Azure AD Domain Services managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the managed domain.
+
+### Can I rename an existing Azure AD Domain Services domain name?
+No. After you create an Azure AD Domain Services managed domain, you can't change the DNS domain name. Choose the DNS domain name carefully when you create the managed domain. For considerations when you choose the DNS domain name, see the [tutorial to create and configure an Azure AD Domain Services managed domain](tutorial-create-instance.md#create-a-managed-domain).
 
 ### Does Azure AD Domain Services include high availability options?
 

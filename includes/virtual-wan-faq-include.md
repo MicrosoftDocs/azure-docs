@@ -271,6 +271,10 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.
 
+### What is the recommended hub address space during hub creation?
+
+The recommended Virtual WAN hub address space is /23. Virtual WAN hub assigns subnets to various gateways (ExpressRoute, Site-to-site VPN, Point-to-site VPN, Azure Firewall, Virtual hub Router). For scenarios where NVAs are deployed inside a virtual hub, a /28 is typically carved out for the NVA instances. However if the user were to provision multiple NVAs, a /27 subnet may be assigned . Therefore keeping a future architecture in mind, while Virtual WAN hubs are deployed with a minimum size of /24, the recommended hub address space at creation time for user to input is /23.
+
 ### Is there support for IPv6 in Virtual WAN?
 
 IPv6 is not supported in the Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.

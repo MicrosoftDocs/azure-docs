@@ -69,15 +69,16 @@ Yes, the analytical store can be enabled on containers with autoscale provisione
 
 Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling the analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing for Azure Cosmos DB analytical store](analytical-store-introduction.md#analytical-store-pricing) for more details.
 
-### Can I restrict access to Azure Cosmos DB analytical store?
+### Can I restrict network access to Azure Cosmos DB analytical store?
 
-Yes you can configure a [managed private endpoint](analytical-store-private-endpoints.md) and restrict network access of analytical store to Azure Synapse managed virtual network. Managed private endpoints establish a private link to your analytical store. This private endpoint will also restrict write access to transactional store, among other Azure data services.
+Yes you can configure a [managed private endpoint](analytical-store-private-endpoints.md) and restrict network access of analytical store to Azure Synapse managed virtual network. Managed private endpoints establish a private link to your analytical store. 
 
-You can add both transactional store and analytical store private endpoints to the same Azure Cosmos DB account in an Azure Synapse Analytics workspace. If you only want to run analytical queries, you may only want to map the analytical private endpoint.
+You can add both transactional store and analytical store private endpoints to the same Azure Cosmos DB account in an Azure Synapse Analytics workspace. If you only want to run analytical queries, you may only want to enable the analytical private endpoint in Synapse Analytics workspace.
 
 ### Can I use customer-managed keys with the Azure Cosmos DB analytical store?
 
-You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. Using customer-managed keys with the Azure Cosmos DB analytical store currently requires additional configuration on your account. Please contact the [Azure Cosmos DB team](mailto:azurecosmosdbcmk@service.microsoft.com)  for details.
+You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. 
+To use customer-managed keys with the analytical store, you need to use your Azure Cosmos DB account's system-assigned managed identity in your Azure Key Vault access policy. This is described [here](how-to-setup-cmk.md#using-managed-identity). You should then be able to enable the analytical store on your account.
 
 ### Are delete and update operations on the transactional store reflected in the analytical store?
 
@@ -148,6 +149,8 @@ None. You will only be charged when you create an analytical store enabled conta
 ### What are the ways to authenticate with the analytical store?
 
 Authentication with the analytical store is the same as a transactional store. For a given database, you can authenticate with the primary or read-only key. You can leverage linked service in Azure Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
+
+When using Synapse serverless SQL pools, you can query the Azure Cosmos DB analytical store by pre-creating SQL credentials storing the account keys and referencing these in the OPENROWSET function. To learn more, see [Query with a serverless SQL pool in Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 
 ## Synapse run-times
 

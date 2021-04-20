@@ -1,6 +1,6 @@
 ---
 title: Azure Government isolation guidelines for Impact Level 5 
-description: 'This article provides guidance for Azure Government Cloud configurations required to implement Impact Level 5 workloads for the DoD.'
+description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/25/2021
+ms.date: 04/14/2021
 ms.custom: references_regions
 #Customer intent: As a DoD mission owner, I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government.
 ---
@@ -20,15 +20,16 @@ Azure Government supports applications that use Impact Level 5 (IL5) data in all
 
 ## Background
 
-In January 2017, DISA awarded the IL5 Provisional Authorization (PA) to [Azure Government for DoD](https://azure.microsoft.com/global-infrastructure/government/dod/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government for DoD regions (US DoD Central and US DoD East) that are dedicated to the DoD. Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/). Azure Government is available from three regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) to US federal, state, local, and tribal governments and their partners. The IL5 expansion to Azure Government honors the isolation requirements mandated by the DoD.
+In January 2017, DISA awarded the IL5 Provisional Authorization (PA) to [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government regions (US DoD Central and US DoD East) that are [dedicated to the DoD](https://azure.microsoft.com/global-infrastructure/government/dod/). Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover the remaining Azure Government regions: US Gov Arizona, US Gov Texas, and US Gov Virginia. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
 
-Azure Government continues to provide more PaaS services suitable for DoD IL5 workloads than any other cloud services environment.
+Azure Government is available to US federal, state, local, and tribal governments and their partners. The IL5 expansion to Azure Government honors the isolation requirements mandated by the DoD. Azure Government continues to provide more PaaS services suitable for DoD IL5 workloads than any other cloud services environment.
 
 ## Principles and approach
 
-You need to address two key areas for Azure services in IL5 scope: storage isolation and compute isolation. We'll focus on how these services can help isolate the compute and storage of IL5 data. The SRG allows for a shared management and network infrastructure. **This article is focused on Azure Government compute and storage isolation approaches.** If an Azure service is available in Azure Government for DoD and authorized at IL5, then it is by default suitable for IL5 workloads with no extra isolation configuration required. Azure Government for DoD is reserved for DoD agencies and their partners, enabling physical separation from non-DoD tenants by design.
+You need to address two key areas for Azure services in IL5 scope: storage isolation and compute isolation. We'll focus in this article on how Azure services can help isolate the compute and storage of IL5 data. The SRG allows for a shared management and network infrastructure. **This article is focused on Azure Government compute and storage isolation approaches for US Gov Arizona, US Gov Texas, and US Gov Virginia regions.** If an Azure service is available in Azure Government DoD regions and authorized at IL5, then it is by default suitable for IL5 workloads with no extra isolation configuration required. Azure Government DoD regions are reserved for DoD agencies and their partners, enabling physical separation from non-DoD tenants by design.
 
-For Azure service availability in Azure Government and Azure Government for DoD, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=all). For IL5 authorization status, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
+> [!IMPORTANT]
+> You are responsible for designing and deploying your applications to meet DoD IL5 compliance requirements. In doing so, you should not include sensitive or restricted information in Azure resource names, as explained in **[Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).**
 
 ### Compute isolation
 
@@ -38,7 +39,7 @@ For services where the compute processes are obfuscated from access by the owner
 
 ### Storage isolation
 
-In the most recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves data encryption via keys that are maintained in Azure Key Vault and stored in FIPS 140-2 validated Hardware Security Modules (HSM). The keys are owned and managed by the IL5 system owner.
+In a recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves data encryption via keys that are maintained in Azure Key Vault and stored in FIPS 140-2 validated Hardware Security Modules (HSMs). The keys are owned and managed by the IL5 system owner (also known as customer-managed keys).
 
 Here's how this approach applies to services:
 
@@ -353,9 +354,9 @@ Azure DevTest Labs supports Impact Level 5 workloads in Azure Government with no
 
 ### [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)
 
-You can protect data via storage accounts because your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and FIPS-compliant storage access keys associated with the storage account. For more information, see [Protect your data](../databox-online/azure-stack-edge-security.md#protect-your-data).
+Azure Stack Edge supports Impact Level 5 workloads in Azure Government with this configuration:
 
-Azure Stack Edge supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+- You can protect data at rest via storage accounts because your device is associated with a storage account that's used as a destination for your data in Azure. You can configure your storage account to use data encryption with customer-managed keys stored in Azure Key Vault. For more information, see [Protect data in storage accounts](../databox-online/azure-stack-edge-pro-r-security.md#protect-data-in-storage-accounts).
 
 ## Identity
 
@@ -510,7 +511,7 @@ Log Analytics may also be used to ingest additional customer-provided logs. Thes
 
 ### [Microsoft Intune](/intune/what-is-intune)
 
-Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required. Line-of-business apps should be evaluated for IL5 restrictions prior to [uploading to Intune storage](/mem/intune/apps/apps-add). While Intune does encrypt applications that are uploaded to the service for distribution, it does not support customer-managed keys.
 
 ## Media
 

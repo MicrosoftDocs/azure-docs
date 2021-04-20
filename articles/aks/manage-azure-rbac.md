@@ -277,9 +277,9 @@ az group delete -n MyResourceGroup
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-provider-register]: /cli/azure/provider#az_provider_register
