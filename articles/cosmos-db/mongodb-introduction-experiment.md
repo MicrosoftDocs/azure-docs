@@ -4,9 +4,13 @@ description: Learn how you can use Azure Cosmos DB to store and query massive am
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 03/02/2021
-author: sivethe
-ms.author: sivethe
+ms.date: 04/20/2021
+author: gahl.levy
+ms.author: gahllevy
+adobe-target: true
+adobe-target-activity: ""
+adobe-target-experience: ""
+adobe-target-content: ""
 ---
 # Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
