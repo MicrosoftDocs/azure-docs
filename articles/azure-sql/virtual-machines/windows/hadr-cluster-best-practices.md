@@ -180,9 +180,18 @@ If above actions do not result in improved performance such in the scenario wher
 
 ## Connectivity
 
-It's possible to configure a virtual network name, or a distributed network name for both failover cluster instances and availability groups. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md).
+It's possible to configure either a virtual network name, or starting with SQL Server 2019, a distributed network name for both failover cluster instances and availability groups. 
 
-The distributed network name is the recommended connectivity option, when available. 
+The distributed network name is the recommended connectivity option, when available: 
+- The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
+- Eliminating the load balancer probes minimizes failover duration. 
+- The DNN simplifies provisioning and management of the failover cluster instance or availability group listener with SQL Server on Azure VMs. 
+
+To learn more, see the [Windows Server Failover Cluster overview](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn). 
+
+To configure connectivity, see the following articles: [Configure DNN for AG](availability-group-distributed-network-name-dnn-listener-configure.md), [Configure DNN for FCI](failover-cluster-instance-distributed-network-name-dnn-configure.md), [Configure VNN for AG](availability-group-vnn-azure-load-balancer-configure.md), and [Configure VNN for FCI](failover-cluster-instance-vnn-azure-load-balancer-configure.md). 
+
+Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
 ## Limitations
 

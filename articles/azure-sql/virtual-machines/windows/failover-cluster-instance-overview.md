@@ -23,7 +23,7 @@ This article introduces feature differences when you're working with failover cl
 
 ## Overview
 
-SQL Server on Azure VMs uses Windows Server Failover Clustering (WSFC) functionality to provide local high availability through redundancy at the server-instance level: a failover cluster instance. An FCI is a single instance of SQL Server that's installed across WSFC (or simply the cluster) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be an instance of SQL Server running on a single computer. But the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
+SQL Server on Azure VMs uses Windows Server Failover Clustering (WSFC) functionality to provide local high availability through redundancy at the server-instance level: a failover cluster instance. An FCI is a single instance of SQL Server that's installed across WSFC (or simply the cluster) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be a single instance of SQL Server running on a single computer. But the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
 
 The rest of the article focuses on the differences for failover cluster instances when they're used with SQL Server on Azure VMs. To learn more about the failover clustering technology, see: 
 
@@ -141,9 +141,11 @@ For shared storage and data replication solutions from Microsoft partners, conta
 
 ## Connectivity
 
-You can configure a virtual network name, or a distributed network name for a failover cluster instance. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your availability group. 
+You can configure a virtual network name, or a distributed network name for a failover cluster instance. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your failover cluster instance.
 
+The distributed network name is recommended, if possible, as failover is faster, and the overhead and cost of managing the load balancer is eliminated. 
 
+Most SQL Server features work transparently with FCIs when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 
 ## Limitations
 
