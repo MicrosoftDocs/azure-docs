@@ -46,13 +46,15 @@ You can enable duplicate message detection using Azure portal, PowerShell, CLI, 
 
 In scenarios where client code is unable to resubmit a message with the same *MessageId* as before, it is important to design messages that can be safely reprocessed. This [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean) describes various techniques for how to do that.
 
-See the following samples: 
+Try the samples in the language of your choice to explore Azure Service Bus features. 
 
-- [Azure Service Bus client library for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Azure Service Bus client library for Java - Samples (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
-- [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Azure Service Bus client library for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Duplicate Detection sample)  
-- [Azure Service Bus client library for Java - Samples (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
+- [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+
+Find samples for the older .NET and Java client libraries below:
+- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [azure-servicebus samples for Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
