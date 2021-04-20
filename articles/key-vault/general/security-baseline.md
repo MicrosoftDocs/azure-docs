@@ -206,7 +206,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 - [Registering an application with Azure AD](/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory)
 
-- [Secure access to a key vault](secure-your-key-vault.md)
+- [Secure access to a key vault](security-overview.md)
 
 **Responsibility**: Customer
 
@@ -366,7 +366,7 @@ After firewall rules are in effect, you can only perform Azure Key Vault data pl
 
 **Guidance**: All data stored within Azure Key Vault is considered sensitive. Use Azure Key Vault data plane access controls to control access to Azure Key Vault secrets. You may also use Key Vault's built-in firewall to control access at the network layer. To monitor access to Azure Key Vault, enable Key Vault Diagnostic Settings and send logs to an Azure Storage Account or Log Analytics workspace.
 
-- [Secure access to a key vault](secure-your-key-vault.md)
+- [Secure access to a key vault](security-overview.md)
 
 - [Configure Azure Key Vault firewalls and virtual networks](/azure/key-vault/key-vault-network-security)
 
@@ -380,7 +380,7 @@ After firewall rules are in effect, you can only perform Azure Key Vault data pl
 
 **Guidance**: Secure access to the management and data plane of your Azure Key Vault instances.
 
-- [Secure access to a key vault](secure-your-key-vault.md)
+- [Secure access to a key vault](security-overview.md)
 
 **Responsibility**: Customer
 
