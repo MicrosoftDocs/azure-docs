@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum contributor level in the subscription.
 - Follow the information you gathered in the [planning](production-ready-deployment-steps.md) article to deploy Azure VMware Solution.
-- Ensure you have the appropriate networking configured as described in [Tutorial: Network checklist](tutorial-network-checklist.md).
+- Ensure you have the appropriate networking configured as described in [Network planning checklist](tutorial-network-checklist.md).
 - Hosts have been provisioned and the Microsoft.AVS resource provider has been registered as described in [Request hosts and enable the Microsoft.AVS resource provider](enable-azure-vmware-solution.md).
 
 ## Create a private cloud
