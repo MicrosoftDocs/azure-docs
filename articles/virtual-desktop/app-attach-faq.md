@@ -73,7 +73,7 @@ Each application uses different features of the OS, programming languages, and f
 
 Certain applications can't be application layered, which means they can't be repackaged into an MSIX file. Here's a list of the applications that can't be repackaged:
 
-* Drivers 
+- Drivers 
 - Active-X or Silverlight
 - VPN clients
 * Anti-virus
