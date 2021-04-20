@@ -15,9 +15,9 @@ Get started with facial recognition using the Face client library for Go. Follow
 Use the Face service client library for Go to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create and train a PersonGroup](#create-and-train-a-persongroup)
 * [Identify a face](#identify-a-face)
+* [Verify faces](#verify-faces)
+* [Find similar faces](#find-similar-faces)
 
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK download](https://github.com/Azure/azure-sdk-for-go)
 
@@ -99,9 +99,9 @@ These code samples show you how to complete basic tasks using the Face service c
 
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create and train a PersonGroup](#create-and-train-a-persongroup)
 * [Identify a face](#identify-a-face)
+* [Verify faces](#verify-faces)
+* [Find similar faces](#find-similar-faces)
 
 ## Authenticate the client
 
@@ -115,6 +115,9 @@ Create a **main** function and add the following code to it to instantiate a cli
 
 ## Detect faces in an image
 
+Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
+
+
 Add the following code in your **main** method. This code defines a remote sample image and specifies which face features to extract from the image. It also specifies which AI model to use to extract data from the detected face(s). See [Specify a recognition model](../../Face-API-How-to-Topics/specify-recognition-model.md) for information on these options. Finally, the **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** method does the face detection operation on the image and saves the results in program memory.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
@@ -127,6 +130,99 @@ Add the following code in your **main** method. This code defines a remote sampl
 The next block of code takes the first element in the array of **[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)** objects and prints its attributes to the console. If you used an image with multiple faces, you should iterate through the array instead.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect_display)]
+
+
+
+
+
+## Identify a face
+
+The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
+
+### Get Person images
+
+To step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+
+This group of images contains three sets of single-face images that correspond to three different people. The code will define three **PersonGroup Person** objects and associate them with image files that start with `woman`, `man`, and `child`.
+
+### Create a PersonGroup
+
+Once you've downloaded your images, add the following code to the bottom of your **main** method. This code authenticates a **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** object and then uses it to define a new **PersonGroup**.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_setup)]
+
+### Create PersonGroup Persons
+
+The next block of code authenticates a **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** and uses it to define three new **PersonGroup Person** objects. These objects each represent a single person in the set of images.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_setup)]
+
+### Assign faces to Persons
+
+The following code sorts the images by their prefix, detects faces, and assigns the faces to each respective **PersonGroup Person** object, based on the image file name.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
+
+> [!TIP]
+> You can also create a **PersonGroup** from remote images referenced by URL. See the [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) methods such as **AddFaceFromURL**.
+
+### Train the PersonGroup
+
+Once you've assigned faces, you train the **PersonGroup** so it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
+
+> [!TIP]
+> The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
+
+### Get a test image
+
+The following code looks in the root of your project for an image _test-image-person-group.jpg_ and loads it into program memory. You can find this image in the same repo as the images used in [Create and train a PersonGroup](#create-and-train-a-persongroup): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
+
+### Detect source faces in test image
+
+The next code block does ordinary face detection on the test image to retrieve all of the faces and save them to an array.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_detect)]
+
+### Identify source faces
+
+The **[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** method takes the array of detected faces and compares them to the given **PersonGroup** (defined and trained in the earlier section). If it can match a detected face to a **Person** in the group, it saves the result.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id)]
+
+This code then prints detailed match results to the console.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_print)]
+
+
+### Verify faces
+
+The Verify operation takes a face ID and either another face ID or a **Person** object and determines whether they belong to the same person. Verification can be used to double-check the face match returned by the Identify operation.
+
+The following code detects faces in two source images and then verifies each of them against a face detected from a target image.
+
+### Get test images
+
+The following code blocks declare variables that will point to the target and source images for the verification operation.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver_images)]
+
+### Detect faces for verification
+
+The following code detects faces in the source and target images and saves them to variables.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver_detect_source)]
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver_detect_target)]
+
+### Get verification results
+
+The following code compares each of the source images to the target image and prints a message indicating whether they belong to the same person.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
 
 ## Find similar faces
 
@@ -154,98 +250,6 @@ The following code prints the match details to the console.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
-
-## Create and train a PersonGroup
-
-To step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
-
-This group of images contains three sets of single-face images that correspond to three different people. The code will define three **PersonGroup Person** objects and associate them with image files that start with `woman`, `man`, and `child`.
-
-### Create PersonGroup
-
-Once you've downloaded your images, add the following code to the bottom of your **main** method. This code authenticates a **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** object and then uses it to define a new **PersonGroup**.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_setup)]
-
-### Create PersonGroup Persons
-
-The next block of code authenticates a **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** and uses it to define three new **PersonGroup Person** objects. These objects each represent a single person in the set of images.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_setup)]
-
-### Assign faces to Persons
-
-The following code sorts the images by their prefix, detects faces, and assigns the faces to each respective **PersonGroup Person** object, based on the image file name.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
-
-> [!TIP]
-> You can also create a **PersonGroup** from remote images referenced by URL. See the [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) methods such as **AddFaceFromURL**.
-
-### Train PersonGroup
-
-Once you've assigned faces, you train the **PersonGroup** so it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
-
-> [!TIP]
-> The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
-
-## Identify a face
-
-The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
-
-> [!IMPORTANT]
-> In order to run this example, you must first run the code in [Create and train a PersonGroup](#create-and-train-a-persongroup).
-
-### Get a test image
-
-The following code looks in the root of your project for an image _test-image-person-group.jpg_ and loads it into program memory. You can find this image in the same repo as the images used in [Create and train a PersonGroup](#create-and-train-a-persongroup): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
-
-### Detect source faces in test image
-
-The next code block does ordinary face detection on the test image to retrieve all of the faces and save them to an array.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_detect)]
-
-### Identify faces
-
-The **[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** method takes the array of detected faces and compares them to the given **PersonGroup** (defined and trained in the earlier section). If it can match a detected face to a **Person** in the group, it saves the result.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id)]
-
-This code then prints detailed match results to the console.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_print)]
-
-
-## Verify faces
-
-The Verify operation takes a face ID and either another face ID or a **Person** object and determines whether they belong to the same person.
-
-The following code detects faces in two source images and then verifies each of them against a face detected from a target image.
-
-### Get test images
-
-The following code blocks declare variables that will point to the target and source images for the verification operation.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver_images)]
-
-### Detect faces for verification
-
-The following code detects faces in the source and target images and saves them to variables.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver_detect_source)]
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver_detect_target)]
-
-### Get verification results
-
-The following code compares each of the source images to the target image and prints a message indicating whether they belong to the same person.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
 
 ## Run the application
 
