@@ -263,11 +263,7 @@ The cURL response includes the runtime endpoint keys. Use just one of the keys w
 ```
 # [Custom question answering (preview release)](#tab/v2)
 
-Before you query the knowledge base, you need to:
-* Publish knowledge base
-* Get the runtime endpoint key
-
-This task getS the runtime endpoint key. Publishing the knowledge base is a [separate task](#publish-knowledge-base).
+This is not applicable for Customer question answering.
 
 ---
 
