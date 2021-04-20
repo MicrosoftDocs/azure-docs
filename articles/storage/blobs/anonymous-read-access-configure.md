@@ -235,7 +235,7 @@ When public access is disallowed for the storage account, a container's public a
 
 # [Azure CLI](#tab/azure-cli)
 
-To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
 The following example creates a container with public access disabled, and then updates the container's public access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
 
