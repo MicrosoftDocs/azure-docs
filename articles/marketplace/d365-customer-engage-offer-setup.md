@@ -1,17 +1,17 @@
 ---
-title: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource.
-description: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource.
+title: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
+description: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: navits09
-ms.author: navits
-ms.date: 12/15/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 04/20/2021
 ---
 
 # How to create a Dynamics 365 for Customer Engagement & PowerApps offer
 
-This article describes how to create a Dynamics 365 for Customer Engagement & PowerApps offer. <strike>This offer type is an enterprise resource planning (ERP) service that supports a wide range of business processes, including finance, operations, supply chain, CRM, project management, and electronic commerce.</strike> All offers for Dynamics 365 go through our certification process<strike>, which checks your solution for standard requirements, compatibility, and proper practices.</strike> The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
+This article describes how to create a Dynamics 365 for Customer Engagement & PowerApps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
 Before you start, create a commercial marketplace account in [Partner Center](partner-center-portal/create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
@@ -40,7 +40,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used <strike>in the marketplace</strike> on AppSource. It is different from the offer name and other values shown to customers.
+- This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
 - This name can't be changed after you select **Create**.
 
 Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.

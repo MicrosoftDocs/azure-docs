@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/16/2021
+ms.date: 04/20/2021
 ---
 
 # Review and publish a Dynamics 365 CE&PA offer
