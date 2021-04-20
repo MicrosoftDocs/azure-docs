@@ -32,7 +32,7 @@ This documentation contains the following types of articles:
 * The [conceptual articles](./concepts/face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./Tutorials/FaceAPIinCSharpTutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-## Face detection
+## Face detection and analysis
 
 Face detection is required as a first step in all the other scenarios. The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. It also returns a unique ID that represents the stored face data, which is used in later operations to compare different faces. 
 
