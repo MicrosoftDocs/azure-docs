@@ -91,6 +91,8 @@ A client can connect over a public or a [private endpoint](../common/storage-pri
 > [!IMPORTANT]
 > If you're connecting from an on-premises network, make sure that your client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports.
 
+<a id="azure-storage-features-not-yet-supported"></a>
+
 ## Support for Azure Storage features
 
 The following table shows the current level of support for Azure Storage features in accounts that have the NFS 3.0 feature enabled.  
@@ -99,28 +101,25 @@ The status of items that appear in this tables will change over time as support 
 
 | Storage feature | Supported | Storage Feature | Supported|
 |-----------------|---------------------|----|----|
-| Blob REST API	| ✔️ | ABAC | ⛔ |
-| Batch APIs | ✔️ | Index |	⛔ |
-| All tiers including Archive |	✔️  | Classic logs | ⛔ |
-| Lifecycle management | ✔️  | Change Feed |	⛔ |
-| Inventory |	✔️  | Versioning | ⛔ |
-| Azure monitor |	✔️  |  VLW | ⛔ |
-| WORM | ✔️  | PITR | ⛔ |
-| File snapshot |	✔️  | Backup integration | ⛔ |
-| Private endpoint | ✔️  | Container soft delete |	⛔ |
-| Service endpoint | ✔️  | Fir/dir soft delete |	⛔ |
-| Firewall rules | ✔️  | GRS/ZRS |	⛔ |
-| Disable Account keys | ✔️  | RA-GRS | ⛔ |
-| CMK |	✔️  | Encryption scope | ⛔ |
-| Append Blob | ✔️  | Page blob |	⛔ |
-| Azure Active Directory (AD) security | ⛔  | Customer controlled failover | ⛔ |
-| Posix-like access control lists (ACLs) | ⛔  | CPK |	⛔ |
-| Access based lifecycle management |	⛔ | Static Websites |	⛔ |
-| Object replication | ⛔ |
+| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | Azure attribute-based access control (Azure ABAC) | ⛔ |
+| [Access tiers for Azure Blob storage](storage-blob-storage-tiers.md) |	✔️ | [Blob index tags](storage-blob-index-how-to.md) |	⛔ |
+| [Azure Blob Storage lifecycle management](storage-lifecycle-management-concepts.md) | ✔️  | [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |
+|  [Azure Storage blob inventory](blob-inventory.md) |	✔️  | [Change Feed](storage-blob-change-feed.md) |	⛔ |
+| [Azure Monitor](monitor-blob-storage.md) |	✔️ | [Blob versioning](versioning-enable.md) | ⛔ |
+| [Immutable Blob storage](storage-blob-immutable-storage.md) | ✔️    |  VLW | ⛔ |
+| [Blob snapshots](snapshots-overview.md) |	✔️  | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | ⛔ |
+| [Private endpoints](common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | [Azure Backup integration](/azure/backup/blob-backup-overview) | ⛔ |
+| [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  | [Soft delete for containers](soft-delete-container-overview.md) |	⛔ |
+| [Firewall rules](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  | [Soft delete for blobs](soft-delete-blob-overview.md) |	⛔ |
+| Disable Account keys | ✔️ | Access based lifecycle management |	⛔|
+| [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md) |	✔️   | [Customer-provided keys for Azure Storage encryption](encryption-customer-provided-keys.md)  |	⛔ |
+| [Append blobs](storage-blobs-introduction.md#blobs) | ✔️   | [Page blobs](storage-blobs-introduction.md#blobs) | ⛔ |
+| [Azure Active Directory (AD) security](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ | [Encryption scopes](encryption-scope-overview.md)  |	⛔ |
+| [Object replication for block blobs](blobs/object-replication-overview.md) | ⛔  | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |
+| [Posix-like access control lists (ACLs)](data-lake-storage-access-control.md) | ⛔  | [Static websites hosting](storage-blob-static-website.md) |	⛔ |
 
-- The ability to enable NFS 3.0 support on existing storage accounts
-
-- The ability to disable NFS 3.0 support in a storage account (after you've enabled it)
+> [!NOTE]
+> You can't enable NFS 3.0 support on existing storage accounts, nore can you disable NFS 3.0 support in a storage account after you've enabled it.
 
   
 ## NFS 3.0 features not yet supported
