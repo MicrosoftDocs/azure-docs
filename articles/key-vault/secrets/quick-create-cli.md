@@ -42,6 +42,8 @@ Use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvaul
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
+## Retrieve a secret from Key Vault
+
 You can now reference this password that you added to Azure Key Vault by using its URI. Use **'https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword'** to get the current version.
 
 To view the value contained in the secret as plain text:

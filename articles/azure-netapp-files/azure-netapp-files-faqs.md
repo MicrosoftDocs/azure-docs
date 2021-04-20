@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/19/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -208,6 +208,43 @@ Management of `SMB Shares`, `Sessions`, and `Open Files` through Computer Manage
 ### How can I obtain the IP address of an SMB volume via the portal?
 
 Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** -> **mountTargets**.
+
+### SMB encryption FAQs
+
+This section answers commonly asked questions about SMB encryption (SMB 3.0 and SMB 3.1.1).
+
+#### What is SMB encryption?  
+
+[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
+
+#### How does SMB encryption work?
+
+When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.
+
+#### Which clients support SMB encryption?
+
+Windows 10, Windows 2012, and later versions support SMB encryption.
+
+#### With Azure NetApp Files, at what layer is SMB encryption enabled?  
+
+SMB encryption is enabled at the share level.
+
+#### What forms of SMB encryption are used by Azure NetApp Files?
+
+SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm
+
+#### Is SMB encryption required?
+
+SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
+
+#### <a name="smb_encryption_impact"></a>What is the anticipated impact of SMB encryption on client workloads?
+
+Although SMB encryption has impact to both the client (CPU overhead for encrypting and decrypting messages) and the storage (reductions in throughput), the following table highlights storage impact only. You should test the encryption performance impact against your own applications before deploying workloads into production.
+
+|     I/O profile    	|     Impact    	|
+|-	|-	|
+|     Read and write workloads    	|     10% to 15%     	|
+|     Metadata intensive    	|     5%  	|
 
 ## Capacity management FAQs
 

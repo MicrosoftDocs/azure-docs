@@ -5,14 +5,10 @@ description: Learn how to migrate from the legacy developer portal to the new de
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
-manager: cfowler
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 04/15/2021
 ms.author: apimpm
 ---
 
@@ -29,19 +25,19 @@ This article describes the steps you need to take to migrate from the deprecated
 
 ## Improvements in new developer portal
 
-The new developer portal addresses many limitations of the deprecated portal. It features a [visual drag-and-drop editor for editing content](api-management-howto-developer-portal-customize.md) and a dedicated panel for designers to style the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](api-management-howto-developer-portal.md#automate). Lastly, the portal's codebase is open-source, so [you can extend it with custom functionality](api-management-howto-developer-portal.md#managed-vs-self-hosted).
+The new developer portal addresses many limitations of the deprecated portal. It features a [visual drag-and-drop editor for editing content](api-management-howto-developer-portal-customize.md) and a dedicated panel for designers to style the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](automate-portal-deployments.md). Lastly, the portal's codebase is open-source, so [you can extend it with custom functionality](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 
 ## How to migrate to new developer portal
 
 The new developer portal is incompatible with the deprecated portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance. Remaining configuration, like the list of APIs, products, users, identity providers, is automatically shared across both portals.
 
 > [!IMPORTANT]
-> If you've launched the new developer portal before, but you haven't made any changes, [reset the default content](api-management-howto-developer-portal.md#preview-to-ga) to update it to the latest version.
+> If you've launched the new developer portal before, but you haven't made any changes, reset the default content to update it to the latest version.
 
 When you migrate from the deprecated portal, keep in mind the following changes:
 
 - If you expose your developer portal via a custom domain, [assign a domain](configure-custom-domain.md) to the new developer portal. Use the **Developer portal** option from the dropdown in the Azure portal.
-- [Apply a CORS policy](api-management-howto-developer-portal.md#cors) on your APIs to enable the interactive test console.
+- [Apply a CORS policy](developer-portal-faq.md#cors) on your APIs to enable the interactive test console.
 - If you inject custom CSS to style the portal, you need to [replicate the styling using the built-in design panel](api-management-howto-developer-portal-customize.md). CSS injection isn't allowed in the new portal.
 - You can inject custom JavaScript only in the [self-hosted version of the new portal](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 - If your API Management is in a virtual network and is exposed to the Internet via Application Gateway, [refer to this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for precise configuration steps. You need to:
