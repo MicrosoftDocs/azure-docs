@@ -40991,11 +40991,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/vmware-cloudsimple/migration-using-azure-data-box.md",
-      "redirect_url": "/azure/vmware-cloudsimple/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/vpn-gateway/nva-working-remotely-support.md",
       "redirect_url": "/azure/vpn-gateway/nva-work-remotely-support",
       "redirect_document_id": false

@@ -168,12 +168,12 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East, US Gov Virginia | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### China
-| **Location** | **Service providers** |
-| --- | --- |
-| **Beijing** |China Telecom |
-| **Beijing2** | China Telecom, China Unicom, GDS |
-| **Shanghai** |China Telecom |
-| **Shanghai2** | China Telecom, China Unicom, GDS |
+| **Location** | **Address** | **Local Azure regions** | **ER Direct** | **Service providers** |
+| --- | --- | --- | --- | --- |
+| **Beijing** | China Telecom | n/a | 10G | China Telecom |
+| **Beijing2** | GDS | n/a | 10G | China Telecom, China Unicom, GDS |
+| **Shanghai** | China Telecom | n/a | 10G | China Telecom |
+| **Shanghai2** | GDS | n/a | 10G | China Telecom, China Unicom, GDS |
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 
