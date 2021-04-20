@@ -35,7 +35,7 @@ Any errors raised by this process will be logged in the GitHub workflow run. You
 1. Click *Build and Deploy Job* to open the details of the deployment
 1. Click *Build And Deploy* to display the log
 
-    ![Screenshot of the deployment log for a static web app](./troubleshooting/build-deploy-log.png)
+    ![Screenshot of the deployment log for a static web app](./media/troubleshooting/build-deploy-log.png)
 
 1. Review the logs and any error messages
 
