@@ -16,9 +16,9 @@ When you create an Video Analyzer account, you have to associate an Azure storag
 
 You can use Video Analyzer to create video resources and add data to existing videos. This enables the scenarios of continuous and event-based video recording and playback (with video capture on the edge device, recording to Video Analyzer, and playback via Video Analyzer streaming capabilities).
 
-## gRPC
+# Pipeline
 
-[gRPC](https://grpc.io/docs/guides/) is a language agnostic, high-performance Remote Procedure Call (RPC) framework. It uses session-based structured schemas via [Protocol Buffers 3](https://developers.google.com/protocol-buffers/docs/proto3) as its underlying message interchange format for communication.
+A pipeline is where video data is analyzed. It is constructed from nodes defined in a pipeline topology. There is one kind of pipeline called a live pipeline which is used to process live video.
 
 ## Pipeline topology
 
@@ -32,6 +32,10 @@ In the context of a video management system for security cameras, video recordin
 
 [RTSP](https://tools.ietf.org/html/rfc2326) refers to Real-Time Streaming Protocol. It is an application-level protocol for control over the delivery of data with real-time properties. RTSP provides an extensible framework to enable controlled, on-demand delivery of real-time data, such as audio and video. 
 
+## gRPC
+
+[gRPC](https://grpc.io/docs/guides/) is a language agnostic, high-performance Remote Procedure Call (RPC) framework. It uses session-based structured schemas via [Protocol Buffers 3](https://developers.google.com/protocol-buffers/docs/proto3) as its underlying message interchange format for communication.
+
 ## Streaming
 
 If you have watched video on a mobile device from services like Netflix, YouTube, and others, you have experienced streaming video. Playback begins soon after you hit “play” (if you have sufficient bandwidth), and you can seek back and forth along the timeline of the video. With streaming, the idea is to deliver only the portion of the video that is being watched, and to let the viewer start playing the video while the data is still being transferred from a server to the playback client. In the context of Video Analyzer, [streaming](https://en.wikipedia.org/wiki/Streaming_media) refers to the process of delivering media from Video Analyzer videos to a streaming client (for example, [Video Analyzer Player](TODO: LINK). You can use Video Analyzer to stream video to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). HLS is supported by Video Analyzer Player, and web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by Video Analyzer Player, [find a list of clients on this page](https://dashif.org/clients/). 
@@ -40,7 +44,7 @@ By using [pipeline topologies](#pipeline-topology) to record video to an Video A
 
 ## VMS
 
-[VMS](https://en.wikipedia.org/wiki/Video_management_system) refers to a Video Management System. Such systems are used to configure and control CCTV cameras, capture and record videos from them. These systems also provide client applications to play back the recorded video
+[VMS](https://en.wikipedia.org/wiki/Video_management_system) refers to a Video Management System. Such systems are used to configure and control CCTV cameras, capture and record videos from them. These systems also provide client applications to play back the recorded video.
 
 ## Next steps
 
