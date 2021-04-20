@@ -3,12 +3,53 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: alkohli
 ---
 
-1. When the Data Box device is connected to the Azure datacenter network, the data upload to Azure starts automatically. 
-2. Azure Data Box service notifies you that the data copy is complete via the Azure portal.<!--Update this step with instructions for handling customer configuration errors.-->
+When the Data Box device is connected to the Azure datacenter network, the data upload to Azure starts automatically.
 
-    1. Check error logs for any failures and take appropriate actions.
-    2. Verify that your data is in the storage account(s) before you delete it from the source.
+#### Review copy failures
+
+If some files fail to upload because of errors, the data copy is placed in a XXX state, and you're notified to review the errors and choose whether to proceed with the upload or cancel the order.<!--Recast this lead.-->
+
+The order is automatically completed after 14 days if you don't respond to the notification.
+
+To review data copy errors during an upload, do the following:
+
+1. Open your Data Box import order in the Azure portal.
+
+1. If you see the following notification, carefully review the errors in the copy log, which is stored in the storage account for the order.<!--Need filename for the copy log.-->
+
+   ![Copy completed with errors notification in local web UI](media/data-box-verify-upload/copy-completed-with-errors-01.png)
+
+   You can't fix these errors during this phase of the order process, but you need to review the log and decide whether it's better to proceed with this order or start a new order.
+
+   For example, if two or three files failed to upload, you could proceed with the order and later transfer the missing files over the network.
+
+   On the other hand, if a large set of files failed to upload for unknown reasons, you'll need to cancel the upload, investigate, and start a new import order after resolving the issues.
+
+   For information about CustomerConfiguration exceptions, see [Troubleshoot data uploads from Azure Data Box and Azure Data Box Heavy devices](../../articles/data-box/data-box-troubleshoot-upload.md).<!--Get the real heading.-->
+
+   For information about the copy log, see [Review copy log during upload to Azure](../../articles/databox/data-box-logs.md#review-copy-log-during-upload-to-azure) in **Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order**.
+
+1. Select the check box to confirm that you have reviewed the errors in the copy log.
+
+1. Choose what to do with the order:
+
+   - Select **Proceed** to complete data copy and move the order to completion.
+
+     If you proceed, the data will be secure erased from the Data Box after the upload is completed.
+   
+   - Select **Cancel** to cancel the data copy and the order.
+
+
+#### Verify completed data upload
+
+After the copy completes, the Azure Data Box service notifies you that the data copy is complete via the Azure portal.
+
+ADD ART: Import order in Completed state
+
+1. Check the error logs for any failures, and take appropriate actions.<!--Log name and location. Can they get there from the portal?-->
+
+2. In the Azure portal, verify that your data is in the storage account(s) before you delete the data from the source.
