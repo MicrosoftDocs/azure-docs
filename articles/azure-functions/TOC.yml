@@ -248,6 +248,8 @@
           items:
             - name: Develop and debug locally
               href: functions-develop-local.md
+            - name: Event Grid Blob Trigger local development
+              href: functions-event-grid-blob-trigger.md
             - name: Visual Studio Code development
               href: functions-develop-vs-code.md
             - name: Visual Studio development

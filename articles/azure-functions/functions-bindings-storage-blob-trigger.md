@@ -30,6 +30,9 @@ Polling works as a hybrid between inspecting logs and running periodic container
 
 ### Event Grid trigger
 
+> [!NOTE]
+> When using Storage Extensions 5.x and higher, the Blob trigger has built-in support for an Event Grid based Blob trigger. For more information, see the [Storage extension 5.x and higher](#storage-extension-5.x-and-higher) section below.
+
 The [Event Grid trigger](functions-bindings-event-grid.md) also has built-in support for [blob events](../storage/blobs/storage-blob-event-overview.md). Use Event Grid instead of the Blob storage trigger for the following scenarios:
 
 - **Blob-only storage accounts**: [Blob-only storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts) are supported for blob input and output bindings but not for blob triggers.
@@ -42,27 +45,7 @@ See the [Image resize with Event Grid](../event-grid/resize-images-on-storage-bl
 
 #### Storage Extension 5.x and higher
 
-When using the preview storage extension, there is inbuilt support for Event Grid in the Blob trigger. To use this feature, add the Event Grid source parameter to your blob trigger function.
-
-# [C#](#tab/csharp)
-Add **Source = BlobTriggerSource.EventGrid** to the function parameters.
-
-# [C# Script](#tab/csharp-script)
-Add **"source": "EventGrid"** to the function.json parameters.
-
-# [Java](#tab/java)
-Add **"source": "EventGrid"** to the function.json parameters.
-
-# [JavaScript](#tab/javascript)
-Add **"source": "EventGrid"** to the function.json parameters.
-
-# [PowerShell](#tab/powershell)
-Add **"source": "EventGrid"** to the function.json parameters.
-
-# [Python](#tab/python)
-Add **"source": "EventGrid"** to the function.json parameters.
-
----
+When using the preview storage extension, there is inbuilt support for Event Grid in the Blob trigger which only requires setting the source parameter to Event Grid in your existing Blob trigger. 
 
 For more information on how to use the Blob Trigger based on Event Grid, go to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md).
 
@@ -344,7 +327,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code. |
 |**path** | **BlobPath** |The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
-|**source** | **EventGrid** | Set this if you're using the Event Grid based blob trigger. In .NET, this can be done by setting the **Source = BlobTriggerSource.EventGrid** parameter. |
+|**source** | **EventGrid** | Set this if you're using the Event Grid based blob trigger. In .NET, this can be done by setting the `Source = BlobTriggerSource.EventGrid` parameter. For more information on how to use this, go to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md).|
 |**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
