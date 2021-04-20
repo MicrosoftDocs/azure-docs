@@ -26,7 +26,7 @@ The process to create an Azure Spot Virtual Machine using the Azure CLI is the s
 
 To create Azure Spot Virtual Machines, you need to be running the Azure CLI version 2.0.74 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
-Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+Sign in to Azure using [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli-interactive
 az login
