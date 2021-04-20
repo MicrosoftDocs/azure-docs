@@ -60,7 +60,7 @@ When encountering high compute utilization, mitigation options include:
 
 When database space used reaches the maximum data size limit, database inserts and updates that increase data size fail and clients receive an [error message](troubleshoot-common-errors-issues.md). SELECT and DELETE statements continue to succeed.
 
-In Premium and Business Critical service tiers, clients also receive an error message if total space consumption by data, transaction log, and tempdb exceeds maximum local storage size. For more information, see [Storage space governance](#storage-space-governance).
+In Premium and Business Critical service tiers, clients also receive an error message if combined storage consumption by data, transaction log, and tempdb exceeds maximum local storage size. For more information, see [Storage space governance](#storage-space-governance).
 
 When encountering high space utilization, mitigation options include:
 
@@ -177,7 +177,7 @@ When encountering a log rate limit that is hampering desired scalability, consid
 
 In Premium and Business Critical service tiers, customer data including *data files*, *transaction log files*, and *tempdb files* is stored on the local SSD volume of the machine hosting the database or elastic pool. Using local SSD storage provides high IOPS and throughput, and low IO latency. The size of this local volume is finite and depends on the capabilities of each hardware generation. In addition to customer data, local volume space is used for the operating system, management software, monitoring data and logs, and other files necessary for system operation.
 
-Hardware capabilities dictate the size of **maximum local storage** that can be set aside for customer data. This limit is set to maximize customer data storage, while ensuring safe and reliable system operation. To find the **maximum local storage** value, see resource limits documentation for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
+Hardware capabilities dictate the size of **maximum local storage** that can be set aside for customer data. This limit is set to maximize customer data storage, while ensuring safe and reliable system operation. To find the **maximum local storage** value for each service objective, see resource limits documentation for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
 
 You can also find this value, and the amount of local storage currently used by a given database or elastic pool, using the following query:
 
@@ -196,19 +196,19 @@ WHERE database_id = DB_ID();
 |`user_data_directory_space_usage_mb`|Current local storage consumption by data, transaction log, and tempdb files, in MB|
 |||
 
-The query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
+This query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
 
 > [!IMPORTANT]
-> In Premium and Business Critical service tiers, if the workload attempts to increase combined space consumption by data, transaction log, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
+> In Premium and Business Critical service tiers, if the workload attempts to increase combined storage consumption by data, transaction log, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
 
-As databases are created, deleted, and increase/decrease their space usage, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low and a database or elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
+As databases are created, deleted, and increase or decrease their space usage, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low and a database or elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
 
 This move occurs in an online fashion, similarly to a database scaling operation, and has a similar [impact](single-database-scale.md#impact), including a short (seconds) failover at the end of the operation. This failover terminates open connections and rolls back transactions, potentially impacting applications using the database at that time.
 
-Because all data is copied to a different machine, moving larger databases may require a substantial amount of time. During that time, if local space consumption by a large user database or elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
+Because all data is copied to a local storage volume on a different machine, moving larger databases may require a substantial amount of time. During that time, if local space consumption by the database or elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
 
 > [!NOTE]
-> Database movement due to insufficient storage does not occur in the Hyperscale service tier, and in most cases in the General Purpose service tier, because in those tiers data files are not stored on local storage.
+> Database movement in case of insufficient local storage described above only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored on local storage.
 
 ## Next steps
 

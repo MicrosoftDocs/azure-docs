@@ -50,7 +50,7 @@ Azure SQL Database does not automatically shrink data files to reclaim unused al
 
 Unlike data files, Azure SQL Database automatically shrinks transaction log file to avoid excessive space usage that can lead to out-of-space errors. It is usually not necessary for customers to shrink the transaction log file.
 
-In Premium and Business Critical service tiers, if the transaction log is large and significantly contributes to the total space usage toward [maximum local storage](resource-limits-logical-server.md#storage-space-governance), it may be shrunk using the [DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql) command, to avoid waiting for the periodic automatic shrink operation.
+In Premium and Business Critical service tiers, if the transaction log is large and significantly contributes to the total space usage toward [maximum local storage](resource-limits-logical-server.md#storage-space-governance), it may be shrunk using the [DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql) command as shown in the following example, to avoid waiting for the periodic automatic shrink operation.
 
 ```tsql
 DBCC SHRINKFILE (2);
