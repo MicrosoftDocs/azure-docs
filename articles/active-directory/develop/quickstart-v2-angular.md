@@ -43,8 +43,6 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 > #### Step 1: Register the application
 >
-> 1. Sign in to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
 > 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.
 > 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs users in and calls an API.
