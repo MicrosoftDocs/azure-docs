@@ -21,7 +21,7 @@
       displayName: firewall, proxy, open ports
       href: quickstart-system-prerequisites.md
     - name: Get started with Azure Defender for IoT
-      displayName: getting started, registration, onboarding
+      displayName: getting started, registration, onboarding, activation, threat intelligence 
       href: getting-started.md
   - name: Agent-based solution for device builders
     items: 
@@ -122,8 +122,8 @@
           href: how-to-install-software.md
     - name: Prepare your sensors
       items:
-      - name: Manage sensors
-        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding
+      - name: Onboard sensors
+        displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
@@ -171,6 +171,7 @@
       displayName: mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
+      displayName: packages, automatic, intelligence, push, threat
     - name: Work with device inventory information
       items: 
       - name: Investigate all enterprise sensor detections in a device inventory

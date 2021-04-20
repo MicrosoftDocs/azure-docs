@@ -24427,7 +24427,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/tutorial-certification-test.md",
-      "redirect_url": "/azure/iot-pnp/",
+      "redirect_url": "/azure/certification/tutorial-03-testing-your-device",
       "redirect_document_id": false
     },
     {

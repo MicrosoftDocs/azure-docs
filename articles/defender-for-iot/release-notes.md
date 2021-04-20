@@ -2,7 +2,7 @@
 title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 4/6/2021
+ms.date: 04/19/2021
 ---
 
 # What's new in Azure Defender for IoT?
@@ -11,32 +11,79 @@ This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Azure Defender for IoT 
+## April 2021
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available. 
+### Work with automatic threat Intelligence updates (Public Preview)
 
-### Servicing information and timelines 
+New threat intelligence packages can now be automatically pushed to cloud connected sensors as they are released by Microsoft Defender for IoT. This is in addition to downloading threat intelligence packages and then uploading them to sensors.
 
-Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Working with automatic updates helps reduce operational efforts and ensure greater security. 
+Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
 
-### Versions and support dates
+If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Azure Defender for IoT portal to cloud connected sensors only when you feel it is required.
+This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors. Manually push updates to sensors from the Defender for IoT **Sites and Sensors** page.
 
-| Version | Date released | End support date |
-|--|--|--|
-| 10.0 | 01/2021 | 10/2021 |
+You can also review the following information about threat intelligence packages:
+
+- Package version installed
+- Threat intelligence update mode 
+- Threat intelligence update status
+
+### View cloud connected sensor information (Public Preview)
+
+View important operational information about cloud connected sensors on the **Sites and Sensors** page.
+
+- The sensor version installed
+- The sensor connection status to the cloud.
+- The last time the sensor was detected connecting to the cloud.
+
+### Alert API enhancements
+
+New fields are available for users working with alert APIs.
+
+**On-premises management console**
+
+- Source and destination address
+- Remediation steps
+- The name of sensor defined by the user
+- The name of zone associated with the sensor 
+- The name of site associated with the sensor
+
+**Sensor**
+
+- Source and destination address
+- Remediation steps
+
+API version 2 is required when working with the new fields.
+
+### Features delivered as Generally Available (GA)
+
+The following features were previously available for Public Preview, and are now Generally Available (GA)features:
+
+- Sensor - enhanced custom alert rules
+- On-premises management console - export alerts
+- Add second network interface to On-premises management console
+- Device builder - new micro agent
+
 ## March 2021
 
-### Sensor - enhanced custom alert rules (Public preview)
+### Sensor - enhanced custom alert rules (Public Preview)
 
 You can now create custom alert rules based on the day, group of days and time-period network activity was detected.  Working with day and time rule conditions is useful, for example in cases where alert severity is derived by the time the alert event takes place. For example, create a custom rule that triggers a high severity alert when network activity is detected on a weekend or in the evening.
 
 This feature is available on the sensor with the release of version 10.2.
 
-### On-premises management console - export alerts (Public preview)
+### On-premises management console - export alerts (Public Preview)
 
 Alert information can now be exported to a .csv file from the on-premises management console. You can export information of all alerts detected or export information based on the filtered view.
 
-This feature is available on the on-premises management  console with the release of version 10.2.
+This feature is available on the on-premises management console with the release of version 10.2.
+
+### Add second network interface to On-premises management console (Public Preview)
+
+You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have it’s connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
+
+This feature is available on the on-premises management console with the release of version 10.2.
 
 ### Add second network interface to On-premises management console (Public preview)
 
