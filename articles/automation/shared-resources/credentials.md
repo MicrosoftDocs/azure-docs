@@ -18,7 +18,7 @@ An Automation credential asset holds an object that contains security credential
 
 ## PowerShell cmdlets used to access credentials
 
-The cmdlets in the following table create and manage Automation credentials with PowerShell. They ship as part of the [Az modules](modules.md#az_modules).
+The cmdlets in the following table create and manage Automation credentials with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 | Cmdlet | Description |
 |:--- |:--- |

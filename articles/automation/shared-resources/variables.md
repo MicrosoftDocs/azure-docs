@@ -46,7 +46,7 @@ You can store multiple values to a single variable by creating an array or hasht
 
 ## PowerShell cmdlets to access variables
 
-The cmdlets in the following table create and manage Automation variables with PowerShell. They ship as part of the [Az modules](modules.md#az_modules).
+The cmdlets in the following table create and manage Automation variables with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 | Cmdlet | Description |
 |:---|:---|
