@@ -50,7 +50,7 @@ BioCatch integration includes the following components:
 
 ![image shows biocatch architecture diagram](media/partner-biocatch/biocatch-architecture-diagram.png)
 | Step  | Description |
-|---|---|
+|:---|:-------------------|
 |1a     | The user browses the web service. The web service then returns HTML, CSS, or JavaScript values and configures to load the BioCatch JavaScript SDK. Client-side JavaScript configures/sets client session ID for the BioCatch SDK. Alternately, the web service can pre-configure client session ID and send to the client.        |
 |1b    |  Configure the instantiated BioCatch JavaScript SDK against the BioCatch platform. Immediately begin to send user behavior characteristics to BioCatch from the client device, using the client session ID from step 1a.    |
 |2     |  User tries to sign-up/sign-in and is redirected to Azure AD B2C.      |
@@ -227,7 +227,8 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
   </TechnicalProfiles>
 ```
 
->[!NOTE] BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
+>[!NOTE]
+>BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
 
 7. Configure the userjourney; follow the example
 
@@ -283,9 +284,7 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
 
 ```
 
-8. Configure on relying party configuration (optional)
-
-It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
+8. As an optional step, configure on relying party configuration. It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
 
 ```
 <RelyingParty> 
