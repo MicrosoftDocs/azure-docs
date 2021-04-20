@@ -2,7 +2,7 @@
 title: Tutorial - Deploy and configure VMware HCX
 description: Learn how to deploy and configure a VMware HCX solution for your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 03/13/2021
+ms.date: 04/23/2021
 ---
 
 # Deploy and configure VMware HCX

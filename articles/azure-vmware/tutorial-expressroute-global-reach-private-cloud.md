@@ -1,13 +1,14 @@
 ---
-title: Tutorial - Peer on-premises environments to a private cloud
+title: Peer on-premises environments to a private cloud
 description: Learn how to create ExpressRoute Global Reach peering to a private cloud in an Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.custom: contperf-fy21q4
+ms.date: 04/23/2021
 ---
 
-# Tutorial: Peer on-premises environments to a private cloud
+# Peer on-premises environments to a private cloud
 
-In this article, you'll continue using the [information gathered during planning](production-ready-deployment-steps.md) to connect Azure VMware Solution to your on-premises environment.
+In this step of the quick start, you'll continue using the [information gathered during planning](production-ready-deployment-steps.md) to connect Azure VMware Solution to your on-premises environment.
 
 ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. 
 
@@ -19,8 +20,6 @@ The ExpressRoute circuit you use when you [configure networking for your VMware 
 This tutorial results in a connection as shown in the diagram.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach on-premises network connectivity diagram." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
-
-
 
 In this tutorial, you learn how to:
 
