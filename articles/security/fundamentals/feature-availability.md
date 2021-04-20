@@ -217,7 +217,23 @@ The following table lists the current Sentinel feature availability between Azur
 | - [Anomalous Windows File Share Access Detection](/azure/sentinel/fusion)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
-| **External Azure Sentinel connectors**| | |
+| **Azure service connectors** | | |
+| - [Azure Activity Logs](/azure/sentinel/connect-azure-activity)                                  |   GA           |    GA         |
+| - [Azure Active Directory](/azure/sentinel/connect-azure-active-directory)                |      GA        |       GA        |
+| - [Azure ADIP](/azure/sentinel/connect-azure-ad-identity-protection)                         |  GA            |        GA              |
+| - [Azure DDoS Protection](/azure/sentinel/connect-azure-ddos-protection)                |     GA         |       GA               |
+| - [Azure Defender](/azure/sentinel/connect-azure-security-center)                  |    GA          |        GA              |
+| - [Azure Defender for IoT](/azure/sentinel/connect-asc-iot)           |       GA       |  Not Available           |
+| - [Azure Firewall ](/azure/sentinel/connect-azure-firewall)                        |   GA           |        GA              |
+| - [Azure Information Protection](/azure/sentinel/connect-azure-information-protection)              |     Public Preview         |         Not Available             |
+| - [Azure Key Vault ](/azure/sentinel/connect-azure-key-vault)                           |       Public Preview         |         Not Available                       |
+| - [Azure Kubernetes Services (AKS)](/azure/sentinel/connect-azure-kubernetes-service)           |       Public Preview         |         Not Available                |
+| - [Azure SQL Databases](/azure/sentinel/connect-azure-sql-logs)                        |     GA         |         GA             |
+| - [Azure WAF](/azure/sentinel/connect-azure-waf)                                  |      GA        |      GA                |
+| **Windows connectors** | | | 
+| - [Windows Firewall](/azure/sentinel/connect-windows-firewall)                                 |     GA         |   GA           |
+| - [Windows Security Events](/azure/sentinel/connect-windows-security-events)                                  |      GA        |         GA     |
+| **External connectors**| | |
 | - [Agari Phising Defense and Brand Protection](/azure/sentinel/connect-agari-phishing-defense)       | Public Preview | Public Preview |
 | - [AI Analyst Darktrace](/azure/sentinel/connect-data-sources)                            | Public Preview | Public Preview |
 | - [AI Vectra Detect](/azure/sentinel/connect-ai-vectra-detect)                                 | Public Preview | Public Preview |
@@ -304,54 +320,6 @@ Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, wh
 
 | Connector | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
 | ------------------------------------ | -------------- | ---------------------- |
-| [**Azure Activity Logs**](/azure/sentinel/connect-azure-activity)                                  |              |             |
-| - GCC |GA | -|
-| - GCC High |- |GA |
-| - Office DoD | -|GA |
-| **[Azure Active Directory](/azure/sentinel/connect-azure-active-directory)**                |              |               |
-| - GCC |GA | -|
-| - GCC High |- |GA |
-| - Office DoD | -|GA |
-| **[Azure ADIP](/azure/sentinel/connect-azure-ad-identity-protection)**                          |              |                      |
-| - GCC | GA|- |
-| - GCC High |- |GA |
-| - Office DoD | -| GA|
-| **[Azure DDoS Protection](/azure/sentinel/connect-azure-ddos-protection)**                |              |                      |
-| - GCC |GA | -|
-| - GCC High |- | GA|
-| - Office DoD |- |GA |
-| **[Azure Defender](/azure/sentinel/connect-azure-security-center)**                       |              |                      |
-| - GCC |GA | -|
-| - GCC High | -|GA |
-| - Office DoD |- |GA |
-| **[Azure Defender for IoT](/azure/sentinel/connect-asc-iot)**               |              |             |
-| - GCC |GA | -|
-| - GCC High |- |Not Available |
-| - Office DoD |- |Not Available |
-| **[Azure Firewall ](/azure/sentinel/connect-azure-firewall)**                        |              |                      |
-| - GCC |GA |- |
-| - GCC High |-|GA |
-| - Office DoD |- |GA |
-| **[Azure Information Protection](/azure/sentinel/connect-azure-information-protection)**              |              |                      |
-| - GCC |Public Preview |- |
-| - GCC High | -|Not Available |
-| - Office DoD | -|Not Available |
-| **[Azure Key Vault ](/azure/sentinel/connect-azure-key-vault)**                           |              |                      |
-| - GCC | Public Preview|- |
-| - GCC High |- |Not Available |
-| - Office DoD |- |Not Available |
-| **[Azure Kubernetes Services (AKS)](/azure/sentinel/connect-azure-kubernetes-service)**           |              |                      |
-| - GCC | Public Preview|- |
-| - GCC High |- |Not Available |
-| - Office DoD |- | Not Available|
-| **[Azure SQL Databases](/azure/sentinel/connect-azure-sql-logs)**                        |              |                      |
-| - GCC |GA | -|
-| - GCC High | -|GA |
-| - Office DoD |- | GA|
-| **[Azure WAF](/azure/sentinel/connect-azure-waf)**                                  |              |                      |
-| - GCC |GA |- |
-| - GCC High |- |GA |
-| - Office DoD |- |GA |
 | **[Dynamics365](/azure/sentinel/connect-dynamics-365)**                               |              |                      |
 | - GCC |Public Preview | -|
 | - GCC High | -|Not Available |
@@ -385,14 +353,6 @@ Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, wh
 | - GCC High |- |Not Available |
 | - Office DoD | -|Not Available |
 | **[Office 365](/azure/sentinel/connect-office-365)**                                      |              |                      |
-| - GCC | GA|- |
-| - GCC High |- |GA |
-| - Office DoD |- |GA |
-| **[Windows Firewall](/azure/sentinel/connect-windows-firewall)**                                 |              |              |
-| - GCC | GA|- |
-| - GCC High |- |GA |
-| - Office DoD |- |GA |
-| **[Windows Security Events](/azure/sentinel/connect-windows-security-events)**                                  |              |              |
 | - GCC | GA|- |
 | - GCC High |- |GA |
 | - Office DoD |- |GA |
