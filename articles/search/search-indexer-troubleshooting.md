@@ -67,7 +67,7 @@ Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you 
 
 ### SharePoint Online Conditional Access policies
 
-When creating a SharePoint Online indexer you will go through a step that requires you to login to your AAD app after providing a device code. If you receive a message that says "Your sign-in was successful but your admin requires the device requesting access to be managed" the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](../active-directory/conditional-access/overview) policy.
+When creating a SharePoint Online indexer you will go through a step that requires you to login to your AAD app after providing a device code. If you receive a message that says "Your sign-in was successful but your admin requires the device requesting access to be managed" the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](https://review.docs.microsoft.com/azure/active-directory/conditional-access/overview) policy.
 
 To update the policy to allow the indexer access to the document library, follow the below steps:
 
