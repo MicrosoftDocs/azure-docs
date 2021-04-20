@@ -35,7 +35,7 @@ Promise of Azure Certified Device certification are:
 | **Applies To**          | Leaf device/Edge device                                      |
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
-| **Validation**          | Device must send any telemetry schemas to IoT Hub. Microsoft provides the [portal workflow](https://certify.azure.come) to execute the tests. Device to cloud (required): **1.** Validates that the device can send message to AICS managed IoT Hub **2.** User must specify the number and frequency of messages. **3.** AICS validates the telemetry is received by the Hub instance |
+| **Validation**          | Device must send any telemetry schemas to IoT Hub. Microsoft provides the [portal workflow](https://certify.azure.com/) to execute the tests. Device to cloud (required): **1.** Validates that the device can send message to AICS managed IoT Hub **2.** User must specify the number and frequency of messages. **3.** AICS validates the telemetry is received by the Hub instance |
 | **Resources**           | [Certification steps](./overview.md) (has all the additional resources) |
 
 **[Required] DPS:  The purpose of test is to check the device implements and supports IoT Hub Device Provisioning Service with one of the three attestation methods**

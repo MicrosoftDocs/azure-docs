@@ -343,9 +343,9 @@ Specifies the folder or the file path and file name for the actual data in Azure
 If you specify a folder LOCATION, a serverless SQL pool query will select from the external table and retrieve files from the folder.
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders. It returns files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Just like Hadoop and PolyBase, it doesn't return files for which the file name begins with an underline (_) or a period (.).
 
-In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
+In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-tables-external-tables/folder-traversal.png)
 

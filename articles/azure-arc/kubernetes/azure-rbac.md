@@ -9,9 +9,9 @@ ms.author: shasb
 description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kubernetes clusters"
 ---
 
-# Azure RBAC for Azure Arc enabled Kubernetes clusters
+# Integrate Azure Active Directory with Azure Arc enabled Kubernetes clusters
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory and role assignments in Azure to control authorization checks on the cluster. This implies you can now use Azure role assignments to granularly control who can read, write, delete your Kubernetes objects such as Deployment, Pod and Service
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. Using this feature, you can use Azure Active Directory and role assignments in Azure to control authorization checks on the cluster. This implies you can now use Azure role assignments to granularly control who can read, write, delete your Kubernetes objects such as Deployment, Pod and Service
 
 A conceptual overview of this feature is available in [Azure RBAC - Azure Arc enabled Kubernetes](conceptual-azure-rbac.md) article.
 
@@ -269,10 +269,10 @@ Owners of the Azure Arc enabled Kubernetes resource can either use built-in role
 
 | Role | Description |
 |---|---|
-| Azure Arc Kubernetes Viewer | Allows read-only access to see most objects in a namespace. This role doesn't allow viewing secrets. This is because `read` permission on secrets would enable access to `ServiceAccount` credentials in the namespace, which would in turn allow API access using that `ServiceAccount` (a form of privilege escalation). |
-| Azure Arc Kubernetes Writer | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing secrets and running pods as any `ServiceAccount` in the namespace, so it can be used to gain the API access levels of any `ServiceAccount` in the namespace. |
-| Azure Arc Kubernetes Admin | Allows admin access. Intended to be granted within a namespace using a RoleBinding. If used in a RoleBinding, allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
-| Azure Arc Kubernetes Cluster Admin | Allows super-user access to execute any action on any resource. When used in a ClusterRoleBinding, it gives full control over every resource in the cluster and in all namespaces. When used in a RoleBinding, it gives full control over every resource in the role binding's namespace, including the namespace itself.|
+| [Azure Arc Kubernetes Viewer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Allows read-only access to see most objects in a namespace. This role doesn't allow viewing secrets. This is because `read` permission on secrets would enable access to `ServiceAccount` credentials in the namespace, which would in turn allow API access using that `ServiceAccount` (a form of privilege escalation). |
+| [Azure Arc Kubernetes Writer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-writer) | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing secrets and running pods as any `ServiceAccount` in the namespace, so it can be used to gain the API access levels of any `ServiceAccount` in the namespace. |
+| [Azure Arc Kubernetes Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Allows admin access. Intended to be granted within a namespace using a RoleBinding. If used in a RoleBinding, allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
+| [Azure Arc Kubernetes Cluster Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Allows super-user access to execute any action on any resource. When used in a ClusterRoleBinding, it gives full control over every resource in the cluster and in all namespaces. When used in a RoleBinding, it gives full control over every resource in the role binding's namespace, including the namespace itself.|
 
 You can create role assignments scoped to the Arc enabled Kubernetes cluster on the `Access Control (IAM)` blade of the cluster resource on Azure portal. You can also use Azure CLI commands, as shown below:
 
