@@ -67,18 +67,16 @@ Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you 
 
 ### SharePoint Online Conditional Access policies
 
-When creating a SharePoint Online indexer you will go through a step that requires you to login to your AAD app after providing a device code. If you receive a message that says "Your sign-in was successful but your admin requires the device requesting access to be managed" the indexer is likely being blocked from accessing the SharePoint Online Document Library due to a [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) policy.
+When creating a SharePoint Online indexer you will go through a step that requires you to login to your AAD app after providing a device code. If you receive a message that says "Your sign-in was successful but your admin requires the device requesting access to be managed" the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](../active-directory/conditional-access/overview) policy.
 
-To update the policy to allow the indexer access to the Document Library, follow the below steps:
+To update the policy to allow the indexer access to the document library, follow the below steps:
 
 1. Open the Azure portal and search **Azure AD Conditional Access**, then select **Policies** on the left menu. If you don't have access to view this page you will need to either find someone who has access or get access.
 
-1. Determine which policy is blocking the SharePoint Online indexer from accessing the Document Library. The policy that might be blocking the indexer will have **Conditions** that:
-    1. Restrict **Windows** platforms
-    1. Restrict **Mobile apps and desktop clients**
-    1. Have **Device state** configured to **Yes**
-  
-    Your user account will also be included in the **Users and groups**.
+1. Determine which policy is blocking the SharePoint Online indexer from accessing the document library. The policy that might be blocking the indexer will include the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
+    * Restrict **Windows** platforms.
+    * Restrict **Mobile apps and desktop clients**.
+    * Have **Device state** configured to **Yes**.
 
 1. Once you've confirmed there is a policy that is blocking the indexer, you next need to make an exemption for the indexer. Retrieve the search service IP address.
 
@@ -108,7 +106,7 @@ To update the policy to allow the indexer access to the Document Library, follow
 
     For this walkthrough, assuming the search service is the Azure Public cloud, the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519) should be downloaded.
 
-   ![Download JSON file](media\search-indexer-howto-secure-access\service-tag.png "Download JSON file")
+   ![Download JSON file](media\search-indexer-troubleshooting\service-tag.png "Download JSON file")
 
     From the JSON file, assuming the search service is in West Central US, the list of IP addresses for the multi-tenant indexer execution environment are listed below.
 
@@ -130,16 +128,16 @@ To update the policy to allow the indexer access to the Document Library, follow
     ```
 
 1. Back on the Conditional Access page in the Azure portal select **Named locations** from the menu on the left, then select **+ IP ranges location**. Give your new named location a name and add the IP ranges for your search service and indexer execution environments that you collected in the last two steps.
-    1. For your search service IP address you may need to add "/32" to the end of the IP address since it only accepts valid IP ranges.
-    1. Remember that for the indexer execution environment IP ranges, you only need to add the IP ranges for the region that your search service is in.
+    * For your search service IP address you may need to add "/32" to the end of the IP address since it only accepts valid IP ranges.
+    * Remember that for the indexer execution environment IP ranges, you only need to add the IP ranges for the region that your search service is in.
 
 1. Exclude the new Named location from the policy. 
     1. Select **Policies** on the left menu. 
     1. Select the policy that is blocking the indexer.
-    1. Select **Conditions**
-    1. Select **Locations**
+    1. Select **Conditions**.
+    1. Select **Locations**.
     1. Select **Exclude** then add the new Named location.
-    1. **Save** the changes
+    1. **Save** the changes.
 
 1. Wait a few minutes for the policy to update and enforce the new policy rules.
 
