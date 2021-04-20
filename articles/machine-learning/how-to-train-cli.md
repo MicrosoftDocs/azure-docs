@@ -112,7 +112,7 @@ YAML file:
 
 Create the job:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow-something":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
 
 ### MPI
 
