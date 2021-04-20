@@ -534,7 +534,7 @@ sections:
           
   - name: Automation
     questions:
-     - question: |
+      - question: |
           Configuring Application Insights
         answer: |
           You can [write PowerShell scripts](app/powershell.md) using Azure Resource Monitor to:
@@ -547,7 +547,7 @@ sections:
 
           You can't set up a Metric Explorer report or set up continuous export.
 
-     - question: |
+      - question: |
           Querying the telemetry
         answer: |
           Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](./logs/log-query-overview.md) queries.
