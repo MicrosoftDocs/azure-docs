@@ -35,7 +35,7 @@ You need to **restart** the service from the **Overview** page of the Azure port
 
 # [Custom question answering (preview release)](#tab/v2)
 
-App Service customizations do not apply to QnA Maker managed (preview).
+App Service customizations do not apply to Custom question answering (preview).
 
 ---
 
@@ -61,7 +61,7 @@ Application Insights is used for monitoring telemetry with QnA Maker GA. There a
 
 # [Custom question answering (preview release)](#tab/v2)
 
-Learn [how to add telemetry to your QnA Maker managed (Preview) service](How-To/get-analytics-knowledge-base.md). 
+Learn [how to add telemetry to your Custom question answering (Preview) service](How-To/get-analytics-knowledge-base.md). 
 
 ---
 
@@ -73,7 +73,7 @@ App Service Plan has no configuration settings specific to QnA Maker.
 
 # [Custom question answering (preview release)](#tab/v2)
 
-App Service Plan is not used with QnA Maker managed (preview).
+App Service Plan is not used with Custom question answering (preview).
 
 ---
 
