@@ -420,3 +420,15 @@ You can request a minimum threshold for the answer. If the threshold is not met,
         "activeLearningEnabled": true
     }
     ```
+## Use unstructured data sources.
+    
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API.
+     
+# [QnA Maker GA (stable release)](#tab/v1)
+We don't support unstructured data sets in the GA service.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+
+---
