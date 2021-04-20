@@ -1,5 +1,5 @@
 ---
-title: Document Translation get supported glossary formats method
+title: Get supported glossary formats method
 titleSuffix: Azure Cognitive Services
 description: The get supported glossary formats method returns the list of supported glossary formats.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get supported glossary formats
+# Get supported glossary formats
 
 The Get supported glossary formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
 

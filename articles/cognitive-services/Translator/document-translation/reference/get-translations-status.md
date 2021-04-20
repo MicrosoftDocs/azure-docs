@@ -1,5 +1,5 @@
 ---
-title: Document Translation get translations status
+title: Get translations status
 titleSuffix: Azure Cognitive Services
 description: The get translations status method returns a list of batch requests submitted and the status for each request.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get translations status
+# Get translations status
 
 The Get translations status method returns a list of batch requests submitted and the status for each request. This list only contains batch requests submitted by the user (based on the subscription). The status for each request is sorted by id.
 

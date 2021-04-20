@@ -1,5 +1,5 @@
 ---
-title: Document Translation get supported storage sources method
+title: Get supported storage sources method
 titleSuffix: Azure Cognitive Services
 description: The get supported storage sources method returns a list of supported storage sources.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get supported storage sources
+# Get supported storage sources
 
 The Get supported storage sources method returns a list of storage sources/options supported by the Document Translation service.
 

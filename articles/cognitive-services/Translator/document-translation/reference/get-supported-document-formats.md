@@ -1,5 +1,5 @@
 ---
-title: Document Translation get supported document formats method
+title: Get supported document formats method
 titleSuffix: Azure Cognitive Services
 description: The get supported document formats method returns a list of supported document formats.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get supported document formats
+# Get supported document formats
 
 The Get supported document formats method returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
 
