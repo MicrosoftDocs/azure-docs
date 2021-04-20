@@ -65,12 +65,18 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 1. On the **New Sync Group** page, if you selected **Use private link**, you will need to approve the private endpoint connection. The link in the info message will take you to the private endpoint connections experience where you can approve the connection. 
 
    :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link-update.png" alt-text = "Approve private link":::
+   
+   > [!NOTE]
+   > The private links for the syng group and the sync members neet to be created, approved, and disabled separately. 
 
 ## Add sync members
 
 After the new sync group is created and deployed, open the sync group and access the **Databases** page, where you will select sync members.
 
    :::image type="content" source="./media/sql-data-sync-sql-server-configure/add-sync-members.png" alt-text = "Select sync members":::
+   
+   > [!NOTE]
+   > To update or insert the username and password to your hub database, go to the **Hub Database** section in the **Select sync members** page. 
 
 ### To add a database in Azure SQL Database
 
@@ -159,7 +165,7 @@ After the new sync group members are created and deployed, go to the **Tables** 
 
 ![Step 3 settings](./media/sql-data-sync-sql-server-configure/configure-sync-group.png)
 
-1. On the **Tables** page, select a database from the list of sync group members and select **Refresh schema**.
+1. On the **Tables** page, select a database from the list of sync group members and select **Refresh schema**. Please expect a few minutes delay in refresh schema, the delay might be a few minutes longer if using private link.
 
 1. From the list, select the tables you want to sync. By default, all columns are selected, so disable the checkbox for the columns you don't want to sync. Be sure to leave the primary key column selected.
 
@@ -225,7 +231,7 @@ After you export a database as a *.bacpac* file and import the file to create a 
 
 For frequently asked questions about the client agent, see [Agent FAQ](sql-data-sync-agent-overview.md#agent-faq).
 
-**Is it necessary to manually approve the private link before I can start using it?**
+**Is it necessary to manually approve the link before I can start using it?**
 
 Yes, you must manually approve the service managed private endpoint, in the Private endpoint connections page of the Azure portal during the sync group deployment or by using PowerShell.
 
