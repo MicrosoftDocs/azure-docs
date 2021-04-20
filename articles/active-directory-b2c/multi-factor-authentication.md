@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 04/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -40,7 +40,9 @@ This feature helps applications handle scenarios such as:
 
    - **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
    - **Always on** - MFA is always required (regardless of any Conditional Access setup). If users aren't already enrolled in MFA, they're prompted to enroll during sign-in. During sign-up, users are prompted to enroll in MFA.
-   - **Conditional (Preview)** - MFA is required only when an active Conditional Access Policy requires it. If the result of the Conditional Access evaluation is an MFA challenge with no risk, MFA is enforced during sign-in. If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked. During sign-up, users aren't prompted to enroll in MFA.
+   - **Conditional (Preview)** - MFA is enforced only when a Conditional Access policy requires it. The policy and sign-in risk determine how MFA is presented to the user:
+      - If no risk is detected, an MFA challenge is presented to the user during sign-in. If the user isn't already enrolled in MFA, they're prompted to enroll during sign-in.
+      - If risk is detected and the user isn't already enrolled in MFA, the sign-in is blocked. During sign-up, users aren't prompted to enroll in MFA.
 
    > [!NOTE]
    >
