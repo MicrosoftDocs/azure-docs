@@ -269,20 +269,6 @@ Before you query the knowledge base, you need to:
 
 This task getS the runtime endpoint key. Publishing the knowledge base is a [separate task](#publish-knowledge-base).
 
-The runtime endpoint key is the same key for all knowledge bases using the QnA Maker resource.
-
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
-
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/endpointkeys \
--X GET \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
-```
 ---
 
 ## Query for answer from published knowledge base
