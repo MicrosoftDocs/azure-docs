@@ -290,7 +290,7 @@ To get the PetClinic app functioning with all features like Admin Server, Visits
 * vets-service
 * visits-service
 
-Navigate to the URL of the form: `https://<service name>-api-gateway.azuremicroservices.io.`
+A successful deployment command will return a the URL of the form: `https://<spring cloud service name>-spring-petclinic-api-gateway.azuremicroservices.io`.  Use it to navigate to the running service.
 
 ![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 
@@ -352,7 +352,7 @@ Repeat the steps above to deploy `customers-service` and other Pet Clinic apps t
     * vets-service
     * visits-service
 
-Navigate to the URL of the form: `https://<service name>-api-gateway.azuremicroservices.io.`
+Navigate to the URL of the form: `https://<spring cloud service name>-spring-petclinic-api-gateway.azuremicroservices.io`
 
 ![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 
