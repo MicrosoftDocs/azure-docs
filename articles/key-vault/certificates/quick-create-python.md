@@ -210,7 +210,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/security-overview.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-overview.md)
+- [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)
