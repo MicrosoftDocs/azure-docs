@@ -87,7 +87,7 @@ To deploy to a subscription, use the subscription-level deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \

@@ -65,7 +65,7 @@ You can declare the parent-child relationship when creating a new device. Or for
 
 #### Option 2: Use the `az` command-line tool
 
-Using the [Azure command-line interface](/cli/azure/) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) subcommands. The example below uses a query to assign all non-IoT Edge devices in the hub to be child devices of an IoT Edge device.
+Using the [Azure command-line interface](/cli/azure/) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](/cli/azure/iot/hub/device-identity/) subcommands. The example below uses a query to assign all non-IoT Edge devices in the hub to be child devices of an IoT Edge device.
 
 ```azurecli
 # Set IoT Edge parent device

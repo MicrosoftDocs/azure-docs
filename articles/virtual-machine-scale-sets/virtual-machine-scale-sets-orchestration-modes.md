@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 
 ms.date: 02/12/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt
-
+ms.custom: mimckitt, devx-track-azurecli
 ---
 
 # Preview: Orchestration modes for virtual machine scale sets in Azure 

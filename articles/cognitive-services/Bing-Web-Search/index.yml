@@ -380,4 +380,4 @@ additionalContent:
           - text: Azure Powershell
             url: /powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services
           - text: Azure CLI
-            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az_cognitiveservices_list
