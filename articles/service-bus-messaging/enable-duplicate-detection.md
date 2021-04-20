@@ -16,11 +16,11 @@ When you enable duplicate detection for a queue or topic, Azure Service Bus keep
 ## Azure portal
 When creating a **queue** in the Azure portal, select **Enable duplicate detection** as shown in the following image. You can configure the size of the duplicate detection window when creating a queue or topic. 
 
-:::image type="content" source="./media/duplicate-detection-enable/create-queue.png" alt-text="Enable duplicate detection at the time of the queue creation":::
+:::image type="content" source="./media/enable-duplicate-detection/create-queue.png" alt-text="Enable duplicate detection at the time of the queue creation":::
 
 When creating a topic in the Azure portal, select **Enable duplicate detection** as shown in the following image. 
 
-:::image type="content" source="./media/duplicate-detection-enable/create-topic.png" alt-text="Enable duplicate detection at the time of the topic creation":::
+:::image type="content" source="./media/enable-duplicate-detection/create-topic.png" alt-text="Enable duplicate detection at the time of the topic creation":::
 
 You can also configure this setting for an existing queue or topic, if you had enabled duplicate detection at the time of creation. 
 
@@ -28,10 +28,10 @@ You can also configure this setting for an existing queue or topic, if you had e
 To change the duplicate detection window size for an existing queue or a topic, on the **Overview** page, select **Change** for **Duplicate detection window**.  
 
 #### Queue
-:::image type="content" source="./media/duplicate-detection-enable/window-size.png" alt-text="Set duplicate detection window size for a queue":::
+:::image type="content" source="./media/enable-duplicate-detection/window-size.png" alt-text="Set duplicate detection window size for a queue":::
 
 #### Topic
-:::image type="content" source="./media/duplicate-detection-enable/window-size-topic.png" alt-text="Set duplicate detection window size for a topic":::
+:::image type="content" source="./media/enable-duplicate-detection/window-size-topic.png" alt-text="Set duplicate detection window size for a topic":::
 
 
 ## Azure CLI

@@ -6,63 +6,63 @@ ms.date: 04/19/2021
 ---
 
 # Enable partitioning for an Azure Service Bus queue or a topic
-Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, See [Partitioned queues and topics](service-bus-partitioning.md). This article shows you how to enable duplicate message detection for a Service Bus queue or a topic. 
+Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, See [Partitioned queues and topics](service-bus-partitioning.md). This article shows you how to enable duplicate message detection for a Service Bus queue or a topic. 
 
 > [!IMPORTANT]
-> - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected.
+> - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It isn't available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected.
 > - It's not possible to change the partitioning option on any existing queue or topic. You can only set the option when you create a queue or a topic. 
 
 ## Azure portal
-When creating a **queue** in the Azure portal, select **Enable duplicate detection** as shown in the following image. 
+When creating a **queue** in the Azure portal, select **Enable partitioning** as shown in the following image. 
 
-:::image type="content" source="./media/duplicate-detection-enable/create-queue.png" alt-text="Enable duplicate detection at the time of the queue creation":::
+:::image type="content" source="./media/enable-partitions/create-queue.png" alt-text="Enable partitioning at the time of the queue creation":::
 
-When creating a topic in the Azure portal, select **Enable duplicate detection** as shown in the following image. 
+When creating a topic in the Azure portal, select **Enable partitioning** as shown in the following image. 
 
-:::image type="content" source="./media/duplicate-detection-enable/create-topic.png" alt-text="Enable duplicate detection at the time of the topic creation":::
+:::image type="content" source="./media/enable-partitions/create-topic.png" alt-text="Enable partitioning at the time of the topic creation":::
 
 ## Azure CLI
-To **create a queue with duplicate detection enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-duplicate-detection` set to `true`.
+To **create a queue with partitioning enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-partitioning` set to `true`.
 
 ```azurecli-interactive
 az servicebus queue create \
     --resource-group myresourcegroup \
     --namespace-name mynamespace \
     --name myqueue \
-    --enable-duplicate-detection true
+    --enable-partitioning true
 ```
 
-To **create a topic with duplicate detection enabled**, use the [`az servicebus topic create`](/cli/azure/servicebus/topic#az_servicebus_topic_create) command with `--enable-duplicate-detection` set to `true`.
+To **create a topic with partitioning enabled**, use the [`az servicebus topic create`](/cli/azure/servicebus/topic#az_servicebus_topic_create) command with `--enable-partitioning` set to `true`.
 
 ```azurecli-interactive
 az servicebus topic create \
     --resource-group myresourcegroup \
     --namespace-name mynamespace \
     --name mytopic \
-    --enable-duplicate-detection true
+    --enable-partitioning true
 ```
 
 ## Azure PowerShell
-To **create a queue with duplicate detection enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresDuplicateDetection` set to `$True`. 
+To **create a queue with partitioning enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-EnablePartitioning` set to `$True`. 
 
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -QueueName myqueue `
-    -RequiresDuplicateDetection $True
+    -EnablePartitioning $True
 ```
 
-To **create a topic with duplicate detection enabled**, use the [`New-AzServiceBusTopic`](/powershell/module/az.servicebus/new-azservicebustopic) command with `-RequiresDuplicateDetection` set to `true`. 
+To **create a topic with partitioning enabled**, use the [`New-AzServiceBusTopic`](/powershell/module/az.servicebus/new-azservicebustopic) command with `-EnablePartitioning` set to `true`. 
 
 ```azurepowershell-interactive
 New-AzServiceBusTopic -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -Name mytopic `
-    -RequiresDuplicateDetection $True
+    -EnablePartitioning $True
 ```
 
 ## Resource Manager template
-To **create a queue with duplicate detection enabled**, set `requiresDuplicateDetection` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
+To **create a queue with partitioning enabled**, set `enablePartitioning` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
 
 ```json
 {
@@ -108,7 +108,7 @@ To **create a queue with duplicate detection enabled**, set `requiresDuplicateDe
             "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
           ],
           "properties": {
-            "requiresDuplicateDetection": true
+            "enablePartitioning": true
           }
         }
       ]
@@ -118,7 +118,7 @@ To **create a queue with duplicate detection enabled**, set `requiresDuplicateDe
 
 ```
 
-To **create a topic with duplicate detection enabled**, set `requiresDuplicateDetection` to `true` in the topic properties section. For more information, see [Microsoft.ServiceBus namespaces/topics template reference](/azure/templates/microsoft.servicebus/namespaces/topics?tabs=json). 
+To **create a topic with duplicate detection enabled**, set `enablePartitioning` to `true` in the topic properties section. For more information, see [Microsoft.ServiceBus namespaces/topics template reference](/azure/templates/microsoft.servicebus/namespaces/topics?tabs=json). 
 
 ```json
 {
@@ -164,7 +164,7 @@ To **create a topic with duplicate detection enabled**, set `requiresDuplicateDe
             "[resourceId('Microsoft.ServiceBus/namespaces/', parameters('service_BusNamespace_Name'))]"
           ],
           "properties": {
-            "requiresDuplicateDetection": true
+            "enablePartitioning": true
           }
         }
       ]
@@ -181,4 +181,4 @@ To **create a topic with duplicate detection enabled**, set `requiresDuplicateDe
 - [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Microsoft.Azure.ServiceBus samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Duplicate Detection sample)  
+- [Microsoft.Azure.ServiceBus samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (PartitionedQueues sample)  
