@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Troubleshoot Azure Monitor for Windows Virtual Desktop
 

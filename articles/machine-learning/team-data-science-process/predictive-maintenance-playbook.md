@@ -451,15 +451,16 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 
 | Training resource  | Availability |
 |:-------------------|--------------|
-| [Learning Path for PdM using Trees and Random Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
-| [Learning Path for PdM using Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
-| [AI Developer on Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
-| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
-| [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
+| [Microsoft Docs:  Data Scientist Role](https://docs.microsoft.com/learn/roles/data-scientist) | Public |
+| [Microsoft Docs:  AI Engineer Role](https://docs.microsoft.com/learn/roles/ai-engineer) | Public |
+| [Microsoft Docs:  Data Engineer Role](https://docs.microsoft.com/learn/roles/data-engineer) | Public |
+| [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
-| [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
+| [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
+| [AI Platform Overview](https://azure.microsoft.com/overview/ai-platform/) | Public |
+| [AI Lab](https://www.microsoft.com/ai/ai-lab) | Public |
+| [Microsoft AI](https://www.microsoft.com/AI) | Public |
 | [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partners |
 
 In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.

@@ -26,7 +26,7 @@ ms.custom: include file
 | Maximum number of subscriptions per service instance<sup>8</sup> | 500 |
 | Maximum number of client certificates per service instance<sup>8</sup> | 50 |
 | Maximum number of APIs per service instance<sup>8</sup> | 50 |
-| Maximum number of API operations per service instance<sup>8</sup> | 1,000 |
+| Maximum number of API management operations per service instance<sup>8</sup> | 1,000 |
 | Maximum total request duration<sup>8</sup> | 30 seconds |
 | Maximum buffered payload size<sup>8</sup> | 2 MiB |
 | Maximum request URL size<sup>9</sup> | 4096 bytes |

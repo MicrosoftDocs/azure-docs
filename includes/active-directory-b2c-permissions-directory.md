@@ -3,7 +3,7 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 04/05/2021
 ms.author: mimart
 # Used by articles that interact with the Microsoft Graph API for user object manipulation.
 ---
@@ -15,8 +15,9 @@ ms.author: mimart
 1. Select the **Microsoft APIs** tab, then select **Microsoft Graph**.
 1. Select **Application permissions**.
 1. Expand the appropriate permission group and select the check box of the permission to grant to your management application. For example:
+    * **User** > **User.ReadWrite.All**: For user migration or user management scenarios.
+    * **Group** > **Group.ReadWrite.All**: For creating groups, read and update group memberships, and delete groups.
     * **AuditLog** > **AuditLog.Read.All**: For reading the directory's audit logs.
-    * **Directory** > **Directory.ReadWrite.All**: For user migration or user management scenarios.
     * **Policy** > **Policy.ReadWrite.TrustFramework**: For continuous integration/continuous delivery (CI/CD) scenarios. For example, custom policy deployment with Azure Pipelines.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
 1. Select **Grant admin consent for (your tenant name)**.

@@ -354,6 +354,8 @@ For networks whose sources are Azure VMs, the following issues can be detected:
     * The tunnel between two gateways is disconnected or missing.
     * The second gateway wasn't found by the tunnel.
     * No peering info was found.
+> [!NOTE]
+> If there are 2 connected gateways and one of them is not in the same region as source endpoint, CM identifies it as a 'no route learned' for the topology view. Connectivity is not impacted. This is a known issue and fix is in progress. 
 * Route was missing in Microsoft Edge.
 * Traffic stopped because of system routes or UDR.
 * BGP isn't enabled on the gateway connection.
