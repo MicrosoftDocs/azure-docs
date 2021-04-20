@@ -53,11 +53,11 @@ Here are some questions to consider:
     - Azure IoT Hub Device Provisioning Service
 * What other *personal or company apps* do I have that connect to my instance?
 
-You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 ## Prepare
 
-In this section, you'll prepare to re-create your instance by downloading your original models, twins, and graph from your original instance. This article uses the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample for this task.
+In this section, you'll prepare to re-create your instance by downloading your original models, twins, and graph from your original instance. This article uses the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) for this task.
 
 >[!NOTE]
 >You might already have files that contain the models or the graph in your instance. If so, you don't need to download everything again—just the pieces you're missing or things that might have changed since you originally uploaded these files. For example, you might have twins that were updated with new data.
