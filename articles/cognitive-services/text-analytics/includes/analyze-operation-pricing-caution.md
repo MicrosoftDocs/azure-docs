@@ -9,6 +9,7 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/19/2021
 ms.author: aahi
+ms.custom: references_regions
 ---
 
 > [!CAUTION]
