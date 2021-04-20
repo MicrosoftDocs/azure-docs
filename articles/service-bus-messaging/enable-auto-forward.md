@@ -28,7 +28,7 @@ On the **Overview** page for your Service Bus queue, select the current value fo
 ### Update the auto forward setting for an existing subscription
 On the **Overview** page for your Service Bus subscription, select the current value for the **Forward messages to** setting. In the following example, the current value is **Disabled**. In the **Forward messages to queue/topic** window, you can select the queue or topic where you want the messages to be forwarded. 
 
-:::image type="content" source="./media/enable-auto-forward/subscription-auto-forward.png" alt-text="Enable auto forward for an existing queue":::
+:::image type="content" source="./media/enable-auto-forward/subscription-auto-forward.png" alt-text="Enable auto forward for an existing subscription":::
 
 ## Using Azure CLI
 To **create a queue with auto forwarding enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded. 

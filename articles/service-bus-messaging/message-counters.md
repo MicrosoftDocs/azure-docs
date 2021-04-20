@@ -29,7 +29,7 @@ Navigate to your namespace, and select the queue. You see message counters on th
 
 Navigate to your namespace, select the topic, and then select the subscription for the topic. You see message counters on the **Overview** page for the queue.
 
-:::image type="content" source="./media/message-counters/subscription-overview.png" alt-text="Message counters on the queue overview page":::
+:::image type="content" source="./media/message-counters/subscription-overview.png" alt-text="Message counters on the subscription overview page":::
 
 ## Using Azure CLI
 Use the [`az servicebus queue show`](/cli/azure/servicebus/queue#az_servicebus_queue_show) command to get the message count details for a queue as shown in the following example. 
