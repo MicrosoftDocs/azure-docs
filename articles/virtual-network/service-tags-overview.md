@@ -130,7 +130,7 @@ You can programmatically retrieve the current list of service tags together with
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
 > While it's in public preview, the Discovery API might return information that's less current than information returned by the JSON downloads. (See the next section.)
