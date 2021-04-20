@@ -1,7 +1,7 @@
 ---
-title: Document Translation get operation documents status
+title: Document Translation get documents status
 titleSuffix: Azure Cognitive Services
-description: The get operation documents status method returns the status for all documents in a batch document translation request.
+description: The get documents status method returns the status for all documents in a batch document translation request.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get operation documents status
+# Document Translation: get documents status
 
-The Get Operation Documents Status method returns the status for all documents in a batch document translation request.
+The Get documents status method returns the status for all documents in a batch document translation request.
 
 The documents included in the response are sorted by document ID in descending order. If the number of documents in the response exceeds our paging limit, server-side paging is used. Paginated responses indicate a partial result and include a continuation token in the response. The absence of a continuation token means that no additional pages are available.
 
@@ -72,9 +72,9 @@ The following are the possible HTTP status codes that a request returns.
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 
-## Get operation documents status response
+## Get documents status response
 
-### Successful get operation documents status response
+### Successful get documents status response
 
 The following information is returned in a successful response.
 

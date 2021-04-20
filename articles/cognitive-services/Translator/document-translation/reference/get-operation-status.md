@@ -1,7 +1,7 @@
 ---
-title: Document Translation get operation status
+title: Document Translation get translation status
 titleSuffix: Azure Cognitive Services
-description: The get operation status method returns the status for a document translation request.
+description: The get translation status method returns the status for a document translation request.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get operation status
+# Document Translation: get translation status
 
-The Get Operation Documents Status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request.
+The Get translation status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request.
 
 ## Request URL
 
@@ -60,9 +60,9 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get operation status response
+## Get translation status response
 
-### Successful get operation status response
+### Successful get translation status response
 
 The following information is returned in a successful response.
 

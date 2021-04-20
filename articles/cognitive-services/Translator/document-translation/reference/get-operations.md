@@ -1,7 +1,7 @@
 ---
-title: Document Translation get operations
+title: Document Translation get translations status
 titleSuffix: Azure Cognitive Services
-description: The get operations method returns a list of batch requests submitted and the status for each request.
+description: The get translations status method returns a list of batch requests submitted and the status for each request.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get operations
+# Document Translation: get translations status
 
-The Get Operations method returns a list of batch requests submitted and the status for each request. This list only contains batch requests submitted by the user (based on the subscription). The status for each request is sorted by id.
+The Get translations status method returns a list of batch requests submitted and the status for each request. This list only contains batch requests submitted by the user (based on the subscription). The status for each request is sorted by id.
 
 If the number of requests exceeds our paging limit, server-side paging is used. Paginated responses indicate a partial result and include a continuation token in the response. The absence of a continuation token means that no additional pages are available.
 
@@ -71,9 +71,9 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get operations response
+## Get translations status response
 
-### Successful get operations response
+### Successful get translations status response
 
 The following information is returned in a successful response.
 

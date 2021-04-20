@@ -1,7 +1,7 @@
 ---
-title: Document Translation cancel operation method
+title: Document Translation cancel translation method
 titleSuffix: Azure Cognitive Services
-description: The cancel operations method cancels a currently processing or queued operation.
+description: The cancel translations method cancels a currently processing or queued operation.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: cancel operations
+# Document Translation: cancel translations
 
 Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed or failed or canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
 
@@ -59,7 +59,7 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Cancel operations response
+## Cancel translations response
 
 ### Successful response
 

@@ -1,5 +1,5 @@
 ---
-title: Document Translation submit batch request
+title: Document Translation start translation
 titleSuffix: Azure Cognitive Services
 description: Submit a document translation request to the Document Translation service.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: submit batch request
+# Document Translation: start translation
 
 Use this API to submit a bulk (batch) translation request to the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
 

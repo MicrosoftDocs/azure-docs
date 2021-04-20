@@ -146,22 +146,22 @@
         href: document-translation/create-sas-tokens.md 
     - name: Reference
       items:     
-      - name: Get document formats
-        href: document-translation/reference/get-document-formats.md
-      - name: Get glossary formats
-        href: document-translation/reference/get-glossary-formats.md
-      - name: Get document storage source
-        href: document-translation/reference/get-document-storage-source.md 
-      - name: Submit batch request
-        href: document-translation/reference/submit-batch-request.md
-      - name: Get operation documents status
+      - name: Get supported document formats
+        href: document-translation/reference/get-supported-document-formats.md
+      - name: Get supported glossary formats
+        href: document-translation/reference/get-supported-glossary-formats.md
+      - name: Get supported storage sources
+        href: document-translation/reference/get-supported-storage-sources.md 
+      - name: Start translation
+        href: document-translation/reference/start-translation.md
+      - name: Get documents status
         href: document-translation/reference/get-operation-documents-status.md 
       - name: Get documents status
         href: document-translation/reference/get-document-status.md
-      - name: Get operations
-        href: document-translation/reference/get-operations.md
-      - name: Cancel operation
-        href: document-translation/reference/cancel-operation.md
+      - name: Get translations status
+        href: document-translation/reference/get-translations-status.md
+      - name: Cancel translation
+        href: document-translation/reference/cancel-translation.md
 - name: How-to guides
   items:
   - name: Enterprise readiness
