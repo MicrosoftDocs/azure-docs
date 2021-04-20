@@ -84,7 +84,7 @@ For more information, see [Azure Resource Manager templates for Azure Backup](ba
 
 Azure Backup now supports incremental backups for SAP HANA databases hosted on Azure VMs. This allows for faster and more cost-efficient backups of your SAP HANA data.
 
-For more information, see [various options available during creation of a backup policy](sap-hana-faq-backup-azure-vm.md#policy) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+For more information, see [various options available during creation of a backup policy](/sap-hana-faq-backup-azure-vm.yml#policy) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## Backup Center (in preview)
 

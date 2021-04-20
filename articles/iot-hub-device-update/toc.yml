@@ -70,7 +70,7 @@
     - name: Troubleshoot device updates
       href: troubleshoot-device-update.md
     - name: Device update client error codes
-    href: device-update-error-codes.md
+      href: device-update-error-codes.md
 - name: Reference
   items:
   - name: REST API
