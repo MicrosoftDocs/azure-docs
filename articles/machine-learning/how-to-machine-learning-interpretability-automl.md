@@ -15,10 +15,10 @@ ms.date: 07/09/2020
 # Interpretability: model explanations in automated machine learning (preview)
 
 
-
-In this article, you learn how to get explanations for automated machine learning (AutoML) in Azure Machine Learning. AutoML helps you understand feature importance of the models that are generated. 
+In this article, you learn how to get explanations for automated machine learning (automated ML) in Azure Machine Learning using the Python SDK. Automated ML helps you understand feature importance of the models that are generated. 
 
 All SDK versions after 1.0.85 set `model_explainability=True` by default. In SDK version 1.0.85 and earlier versions users need to set `model_explainability=True` in the `AutoMLConfig` object in order to use model interpretability. 
+
 
 In this article, you learn how to:
 
@@ -29,7 +29,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - Interpretability features. Run `pip install azureml-interpret` to get the necessary package.
-- Knowledge of building AutoML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [regression model tutorial](tutorial-auto-train-models.md) or see how to [configure AutoML experiments](how-to-configure-auto-train.md).
+- Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [regression model tutorial](tutorial-auto-train-models.md) or see how to [configure automated ML experiments](how-to-configure-auto-train.md).
 
 ## Interpretability during training for the best model
 
@@ -100,11 +100,11 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### Initialize the Mimic Explainer for feature importance
 
-To generate an explanation for AutoML models, use the `MimicWrapper` class. You can initialize the MimicWrapper with these parameters:
+To generate an explanation for automated ML models, use the `MimicWrapper` class. You can initialize the MimicWrapper with these parameters:
 
 - The explainer setup object
 - Your workspace
-- A surrogate model to explain the `fitted_model` AutoML model
+- A surrogate model to explain the `fitted_model` automated ML model
 
 The MimicWrapper also takes the `automl_run` object where the engineered explanations will be uploaded.
 
@@ -123,7 +123,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### Use Mimic Explainer for computing and visualizing engineered feature importance
 
-You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also sign in to [Azure Machine Learning Studio](https://ml.azure.com/) to view the dashboard visualization of the feature importance values of the generated engineered features by AutoML featurizers.
+You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also sign in to [Azure Machine Learning studio](https://ml.azure.com/) to view the explanations dashboard visualization of the feature importance values of the generated engineered features by automated ML featurizers.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -167,7 +167,7 @@ ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipelin
 
 ### Use Mimic Explainer for computing and visualizing raw feature importance
 
-You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the raw features. In [Machine Learning Studio](https://ml.azure.com/), you can view the dashboard visualization of the feature importance values of the raw features.
+You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the raw features. In the [Machine Learning studio](https://ml.azure.com/), you can view the dashboard visualization of the feature importance values of the raw features.
 
 ```python
 raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
@@ -179,7 +179,7 @@ print(raw_explanations.get_feature_importance_dict())
 
 ## Interpretability during inference
 
-In this section, you learn how to operationalize an AutoML model with the explainer that was used to compute the explanations in the previous section.
+In this section, you learn how to operationalize an automated ML model with the explainer that was used to compute the explanations in the previous section.
 
 ### Register the model and the scoring explainer
 
@@ -316,9 +316,9 @@ if service.state == 'Healthy':
     print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
-### Visualize to discover patterns in data and explanations at training time
+## Visualize to discover patterns in data and explanations at training time
 
-You can visualize the feature importance chart in your workspace in [Machine Learning Studio](https://ml.azure.com). After your AutoML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
+You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). After your AutoML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the visualizations in  the explanation dashboard.
 
 [![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 
