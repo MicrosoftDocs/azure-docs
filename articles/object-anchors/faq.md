@@ -30,11 +30,11 @@ For more information, see [Azure Object Anchors overview](overview.md).
 * Clear backgrounds with no or minimal clutter
 * Scanned object should have 1:1 match with the model you trained with
 
-**Q: What are the maximum object dimensions that can be processed for asset conversion?**
+**Q: What are the maximum object dimensions that can be processed for model conversion?**
 
 **A:** Each dimension of a CAD model should be less than 10 meters.
 
-**Q: What is the maximum CAD asset size that can be processed for conversion?**
+**Q: What is the maximum CAD model size that can be processed for conversion?**
 
 **A:** The model file size should be less than 150 MB.
 
@@ -42,7 +42,7 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types.
 
-**Q: What is the gravity direction and unit required by the asset conversion service? How can we figure them out?**
+**Q: What is the gravity direction and unit required by the model conversion service? How can we figure them out?**
 
 **A:** Gravity direction is the down vector pointing to the earth. For CAD models, gravity direction is typically the opposite of an up direction. 
 For example, in many cases +Z represents up, in which case -Z or `Vector3(0.0, 0.0, -1.0)` would represent the gravity direction. When determining gravity, you should not only consider the model, but also the orientation in which the model will be seen during runtime. If you are trying to detect a chair in the real world on a flat surface, gravity might be `Vector3(0.0, 0.0, -1.0)`. However, if the chair is on a 45-degree slope, gravity might be `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
@@ -55,26 +55,9 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **A:** For a `ply` model, typically 3-15 minutes. If submitting models in other formats, expect to wait 15-60 minutes depending on file size.
 
-**Q: How do I recover from an asset conversion failure?**
+**Q: How do I recover from a model conversion failure?**
 
-**A:** For common modes of asset conversion failure, the `Azure.MixedReality.ObjectAnchors.Conversion.AssetConversionProperties` object obtained from the `Value` field in the `Azure.MixedReality.ObjectAnchors.Conversion.AssetConversionOperation` contains an ErrorCode field of the `ConversionErrorCode` type. This type enumerates these common modes of failure for error message localization, failure recovery, and tips to the user on how the error can be corrected.
-
-| Error Code                    | Description                       |  Mitigation                       |
-| ---                      | ---                               | ---                               |
-| INVALID_ASSET_URI | The asset at the URI provided when starting the conversion job could not be found. | When triggering an asset conversion job, provide an upload URI obtained from the service where the asset to be converted has been uploaded. |
-| INVALID_JOB_ID | The provided ID for the asset conversion job to be created was set to the default all-zero GUID. | If a GUID is specified when creating an asset conversion job, ensure it is not the default all-zero GUID. |
-| INVALID_GRAVITY | The gravity vector provided when creating the asset conversion job was a fully zeroed vector. | When starting an asset conversion, provide the gravity vector that corresponds to the uploaded asset. |
-| INVALID_SCALE | The provided scale factor was not a positive non-zero value. | When starting an asset conversion, provide the scalar value that corresponds to the measurement unit scale (with regard to meters) of the uploaded asset. |
-| ASSET_SIZE_TOO_LARGE | The intermediate .PLY file generated from the asset or its serialized equivalent was too large. | Refer to the asset size guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
-| ASSET_DIMENSIONS_OUT_OF_BOUNDS | The dimensions of the asset exceeded the physical dimension limit. This can be a sign of an improperly set scale for the asset when creating a job. | Refer to the asset size guidelines before submitting an asset for conversion to ensure conformity, and ensure the provided scale corresponds to the uploaded asset: aka.ms/aoa/faq |
-| ZERO_FACES | The intermediate .PLY file generated from the asset was determined to have no faces, making it invalid for conversion. | Ensure the asset is a valid mesh. |
-| INVALID_FACE_VERTICES | The intermediate .PLY file generated from the asset contained faces that referenced nonexistent vertices. | Ensure the asset file is validly constructed. |
-| ZERO_TRAJECTORIES_GENERATED | The camera trajectories generated from the uploaded asset were empty. | Refer to the asset guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
-| TOO_MANY_RIG_POSES | The number of rig poses in the intermediate .PLY file exceeded service limits. | Refer to the asset size guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
-| SERVICE_ERROR | An unknown service error occurred. | Contact a member of the Object Anchors service team if the issue persists: https://github.com/Azure/azure-object-anchors/issues |
-| ASSET_CANNOT_BE_CONVERTED | The provided asset was corrupted, malformed, or otherwise unable to be converted in its provided format. | Ensure the asset is a validly constructed file of the specified type, and refer to the asset size guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
-
-Any errors that occur outside the actual asset conversion jobs will be thrown as exceptions. Most notably, the `Azure.RequestFailedException` can be thrown for service calls that receive an unsuccessful (4xx or 5xx) or unexpected HTTP response code. For further details on these exceptions, examine the `Status`, `ErrorCode`, or `Message` fields on the exception.
+**A:** For details on the different error codes that can result from a failed asset conversion job and how to handle each, refer to the [conversion error codes page](.\conversion-error-codes.md).
 
 **Q: What devices does Object Anchors support?**
 
@@ -164,7 +147,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 **Q: Can I use Object Anchors without internet connectivity?**
 
 **A:** 
-* For asset conversion and training, connectivity is required as this occurs in the cloud.
+* For model conversion and training, connectivity is required as this occurs in the cloud.
 * Runtime sessions are fully on-device and do not require connectivity as all computations occur on the HoloLens 2.
 
 ## Privacy FAQ
