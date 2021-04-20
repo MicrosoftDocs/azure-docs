@@ -30,9 +30,9 @@ Use this article to find the settings and requirements for connecting different 
 
 ## Create a credential entity to manage your credential in secure
 
-You can create a **credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
+You can create a **credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeed, this can be helpful when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
-1. Click '+' to create a new credential entity in 'Adding data feed' tab  (you can also create one in 'Credential entity feed' tab ).
+1. Select '+' to create a new credential entity in 'Adding data feed' tab  (you can also create one in 'Credential entity feed' tab ).
 
    ![create credential entity](media/create-credential-entity.png)
  
@@ -98,17 +98,17 @@ The following sections specify the parameters required for all authentication ty
     ``` Kusto
     [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    You can also refer to the [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
   
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
-* **Connection String**: There are two Authentication types for Azure Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
+* **Connection String**: There are two authentication types for Azure Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
 
-    * **Basic** : See [Configure Azure Storage connection strings](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
+    * **Basic** : See [Configure Azure Storage connection strings](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can visit the Azure portal for your Azure Blob Storage resource, and find connection string directly in the **Settings > Access keys** section.
     
     * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
     
-    You can create managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
+    You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
     
     ![MI blob](media/MI-blob.png)
     
@@ -154,9 +154,9 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource in Azure Portal, in **Keys**. Also, you can find more information in [Secure access to data in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data).
-* **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section in Azure portal.
-* **Collection ID**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section in Azure portal.
+* **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource in Azure portal, in **Keys**. Also, you can find more information in [Secure access to data in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data).
+* **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section in the Azure portal.
+* **Collection ID**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section in the Azure portal.
 * **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
@@ -165,11 +165,11 @@ The following sections specify the parameters required for all authentication ty
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd    
     ```
 
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Connection String**: There are four Authentication types for Azure Data Explorer (Kusto), they are **Basic**, **Service Principal**, **Service Principal From KeyVault** and **Managed Identity**.
+* **Connection String**: There are four authentication types for Azure Data Explorer (Kusto), they are **Basic**, **Service Principal**, **Service Principal From KeyVault** and **Managed Identity**.
     
     * **Basic** : Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
         Here is an example of connection string:
@@ -200,7 +200,7 @@ The following sections specify the parameters required for all authentication ty
 
     * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
     
-        You can create managed identity in Azure portal for your Azure Data Explorer (Kusto), choose **Persmissions** section, and click **add** to create. The suggested role type is: admin / viewer.
+        You can create a managed identity in Azure portal for your Azure Data Explorer (Kusto), choose **Persmissions** section, and click **add** to create. The suggested role type is: admin / viewer.
         
         ![MI kusto](media/MI-kusto.png)
 
@@ -209,7 +209,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<Server>;Initial Catalog=<Database>
         ```
 
-        Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+        For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 * **Query**: See [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
@@ -219,11 +219,11 @@ The following sections specify the parameters required for all authentication ty
    [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
    ```
 
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
-* **Account Name**: There are four Authentication types for Azure Data Lake Storage Gen2, they are **Basic**, **Azure Data Lake Storage Gen2 Shared Key**, **Service Principal** and **Service Principal From KeyVault**.
+* **Account Name**: There are four authentication types for Azure Data Lake Storage Gen2, they are **Basic**, **Azure Data Lake Storage Gen2 Shared Key**, **Service Principal** and **Service Principal From KeyVault**.
     
     * **Basic**: The **Account Name** of your Azure Data Lake Storage Gen2. This can be found in your Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys**. 
 
@@ -273,7 +273,7 @@ Metrics Advisor uses path to find the json file in your Blob storage. This is an
   * `%h` is the hour formatted as `HH`
   * `%M` is the minute formatted as `mm`
 
-  Currently Metrics Advisor supports the data schema in the JSON files as follow. For example:
+  Currently Metrics Advisor supports the data schema in the JSON files as follows. For example:
 
     ``` JSON
     [
@@ -300,13 +300,13 @@ The timestamp field must match one of these two formats:
 -->
 
 ## <span id="log">Azure Log Analytics</span>
-There are three Authentication types for Azure Log Analytics, they are **Basic**, **Service Principal** and **Service Principal From KeyVault**.
+There are three authentication types for Azure Log Analytics, they are **Basic**, **Service Principal** and **Service Principal From KeyVault**.
 * **Basic**: You will need to fill in **Tenant Id**, **Client Id**, **Client Secret**, **Workspace ID**.
    To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register app or web API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
    * **Tenant Id**: Specify the tenant id to access your Log Analytics.
    * **Client Id**: Specify the client id to access your Log Analytics.
    * **Client Secret**: Specify the client secret to access your Log Analytics.
-   * **Workspace ID**: Specify the workspace Id of Log Analytics. For **Wordkspace ID**, you can find it in Azure portal.
+   * **Workspace ID**: Specify the workspace Id of Log Analytics. For **Workspace ID**, you can find it in Azure portal.
 
     ![workspace id](media/workspace-id.png)
     
@@ -330,11 +330,11 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
     | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.    
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.    
 
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
-* **Connection String**: There are five Authentication types for Azure SQL Database | SQL Server, they are **Basic**, **Managed Identity**, **Azure SQL Connection String**, **Service Principal** and **Service Principal From KeyVault**.
+* **Connection String**: There are five authentication types for Azure SQL Database | SQL Server, they are **Basic**, **Managed Identity**, **Azure SQL Connection String**, **Service Principal** and **Service Principal From KeyVault**.
     
     * **Basic**: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
     Here is an example of connection string: 
@@ -345,10 +345,10 @@ There are three Authentication types for Azure Log Analytics, they are **Basic**
     
     * **Managed Identity** : Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
     To enable your managed entity, you can refer to following steps:
-      1. Enabling a system-assigned managed identity is a one-click experience. In Auzre portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
-      2. In Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give MI access to specified users, and the suggested role type is: admin / viewer.
+      1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
+      2. In the Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give the managed identity access to specified users, and the suggested role type is: admin / viewer.
       3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
-      4. The last step is to enable MI in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
+      4. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
     
           ``` SQL
           CREATE USER [MI Name] FROM EXTERNAL PROVIDER
@@ -422,7 +422,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     PartitionKey ge '@IntervalStart' and PartitionKey lt '@IntervalEnd'
     ```
 
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 ## <span id="es">Elasticsearch</span>
 
@@ -437,7 +437,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
 
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 
 ## <span id="http">HTTP request</span>
@@ -463,7 +463,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     }
     ```
 
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
@@ -477,7 +477,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
     
-Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.    
+For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 * **User name**: This is optional for authentication. 
 * **Password**: This is optional for authentication. 
@@ -506,7 +506,7 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
 
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 ## <span id="pgsql">PostgreSQL</span>
 
@@ -518,17 +518,17 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
-    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
     
 ## <span id="csv">Local files(CSV)</span>
 
 > [!NOTE]
-> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV and perform anomaly detection on single time series data. However, for full product experience analyzing on multi-dimensional metrics including real-time data ingestion, anomaly notification, root cause analysis, cross-metric incident analysis, please use other supported data sources.
+> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV and performs anomaly detection on single time series data. However, for the full experience analyzing on multi-dimensional metrics including real-time data ingestion, anomaly notification, root cause analysis, cross-metric incident analysis, please use other supported data sources.
 
 **Requirements on data in CSV:**
-1. Have at least one column, which represents as measures to be analyzed. For better and quicker user experience, we recommend you try a CSV file containing 2 columns : (1) Timestamp column (2) Metric Column. (Timestamp format : 2021-03-30T00:00:00Z, note that the 'seconds' part is best to be ':00Z') And the time granularity between every record should be the same.
+1. Have at least one column, which represents measurements to be analyzed. For better and quicker user experience, we recommend you try a CSV file containing 2 columns : (1) Timestamp column (2) Metric Column. (Timestamp format : 2021-03-30T00:00:00Z, note that the 'seconds' part is best to be ':00Z'), and the time granularity between every record should be the same.
 2. Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, please make sure the data time period follow this rule [historical data processing window].
-3. There is no re-ordering or gap-filling happening during data ingestion, please make sure your data in CSV is ordered by timestamp **ASC**.
+3. There is no re-ordering or gap-filling happening during data ingestion, please make sure your data in CSV is ordered by timestamp  **ascending (ASC)**.
  
 ## Next steps
 
