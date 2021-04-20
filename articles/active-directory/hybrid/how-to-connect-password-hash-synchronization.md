@@ -108,6 +108,8 @@ Once enabled, Azure AD does not go to each synchronized user to remove the `Disa
 
 It is recommended to enable EnforceCloudPasswordPolicyForPasswordSyncedUsers, prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
 
+Warning: Doing so will lead to bulk password expiration. AAD calculates password expiry based on the last time the password hash was written into AAD; Therefore, when enabling EnforceCloudPasswordPolicyForPasswordSyncedUsers *before* enabling password hash sync; all password hashes will be synched and written to AAD at almost the same time with small variance due to synch duration; hence all passwords will expire on the same date.
+
 The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Set-MsolPasswordPolicy PowerShell command.
 
 Azure AD supports a separate password expiration policy per registered domain.
