@@ -91,7 +91,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
 1. In your on-premises vCenter, select an [OVF template](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) to deploy the VMware HCX Connector to your on-premises vCenter. 
 
-1. Navigate to and select the OVA file that you downloaded in the previous section. Select **Open**.
+1. Navigate to and select the OVA file that you downloaded and then select **Open**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Screenshot of browsing to an OVF template." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
