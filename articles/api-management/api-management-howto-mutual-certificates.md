@@ -9,7 +9,8 @@ author: mikebudzynski
 ms.service: api-management
 ms.topic: article
 ms.date: 01/26/2021
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Secure backend services using client certificate authentication in Azure API Management
