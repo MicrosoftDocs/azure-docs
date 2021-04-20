@@ -235,7 +235,7 @@ There are two options:
     1. If you do not want to use an on-premises Active Directory (LDAP), select only External User Profiles and click OK.
     2. If you do want to use an on-premises Active Directory (LDAP), select only LDAP users and in the LDAP Lookup Type select email. Then click OK.
 
-    ![screenshot to select the applicable Identity Provider object.](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
+    ![screenshot to manual configuration.](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
 
 1. Configure the required settings in the management database:
 
