@@ -339,6 +339,8 @@
         href: ciscocloud-tutorial.md
       - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
+      - name: Cisco Intersight
+        href: cisco-intersight-tutorial.md
       - name: Cisco Webex
         href: cisco-spark-tutorial.md
       - name: Cisco Umbrella
@@ -489,6 +491,8 @@
         href: degreed-tutorial.md
       - name: Deputy
         href: deputy-tutorial.md
+      - name: desknet's NEO
+        href: desknets-neo-tutorial.md
       - name: Deskradar
         href: deskradar-tutorial.md
       - name: DigiCert
@@ -2147,6 +2151,8 @@
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
       - name: AWS Single Sign-On
         href: aws-single-sign-on-provisioning-tutorial.md
+      - name: Bentley - Automatic User Provisioning
+        href: bentley-automatic-user-provisioning-tutorial.md  
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
@@ -2199,6 +2205,8 @@
         href: druva-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
+      - name: Eletive
+        href: eletive-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
       - name: Federated Directory
