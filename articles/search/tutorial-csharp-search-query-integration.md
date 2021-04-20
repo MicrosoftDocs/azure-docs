@@ -20,7 +20,7 @@ In the previous lessons, you added search to a Static Web App. This lesson highl
 
 The Function app uses the Azure SDK for Cognitive Search:
 
-* NuGet: [@azure/search-documents](https://www.nuget.org/packages/Azure.Search.Documents/)
+* NuGet: [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
 * Reference Documentation: [Client Library](/dotnet/api/overview/azure/search)
 
 The Function app authenticates through the SDK to the cloud-based Cognitive Search API using your resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
