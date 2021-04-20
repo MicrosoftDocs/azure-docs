@@ -16,7 +16,7 @@ ms.reviewer: marsma, jmprieur
 ms.custom: aaddev
 ---
 
-# How to: How to build services that are resilient to metadata refresh
+# How to: Build services that are resilient to metadata refresh.
 
 Protected web APIs need to validate access tokens. Web apps also validate the ID tokens. Token Validation has multiple parts, checking it's for the application, issued by a trusted Identity Provider (IDP), its lifetime is in range, and it wasn't tampered with. There can also be special validations. For instance, the app needs to validate the signature and that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. When the signing keys aren't embedded in the token, they need to be fetched from the identity provider (Discovery or Metadata). Sometimes it's also necessary to obtain keys dynamically at runtime.
 
