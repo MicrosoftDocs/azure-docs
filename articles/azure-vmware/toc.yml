@@ -13,7 +13,7 @@
     - name: 1 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
     - name: 2 - Connect to on-premises
-      href: azure-vmware-solution-on-premises.md
+      href: tutorial-expressroute-global-reach-private-cloud.md
     - name: 3 - Deploy and configure VMware HCX
       href: tutorial-deploy-vmware-hcx.md
 - name: Tutorials

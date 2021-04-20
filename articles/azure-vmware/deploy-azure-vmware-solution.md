@@ -14,7 +14,7 @@ In this article, you'll use the information from the [planning section](producti
 >If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
 
 
-## Create an Azure VMware Solution private cloud
+## Step 1. Create an Azure VMware Solution private cloud
 
 [!INCLUDE [create-private-cloud-azure-portal-steps](includes/create-private-cloud-azure-portal-steps.md)]
 
@@ -22,8 +22,11 @@ In this article, you'll use the information from the [planning section](producti
 >For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
 
 
-## Connect Azure VMware Solution to Azure Virtual Network with ExpressRoute
+## Step 2. Connect to Azure Virtual Network with ExpressRoute
 
+
+
+## Step 3. Validate the connection
 
 
 
@@ -50,78 +53,10 @@ In the effective routes list, you should see the networks created as part of the
 
 In this example, the 10.74.72.0/22 network was input during deployment derives the /24 networks.  If you see something similar, you can connect to vCenter in Azure VMware Solution.
 
-## Connect and sign in to vCenter and NSX-T
 
-Log into the jump box you created in the earlier step. Once you've logged in, open a web browser and navigate to and log into both vCenter and NSX-T Manager.  
-
-You can identify the vCenter, and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **Identity**.
-
->[!TIP]
->Select **Generate a new password** to generate new vCenter and NSX-T passwords.
-
-:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true":::
-
-
-
-## Create a network segment on Azure VMware Solution
-
-You use NSX-T Manager to create new network segments in your Azure VMware Solution environment.  You defined the networks you want to create in the [planning section](production-ready-deployment-steps.md).  If you haven't defined them, go back to the [planning section](production-ready-deployment-steps.md) before proceeding.
-
->[!IMPORTANT]
->Make sure the CIDR network address block you defined doesn't overlap with anything in your Azure or on-premises environments.  
-
-Follow the [Create an NSX-T network segment in Azure VMware Solution](tutorial-nsx-t-network-segment.md) tutorial to create an NSX-T network segment in Azure VMware Solution.
-
-## Verify advertised NSX-T segment
-
-Go back to the [Verify network routes advertised](#verify-network-routes-advertised) step. You'll see other routes in the list representing the network segments you created in the previous step.  
-
-For virtual machines, you'll assign the segments you created in the [Create a network segment on Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution) step.  
-
-Because DNS is required, identify what DNS server you want to use.  
-
-- If you have ExpressRoute Global Reach configured, use whatever DNS server you would use on-premises.  
-- If you have a DNS server in Azure, use that.  
-- If you don't have either, then use whatever DNS server your jump box is using.
-
->[!NOTE]
->This step is to identify the DNS server, and no configurations are done in this step.
-
-## (Optional) Provide DHCP services to NSX-T network segment
-
-If you plan to use DHCP on your NSX-T segments, continue with this section. Otherwise, skip to the [Add a VM on the NSX-T network segment](#add-a-vm-on-the-nsx-t-network-segment) section.  
-
-Now that you've created your NSX-T network segment, you can create and manage DHCP in Azure VMware Solution in two ways:
-
-* If you're using NSX-T to host your DHCP server, you'll need to [create a DHCP server](manage-dhcp.md#create-a-dhcp-server) and [relay to that server](manage-dhcp.md#create-dhcp-relay-service). 
-* If you're using a third-party external DHCP server in your network, you'll need to [create DHCP relay service](manage-dhcp.md#create-dhcp-relay-service).  For this option, [only do the relay configuration](manage-dhcp.md#create-dhcp-relay-service).
-
-
-## Add a VM on the NSX-T network segment
-
-In your Azure VMware Solution vCenter, deploy a VM and use it to verify connectivity from your Azure VMware Solution networks to:
-
-- The internet
-- Azure Virtual Networks
-- On-premises.  
-
-Deploy the VM as you would in any vSphere environment.  Attach the VM to one of the network segments you previously created in NSX-T.  
-
->[!NOTE]
->If you set up a DHCP server, you get your network configuration for the VM from it (don't forget to set up the scope).  If you are going to configure statically, then configure as you normally would.
-
-## Test the NSX-T segment connectivity
-
-Log into the VM created in the previous step and verify connectivity;
-
-1. Ping an IP on the internet.
-2. In a web browser, go to an internet site.
-3. Ping the jump box that sits on the Azure Virtual Network.
-
-Azure VMware Solution is now up and running, and you've successfully established connectivity to and from Azure Virtual Network and the internet.
 
 ## Next steps
 
 In the next section, you'll connect Azure VMware Solution to your on-premises network through ExpressRoute.
 > [!div class="nextstepaction"]
-> [Connect Azure VMware Solution to your on-premises environment](azure-vmware-solution-on-premises.md)
+> [Connect Azure VMware Solution to your on-premises environment](tutorial-expressroute-global-reach-private-cloud.md)
