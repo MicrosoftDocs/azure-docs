@@ -91,11 +91,11 @@ After creating an Application Insights instance, you can explore any new error m
 1. Select the Application Insights instance, which has the same name as your static web app (if created using the steps above).
 1. Under *Investigate*, select **Failures**.
 1. Scroll down to *Drill into* on the right.
-1. Under *Drill into*, a button displays the number of recently failed operations.
+1. In the lower right corner, under *Drill into*, a button will display the number of recently failed operations.
 
   ![Screenshot of the failures screen](./media/troubleshooting/app-insights-errors.png)
 
-1. Click the button which says **x Operations** to open a panel displaying the recent failed operations.
+1. Select the button which says **x Operations** to open a panel displaying the recent failed operations.
 
   ![Screenshot of the operations screen](./media/troubleshooting/app-insights-operations.png)
 
@@ -122,6 +122,6 @@ Use the following steps to add a new variable.
 
 1. Select **Add**.
 1. Set the **Name**.
-1. Set the **Value**. 
+1. Set the **Value**.
 1. Select **OK**.
 1. Select **Save**.
