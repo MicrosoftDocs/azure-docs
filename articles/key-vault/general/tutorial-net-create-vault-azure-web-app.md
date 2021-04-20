@@ -342,4 +342,4 @@ Where before you saw "Hello World!", you should now see the value of your secret
 - [Use Azure Key Vault with applications deployed to a virtual machine in .NET](./tutorial-net-virtual-machine.md)
 - Learn more about [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
 - View the [Developer's Guide](./developers-guide.md)
-- [Secure access to a key vault](./secure-your-key-vault.md)
+- [Secure access to a key vault](./security-overview.md)
