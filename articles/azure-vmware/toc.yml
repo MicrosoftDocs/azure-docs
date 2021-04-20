@@ -138,7 +138,7 @@
     items:
     - name: Open a support request for deployment failures
       href: fix-deployment-provisioning-failures.md
-    - name: VMware tools automatic upgrade fails -  vix error code = 21009
+    - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     items:
