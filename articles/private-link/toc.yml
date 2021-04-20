@@ -43,6 +43,8 @@
       href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
+  - name: Availability
+    href: availability.md
   - name: Private Endpoint
     href: private-endpoint-overview.md
   - name: Private Link Service

@@ -34,7 +34,7 @@ With the **date policy**, cool files are tiered to the cloud if they haven't bee
 For more examples on how the date policy and volume free space policy work together, see [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md).
 
 ### Windows Server data deduplication
-Data deduplication is supported on volumes that have cloud tiering enabled beginning with Windows Server 2016. For more details, please see [Planning for an Azure File Sync deployment](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
+Data deduplication is supported on volumes that have cloud tiering enabled beginning with Windows Server 2016. For more details, please see [Planning for an Azure File Sync deployment](./storage-sync-files-planning.md#data-deduplication).
 
 ### Cloud tiering heatmap
 Azure File Sync monitors file access (read and write operations) over time and, based on how frequent and recent access is, assigns a heat score to every file. It uses these scores to build a "heatmap" of your namespace on each server endpoint. This heatmap is a list of all syncing files in a location with cloud tiering enabled, ordered by their heat score. Frequently accessed files that were recently opened are considered hot, while files that were barely touched and haven't been accessed for some time are considered cool. 
@@ -104,4 +104,3 @@ It's also possible for a file to be partially tiered (or partially recalled). In
 ## Next steps
 * [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md)
 * [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-

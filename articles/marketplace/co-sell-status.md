@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 02/24/2021
+ms.reviewer: stmummer
+ms.date: 03/17/2021
 ---
 
 # Verify co-sell status of a commercial marketplace offer
@@ -27,8 +28,8 @@ The following table shows all possible co-sell statuses. To learn about the requ
 | ------------ | ------------- |
 | Not co-sell ready | The minimum [requirements for Co-sell ready status](co-sell-requirements.md#requirements-for-co-sell-ready-status) have not been met. |
 | Co-sell ready | All [requirements for Co-sell ready status](co-sell-requirements.md#requirements-for-co-sell-ready-status) have been met. |
-| Azure IP Co-sell incentivized | Co-sell ready requirements have been met in addition to [these additional requirements](co-sell-requirements.md#requirements-for-ip-co-sell-incentivized-status). |
-| Biz Apps ISV Connect Premium incentive  | This status applies to Dynamics 365 and Power Apps offers and indicates that all [requirements for this status](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) have been met. |
+| Azure IP Co-sell incentivized | Co-sell ready requirements have been met in addition to [these additional requirements](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status). |
+| Business Applications Co-sell incentivized | This status applies to Dynamics 365 and Power Apps offers in the [ISV Connect Program](business-applications-isv-program.md) and indicates that all [requirements for this status](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentivized-status) have been met. |
 |||
 
 ## Next steps

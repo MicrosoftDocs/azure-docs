@@ -50,7 +50,7 @@ To be more specific on what you want your graphs to display, consider using **Ad
  
 For details on the different types of metrics for Azure File Sync and how to use them, see [Monitor Azure File Sync](storage-sync-files-monitoring.md).
 
-For details on how to use metrics, see [Getting started with Azure Metrics Explorer.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started).
+For details on how to use metrics, see [Getting started with Azure Metrics Explorer.](../../azure-monitor/essentials/metrics-getting-started.md).
 
 If you would like to change your cloud tiering policy, see [Choose cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md).
 

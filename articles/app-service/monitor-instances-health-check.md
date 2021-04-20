@@ -53,11 +53,15 @@ In addition to configuring the Health check options, you can also configure the 
 
 Health check integrates with App Service's authentication and authorization features. No additional settings are required if these security features are enabled. However, if you're using your own authentication system, the Health check path must allow anonymous access. If the site is HTTP**S**-Only  enabled, the Health check request will be sent via HTTP**S**.
 
-Large enterprise development teams often need to adhere to security requirements for exposed APIs. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
+Large enterprise development teams often need to adhere to security requirements for exposed APIs. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
 
 ## Monitoring
 
 After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
+
+## Limitations
+
+Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

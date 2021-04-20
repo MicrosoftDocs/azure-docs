@@ -21,10 +21,10 @@ Additionally, the [performance tier of managed disks can be changed](disks-chang
 
 |  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |
 |---------|---------|---------|---------|
-| Scenarios|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst.|
-|Cost     |Free         |Cost is variable, see the [Billing](#billing) section for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
-|Availability     |Only available for premium SSDs 512 GiB and smaller.         |Only available for premium SSDs larger than 512 GiB.         |Available to all premium SSD sizes.         |
-|Enablement     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
+| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst.|
+|**Cost**     |Free         |Cost is variable, see the [Billing](#billing) section for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
+|**Availability**     |Only available for premium SSDs 512 GiB and smaller.         |Only available for premium SSDs larger than 512 GiB.         |Available to all premium SSD sizes.         |
+|**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
 
 ## Common scenarios
 The following scenarios can benefit greatly from bursting:

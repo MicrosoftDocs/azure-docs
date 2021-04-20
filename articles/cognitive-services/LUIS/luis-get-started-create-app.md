@@ -4,7 +4,7 @@ description:  This quickstart shows how to create a LUIS app that uses the prebu
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/13/2020
+ms.date: 03/29/2021
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
 ---
 
@@ -27,7 +27,7 @@ In the window that appears, enter the following information:
 
 |Name  |Description  |
 |---------|---------|
-|AName     | A name for the your app. For example "home automation".        |
+|AName     | A name for your app. For example "home automation".        |
 |Culture     | The language that your app understands and speaks.   |
 |Description | A description for your app.
 |Prediction resource | The prediction resource that will receive queries. |
@@ -216,7 +216,5 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
 ## Next steps
 
-You can call the endpoint from code:
-
 > [!div class="nextstepaction"]
-> [Call a LUIS endpoint using code](./luis-get-started-get-intent-from-rest.md)
+> [Iterative app development for LUIS](./luis-concept-app-iteration.md)

@@ -12,7 +12,7 @@ ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ---
 
-# Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK
+# Tutorial: Use .NET and AI to generate searchable content from Azure blobs
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
 

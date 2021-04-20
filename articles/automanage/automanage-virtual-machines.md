@@ -54,6 +54,7 @@ Automanage only supports VMs located in the following regions:
 * UK South
 * AU East
 * AU Southeast
+* Southeast Asia
 
 ### Required RBAC permissions
 Your account will require slightly different RBAC roles depending on whether you are enabling Automanage with a new Automanage account.
@@ -65,12 +66,14 @@ If you are enabling Automanage with a new Automanage account:
 If you are enabling Automanage with an existing Automanage account:
 * **Contributor** role on the resource group containing your VMs
 
+The Automanage account will be granted **Contributor** and **Resource Policy Contributor** permissions to perform actions on Automanaged machines.
+
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.
 
 ## Participating services
 
-:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Intelligently onboard services.":::
+:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services-1.png" alt-text="Intelligently onboard services.":::
 
 For the complete list of participating Azure services, as well as their supported environment, see the following:
 - [Automanage for Linux](automanage-linux.md)
@@ -89,6 +92,19 @@ If it is your first time enabling Automanage for your VM, you can search in the 
 
 The only time you might need to interact with this VM to manage these services is in the event we attempted to remediate your VM, but failed to do so. If we successfully remediate your VM, we will bring it back into compliance without even alerting you. For more details, see [Status of VMs](#status-of-vms).
 
+## Enabling Automanage for VMs using Azure Policy
+You can also enable Automanage on VMs at scale using the built-in Azure Policy. The policy has a DeployIfNotExists effect, which means that all eligible VMs located within the scope of the policy will be automatically onboarded to Automanage VM Best Practices.
+
+A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3).
+
+### How to apply the policy
+1. Click the **Assign** button when viewing the policy definition
+1. Select the scope at which you want to apply the policy (can be management group, subscription, or resource group)
+1. Under **Parameters**, specify parameters for the Automanage account, Configuration profile, and Effect (the effect should usually be DeployIfNotExists)
+    1. If you don't have an Automanage account, you will have to [create one](./automanage-account.md).
+1. Under **Remediation**, check the "Click a remediation task" checkbox. This will perform onboarding to Automanage.
+1. Click **Review + create** and ensure that all settings look good.
+1. Click **Create**.
 
 ## Environment configuration
 
@@ -122,21 +138,9 @@ For the complete list of participating Azure services and if they support prefer
 
 ## Automanage Account
 
-The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management of your resources (perhaps between two system administrators), this option allows you to define an Azure identity for each of those administrators.
+The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management of your resources (perhaps between two system administrators), the Automanage Account option in the enablement flow allows you to define an Azure identity for each of those administrators.
 
-In the Azure portal experience, when you are enabling Automanage on your VMs, there is an Advanced dropdown on the **Enable Azure VM best practice** blade that allows you to assign or manually create the Automanage Account.
-
-The Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** roles to the subscription(s) containing the machine(s) you onboard to Automanage. You may use the same Automanage Account on machines across multiple subscriptions, which will grant that Automanage Account **Contributor** and **Resource Policy Contributor** permissions on all subscriptions.
-
-If your VM is connected to a Log Analytics workspace in another subscription, the Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** in that other subscription as well.
-
-If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
-
-If you are enabling Automanage with an existing Automanage Account, you need to have the **Contributor** role on the resource group containing your VMs.
-
-> [!NOTE]
-> When you disable Automanage Best Practices, the Automanage Account's permissions on any associated subscriptions will remain. Manually remove the permissions by going to the subscription's IAM page or delete the Automanage Account. The Automanage Account cannot be deleted if it is still managing any machines.
-
+To learn more about the Automanage account and how to create one, visit the [Automanage Account document](./automanage-account.md).
 
 ## Status of VMs
 
@@ -170,7 +174,7 @@ Read carefully through the messaging in the resulting pop-up before agreeing to 
 >
 > - The configuration of the VM and the services it is onboarded to don't change.
 > - Any charges incurred by those services remain billable and continue to be incurred.
-> - Any Automanage behaviors immediately stop.
+> - Automanage drift monitoring immediately stops.
 
 
 First and foremost, we will not off-board the virtual machine from any of the services that we onboarded it to and configured. So any charges incurred by those services will continue to remain billable. You will need to off-board if necessary. Any Automanage behavior will stop immediately. For example, we will no longer monitor the VM for drift.

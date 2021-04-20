@@ -262,7 +262,7 @@ Update the *appsettings.json* file with your own values, as follows:
     "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
     "TenantId": "<tenant-id>",
     "ClientId": "<client-id>",
-    "ClientSecret": "<client-secret>"
+    "ClientSecret": "<client-secret>",
     "ClientCertificates": [
     ],
     "CallbackPath": "/signin-oidc"

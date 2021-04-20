@@ -27,11 +27,11 @@
       href: security-overview.md
 - name: How-to guides
   items:
-  - name: Connect to Azure Arc
+  - name: Deploy
     items:
     - name: Connected Machine agent overview
       href: agent-overview.md
-    - name: Plan for at-scale deployment
+    - name: Plan for deployment
       href: plan-at-scale-deployment.md
     - name: Connect machines to Azure Arc from the Azure portal
       href: onboard-portal.md

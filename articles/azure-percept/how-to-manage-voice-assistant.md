@@ -55,7 +55,7 @@ A keyword is a word or short phrase used to activate a voice assistant. For exam
 
 With [Speech Studio](https://speech.microsoft.com/), you can create a custom keyword for your voice assistant. It takes up to 30 minutes to train a basic custom keyword model.
 
-Follow the [Speech Studio documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) for guidance on creating a custom keyword. Once configured, your new keyword will be available in the Project Santa Cruz portal for use with your voice assistant application.
+Follow the [Speech Studio documentation](../cognitive-services/speech-service/custom-keyword-basics.md) for guidance on creating a custom keyword. Once configured, your new keyword will be available in the Project Santa Cruz portal for use with your voice assistant application.
 
 ## Commands configuration
 
@@ -83,7 +83,7 @@ Custom commands make it easy to build rich voice commanding apps optimized for v
 
 With [Speech Studio](https://speech.microsoft.com/), you can create custom commands for your voice assistant to execute.
 
-Follow the [Speech Studio documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-custom-commands-application) for guidance on creating custom commands. Once configured, your new commands will be available in Azure Percept Studio for use with your voice assistant application.
+Follow the [Speech Studio documentation](../cognitive-services/speech-service/quickstart-custom-commands-application.md) for guidance on creating custom commands. Once configured, your new commands will be available in Azure Percept Studio for use with your voice assistant application.
 
 ## Next steps
 

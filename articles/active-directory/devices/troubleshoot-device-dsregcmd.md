@@ -342,4 +342,4 @@ This section performs the prerequisite checks for the provisioning of Windows He
 
 ## Next steps
 
-For questions, see the [device management FAQ](faq.md)
+For questions, see the [device management FAQ](faq.yml)

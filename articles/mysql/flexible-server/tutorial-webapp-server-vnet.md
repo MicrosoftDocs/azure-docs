@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 9/21/2020
+ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -16,6 +16,14 @@ ms.custom: mvc, devx-track-azurecli
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This tutorial shows you how create a Azure App Service Web App with  MySQL Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
+
+In this tutorial you will learn how to:
+>[!div class="checklist"]
+> * Create a MySQL flexible server in a virtual network
+> * Create a subnet to delegate to App Service
+> * Create a web app
+> * Add the web app to the virtual network
+> * Connect to Postgres from the web app 
 
 ## Prerequisites
 
@@ -32,7 +40,7 @@ az login
 If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription ID** property from the **az login** output for your subscription into the subscription ID placeholder.
 
 ```azurecli
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
 ## Create an Azure Database for MySQL Flexible Server
@@ -41,7 +49,7 @@ Create a private flexible server inside a virtual network (VNET) using the follo
 ```azurecli
 az mysql flexible-server create --resource-group myresourcegroup --location westus2
 ```
-This command performs the following actions, which may take a few minutes:
+Copy the connection string and the name of the newly created virtual network. This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it is not provided.
@@ -52,6 +60,14 @@ This command performs the following actions, which may take a few minutes:
 > [!NOTE]
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az mysql flexible-server update``` command
 
+## Create Subnet for App Service Endpoint
+We now need to have subnet that is delegated to App Service Web App endpoint. Run the following command to create a new subnet in the same virtual network as the database server was created. 
+
+```azurecli
+az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+```
+Make a note of the virtual network name and subnet name after this command as would need it to add VNET integration rule for the web app after it is created. 
+
 ## Create a web app
 
 In this section, you create app host in App Service app and connect this app to the MySQL database. Make sure you're in the repository root of your application code in the terminal.
@@ -59,12 +75,13 @@ In this section, you create app host in App Service app and connect this app to 
 Create an App Service app (the host process) with the az webapp up command
 
 ```azurecli
-az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
+az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku P2V2 --name mywebapp
 ```
 
 > [!NOTE]
 > - For the --location argument, use the same location as you did for the database in the previous section.
 > - Replace _&lt;app-name>_ with a unique name across all Azure (the server endpoint is https://\<app-name>.azurewebsites.net). Allowed characters for <app-name> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
+> - App Service Basic tier does not support VNET integration. Please use Standard or Premium. 
 
 This command performs the following actions, which may take a few minutes:
 
@@ -79,7 +96,7 @@ This command performs the following actions, which may take a few minutes:
 Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace _&lt;vnet-name>_ and _&lt;subnet-name_ with the virtual network and subnet name that the flexible server is using.
 
 ```azurecli
-az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
+az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet VNETName --subnet webappsubnetName
 ```
 
 ## Configure environment variables to connect the database

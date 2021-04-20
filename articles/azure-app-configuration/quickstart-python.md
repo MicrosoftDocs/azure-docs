@@ -18,7 +18,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 2.7, or 3.5 or later - For information on setting up Python on Windows, see the [Python on Windows documentation]( https://docs.microsoft.com/windows/python/)
+- Python 2.7, or 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation]( https://docs.microsoft.com/windows/python/)
 
 ## Create an App Configuration store
 

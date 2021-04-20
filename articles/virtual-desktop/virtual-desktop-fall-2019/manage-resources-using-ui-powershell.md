@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: lizross
+manager: femila
 ---
 
 # Deploy a Windows Virtual Desktop (classic) management tool with PowerShell

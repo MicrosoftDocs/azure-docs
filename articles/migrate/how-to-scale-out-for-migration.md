@@ -11,16 +11,16 @@ ms.date: 03/02/2021
 
 # Scale agentless migration of VMware virtual machines to Azure
 
-This article helps you understand how to use a scale-out appliance to migrate a large number of VMware virtual machines (VMs) to Azure using the Azure Migrate Server Migration tool's agentless migration capability. 
+This article helps you understand how to use a scale-out appliance to migrate a large number of VMware virtual machines (VMs) to Azure using the Azure Migrate Server Migration tool's agentless method for migration of VMware VMs.
 
-With the agentless migration of VMware virtual machines capability of the Server Migration tool, you can:
+Using the agentless migration method for VMware virtual machines you can:
 
 - Replicate up to 300 VMs from a single vCenter server concurrently using one Azure Migrate appliance.
 - Replicate up to 500 VMs from a single vCenter server concurrently by deploying a second scale-out appliance for migration.
 
 In this article, you will learn how to:
 
-- Deploy a scale-out appliance for VMware migration
+- Add a scale-out appliance for agentless migration of VMware virtual machines
 - Migrate up to 500 VMs concurrently using the scale-out appliance.
 
 ##  Prerequisites
@@ -33,13 +33,14 @@ Before you get started, you need to perform the following steps:
 > [!IMPORTANT]
 > You'll need to have at least one replicating virtual machine in the project before you can add a scale-out appliance for migration.
 
-## Deploy a scale-out appliance
+To learn how to perform the above, review the tutorial on [migrating VMware virtual machines to Azure with the agentless migration method](./tutorial-migrate-vmware.md).
 
+## Deploy a scale-out appliance
 
 To add a scale-out appliance, follow the steps mentioned below:
 
-1. Click on **Discover** > **Are you machines virtualized?** 
-1. Select **Yes, with VMware VSphere Hypervisor.**
+1. Click on **Discover** > **Are your machines virtualized?** 
+1. Select **Yes, with VMware vSphere Hypervisor.**
 1. Select agentless replication in the next step.
 1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
 1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale-out.
@@ -49,7 +50,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 ### 1. Generate the Azure Migrate project key
 
 1. In **Generate Azure Migrate project key**, provide a suffix name for the scale-out appliance. The suffix can contain only alphanumeric characters and has a length limit of 14 characters.
-2. Click **Generate key** to start the creation of the required Azure resources. Please do not close the Discover page during the creation of resources.
+2. Click **Generate key** to start the creation of the required Azure resources. Do not close the Discover page during the creation of resources.
 3. Copy the generated key. You will need the key later to complete the registration of the scale-out appliance.
 
 ### 2. Download the installer for the scale-out appliance
@@ -63,9 +64,9 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
 > 1. Open command prompt as an administrator
 > 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesnt match this string:
-e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+    - Example usage for public cloud: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
+1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
 
 ### 3. Run the Azure Migrate installer script
 The installer script does the following:
@@ -104,7 +105,7 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 - Accept the **license terms**, and read the third-party information.
 - In the configuration manager > **Set up prerequisites**, do the following:
    - **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
-     1. Click on **Set up proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
+     1. Click on **Setup proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
      2. Specify credentials if the proxy needs authentication.
      3. Only HTTP proxy is supported.
      4. If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
@@ -120,7 +121,7 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign in by using your Azure username and password.
+1. On the new tab, paste the device code and sign-in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
 3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
@@ -146,7 +147,7 @@ To complete the registration of the scale-out appliance, click **import** to get
 Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Screenshot shows scale-out appliance registration with Azure Migrate project.":::
 
-At this point you should revalidate that the scale-out appliance is able to connect to your vCenter server. Click **revalidate** to validate vCenter Server connectivity from scale-out appliance.
+At this point, you should revalidate that the scale-out appliance is able to connect to your vCenter server. Click **revalidate** to validate vCenter Server connectivity from scale-out appliance.
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Screenshot shows view credentials and discovery sources to be validated.":::
 
 > [!IMPORTANT]
@@ -172,4 +173,4 @@ In this article, you learned:
 - How to replicate VMs using a scale-out appliance
 
 
-[Learn more](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) about migrating servers to Azure using Azure Migrate: Server Migration tool.
+[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using Azure Migrate: Server Migration tool.
