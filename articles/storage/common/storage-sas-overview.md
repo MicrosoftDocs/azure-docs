@@ -198,6 +198,9 @@ To get started with shared access signatures, see the following articles for eac
 
 - [Create an account SAS with .NET](storage-account-sas-create-dotnet.md)
 
+> [!NOTE]
+> If you are planning to Generate SAS from Azure Portal and the button seems greyed out, kindly ensure you have selected the appropriate resource type i.e. Service, Container or Object. Once selected, the button to Generate SAS and Connection String will come as enabled.
+
 ## Next steps
 
 - [Delegate access with a shared access signature (REST API)](/rest/api/storageservices/delegate-access-with-shared-access-signature)
