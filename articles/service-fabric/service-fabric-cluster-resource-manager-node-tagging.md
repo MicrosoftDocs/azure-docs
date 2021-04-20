@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Dynamic Node Tags
+title: Azure Service Fabric dynamic node tags
 description: Azure Service Fabric allows you to dynamically add and remove node tags.
 author: yu-supersonic
 
@@ -8,7 +8,7 @@ ms.date: 04/05/2021
 ms.author: branim
 ms.custom: devx-track-csharp
 ---
-# Introduction to Dynamic node tags
+# Introduction to dynamic node tags
 Node tags allow you to dynamically add and remove tags from nodes in order to influence the placement of services. Node tagging is very flexible and allows changes to service placement without application or cluster upgrades. Tags can be added or removed from nodes at any time, and services can specify requirements for certain tags when they are created. A service can also have its tag requirements updated dynamically while it is running.
 
 Node tagging is similar to [placement constraints](service-fabric-cluster-resource-manager-configure-services.md) and is typically used to control what nodes a service runs on. Each Service Fabric service can be configured to require tag to be placed or to keep running.
@@ -60,7 +60,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 
 ## Setting dynamic node tags
 
-### Using Powershell
+### Using PowerShell
 
 Adding node tags to the node:
 
@@ -100,7 +100,7 @@ await fabricClient.ClusterManager.RemoveNodeTagsAsync("DB.1", nodeTagsList);
 
 ## Setting required tags for services
 
-### Using Powershell
+### Using PowerShell
 
 Creating new service:
 
@@ -144,3 +144,6 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 
 All these commands apply equally to stateless services.
+
+## Next steps
+Learn more about [placement constraints](service-fabric-cluster-resource-manager-configure-services.md)
