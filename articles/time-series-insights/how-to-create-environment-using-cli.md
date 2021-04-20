@@ -69,7 +69,7 @@ To [delete the storage account](/cli/azure/storage/account#az_storage_account_de
 az storage account delete --name $storage --resource-group $rg
 ```
 
-To [delete a resource group](/cli/azure/group#az-group-delete) and all its resources, run the following command:
+To [delete a resource group](/cli/azure/group#az_group_delete) and all its resources, run the following command:
 
 ```azurecli-interactive
 az group delete --name $rg
