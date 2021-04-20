@@ -54,7 +54,7 @@ Most SQL Server features work transparently with FCI and availability groups whe
 
 Additionally, there are some behavior differences between the functionality of the VNN and DNN that are important to note: 
 - **Failover time**: Failover time is faster since there is no need to wait for the network load balancer to detect the failure event, and change it's routing. 
-- **Existing connections**: Connections made to a specific database within a failing-over availability group will close, but otherwise connections to the primary replica will remain open since the DNN stays online during the failover process. This is different to a traditional VNN environment as connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. Transactions 
+- **Existing connections**: Connections made to a specific database within a failing-over availability group will close, but otherwise connections to the primary replica will remain open since the DNN stays online during the failover process. This is different to a traditional VNN environment as connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. 
 - **Open transactions**: Open transactions against a database in a failover-over availability group will close and roll-back. You will need to reconnect. In SQL Server Management Studio, close the query window and open a new one. 
 
 ## Lease mechanism 
