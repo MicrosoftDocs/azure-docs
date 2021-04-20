@@ -101,7 +101,7 @@ Standard voice calls may failover to a different region.
 >[!NOTE]
 >The multifactor authentication activity reports contain personal data such as User Principal Name (UPN) and complete phone number.
 
-### NPS extension and AD FS Adapter
+### NPS extension and AD FS adapter
 
 | Authentication method                          | Customer region                      | Activity report location | Service log location         |
 |------------------------------------------------|--------------------------------------|--------------------------|------------------------------|
