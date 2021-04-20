@@ -150,7 +150,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), which allows us to use the same code across different environments with different options to provide identity. For more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), which allows us to use the same code across different environments with different options to provide identity. For more information about authenticating to Key Vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 Add the following code to 'main()' function
 
@@ -281,6 +281,6 @@ In this quickstart, you created a key vault, stored a secret, and retrieved that
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Secrets](about-secrets.md)
-- How to [Secure access to a key vault](../general/secure-your-key-vault.md)
+- How to [Secure access to a key vault](../general/security-overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/security-overview.md)

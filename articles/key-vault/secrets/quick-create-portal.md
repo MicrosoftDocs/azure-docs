@@ -3,7 +3,6 @@ title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure p
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -78,7 +77,7 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this quickstart, you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Read [Secure access to a Key Vault](../general/secure-your-key-vault.md)
+- Read [Secure access to a Key Vault](../general/security-overview.md)
 - See [Use Key Vault with App Service Web App](../general/tutorial-net-create-vault-azure-web-app.md)
 - See [Use Key Vault with application deployed to VM](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
