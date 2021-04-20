@@ -132,6 +132,8 @@
       href: start-virtual-machine-connect.md
     - name: Start VM on Connect FAQ
       href: start-virtual-machine-connect-faq.md
+  - name: Set drain mode
+    href: drain-mode.md
 - name: Concepts
   items:
   - name: Built-in roles

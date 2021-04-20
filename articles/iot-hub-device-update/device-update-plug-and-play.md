@@ -60,7 +60,7 @@ Service Metadata contains fields that the Device Update services uses to communi
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
 |action|integer|cloud to device|It is an integer that corresponds to an action the agent should perform. Values listed below.|
-|updateManifest|string|cloud to device|Used to describe the content of an update. Generated from the [Import Manifest](import-update.md#create-device-update-import-manifest)|
+|updateManifest|string|cloud to device|Used to describe the content of an update. Generated from the [Import Manifest](import-update.md#create-a-device-update-import-manifest)|
 |updateManifestSignature|JSON Object|cloud to device|A JSON Web Signature (JWS) with JSON Web Keys used for source verification.|
 |fileUrls|Map|cloud to device|Map of `FileHash` to `DownloadUri`. Tells the agent, which files to download and the hash to use to verify the files were downloaded correctly.|
 

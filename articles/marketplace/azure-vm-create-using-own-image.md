@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 03/10/2021
+ms.date: 04/16/2021
 ---
 
 # How to create a virtual machine using your own image
@@ -43,6 +43,9 @@ This section describes how to size, update, and generalize an Azure VM. These st
 All images in the Azure Marketplace must be reusable in a generic fashion. To achieve this, the operating system VHD must be generalized, an operation that removes all instance-specific identifiers and software drivers from a VM.
 
 ## Bring your image into Azure
+
+> [!NOTE]
+> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing SIG.
 
 There are three ways to bring your image into Azure:
 

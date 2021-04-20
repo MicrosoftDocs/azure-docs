@@ -114,9 +114,9 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ## Limitations and known issues
 ### Supported Data Sources
 Below data sources are supported to connect through private link from ADF Managed Virtual Network.
-- Azure Blob Storage
-- Azure Table Storage
-- Azure Files
+- Azure Blob Storage (not including Storage account V1)
+- Azure Table Storage (not including Storage account V1)
+- Azure Files (not including Storage account V1)
 - Azure Data Lake Gen2
 - Azure SQL Database (not including Azure SQL Managed Instance)
 - Azure Synapse Analytics
