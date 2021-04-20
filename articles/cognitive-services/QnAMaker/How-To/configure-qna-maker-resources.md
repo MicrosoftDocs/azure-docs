@@ -42,7 +42,28 @@ If you create a QnA service through Azure Resource Manager templates, you can cr
 
 Learn more about how to configure the App Service [Application settings](../../../app-service/configure-common.md#configure-app-settings).
 
+# [Custom question answering (preview release)](#tab/v2)
+
+### Configure Text Analytics resource with Custom question answering to use different Cognitive Search resource
+
+If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics service. After these resources are created, you can update the Search service in the **Features** tab.
+
+1. Go to your Text Analytics service in the Azure portal.
+
+1. Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics service.
+
+    ![Screenshot of QnA Maker managed (Preview) configuration page](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
+
+1. Click **Save**.
+
+> [!NOTE]
+> If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
+
+---
+
 ### Get the latest runtime updates
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 The QnAMaker runtime is part of the Azure App Service instance that's deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in the Azure portal. Updates are made periodically to the runtime. The QnA Maker App Service instance is in auto-update mode after the April 2019 site extension release (version 5+). This update is designed to take care of ZERO downtime during upgrades.
 
@@ -107,19 +128,6 @@ The high-level idea as represented above is as follows:
 
 # [Custom question answering (preview release)](#tab/v2)
 
-### Configure Text Analytics resource with Custom question answering to use different Cognitive Search resource
-
-If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics service. After these resources are created, you can update the Search service in the **Features** tab.
-
-1. Go to your Text Analytics service in the Azure portal.
-
-1. Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics service.
-
-    ![Screenshot of QnA Maker managed (Preview) configuration page](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
-
-1. Click **Save**.
-
-> [!NOTE]
-> If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
+App service is not deployed with Custom question answering.
 
 ---
