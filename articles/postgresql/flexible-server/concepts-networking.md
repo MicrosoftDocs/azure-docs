@@ -21,7 +21,7 @@ You have two networking options for your Azure Database for PostgreSQL - Flexibl
 > [!NOTE]
 > Your networking option cannot be changed after the server is created. 
 
-* **Private access (VNet Integration)** – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
+* **Private access (VNet integration)** – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
 
    Choose the VNet Integration option if you want the following capabilities:
    * Connect from Azure resources in the same virtual network to your flexible server using private IP addresses
@@ -42,7 +42,7 @@ The following characteristics apply whether you choose to use the private access
 * Both options control access at the server-level, not at the database- or table-level. You would use PostgreSQL’s roles properties to control database, table, and other object access.
 
 
-## Private access (VNet Integration)
+## Private access (VNet integration)
 Private access with virtual network (vnet) integration provides private and secure communication for your PostgreSQL flexible server.
 
 ### Virtual network concepts
@@ -64,6 +64,9 @@ Here are some concepts to be familiar with when using virtual networks with Post
 * **Network security groups (NSG)**
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. Review the [network security group overview](../../virtual-network/network-security-groups-overview.md) for more information.
 
+* **Private DNS integration**
+  
+   To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate the private endpoint of the database server with a private DNS zone. 
 
 ### Unsupported virtual network scenarios
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint

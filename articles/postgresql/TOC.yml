@@ -417,6 +417,8 @@
     href: flexible-server/index.yml
   - name: Overview
     href: flexible-server/overview.md
+  - name: Release notes
+    href: flexible-server/release-notes.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -468,6 +470,8 @@
       href: flexible-server/concepts-extensions.md
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
+    - name: Connection pooling (PgBouncer)
+      href: flexible-server/concepts-pgbouncer.md      
     - name: Business continuity
       items:
       - name: Business continuity overview
