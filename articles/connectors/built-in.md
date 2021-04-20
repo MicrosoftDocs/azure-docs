@@ -66,7 +66,7 @@ Logic Apps provides the following built-in triggers and actions:
         [**HTTP**][http-doc]
         \
         \
-        [**HTTP**][http-doc]: Call an HTTP or HTTPS endpoint by using either the HTTP trigger or action. 
+        Call an HTTP or HTTPS endpoint by using either the HTTP trigger or action. 
         \
         \
         You can also use these other built-in HTTP triggers and actions: 
@@ -94,7 +94,7 @@ Logic Apps provides the following built-in triggers and actions:
         [**Azure API Management**][azure-api-management-doc]
         \
         \
-        [**Azure API Management**][azure-api-management-doc]: Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <p><p>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
+        Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <p><p>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
     :::column-end:::
     :::column:::
         [![Azure App Services icon in Logic Apps][azure-app-services-icon]][azure-app-services-doc]
@@ -103,7 +103,7 @@ Logic Apps provides the following built-in triggers and actions:
         [**Azure App Services**][azure-app-services-doc]
         \
         \
-        [**Azure App Services**][azure-app-services-doc]: Call apps that you create and host on [Azure App Service](../app-service/overview.md), for example, API Apps and Web Apps.
+        Call apps that you create and host on [Azure App Service](../app-service/overview.md), for example, API Apps and Web Apps.
         \
         \
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
