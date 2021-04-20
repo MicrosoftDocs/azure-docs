@@ -6,7 +6,7 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc
+ms.custom: vc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server

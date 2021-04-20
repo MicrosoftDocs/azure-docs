@@ -97,7 +97,7 @@ For operations using encryption keys, a service identity can be granted access t
 To obtain a key for use in encrypting or decrypting data at rest the service identity that the Resource Manager service instance will run as must have UnwrapKey (to get the key for decryption) and WrapKey (to insert a key into key vault when creating a new key).
 
 >[!NOTE]
->For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/general/secure-your-key-vault.md).
+>For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/general/security-overview.md).
 
 **Advantages**
 

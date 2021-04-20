@@ -17,7 +17,7 @@ ms.custom: subject-moving-resources
 
 This article describes how to move your Service Fabric Mesh application and its resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, in response to outages, to gain features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
- [Service Fabric Mesh does not support](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) the ability to directly move resources across Azure regions. However, you can move resources indirectly by deploying a copy of your current Azure Resource Manager template to the new target region and then redirecting ingress traffic and dependencies to the newly created Service Fabric Mesh application.
+ [Service Fabric Mesh does not support](../azure-resource-manager/management/move-support-resources.md#microsoftservicefabricmesh) the ability to directly move resources across Azure regions. However, you can move resources indirectly by deploying a copy of your current Azure Resource Manager template to the new target region and then redirecting ingress traffic and dependencies to the newly created Service Fabric Mesh application.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ This article describes how to move your Service Fabric Mesh application and its 
 
 2. With your exported template, follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) using the Azure portal. You can also use [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), or [REST API](../azure-resource-manager/templates/deploy-rest.md).
 
-3. For guidance on moving related resources such as [Azure Storage accounts](../storage/common/storage-account-move.md), refer to guidance for individual services listed under the topic [Moving Azure resources across regions](../azure-resource-manager/management/move-region.md).
+3. For guidance on moving related resources such as [Azure Storage accounts](../storage/common/storage-account-move.md), refer to guidance for individual services listed under the topic [Moving Azure resources across regions](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions).
 
 ## Verify
 
@@ -56,8 +56,8 @@ To complete the move of the Service Fabric Mesh application, [delete the source 
 
 ## Next steps
 
-* [Move Azure resources across regions](../azure-resource-manager/management/move-region.md)
-* [Support for moving Azure resources across regions](../azure-resource-manager/management/region-move-support.md)
+* [Move Azure resources across regions](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions)
+* [Support for moving Azure resources across regions](../azure-resource-manager/management/move-support-resources.md)
 * [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md
 )

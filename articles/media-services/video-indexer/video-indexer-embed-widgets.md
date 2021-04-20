@@ -92,13 +92,13 @@ You can embed public videos assembling the URL as follows:
   
 #### Private videos
 
-To embed a private video, you must pass an access token (use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) in the `src` attribute of the iframe:
+To embed a private video, you must pass an access token (use [Get Video Access Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) in the `src` attribute of the iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
   
 ### Provide editing insights capabilities
 
-To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) with `&allowEdit=true`.
+To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Video Access Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) with `&allowEdit=true`.
 
 ## Widgets interaction
 

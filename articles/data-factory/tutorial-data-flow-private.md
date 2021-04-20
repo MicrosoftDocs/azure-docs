@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
+ms.date: 04/14/2021
 ---
 
 # Transform data securely by using mapping data flow
@@ -86,9 +86,6 @@ In this step, you'll create a pipeline that contains a data flow activity.
    ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
 
 1. In the properties pane for the pipeline, enter **TransformMovies** for the pipeline name.
-1. In the factory top bar, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data flow clusters take five to seven minutes to warm up. Turn on **Data flow debug** first if you plan to do data flow development. For more information, see [Debug mode](./concepts-data-flow-debug-mode.md).
-
-    ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
 1. In the **Activities** pane, expand **Move and Transform**. Drag the **Data Flow** activity from the pane to the pipeline canvas.
 
 1. In the **Adding data flow** pop-up, select **Create new data flow** and then select **Mapping Data Flow**. Select **OK** when you're finished.
@@ -96,6 +93,9 @@ In this step, you'll create a pipeline that contains a data flow activity.
     ![Screenshot that shows Mapping Data Flow.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
 1. Name your data flow **TransformMovies** in the properties pane.
+1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+
+    ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
 
 ## Build transformation logic in the data flow canvas
 
