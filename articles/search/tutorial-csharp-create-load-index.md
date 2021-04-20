@@ -54,7 +54,7 @@ Get your Search resource admin key with the Visual Studio Code extension.
 The script uses the Azure SDK for Cognitive Search:
 
 * [NuGet package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
-* [Reference Documentation](/dotnet/api/overview/azure/search?view=azure-dotnet)
+* [Reference Documentation](/dotnet/api/overview/azure/search)
 
 1. In Visual Studio Code, open the `Program.cs` file in the subdirectory,  `search-web/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
@@ -101,4 +101,4 @@ Note your **Search resource name**. You will need this to connect the Azure Func
 
 ## Next steps
 
-[Deploy your Static Web App](tutorial-javascript-deploy-static-web-app.md)
+[Deploy your Static Web App](tutorial-csharp-deploy-static-web-app.md)

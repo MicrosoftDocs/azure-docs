@@ -34,7 +34,7 @@ The search experience includes:
 
 ## How is the sample organized?
 
-The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website) includes the following:
+The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website) includes the following:
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
@@ -87,5 +87,5 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
 ## Next steps
 
-* [Create a Search Index and load with documents](tutorial-javascript-create-load-index.md)
-* [Deploy your Static Web App](tutorial-javascript-deploy-static-web-app.md)
+* [Create a Search Index and load with documents](tutorial-dotnet-create-load-index.md)
+* [Deploy your Static Web App](tutorial-dotnet-deploy-static-web-app.md)

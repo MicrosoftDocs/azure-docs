@@ -1,27 +1,27 @@
 ---
-title: "JavaScript tutorial: Search integration highlights"
+title: ".NET tutorial: Search integration highlights"
 titleSuffix: Azure Cognitive Search
-description: Understand the JavaScript SDK Search queries used in the Search-enabled website
+description: Understand the .NET SDK Search queries used in the Search-enabled website
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/09/2021
-ms.custom: devx-track-js
-ms.devlang: javascript
+ms.date: 04/20/2021
+ms.custom: devx-track-csharp
+ms.devlang: dotnet
 ---
 
-# 4 - Search integration highlights
+# 4 - .NET Search integration highlights
 
-In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your JavaScript app, this article explains what you need to know.
+In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
 
-## Azure SDK @azure/search-documents 
+## Azure SDK Azure.Search.Documents
 
 The Function app uses the Azure SDK for Cognitive Search:
 
-* NPM: [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
-* Reference Documentation: [Client Library](/dotnet/api/overview/azure/search?view=azure-dotnet)
+* NuGet: [@azure/search-documents](https://www.nuget.org/packages/Azure.Search.Documents/)
+* Reference Documentation: [Client Library](/dotnet/api/overview/azure/search)
 
 The Function app authenticates through the SDK to the cloud-based Cognitive Search API using your resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
 
@@ -41,7 +41,7 @@ The Azure Function pulls in the Search configuration information, and fulfills t
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/pages/Search/Search.js" highlight="40-51" :::
+:::code language="javascript" source="~/azure-search-dotnet-samples/search-website/src/pages/Search/Search.js" highlight="40-51" :::
 
 ## Azure Function: Suggestions from the catalog
 
@@ -55,7 +55,7 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 Th Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
+:::code language="javascript" source="~/azure-search-dotnet-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
 
 ## Azure Function: Get specific document 
 

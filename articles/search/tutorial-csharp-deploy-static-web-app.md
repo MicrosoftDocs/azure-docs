@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ms.devlang: .NET
 ---
 
-# 3 - Deploy the search-enabled website
+# 3 - Deploy the search-enabled .NET website
 
 Deploy the search-enabled website as an Azure Static web app. This deployment includes both the React app and the Function app.  
 
@@ -102,4 +102,4 @@ To clean up the resources created in this tutorial, delete the resource group.
 
 ## Next steps
 
-* [Understand Search integration for the search-enabled website](tutorial-.NET-search-query-integration.md)
+* [Understand Search integration for the search-enabled website](tutorial-csharp-search-query-integration.md)
