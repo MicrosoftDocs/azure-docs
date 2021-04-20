@@ -77,7 +77,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     ngrok http 7071
     ```    
 
-- Go to the settings of Azure Web PubSub instance, and create a new hub "simplechat" and set the endpoint to Azure Web PubSub service settings as `<forwarding endpoint>/runtime/webhooks/webpubsub`，like http://d3d17c23a4f2.ngrok.io/runtime/webhooks/webpubsub
+- Go to the settings of Azure Web PubSub instance, create a new hub with the name `simplechat` and set the endpoint to Azure Web PubSub service settings as `<forwarding endpoint>/runtime/webhooks/webpubsub`，like http://d3d17c23a4f2.ngrok.io/runtime/webhooks/webpubsub
 
 ---
 
