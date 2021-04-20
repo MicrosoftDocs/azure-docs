@@ -411,8 +411,14 @@ az resource delete \
 * **Template deployment failures or errors**
   * If a pipeline run fails, look at the `pipelineRunErrorMessage` property of the run resource.
   * For common template deployment errors, see [Troubleshoot ARM template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
+* **Problems accessing storage**<a name="problems-accessing-storage"></a>
+  * If you see a `403 Forbidden` error from storage, you likely have a problem with your SAS token.
+  * The SAS token might not currently be valid. The SAS token might be expired or the storage account keys might have changed since the SAS token was created. Verify that the SAS token is valid by attempting to use the SAS token to authenticate for access to the storage account container. For example, put an existing blob endpoint followed by the SAS token in the address bar of a new Microsoft Edge InPrivate window or upload a blob to the container with the SAS token by using `az storage blob upload`.
+  * The SAS token might not have sufficient Allowed Resource Types. Verify that the SAS token has been given permissions to Service, Container, and Object under Allowed Resource Types (`srt=sco` in the SAS token).
+  * The SAS token might not have sufficient permissions. For export pipelines, the required SAS token permissions are Read, Write, List, and Add. For import pipelines, the required SAS token permissions are Read, Delete, and List. (The Delete permission is required only if the import pipeline has the `DeleteSourceBlobOnSuccess` option enabled.)
+  * The SAS token might not be configured to work with HTTPS only. Verify that the SAS token is configured to work with HTTPS only (`spr=https` in the SAS token).
 * **Problems with export or import of storage blobs**
-  * SAS token may be expired, or may have insufficient permissions for the specified export or import run
+  * SAS token may be invalid, or may have insufficient permissions for the specified export or import run. See [Problems accessing storage](#problems-accessing-storage).
   * Existing storage blob in source storage account might not be overwritten during multiple export runs. Confirm that the OverwriteBlob option is set in the export run and the SAS token has sufficient permissions.
   * Storage blob in target storage account might not be deleted after successful import run. Confirm that the DeleteBlobOnSuccess option is set in the import run and the SAS token has sufficient permissions.
   * Storage blob not created or deleted. Confirm that container specified in export or import run exists, or specified storage blob exists for manual import run. 
