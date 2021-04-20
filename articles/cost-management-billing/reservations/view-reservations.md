@@ -52,10 +52,13 @@ If you purchased the reservation or you're added to a reservation, use the follo
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Services** > **Reservation** to list reservations that you have access to.
 
-## Users with elevated access to manage all Azure subscriptions and management groups
+## Users with elevated access can manage all Azure subscriptions and management groups
 
-1. You can elevate a user's [access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/cost-management-billing/reservations/toc.json).
-1. Users with elevated permissions can go to **All Services** > **Reservation** to see all reservations that are in the tenant.
+You can elevate a user's [access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/cost-management-billing/reservations/toc.json).
+
+After you have elevated access:
+
+1. Navigate to **All Services** > **Reservation** to see all reservations that are in the tenant.
 1. To make modifications to the reservation, add yourself as an owner of the reservation order using Access control (IAM).
 
 ## Give users Azure RBAC access to individual reservations
