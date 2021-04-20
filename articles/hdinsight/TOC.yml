@@ -260,6 +260,8 @@
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
+      - name: Azure Monitor table updates
+        href: ./log-analytics-migration.md
     - name: Troubleshoot
       items:
       - name: Request increase for CPU core quota

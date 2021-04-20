@@ -2,7 +2,7 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 04/15/2021
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -11,9 +11,6 @@ To quickly manage and deploy applications for Kubernetes, you can use the [open-
 
 This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
 
-> [!IMPORTANT]
-> Support for Helm charts in Azure Container Registry is currently in preview. Previews are made available to you on the condition that you agree to the supplemental [terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
-
 ## Helm 3 or Helm 2?
 
 To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 3 and Helm 2. For details on the version differences, see the [version FAQ](https://helm.sh/docs/faq/). 
@@ -21,7 +18,7 @@ To store, manage, and install Helm charts, you use a Helm client and the Helm CL
 Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm 3, you:
 
 * Can create one or more Helm repositories in an Azure container registry
-* Store Helm 3 charts in a registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Currently, Helm 3 support for OCI is *experimental*.
+* Store Helm 3 charts in a registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Azure Container Registry provides GA support for [OCI artifacts](container-registry-oci-artifacts.md), including Helm charts.
 * Authenticate with your registry using the `helm registry login` command.
 * Use `helm chart` commands in the Helm CLI to push, pull, and manage Helm charts in a registry
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.

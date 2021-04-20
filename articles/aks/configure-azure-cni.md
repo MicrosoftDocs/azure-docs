@@ -4,7 +4,7 @@ description: Learn how to configure Azure CNI (advanced) networking in Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)

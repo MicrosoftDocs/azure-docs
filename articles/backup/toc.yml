@@ -77,25 +77,25 @@
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
-      href: backup-azure-backup-faq.md
+      href: backup-azure-backup-faq.yml
     - name: FAQ-Backup Center
       href: backup-center-faq.yml
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.yml
     - name: FAQ-MARS agent
-      href: backup-azure-file-folder-backup-faq.md
+      href: backup-azure-file-folder-backup-faq.yml
     - name: FAQ-Back up Azure Files
-      href: backup-azure-files-faq.md
+      href: backup-azure-files-faq.yml
     - name: FAQ- Azure Disk Backup
-      href: disk-backup-faq.md
+      href: disk-backup-faq.yml
     - name: FAQ-Back up SQL Server databases on Azure VMs
-      href: faq-backup-sql-server.md
+      href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
-      href: sap-hana-faq-backup-azure-vm.md
+      href: sap-hana-faq-backup-azure-vm.yml
     - name: FAQ-Azure Backup Server and DPM
-      href: backup-azure-dpm-azure-server-faq.md
+      href: backup-azure-dpm-azure-server-faq.yml
     - name: FAQ-Azure Backup monitor alert
-      href: backup-azure-monitor-alert-faq.md
+      href: backup-azure-monitor-alert-faq.yml
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices

@@ -3,7 +3,6 @@ title: Assign an Azure Key Vault access policy
 description: How to use the Azure portal, Azure CLI, or Azure PowerShell to assign a Key Vault access policy to a security principal or application identity.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -78,5 +77,5 @@ You need only include `-PermissionsToSecrets`, `-PermissionsToKeys`, and `-Permi
 ## Next steps
 
 - [Azure Key Vault security: Identity and access management](security-overview.md#identity-management)
-- [Secure your key vault](secure-your-key-vault.md).
+- [Secure your key vault](security-overview.md).
 - [Azure Key Vault developer's guide](developers-guide.md)

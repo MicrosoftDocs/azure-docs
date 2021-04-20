@@ -2,15 +2,16 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/15/2021
 ---
+
 # Create Resource Manager parameter file
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. This article shows how to create the parameter file.
+Rather than passing parameters as inline values in your script, you can use a JSON file that contains the parameter values. This article shows how to create a parameter file that you use with a JSON template or Bicep file.
 
 ## Parameter file
 
-The parameter file has the following format:
+A parameter file uses the following format:
 
 ```json
 {
@@ -27,9 +28,9 @@ The parameter file has the following format:
 }
 ```
 
-Notice that the parameter values are stored as plain text in the parameter file. This approach works for values that aren't sensitive, such as specifying the SKU for a resource. It doesn't work for sensitive values, such as passwords. If you need to pass a sensitive value as a parameter, store the value in a key vault, and reference the key vault in your parameter file. The sensitive value is securely retrieved during deployment.
+Notice that the parameter file stores parameter values as plain text. This approach works for values that aren't sensitive, such as a resource SKU. Plain text doesn't work for sensitive values, such as passwords. If you need to pass a parameter that contains a sensitive value, store the value in a key vault. Then reference the key vault in your parameter file. The sensitive value is securely retrieved during deployment.
 
-The following parameter file includes a plain text value and a value that is stored in a key vault.
+The following parameter file includes a plain text value and a sensitive value that's stored in a key vault.
 
 ```json
 {
@@ -55,7 +56,9 @@ For more information about using values from a key vault, see [Use Azure Key Vau
 
 ## Define parameter values
 
-To figure out how to define the parameter values, open the template you're deploying. Look at the parameters section of the template. The following example shows the parameters from a template.
+To determine how to define the parameter names and values, open your JSON or Bicep template. Look at the parameters section of the template. The following examples show the parameters from JSON and Bicep templates.
+
+# [JSON](#tab/json)
 
 ```json
 "parameters": {
@@ -76,7 +79,24 @@ To figure out how to define the parameter values, open the template you're deplo
 }
 ```
 
-The first detail to notice is the name of each parameter. The values in your parameter file must match the names.
+# [Bicep](#tab/bicep)
+
+```bicep
+@maxLength(11)
+param storagePrefix string
+
+@allowed([
+  'Standard_LRS'
+  'Standard_GRS'
+  'Standard_ZRS'
+  'Premium_LRS'
+])
+param storageAccountType string = 'Standard_LRS'
+```
+
+---
+
+In the parameter file, the first detail to notice is the name of each parameter. The parameter names in your parameter file must match the parameter names in your template.
 
 ```json
 {
@@ -91,7 +111,7 @@ The first detail to notice is the name of each parameter. The values in your par
 }
 ```
 
-Notice the type of the parameter. The values in your parameter file must have the same types. For this template, you can provide both parameters as strings.
+Notice the parameter type. The parameter types in your parameter file must use the same types as your template. In this example, both parameter types are strings.
 
 ```json
 {
@@ -108,7 +128,7 @@ Notice the type of the parameter. The values in your parameter file must have th
 }
 ```
 
-Next, look for a default value. If a parameter has a default value, you can provide a value but you don't have to.
+Check the template for parameters with a default value. If a parameter has a default value, you can provide a value in the parameter file but it's not required. The parameter file value overrides the template's default value.
 
 ```json
 {
@@ -125,7 +145,7 @@ Next, look for a default value. If a parameter has a default value, you can prov
 }
 ```
 
-Finally, look at the allowed values and any restrictions like max length. They tell you the range of values you can provide for the parameter.
+Check the template's allowed values and any restrictions such as maximum length. Those values specify the range of values you can provide for a parameter. In this example, `storagePrefix` can have a maximum of 11 characters and `storageAccountType` must specify an allowed value.
 
 ```json
 {
@@ -142,11 +162,12 @@ Finally, look at the allowed values and any restrictions like max length. They t
 }
 ```
 
-Your parameter file can only contain values for parameters that are defined in the template. If your parameter file contains extra parameters that don't match parameters in the template, you receive an error.
+> [!NOTE]
+> Your parameter file can only contain values for parameters that are defined in the template. If your parameter file contains extra parameters that don't match the template's parameters, you receive an error.
 
 ## Parameter type formats
 
-The following example shows the formats of different parameter types.
+The following example shows the formats of different parameter types: string, integer, boolean, array, and object.
 
 ```json
 {
@@ -174,13 +195,13 @@ The following example shows the formats of different parameter types.
         "property2": "value2"
       }
     }
-   }
+  }
 }
 ```
 
 ## Deploy template with parameter file
 
-To pass a local parameter file with Azure CLI, use @ and the name of the parameter file.
+From Azure CLI you pass a local parameter file using `@` and the parameter file name. For example, `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
@@ -190,28 +211,29 @@ az deployment group create \
   --parameters @storage.parameters.json
 ```
 
-For more information, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters).
+For more information, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or higher.
 
-To pass a local parameter file with Azure PowerShell, use the `TemplateParameterFile` parameter.
+From Azure PowerShell you pass a local parameter file using the `TemplateParameterFile` parameter.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile C:\MyTemplates\storage.json `
+  -TemplateParameterFile C:\MyTemplates\storage.parameters.json
 ```
 
-For more information, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+For more information, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values). To deploy _.bicep_ files you need Azure PowerShell version 5.6.0 or higher.
 
 > [!NOTE]
 > It's not possible to use a parameter file with the custom template blade in the portal.
 
-If you're using the [Azure Resource Group project in Visual Studio](create-visual-studio-deployment-project.md), make sure the parameter file has its **Build Action** set to **Content**.
+> [!TIP]
+> If you're using the [Azure Resource Group project in Visual Studio](create-visual-studio-deployment-project.md), make sure the parameter file has its **Build Action** set to **Content**.
 
 ## File name
 
-The general convention for naming the parameter file is to add **.parameters** to the template name. For example, if your template is named **azuredeploy.json**, your parameter file is named **azuredeploy.parameters.json**. This naming convention helps you see the connection between the template and the parameters.
+The general naming convention for the parameter file is to include _parameters_ in the template name. For example, if your template is named _azuredeploy.json_, your parameter file is named _azuredeploy.parameters.json_. This naming convention helps you see the connection between the template and the parameters.
 
-To deploy to different environments, create more than one parameter file. When naming the parameter file, add a way to identify its use. For example, use **azuredeploy.parameters-dev.json** and **azuredeploy.parameters-prod.json**
+To deploy to different environments, you create more than one parameter file. When you name the parameter files, identify their use such as development and production. For example, use _azuredeploy.parameters-dev.json_ and _azuredeploy.parameters-prod.json_ to deploy resources.
 
 ## Parameter precedence
 
@@ -221,11 +243,9 @@ It's possible to use an external parameter file, by providing the URI to the fil
 
 ## Parameter name conflicts
 
-If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for **ResourceGroupNameFromTemplate**. You can avoid this confusion by using parameter names that aren't used for deployment commands.
-
+If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix `FromTemplate`. For example, a parameter named `ResourceGroupName` in your template conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for `ResourceGroupNameFromTemplate`. To avoid this confusion, use parameter names that aren't used for deployment commands.
 
 ## Next steps
 
-- To understand how to define parameters in your template, see [Parameters in Azure Resource Manager templates](template-parameters.md).
+- For more information about how to define parameters in a template, see [Parameters in ARM templates](template-parameters.md).
 - For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md).
-- For more information about parameters, see [Parameters in Azure Resource Manager templates](template-parameters.md).
