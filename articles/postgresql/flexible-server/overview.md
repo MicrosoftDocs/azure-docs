@@ -9,8 +9,6 @@ ms.topic: overview
 ms.date: 04/05/2021
 ---
 
-# Azure Database for PostgreSQL - Flexible Server
-
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](../overview-single-server.md)
