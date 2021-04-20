@@ -9,6 +9,8 @@ ms.topic: overview
 ms.date: 04/05/2021
 ---
 
+# Overview - Azure Database for PostgreSQL - Flexible Server
+
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](../overview-single-server.md)
@@ -79,9 +81,9 @@ Flexible servers allows full private access to the servers using Azure virtual n
 
 The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance.
 
-## Built-in connection pooler
+## Built-in PgBouncer
 
-The flexible server comes with a built-in PgBouncer connection pooler. You can optionally enable it and connect your applications to PgBouncer using the same host name, but with port 6432.
+The flexible server comes with a built-in PgBouncer, a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
 
 ## Azure regions
 
