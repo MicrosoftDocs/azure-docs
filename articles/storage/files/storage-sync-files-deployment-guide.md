@@ -75,7 +75,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 
 1. Sign in.
 
-   Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
+   Sign in using the [az login](/cli/azure/reference-index#az_login) command if you're using a local install of the CLI.
 
    ```azurecli
    az login
@@ -375,7 +375,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az storagesync sync-group](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) command to create a new sync group.  To default a resource group for all CLI commands, use [az configure](/cli/azure/reference-index#az-configure).
+Use the [az storagesync sync-group](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) command to create a new sync group.  To default a resource group for all CLI commands, use [az configure](/cli/azure/reference-index#az_configure).
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \

@@ -71,7 +71,7 @@ Connect-AzAccount
 
 To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az_login) command:
 
 ```azurecli
 az login
