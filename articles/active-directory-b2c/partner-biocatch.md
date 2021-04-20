@@ -142,7 +142,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-```azurecli
+```
 <ClaimsProvider> 
 
       <DisplayName>Client Session ID Claims Provider</DisplayName> 
