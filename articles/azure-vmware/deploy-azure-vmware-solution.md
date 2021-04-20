@@ -14,6 +14,7 @@ In this article, you'll use the information from the [planning section](producti
 >If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
 
 
+
 ## Step 1. Create an Azure VMware Solution private cloud
 
 [!INCLUDE [create-private-cloud-azure-portal-steps](includes/create-private-cloud-azure-portal-steps.md)]

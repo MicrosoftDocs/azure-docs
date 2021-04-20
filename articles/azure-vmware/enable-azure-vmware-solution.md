@@ -102,6 +102,10 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. Select **Review + Create** to submit the request.
 
+## Register the **Microsoft.AVS** resource provider
+
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+
 
 ## Next steps
 

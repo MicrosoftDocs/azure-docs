@@ -2,7 +2,6 @@
 title: Tutorial - Deploy an Azure VMware Solution private cloud
 description: Learn how to create and deploy an Azure VMware Solution private cloud
 ms.topic: tutorial
-ms.custom: contperf-fy21q4
 ms.date: 04/23/2021
 ---
 
