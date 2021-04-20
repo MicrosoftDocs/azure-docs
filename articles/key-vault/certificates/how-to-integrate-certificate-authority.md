@@ -3,7 +3,6 @@ title: Integrating Key Vault with DigiCert Certificate Authority
 description: How to integrate Key Vault with DigiCert Certificate Authority
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
