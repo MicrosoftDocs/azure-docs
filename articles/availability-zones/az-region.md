@@ -26,7 +26,7 @@ Azure services supporting Availability Zones fall into three categories: **zonal
 
 - **Zonal services** – A resource can be deployed to a specific, self-selected Availability Zone to achieve more stringent latency or performance requirements.  Resiliency is self-architected by replicating applications and data to one or more zones within the region.  Resources can be pinned to a specific zone. For example, virtual machines, managed disks, or standard IP addresses can be pinned to a specific zone, which allows for increased resilience by having one or more instances of resources spread across zones.
 
-- **Zone-redundant services** – Azure platform replicates the resource and data across zones.  Microsoft manages the delivery of high availability since Azure automatically replicates and distributes instances within the region.  ZRS, for example, replicates the data across three zones so that a zone failure does not impact the HA of the data. 
+- **Zone-redundant services** –  Resources are replicated or distributed across zones automatically. (For example, Load Balancer, Application Gateway, Service Bus, VPN, Zone-Redundant Storage).  
 
 - **Non-regional services** – Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages. 
 
