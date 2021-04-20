@@ -6,7 +6,7 @@ manager: vriveras
 
 ms.author: jastenze
 ms.date: 04/20/2021
-ms.topic: conversion-error-codes
+ms.topic: overview
 ms.service: azure-object-anchors
 #Customer intent: Explain different modes of model conversion failure and how to recover from them.
 ---
