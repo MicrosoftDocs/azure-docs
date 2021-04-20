@@ -30,7 +30,17 @@ You cannot share a particular knowledge base in a Text Analytics service. If you
 
 ## Add a role to a resource
 
-### Add a user account to the QnA Maker resource
+### Add a user account to the cognitive resource
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+You should apply RBAC controls to the QnA Maker resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+You should apply RBAC controls to the Text Analytics resource with Custom question answering as a feature.
+
+---
 
 The following steps use the collaborator role but any of the roles can be added using these steps
 
