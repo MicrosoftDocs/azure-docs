@@ -26557,7 +26557,7 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/how-to-track-experiments.md",
-      "redirect_url": "/azure/machine-learning/how-to-log-and-view-metrics",
+      "redirect_url": "/azure/machine-learning/how-to-log-view-metrics",
       "redirect_document_id": true
     },
     {
