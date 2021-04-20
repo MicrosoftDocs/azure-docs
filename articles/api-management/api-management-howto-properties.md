@@ -38,7 +38,7 @@ Secret values can be stored either as encrypted strings in API Management (custo
 Using key vault secrets is recommended because it helps improve API Management security:
 
 * Secrets stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) can be applied to secrets
+* Granular [access policies](../key-vault/general/security-overview.md#privileged-access) can be applied to secrets
 * Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
 
 ### Prerequisites for key vault integration
