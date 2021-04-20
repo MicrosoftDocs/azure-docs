@@ -29288,7 +29288,7 @@
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md",
       "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-customer-engagement-offer.md",
