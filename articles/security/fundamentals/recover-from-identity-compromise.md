@@ -29,7 +29,7 @@ This article describes Microsoft resources and recommendations for recovering fr
 
 An advanced systemic identity compromise attack on an organization occurs when an attacker successfully gains a foothold into the organization's network and elevated credentials.
 
-Intruders who are able to use administrator permissions, acquired through an on-premises compromise, can gain access to the organization's trusted SAML token-signing certificate, and then forge SAML tokens to impersonate any of the organization's existing users and accounts. 
+Intruders who are able to use administrator controls, acquired through an on-premises compromise, can gain access to the organization's trusted SAML token-signing certificate, and then forge SAML tokens to impersonate any of the organization's existing users and accounts.
 
 Highly privileged account access can then be used to add illegitimate credentials to existing applications, enabling the attacker to call APIs with the illegitimate permissions.
 
@@ -180,6 +180,7 @@ The following sections include the following types of recommendations for remedi
 - Removing trust on your current servers
 - Rotating your SAML token-signing certificate, or replacing your ADFS servers if needed
 - Specific remediation activities for cloud or on-premises environments
+
 ### Remove trust on your current servers
 
 If your organization has lost control of the token-signing certificates or federated trust, the most assured approach is to remove trust, and switch to cloud-mastered identity while remediating on-premises.
