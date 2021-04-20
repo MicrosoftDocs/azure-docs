@@ -39,7 +39,7 @@ sMSAs offer greater security than user accounts used as service accounts, while 
 
    * The DNS name of the host computer is changed.
 
-   * When adding or removing an additional sam-accountname or dns-hostname parameters using [PowerShell](/powershell/module/addsadministration/set-adserviceaccount)
+   * When adding or removing an additional sam-accountname or dns-hostname parameters using [PowerShell](/powershell/module/activedirectory/set-adserviceaccount)
 
 ## When to use sMSAs
 
