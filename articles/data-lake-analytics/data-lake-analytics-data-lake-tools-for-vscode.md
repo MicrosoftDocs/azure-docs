@@ -21,8 +21,8 @@ Azure Data Lake Tools for VS Code supports Windows, Linux, and macOS. U-SQL loc
 
 For MacOS and Linux:
 
-- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core)
-- [Mono 5.2.x](https://www.mono-project.com/download/)
+- [.NET Core SDK 5.0](https://www.microsoft.com/net/download/core)
+- [Mono 6.12.x](https://www.mono-project.com/download/)
 
 ## Install Azure Data Lake Tools
 
