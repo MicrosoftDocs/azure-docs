@@ -119,7 +119,7 @@ Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March
 - [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md)
 - [Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)
 - [Enable VM insights using Resource Manager templates](vm/vminsights-enable-resource-manager.md)
-- [VM insights Generally Available (GA) Frequently Asked Questions](vm/vminsights-ga-release-faq.md)
+- [VM insights Generally Available (GA) Frequently Asked Questions](vm/vminsights-ga-release-faq.yml)
 - [Enable VM insights guest health (preview)](vm/vminsights-health-enable.md)
 - [Disable monitoring of your VMs in VM insights](vm/vminsights-optout.md)
 - [Overview of VM insights](vm/vminsights-overview.md)
