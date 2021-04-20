@@ -27,7 +27,24 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a local.settings.json file
 
-:::code language="json" source="~/azure-search-dotnet-samples/search-website/api/local.settings.json" highlight="3,4" :::
+1. Create a new file named `local.settings.json` at `./api/` and copy the following JSON object into the file.
+
+    ```json
+    {
+      "IsEncrypted": false,
+      "Values": {
+        "AzureWebJobsStorage": "",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "SearchApiKey": "YOUR_SEARCH_QUERY_KEY",
+        "SearchServiceName": "YOUR_SEARCH_RESOURCE_NAME",
+        "SearchIndexName": "good-books"
+      }
+    }
+    ```
+
+1. Change the following for you own Search resource values: 
+    * YOUR_SEARCH_RESOURCE_NAME
+    * YOUR_SEARCH_QUERY_KEY
 
 ## Azure Function: Search the catalog
 
