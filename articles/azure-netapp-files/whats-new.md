@@ -21,6 +21,10 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## May 2021
+
+* [Dual-protocol support for NFSv4.1 and SMB](create-volumes-dual-protocol.md)   
+
 ## April 2021
 
 * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview) 
