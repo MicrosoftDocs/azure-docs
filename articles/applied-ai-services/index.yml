@@ -55,7 +55,7 @@ productDirectory:
     - title: Cognitive Search
       imageSrc: ./media/cognitive-search.svg
       summary: Cognitive Search
-      url: https://docs.microsoft.com/en-us/azure/search/
+      url: https://docs.microsoft.com/azure/search/
     - title: Video Analytics
       imageSrc: ./media/video-analytics.svg
       summary: Video analytics
@@ -63,7 +63,7 @@ productDirectory:
     - title: Azure Bot Service
       imageSrc: ./media/bot-services.svg
       summary: Azure Bot Service
-      url: https://docs.microsoft.com/en-us/composer/
+      url: https://docs.microsoft.com/composer/
 
 additionalContent:
   sections:
