@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting 
-ms.date: 04/12/2021
+ms.date: 04/20/2021
 ---
 
 
@@ -32,16 +32,15 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 
     1. Use the data flow source **Debug Settings** to have **Import projection** with sample files/tables to get the complete schema. You can follow the steps in the following picture:<br/>
 
-        ![Screenshot that shows the Option-1-1 of the Recommendation](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png)<br/>
+        ![Screenshot that shows the first part of the first option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png)<br/>
          1. Select **Debug settings** in the data flow canvas.
-         1. In the pop-up pane, select **Sample table** under the **cosmosSource** tab. 
-         1. Enter the name of your table in the **Table** block.
+         1. In the pop-up pane, select **Sample table** under the **cosmosSource** tab, and enter the name of your table in the **Table** block.
          1. Select **Save** to save your settings.
          1. Select **Import projection**.<br/>  
     
     1. Change the **Debug Settings** back to use the source dataset for the remaining data movement/transformation. You can move on with the steps in the following picture:<br/>
 
-        ![Screenshot that shows the Option-1-2 of the Recommendation](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png) <br/>   
+        ![Screenshot that shows the second part of the first option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png) <br/>   
          1. Select **Debug settings** in the data flow canvas.
          1. In the pop-up pane, select **Source dataset** under the **cosmosSource** tab.
          1. Select **Save** to save your settings.<br/>
@@ -50,7 +49,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 
 - **Option-2**: If you are familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: 
 
-    ![Screenshot that shows the Option-2 of the Recommendation](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+    ![Screenshot that shows the second option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
 
 ## Next steps
 For more help with troubleshooting, see these resources:
