@@ -4,7 +4,7 @@ description: This article describes how to use functions to call a query from an
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/06/2021
+ms.date: 04/19/2021
 
 ---
 
@@ -42,7 +42,7 @@ Create a function with Log Analytics in the Azure portal by clicking **Save** an
 |:---|:---|
 | Function Name  | Name for the function. This may not include a space or any special characters. It also may not start with an underscore (_) since this character is reserved for solution functions. |
 | Legacy category | User defined category to help filter and group functions.   |
-| Save as computer group | Save the query as a [computer group](computer-group.md).  |
+| Save as computer group | Save the query as a [computer group](computer-groups.md).  |
 | Parameters | Add a parameter for each variable in the function that requires a value when it's used. See [Function parameters](#function-parameters) for details. |
 
 :::image type="content" source="media/functions/function-details.png" alt-text="Function details" lightbox="media/functions/function-details.png":::
@@ -66,7 +66,7 @@ You can view the code of a function either to gain insight into how it works or 
 ## Edit a function
 Edit the properties or the code of a function by creating a new query and then hover over the name of the function and select **load function code**. Make any modifications that you want to the code and select **Save** and then **Edit function details**. Make any changes you want to the properties and parameters of the function before clicking **Save**.
 
-:::image type="content" source="media/functions/function-edit.png" alt-text="Load function code" lightbox="media/functions/function-edit.png":::
+:::image type="content" source="media/functions/function-edit.png" alt-text="Edit function" lightbox="media/functions/function-edit.png":::
 ## Example
 The following sample function returns all events in the Azure Activity log since a particular date and that match a particular category. 
 
