@@ -18,7 +18,7 @@ You can use Video Analyzer to create video resources and add data to existing vi
 
 ## Pipeline topology
 
-[Pipeline topology]()<!--media-graph.md--> lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
+A [pipeline topology](pipeline.md) lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
 
 ## Recording
 
@@ -44,4 +44,4 @@ By using [pipeline topologies](#pipeline-topology) to record video to an Video A
 
 ## Next steps
 
-[Media graphs]()<!--media-graph.md-->
+- Read about [pipelines](pipeline.md).
