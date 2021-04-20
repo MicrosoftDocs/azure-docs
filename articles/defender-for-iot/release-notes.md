@@ -56,7 +56,7 @@ New fields are available for users working with alert APIs.
 
 API version 2 is required when working with the new fields.
 
-### Features delivered as General Available (GA)
+### Features delivered as Generally Available (GA)
 
 The following features were previously available for Public Preview, and are now Generally Available (GA)features:
 
