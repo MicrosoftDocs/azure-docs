@@ -6,7 +6,7 @@ brand: azure
 
 metadata:
   title: Azure Applied AI Services documentation
-  description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+  description: Learn how to use Azure Applied AI Services to use AI to solve your complex business scenarios.
   ms.service: applied-ai-services
   ms.topic: hub-page
   author: nitinme
@@ -33,8 +33,8 @@ highlightedContent:
 
 # productDirectory section 
 productDirectory:
-  title: Lorem Ipsum # < 60 chars (optional)
-  summary: Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum # < 160 chars (optional)
+  #title:  # < 60 chars (optional)
+  #summary:  # < 160 chars (optional)
   items:
     # Card
     - title: Form Recognizer
