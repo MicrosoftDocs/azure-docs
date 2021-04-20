@@ -91,19 +91,37 @@ A client can connect over a public or a [private endpoint](../common/storage-pri
 > [!IMPORTANT]
 > If you're connecting from an on-premises network, make sure that your client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports.
 
-## Azure Storage features not yet supported
+## Support for Azure Storage features
 
-The following Azure Storage features aren't supported when you enable the NFS 3.0 protocol on your account. 
+The following table shows the current level of support for Azure Storage features in accounts that have the NFS 3.0 feature enabled.  
 
-- Azure Active Directory (AD) security
+The status of items that appear in this tables will change over time as support continues to expand.
 
-- POSIX-like access control lists (ACLs)
+| Storage feature | Supported | Storage Feature | Supported|
+|-----------------|---------------------|----|----|
+| Blob REST API	| ✔️ | ABAC | ⛔ |
+| Batch APIs | ✔️ | Index |	⛔ |
+| All tiers including Archive |	✔️  | Classic logs | ⛔ |
+| Lifecycle management | ✔️  | Change Feed |	⛔ |
+| Inventory |	✔️  | Versioning | ⛔ |
+| Azure monitor |	✔️  |  VLW | ⛔ |
+| WORM | ✔️  | PITR | ⛔ |
+| File snapshot |	✔️  | Backup integration | ⛔ |
+| Private endpoint | ✔️  | Container soft delete |	⛔ |
+| Service endpoint | ✔️  | Fir/dir soft delete |	⛔ |
+| Firewall rules | ✔️  | GRS/ZRS |	⛔ |
+| Disable Account keys | ✔️  | RA-GRS | ⛔ |
+| CMK |	✔️  | Encryption scope | ⛔ |
+| Append Blob | ✔️  | Page blob |	⛔ |
+| Azure Active Directory (AD) security | ⛔  | Customer controlled failover | ⛔ |
+| Posix-like access control lists (ACLs) | ⛔  | CPK |	⛔ |
+| Access based lifecycle management |	⛔ | Static Websites |	⛔ |
+| Object replication | ⛔ |
 
 - The ability to enable NFS 3.0 support on existing storage accounts
 
 - The ability to disable NFS 3.0 support in a storage account (after you've enabled it)
 
-- Ability to write to blobs by using REST APIs or SDKs. 
   
 ## NFS 3.0 features not yet supported
 
