@@ -3,14 +3,12 @@ title: Grant permission to applications to access an Azure key vault using Azure
 description: Learn how to provide access to keys, secrets, and certificates using Azure role-based access control.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 8/30/2020
+ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.custom: "devx-track-azurepowershell"
-
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 ---
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control
 

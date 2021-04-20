@@ -3,7 +3,6 @@ title: Tutorial - Import a certificate in Key Vault using Azure portal | Microso
 description: Tutorial showing how to import a certificate in Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault

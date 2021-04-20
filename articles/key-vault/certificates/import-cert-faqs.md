@@ -3,7 +3,6 @@ title: Frequently asked questions - Azure Key Vault certificate import
 description: Get answers to frequently asked questions about importing Azure Key Vault certificates.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault

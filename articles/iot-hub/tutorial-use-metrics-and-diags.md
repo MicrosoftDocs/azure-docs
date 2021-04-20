@@ -9,6 +9,9 @@ ms.date: 10/29/2020
 ms.author: robinsh
 ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 #Customer intent: As a developer, I want to know how to set up and check metrics and logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
+# 4.17/2021 Updated this to "guide the new alerts experience" at request of John Lian. 1577857. They added metrics
+# as a supported signal, and fixed connected Device Count and Total Device Count.
+# "IoT Hub supports the new Azure Metric metric alerts.
 ---
 
 # Tutorial: Set up and use metrics and logs with an IoT hub
