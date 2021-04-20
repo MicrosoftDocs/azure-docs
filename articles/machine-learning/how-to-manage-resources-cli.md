@@ -21,6 +21,9 @@ Words
 
 ## Workspace
 
+words
+
+Basic:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/workspace/basic-ws-1.yml":::
 

@@ -13,7 +13,7 @@ ms.date: 05/24/2021
 
 # Train models (create jobs)
 
-Words
+words
 
 ## Prerequisites
 
@@ -35,6 +35,10 @@ Words
 - ... 
 
 ## YAML authoring
+
+words
+
+- vscode?
 
 ## Create remote compute
 
@@ -78,6 +82,14 @@ Show in studio:
 
 ## Distributed training
 
+Words
+
+Currently supported:
+
+- pytorch
+- tensorflow
+- mpi
+
 ### PyTorch
 
 Download, extract/remove, and relocate CIFAR-10 dataset locally:
@@ -94,14 +106,28 @@ Create the job:
 
 ### Tensorflow
 
+YAML file:
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/basic.yml":::
+
+Create the job:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow-something":::
 
 ### MPI
+
+YAML file:
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/basic.yml":::
+
+Create the job:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
 
 
 ## Tracking metrics
 
-mlflow 
-
+words
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: 'Install, setup, and use the new Azure Machine Leanring CLI'
-description: Learn how to use the new Azure CLI extension for Machine Learning to manage the entire ML lifecycle from the command line.
+description: Learn how how to install, setup, and use the new Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,13 +13,9 @@ ms.date: 05/24/2021
 
 # Install, setup, and use the new Azure Machine Learning CLI
 
-The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
+The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. 
 
-- Run experiments to create machine learning models
-- Register machine learning models for customer usage
-- Package, deploy, and track the lifecycle of your machine learning models
-
-The CLI is not a replacement for the Azure Machine Learning SDK. It is a complementary tool that is optimized to handle highly parameterized tasks which suit themselves well to automation.
+It allows you to train and deploy models from the command line, with features that accelerate scaling data science up and out.
 
 ## Prerequisites
 
@@ -33,11 +29,15 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 The new Machine Learning extension requires Azure CLI version `>=2.15.0`. Check your version:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_version":::
+```azurecli
+az version
+```
 
 If required, upgrade the Azure CLI:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_upgrade":::
+```azurecli
+az upgrade
+```
 
 Check the extensions you have installed:
 
@@ -51,17 +51,21 @@ Finally, install the new Machine Learning extension:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_install":::
 
-Trust but verify:
+Run the help command to verify your installation and see available subcommands:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_verify":::
 
 ## Setup
 
+Login:
+
+```azurecli
+az login
+```
+
 If you have access to multiple Azure subscriptions, you can set your active subscription:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_account_set":::
-
-where `$ID` is your subscription.
 
 Export your workspace name, resource group, and Azure location: 
 
@@ -75,20 +79,22 @@ Similarly for the machine learning workspace:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_workspace_create":::
 
-Nearly all machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` flags to be specified. To avoid typing this repeatedly, you may set defaults:
+Nearly all machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` flags to be specified. To avoid typing this repeatedly, you may configure defaults:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_configure_defaults":::
 
+Note: most/all code examples assume you have set a default workspace and resource group. You can override these on the command line.
+
 ## Hello world
 
-To follow along, download and change into the Azure ML CLI examples:
+To follow along, clone and change into the Azure ML CLI examples:
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli
 ```
 
-To simply run hello world via Python:
+To simply run hello world via Python, see the example in the `jobs` subdirectory:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
 
@@ -99,6 +105,8 @@ And submit:
 This will generate a GUID/UUID for the job name. You can capture it for use in later commands with `--query`:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world_output":::
+
+PM note: this can be useful for automation. In future, should have state machine/context i.e. `az ml job show` will show the last job referenced without needing to specify job name, which needs to be random since its an ARM resource hence GUIDs.
 
 Then open the job in the studio:
 
@@ -120,6 +128,7 @@ Check the status:
 
 ## Next steps
 
-- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).
-- [Train and deploy machine learning models using Machine Learning CLI extension](how-to-train-cli.md)
+- [Train models using Machine Learning CLI extension](how-to-train-cli.md)
+- [Deploy models using Machine Learning CLI extension](how-to-deploy-cli.md)
 - [Manage resources with the Machine Learning CLI extension](how-to-manage-resources-cli.md)
+- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).
