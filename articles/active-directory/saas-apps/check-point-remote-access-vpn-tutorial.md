@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/15/2021
+ms.date: 04/16/2021
 ms.author: jeedes
 
 ---
@@ -46,7 +46,6 @@ To configure the integration of Check Point Remote Access VPN into Azure AD, you
 1. In the **Add from the gallery** section, type **Check Point Remote Access VPN** in the search box.
 1. Select **Check Point Remote Access VPN** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for Check Point Remote Access VPN
 
 Configure and test Azure AD SSO with Check Point Remote Access VPN using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Check Point Remote Access VPN.
@@ -56,7 +55,8 @@ To configure and test Azure AD SSO with Check Point Remote Access VPN, perform t
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Check Point Remote Access VPN SSO](#configure-check-point-remote-access-vpn-sso)** - to configure the single sign-on settings on application side.
+1. **[Configure Check Point Remote Access VPN SSO](#configure-check-point-remote-access-vpn-sso)** - to enable your users to use this feature.
+
     1. **[Create Check Point Remote Access VPN test user](#create-check-point-remote-access-vpn-test-user)** - to have a counterpart of B.Simon in Check Point Remote Access VPN that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -118,7 +118,72 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Check Point Remote Access VPN SSO
 
-1. Sign in to the Check Point Remote Access VPN company site as an administrator.
+### Configure an External User Profile object
+
+> [!NOTE]
+> This section is needed only if you do not want to use an on-premises Active Directory (LDAP).
+
+**Configure a generic user profile in the Legacy SmartDashboard**:
+
+1. In SmartConsole, go to **Manage & Settings > Blades**.
+
+1. In the **Mobile Access** section, click **Configure in SmartDashboard**. The Legacy SmartDashboard opens.
+
+1. In the Network **Objects** pane, and click **Users**.
+
+1. Right-click on an empty space and select **New > External User Profile > Match all users**.
+
+1. Configure the **External User Profile** properties:
+
+    1. On the **General Properties** page:
+        * In the **External User Profile** name field, leave the default name `generic`*
+        * In the **Expiration Date** field, set the applicable date
+
+    1. On the **Authentication** page:
+        * From the **Authentication Scheme** drop-down list, select `undefined`
+    1. On the **Location**, **Time**, and **Encryption** pages:
+        * Configure other applicable settings
+    1. Click **OK**.
+
+1. From the top toolbar, click **Update** (or press Ctrl + S).
+
+1. Close SmartDashboard.
+
+1. In SmartConsole, install the Access Control Policy.
+
+### Configure Remote Access VPN
+
+1. Open the object of the applicable Security Gateway.
+
+1. On the General Properties page, enable the **IPSec VPN** Software Blade.
+
+1. From the left tree, click the **IPSec VPN** page.
+
+1. In the section **This Security Gateway participates in the following VPN communities**, click **Add** and select **Remote Access Community**.
+
+1. From the left tree, click **VPN clients > Remote Access**.
+
+1. Enable **Support Visitor Mode**.
+
+1. From the left tree, click **VPN clients > Office Mode**.
+
+1. Select **Allow Office Mode** and select the applicable Office Mode Method.
+
+1. From the left tree, click **VPN Clients > SAML Portal Settings**.
+
+1. Make sure the Main URL contains the fully qualified domain name of the gateway.
+This domain name should end with a DNS suffix registered by your organization.
+For example:
+`https://gateway1.company.com/saml-vpn`
+
+1. Make sure the certificate is trusted by the end users’ browser.
+
+1. Click **OK**.
+
+
+### Configure an Identity Provider object
+
+1. Do the following steps for each Security Gateway that participates in Remote Access VPN.
 
 1. In SmartConsole > **Gateways & Servers** view, click **New > More > User/Identity > Identity Provider**.
 
@@ -142,6 +207,113 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     > Alternatively you can also select **Insert Manually** to paste manually the **Entity ID** and **Login URL** values into the corresponding fields, and to upload the **Certificate File** from the Azure portal.
 
     f. Click **OK**.
+
+### Configure the Identity Provider as an authentication method
+
+1. Open the object of the applicable Security Gateway.
+
+1. On the **VPN Clients > Authentication** page:
+
+    a. Clear the checkbox **Allow older clients to connect to this gateway**.
+
+    b. Add a new object or edit an existing realm.
+
+    ![screenshot for to Add a new object.](./media/check-point-remote-access-vpn-tutorial/add-new-object.png)
+
+1. Enter a name and a display name, and add/edit an authentication method:
+    In case the Login Option will be use on GWs who participate in MEP, in order to allow smooth user experience the Name should start with “SAMLVPN_” prefix. 
+
+    ![screenshot about Login Option.](./media/check-point-remote-access-vpn-tutorial/login-option.png)
+
+1. Select the option **Identity Provider**, click the green `+` button and select the applicable Identity Provider object.
+
+    ![screenshot to select the applicable Identity Provider object.](./media/check-point-remote-access-vpn-tutorial/green-button.png)
+
+1. In the Multiple Logon Options window:
+From the left pane, click **User Directories** and then select **Manual configuration**.
+There are two options:
+    1. If you do not want to use an on-premises Active Directory (LDAP), select only External User Profiles and click OK.
+    2. If you do want to use an on-premises Active Directory (LDAP), select only LDAP users and in the LDAP Lookup Type select email. Then click OK.
+
+    ![screenshot to select the applicable Identity Provider object.](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
+
+1. Configure the required settings in the management database:
+
+    1.	Close SmartConsole.
+
+    2.	Connect with the GuiDBEdit Tool to the Management Server (see [sk13009](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails&solutionid=sk13009)).
+
+    3.	In the top left pane, go to **Edit > Network Objects**.
+
+    4.	In the top right pane, select the **Security Gateway object**.
+
+    5.	In the bottom pane, go to **realms_for_blades > vpn**.
+
+    6.	If you do not want to use an on-premises Active Directory (LDAP), set **do_ldap_fetch** to **false** and **do_generic_fetch** to **true**. Then click **OK**. If you do want to use an on-premises Active Directory (LDAP), set **do_ldap_fetch** to **true** and **do_generic_fetch** to **false**. Then click **OK**.
+
+    7.	Repeat the steps iv-vi for all applicable Security Gateways.
+
+    8.	Save all changes (click the **File** menu > **Save All**).
+
+1. Close the GuiDBEdit Tool.
+
+1. Each Security Gateway and each Software Blade have separate settings. Review the settings in each Security Gateway and each Software Blade that use authentication (VPN, Mobile Access, and Identity Awareness).
+
+    * Make sure to select the option **LDAP users** only for Software Blades that use LDAP.
+
+    * Make sure to select the option **External user profiles** only for Software Blades that do not use LDAP.
+
+1. Install the Access Control Policy on each Security Gateway.
+
+### VPN RA Client Installation and configuration
+
+1. Install the VPN client.
+
+1. Set the Identity Provider browser mode (optional)
+By default, the Windows client uses its embedded browser and the macOS client uses Safari to authenticate on the Identity Provider's portal.
+For Windows client to change this behavior to use Internet Explorer instead:
+
+    1.	On the client machine, open a plain-text editor as an Administrator.
+    2.	Open the trac.defaults file in the text editor.
+        * On 32-bit Windows:
+``%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults``
+        * On 64-bit Windows:
+``%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults``
+    3.	Change the idp_browser_mode attribute value from “embedded” to “IE”:
+    4.	Save the file.
+    5.	Restart the Check Point Endpoint Security VPN client service.
+Open the Windows Command Prompt as an Administrator and run these commands:
+
+        `# net stop TracSrvWrapper `
+
+        `# net start TracSrvWrapper`
+ 
+
+1. Start authentication with browser running in background:
+
+    1.	On the client machine, open a plain-text editor as an Administrator.
+    2.	Open the trac.defaults file in the text editor.
+        * On 32-bit Windows: `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+        * On 64-bit Windows: `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+
+        * On macOS: `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/Trac.defaults`
+
+    3.	Change the value of **idp_show_browser_primary_auth_flow** to **false**
+    4.	Save the file.
+    5.	Restart the Check Point Endpoint Security VPN client service
+        * On Windows clients
+Open the Windows Command Prompt as an Administrator and run these commands:
+
+            `# net stop TracSrvWrapper`
+        
+            `# net start TracSrvWrapper`
+
+        * On macOS clients
+
+            `sudo launchctl stop com.checkpoint.epc.service`
+
+            `sudo launchctl start com.checkpoint.epc.service`
+
 
 ### Create Check Point Remote Access VPN test user
 
