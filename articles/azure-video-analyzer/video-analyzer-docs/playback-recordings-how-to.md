@@ -21,7 +21,7 @@ You can use Azure Video Analyzer on IoT Edge for [continuous video recording](co
 Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag]()<!-- add link to swagger--> that will be set to `true` for the video resource.
 
 
-Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). See the [video playback]()<!--video-playback-concept.md--> article for more details. You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [Widgets]() <!-- add link--> that are javascript plugins built on top of the Client APIs.
+Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). See the [video playback]()<!--video-playback-concept.md--> article for more details. You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [Widgets]() <!-- add link--> that are Javascript plugins built on top of the Client APIs.
  
 ### Live vs. VoD  
 
@@ -304,7 +304,7 @@ With such a recording:
 
 When using Video Analyzer to record to a video resource, you will specify a `segmentLength` [property]()<!--add link--> which tells the module to aggregate a minimum duration of video (in seconds) before it is written to the cloud. For example, if `segmentLength` is set to 300, then the module will accumulate 5 minutes worth of video before uploading one 5 minutes “chunk”, then go into accumulation mode for the next 5 minutes, and upload again. Increasing the `segmentLength` has the benefit of lowering your Azure Storage transaction costs, as the number of reads and writes will be no more frequent than once every `segmentLength` seconds.
 
-Consequently, streaming of the video from your Videp Analyzer account will be delayed by at least that much time. 
+Consequently, streaming of the video from your Video Analyzer account will be delayed by at least that much time. 
 
 Another factor that determines playback latency (the delay between the time an event occurs in front of the camera, to the time it can be viewed on a playback device) is the group-of-pictures [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, longer the GOP duration, longer the latency. It’s common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
 
