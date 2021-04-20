@@ -19,7 +19,7 @@ Use this article to learn about onboarding your data to Metrics Advisor.
 ## Data schema requirements and configuration
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
-If you are not sure about some of the terms, please feter to [Glossary](../glossary.md).
+If you are not sure about some of the terms, refer to [Glossary](../glossary.md).
 
 ## Avoid loading partial data
 
@@ -39,7 +39,7 @@ To avoid loading partial data, we recommend two approaches:
 
     Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [advanced settings](manage-data-feeds.md#advanced-settings) for details.
 
-## Start from adding a data feed
+## Start by adding a data feed
 
 After signing into your Metrics Advisor portal and choosing your workspace, click **Get started**. Then, on the main page of the workspace, click **Add data feed** from the left menu.
 
@@ -52,10 +52,10 @@ Next you'll input a set of parameters to connect your time-series data source.
   * **Seconds**: The number of seconds when *granularityName* is set to *Customize*.
 * **Ingest data since (UTC)**: The baseline start time for data ingestion. *startOffsetInSeconds* is often used to add an offset to help with data consistency.
 
-#### 2.Specify Connection String
+#### 2.Specify connection string
 Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
-#### 3.Specify Query for a single timestamp
+#### 3.Specify query for a single timestamp
 Next, you'll need to specify a query to convert the data into the required schema, see [how to write a valid query](../tutorial/write-a-valid-query.md) for more information. 
 
 For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
