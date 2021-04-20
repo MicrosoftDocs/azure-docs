@@ -25,6 +25,9 @@ Some high-level differences are highlighted in the following table.
 
 Not only is this performance more predictable and available, but it is also faster. With Premium Messaging, peak performance is much faster than with the Standard tier.
 
+> [!NOTE]
+> Batch size limit for Premium Messaging is 1 MB.
+
 ## Premium Messaging technical differences
 
 The following sections discuss a few differences between Premium and Standard messaging tiers.

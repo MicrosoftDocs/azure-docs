@@ -70,42 +70,14 @@ Then, create an AKS cluster:
 az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 ```
 
-A successful cluster creation using managed identities contains this service principal profile information:
-
-```output
-"servicePrincipalProfile": {
-    "clientId": "msi"
-  }
-```
-
-Use the following command to query objectid of your control plane managed identity:
-
-```azurecli-interactive
-az aks show -g myResourceGroup -n myManagedCluster --query "identity"
-```
-
-The result should look like:
-
-```output
-{
-  "principalId": "<object_id>",   
-  "tenantId": "<tenant_id>",      
-  "type": "SystemAssigned"                                 
-}
-```
-
 Once the cluster is created, you can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
-
-> [!NOTE]
-> For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the worker node resource group, use the PrincipalID of the cluster System Assigned Managed Identity to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
->
-> Permission grants to cluster Managed Identity used by Azure Cloud provider may take up 60 minutes to populate.
 
 Finally, get credentials to access the cluster:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+
 ## Update an AKS cluster to managed identities (Preview)
 
 You can now update an AKS cluster currently working with service principals to work with managed identities by using the following CLI commands.
@@ -135,6 +107,43 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identi
 ```
 > [!NOTE]
 > Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+
+## Obtain and use the system-assigned managed identity for your AKS cluster
+
+Confirm your AKS cluster is using managed identity with the following CLI command:
+
+```azurecli-interactive
+az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
+```
+
+If the cluster is using managed identities, you will see a `clientId` value of "msi". A cluster using a Service Principal instead will instead show the object ID. For example: 
+
+```output
+{
+  "clientId": "msi"
+}
+```
+
+After verifying the cluster is using managed identities, you can find the control plane system-assigned identity's object ID with the following command:
+
+```azurecli-interactive
+az aks show -g <RGName> -n <ClusterName> --query "identity"
+```
+
+```output
+{
+    "principalId": "<object-id>",
+    "tenantId": "<tenant-id>",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+},
+```
+
+> [!NOTE]
+> For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the worker node resource group, use the PrincipalID of the cluster System Assigned Managed Identity to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+>
+> Permission grants to cluster Managed Identity used by Azure Cloud provider may take up 60 minutes to populate.
+
 
 ## Bring your own control plane MI
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as using a custom VNET or outboundType of UDR with a pre-created managed identity.

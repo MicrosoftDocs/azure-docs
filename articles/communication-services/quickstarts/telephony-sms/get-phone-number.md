@@ -16,6 +16,8 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
+[!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
+
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
 ::: zone-end

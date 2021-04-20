@@ -60,4 +60,4 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## Next steps
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
