@@ -18,13 +18,15 @@ ms.custom: aaddev
 
 # How to: How to build services that are resilient to metadata refresh
 
-This article highlights the best practices for refreshing stale metadata in web apps and web APIs. It applies to ASP.NET Core, ASP.NET classic, and Microsoft.IdentityModel.
+Protected web APIs need to validate access tokens. Web apps also validate the ID tokens. Token Validation has multiple parts, checking it's for the application, issued by a trusted Identity Provider (IDP), its lifetime is in range, and it wasn't tampered with. There can also be special validations. For instance, the app needs to validate the signature and that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. When the signing keys aren't embedded in the token, they need to be fetched from the identity provider (Discovery or Metadata). Sometimes it's also necessary to obtain keys dynamically at runtime.
+
+To build a resilient web app or web API, you'd want to respect the best practices highlighted in this article for refreshing stale metadata. It applies to ASP.NET Core, ASP.NET classic, and Microsoft.IdentityModel.
 
 ## ASP.NET Core
 
 Use latest version of Microsoft.Identity.Model.* and manually ensure that you follow the guidelines above.
 
-Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and that you are using the latest Microsoft.IdentityModel.* library. This should be enabled by default.
+Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and that you're using the latest Microsoft.IdentityModel.* library. This property should be enabled by default.
 
 ```csharp
   services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
@@ -38,15 +40,15 @@ Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and th
 
 ## ASP.NET/ OWIN
 
-Note that Microsoft recommends that you move to ASP.NET Core.
+Microsoft recommends that you move to ASP.NET Core, as development has stopped on ASP.NET. 
 
-If you are using ASP.NET classic, use the latest Microsoft.Identity.Model and manually ensure that you follow the guidelines above.
+If you're using ASP.NET classic, use the latest Microsoft.Identity.Model and manually ensure that you follow the guidelines above.
 
-OWIN has an automatic 24 hour refresh interval for the `OpenIdConnectConfiguration`. This refresh will only be triggered if a request is received after the 24 hour time span has passed. As far as we know, there is no way to change this value or trigger a refresh early, aside from restarting the application.
+OWIN has an automatic 24-hour refresh interval for the `OpenIdConnectConfiguration`. This refresh will only be triggered if a request is received after the 24-hour time span has passed. As far as we know, there's no way to change this value or trigger a refresh early, aside from restarting the application.
 
 ## Microsoft.IdentityModel
 
-Use latest version of Microsoft.Identity.Model.*  and follow the metadata guidance illustrated by the code snippets below.
+If you validate your token yourself, for instance in an Azure Function, use the latest version of Microsoft.Identity.Model.*  and follow the metadata guidance illustrated by the code snippets below.
 
 ```csharp
 ConfigurationManager<OpenIdConnectConfiguration> configManager = 
