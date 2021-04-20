@@ -301,7 +301,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [Azure CLI: az group delete](/cli/azure/group#az-group-delete).
+For more information, see [Azure CLI: az group delete](/cli/azure/group#az_group_delete).
 
 ### [PowerShell](#tab/azure-powershell)
 
