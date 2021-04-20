@@ -83,8 +83,16 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 1. Restart App Service. The update process should finish in a couple of seconds. Any dependent applications or bots that use this QnAMaker service will be unavailable to end users during this restart period.
 
     ![Restart of the QnAMaker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
+    
+# [Custom question answering (preview release)](#tab/v2)
+
+App service is not deployed with Custom question answering.
+
+---
 
 ### Configure App service idle setting to avoid timeout
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically time out if the service is idle. For QnA Maker, this means your prediction runtime generateAnswer API occasionally times out after periods of no traffic.
 
@@ -103,7 +111,15 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
+# [Custom question answering (preview release)](#tab/v2)
+
+App service is not deployed with Custom question answering.
+
+---
+
 ### Business continuity with traffic manager
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
 
