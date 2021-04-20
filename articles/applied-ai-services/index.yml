@@ -1,0 +1,106 @@
+### YamlMime:Hub
+
+title: Azure Applied AI Services documentation
+summary: High-level service tailored for a specific customer scenario and problem using AI and uses one or more core Cognitive Services skills. ​
+brand: azure
+
+metadata:
+  title: Azure Applied AI Services documentation
+  description: Learn how to use Azure Applied AI Services to use AI to solve your complex business scenarios.
+  ms.service: applied-ai-services
+  ms.topic: hub-page
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.custom: custom-portals-hub
+  ms.date: 04/19/2021
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What are Applied AI Services?
+      itemType: overview # controls the icon image and super-title text
+      url: ./what-are-applied-ai-services.md
+    - title: All AI services in Azure - when to use what?
+      itemType: concept
+      url: ./what-are-applied-ai-services.md
+    - title: Language support
+      itemType: reference
+      url: ./what-are-applied-ai-services.md
+    - title: Support and help options
+      itemType: reference
+      url: ./what-are-applied-ai-services.md
+
+# productDirectory section 
+productDirectory:
+  #title:  # < 60 chars (optional)
+  #summary:  # < 160 chars (optional)
+  items:
+    # Card
+    - title: Form Recognizer
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/form-recognizer.svg
+      summary: Form Recognizer
+      url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/
+    # Card
+    - title: Immersive Reader
+      imageSrc: ./media/immersive-reader.svg
+      summary: Immersive Reader
+      url: https://docs.microsoft.com/azure/cognitive-services/immersive-reader/
+    # Card
+    - title: Metrics Advisor
+      imageSrc: ./media/metrics-advisor.svg
+      summary: Metrics Advisor
+      url: https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/
+    - title: Cognitive Search
+      imageSrc: ./media/cognitive-search.svg
+      summary: Cognitive Search
+      url: https://docs.microsoft.com/azure/search/
+    - title: Video Analytics
+      imageSrc: ./media/video-analytics.svg
+      summary: Video analytics
+      url: https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview
+    - title: Azure Bot Service
+      imageSrc: ./media/bot-services.svg
+      summary: Azure Bot Service
+      url: https://docs.microsoft.com/composer/
+
+additionalContent:
+  sections:
+    - title: Additional resources
+      items:
+        - title: Portals for customization
+          links:
+            - text: Custom Translator
+              url: https://portal.customtranslator.azure.ai/
+            - text: Custom Vision
+              url: https://www.customvision.ai/
+            # Card
+            - text: Language Understanding (LUIS)
+              url: https://luis.ai
+            # Card
+            - text: QnA Maker 
+              url: https://www.qnamaker.ai/
+            # Card
+            - text: Speech Studio
+              url: https://speech.microsoft.com/
+        - title: SDKs & REST APIs
+          links:
+            - text: C#
+              url: /dotnet/api/overview/azure/cognitiveservices/client
+            - text: Go
+              url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+            - text: Java
+              url: /java/api/overview/azure/cognitiveservices/client
+            - text: JavaScript
+              url: /javascript/api/overview/azure/cognitive-services
+            - text: Python
+              url: /python/api/overview/azure/cognitive-services
+            - text: R 
+              url: https://github.com/Azure/AzureCognitive 
+        - title: Tools
+          links:
+            - text: Azure CLI
+              url: /cli/azure/cognitiveservices
+            - text: PowerShell
+              url: /powershell/module/az.cognitiveservices/#cognitive_services
