@@ -21,7 +21,7 @@ summary: This page answers frequently asked questions about Azure Active Directo
 sections:
   - name: Configuration
     questions:
-      - question: |
+      - question: 
         answer: |
           * [Can I create multiple managed domains for a single Azure AD directory?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
           * [Can I enable Azure AD Domain Services in a Classic virtual network?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -114,7 +114,7 @@ sections:
           
   - name: Administration and operations
     questions:
-      - question: |
+      - question: 
         answer: |
           * [Can I connect to the domain controller for my managed domain using Remote Desktop?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
           * [I've enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?](#ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain)
@@ -189,7 +189,7 @@ sections:
 
   - name: Billing and availability
     questions:
-      - question: |
+      - question: 
         answer: |
           * [Is Azure AD Domain Services a paid service?](#is-azure-ad-domain-services-a-paid-service)
           * [Is there a free trial for the service?](#is-there-a-free-trial-for-the-service)
@@ -230,7 +230,7 @@ sections:
           
   - name: Troubleshooting
     questions:
-      - question: |
+      - question: 
         answer: |
           Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
           
