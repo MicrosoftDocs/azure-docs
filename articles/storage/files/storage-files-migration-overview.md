@@ -19,7 +19,7 @@ This article contains migration basics and a table of migration guides. These gu
 
 Azure has multiple available types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data.
 
-[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
+[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](../file-sync/file-sync-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
 
 For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/managed-disks-overview.md) for this scenario.
 
@@ -76,7 +76,7 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 | Source | Target: </br>Hybrid deployment | Target: </br>Cloud-only deployment |
 |:---|:--|:--|
 | | Tool combination:| Tool combination: |
-| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync and Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li><li>Via Azure File Sync</li></ul> |
+| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure File Sync and Azure DataBox](../file-sync/file-sync-offline-data-transfer.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li><li>Via Azure File Sync</li></ul> |
 | Windows Server 2012 and earlier | <ul><li>Via DataBox and Azure File Sync to recent server OS</li><li>Via Storage Migration Service to recent server with Azure File Sync, then upload</li></ul> | <ul><li>Via Storage Migration Service to recent server with Azure File Sync</li><li>Via RoboCopy to a mounted Azure file share</li></ul> |
 | Network-attached storage (NAS) | <ul><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>Via RoboCopy to a mounted Azure file share</li></ul> |
 | Linux / Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li></ul> |
@@ -134,7 +134,7 @@ RoboCopy is one of the tools most applicable to file migrations. It comes as par
 
 Azure File Sync scales primarily with the number of items (files and folders) and not with the total storage amount. The TreeSize tool lets you determine the number of items on your Windows Server volumes.
 
-You can use the tool to create a perspective before an [Azure File Sync deployment](storage-sync-files-deployment-guide.md). You can also use it when cloud tiering is engaged after deployment. In that scenario, you see the number of items and which directories use your server cache the most.
+You can use the tool to create a perspective before an [Azure File Sync deployment](../file-sync/file-sync-deployment-guide.md). You can also use it when cloud tiering is engaged after deployment. In that scenario, you see the number of items and which directories use your server cache the most.
 
 The tested version of the tool is version 4.4.1. It's compatible with cloud-tiered files. The tool won't cause recall of tiered files during its normal operation.
 
@@ -146,5 +146,5 @@ The tested version of the tool is version 4.4.1. It's compatible with cloud-tier
 More information about the Azure Files technologies mentioned in this article:
 
 * [Azure file share overview](storage-files-introduction.md)
-* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-* [Azure File Sync: Cloud tiering](storage-sync-cloud-tiering-overview.md)
+* [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
+* [Azure File Sync: Cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md)

@@ -26,7 +26,7 @@ It's not possible to obtain count of messages in the dead-letter queue at the to
 
 ![DLQ message count](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-You can also get the count of DLQ messages by using Azure CLI command: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show). 
+You can also get the count of DLQ messages by using Azure CLI command: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show). 
 
 ## Moving messages to the DLQ
 There are several activities in Service Bus that cause messages to get pushed to the DLQ from within the messaging engine itself. An application can also explicitly move messages to the DLQ. The following two properties (dead-letter reason and dead-letter description) are added to  dead-lettered messages. Applications can define their own codes for the dead-letter reason property, but the system sets the following values.
@@ -75,4 +75,3 @@ For more information about Service Bus queues, see the following articles:
 
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
