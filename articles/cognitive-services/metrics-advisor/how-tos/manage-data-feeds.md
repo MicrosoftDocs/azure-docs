@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/20/2021
 ms.author: mbullwin
 ---
 
