@@ -3,7 +3,6 @@ title: Tutorial - Updating certificate auto-rotation frequency in Key Vault | Mi
 description: Tutorial showing how to update a certificate's auto-rotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -76,10 +75,12 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
    - **Validity Period**: Enter the value (in  months). Creating short-lived certificates is a recommended security practice. By default, the validity value of a newly created certificate is 12 months.
    - **Lifetime Action Type**: Select the certificate's auto-renewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's auto-renewal is set at 80 percent of its lifetime. From the drop-down menu, select one of the following options.
 
-        |  Automatically renew at a given time| Email all contacts at a given time |
-        |-----------|------|
-        |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
-         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+      |  Automatically renew at a given time| Email all contacts at a given time |
+      |-----------|------|
+      |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
+      
+      You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+
 1. Select **Create**.
 
 ![Certificate lifecycle](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
