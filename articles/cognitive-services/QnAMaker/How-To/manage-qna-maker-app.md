@@ -16,9 +16,17 @@ Learn more about [QnA Maker collaborator authentication concepts](../Concepts/ro
 
 QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
 
-## Access at the QnA Maker resource level
+## Access at the cognitive resource level
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker resources, then add roles to each resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+You cannot share a particular knowledge base in a Text Analytics service. If you want more granular access control, consider distributing your knowledge bases across different Text Analytics resources, then add roles to each resource.
+
+---
 
 ## Add a role to a resource
 
