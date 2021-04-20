@@ -4,7 +4,7 @@ description: Learn to setup and debug with the Event Grid Blob Trigger
 author: cachai2
 
 ms.topic: conceptual
-ms.date: 3/1/21
+ms.date: 3/1/2021
 ms.author: cachai
 ---
 
