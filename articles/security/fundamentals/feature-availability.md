@@ -60,16 +60,15 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 
 For more information, see the [Azure Sentinel product documentation](/azure/sentinel/overview).
 
+# [Combined table option](#tab/combined-table-option)
+
+The following table lists the current Sentinel feature availability between Azure and Azure Government clouds.
+
 > [!NOTE]
 > <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
 >
 > <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD Microsoft services.
 >
-
-### Combined table option
-
-The following table lists the current Sentinel feature availability between Azure and Azure Government clouds.
-
 
 | Feature | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
 | ----- | ----- | ---- |
@@ -90,7 +89,7 @@ The following table lists the current Sentinel feature availability between Azur
 | - [Anomalous Windows File Share Access Detection](/azure/sentinel/fusion)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
-|**Microsoft 365 data connectors for Azure Sentinel** | | |
+|**Azure service data connectors** | | |
 | - [Azure Activity](/azure/sentinel/connect-azure-activity)                                   | GA             | GA             |
 | - [Azure Active Directory  ](/azure/sentinel/connect-azure-active-directory)              |    GA          |   GA            |
 | - [Azure ADIP](/azure/sentinel/connect-azure-ad-identity-protection)                          |     GA         |    GA                  |
@@ -103,6 +102,10 @@ The following table lists the current Sentinel feature availability between Azur
 | - [Azure Kubernetes Services (AKS)](/azure/sentinel/connect-azure-kubernetes-service)           |     Public Preview         |      Not Available                |
 | - [Azure SQL Databases](/azure/sentinel/connect-azure-sql-logs)                        |    GA          |      GA                |
 | - [Azure WAF](/azure/sentinel/connect-azure-waf)                                  |   GA           |      GA                |
+| **Windows service data connectors** | | |
+| - [Windows Firewall](/azure/sentinel/connect-windows-firewall)                                 | GA             | GA             |
+| - [Windows Security Events](/azure/sentinel/connect-windows-security-events)                                  | GA             | GA             |
+|**Microsoft 365 data connectors** | | |
 | - [Dynamics365](/azure/sentinel/connect-dynamics-365)                               |    Public Preview          |    Not Available                  |
 | - [Microsoft 365 Defender](/azure/sentinel/connect-microsoft-365-defender)                             |    Public Preview          |   Not Available                   |
 | - [Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)                                      |   GA           |       GA               |
@@ -112,8 +115,6 @@ The following table lists the current Sentinel feature availability between Azur
 | - [Microsoft Defender for Identity](/azure/sentinel/connect-azure-atp)                            |    Public Preview          |    Not Available                  |
 | - [Microsoft Defender for Office 365](/azure/sentinel/connect-office-365-advanced-threat-protection)               |     Public Preview         |      Not Available                |
 | - [Office 365](/azure/sentinel/connect-office-365)                                     |      GA        |       GA               |
-| - [Windows Firewall](/azure/sentinel/connect-windows-firewall)                                 | GA             | GA             |
-| - [Windows Security Events](/azure/sentinel/connect-windows-security-events)                                  | GA             | GA             |
 | **External Azure Sentinel connectors**| | |
 | - [Agari Phising Defense and Brand Protection](/azure/sentinel/connect-agari-phishing-defense)       | Public Preview | Public Preview |
 | - [AI Analyst Darktrace](/azure/sentinel/connect-data-sources)                            | Public Preview | Public Preview |
@@ -196,7 +197,13 @@ The following table lists the current Sentinel feature availability between Azur
 
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
-### Separate table option
+# [Separate table option](#tab/separate-table-option)
+
+> [!NOTE]
+> <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
+>
+> <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD Microsoft services.
+>
 
 | Feature | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
 | ----- | ----- | ---- |
@@ -314,7 +321,7 @@ The following table lists the current Sentinel feature availability between Azur
 
 <sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
-#### Microsoft 365 data connectors
+**Microsoft 365 data connectors**
 
 Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, while Azure Sentinel in Azure Government clouds supports GCC and Office DoD services.
 
