@@ -4,7 +4,7 @@ description: Details on metrics to use to monitor your cloud tiering policies.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/4/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -48,11 +48,12 @@ There are three different metrics you can use to monitor your egress specificall
 
 To be more specific on what you want your graphs to display, consider using **Add Filter** and **Apply Splitting**.
  
-For details on the different types of metrics for Azure File Sync and how to use them, see [Monitor Azure File Sync](storage-sync-files-monitoring.md).
+For details on the different types of metrics for Azure File Sync and how to use them, see [Monitor Azure File Sync](file-sync-monitoring.md).
 
 For details on how to use metrics, see [Getting started with Azure Metrics Explorer.](../../azure-monitor/essentials/metrics-getting-started.md).
 
-If you would like to change your cloud tiering policy, see [Choose cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md).
+If you would like to change your cloud tiering policy, see [Choose cloud tiering policies](file-sync-choose-cloud-tiering-policies.md).
 
 ## Next steps
-* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+
+* [Planning for an Azure File Sync deployment](file-sync-planning.md)

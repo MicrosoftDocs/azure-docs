@@ -173,7 +173,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -192,7 +192,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the `az account list-locations` command.
+    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the `az account list-locations` command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -215,7 +215,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account. 
+    The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
 
     # [Azure PowerShell](#tab/azure-powershell)
 

@@ -4,7 +4,7 @@ description: Learn how to extend Windows file servers with Azure File Sync, from
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/23/2018
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As an IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows servers.
@@ -12,7 +12,7 @@ ms.subservice: files
 
 # Tutorial: Extend Windows file servers with Azure File Sync
 
-The article demonstrates the basic steps for extending the storage capacity of a Windows server by using Azure File Sync. Although the tutorial features Windows Server as an Azure virtual machine (VM), you would typically do this process for your on-premises servers. You can find instructions for deploying Azure File Sync in your own environment in the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) article.
+The article demonstrates the basic steps for extending the storage capacity of a Windows server by using Azure File Sync. Although the tutorial features Windows Server as an Azure virtual machine (VM), you would typically do this process for your on-premises servers. You can find instructions for deploying Azure File Sync in your own environment in the [Deploy Azure File Sync](file-sync-deployment-guide.md) article.
 
 > [!div class="checklist"]
 > * Deploy the Storage Sync Service
@@ -320,4 +320,4 @@ If you'd like to clean up the resources you created in this tutorial, first remo
 In this tutorial, you learned the basic steps to extend the storage capacity of a Windows server by using Azure File Sync. For a more thorough look at planning for an Azure File Sync deployment, see:
 
 > [!div class="nextstepaction"]
-> [Plan for Azure File Sync deployment](./storage-sync-files-planning.md)
+> [Plan for Azure File Sync deployment](file-sync-planning.md)
