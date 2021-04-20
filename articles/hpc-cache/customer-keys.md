@@ -51,7 +51,7 @@ Key vault access permissions:
 
 * The user that creates the Azure HPC Cache must have permissions equivalent to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor). The same permissions are needed to set up and manage Azure Key Vault.
 
-  Read [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md) for more information.
+  Read [Secure access to a key vault](../key-vault/general/security-overview.md) for more information.
 
 ## 1. Set up Azure Key Vault
 
