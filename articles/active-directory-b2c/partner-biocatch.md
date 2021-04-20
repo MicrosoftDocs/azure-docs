@@ -49,8 +49,9 @@ BioCatch integration includes the following components:
   - A userjourney, which evaluates a returned claim, for example, session risk, and conditionally executes an action, such as invoke Multi-factor authentication (MFA).
 
 ![image shows biocatch architecture diagram](media/partner-biocatch/biocatch-architecture-diagram.png)
+
 | Step  | Description |
-|---|---|
+|:---|:-----------------------|
 |1a     | The user browses the web service. The web service then returns HTML, CSS, or JavaScript values and configures to load the BioCatch JavaScript SDK. Client-side JavaScript configures/sets client session ID for the BioCatch SDK. Alternately, the web service can pre-configure client session ID and send to the client.        |
 |1b    |  Configure the instantiated BioCatch JavaScript SDK against the BioCatch platform. Immediately begin to send user behavior characteristics to BioCatch from the client device, using the client session ID from step 1a.    |
 |2     |  User tries to sign-up/sign-in and is redirected to Azure AD B2C.      |
