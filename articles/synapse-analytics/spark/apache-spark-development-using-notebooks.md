@@ -35,7 +35,6 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |%load| Not supported |&#9745;|
 |%%html| Not supported |&#9745;|
 |Drag and drop to move a cell| Not supported |&#9745;|
-|Persistent Display() output|&#9745;| Not available |
 |Format text cell with toolbar buttons|&#9745;| Not available |
 |Undo cell operation| &#9745;| Not available |
 
@@ -150,7 +149,7 @@ The IntelliSense features are at different levels of maturity for different lang
 
 ### Code Snippets
 
-Azure Synapse Studio provides code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
+Azure Synapse Studio notebooks provide code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
 
 Snippets appear in [IntelliSense](#IDE-style-IntelliSense) mixed with other suggestions. The code snippets contents align with the code cell language. You can see available snippets by typing **Snippet** or any keywords appear in the snippet title in the code cell editor. For example, by typing **read** you can see the list of snippets to read data from various data sources.
 
