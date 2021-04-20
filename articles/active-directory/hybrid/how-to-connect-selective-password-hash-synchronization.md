@@ -46,7 +46,7 @@ Both scenarios rely on setting the adminDescription attribute of users to a spec
 This attribute can be set either:
 
 - using the Active Directory Users and Computers UI
-- using `Set-ADUser` PowerShell cmdlet.  For more information see [Set-ADUser](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser).
+- using `Set-ADUser` PowerShell cmdlet.  For more information see [Set-ADUser](/powershell/module/activedirectory/set-aduser).
 
  
 
