@@ -5,7 +5,7 @@ ms.date: 04/17/2021
 ms.topic: how-to
 ---
 
-# Manage sensors ain the Defender for IoT portal
+# Manage sensors in the Defender for IoT portal
 
 This article describes how to onboard, view, and manage sensors in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
