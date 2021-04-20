@@ -1,5 +1,5 @@
 ---
-title: How to build services that are resilient to metadata refresh | Azure
+title: How to build services that are resilient to Azure Active Directory OpenIdConnect metadata refresh | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to ensure that your web app or web api is resilient to metadata refresh.
 services: active-directory
@@ -24,7 +24,7 @@ To build a resilient web app or web API, you'd want to respect the best practice
 
 ## ASP.NET Core
 
-Use latest version of Microsoft.Identity.Model.* and manually ensure that you follow the guidelines above.
+Use latest version of [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually ensure that you follow the guidelines below.
 
 Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and that you're using the latest Microsoft.IdentityModel.* library. This property should be enabled by default.
 
@@ -42,13 +42,13 @@ Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and th
 
 Microsoft recommends that you move to ASP.NET Core, as development has stopped on ASP.NET. 
 
-If you're using ASP.NET classic, use the latest Microsoft.Identity.Model and manually ensure that you follow the guidelines above.
+If you're using ASP.NET classic, use the latest [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually ensure that you follow the guidelines below.
 
 OWIN has an automatic 24-hour refresh interval for the `OpenIdConnectConfiguration`. This refresh will only be triggered if a request is received after the 24-hour time span has passed. As far as we know, there's no way to change this value or trigger a refresh early, aside from restarting the application.
 
 ## Microsoft.IdentityModel
 
-If you validate your token yourself, for instance in an Azure Function, use the latest version of Microsoft.Identity.Model.*  and follow the metadata guidance illustrated by the code snippets below.
+If you validate your token yourself, for instance in an Azure Function, use the latest version of [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and follow the metadata guidance illustrated by the code snippets below.
 
 ```csharp
 ConfigurationManager<OpenIdConnectConfiguration> configManager = 
