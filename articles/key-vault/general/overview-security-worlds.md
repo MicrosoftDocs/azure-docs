@@ -29,6 +29,6 @@ A backup taken of a key from a key vault in one Azure region can be restored to 
 
 For example, a backup taken of a key in a West India key vault can be restored to another key vault in the same subscription in the India geography (the West India, Central India, and South India regions).
 
-## Next Steps
+## Next steps
 
 - See [Microsoft products by region](https://azure.microsoft.com/regions/services/)
