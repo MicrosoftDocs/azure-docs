@@ -887,7 +887,7 @@ Now, you can add standards such as:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
 
-In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+In addition, we've recently added the [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
  
 Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
