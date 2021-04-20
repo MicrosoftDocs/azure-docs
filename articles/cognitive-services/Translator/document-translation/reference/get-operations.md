@@ -92,7 +92,7 @@ The following information is returned in a successful response.
 |summary.cancelled|integer|Count of documents canceled.|
 |summary.totalCharacterCharged|integer|Total count of characters charged.|
 
-###Error response
+### Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
