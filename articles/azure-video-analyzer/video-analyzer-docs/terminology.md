@@ -16,10 +16,6 @@ When you create an Video Analyzer account, you have to associate an Azure storag
 
 You can use Video Analyzer to create video resources and add data to existing videos. This enables the scenarios of continuous and event-based video recording and playback (with video capture on the edge device, recording to Video Analyzer, and playback via Video Analyzer streaming capabilities).
 
-## Pipeline
-
-A pipeline is where video data is analyzed. It is constructed from nodes defined in a pipeline topology. There is one kind of pipeline called a live pipeline which is used to process live video.
-
 ## Pipeline topology
 
 [Pipeline topology]()<!--media-graph.md--> lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
