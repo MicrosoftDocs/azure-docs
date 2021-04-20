@@ -27,6 +27,10 @@ It's the API you love, with the added benefits of being built on [Azure Cosmos D
 * **Upgrades take seconds**: All API versions are contained within one codebase, making version changes as simple as [flipping a switch](mongodb-version-upgrade.md), with zero downtime.
 * **Synapse link analytics**: Analyze your real-time data using the fully-isolated [Azure Synapse analytical store](synapse-link.md) for fast and cheap analytics queries. A simple checkbox ensures your data is available in Synapse with no-ETL (extract-transform-load).
 
+> [!NOTE]
+> [__You can use Azure Cosmos DB API for MongoDB for free with Free Tier!__](how-pricing-works.md)
+
+
 ## How the API works
 
 Azure Cosmos DB API for MongoDB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB does not host the MongoDB database engine. Any MongoDB client driver compatible with the API version you are using should be able to connect, with no special configuration.
