@@ -268,7 +268,7 @@ partitions = file_dataset.get_partition_key_values(['userid'])
 new_file_dataset = file_dataset.filter(ds['userid'] == 'user1').download()
 ```
 
-You can also create a new partitions structure for TabularDatasets with the [partitions_by()](/python/api/azureml-core/azureml.data.tabulardataset#methods) method.
+You can also create a new partitions structure for TabularDatasets with the [partitions_by()](/python/api/azureml-core/azureml.data.tabulardataset#partition-by-partition-keys--target--name-none--show-progress-true--partition-as-file-dataset-false-) method.
 
 ```Python
 
@@ -284,7 +284,7 @@ partition_keys = new_dataset.partition_keys # ['country']
 
 ## Explore data
 
-After you're done wrangling your data,you can [register](#register-datasets) your dataset and then load it into your notebook for data exploration prior to model training.
+After you're done wrangling your data, you can [register](#register-datasets) your dataset, and then load it into your notebook for data exploration prior to model training.
 
 For FileDatasets, you can either **mount** or **download** your dataset, and apply the python libraries you'd normally use for data exploration. [Learn more about mount vs download](how-to-train-with-datasets.md#mount-vs-download).
 
