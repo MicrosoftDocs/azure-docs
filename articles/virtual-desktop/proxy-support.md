@@ -96,9 +96,9 @@ The Windows Virtual Desktop client supports proxy servers configured with system
 
 Clients running on Windows 7 don't support proxy server connections for reverse-connect RDP data. If the client can't directly connect to the Windows Virtual Desktop gateways, the connection won't work.
 
-### Support for Windows clients
+### Support for Windows Virtual Desktop clients
 
-The following Windows clients support proxy servers:
+The following Windows Virtual Desktop clients support proxy servers:
 
 | Client name | Proxy server support |
 |---|---|
@@ -109,9 +109,7 @@ The following Windows clients support proxy servers:
 | MacOS | No |
 | Windows Store | Yes |
 
-### Proxy servers for third-party clients
-
-Windows Virtual Desktop currently only supports proxy server for Linux. For more information, see [Thin client support](linux-overview.md).
+For more information about proxy support on Linux based thin clients, see [Thin client support](linux-overview.md).
 
 ## Support limitations
 
