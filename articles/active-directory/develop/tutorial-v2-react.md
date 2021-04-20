@@ -20,10 +20,11 @@ In this tutorial, you build a React single-page application (SPA) that signs in 
 
 In this tutorial:
 > [!div class="checklist"]
-> * Perform the OAuth 2.0 authorization code flow with PKCE
-> * Sign in personal Microsoft accounts as well as work and school accounts
-> * Acquire an access token
-> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform
+> * Create a React project with `npm`
+> * Register the application in the Azure portal
+> * Add code to support user sign-in and sign-out
+> * Add code to call Microsoft Graph API
+> * Test the app
 
 MSAL React supports the authorization code flow in the browser instead of the implicit grant flow. MSAL React does **NOT** support the implicit flow.
 
@@ -70,7 +71,13 @@ npm install @azure/msal-browser @azure/msal-react # Install the MSAL packages
 npm install react-bootstrap bootstrap # Install Bootstrap for styling
 ```
 
-You have now bootstrapped a small React project using [Create React App](https://create-react-app.dev/docs/getting-started). This will be the starting point the rest of this tutorial will build on.
+You have now bootstrapped a small React project using [Create React App](https://create-react-app.dev/docs/getting-started). This will be the starting point the rest of this tutorial will build on. If you would like to see the changes to your app as you are working through this tutorial you can run the following command: 
+
+```console
+npm start
+```
+
+A browser window should be opened to your app automatically. If it does not, open your browser and navigate to http://localhost:3000. Each time you save a file with updated code the page will reload to reflect the changes.
 
 ## Register your application
 
@@ -118,7 +125,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     
     For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
-2. Open up the `src/index.js` file and add the following imports:
+2. Open up the *src/index.js* file and add the following imports:
 
     ```javascript
     import "bootstrap/dist/css/bootstrap.min.css";
@@ -127,13 +134,13 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     import { msalConfig } from "./authConfig";
     ```
 
-3. Underneath the imports in `src/index.js` create a `PublicClientApplication` instance using the configuration from step 1.
+3. Underneath the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
 
     ```javascript
     const msalInstance = new PublicClientApplication(msalConfig);
     ``` 
 
-4. Find the `<App />` component in `src/index.js` and wrap it in the `MsalProvider` component. Your render function should look like this:
+4. Find the `<App />` component in *src/index.js* and wrap it in the `MsalProvider` component. Your render function should look like this:
 
     ```jsx
     ReactDOM.render(
@@ -257,7 +264,7 @@ export default App;
 
 Your app now has a sign-in button which is only displayed for unauthenticated users!
 
-When a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` (or `loginRedirect`) to sign in the user. The `loginPopup` method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](v2-oauth2-auth-code-flow.md).
+When a user selects the **Sign in using Popup** or **Sign in using Redirect** button for the first time, the `onClick` handler calls `loginPopup` (or `loginRedirect`) to sign in the user. The `loginPopup` method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](v2-oauth2-auth-code-flow.md).
 
 At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by *msal.js*, and the information contained in the tokens is cached.
 
@@ -392,7 +399,7 @@ function App() {
 
 ## Acquire a token
 
-Before calling an API, such as MS Graph, you'll need to acquire an access token. Add a new component to *src/App.js* called `ProfileContent` with the following code:
+Before calling an API, such as Microsoft Graph, you'll need to acquire an access token. Add a new component to *src/App.js* called `ProfileContent` with the following code:
 
 ```jsx
 function ProfileContent() {
@@ -407,7 +414,7 @@ function ProfileContent() {
             account: accounts[0]
         };
 
-        // Silently acquires an access token which is then attached to a request for MS Graph data
+        // Silently acquires an access token which is then attached to a request for Microsoft Graph data
         instance.acquireTokenSilent(request).then((response) => {
             setAccessToken(response.accessToken);
         }).catch((e) => {
@@ -457,7 +464,7 @@ function App() {
 }
 ```
 
-The code above will render a button for signed in users, allowing them to request an access token for MS Graph when the button is clicked.
+The code above will render a button for signed in users, allowing them to request an access token for Microsoft Graph when the button is clicked.
 
 After a user signs in, your app shouldn't ask users to reauthenticate every time they need to access a protected resource (that is, to request a token). To prevent such reauthentication requests, call `acquireTokenSilent` which will first look for a cached, unexpired access token then, if needed, use the refresh token to obtain a new access token. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform. For example:
 
@@ -479,7 +486,7 @@ Create file named *graph.js* in the *src* folder and add the following code for 
 import { graphConfig } from "./authConfig";
 
 /**
- * Attaches a given access token to a MS Graph API call. Returns information about the user
+ * Attaches a given access token to a Microsoft Graph API call. Returns information about the user
  */
 export async function callMsGraph(accessToken) {
     const headers = new Headers();
@@ -498,13 +505,13 @@ export async function callMsGraph(accessToken) {
 }
 ```
 
-Next create a file named `ProfileData.jsx` in *src/components* and add the following code:
+Next create a file named *ProfileData.jsx* in *src/components* and add the following code:
 
 ```javascript
 import React from "react";
 
 /**
- * Renders information about the user obtained from MS Graph
+ * Renders information about the user obtained from Microsoft Graph
  */
 export const ProfileData = (props) => {
     return (
@@ -525,7 +532,7 @@ import { ProfileData } from "./components/ProfileData";
 import { callMsGraph } from "./graph";
 ```
 
-Finally, update your `ProfileContent` component in *src/App.js* to call MS Graph and display the profile data after acquiring the token. Your `ProfileContent` component should look like this:
+Finally, update your `ProfileContent` component in *src/App.js* to call Microsoft Graph and display the profile data after acquiring the token. Your `ProfileContent` component should look like this:
 
 ```javascript
 function ProfileContent() {
@@ -540,7 +547,7 @@ function ProfileContent() {
             account: accounts[0]
         };
 
-        // Silently acquires an access token which is then attached to a request for MS Graph data
+        // Silently acquires an access token which is then attached to a request for Microsoft Graph data
         instance.acquireTokenSilent(request).then((response) => {
             callMsGraph(response.accessToken).then(response => setGraphData(response));
         }).catch((e) => {
