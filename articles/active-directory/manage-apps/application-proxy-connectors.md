@@ -3,7 +3,7 @@ title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Learn about the Azure AD Application Proxy connectors.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -60,7 +60,7 @@ You don't have to manually delete connectors that are unused. When a connector i
 
 ## Automatic updates
 
-Azure AD provides automatic updates for all the connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](application-proxy-add-on-premises-application.md) to get any updates.
+Azure AD provides automatic updates for all the connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors [update with the latest major connector release](application-proxy-faq.yml#why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version-) automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](application-proxy-add-on-premises-application.md) to get any updates.
 
 If you don't want to wait for an automatic update to come to your connector, you can do a manual upgrade. Go to the [connector download page](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) on the server where your connector is located and select **Download**. This process kicks off an upgrade for the local connector.
 

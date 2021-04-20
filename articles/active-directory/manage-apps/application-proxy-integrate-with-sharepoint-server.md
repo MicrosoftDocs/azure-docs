@@ -4,7 +4,7 @@ description: Covers the basics about how to integrate an on-premises SharePoint 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

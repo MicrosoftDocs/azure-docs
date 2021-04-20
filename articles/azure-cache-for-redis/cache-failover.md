@@ -68,6 +68,10 @@ Because you can't avoid failovers completely, write your client applications for
 
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks. Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache. Tell the management service to apply Redis runtime patches during specified weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
 
+### Can I be notified in advance of a planned maintenance?
+
+Azure Cache for Redis now publishes notifications on a publish/subscribe channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. These are runtime notifications, and they're built especially for applications that can use circuit breakers to bypass the cache or buffer commands, for example, during planned updates. It's not a mechanism that can notify you days or hours in advance.
+
 ### Client network-configuration changes
 
 Certain client-side network-configuration changes can trigger "No connection available" errors. Such changes might include:

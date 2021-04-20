@@ -57,7 +57,7 @@ In addition to individual user resiliency described above, enterprises should pl
 
 * Turn on [password hash synchronization](../hybrid/whatis-phs.md) for hybrid accounts that are synchronized from Windows Server Active Directory. This option can be enabled alongside federation services such as AD FS and provides a fall back in case the federation service fails.
 
-* [Analyze usage of Multi-factor authentication methods](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to improve users’ experience.
+* [Analyze usage of Multi-factor authentication methods](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to improve users’ experience.
 
 * [Implement a resilient access control strategy](../authentication/concept-resilient-controls.md)
 

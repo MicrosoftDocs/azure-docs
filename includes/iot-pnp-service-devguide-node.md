@@ -8,7 +8,7 @@ ms.date: 10/20/2020
 
 The following resources are also available:
 
-- [Node.js SDK reference documentation](/javascript/api/azure-iothub?preserve-view=true&view=azure-node-latest)
+- [Node.js SDK reference documentation](/javascript/api/azure-iothub)
 - [Service client samples](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)
 - [Digital Twins samples](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js)
 

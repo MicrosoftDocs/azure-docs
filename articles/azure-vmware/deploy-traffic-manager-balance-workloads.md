@@ -2,7 +2,7 @@
 title: Deploy Traffic Manager to balance Azure VMware Solution workloads
 description: Learn how to integrate Traffic Manager with Azure VMware Solution to balance application workloads across multiple endpoints in different regions.
 ms.topic: how-to
-ms.date: 12/29/2020
+ms.date: 02/08/2021
 ---
 
 # Deploy Traffic Manager to balance Azure VMware Solution workloads
@@ -125,9 +125,9 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
 ## Next steps
 
-Learn more about:
+Now that you've covered integrating Azure Traffic Manager with Azure VMware Solution, you may want to learn about:
 
-- [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
-- [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md)
-- [Combining load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
-- [Measuring Traffic Manager performance](../traffic-manager/traffic-manager-performance-considerations.md)
+- [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md).
+- [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+- [Combining load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- [Measuring Traffic Manager performance](../traffic-manager/traffic-manager-performance-considerations.md).

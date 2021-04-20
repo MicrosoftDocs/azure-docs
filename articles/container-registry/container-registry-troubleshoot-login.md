@@ -35,6 +35,8 @@ Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
+If you're experiencing problems using the registry wih Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
+
 > [!NOTE]
 > Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
 
@@ -74,7 +76,7 @@ Check the validity of the credentials you use for your scenario, or were provide
 * If using an Active Directory service principal, ensure you use the correct credentials in the Active Directory tenant:
   * User name - service principal application ID (also called *client ID*)
   * Password - service principal password (also called *client secret*)
-* If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
+* If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service. 
 * If you ran `az acr login` with the `--expose-token` option, which enables registry login without using the Docker daemon, ensure that you authenticate with the username `00000000-0000-0000-0000-000000000000`.
 * If your registry is configured for [anonymous pull access](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), existing Docker credentials stored from a previous Docker login can prevent anonymous access. Run `docker logout` before attempting an anonymous pull operation on the registry.
 

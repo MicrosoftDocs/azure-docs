@@ -31,7 +31,7 @@ When you're done, your logic app looks like this workflow at a high level:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An email account from an email provider supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
 
@@ -44,6 +44,8 @@ When you're done, your logic app looks like this workflow at a high level:
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Download and install the [free Microsoft Azure Storage Explorer](https://storageexplorer.com/). This tool helps you check that your storage container is correctly set up.
+
+* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
 
 ## Set up storage to save attachments
 
@@ -86,7 +88,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
    To get your storage account's access key, you can also use
    [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey)
-   or [Azure CLI](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   or [Azure CLI](/cli/azure/storage/account/keys).
 
 1. Create a blob storage container for your email attachments.
 
@@ -102,7 +104,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
       ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container#az-storage-container-create).
 
 Next, connect Storage Explorer to your storage account.
 

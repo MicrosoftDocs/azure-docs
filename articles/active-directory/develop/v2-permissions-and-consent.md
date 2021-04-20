@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 04/14/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 ---
 
-# Permissions and consent in the Microsoft identity platform endpoint
+# Permissions and consent in the Microsoft identity platform
 
-Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the Microsoft identity platform endpoint. It changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
+Applications that integrate with the Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the Microsoft identity platform. It changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
 ## Scopes and permissions
 
@@ -39,17 +39,13 @@ Because of these types of permission definitions, the resource has fine-grained 
 
 When a resource's functionality is chunked into small permission sets, third-party apps can be built to request only the permissions that they need to perform their function. Users and administrators can know what data the app can access. And they can be more confident that the app isn't behaving with malicious intent. Developers should always abide by the principle of least privilege, asking for only the permissions they need for their applications to function.
 
-In OAuth 2.0, these types of permission sets are called *scopes*. They're also often referred to as *permissions*. In the Microsoft identity platform, a permission is represented as a string value. For the Microsoft Graph example, here's the string value for each permission:
-
-* Read a user's calendar by using `Calendars.Read`
-* Write to a user's calendar by using `Calendars.ReadWrite`
-* Send mail as a user using by `Mail.Send`
+In OAuth 2.0, these types of permission sets are called *scopes*. They're also often referred to as *permissions*. In the Microsoft identity platform, a permission is represented as a string value. An app requests the permissions it needs by specifying the permission in the `scope` query parameter. Identity platform supports several well-defined [OpenID Connect scopes](#openid-connect-scopes) as well as resource-based permissions (each permission is indicated by appending the permission value to the resource's identifier or application ID URI). For example, the permission string `https://graph.microsoft.com/Calendars.Read` is used to request permission to read users calendars in Microsoft Graph.
 
 An app most commonly requests these permissions by specifying the scopes in requests to the Microsoft identity platform authorize endpoint. However, some high-privilege permissions can be granted only through administrator consent. They can be requested or granted by using the [administrator consent endpoint](#admin-restricted-permissions). Keep reading to learn more.
 
 ## Permission types
 
-Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.
+The Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.
 
 * **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests. The app is delegated permission to act as the signed-in user when it makes calls to the target resource. 
 
@@ -124,7 +120,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 The `scope` parameter is a space-separated list of delegated permissions that the app is requesting. Each permission is indicated by appending the permission value to the resource's identifier (the application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
 
-After the user enters their credentials, the Microsoft identity platform endpoint checks for a matching record of *user consent*. If the user hasn't consented to any of the requested permissions in the past, and if the administrator hasn't consented to these permissions on behalf of the entire organization, the Microsoft identity platform endpoint asks the user to grant the requested permissions.
+After the user enters their credentials, the Microsoft identity platform checks for a matching record of *user consent*. If the user hasn't consented to any of the requested permissions in the past, and if the administrator hasn't consented to these permissions on behalf of the entire organization, the Microsoft identity platform asks the user to grant the requested permissions.
 
 At this time, the `offline_access` ("Maintain access to data you have given it access to") permission and `user.read` ("Sign you in and read your profile") permission are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality. The `offline_access` permission gives the app access to refresh tokens that are critical for native apps and web apps. The `user.read` permission gives access to the `sub` claim. It allows the client or app to correctly identify the user over time and access rudimentary user information.
 
@@ -160,7 +156,7 @@ If the application requests application permissions and an administrator grants 
 
 After you use the admin consent endpoint to grant admin consent, you're finished. Users don't need to take any further action. After admin consent is granted, users can get an access token through a typical auth flow. The resulting access token has the consented permissions.
 
-When a company administrator uses your application and is directed to the authorize endpoint, Microsoft identity platform detects the user's role. It asks if the company administrator wants to consent on behalf of the entire tenant for the permissions you requested. You could instead use a dedicated admin consent endpoint to proactively request an administrator to grant permission on behalf of the entire tenant. This endpoint is also necessary for requesting application permissions. Application permissions can't be requested by using the authorize endpoint.
+When a Global Administrator uses your application and is directed to the authorize endpoint, the Microsoft identity platform detects the user's role. It asks if the Global Administrator wants to consent on behalf of the entire tenant for the permissions you requested. You could instead use a dedicated admin consent endpoint to proactively request an administrator to grant permission on behalf of the entire tenant. This endpoint is also necessary for requesting application permissions. Application permissions can't be requested by using the authorize endpoint.
 
 If you follow these steps, your app can request permissions for all users in a tenant, including admin-restricted scopes. This operation is high privilege. Use the operation only if necessary for your scenario.
 
@@ -177,7 +173,7 @@ In general, the permissions should be statically defined for a given application
 
 To configure the list of statically requested permissions for an application:
 
-1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations</a> quickstart experience.
 1. Select an application, or [create an app](quickstart-register-app.md) if you haven't already.
 1. On the application's **Overview** page, under **Manage**, select **API Permissions** > **Add a permission**.
 1. Select **Microsoft Graph** from the list of available APIs. Then add the permissions that your app requires.
@@ -266,7 +262,7 @@ Content-Type: application/json
     "grant_type": "authorization_code",
     "client_id": "6731de76-14a6-49ae-97bc-6eba6914391e",
     "scope": "https://outlook.office.com/mail.read https://outlook.office.com/mail.send",
-    "code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
+    "code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
     "redirect_uri": "https://localhost/myapp",
     "client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
 }
@@ -331,7 +327,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 This code example produces a consent page for all registered permissions if the preceding descriptions of consent and `/.default` apply to the scenario. Then the code returns an `id_token`, rather than an access token.  
 
-This behavior accommodates some legacy clients that are moving from Azure AD Authentication Library (ADAL) to Microsoft Authentication Library (MSAL). This setup *shouldn't* be used by new clients that target the Microsoft identity platform endpoint.
+This behavior accommodates some legacy clients that are moving from Azure AD Authentication Library (ADAL) to the Microsoft Authentication Library (MSAL). This setup *shouldn't* be used by new clients that target the Microsoft identity platform.
 
 ### Client credentials grant flow and /.default  
 
@@ -353,5 +349,5 @@ For troubleshooting steps, see [Unexpected error when performing consent to an a
 
 ## Next steps
 
-* [ID tokens in Microsoft identity platform](id-tokens.md)
-* [Access tokens in Microsoft identity platform](access-tokens.md)
+* [ID tokens in the Microsoft identity platform](id-tokens.md)
+* [Access tokens in the Microsoft identity platform](access-tokens.md)

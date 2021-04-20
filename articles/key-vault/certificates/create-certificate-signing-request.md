@@ -3,7 +3,6 @@ title: Creating and merging a CSR in Azure Key Vault
 description: Learn how to create and merge a CSR in Azure Key Vault. 
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -119,7 +118,7 @@ Example
 
 - How do I monitor or manage my CSR?
 
-     See [Monitor and manage certificate creation](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+     See [Monitor and manage certificate creation](./create-certificate-scenarios.md).
 
 - What if I see **Error type 'The public key of the end-entity certificate in the specified X.509 certificate content does not match the public part of the specified private key. Please check if certificate is valid'**?
 

@@ -126,15 +126,35 @@ Horizon's sizing methodology on a host running in Azure VMware Solution is simpl
 
 ### Sizing tables
 
-The tables show the common workloads for Login VSI Knowledge Worker workloads and Power Worker workloads.
+Specific vCPU/vRAM requirements for Horizon virtual desktops depend on the customer’s specific workload profile.   Work with your MSFT and VMware sales team to help determine your vCPU/vRAM requirements for your virtual desktops. 
 
-#### Knowledge worker workloads
+| vCPU per VM | vRAM per VM (GB) | Instance | 100 VMs | 200 VMs | 300 VMs | 400 VMs | 500 VMs | 600 VMs | 700 VMs | 800 VMs | 900 VMs | 1000 VMs | 2000 VMs | 3000 VMs | 4000 VMs | 5000 VMs | 6000 VMs | 6400 VMs |
+|:-----------:|:----------------:|:--------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|      2      |        3.5       |    AVS   |    3    |    3    |    4    |    4    |    5    |    6    |    6    |    7    |    8    |     9    |    17    |    25    |    33    |    41    |    49    |    53    |
+|      2      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    6    |    7    |    8    |    9    |     9    |    18    |    26    |    34    |    42    |    51    |    54    |
+|      2      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      2      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      2      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      2      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      4      |        3.5       |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      4      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      4      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      4      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      6      |        3.5       |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         4        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      6      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      6      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      8      |        3.5       |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         4        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         6        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      8      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      8      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
 
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Knowledge worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
-
-#### Power worker workloads
-
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Power worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### Horizon sizing inputs
 
@@ -185,24 +205,13 @@ If deployed on Azure VMware Solution and on-premises, as with a disaster recover
 
 Work with your VMware EUC sales team to determine the Horizon licensing cost based on your needs.
 
-### Cost of the Horizon infrastructure VMs on Azure Virtual Network
+### Azure Instance Types
 
-Based on the standard deployment architecture, Horizon infrastructure VMs are made up of Connection Servers, UAGs, App Volume Managers. They're deployed in the customer's Azure Virtual Network. Additional Azure native instances are required to support High Availability (HA), Microsoft SQL, or Microsoft Active Directory (AD) services on Azure. The table lists the Azure instances based on a 2,000-desktop deployment example. 
+To understand the Azure virtual machine sizes which will be required for the Horizon Infrastructure please refer to VMware's guidelines which can be found [here](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
 
->[!NOTE]
->To be able to handle failure, deploy one more server than is required for the number of connections (n+1). The minimum recommended number of instances of the Connection Server, UAG and App Volumes Manager is 2, and the number of required will grow based on the amount of users the environment will support.  A single Connection Server supports a maximum of 4,000 sessions, although 2,000 is recommended as a best practice. Up to seven Connection Servers are supported per pod with a recommendation of 12,000 active sessions in total per pod. For the most current numbers, see the [VMware Knowledge Base article VMware Horizon 7 Sizing Limits and Recommendations](https://kb.vmware.com/s/article/2150348).
+## References
+[System Requirements For Horizon Agent for Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)
 
-| Horizon Infrastructure Component | Azure Instance | Number of Instances Needed (for 2,000-desktops)    | Comment  |
-|----------------------------------|----------------|----------------------------------------------------|----------|
-| Connection Server                | D4sv3          | 2       | *See Note Above*                         |    
-| UAG                              | F2sv2          | 2       | *See Note Above*                         |
-| App Volumes Manager              | D4sv3          | 2       | *See Note Above*                         |
-| Cloud Connector                  | D4sv3          | 1       |                                          |
-| AD Controller                    | D4sv3          | 2       | *Option to use MSFT AD service on Azure* |
-| MS-SQL Database                  | D4sv3          | 2       | *Option to use SQL service on Azure*     |
-| Windows file share               | D4sv3          |         | *Optional*                               |
-
-The infrastructure VM cost amounts to \$0.36 per user per month for the 2,000-desktop deployment in the example above. This example uses US East Azure instance June 2020 pricing. Your pricing may vary depending on region, options selected, and timing.
 
 ## Next steps
 To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

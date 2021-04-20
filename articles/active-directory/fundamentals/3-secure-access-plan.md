@@ -88,7 +88,7 @@ Sign-in conditions are configured in [Azure AD Conditional Access](../conditiona
 | High risk| Require MFA always for external users |
 
 
-Today, you can [enforce multi-factor authentication for B2B users in your tenant](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa). 
+Today, you can [enforce multi-factor authentication for B2B users in your tenant](../external-identities/b2b-tutorial-require-mfa.md). 
 
 **User- and device-based sign in conditions**.
 
@@ -101,11 +101,11 @@ Today, you can [enforce multi-factor authentication for B2B users in your tenant
 
 Today, to use device state as an input to a policy, the device must be registered or joined to your tenant. 
 
-[Identity Protection risk-based policies](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk) can be used. However, issues must be mitigated in the user’s home tenant.
+[Identity Protection risk-based policies](../conditional-access/howto-conditional-access-policy-risk.md) can be used. However, issues must be mitigated in the user’s home tenant.
 
-For [network locations](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location), you can restrict access to any IP addresses range that you own. You might use this if you only want external partners accessing an application while they are on site at your organization.
+For [network locations](../conditional-access/howto-conditional-access-policy-location.md), you can restrict access to any IP addresses range that you own. You might use this if you only want external partners accessing an application while they are on site at your organization.
 
-[Learn more about conditional access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+[Learn more about conditional access policies](../conditional-access/overview.md).
 
 ## Document access review policies
 
@@ -121,13 +121,13 @@ While your policies will be highly customized to your needs, consider the follow
 
 * **Entitlement Management Access Reviews**. Use the functionality in Entitlement Management to
 
-   * [Automatically expire access packages](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-lifecycle-policy), and thus external user access to the included resources.
+   * [Automatically expire access packages](../governance/entitlement-management-access-package-lifecycle-policy.md), and thus external user access to the included resources.
 
-   * Set a [required review frequency](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-reviews-create) for access reviews.
+   * Set a [required review frequency](../governance/entitlement-management-access-reviews-create.md) for access reviews.
 
-   * If you are using [connected organizations](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-organization) to group all users from a single partner, schedule regular reviews with the business owner and the partner representative.
+   * If you are using [connected organizations](../governance/entitlement-management-organization.md) to group all users from a single partner, schedule regular reviews with the business owner and the partner representative.
 
-* **Microsoft 365 Groups**. Set a [group expiration policy](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) for Microsoft 365 Groups to which external users are invited. 
+* **Microsoft 365 Groups**. Set a [group expiration policy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) for Microsoft 365 Groups to which external users are invited. 
 
 * **Other options**. If external users have access outside of Entitlement Management access packages or Microsoft 365 groups, set up business process to review when accounts should be made inactive or deleted. For example:
 
@@ -141,9 +141,9 @@ While your policies will be highly customized to your needs, consider the follow
 
 Now that you know what you want to control access to, how those assets should be grouped for common access, and required sign-in and access review policies, you can decide on how to accomplish your plan. 
 
-Some functionality, for example [Entitlement Management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview), is only available with an Azure AD Premium 2 (P2) licenses. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD P2 licenses. 
+Some functionality, for example [Entitlement Management](../governance/entitlement-management-overview.md), is only available with an Azure AD Premium 2 (P2) licenses. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD P2 licenses. 
 
-Other combinations of Microsoft 365, Office 365 and Azure AD also enable some functionality for managing external users. See [Information Protection](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance) for more information​.
+Other combinations of Microsoft 365, Office 365 and Azure AD also enable some functionality for managing external users. See [Information Protection](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance) for more information​.
 
 > [!NOTE]
 > Licenses are per user. Therefore, you can have specific users, including administrators and business owners delegated access control, at the Azure AD P2 or Microsoft 365 E5 level without enabling those licenses for all users. Your first 50,000 external users are free. If you do not enable P2 licenses for your other internal users, they will not be able to use entitlement management functionality like Access packages. 
@@ -175,7 +175,7 @@ Azure AD P2 and Microsoft 365 E5 have the full suite of security and governance 
 
 ### Entitlement Management 
 
-[Entitlement management access packages](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-create) enable provisioning and deprovisioning access to Groups and Teams, Applications, and SharePoint sites. You can define which connected organizations are allowed access, whether self-service requests are allowed, and what approval workflows are required (if any) to grant access. To ensure that access doesn’t stay around longer than necessary, you can define expiration policies and access reviews for each access package. 
+[Entitlement management access packages](../governance/entitlement-management-access-package-create.md) enable provisioning and deprovisioning access to Groups and Teams, Applications, and SharePoint sites. You can define which connected organizations are allowed access, whether self-service requests are allowed, and what approval workflows are required (if any) to grant access. To ensure that access doesn’t stay around longer than necessary, you can define expiration policies and access reviews for each access package. 
 
  
 

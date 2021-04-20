@@ -90,7 +90,7 @@ To configure Azure Purview to trust your new service principal:
 
 1. For **Assign access to** leave the default, **User, group, or service principal**
 
-1. For **Select** enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.
+1. For **Select** enter the name of the previosly created service principal you wish to assign and then click on their name in the results pane.
 
 1. Click on **Save**
 

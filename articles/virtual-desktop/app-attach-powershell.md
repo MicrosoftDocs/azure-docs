@@ -1,25 +1,17 @@
 ---
-title: Windows Virtual Desktop MSIX app attach preview PowerShell - Azure
+title: Windows Virtual Desktop MSIX app attach PowerShell - Azure
 description: How to set up MSIX app attach for Windows Virtual Desktop using PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Set up MSIX app attach (preview) using PowerShell
+# Set up MSIX app attach using PowerShell
 
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-In addition to the Azure portal, you can also set up MSIX app attach (preview) manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
+In addition to the Azure portal, you can also set up MSIX app attach manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
 
 ## Requirements
-
->[!IMPORTANT]
->Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
 
 Here's what you need to configure MSIX app attach:
 

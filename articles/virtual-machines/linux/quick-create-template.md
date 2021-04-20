@@ -2,7 +2,8 @@
 title: 'Quickstart: Use a Resource Manager template to create an Ubuntu Linux VM'
 description: In this quickstart, you learn how to use a Resource Manager template to create a Linux virtual machine
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020

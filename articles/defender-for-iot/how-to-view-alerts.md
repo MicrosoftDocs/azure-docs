@@ -1,25 +1,24 @@
 ---
-title: View alerts
-description: View alerts according to various categories, and use search features to help you find alerts of interest.
+title: Filter and manage alerts from the Alerts page 
+description: View alerts according to various categories, and uses search features to help you find alerts of interest.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/02/2020
+ms.date: 3/22/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
-# View alerts
+# Filter and manage alerts from the Alerts page 
 
 This article describes how to view alerts triggered by your sensor and manage them with alert tools.
 
-You can view alerts based on various categories, such as alerts that have been archived or pinned. Or you can search for alerts of interest, such as alerts based on an IP or MAC address.  
+You can view alerts based on various categories, such as alerts that have been archived or pinned. You also can search for alerts of interest, such as alerts based on an IP or MAC address.  
 
 You can also view alerts from the sensor dashboard.
 
 To view alerts:
 
-- Select **Alerts** from the side menu. The **Alerts** window displays the alerts that your sensor has detected.
+- Select **Alerts** from the side menu. The Alerts window displays the alerts that your sensor has detected.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="View of the Alerts screen.":::
 
@@ -37,21 +36,21 @@ You can view alerts according to various categories from the **Alerts** main vie
 
 ## Search for alerts of interest
 
-The **Alerts** main view provides various search features to help you find alerts of interest.
+The Alerts main view provides various search features to help you find alerts of interest.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Alerts learning screenshot.":::
 
-### Text search 
+### Text search
 
-Use the **Free Search** option to search for alerts by text, numbers, or characters.
+Use the Free Search option to search for alerts by text, numbers, or characters.
 
 To search:
 
-- Type the required text in the **Free Search** field and press Enter on your keyboard.
+- Type the required text in the Free Search field and press Enter on your keyboard.
 
 To clear the search:
 
-- Delete the text in the **Free Search** field and press Enter on your keyboard.
+- Delete the text in the Free Search field and press Enter on your keyboard.
 
 ### Device group or device IP address search
 
@@ -79,7 +78,7 @@ When none of the options are selected, all the alerts are displayed.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Security on the alerts screen.":::
 
-## Alert window options
+## Alert page options
 
 Alert messages provide the following actions:
 
@@ -95,7 +94,9 @@ Alert messages provide the following actions:
 
 - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: to learn and acknowledge all alerts.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: to export the alert list to a CSV file and select the export option. Choose **Alert Export** for the regular export-to-CSV option. Or choose **Extended Alert Export** for the possibility to add separate rows for additional information about an alert in the CSV file.
+- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: to export alert information to a .csv file. Use the **Extended Alert Export** option to export alert information in separate rows for each alert that covers multiple devices.
+
+## Alert pop-up window options
 
 - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: icon to download an alert report as a PDF file.
 

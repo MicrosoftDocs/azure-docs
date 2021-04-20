@@ -38,4 +38,4 @@ HTTP/1.1 403 Forbidden
 
 ## Managing role assignments
 
-You can manage role assignments by using [RBAC procedures](../role-based-access-control/overview.md) that are standard across all Azure services. You can do this through the Azure CLI, PowerShell, and the Azure portal. For more information, see [Add or remove Azure role assignments by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You can manage role assignments by using [Azure RBAC procedures](../role-based-access-control/overview.md) that are standard across all Azure services. You can do this through the Azure CLI, PowerShell, and the Azure portal. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).

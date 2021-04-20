@@ -38,6 +38,9 @@ You can configure server-level IP firewall rules by using the Azure portal, Powe
 - To use the portal or PowerShell, you must be the subscription owner or a subscription contributor.
 - To use Transact-SQL, you must connect to the *master* database as the server-level principal login or as the Azure Active Directory administrator. (A server-level IP firewall rule must first be created by a user who has Azure-level permissions.)
 
+> [!NOTE]
+> By default, during creation of a new logical SQL server from the Azure portal, the **Allow Azure Services and resources to access this server** setting is set to **No**.
+
 ### Database-level IP firewall rules
 
 Database-level IP firewall rules enable clients to access certain (secure) databases. You create the rules for each database (including the *master* database), and they're stored in the individual database.
@@ -92,7 +95,9 @@ When a computer tries to connect to your server from the internet, the firewall 
 
 ### Connections from inside Azure
 
-To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. When an application from Azure tries to connect to your server, the firewall verifies that Azure connections are allowed. This can be turned on directly from the Azure portal blade by setting Firewall rules, as well as switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. If the connection isn't allowed, the request doesn't reach the server.
+To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. To enable Azure connections, there must be a firewall rule with starting and ending IP addresses set to 0.0.0.0.
+
+When an application from Azure tries to connect to the server, the firewall checks that Azure connections are allowed by verifying this firewall rule exists. This can be turned on directly from the Azure portal blade by switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. Setting to ON creates an inbound firewall rule for IP 0.0.0.0 - 0.0.0.0 named **AllowAllWindowsIP**. Use PowerShell or the Azure CLI to create a firewall rule with start and end IP addresses set to 0.0.0.0 if you’re not using the portal. 
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. If you select this option, make sure that your login and user permissions limit access to authorized users only.

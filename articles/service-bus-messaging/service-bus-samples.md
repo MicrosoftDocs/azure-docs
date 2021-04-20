@@ -28,10 +28,15 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | -------------------- | ----------------------- |
 | azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
+## TypeScript samples
+| Package | Samples location | 
+| ------- | ---------------- | 
+| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/ | 
+
 ## JavaScript samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
+| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
 ## Go samples
 | Package | Samples location | 

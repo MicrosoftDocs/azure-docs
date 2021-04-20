@@ -3,11 +3,14 @@ title: Quickstart - Deploy JBoss Enterprise Application Platform (EAP) on Red Ha
 description: How to deploy enterprise Java applications by using Red Hat JBoss EAP on Azure RHEL VMs and virtual machine scale sets.
 author: theresa-nguyen
 ms.author: bicnguy
-ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
+ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
+ms.topic: quickstart
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.custom:
+  - mode-api
+ms.collection: linux
 ---
 
 # Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux

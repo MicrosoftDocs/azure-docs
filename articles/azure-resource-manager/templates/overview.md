@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/12/2021
 ---
 
 # What are ARM templates?
@@ -12,6 +12,12 @@ With the move to the cloud, many teams have adopted agile development methods. T
 To meet these challenges, you can automate deployments and use the practice of infrastructure as code. In code, you define the infrastructure that needs to be deployed. The infrastructure code becomes part of your project. Just like application code, you store the infrastructure code in a source repository and version it. Any one on your team can run the code and deploy similar environments.
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
+
+We've introduced a new language for developing ARM templates. The language is named Bicep, and is currently in preview. Bicep and JSON templates offer the same capabilities. You can convert template between the two languages. Bicep provides a syntax that is easier to use for creating templates. For more information, see [What is Bicep (Preview)?](bicep-overview.md).
+
+To learn about how you can get started with ARM templates, see the following video.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## Why choose ARM templates?
 
@@ -63,7 +69,7 @@ The template has the following sections:
 
 * [User-defined functions](template-user-defined-functions.md) - Create customized functions that simplify your template.
 
-* [Resources](template-syntax.md#resources) - Specify the resources to deploy.
+* [Resources](resource-declaration.md) - Specify the resources to deploy.
 
 * [Outputs](template-outputs.md) - Return values from the deployed resources.
 
@@ -105,6 +111,15 @@ REQUEST BODY
 
 Notice that the **apiVersion** you set in the template for the resource is used as the API version for the REST operation. You can repeatedly deploy the template and have confidence it will continue to work. By using the same API version, you don't have to worry about breaking changes that might be introduced in later versions.
 
+To deploy a template, use any of the following options:
+
+* [Azure portal](deploy-portal.md)
+* [Azure CLI](deploy-cli.md)
+* [PowerShell](deploy-powershell.md)
+* [REST API](deploy-rest.md)
+* [Button in GitHub repository](deploy-to-azure-button.md)
+* [Azure Cloud Shell](deploy-cloud-shell.md)
+
 ## Template design
 
 How you define templates and resource groups is entirely up to you and how you want to manage your solution. For example, you can deploy your three tier application through a single template to a single resource group.
@@ -120,6 +135,12 @@ If you envision your tiers having separate lifecycles, you can deploy your three
 ![tier template](./media/overview/tier-templates.png)
 
 For information about nested templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
+
+## Share templates
+
+After creating your template, you may wish to share it with other users in your organization. [Template specs](template-specs.md) enable you to store a template as a resource type. You use role-based access control to manage access to the template spec. Users with read access to the template spec can deploy it, but not change the template.
+
+This approach means you can safely share templates that meet your organization's standards.
 
 ## Next steps
 

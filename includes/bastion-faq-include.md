@@ -5,14 +5,10 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 11/05/2020
+ ms.date: 02/05/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
-
-### <a name="regions"></a>Which regions are available?
-
-[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
 
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
 
@@ -21,6 +17,10 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 ### Is IPv6 supported?
 
 At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
+
+### Can I use Azure Bastion with Azure Private DNS Zones?
+
+The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone.
 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
@@ -46,7 +46,7 @@ This feature doesn't work with AADJ VM extension-joined machines using Azure AD 
 
 ### <a name="browsers"></a>Which browsers are supported?
 
-Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
+The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 

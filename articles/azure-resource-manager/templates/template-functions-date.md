@@ -281,7 +281,7 @@ The next example shows how to use a value from the function when setting a tag v
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {
@@ -305,7 +305,7 @@ The next example shows how to use a value from the function when setting a tag v
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2018-05-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   name: rgName
   location: 'westeurope'
   tags: {

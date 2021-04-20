@@ -176,6 +176,21 @@ It will show the new definition of the server group:
 To scale down the server group you execute the same command but set lesser values for the settings you want to scale down. 
 To remove the requests and/or limits, specify its value as empty string.
 
+## Reset to default values
+To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit (cl) parameter, run the following commands:
+- on a Linux client:
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- on a Windows client: 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
+
 ## Next steps
 
 - [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)

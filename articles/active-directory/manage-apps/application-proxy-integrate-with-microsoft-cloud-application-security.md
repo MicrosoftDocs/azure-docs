@@ -2,7 +2,7 @@
 title: Integrate on-premises apps with Cloud App Security - Azure AD
 description: Configure an on-premises application in Azure Active Directory to work with Microsoft Cloud App Security (MCAS). Use the MCAS Conditional Access App Control to monitor and control sessions in real-time based on Conditional Access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

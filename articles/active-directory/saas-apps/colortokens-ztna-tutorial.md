@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Group | user.groups |
 
 	> [!NOTE]
-	> Click [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to know how to create roles in Azure AD.
+	> Click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) to know how to create roles in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -138,7 +138,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to ColorTokens ZTNA Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the ColorTokens ZTNA tile in the My Apps, this will redirect to ColorTokens ZTNA Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the ColorTokens ZTNA tile in the My Apps, this will redirect to ColorTokens ZTNA Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

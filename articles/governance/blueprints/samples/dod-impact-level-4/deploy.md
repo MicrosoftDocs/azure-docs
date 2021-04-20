@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample
 description: Deploy steps for the DoD Impact Level 4 blueprint sample including blueprint artifact parameter details.
-ms.date: 01/08/2021
+ms.date: 04/13/2021
 ms.topic: sample
 ---
 # Deploy the DoD Impact Level 4 blueprint sample
@@ -13,8 +13,9 @@ To deploy the Azure Blueprints Department of Defense Impact Level 4 (DoD IL4) bl
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+If you don't have an Azure Government subscription, request a
+[trial subscription](https://azure.microsoft.com/global-infrastructure/government/request/) before
+you begin.
 
 ## Create blueprint from sample
 
@@ -134,7 +135,7 @@ The following table provides a list of the blueprint artifact parameters:
 |Deploy Log Analytics Agent for Windows VMs|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
 |\[Preview\]: DoD Impact Level 4|Policy assignment|Members to be included in the Administrators local group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |\[Preview\]: DoD Impact Level 4|Policy assignment|Members that should be excluded in the Administrators local group|A semicolon-separated list of members that should be included in the Administrators local group. Ex: Administrator; myUser1; myUser2|
-|\[Preview\]: DoD Impact Level 4|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Preview\]: DoD Impact Level 4|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Preview\]: DoD Impact Level 4|Policy assignment|Log Analytics workspace ID that VMs should be configured for|This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for.|
 |\[Preview\]: DoD Impact Level 4|Policy assignment|Long-term geo-redundant backup should be enabled for Azure SQL Databases|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: DoD Impact Level 4|Policy assignment|Vulnerability assessment should be enabled on your SQL managed instances|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|

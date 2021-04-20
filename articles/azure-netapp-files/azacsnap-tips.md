@@ -23,7 +23,7 @@ This article provides tips and tricks that might be helpful when you use AzAcSna
 
 ## Limit service principal permissions
 
-It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](https://docs.microsoft.com/azure/role-based-access-control/) for more details on fine-grained access management of Azure resources.  
+It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](../role-based-access-control/index.yml) for more details on fine-grained access management of Azure resources.  
 
 The following is an example role definition with the minimum required actions needed for AzAcSnap to function.
 
@@ -43,6 +43,27 @@ az role definition create --role-definition '{ \
   "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
 }'
 ```
+
+For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case the role definition needs an additional action, therefore the complete service principal should look like the following example.
+
+```bash
+az role definition create --role-definition '{ \
+  "Name": "Azure Application Consistent Snapshot tool", \
+  "IsCustom": "true", \
+  "Description": "Perform snapshots and restores on ANF volumes.", \
+  "Actions": [ \
+    "Microsoft.NetApp/*/read", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write" \
+  ], \
+  "NotActions": [], \
+  "DataActions": [], \
+  "NotDataActions": [], \
+  "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
+}'
+```
+
 
 ## Take snapshots manually
 

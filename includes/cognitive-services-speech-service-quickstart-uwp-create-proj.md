@@ -100,4 +100,4 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), 
 
 1. In the **Preview Changes** dialog box, select **OK**.
 
-1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins, and when installation is complete, the **Output** pane displays a message similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.13.0' to helloworld`.
+1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins, and when installation is complete, the **Output** pane displays a message similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.15.0' to helloworld`.

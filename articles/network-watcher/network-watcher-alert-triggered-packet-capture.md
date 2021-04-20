@@ -329,7 +329,7 @@ The following example is PowerShell code that can be used in the function. There
 
     ![Copying the function URL][2]
 
-If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
+If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## Configure an alert on a VM
 
@@ -337,7 +337,7 @@ Alerts can be configured to notify individuals when a specific metric crosses a 
 
 ### Create the alert rule
 
-Go to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../azure-monitor/platform/alerts-classic-portal.md). Enter the following values in the **Alert rule** blade, and then select **OK**.
+Go to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../azure-monitor/alerts/alerts-classic-portal.md). Enter the following values in the **Alert rule** blade, and then select **OK**.
 
   |**Setting** | **Value** | **Details** |
   |---|---|---|

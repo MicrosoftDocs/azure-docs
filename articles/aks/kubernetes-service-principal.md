@@ -126,7 +126,7 @@ When using AKS and Azure AD service principals, keep the following consideration
 - If you do not specifically pass a service principal in additional AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.  
 - You can also optionally remove the aksServicePrincipal.json file, and AKS will create a new service principal.
 - When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal that was created automatically is not deleted.
-    - To delete the service principal, query for your cluster *servicePrincipalProfile.clientId* and then delete with [az ad app delete][az-ad-app-delete]. Replace the following resource group and cluster names with your own values:
+    - To delete the service principal, query for your cluster *servicePrincipalProfile.clientId* and then delete with [az ad sp delete][az-ad-sp-delete]. Replace the following resource group and cluster names with your own values:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -160,6 +160,7 @@ For information on how to update the credentials, see [Update or rotate the cred
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-delete]: /cli/azure/ad/sp#az_ad_sp_delete
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]:../active-directory/develop/app-objects-and-service-principals.md

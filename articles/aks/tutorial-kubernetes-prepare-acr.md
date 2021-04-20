@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 01/31/2021
 
 ms.custom: mvc, devx-track-azurecli
 
@@ -59,7 +59,7 @@ The command returns a *Login Succeeded* message once completed.
 To see a list of your current local images, use the [docker images][docker-images] command:
 
 ```console
-$ docker images
+docker images
 ```
 The above command's output shows list of your current local images:
 
@@ -86,8 +86,8 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 To verify the tags are applied, run [docker images][docker-images] again.
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 An image is tagged with the ACR instance address and a version number.

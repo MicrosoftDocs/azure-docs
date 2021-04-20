@@ -19,26 +19,7 @@ Azure Backup also has specialized offerings for database workloads like [SQL Ser
 
 Here's how Azure Backup completes a backup for Azure VMs:
 
-1. For Azure VMs that are selected for backup, Azure Backup starts a backup job according to the backup schedule you specify.
-1. During the first backup, a backup extension is installed on the VM if the VM is running.
-    - For Windows VMs, the [VMSnapshot extension](../virtual-machines/extensions/vmsnapshot-windows.md) is installed.
-    - For Linux VMs, the [VMSnapshotLinux extension](../virtual-machines/extensions/vmsnapshot-linux.md) is installed.
-1. For Windows VMs that are running, Backup coordinates with Windows Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM.
-    - By default, Backup takes full VSS backups.
-    - If Backup can't take an app-consistent snapshot, then it takes a file-consistent snapshot of the underlying storage (because no application writes occur while the VM is stopped).
-1. For Linux VMs, Backup takes a file-consistent backup. For app-consistent snapshots, you need to manually customize pre/post scripts.
-1. After Backup takes the snapshot, it transfers the data to the vault.
-    - The backup is optimized by backing up each VM disk in parallel.
-    - For each disk that's being backed up, Azure Backup reads the blocks on the disk and identifies and transfers only the data blocks that changed (the delta) since the previous backup.
-    - Snapshot data might not be immediately copied to the vault. It might take some hours at peak times. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. Changes made to a Windows VM after Azure Backup is enabled on it are:
-    - Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is installed in the VM
-    - Startup type of Volume Shadow Copy service (VSS) changed to automatic from manual
-    - IaaSVmProvider Windows service is added
-
-1. When the data transfer is complete, the snapshot is removed, and a recovery point is created.
-
-![Azure virtual machine backup architecture](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## Encryption of Azure VM backups
 
@@ -116,7 +97,7 @@ When you're configuring VM backups, we suggest following these practices:
 - If you're restoring VMs from a single vault, we highly recommend that you use different [general-purpose v2 storage accounts](../storage/common/storage-account-upgrade.md) to ensure that the target storage account doesn't get throttled. For example, each VM must have a different storage account. For example, if 10 VMs are restored, use 10 different storage accounts.
 - For backup of VMs that are using premium storage with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space isn't a requirement for backups after the first backup is complete
 - The limit on the number of disks per storage account is relative to how heavily the disks are being accessed by applications that are running on an infrastructure as a service (IaaS) VM. As a general practice, if 5 to 10 disks or more are present on a single storage account, balance the load by moving some disks to separate storage accounts.
-- To restore VMs with managed disks using PowerShell, provide the additional parameter ***TargetResourceGroupName*** to specify the resource group to which managed disks will be restored, [Learn more here](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
+- To restore VMs with managed disks using PowerShell, provide the additional parameter ***TargetResourceGroupName*** to specify the resource group to which managed disks will be restored, [Learn more here](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## Backup costs
 

@@ -3,9 +3,6 @@ title: Apache Spark slow when Azure HDInsight storage has many files
 description: Apache Spark job runs slowly when the Azure storage container contains many files in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/21/2019
 ---
 
@@ -26,6 +23,8 @@ To track partitions, Spark has to maintain a `FileStatusCache` which contains in
 In Spark 2.1, while we do not need to update the cache after every write, Spark will check whether an existing partition column matches with the proposed one in the current write request, so it will also lead to listing operations at the beginning of every write.
 
 In Spark 2.2, when writing data with append mode, this performance problem should be fixed.
+
+In Spark 2.3, the same behavior as Spark 2.2 is expected.
 
 ## Resolution
 

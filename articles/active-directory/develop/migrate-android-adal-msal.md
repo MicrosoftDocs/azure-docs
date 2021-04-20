@@ -68,7 +68,7 @@ In your app registration in the portal, you will see an **API permissions** tab.
 With ADAL and the Azure AD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
 > [!TIP]
-> We recommend the use of incremental consent in scenarios where you need to provide additional context to your user about why your app needs a permission.
+> Use incremental consent to provide additional context to your users about why your app needs a permission.
 
 ### Admin consent
 

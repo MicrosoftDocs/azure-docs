@@ -1,9 +1,6 @@
 ---
 title: Secure and isolate Azure HDInsight clusters with Private Link (preview)
 description: Learn how to isolate Azure HDInsight clusters in a virtual network using Azure Private Link.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
@@ -55,7 +52,7 @@ Standard load balancers do not automatically provide the [public outbound NAT](.
 
 ### Prepare your environment
 
-For successgfull creation of private link services, you must explicitly [disable network policies for private link service](../private-link/disable-private-link-service-network-policy.md).
+For successfully creation of private link services, you must explicitly [disable network policies for private link service](../private-link/disable-private-link-service-network-policy.md).
 
 The following diagram shows an example of the networking configuration required before you create a cluster. In this example, all outbound traffic is [forced](../firewall/forced-tunneling.md) to Azure Firewall using UDR and the required outbound dependencies should be "allowed" on the firewall before creating a cluster. For Enterprise Security Package clusters, the network connectivity to Azure Active Directory Domain Services can be provided by VNet peering.
 
@@ -95,12 +92,12 @@ networkProperties: {
 
 For a complete template with many of the HDInsight enterprise security features, including Private Link, see [HDInsight enterprise security template](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
 
-### Use Azure Powershell
+### Use Azure PowerShell
 
-To use powershell see the example [here](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+To use PowerShell, see the example [here](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
 
 ### Use Azure CLI
-To use Azure CLI, see the example [here](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
+To use Azure CLI, see the example [here](/cli/azure/hdinsight#az_hdinsight_create-examples).
 
 ## Next steps
 

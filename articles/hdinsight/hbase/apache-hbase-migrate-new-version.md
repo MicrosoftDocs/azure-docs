@@ -1,9 +1,6 @@
 ---
 title: Migrate an HBase cluster to a new version - Azure HDInsight 
 description: How to migrate Apache HBase clusters to a newer version in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -47,7 +44,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 1. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account, but with a different container name:
 
-   ![Use the same Storage account, but create a different Container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/same-storage-different-container.png" alt-text="Use the same Storage account, but create a different Container" border="true":::
 
 1. Flush your source HBase cluster, which is the cluster you're upgrading. HBase writes incoming data to an in-memory store, called a _memstore_. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. When deleting the old cluster, the memstores are recycled, potentially losing data. To manually flush the memstore for each table to disk, run the following script. The latest version of this script is on Azure's [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
 
@@ -173,9 +170,9 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the old cluster (`https://OLDCLUSTERNAME.azurehdidnsight.net`) and stop the HBase services. When you prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
-	![In Ambari, click Services > HBase > Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
+	:::image type="content" source="./media/apache-hbase-migrate-new-version/stop-hbase-services1.png" alt-text="In Ambari, click Services > HBase > Stop under Service Actions" border="true":::
 
-	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
+	:::image type="content" source="./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png" alt-text="Check the Turn On Maintenance Mode for HBase checkbox, then confirm" border="true":::
 
 1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
 
@@ -188,15 +185,15 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 	
 1. Sign in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
 
-   ![In Ambari, click Services > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="In Ambari, click Services > HDFS > Configs > Advanced" border="true":::
 
-   ![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/change-container-name.png" alt-text="In Ambari, change the container name" border="true":::
 
 1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
 
    Change the `hbase.rootdir` path to point to the container of the original cluster.
 
-   ![In Ambari, change the container name for HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png" alt-text="In Ambari, change the container name for HBase rootdir" border="true":::
 	
 1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature, and only in cases where your original cluster was an HBase cluster with Enhanced Writes feature .
 

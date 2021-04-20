@@ -36,7 +36,7 @@ The following pre-requisites must be met before you plan the disaster recovery f
 - You have storage replication working. The Microsoft operations team performs the storage replication setup at the time of DR provisioning automatically. You can monitor the storage replication using the command `azacsnap -c details --details replication` at the DR site.
 - You have set up and configured storage snapshots at the primary location.
 - You have an HANA instance installed at the DR site for the primary with the same SID as the primary instance has.
-- You read and understand the DR Failover procedure described in [SAP HANA Large Instances high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
+- You read and understand the DR Failover procedure described in [SAP HANA Large Instances high availability and disaster recovery on Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md)
 - You have set up and configured storage snapshots at the DR location.
 - A configuration file (for example, `DR.json`) has been created with the DR storage volumes and associated
     information on the DR server.
@@ -145,13 +145,13 @@ HDB stop
 #### Step 4: Restore the volumes
 
 ```bash
-azacsnap -c restore --restore revertvolume --hanasid H80
+azacsnap -c restore --restore revertvolume --dbsid H80
 ```
 
 **_Output of the DR failover command_**.
 
 ```bash
-azacsnap --configfile DR.json -c restore --restore revertvolume --hanasid H80
+azacsnap --configfile DR.json -c restore --restore revertvolume --dbsid H80
 ```
 
 ```output

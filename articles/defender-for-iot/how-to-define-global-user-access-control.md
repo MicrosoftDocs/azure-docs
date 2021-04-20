@@ -1,12 +1,8 @@
 ---
 title: Define global user access control
 description: In large organizations, user permissions can be complex and might be determined by a global organizational structure, in addition to the standard site and zone structure.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
-ms.service: azure
 ---
 
 # Define global access control
@@ -15,7 +11,7 @@ In large organizations, user permissions can be complex and might be determined 
 
 To support the demand for user access permissions that are global and more complex, you can create a global business topology that's based on business units, regions, and sites. Then you can define user access permissions around these entities.
 
-Working with access tools for business topology helps organizations implement zero-trust strategies by better controlling where users manage and analyze assets in the Azure Defender for IoT platform.
+Working with access tools for business topology helps organizations implement zero-trust strategies by better controlling where users manage and analyze devices in the Azure Defender for IoT platform.
 
 ## About access groups
 

@@ -1,12 +1,8 @@
 ---
 title: Gain insight into devices discovered by a specific sensor
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Investigate sensor detections in a device inventory
@@ -27,18 +23,18 @@ The following attributes appear in the device inventory table.
 
 | Parameter | Description |
 |--|--|
-| Name | The name of the device as the sensor discovered it. |
-| Type | The type of device. |
+| Name | The name of the device as the sensor discovered it, or as entered by the user. |
+| Type | The type of device as determined by the sensor, or as entered by the user. |
 | Vendor | The name of the device's vendor, as defined in the MAC address. |
-| Operating System | The OS of the device. |
-| Firmware | The device's firmware. |
-| IP Address | The IP address of the device. |
+| Operating System | The OS of the device, if detected. |
+| Firmware version | The device's firmware, if detected. |
+| IP Address | The IP address of the device where defined. |
 | VLAN | The VLAN of the device. For details about instructing the sensor to discover VLANs, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
 | MAC Address | The MAC address of the device. |
 | Protocols | The protocols that the device uses. |
 | Unacknowledged Alerts | The number of unacknowledged alerts associated with this device. |
 | Is Authorized | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
-| Is Known as Scanner | Defined as a scanning device by the user. |
+| Is Known as Scanner | Defined as a network scanning device by the user. |
 | Is Programming device | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device is not a programming device. |
 | Groups | The groups that this device participates in. |
 | Last Activity | The last activity that the device performed. |
@@ -106,7 +102,7 @@ When you switch to the map view, the filtered devices are highlighted and filter
 
 ## Learn Windows registry details
 
-In addition to learning OT devices, you can discover IT devices, including Microsoft Windows workstations and servers. These devices are also displayed in device inventory. After you learn devices, you can enrich the device inventory with detailed Windows information, such as:
+In addition to learning OT devices, you can discover Microsoft Windows workstations, and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
 
 - Windows version installed
 
@@ -170,7 +166,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 - If you run the script again in the same location, these files are overwritten.
 
-To run the script:  
+To run the script:  
 
 1. Copy the script to a local drive and unzip it. The following files appear:
 
@@ -212,7 +208,7 @@ To import:
 
 ## Export device inventory information
 
-You can export device inventory information to an Excel file. Imported information overwrites current information.
+You can export device inventory information to an Excel file.
 
 To export a CSV file:
 

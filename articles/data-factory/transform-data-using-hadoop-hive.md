@@ -1,14 +1,10 @@
 ---
 title: Transform data using Hadoop Hive activity
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
 ---
@@ -65,6 +61,9 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 | arguments           | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines             | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
 | queryTimeout        | Query timeout value (in minutes). Applicable when the HDInsight cluster is with Enterprise Security Package enabled. | No       |
+
+>[!NOTE]
+>The default value for queryTimeout is 120 minutes. 
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 

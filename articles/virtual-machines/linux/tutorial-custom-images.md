@@ -2,7 +2,7 @@
 title: Tutorial - Create custom VM images with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create a custom virtual machine image in Azure
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: tutorial
 ms.workload: infrastructure
@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Overview
 
-A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+A [Shared Image Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
 The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
@@ -87,11 +87,11 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](../shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](../shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -177,7 +177,7 @@ For more information about how to share resources using Azure RBAC, see [Add or 
 
 ## Azure Image Builder
 
-Azure also offers a service, built on Packer, [Azure VM Image Builder](./image-builder-overview.md). Simply describe your customizations in a template, and it will handle the image creation. 
+Azure also offers a service, built on Packer, [Azure VM Image Builder](../image-builder-overview.md). Simply describe your customizations in a template, and it will handle the image creation. 
 
 ## Next steps
 

@@ -6,7 +6,7 @@ ms.date: 03/06/2020
 ms.author: glenga
 ---
 
-1. To run your function, press F5 in Visual Studio. You might need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when you run a function locally.
+1. To run your function, press <kbd>F5</kbd> in Visual Studio. You might need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when you run a function locally.
 
 2. Copy the URL of your function from the Azure Functions runtime output.
 
@@ -16,4 +16,4 @@ ms.author: glenga
 
     ![Function localhost response in the browser](./media/functions-run-function-test-local-vs/functions-run-browser-local-vs.png)
 
-4. To stop debugging, press Shift+F5 in Visual Studio.
+4. To stop debugging, press <kbd>Shift</kbd>+<kbd>F5</kbd> in Visual Studio.

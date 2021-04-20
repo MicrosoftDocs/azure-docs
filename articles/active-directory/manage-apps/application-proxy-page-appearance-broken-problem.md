@@ -4,7 +4,7 @@ description: Guidance when the page isn’t displaying correctly in an Applicati
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

@@ -3,14 +3,14 @@ title: Administrative units troubleshooting and FAQ - Azure Active Directory | M
 description: Investigate administrative units to grant permissions with restricted scope in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Azure AD administrative units: Troubleshooting and FAQ
 
-For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
+For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
 
 ## Frequently asked questions
 
@@ -65,9 +65,9 @@ Administrative units, such as organizational units in Windows Server Active Dire
 
 **Q: Are administrative units supported in PowerShell and the Graph API?**
 
-**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
+**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units).
 
-Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) in Microsoft Graph.
+Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit) in Microsoft Graph.
 
 ## Next steps
 

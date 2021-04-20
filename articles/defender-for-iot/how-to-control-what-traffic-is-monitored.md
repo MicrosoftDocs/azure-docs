@@ -1,12 +1,8 @@
 ---
 title: Control what traffic is monitored
 description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Control what traffic is monitored
@@ -186,11 +182,11 @@ To set a DHCP address range:
 
 ## Configure DNS servers for reverse lookup resolution
 
-To enhance asset enrichment, you can configure multiple DNS servers to carryout reverse lookups. You can resolve host names or FQDNs associated with the IP addresses detected in network subnets. For example, if a sensor discovers an IP address, it might query multiple DNS servers to resolve the host name.
+To enhance device enrichment, you can configure multiple DNS servers to carryout reverse lookups. You can resolve host names or FQDNs associated with the IP addresses detected in network subnets. For example, if a sensor discovers an IP address, it might query multiple DNS servers to resolve the host name.
 
 All CIDR formats are supported.
 
-The host name appears in the asset inventory and asset map, as well as in reports.
+The host name appears in the device inventory, and device map, and in reports.
 
 You can schedule reverse lookup resolution schedules for specific hourly intervals, such as every 12 hours. Or you can schedule a specific time.
 
@@ -212,7 +208,7 @@ To define DNS servers:
 
 5. In the **DNS Server Port** field, enter the DNS port.
 
-6. Resolve the network IP addresses to asset FQDNs. In the **Number of Labels** field, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
+6. Resolve the network IP addresses to device FQDNs. In the **Number of Labels** field, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
 
 7. In the **Subnets** field, enter the subnets that you want the DNS server to query.
 
@@ -220,7 +216,7 @@ To define DNS servers:
 
 ### Test the DNS configuration 
 
-By using a test asset, verify that the settings you defined work properly:
+By using a test device, verify that the settings you defined work properly:
 
 1. Enable the **DNS Lookup** toggle.
 

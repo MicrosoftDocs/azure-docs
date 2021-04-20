@@ -1,7 +1,7 @@
 ---
-title: How to preserve data privacy using the SmartNoise packages (preview)
+title: Differential privacy how-to - SmartNoise (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise packages.
+description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise open-source libraries.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.custom: how-to, responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 12/21/2020
+ms.date: 01/21/2020
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 
 # Use differential privacy in Azure Machine Learning (preview)
 
-Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise Python packages.
+Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise Python open-source libraries.
 
-Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about how [differential privacy works](./concept-differential-privacy.md).
+Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about [how differential privacy works](./concept-differential-privacy.md).
 
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Differential privacy is the gold-standard definition of privacy. Systems that ad
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 - [Python 3](https://www.python.org/downloads/)
 
-## Install SmartNoise packages
+## Install SmartNoise Python libraries
 
 ### Standalone installation
 
@@ -47,7 +47,7 @@ import opendp.smartnoise.sql
 
 If the imports succeed, the libraries are installed and ready to use.
 
-### Docker image
+### Docker image installation
 
 You can also use SmartNoise packages with Docker.
 

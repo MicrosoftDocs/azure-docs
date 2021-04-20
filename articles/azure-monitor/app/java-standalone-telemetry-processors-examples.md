@@ -1,6 +1,6 @@
 ---
-title: Telemetry processors examples - Azure Monitor Application Insights for Java
-description: Examples illustrating telemetry processors in Azure Monitor Application Insights for Java
+title: Telemetry processor examples - Azure Monitor Application Insights for Java
+description: Explore examples that show telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 12/29/2020
 author: kryalama
@@ -8,23 +8,24 @@ ms.custom: devx-track-java
 ms.author: kryalama
 ---
 
-# Telemetry processors examples - Azure Monitor Application Insights for Java
+# Telemetry processor examples - Azure Monitor Application Insights for Java
 
-## Include/Exclude Samples
+This article provides examples of telemetry processors in Application Insights for Java. You'll find samples for include and exclude configurations. You'll also find samples for attribute processors and span processors.
+## Include and exclude samples
 
-### 1. Include Spans
+In this section, you'll see how to include and exclude spans. You'll also see how to exclude multiple spans and apply selective processing.
+### Include spans
 
-The following demonstrates including spans for this attributes processor. All other spans that do no match the properties are not processed by this processor.
+This section shows how to include spans for an attribute processor. Spans that don't match the properties aren't processed by the processor.
 
-The following are conditions to be met for a match:
-* The span name must be equal to "spanA" or "spanB" 
+A match requires the span name to be equal to `spanA` or `spanB`. 
 
-The following are spans that match the include properties and the processor actions are applied.
+These spans match the include properties, and the processor actions are applied:
 * Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
 * Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-The following span does not match the include properties and the processor actions are not applied.
+This span doesn't match the include properties, and the processor actions aren't applied:
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
@@ -53,19 +54,18 @@ The following span does not match the include properties and the processor actio
 }
 ```
 
-### 2. Exclude Spans
+### Exclude spans
 
-The following demonstrates excluding spans for this attributes processor. All spans that match the properties are not processed by this processor.
+This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
 
-The following are conditions to be met for a match:
-* The span name must be equal to "spanA" or "spanB" 
+A match requires the span name to be equal to `spanA` or `spanB`.
 
-The following are spans that match the exclude properties and the processor actions are not applied.
+The following spans match the exclude properties, and the processor actions aren't applied:
 * Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
 * Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-The following span do not match the exclude properties and the processor actions are applied.
+This span doesn't match the exclude properties, and the processor actions are applied:
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
@@ -94,19 +94,19 @@ The following span do not match the exclude properties and the processor actions
 }
 ```
 
-### 3. ExcludeMulti Spans
+### Exclude spans by using multiple criteria
 
-The following demonstrates excluding spans for this attributes processor. All spans that match the properties are not processed by this processor.
+This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
 
-The following are conditions to be met for a match:
-* An attribute ('env', 'dev') must exist in the span for a match.
-* As long as there is an attribute with key 'test_request' in the span there is a match.
+A match requires the following conditions to be met:
+* An attribute (for example, `env` or `dev`) must exist in the span.
+* The span must have an attribute that has key `test_request`.
 
-The following are spans that match the exclude properties and the processor actions are not applied.
+The following spans match the exclude properties, and the processor actions aren't applied.
 * Span1 Name: 'spanB' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanA' Attributes: {env: dev, test_request: false}
 
-The following span do not match the exclude properties and the processor actions are applied.
+The following span doesn't match the exclude properties, and the processor actions are applied:
 * Span3 Name: 'spanB' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 * Span4 Name: 'spanC' Attributes: {env: dev, dev_request: false}
 
@@ -146,19 +146,18 @@ The following span do not match the exclude properties and the processor actions
 }
 ```
 
-### 4. Selective processing
+### Selective processing
 
-The following demonstrates specifying the set of span properties to
-indicate which spans this processor should be applied to. The `include` of
-properties say which ones should be included and the `exclude` properties
-further filter out spans that shouldn't be processed.
+This section shows how to specify the set of span properties that
+indicate which spans this processor should be applied to. The include 
+properties indicate which spans should be processed. The exclude properties filter out spans that shouldn't be processed.
 
-With the below configuration, the following spans match the properties and processor actions are applied:
+In the following configuration, these spans match the properties, and processor actions are applied:
 
 * Span1 Name: 'spanB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
 * Span2 Name: 'spanA' Attributes: {env: staging, test_request: false, redact_trace: true}
 
-The following spans do not match the include properties and processor actions are not applied:
+These spans don't match the include properties, and processor actions aren't applied:
 * Span3 Name: 'spanB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
@@ -200,11 +199,11 @@ The following spans do not match the include properties and processor actions ar
   }
 }
 ```
-## Attribute Processor Samples
+## Attribute processor samples
 
 ### Insert
 
-The following inserts a new attribute {"attribute1": "attributeValue1"} to spans where the key "attribute1" does not exist.
+The following sample inserts the new attribute `{"attribute1": "attributeValue1"}` into spans where the key `attribute1` doesn't exist.
 
 ```json
 {
@@ -228,7 +227,7 @@ The following inserts a new attribute {"attribute1": "attributeValue1"} to spans
 
 ### Insert from another key
 
-The following uses the value from attribute "anotherkey" to insert a new attribute {"newKey": "value from attribute 'anotherkey'} to spans where the key "newKey" does not exist. If the attribute 'anotherkey' doesn't exist, no new attribute is inserted to spans.
+The following sample uses the value from attribute `anotherkey` to insert the new attribute `{"newKey": "<value from attribute anotherkey>"}` into spans where the key `newKey` doesn't exist. If the attribute `anotherkey` doesn't exist, no new attribute is inserted into spans.
 
 ```json
 {
@@ -252,7 +251,7 @@ The following uses the value from attribute "anotherkey" to insert a new attribu
 
 ### Update
 
-The following updates the attribute to { "db.secret": "redacted"} and updates the attribute 'boo' using the value from attribute 'foo'. Spans without the attribute 'boo' will not change.
+The following sample updates the attribute to `{"db.secret": "redacted"}`. It updates the attribute `boo` by using the value from attribute `foo`. Spans that don't have the attribute `boo` don't change.
 
 ```json
 {
@@ -281,7 +280,7 @@ The following updates the attribute to { "db.secret": "redacted"} and updates th
 
 ### Delete
 
-The following demonstrates deleting attribute with key 'credit_card'.
+The following sample shows how to delete an attribute that has the key `credit_card`.
 
 ```json
 {
@@ -304,7 +303,7 @@ The following demonstrates deleting attribute with key 'credit_card'.
 
 ### Hash
 
-The following demonstrates hash existing attribute values.
+The following sample shows how to hash existing attribute values.
 
 ```json
 {
@@ -327,13 +326,13 @@ The following demonstrates hash existing attribute values.
 
 ### Extract
 
-The following example demonstrates using regex to create new attributes based on the value of another attribute.
-For example given http.url = http://example.com/path?queryParam1=value1,queryParam2=value2 the following attributes will be inserted:
-* httpProtocol: http
-* httpDomain: example.com
-* httpPath: path
-* httpQueryParams: queryParam1=value1,queryParam2=value2
-* http.url value does NOT change.
+The following sample shows how to use a regular expression (regex) to create new attributes based on the value of another attribute.
+For example, given `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2`, the following attributes are inserted:
+* httpProtocol: `http`
+* httpDomain: `example.com`
+* httpPath: `path`
+* httpQueryParams: `queryParam1=value1,queryParam2=value2`
+* http.url: *no* change
 
 ```json
 {
@@ -355,9 +354,9 @@ For example given http.url = http://example.com/path?queryParam1=value1,queryPar
 }
 ```
 
-The following example demonstrates how to process spans that have a span name that match regexp patterns.
-This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.\*" 
-and where span name does not match "login.\*".
+The following sample shows how to process spans that have a span name that matches regex patterns.
+This processor removes the `token` attribute. It obfuscates the `password` attribute in spans where the span name matches `auth.*`
+and where the span name doesn't match `login.*`.
 
 ```json
 {
@@ -396,11 +395,11 @@ and where span name does not match "login.\*".
 ```
 
 
-## Span Processor Samples
+## Span processor samples
 
 ### Name a span
 
-The following example specifies the values of attribute "db.svc", "operation", and "id" will form the new name of the span, in that order, separated by the value "::".
+The following sample specifies the values of attributes `db.svc`, `operation`, and `id`. It forms the new name of the span by using those attributes, in that order, separated by the value `::`.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -422,9 +421,9 @@ The following example specifies the values of attribute "db.svc", "operation", a
 }
 ```
 
-### Extract attributes from span name
+### Extract attributes from a span name
 
-Let's assume the input span name is /api/v1/document/12345678/update. Applying the following results in the output span name /api/v1/document/{documentId}/update will add a new attribute "documentId"="12345678" to the span.
+Let's assume the input span name is `/api/v1/document/12345678/update`. The following sample results in the output span name `/api/v1/document/{documentId}/update`. It adds the new attribute `documentId=12345678` to the span.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -445,11 +444,11 @@ Let's assume the input span name is /api/v1/document/12345678/update. Applying t
 }
 ```
 
-### Extract attributes from span name with include and exclude
+### Extract attributes from a span name by using include and exclude
 
-The following demonstrates renaming the span name to "{operation_website}" and adding the attribute {Key: operation_website, Value: oldSpanName } when the span has the following properties:
-- The span name contains '/' anywhere in the string.
-- The span name is not 'donot/change'.
+The following sample shows how to change the span name to `{operation_website}`. It adds an attribute with key `operation_website` and value `{oldSpanName}` when the span has the following properties:
+- The span name contains `/` anywhere in the string.
+- The span name isn't `donot/change`.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",

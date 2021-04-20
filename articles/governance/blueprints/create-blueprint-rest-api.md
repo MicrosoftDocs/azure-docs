@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with REST API"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with REST API
@@ -384,7 +384,7 @@ values:
 1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The
    AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by
    tenant. Details can be requested for your tenant using the following REST API. It uses
-   [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md),
+   [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist),
    which has different authorization.
 
    - REST API URI
@@ -396,7 +396,7 @@ values:
 1. Run the blueprint deployment by assigning it to a subscription. As the **contributors** and
    **owners** parameters require an array of objectIds of the principals to be granted the role
    assignment, use
-   [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)
+   [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
    for gathering the objectIds for use in the **Request Body** for your own users, groups, or
    service principals.
 

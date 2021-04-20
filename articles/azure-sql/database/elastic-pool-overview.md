@@ -84,15 +84,10 @@ For service tiers and resource limits in each purchasing model, see the [DTU-bas
 The following steps can help you estimate whether a pool is more cost-effective than single databases:
 
 1. Estimate the eDTUs or vCores needed for the pool as follows:
-
-For DTU-based purchasing model:
-
-MAX(<*Total number of DBs* X *average DTU utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*>)
-
-For vCore-based purchasing model:
-
-MAX(<*Total number of DBs* X *average vCore utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*>)
-
+   - For the DTU-based purchasing model:
+     - MAX(<*Total number of DBs* &times; *Average DTU utilization per DB*>, <*Number of concurrently peaking DBs* &times; *Peak DTU utilization per DB*>)
+   - For the vCore-based purchasing model:
+     - MAX(<*Total number of DBs* &times; *Average vCore utilization per DB*>, <*Number of concurrently peaking DBs* &times; *Peak vCore utilization per DB*>)
 2. Estimate the total storage space needed for the pool by adding the data size needed for all the databases in the pool. For the DTU purchasing model, then determine the eDTU pool size that provides this amount of storage.
 3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest pool size that is greater than the estimate from Step 3.
@@ -150,7 +145,7 @@ When you have completed configuring the pool, you can click 'Apply', name the po
 
 In the Azure portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
-You can use the built-in [performance monitoring](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) and [alerting tools](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal), combined with performance ratings.  Additionally, SQL Database can [emit metrics and resource logs](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) for easier monitoring.
+You can use the built-in [performance monitoring](./performance-guidance.md) and [alerting tools](./alerts-insights-configure-portal.md), combined with performance ratings.  Additionally, SQL Database can [emit metrics and resource logs](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) for easier monitoring.
 
 ## Customer case studies
 

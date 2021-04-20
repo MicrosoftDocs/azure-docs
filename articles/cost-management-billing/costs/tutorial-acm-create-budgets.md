@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Create and manage Azure budgets
-description: This tutorial helps plan and account for the costs of Azure services that you consume.
+description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/16/2020
+ms.date: 03/09/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,11 +13,11 @@ ms.custom: seodec18
 
 # Tutorial: Create and manage Azure budgets
 
-Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
+Budgets in Cost Management help you plan for and drive organizational accountability. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. You can configure alerts based on your actual cost or forecasted cost to ensure that your spend is within your organizational spend limit. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
 
 Cost and usage data is typically available within 8-24 hours and budgets are evaluated against these costs every 24 hours. Be sure to get familiar with [Cost and usage data updates](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention) specifics. When a budget threshold is met, email notifications are normally sent within an hour of the evaluation.
 
-Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
+Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods. When a budget expires, it's automatically deleted.
 
 The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 
@@ -77,17 +77,17 @@ For more information about assigning permission to Cost Management data, see [As
 
 You can create an Azure subscription budget for a monthly, quarterly, or annual period.
 
-To create or view a budget, open the desired scope in the Azure portal and select **Budgets** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope, like a management group, in Budgets. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+To create or view a budget, open a scope in the Azure portal and select **Budgets** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope, like a management group, in Budgets. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 After you create budgets, they show a simple view of your current spending against them.
 
 Select **Add**.
 
-![Example showing a list of budgets already created](./media/tutorial-acm-create-budgets/budgets01.png)
+:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenthost showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
 
 In the **Create budget** window, make sure that the scope shown is correct. Choose any filters that you want to add. Filters allow you to create budgets on specific costs, such as resource groups in a subscription or a service like virtual machines. Any filter you can use in cost analysis can also be applied to a budget.
 
-After you've identified your scope and filters, type a budget name. Then, choose a monthly, quarterly, or annual budget reset period. This reset period determines the time window that's analyzed by the budget. The cost evaluated by the budget starts at zero at the beginning of each new period. When you create a quarterly budget, it works in the same way as a monthly budget. The difference is that the budget amount for the quarter is evenly divided among the three months of the quarter. An annual budget amount is evenly divided among all 12 months of the calendar year.
+After you identify your scope and filters, type a budget name. Then, choose a monthly, quarterly, or annual budget reset period. The reset period determines the time window that's analyzed by the budget. The cost evaluated by the budget starts at zero at the beginning of each new period. When you create a quarterly budget, it works in the same way as a monthly budget. The difference is that the budget amount for the quarter is evenly divided among the three months of the quarter. An annual budget amount is evenly divided among all 12 months of the calendar year.
 
 If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those subscription types and resource groups, you can create a budget that's aligned to your invoice period or to calendar months. To create a budget aligned to your invoice period, select a reset period of **Billing month**, **Billing quarter**, or **Billing year**. To create a budget aligned to the calendar month, select a reset period of **Monthly**, **Quarterly**, or **Annually**.
 
@@ -95,21 +95,31 @@ Next, identify the expiration date when the budget becomes invalid and stops eva
 
 Based on the fields chosen in the budget so far, a graph is shown to help you select a threshold to use for your budget. The suggested budget is based on the highest forecasted cost that you might incur in future periods. You can change the budget amount.
 
-![Example showing budget creation with monthly cost data ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+:::image type="content" source="./media/tutorial-acm-create-budgets/create-monthly-budget.png" alt-text="Screenshot showing budget creation with monthly cost data." lightbox="./media/tutorial-acm-create-budgets/create-monthly-budget.png" :::
 
-After you configure the budget amount, select **Next** to configure budget alerts. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally sent within an hour of the evaluation.
+After you configure the budget amount, select **Next** to configure budget alerts for actual cost and forecasted budget alerts.
+
+## Configure actual costs budget alerts
+
+Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally sent within an hour of the evaluation. Actual costs budget alerts are generated for the actual cost you've accrued in relation to the budget thresholds configured.
+
+## Configure forecasted budget alerts
+
+Forecasted alerts provide advanced notification that your spending trends are likely to exceed your budget. The alerts use [forecasted cost predictions](quick-acm-cost-analysis.md#understand-forecast). Alerts are generated when the forecasted cost projection exceeds the set threshold. You can configure a forecasted threshold (% of budget). When a forecasted budget threshold is met, notifications are normally sent within an hour of the evaluation.
+
+To toggle between configuring an Actual vs Forecasted cost alert, use the `Type` field when configuring the alert as shown in the following image.
 
 If you want to receive emails, add azure-noreply@microsoft.com to your approved senders list so that emails don't go to your junk email folder. For more information about notifications, see [Use cost alerts](./cost-mgt-alerts-monitor-usage-spending.md).
 
-In the example below, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets). If you want to have an email alert sent in a different language, see [Supported locales for budget alert emails](manage-automation.md#supported-locales-for-budget-alert-emails).
+In the following example, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets). If you want to have an email alert sent in a different language, see [Supported locales for budget alert emails](manage-automation.md#supported-locales-for-budget-alert-emails).
 
-Alert limits support a range of 0.01 to 1000% of the budget threshold that you've provided.
+Alert limits support a range of 0.01% to 1000% of the budget threshold that you've provided.
 
-![Example showing alert conditions](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
+:::image type="content" source="./media/tutorial-acm-create-budgets/budget-set-alert.png" alt-text="Screenshot showing alert conditions." lightbox="./media/tutorial-acm-create-budgets/budget-set-alert.png" :::
 
-After you create a budget, it is shown in cost analysis. Viewing your budget against your spending trend is one of the first steps when you start to [analyze your costs and spending](./quick-acm-cost-analysis.md).
+After you create a budget, it's shown in cost analysis. Viewing your budget against your spending trend is one of the first steps when you start to [analyze your costs and spending](./quick-acm-cost-analysis.md).
 
-![Example budget and spending shown in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
+:::image type="content" source="./media/tutorial-acm-create-budgets/cost-analysis.png" alt-text="Screenshot showing an example budget with spending shown in cost analysis." lightbox="./media/tutorial-acm-create-budgets/cost-analysis.png" :::
 
 In the preceding example, you created a budget for a subscription. You can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
 
@@ -124,7 +134,7 @@ You can group your Azure and AWS costs together by assigning a management group 
 
 ## Costs in budget evaluations
 
-Budget cost evaluations now include reserved instance and purchase data. If the charges apply to you, then you might receive alerts as charges are incorporated into your evaluations. We recommend that you sign in to the [Azure portal](https://portal.azure.com) to verify that budget thresholds are properly configured to account for the new costs. Your Azure billed charges aren't changed. Budgets now evaluate against a more complete set of your costs. If the charges don't apply to you, then your budget behavior remains unchanged.
+Budget cost evaluations now include reserved instance and purchase data. If the charges apply to you, then you might receive alerts as charges are incorporated into your evaluations. Sign in to the [Azure portal](https://portal.azure.com) to verify that budget thresholds are properly configured to account for the new costs. Your Azure billed charges aren't changed. Budgets now evaluate against a more complete set of your costs. If the charges don't apply to you, then your budget behavior remains unchanged.
 
 If you want to filter the new costs so that budgets are evaluated against first party Azure consumption charges only, add the following filters to your budget:
 
@@ -135,31 +145,23 @@ Budget cost evaluations are based on actual cost. They don't include amortizatio
 
 ## Trigger an action group
 
-When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform various actions when your budget threshold is met. Action Groups are currently only supported for subscription and resource group scopes. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../manage/cost-management-budget-scenario.md).
+When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform various actions when your budget threshold is met. 
 
-To create or update action groups, select **Manage action groups** while you're creating or editing a budget.
+Action Groups are currently only supported for subscription and resource group scopes. For more information about creating action groups, see [Configure basic action group settings](../../azure-monitor/alerts/action-groups.md#configure-basic-action-group-settings). 
 
-![Example of creating a budget to show Manage action groups](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../manage/cost-management-budget-scenario.md).
+
+To create or update action groups, select **Manage action group** while you're creating or editing a budget.
+
+:::image type="content" source="./media/tutorial-acm-create-budgets/trigger-action-group.png" alt-text="Screenshot showing an example of creating a budget to show Manage action groups." lightbox="./media/tutorial-acm-create-budgets/trigger-action-group.png" :::
 
 Next, select **Add action group** and create the action group.
 
-![Image of the Add action group box](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
-
-After the action group is created, close the box to return to your budget.
-
-Configure your budget to use your action group when an individual threshold is met. Up to five different thresholds are supported.
-
-![Example showing action group selection for an alert condition](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
-
-The following example shows budget thresholds set to 50%, 75%, and 100%. Each is configured to trigger the specified actions within the designated action group.
-
-![Example showing alert conditions configured with various action groups and type of actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
-
-Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
 ## Create and edit budgets with PowerShell
 
-EA customers can create and edit budgets programmatically using the Azure PowerShell module.  To download the latest version of Azure PowerShell, run the following command:
+If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. To download the latest version of Azure PowerShell, run the following command:
 
 ```azurepowershell-interactive
 install-module -name Az

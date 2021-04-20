@@ -7,7 +7,6 @@ ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
 ms.date: 09/18/2019 
 ms.custom: devx-track-azurecli
 # Customer intent: As a developer, I want to use Azure Key Vault and Azure CLI for secure management of my storage credentials and shared access signature tokens.
@@ -53,7 +52,7 @@ To complete this guide, you must first do the following:
 
 ### Connect to your Azure account
 
-Authenticate your Azure CLI session using the [az login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) commands.
+Authenticate your Azure CLI session using the [az login](/powershell/module/az.accounts/connect-azaccount) commands.
 
 ```azurecli-interactive
 az login

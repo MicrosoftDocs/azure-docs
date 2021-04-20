@@ -2,7 +2,8 @@
 title: Create a VM from an uploaded generalized VHD 
 description: Upload a generalized VHD to Azure and use it to create new VMs, in the Resource Manager deployment model.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
@@ -13,7 +14,7 @@ ms.author: cynthn
 
 This article walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD, and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../managed-disks-overview.md) for the new VM simplifies the VM management and provides better availability when the VM is placed in an availability set. 
 
-For a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
+For a sample script, see [Sample script to upload a VHD to Azure and create a new VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script).
 
 ## Before you begin
 

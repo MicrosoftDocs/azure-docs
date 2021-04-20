@@ -43,6 +43,8 @@
       href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
+  - name: Availability
+    href: availability.md
   - name: Private Endpoint
     href: private-endpoint-overview.md
   - name: Private Link Service
@@ -53,7 +55,6 @@
     items:
     - name: Security baseline
       href: security-baseline.md
-
 - name: How-to
   items:
   - name: Disable network policies for a private endpoint
@@ -70,8 +71,6 @@
       href: troubleshoot-private-endpoint-connectivity.md
     - name: Troubleshoot Private Link Service connectivity problems
       href: troubleshoot-private-link-connectivity.md 
-     
-
 - name: Reference
   items:
   - name: Azure CLI
