@@ -84,8 +84,6 @@ Applications and workloads running in a private cloud environment require name r
 
 Use the DHCP service built-in to NSX or use a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
 
-For more details, see the [Provide DHCP services to NSX-T network segment](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment) article.
-
 
 ## Next steps
 
