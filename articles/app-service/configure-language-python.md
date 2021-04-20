@@ -22,7 +22,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 - **Azure CLI**: you have two options.
 
     - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login).
     
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
