@@ -35,7 +35,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 In this quickstart, you'll use Azure Video Analyzer to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-use-your-model-http/publish-associated-inference-events.png" alt-text="Publish associated inference events to IoT Edge Hub":::
+> :::image type="content" source="./media/analyze-live-video-use-your-model-http/overview.png" alt-text="Publish associated inference events to IoT Edge Hub":::
 
 <!-- TODO: Replace the picture above -->
 

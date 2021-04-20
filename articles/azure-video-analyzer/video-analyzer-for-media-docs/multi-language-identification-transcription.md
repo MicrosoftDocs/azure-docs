@@ -1,13 +1,10 @@
 ---
-title: Automatically identify and transcribe multi-language content with Video Indexer
+title: Automatically identify and transcribe multi-language content with Azure Video Analyzer for Media (formerly Video Indexer)
 titleSuffix: Azure Media Services
-description: This topic demonstrates how to automatically identify and transcribe multi-language content with Video Indexer.
+description: This topic demonstrates how to automatically identify and transcribe multi-language content with Azure Video Analyzer for Media (formerly Video Indexer).
 services: media-services
 author: Juliako
 manager: femila
-
-ms.service: media-services
-ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
@@ -15,13 +12,13 @@ ms.author: juliako
 
 # Automatically identify and transcribe multi-language content
 
-Video Indexer supports automatic language identification and transcription in multi-language content. This process involves automatically identifying the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. 
+Azure Video Analyzer for Media (formerly Video Indexer) supports automatic language identification and transcription in multi-language content. This process involves automatically identifying the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. 
 
 ## Choosing multilingual identification on indexing with portal
 
 You can choose **multi-language detection** when uploading and indexing your video. Alternatively, you can choose **multi-language detection**  when re-indexing your video. The following steps describe how to reindex:
 
-1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
+1. Browse to the [Video Analyzer for Media](https://vi.microsoft.com/) website and sign in.
 1. Go to the **Library** page and hover over the name of the video that you want to reindex. 
 1. On the right-bottom corner, click the **Re-index video** button. 
 1. In the **Re-index video** dialog, choose **multi-language detection** from the **Video source language** drop-down box.
@@ -35,7 +32,7 @@ You can choose **multi-language detection** when uploading and indexing your vid
 
 ## Choosing multilingual identification on indexing with API
 
-When indexing or [reindexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
+When indexing or [reindexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
 
 ### Model output
 
@@ -87,4 +84,4 @@ Additionally, each instance in the transcription section will include the langua
 
 ## Next steps
 
-[Video Indexer overview](video-indexer-overview.md)
+[Video Analyzer for Media overview](video-indexer-overview.md)
