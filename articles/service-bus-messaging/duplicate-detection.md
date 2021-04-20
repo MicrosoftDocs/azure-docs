@@ -32,7 +32,7 @@ The *MessageId* can always be some GUID, but anchoring the identifier to the bus
 >- The [premier tier](service-bus-premium-messaging.md) doesn't support partitioning, so we recommend that you use unique message IDs in your applications and not rely on partition keys for duplicate detection. 
 
 
-## Enable duplicate detection
+## Duplicate detection window size
 
 Apart from just enabling duplicate detection, you can also configure the size of the duplicate detection history time window during which message-ids are retained.
 This value defaults to 10 minutes for queues and topics, with a minimum value of 20 seconds to maximum value of 7 days.
@@ -44,5 +44,15 @@ Keeping the window small means that fewer message-ids must be retained and match
 ## Next steps
 You can enable duplicate message detection using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable duplicate message detection](enable-duplicate-detection.md). 
 
-[1]: ./media/duplicate-detection/create-queue.png
-[2]: ./media/duplicate-detection/queue-prop.png
+In scenarios where client code is unable to resubmit a message with the same *MessageId* as before, it is important to design messages that can be safely reprocessed. This [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean) describes various techniques for how to do that.
+
+See the following samples: 
+
+- [Azure Service Bus client library for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Azure Service Bus client library for Java - Samples (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Azure Service Bus client library for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Duplicate Detection sample)  
+- [Azure Service Bus client library for Java - Samples (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
+

@@ -236,12 +236,14 @@
       href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
-    - name: Enable sessions for a queue or a subscription
+    - name: Enable sessions for a queue or subscription
       href: enable-message-sessions.md
-    - name: Enable duplicate detection for a queue or a topic
+    - name: Enable duplicate detection for a queue or topic
       href: enable-duplicate-detection.md
-    - name: Enable partitions for a queue or a topic
+    - name: Enable partitions for a queue or topic
       href: enable-partitions.md
+    - name: Enable auto forwarding for a queue or subscription
+      href: enable-auto-forward.md      
     - name: Move across regions
       href: move-across-regions.md
     - name: Automatically update messaging units 

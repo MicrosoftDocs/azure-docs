@@ -1,25 +1,24 @@
 ---
-title: Enable Azure Service Bus message sessions | Microsoft Docs
-description: This article explains how to enable message sessions using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
+title: Enable auto forwarding for Azure Service Bus queues and subscriptions
+description: This article explains how to enable auto forwarding for queues and subscriptions by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021
 ---
 
-# Enable message sessions for an Azure Service Bus queue or a subscription
-Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For more information, See [Message sessions](message-sessions.md). This article shows you different ways to enable sessions for a Service Bus queue or subscription. 
+# Enable auto forwarding for Azure Service Bus queues and subscriptions
+The Service Bus auto forwarding feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). It is still possible to send a message to the destination entity directly. For more information, See [Chaining Service Bus entities with auto forwarding](service-bus-auto-forwarding.md). This article shows you different ways to enable auto forwarding for Service Bus queues and subscriptions. 
 
 > [!IMPORTANT]
-> - The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
-> - You can't enable or disable message sessions after the queue or subscription is created. You can only do so at the time of creating the queue or subscription. 
+> The basic tier of Service Bus doesn't support the auto forwarding feature. The standard and premium tiers support the feature. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Using Azure portal
-When creating a **queue** in the Azure portal, select **Enable sessions** as shown in the following image. 
+When creating a **queue** or a **subscription** for a topic in the Azure portal, select **Forward messages to queue/topic** as shown in the following examples. Then, specify whether you want messages to be forwarded to a queue or a topic. In this example, the **Queue** option is selected and a queue (**myqueue**) from the same namespace is selected.
 
-:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
+### Create a queue with auto forwarding enabled
+:::image type="content" source="./media/enable-auto-forward/create-queue.png" alt-text="Enable auto forward at the time of the queue creation":::
 
-When creating a subscription for a topic in the Azure portal, select **Enable sessions** as shown in the following image. 
-
-:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
+### Create a subscription for a topic with auto forwarding enabled
+:::image type="content" source="./media/enable-auto-forward/create-subscription.png" alt-text="Enable auto forward at the time of the subscription creation":::
 
 ## Using Azure CLI
 To **create a queue with message sessions enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-session` set to `true`.
@@ -196,6 +195,7 @@ To **create a subscription for a topic with message sessions enabled**, set `req
 
 
 ## Next steps
+
 See the following samples: 
 
 - [Azure Service Bus client library for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)

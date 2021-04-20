@@ -6,14 +6,14 @@ ms.date: 04/19/2021
 ---
 
 # Enable duplicate message detection for an Azure Service Bus queue or a topic
-When you enable duplicate detection for a queue or topic, Azure Service Bus keeps a history of all messages sent to the queue or topic for a configure amount of time. During that interval, your queue or topic won't store any duplicate messages. Enabling this property guarantees exactly once delivery over a user-defined span of time. For more information, See [Duplicate detection](duplicate-detection.md). This article shows you how to enable duplicate message detection for a Service Bus queue or a topic. 
+When you enable duplicate detection for a queue or topic, Azure Service Bus keeps a history of all messages sent to the queue or topic for a configure amount of time. During that interval, your queue or topic won't store any duplicate messages. Enabling this property guarantees exactly once delivery over a user-defined span of time. For more information, See [Duplicate detection](duplicate-detection.md). This article shows you different ways to enable duplicate message detection for a Service Bus queue or a topic. 
 
 
 > [!NOTE]
 > - The basic tier of Service Bus doesn't support duplicate detection. The standard and premium tiers support duplicate detection. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 > - You can't enable or disable duplicate detection after the queue or topic is created. You can only do so at the time of creating the queue or topic. 
 
-## Azure portal
+## Using Azure portal
 When creating a **queue** in the Azure portal, select **Enable duplicate detection** as shown in the following image. You can configure the size of the duplicate detection window when creating a queue or topic. 
 
 :::image type="content" source="./media/enable-duplicate-detection/create-queue.png" alt-text="Enable duplicate detection at the time of the queue creation":::
@@ -34,7 +34,7 @@ To change the duplicate detection window size for an existing queue or a topic, 
 :::image type="content" source="./media/enable-duplicate-detection/window-size-topic.png" alt-text="Set duplicate detection window size for a topic":::
 
 
-## Azure CLI
+## Using Azure CLI
 To **create a queue with duplicate detection enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-duplicate-detection` set to `true`. 
 
 ```azurecli-interactive
@@ -79,7 +79,7 @@ az servicebus topic update \
     --duplicate-detection-history-time-window P7D
 ```
  
-## Azure PowerShell
+## Using Azure PowerShell
 To **create a queue with duplicate detection enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresDuplicateDetection` set to `$True`. 
 
 ```azurepowershell-interactive
@@ -132,7 +132,7 @@ Set-AzServiceBusTopic -ResourceGroup myresourcegroup `
     -TopicObj $topic
 ```
 
-## Resource Manager template
+## Using Azure Resource Manager template
 To **create a queue with duplicate detection enabled**, set `requiresDuplicateDetection` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). Specify a value for the `duplicateDetectionHistoryTimeWindow` property to set the size of the duplicate detection window. In the following example, it's set to one day.  
 
 ```json
@@ -248,10 +248,12 @@ To **create a topic with duplicate detection enabled**, set `requiresDuplicateDe
 
 
 ## Next steps
+See the following samples: 
 
-- [Azure.Messaging.ServiceBus samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Azure Service Bus client library for Java - Samples](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Azure Service Bus client library for Java - Samples (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Microsoft.Azure.ServiceBus samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Duplicate Detection sample)  
+- [Azure Service Bus client library for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Azure Service Bus client library for Java - Samples (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
