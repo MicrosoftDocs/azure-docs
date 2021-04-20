@@ -72,13 +72,15 @@ NVA in the virtual hub is available for Preview in the following regions:
 
 |Geopolitical region | Azure regions|
 |---|---|
-| North America| West US, South Central US, East US 2   |
-| South America | Brazil South |
-| Europe | West Europe, UK South|
+| North America| Canada Central, Canada East, Central US, East US,East US 2,North Central US,West Central US,West US, West US 2 |
+| South America | Brazil South, Brazil Southeast |
+| Europe | France Central, France South,Germany North,Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South,UK West, West Europe|
 |  Middle East | UAE North |
-| Asia | Japan East |
-| Australia | Australia East |
-
+| Asia |  East Asia,Japan East,Japan West,Korea Central,Korea South,Southeast Asia | 
+| Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
+| Africa | South Africa North |
+| India | South India, West India, Central India | 
+| Government Cloud | UsDoD Cnetral, USDoDEast, USGov Arizona, USGov Virginia, USGov Texas, 
 ## FAQ
 
 ### I am a network appliance partner and want to get our NVA in the hub.  Can I join this partner program?
