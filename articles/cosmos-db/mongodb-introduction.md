@@ -17,8 +17,9 @@ The Azure Cosmos DB API for MongoDB makes it easy to use Cosmos DB as if it were
 * Instantaneous scalability: With Autoscale throughput enabled, your database will scale up/down with zero warmup period, keeping your users happy. 
 * Fully managed sharding: Managing database infrastructure is hard work. Azure Cosmos DB API for MongoDB manages the infrastructure (including sharding) for you, leaving you with time to focus on what you do best - building applications for your users.
 * Up to Five 9's of availability: 99.999% availability is easily configurable to ensure your data is always there for you.  
+* Cost efficient, unlimited scalability: Sharded collections can scale to any size, in a cost-efficient manner, in increments as small as 1/100th of a VM due to economies of scale and resource governance.
 * Upgrades take seconds: All API versions are contained within one codebase, making version changes as simple as flipping a switch, with zero downtime.
-* Cost efficient, unlimited scalability: Sharded collections can scale to any size, in a cost-efficient manner, in increments as small as 1/100th of a VM utilizing our economies of scale. 
+* Synapse link analytics: Analyze your real-time data using the fully-isolated Synapse analytical store for fast and cheap analytics queries. A simple checkbox ensures your data is available in Synapse with no-ETL (extract-transform-load).
 
 And more...
 
