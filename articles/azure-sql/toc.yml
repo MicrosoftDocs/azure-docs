@@ -1115,8 +1115,6 @@
           href: virtual-machines/windows/failover-cluster-instance-overview.md
         - name: Windows Server Failover Cluster
           href: virtual-machines/windows/hadr-windows-server-failover-cluster-overview.md
-        - name: Compare DNN & VNN
-          href: virtual-machines/windows/hadr-compare-virtual-distributed-network-name.md
       - name: Best practices
         items:
         - name: Security 
