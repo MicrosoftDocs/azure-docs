@@ -232,7 +232,7 @@ document.getElementById("clientSessionId").style.display = 'none';
   </TechnicalProfiles>
 ```
 
->[!NOTE]
+>[!Note]
 >BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
 
 7. Configure the userjourney; follow the example
