@@ -9,7 +9,7 @@ ms.date: 04/23/2021
 
 In this tutorial, you'll deploy and configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. With VMware HCX, you can migrate your VMware workloads to Azure VMware Solution and other connected sites through various migration types. Because Azure VMware Solution deploys and configures HCX Cloud Manager, you must download, activate, and configure the HCX Connector in your on-premises VMware datacenter.
 
-VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on.  
+VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, use the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on and enable it through a [support request](https://portal.azure.com/#create/Microsoft.Support). 
 
 >[!IMPORTANT]
 >Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises HCX Connector and HCX Cloud Manager, licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
