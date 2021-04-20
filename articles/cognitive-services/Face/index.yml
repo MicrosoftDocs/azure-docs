@@ -54,7 +54,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Face recognition
+          - text: Identity verification
             url: concepts/face-recognition.md
       - linkListType: quickstart
         links:

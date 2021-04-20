@@ -52,7 +52,7 @@
   items:
   - name: Face detection
     href: concepts/face-detection.md
-  - name: Face recognition
+  - name: Identity verification
     href: concepts/face-recognition.md
 - name: Tutorials
   items:
