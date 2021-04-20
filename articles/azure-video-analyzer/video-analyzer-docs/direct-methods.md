@@ -30,7 +30,7 @@ The direct methods are based on the following conventions:
   }
 ```
 
-2. A given version of Azure Video Analyzer module will support all the direct methods up-to its current version. For example, module version 1.3 will support direct methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
+2. A given version of Video Analyzer module will support all the direct methods up-to its current version. For example, module version 1.3 will support direct methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
 3. All direct methods are synchronous.
 4. Error results follow OData error schema.
 5. Names should observe the following constraints:
