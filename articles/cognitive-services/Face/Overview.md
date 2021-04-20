@@ -48,7 +48,7 @@ For more information on face detection, see the [Face detection](concepts/face-d
 
 ## Identity verification
 
-Identity verification is the most popular scenario in the Face service. It answers the question, "Can this face be matched to any enrolled face in a database?" It can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the probe face data.
+Identity verification is the most popular scenario in the Face service. It answers the question, "Can this face be matched to any enrolled face in a database?" It can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the probe face data. This is useful in security scenarios like granting building access to a certain group of people or verifying the user of a device.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
