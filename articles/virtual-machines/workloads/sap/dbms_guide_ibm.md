@@ -22,7 +22,7 @@ General information about running SAP Business Suite on IBM Db2 for LUW can be f
 
 For more information and updates about SAP on Db2 for LUW on Azure, see SAP Note [2233094]. 
 
-The  are various articles on SAP workload on Azure released.  It is recommended to start in [SAP workload on Azure - Get Started](./get-started.md) and then pick the area of interests
+The  are various articles on SAP workload on Azure released.  It is recommended starting in [SAP workload on Azure - Get Started](./get-started.md) and then pick the area of interests
 
 The following SAP Notes are related to SAP on Azure regarding the area covered in this document:
 
@@ -40,7 +40,7 @@ The following SAP Notes are related to SAP on Azure regarding the area covered i
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 | [1597355] |Swap-space recommendation for Linux |
 
-As a pr-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](./get-started.md). 
+As a pr-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 
 ## IBM Db2 for Linux, UNIX, and Windows Version Support
@@ -72,7 +72,7 @@ Alternatively, you can use Windows Storage Pools (only available in Windows Serv
 
 For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
-IBM Db2 LUW 11.5 released support for 4k sector size. For lower versions a 512 byte sector size must be used. Premium SSD disks are 4k native and have 512 byte emulation. Ultra disk is by default only 4k. You can enable 512 byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This is prerequisite for IBM Db2 LUW versions lower than 11.5.
+IBM Db2 LUW 11.5 released support for 4 KB sector size. For older Db2 versions a 512 Byte sector size must be used. Premium SSD disks are 4 KB native and have 512 Byte emulation. Ultra disk is by default only 4 KB. You can enable 512 Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512 Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
