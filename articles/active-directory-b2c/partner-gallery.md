@@ -61,6 +61,8 @@ Microsoft partners with the following ISVs for role-based access control.
 
 Microsoft partners with the following ISVs to provide secure hybrid access to on-premises application. 
 
+| ISV partner | Description and integration walkthroughs |
+|:-------------------------|:--------------|
 | ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |
 | ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
 | ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |
@@ -72,7 +74,7 @@ Microsoft partners with the following ISVs for fraud detection and prevention.
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a Arkose lab logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings. |
-| ![Screenshot of a BioCatch logo](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatchs.md) is a fraud prevention solution provider that analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals. |
+| ![Screenshot of a BioCatch logo](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatch.md) is a fraud prevention solution provider that analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals. |
 | ![Screenshot of a Microsoft Dynamics 365 logo](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md) is a solution that helps organizations protect against fraudulent account openings through device fingerprinting. |
 
 
