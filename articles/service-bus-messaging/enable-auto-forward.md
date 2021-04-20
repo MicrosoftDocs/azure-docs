@@ -21,17 +21,17 @@ When creating a **queue** or a **subscription** for a topic in the Azure portal,
 :::image type="content" source="./media/enable-auto-forward/create-subscription.png" alt-text="Enable auto forward at the time of the subscription creation":::
 
 ## Using Azure CLI
-To **create a queue with message sessions enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-session` set to `true`.
+To **create a queue with auto forwarding enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded. 
 
 ```azurecli-interactive
 az servicebus queue create \
     --resource-group myresourcegroup \
     --namespace-name mynamespace \
     --name myqueue \
-    --enable-session true
+    --forward-to myqueue2
 ```
 
-To **create a subscription for a topic with message sessions enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--enable-session` set to `true`.
+To **create a subscription for a topic with auto forwarding enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded.
 
 ```azurecli-interactive
 az servicebus topic subscription create \
@@ -39,31 +39,31 @@ az servicebus topic subscription create \
     --namespace-name mynamespace \
     --topic-name mytopic \
     --name mysubscription \
-    --enable-session true
+    --forward-to myqueue2
 ```
 
 ## Using Azure PowerShell
-To **create a queue with message sessions enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `$True`. 
+To **create a queue with auto forwarding enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-ForwardTo` set to the name of queue or topic to which you want the messages to be forwarded. 
 
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -QueueName myqueue `
-    -RequiresSession $True
+    -ForwardTo myqueue2
 ```
 
-To **create a subscription for a topic with message sessions enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-RequiresSession` set to `true`. 
+To **create a subscription for a topic with auto forwarding enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-ForwardTo` set to the name of queue or topic to which you want the messages to be forwarded.
 
 ```azurepowershell-interactive
 New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -TopicName mytopic `
     -SubscriptionName mysubscription `
-    -RequiresSession $True
+    -ForwardTo myqueue2
 ```
 
 ## Using Azure Resource Manager template
-To **create a queue with message sessions enabled**, set `requiresSession` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
+To **create a queue with auto forwarding enabled**, set `forwardTo` in the queue properties section to the name of queue or topic to which you want the messages to be forwarded. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
 
 ```json
 {
@@ -109,7 +109,7 @@ To **create a queue with message sessions enabled**, set `requiresSession` to `t
             "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
           ],
           "properties": {
-            "requiresSession": true
+            "forwardTo": "myqueue2"
           }
         }
       ]
@@ -119,7 +119,7 @@ To **create a queue with message sessions enabled**, set `requiresSession` to `t
 
 ```
 
-To **create a subscription for a topic with message sessions enabled**, set `requiresSession` to `true` in the subscription properties section. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
+To **create a subscription for a topic with auto forwarding enabled**, set `forwardTo` in the queue properties section to the name of queue or topic to which you want the messages to be forwarded. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
 
 ```json
 {
@@ -182,7 +182,7 @@ To **create a subscription for a topic with message sessions enabled**, set `req
                 "[parameters('serviceBusTopicName')]"
               ],
               "properties": {
-                "requiresSession": true
+                "forwardTo": "myqueue2"
               }
             }
           ]
