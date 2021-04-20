@@ -47,6 +47,8 @@
     href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/pubsub-websocket-subprotocol.md
   - name: Web PubSub CloudEvents 
     href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/protocol-cloudevents.md
+  - name: Server SDKs
+    href: choose-server-sdks.md
 
 - name: Resources
   items:
