@@ -34,10 +34,12 @@ This documentation contains the following types of articles:
 
 ## Face detection
 
-The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes, such as head pose, gender, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. 
+Face detection is required as a first step in all the other scenarios. The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. It also returns a unique ID that represents the stored face data, which is used in later operations to compare different faces. 
+
+Optionally, face detection can also extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service (for example, it could reject photos where the user is wearing sunglasses).
 
 > [!NOTE]
-> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to do further Face operations like Identify, Verify, Find Similar, or Group, you should use this Face service instead.
+> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to do further Face operations like Identity verification, Find Similar, or Face grouping, you should use this service instead.
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
 
@@ -46,27 +48,26 @@ For more information on face detection, see the [Face detection](concepts/face-d
 
 ## Identity verification
 
-Identity verification answers the question, "Can this face be matched to any enrolled face in a database?" It can be thought of as "one-to-many" matching. Candidate matches are returned based on how closely the probe face template matches each of the enrolled face templates.
+Identity verification is the most popular scenario in the Face service. It answers the question, "Can this face be matched to any enrolled face in a database?" It can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the probe face data.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
 ![A grid with three columns for different people, each with three rows of face images](./Images/person.group.clare.jpg)
 
-After you create and train a database, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
+After you create and train a database of person data, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
-For more information about person identification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
+### Verification
 
-### Face verification
+The verification operation answers the question, "Do these two faces belong to the same person?". Verification is also called "one-to-one" matching because the probe face data is compared to only a single enrolled face. Verification is used in the identification scenario to double-check that a given match is accurate. 
 
-The verification operation answers the question, "Do these two faces belong to the same person?". Verification is also called "one-to-one" matching because the probe template is compared to only a single enrolled template. Verification is used in the identification scenario to double-check that a given match is accurate. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
-
+For more information about identity verification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 
 
 ## Find similar faces
 
-The Find Similar API does face matching between target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image. 
+The Find Similar operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image. 
 
-Two working modes, **matchPerson** and **matchFace**, are supported. The **matchPerson** mode returns similar faces after filtering for the same person by using the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). The **matchFace** mode ignores the same-person filter. It returns a list of similar candidate faces that may or may not belong to the same person.
+The service supports two working modes, **matchPerson** and **matchFace**. The **matchPerson** mode returns similar faces after filtering for the same person by using the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). The **matchFace** mode ignores the same-person filter. It returns a list of similar candidate faces that may or may not belong to the same person.
 
 The following example shows the target face:
 
@@ -78,10 +79,9 @@ And these images are the candidate faces:
 
 To find four similar faces, the **matchPerson** mode returns a and b, which show the same person as the target face. The **matchFace** mode returns a, b, c, and d&mdash;exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
 
-## Face grouping
+## Group faces
 
-The Group API divides a set of unknown faces into several groups based on similarity. Each group is a disjoint proper subset of the original set of faces. All of the faces in a group are likely to belong to the same person. There can be several different groups for a single person. The groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) reference documentation.
-
+The Group API divides a set of unknown faces into several groups based on similarity. Each group is a disjoint proper subset of the original set of faces. All of the faces in a group are likely to belong to the same person, but there can be several different groups for a single person. The groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) reference documentation.
 
 ## Sample apps
 
