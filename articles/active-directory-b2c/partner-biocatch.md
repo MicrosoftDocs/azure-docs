@@ -76,7 +76,7 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
 
 2. Create a new file, which inherits from the extensions file.
 
-```azurecli
+```
 <BasePolicy> 
 
     <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -138,7 +138,7 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-```azurecli
+```
 <ClaimsProvider> 
 
       <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -239,9 +239,8 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
 
    c. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
-```azurecli
-
-```<OrchestrationStep Order="8" Type="ClaimsExchange"> 
+```
+<OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
           <ClaimsExchanges> 
 
