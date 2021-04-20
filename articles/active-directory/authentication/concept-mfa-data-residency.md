@@ -91,7 +91,7 @@ For Azure Multifactor Authentication Server, the following Azure portal pages mi
 * Caching rules
 * Multifactor Authentication Server status
 
-## Multifactor authentication activity reports in public cloud
+## Multifactor authentication activity reports for public cloud
 
 Multifactor authentication activity reports store activity from on-premises components: NPS Extension, AD FS adapter, and MFA server. 
 The multifactor authentication service logs are used to operate the service.
@@ -129,7 +129,7 @@ Standard voice calls may failover to a different region.
 | Cloud MFA  | Standard voice calls and all other methods     | Any                                  | Azure AD Sign-in logs in region | Cloud in-region              |
 | Cloud MFA  | Voice calls with custom greetings              | Any                                  | Azure AD Sign-in logs in region | MFA backend in United States |
 
-## Multifactor authentication activity reports in sovereign clouds
+## Multifactor authentication activity reports for sovereign clouds
 
 The following table shows the location for service logs for sovereign clouds.
 
