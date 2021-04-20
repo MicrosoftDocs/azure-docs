@@ -19,12 +19,12 @@ ms.topic: quickstart
 > [!CAUTION]
 > The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 * You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
 
-    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2`
 
 > [!CAUTION]
 > The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
@@ -67,7 +67,7 @@ The cURL response from QnA Maker includes the `operationId` , which is required 
 }
 ```
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 
 To create a knowledge base with the REST APIs and cURL, you need to have the following information:
@@ -135,7 +135,7 @@ The cURL response includes the status. If the operation state is succeeded, then
    "operationId": "f293f218-d080-48f0-a766-47993e9b26a8"
 }
 ```
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 
 When you create a knowledge base, because the operation is async, the response includes information to determine the status.
@@ -197,7 +197,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 The response status is 204 with no results. Use the `-v` command-line parameter to see verbose output for the cURL command. This will include the HTTP status.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 Before you query the knowledge base, you need to:
 * Publish knowledge base
@@ -261,7 +261,7 @@ The cURL response includes the runtime endpoint keys. Use just one of the keys w
   "lastStableVersion": "4.0.6"
 }
 ```
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 Before you query the knowledge base, you need to:
 * Publish knowledge base
@@ -325,7 +325,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 
 A successful response includes the top answer along with other information a client application, such as a chat bot, needs to display an answer to the user.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 Getting an answer from the knowledge is done from a separate runtime than managing the knowledge base. Because it is a separate runtime, you need to authenticate with a runtime key.
 
@@ -376,7 +376,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 The response status is 204 with no results. Use the `-v` command-line parameter to see verbose output for the cURL command. This will include the HTTP status.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 When you are done with the knowledge base, delete it.
 
