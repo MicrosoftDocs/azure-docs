@@ -60,7 +60,7 @@ You will see the value of **@contoso.com** displayed in the **View expression ou
  ![Test your expression](media/how-to-expression-builder/expression-4.png)
 
 ## Deploy the expression
-Once you are satisfied with the expression, simply click the **Add Expression** button.
+Once you are satisfied with the expression, simply click the **Apply Expression** button.
 ![Add your expression](media/how-to-expression-builder/expression-5.png)
 
 This will add the expression to the agent configuration.
