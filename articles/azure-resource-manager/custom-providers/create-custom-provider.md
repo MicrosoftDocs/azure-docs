@@ -22,7 +22,7 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
+Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az_rest).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -47,7 +47,7 @@ To deploy the custom provider, use Azure CLI, PowerShell, or the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-This example prompts you to enter a resource group, location, and provider's function app name. The names are stored in variables that are used in other commands. The [az group create](/cli/azure/group#az-group-create) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) commands deploy the resources.
+This example prompts you to enter a resource group, location, and provider's function app name. The names are stored in variables that are used in other commands. The [az group create](/cli/azure/group#az_group_create) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) commands deploy the resources.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&

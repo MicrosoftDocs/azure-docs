@@ -275,12 +275,12 @@ ingress "aks-helloworld" deleted
 For information on how to install an HTTPS-secured Ingress controller in AKS, see [HTTPS Ingress on Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [ingress-https]: ./ingress-tls.md
-[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+[az aks install-cli]: /cli/azure/aks#az_aks_install_cli
+[az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
