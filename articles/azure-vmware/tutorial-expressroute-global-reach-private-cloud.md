@@ -8,7 +8,7 @@ ms.date: 04/23/2021
 
 # Peer on-premises environments to a private cloud
 
-In this step of the quick start, you'll continue using the [information gathered during planning](production-ready-deployment-steps.md) to connect Azure VMware Solution to your on-premises environment.
+In this step of the quick start, you'll use the [information gathered during the planning phase](production-ready-deployment-steps.md) to connect Azure VMware Solution to your on-premises environment.
 
 ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. 
 
@@ -47,7 +47,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
 ## Peer private cloud to on-premises with authorization key
-Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the perspective of the on-premises ExpressRoute circuit in either the **Azure portal** or using the **Azure CLI in a Cloud Shell**. With both methods, you use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
+Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the perspective of the on-premises ExpressRoute circuit in either the **Azure portal** or using the **Azure CLI**. With both methods, you use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
 
 ### [Portal](#tab/azure-portal)
  
@@ -60,7 +60,7 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
 1. Create an on-premises cloud connection. Do one of the following and then select **Create**:
 
    - Select the **ExpressRoute circuit** from the list, or
-   - If you have the circuit ID, paste it in the field and and provide the authorization key you just created.
+   - Paste the circuit ID and authorization key you just created.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Screenshot that shows the dialog for entering the connection information.":::   
    
