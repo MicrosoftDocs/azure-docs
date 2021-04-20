@@ -45,7 +45,7 @@ conceptualContent:
           url: computer-vision-how-to-install-containers.md
         - itemType: reference
           text: OCR API reference
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005
+          url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
       footerLink:
         text: More
         url: index-ocr.yml

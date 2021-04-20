@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
 ---
 
@@ -106,7 +106,7 @@ There are two methods to deploy a Hybrid Runbook Worker. You can import and run 
 
 ### Importing a runbook from the Runbook Gallery
 
-The import procedure is described in detail in [Import a PowerShell runbook from GitHub with the Azure portal](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). The name of the runbook to import is **Create Automation Linux HybridWorker**.
+The import procedure is described in detail in [Import runbooks from GitHub with the Azure portal](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). The name of the runbook to import is **Create Automation Linux HybridWorker**.
 
 The runbook uses the following parameters.
 

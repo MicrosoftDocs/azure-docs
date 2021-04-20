@@ -233,7 +233,7 @@ The _Trusted IPs_ feature of Azure AD Multi-Factor Authentication bypasses multi
 > [!NOTE]
 > The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure AD Multi-Factor Authentication, you can only use public IP address ranges.
 >
-> IPv6 ranges are only supported in the [Named location (preview)](../conditional-access/location-condition.md#preview-features) interface.
+> IPv6 ranges are only supported in the [Named location (preview)](../conditional-access/location-condition.md) interface.
 
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
