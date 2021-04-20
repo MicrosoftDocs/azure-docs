@@ -1176,3 +1176,16 @@ groups:
     title: Android 
   - id: programming-language-ios 
     title: iOS
+# Owner: mbullwin
+- id: anomaly-detector-quickstart-multivariate
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java

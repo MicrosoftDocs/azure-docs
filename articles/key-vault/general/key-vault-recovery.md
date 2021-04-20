@@ -6,7 +6,6 @@ ms.subservice: general
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-manager: rkarlin
 ms.date: 09/30/2020
 ---
 
@@ -394,6 +393,6 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)
 - [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
-- [Secure access to a key vault](secure-your-key-vault.md)
+- [Secure access to a key vault](security-overview.md)
 - [Azure Key Vault developer's guide](developers-guide.md)
 - [Best practices to use a key vault](security-overview.md)

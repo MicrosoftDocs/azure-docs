@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: memildin
 ---
 
 # Defend Azure Arc enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
-To defend your on-premises clusters with the same threat detection capabilities offered today for Azure Kubernetes Service clusters, enable Azure Arc on the clusters and deploy the **Azure Defender for Kubernetes cluster extension**
+The **Azure Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
 
-You can also use the extension to protect Kubernetes clusters deployed on machines in other cloud providers, although not on their managed Kubernetes services.
+The extension can also protect Kubernetes clusters on other cloud providers, although not on their managed Kubernetes services.
 
 > [!TIP]
 > We've put some sample files to help with the installation process in [Installation examples on GitHub](https://aka.ms/kubernetes-extension-installation-examples).
@@ -80,7 +80,7 @@ A dedicated recommendation in Azure Security Center provides:
 
 ### Use Azure CLI to deploy the Azure Defender extension
 
-1. Login to Azure:
+1. Log in to Azure:
 
     ```azurecli
     az login
@@ -269,7 +269,7 @@ A full list of supported alerts is available in the [reference table of all secu
 
 ## Removing the Azure Defender extension
 
-You can remove the extension using Azure portal, Azure CLI or REST API as explained in the tabs below.
+You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
 ### [**Azure portal - Arc**](#tab/k8s-remove-arc)
 

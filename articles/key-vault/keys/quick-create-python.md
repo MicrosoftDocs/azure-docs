@@ -7,7 +7,7 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 
 ---
 
@@ -206,7 +206,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/secure-your-key-vault.md)
+- [Secure access to a key vault](../general/security-overview.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Key Vault security overview](../general/security-overview.md)
 - [Authenticate with Key Vault](../general/authentication.md)

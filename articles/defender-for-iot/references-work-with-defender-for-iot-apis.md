@@ -617,7 +617,16 @@ Array of JSON objects that represent alerts.
 | **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
 | **sourceDevice** | Numeric | Yes | Device ID |
 | **destinationDevice** | Numeric | Yes | Device ID |
+| **sourceDeviceAddress** | Numeric | Yes | IP, MAC, Null |
+| **destinationDeviceAddress** | Numeric | Yes | IP, MAC, Null |
+| **remediationSteps** | String | Yes | Remediation steps described in alert |
 | **additionalInformation** | Additional information object | Yes | - |
+
+Note that /api/v2/ is needed for the following information:
+
+- sourceDeviceAddress 
+- destinationDeviceAddress
+- remediationSteps
 
 #### Additional information fields
 
@@ -1737,19 +1746,16 @@ response:
 > |--|--|--|
 > | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
 
-## On-premises management console API specifications
+## On-premises management console API specifications ##
 
-This section describes the following on-premises management console APIs:
+This section describes on-premises management console APIs for:
+- Alert exclusions
+- Device information
+- Alert information
 
-- **/external/v1/alerts/<UUID>**
+### Alert Exclusions ###
 
-- **Alert Exclusions (Maintenance Window)**
-
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="The alert exclusion window, showing active rules.":::
-
-Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices.
-
-The APIs that you define here appear in the on-premises management console's **Alert Exclusions** window as a read-only exclusion rule.
+Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's **Alert Exclusions** window as  read-only exclusion rules.
 
 #### /external/v1/maintenanceWindow
 
@@ -1766,15 +1772,15 @@ The APIs that you define here appear in the on-premises management console's **A
 
 ```
 
-#### Change password - /external/authentication/set_password
+#### Change password - /external/authentication/set_password 
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-#### User password update by system admin - /external/authentication/set_password_by_admin
+#### User password update by system admin - /external/authentication/set_password_by_admin 
 
 Use this API to let system administrators change passwords for specific users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-### Retrieve device information - /external/v1/devices
+### Retrieve device information - /external/v1/devices ###
 
 This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
 
@@ -2027,15 +2033,13 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **siteId**: The site on which the alert was discovered. [2](#2)
-
-- **zoneId**: The zone on which the alert was discovered. [2](#2)
-
+- **siteId**: The site on which the alert was discovered.
+- **zoneId**: The zone on which the alert was discovered.
 - **sensor**: The sensor on which the alert was discovered.
 
-##### <a id="2">2</a> *You might not have the site and zone ID. If this is the case, query all devices to retrieve the site and zone ID.*
+*You might not have the site and zone ID. If this is the case, query all devices to retrieve the site and zone ID.*
 
-#### Alert fields
+#### Alert fields 
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -2047,7 +2051,22 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 | **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
 | **sourceDevice** | Numeric | Yes | Device ID |
 | **destinationDevice** | Numeric | Yes | Device ID |
+| **sourceDeviceAddress** | Numeric | Yes | IP, MAC, Null |
+| **destinationDeviceAddress** | Numeric | Yes | IP, MAC, Null |
+| **remediationSteps** | String | Yes | Remediation steps shown in alert|
+| **sensorName** | String | Yes | Name of sensor defined by user in the console|
+|**zoneName** | String | Yes | Name of zone associated with sensor in the console|
+| **siteName** | String | Yes | Name of site associated with sensor in the console |
 | **additionalInformation** | Additional information object | Yes | - |
+
+Note that /api/v2/ is needed for the following information:
+
+- sourceDeviceAddress 
+- destinationDeviceAddress
+- remediationSteps
+- sensorName
+- zoneName
+- siteName
 
 #### Additional information fields
 
@@ -2385,7 +2404,7 @@ Retrieve a log of all the open, close, and update actions that were performed in
 
 - **tokenName**: Filters the logs related to a specific token name.
 
-#### Error code
+#### Error code 
 
 - **200 (OK)**: The action was successfully completed.
 

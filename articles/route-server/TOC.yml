@@ -15,6 +15,10 @@
   - name: Configure a Route Server - ARM template
     href: quickstart-configure-template.md
   expanded: true
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Route Server FAQ

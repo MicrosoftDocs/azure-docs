@@ -215,6 +215,8 @@
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
         displayName: query store, performance, optimize, recommendations
+      - name: Azure Advisor recommendations
+        href: concepts-azure-advisor-recommendations.md
     - name: App Development
       items:
       - name: Best practices
@@ -484,6 +486,16 @@
         displayName: monitor, server logs
       - name: Audit logs
         href: flexible-server/concepts-audit.md
+      - name: Intelligent Performance
+        items:
+        - name: Query Store overview
+          href: flexible-server/concepts-query-store.md
+          displayName: performance, optimize, query store
+        - name: Query Store usage scenarios
+          href: flexible-server/concepts-query-store-scenarios.md
+          displayName: query store, performance, optimize
+        - name: Query Store best practices
+          href: flexible-server/concepts-query-store-best-practices.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
@@ -621,10 +633,7 @@
       - name: High availability
         href: concepts-hyperscale-high-availability.md
     - name: Replication
-      items:
-      - name: Azure portal
-        href: concepts-hyperscale-read-replicas.md
-        displayName: replication, read replica
+      href: concepts-hyperscale-read-replicas.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
@@ -673,6 +682,10 @@
       - name: Azure portal
         href: howto-hyperscale-read-replicas-portal.md
         displayName: replication, read replica
+    - name: Scheduled maintenance
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-maintenance.md
     - name: Monitor
       items:
       - name: Create alerts on metrics
@@ -681,6 +694,10 @@
       - name: Access database logs
         href: howto-hyperscale-logging.md
         displayName: log, hyperscale
+    - name: Restore server group
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-restore-portal.md
     - name: Major version upgrades
       href: howto-hyperscale-upgrade.md
     - name: Troubleshoot
