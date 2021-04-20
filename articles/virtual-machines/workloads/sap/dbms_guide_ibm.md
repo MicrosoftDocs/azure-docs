@@ -72,7 +72,7 @@ Alternatively, you can use Windows Storage Pools (only available in Windows Serv
 
 For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
-IBM Db2 LUW 11.5 released support for 4-KB sector size. For older Db2 versions a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk is by default only 4-KB. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+IBM Db2 LUW 11.5 released support for 4-KB sector size. For older Db2 versions a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
@@ -81,7 +81,7 @@ On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` an
 
 IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP support note [1928533].  Recommended VM families for running IBM Db2 database are Esd_v4/Eas_v4/Es_v3 and M/M_v2-series for large multi-terabyte databases. The IBM Db2 transaction log disk write performance can be improved by enabling the M-series Write Accelerator. 
 
-Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Simply use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/<SID>/log_dir at around 5000 IOPS. 
+Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/<SID>/log_dir at around 5000 IOPS. 
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
 | VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
