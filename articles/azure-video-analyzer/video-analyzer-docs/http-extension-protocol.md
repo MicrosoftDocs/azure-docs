@@ -9,12 +9,12 @@ ms.date: 03/30/2021
 # Use the HTTP extension protocol 
 
 Azure Video Analyzer allows you to extend the pipelines processing capabilities through a pipelineTopology node. If you use the HTTP extension processor as the extension node, then the communication between Live Video Analytics module and your AI or CV module is over HTTP protocol.
-In this article, you will learn about using HTTP extension protocol to send messages between the Azure Video Analyzer and your AI or CV module.
+In this article, you will learn about using HTTP extension protocol to send messages between the Video Analyzer and your AI or CV module.
 
 The HTTP contract is defined between the following two components:
 
 * HTTP server
-* Azure Video Analyzer module acts as the HTTP client
+* Video Analyzer module acts as the HTTP client
 
 ## HTTP contract
 
@@ -47,7 +47,7 @@ Content-Length: 519222
 
 ### Response
 
-Responses from your module to Azure Video Analyzer module should be as follows:
+Responses from your module to Video Analyzer module should be as follows:
 
 |Key|	Value|
 |---|----|
@@ -87,7 +87,7 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 
 It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per [the inference metadata schema object model]()<!--add link-->. This will better ensure interoperability with other components and possible future capabilities added to the Live Video Analytics module.
 
-If your module returns a response where the content type is not “application/json”, Azure Video Analyzer will encode the message as a base 64 content and serialize it as an opaque JSON payload.
+If your module returns a response where the content type is not “application/json”, Video Analyzer will encode the message as a base 64 content and serialize it as an opaque JSON payload.
 
 If your module returns a response with content type as “application/json” but the JSON schema doesn’t follow the inference metadata schema outlined below, the message payload will be forwarded through the pipeline, but interoperability will be reduced. Refer [to this page]() for detailed and up-to-date information regarding the inference metadata schema.
 
