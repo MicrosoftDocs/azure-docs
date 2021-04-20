@@ -1,24 +1,26 @@
 ---
 title: Managed connectors for Azure Logic Apps
-description: Use standard managed connectors in Azure Logic Apps for automating tasks, processes and workflows.
+description: Use Microsoft-managed triggers and actions to create automated workflows that integrate other apps, data, services, and systems using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2021
 ---
 
 # Managed connectors for Logic Apps
 
-Managed [connectors for Logic Apps](connectors-overview.md) are deployed and managed by Microsoft. These connectors provide triggers and actions for accessing cloud services, on-premises systems, or both. You can use managed connectors for Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint, and more. 
+[Managed connectors](apis-list.md) provide ways for you to access other services and systems where [built-in triggers and actions](built-in.md) aren't available. You can use these triggers and actions to create workflows that integrate data, apps, cloud-based services, and on-premises systems. Compared to built-in triggers and actions, these connectors are usually tied to a specific service or system such as Azure Blob Storage, Office 365, SQL, Salesforce, or SFTP servers. Managed by Microsoft and hosted in Azure, managed connectors usually require that you first create a connection from your workflow and authenticate your identity. Both recurrence-based and webhook-based triggers are available, so if you use a recurrence-based trigger, review the [Recurrence behavior overview](apis-list.md#recurrence-behavior).
+
+For a few services, systems and protocols, such as Azure Service Bus, Azure Functions, SQL, AS2, and so on, Logic Apps also provides built-in versions. The number and range varies based on whether you create a multi-tenant logic app or single-tenant logic app. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. For example, to [exchange B2B messages using the AS2 protocol](../logic-apps/logic-apps-enterprise-integration-as2), select the built-in version unless you need tracking capabilities, which are available only in the (deprecated) managed connector version.
 
 > [!NOTE]
 > Some connectors for Logic Apps have versions for both [built-in connectors](built-in.md) and managed connectors.
 > The version you use depends on whether you create a multi-tenant logic app, or a new single-tenant logic app.
 
-* [Standard connectors](#standard-connectors), which use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more.
-* [On-premises connectors](#on-premises-connectors), which help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others.
-* [Integration account connectors](#integration-account-connectors), which transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. 
+* [Standard connectors](#standard-connectors) provide access to services such as Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive, and many more.
+* [On-premises connectors](#on-premises-connectors) provide access to on-premises systems such as SQL Server, SharePoint Server, SAP, Oracle DB, file shares, and others.
+* [Integration account connectors](#integration-account-connectors) help you transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages using AS2, EDIFACT, and X12 protocols. 
 
 Some managed connectors for Logic Apps belong to multiple sub-categories. For example, the SAP connector is both an [enterprise connector](#enterprise-connectors) and an [on-premises connector](#on-premises-connectors).
 
@@ -28,7 +30,7 @@ If you're using scheduling in your triggers, see the [overview of recurrence beh
 
 ## Standard connectors
 
-Azure Logic Apps provides these popular Standard connectors for automating tasks, processes, and workflows with these services or systems.
+Azure Logic Apps provides these popular Standard connectors for building automated workflows using these services and systems. Some Standard connectors also support [on-premises systems](#on-premises-connectors) or [integration accounts](#integration-account-connectors).
 
 > [!NOTE]
 > Some Logic Apps Standard connectors support [on-premises systems](#on-premises-connectors) or [integration accounts](#integration-account-connectors).
@@ -59,7 +61,7 @@ Azure Logic Apps provides these popular Standard connectors for automating tasks
         [**Azure Blog Storage**][azure-blob-storage-doc]
         \
         \
-        Connect to your storage account so that you can create and manage blob content.
+        Connect to your Azure Storage account so that you can create and manage blob content.
     :::column-end:::
     :::column:::
         [![Office 365 Outlook managed connector icon in Logic Apps][office-365-outlook-icon]][office-365-outlook-doc]
@@ -228,12 +230,12 @@ The following connectors are some commonly used [Standard connectors](#standard-
 
 ## Integration account connectors
 
-Integration account connectors specifically support business-to-business (B2B) communication scenarios. You can use these connectors to create and store B2B artifacts, such as trading partners, agreements, maps, schemas, and certificates. 
+Integration account connectors specifically support [business-to-business (B2B) communication scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md) in Azure Logic Apps. After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account connectors to encode and decode messages, transform content, and more.
 
-For example, if you're using Microsoft BizTalk Server, your logic apps can connect to and communicate with your BizTalk Server by using the [BizTalk Server](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by using these connectors.
+For example, if you use Microsoft BizTalk Server, you can create a connection from your workflow using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your workflow by using these integration account connectors.
 
-> [!TIP]
-> You must [associate your logic app with an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) to use integration account connectors.
+> [!NOTE]
+> Before you can use integration account connectors, you must [link your logic app to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 
 :::row:::
@@ -317,7 +319,7 @@ For example, if you're using Microsoft BizTalk Server, your logic apps can conne
 
 ## ISE connectors
 
-You can [deploy and run some connectors in an ISE](apis-list.md#ise-and-connectors). There are currently ISE versions of the following connectors:
+In an integration service environment (ISE), these managed connectors also have [ISE versions](apis-list.md#ise-and-connectors), which have different capabilities than their multi-tenant versions:
 
 > [!NOTE]
 > Logic apps that run in an ISE and their connectors, regardless where those connectors run, follow a fixed pricing plan versus the consumption-based pricing plan. For more information, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -487,7 +489,7 @@ For more information, see these topics:
 
 ## Enterprise connectors
 
-Enterprise connectors for Logic Apps provide access to enterprise systems for an additional cost. 
+The following connectors provide access to enterprise systems for an additional cost:
 
 :::row:::
     :::column:::
