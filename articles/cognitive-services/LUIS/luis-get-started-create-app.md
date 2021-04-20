@@ -10,7 +10,7 @@ ms.date: 04/14/2021
 
 # Quickstart: Build your app in LUIS portal
 
-In this quickstart, create a LUIS app using the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. Next, try customizing your app by adding more intents and entities. When you're finished, you'll have a LUIS endpoint running in the cloud.
+In this quickstart, create a LUIS app using the prebuilt home automation domain for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. Next, try customizing your app by adding more intents and entities. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
@@ -73,20 +73,20 @@ After your application is populated with intents, entities, and utterances; you 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Test your app
+
 Once you've trained your app, you can test it.
 
 1. Select **Test** from the top-right navigation.
 
-1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter. For example, *Turn off the lights*.
+1. Type a test utterance into the interactive test pane, and press Enter. For example, *Turn off the lights*.
 
-    In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
+    In this example, *Turn off the lights* is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
 
-    ![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+    :::image type="content" source="media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png" alt-text="Screenshot of test panel with utterance highlighted" lightbox="media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png":::
 
 1. Select **Inspect** to view more information about the prediction.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of Test panel with inspection information](media/luis-quickstart-new-app/test.png)
+    :::image type="content" source="media/luis-quickstart-new-app/test.png" alt-text="Screenshot of test panel with inspection information" lightbox="media/luis-quickstart-new-app/test.png":::
 
 1. Close the test pane.
 
@@ -108,7 +108,7 @@ To add more entities to your app
 
 1. Select **Entities** in the left navigation menu.
 2. Select **Create**
-3. Enter the intent name, `HomeAutomation.DeviceAlias`, select Machine learned from **type** and then select Create.
+3. Enter the intent name, `HomeAutomation.DeviceAlias`, select machine learned from **type** and then select **Create**.
 
 ### Add example utterances
 
@@ -128,7 +128,7 @@ On the **Intents** page for `HomeAutomation.AddDeviceAlias`, add the following e
 
 ### Label example utterances
 
-Labeling your utterances is needed because you added an ML entity. Labeling is need by your application in order to learn how to extract the ML entities you created.
+Labeling your utterances is needed because you added an ML entity. Labeling is used by your application to learn how to extract the ML entities you created.
 
 [!INCLUDE [how-to-label](./includes/how-to-label.md)]
 
@@ -150,14 +150,12 @@ To create a Prediction resource from the LUIS portal
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-2. In the browser address bar, for the query string, make sure the following name and value bars are in the URL. If they are not in the query string, add them:
+2. In the browser address bar, for the query string, make sure the following values are in the URL. If they are not in the query string, add them:
 
-    |Name/value pair|
-    |--|
-    |`verbose=true`|
-    |`show-all-intents=true`|
+* `verbose=true`
+* `show-all-intents=true`
 
-3. In the browser address bar, go to the end of the URL and enter `turn off the living room light` for the _query_ value, then press Enter.
+3. In the browser address bar, go to the end of the URL and enter *turn off the living room light* for the query string, then press Enter.
 
     ```json
     {
@@ -248,7 +246,7 @@ To create a Prediction resource from the LUIS portal
     }
     ```
 
-    Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 
 ## Clean up resources
