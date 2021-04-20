@@ -596,7 +596,7 @@ If this issue occurs with a system-assigned identity, please [create an Azure su
 ## Next steps
 
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
-* Learn more about access policies and how to [secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
+* Learn more about access policies and how to [secure access to a key vault](../key-vault/general/security-overview.md).
 
 
 <!-- LINKS - external -->
