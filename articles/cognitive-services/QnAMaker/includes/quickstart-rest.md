@@ -283,19 +283,6 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -X GET \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
-
-
-The cURL response includes the runtime endpoint keys. Use just one of the keys when querying to get an answer from the knowledge base.
-
-```json
-{
-  "primaryEndpointKey": "93e88a14-694a-44d5-883b-184a68aa8530",
-  "secondaryEndpointKey": "92c98c16-ca31-4294-8626-6c57454a5063",
-  "installedVersion": "4.0.5",
-  "lastStableVersion": "4.0.6"
-}
-```
-
 ---
 
 ## Query for answer from published knowledge base
