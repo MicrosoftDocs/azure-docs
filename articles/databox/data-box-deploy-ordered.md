@@ -54,7 +54,7 @@ Before you begin, make sure that:
 
 **Sign in to Azure**
 
-Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
+Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az_login) command:
 
 ```azurecli
 PS C:\Windows> az login

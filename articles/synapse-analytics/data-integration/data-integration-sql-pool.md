@@ -5,7 +5,7 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.subservice: sql
+ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick

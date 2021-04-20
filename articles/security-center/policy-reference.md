@@ -18,7 +18,7 @@ available:
   definitions in the "Security Center" category.
 - The [default initiative](#azure-security-center-initiatives) group lists all the Azure Policy
   definitions that are part of Security Center's default initiative,
-  [Azure Security Benchmark](../security/benchmarks/introduction.md). This Microsoft-authored,
+  [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction). This Microsoft-authored,
   widely respected benchmark builds on controls from the
   [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the
   [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on

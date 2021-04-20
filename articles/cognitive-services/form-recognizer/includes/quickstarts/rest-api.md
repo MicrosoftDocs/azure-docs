@@ -17,7 +17,7 @@ ms.author: lajanuar
 > [!NOTE]
 > This guide uses cURL to execute REST API calls.
 
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)|[Azure REST API reference](/rest/api/azure/)|[Samples](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer)|
+|[Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)|[Azure REST API reference](/rest/api/azure/)|
 
 ## Prerequisites
 
