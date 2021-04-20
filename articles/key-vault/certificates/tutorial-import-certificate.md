@@ -100,9 +100,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Learn more about the [parameters](/cli/azure/keyvault/certificate#az-keyvault-certificate-import).
+Learn more about the [parameters](/cli/azure/keyvault/certificate#az_keyvault_certificate_import).
 
-After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show)
+After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az_keyvault_certificate_show)
 
 
 ```azurecli
