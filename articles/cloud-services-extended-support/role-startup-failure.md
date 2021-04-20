@@ -12,7 +12,7 @@ ms.custom:
 
 # Troubleshoot Azure Cloud Services (extended support) roles that fail to start
 
-Here are some common problems and solutions related to Cloud Services (extended support) roles that fail to start.
+Here are some common problems and solutions related to Azure Cloud Services (extended support) roles that fail to start.
 
 ## Cloud service operation fails with RoleInstanceStartupTimeoutError
 
