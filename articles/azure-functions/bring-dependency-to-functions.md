@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 * The Azure Functions extension for Visual Studio Code.
 * Local Functions project setup with 1 HTTP Triggered function created. To learn more, **TODO** link to the vs code tutorial
 
-
+::: zone pivot="programming-language-python"
 ## Bring Dependencies by putting them in Azure Functions Project Directory
 One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in functions project directory structure. Here is an example of the directory samples in a Python functions project:
 ```
@@ -69,8 +69,9 @@ def main(req: func.HttpRequest,
 ```
 >[!NOTE]
 > You may need to use `chmod` to provide `Execute` rights to the ffmpeg binary in a Linux environment
+::: zone-end
 
-::: zone pivot="devx-track-java"
+::: zone pivot="programming-language-java"
 ## Bring Dependencies by putting them in Azure Functions Project Directory
 One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in functions project directory structure. Here is an example of the directory samples in a Java functions project:
 ```
@@ -171,7 +172,7 @@ public class Function {
 ::: zone-end
 
 
-::: zone pivot="devx-track-python"
+::: zone pivot="programming-language-python"
 ## Bring dependencies by mounting a file share
 
 Another way to bring in 3rd party dependency, available in Linux offering, is to utilize Azure Functions feature to mount a file share using Azure Files. This might be appropriate if you want to decouple dependencies or artifacts from your application code.
