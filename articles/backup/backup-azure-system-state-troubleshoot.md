@@ -17,7 +17,7 @@ We recommend you perform the following validation steps, before you start troubl
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Ensure there's network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary, restart and retry the operation
-- [Ensure 5-10% free volume space is available on scratch folder location](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Ensure 5-10% free volume space is available on scratch folder location](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-)
 - [Check if another process or antivirus software is interfering with Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
 - [Scheduled backup fails, but manual backup works](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - Ensure your OS has the latest updates
