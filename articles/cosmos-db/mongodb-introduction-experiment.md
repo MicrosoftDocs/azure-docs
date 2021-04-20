@@ -51,9 +51,9 @@ All the API for MongoDB versions run on the same codebase, making upgrades a sim
 * You are not billed for virtual machines in a cluster. [Pricing](how-pricing-works.md) is based on throughput in request units (RUs) configured on a per database or per collection basis. The first 400 RUs per second are free with [Free Tier](how-pricing-works.md).
 
 * There are three ways to deploy Azure Cosmos DB API for MongoDB:
-     * [Provisioned throughput](set-throughput.md): Set a RU/sec number and change it manually. Great for consistent workloads.
-     * [Autoscale](provision-throughput-autoscale.md): Set an upper bound on the throughput you need. Thoughput will instantly scale to match your needs. Great for workloads that always change.
-     * [Serverless](serverless.md) (preview): Only pay for the throughput you use, period. Great for dev/test workloads. 
+     * [Provisioned throughput](set-throughput.md): Set a RU/sec number and change it manually. This model best fits for consistent workloads.
+     * [Autoscale](provision-throughput-autoscale.md): Set an upper bound on the throughput you need. Throughput instantly scales to match your needs. This model best fits for workloads that always change.
+     * [Serverless](serverless.md) (preview): Only pay for the throughput you use, period. This model best fits for dev/test workloads. 
 
 * Sharded cluster performance is dependent on the shard key you choose when creating a collection. Choose a shard key carefully to ensure that your data is evenly distributed across shards.
 
