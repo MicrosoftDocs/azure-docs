@@ -91,7 +91,7 @@ For SQL Database, this tutorial uses [Azure SQL Database](/azure/sql-database/).
 
 ### Create a SQL Database logical server
 
-In the Cloud Shell, create a SQL Database logical server with the [`az sql server create`](/cli/azure/sql/server#az-sql-server-create) command.
+In the Cloud Shell, create a SQL Database logical server with the [`az sql server create`](/cli/azure/sql/server#az_sql_server_create) command.
 
 Replace the *\<server-name>* placeholder with a *unique* SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice. 
 
@@ -122,7 +122,7 @@ When the SQL Database logical server is created, the Azure CLI shows information
 
 ### Configure a server firewall rule
 
-Create an [Azure SQL Database server-level firewall rule](../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
+Create an [Azure SQL Database server-level firewall rule](../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -140,7 +140,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <server-name
 
 ### Create a database
 
-Create a database with an [S0 performance level](../azure-sql/database/service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db#az-sql-db-create) command.
+Create a database with an [S0 performance level](../azure-sql/database/service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db#az_sql_db_create) command.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -148,7 +148,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### Create connection string
 
-Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db#az-sql-db-show-connection-string) command.
+Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show_connection_string) command.
 
 ```azurecli-interactive
 az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
@@ -259,7 +259,7 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 ### Configure connection string
 
-To set connection strings for your Azure app, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in the Cloud Shell. In the following command, replace *\<app-name>*, as well as the *\<connection-string>* parameter with the connection string you created earlier.
+To set connection strings for your Azure app, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command in the Cloud Shell. In the following command, replace *\<app-name>*, as well as the *\<connection-string>* parameter with the connection string you created earlier.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
@@ -460,7 +460,7 @@ The sample project already follows the guidance at [ASP.NET Core Logging in Azur
 - Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
 - Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
-To set the ASP.NET Core [log level](/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) command in the Cloud Shell.
+To set the ASP.NET Core [log level](/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
@@ -469,7 +469,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 > [!NOTE]
 > The project's log level is already set to `Information` in *appsettings.json*.
 
-To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) command in the Cloud Shell.
+To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

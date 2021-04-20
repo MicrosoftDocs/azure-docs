@@ -45,7 +45,7 @@ This script uses the following commands to create the deployment. Each item in t
 |---|---|
 | [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
 | [az network vnet create](/cli/azure/network/vnet) | Creates a virtual network. |
-| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Creates a subnet in a virtual network. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Creates a subnet in a virtual network. |
 | [az network public-ip create](/cli/azure/network/public-ip) | Creates the public IP address for the application gateway. |
 | [az network application-gateway create](/cli/azure/network/application-gateway) | Create an application gateway. |
 | [az vmss create](/cli/azure/vmss) | Creates a virtual machine scale set. |

@@ -4,7 +4,7 @@ description: Details on how the date and volume free space policies work togethe
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/4/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -65,4 +65,5 @@ In this case, files 1, 2 and 5 would be locally cached and files 3 and 4 would b
 Cloud tiering can be enabled for multiple server endpoints on a single local volume. For this configuration, you should set the volume free space to the same amount for all the server endpoints on the same volume. If you set different volume free space policies for several server endpoints on the same volume, the largest volume free space percentage will take precedence. This is called the **effective volume free space policy**. For example, if you have three server endpoints on the same local volume, one set to 15%, another set to 20%, and a third set to 30%, they will all begin to tier the coldest files when they have less than 30% free space available.
 
 ## Next steps
-* [Monitor cloud tiering](storage-sync-monitor-cloud-tiering.md)
+
+* [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md)
