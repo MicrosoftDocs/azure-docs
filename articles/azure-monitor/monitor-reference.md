@@ -163,7 +163,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Virtual Network | Yes | Yes | [Yes](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG Flow Logs | No | Yes | No |  |
 |VPN Gateway | Yes | Yes | No |  |
-|Windows Virtual Desktop | No | No | No |  |
+|Windows Virtual Desktop | No | Yes | No |  |
 
 ## Virtual machine agents
 The following table lists the agents that can collect data from the guest operating system of virtual machines and send data to Monitor. Each agent can collect different data and send it to either Metrics or Logs in Azure Monitor. 

@@ -71,9 +71,9 @@ You can also create or manage parent/child relationships for existing devices.
 
 # [Azure CLI](#tab/azure-cli)
 
-The [azure-iot](/cli/azure/ext/azure-iot) extension for the Azure CLI provides commands to manage your IoT resources. You can manage the parent/child relationship of IoT and IoT Edge devices when you create new device identities or by editing existing devices.
+The [azure-iot](/cli/azure/iot) extension for the Azure CLI provides commands to manage your IoT resources. You can manage the parent/child relationship of IoT and IoT Edge devices when you create new device identities or by editing existing devices.
 
-The [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) set of commands allow you to manage the parent/child relationships for a given device.
+The [az iot hub device-identity](/cli/azure/iot/hub/device-identity) set of commands allow you to manage the parent/child relationships for a given device.
 
 The `create` command includes parameters for adding children devices and setting a parent device at the time of device creation.
 

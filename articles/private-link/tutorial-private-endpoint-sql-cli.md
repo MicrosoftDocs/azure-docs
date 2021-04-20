@@ -8,7 +8,7 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 ---
 # Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure CLI
 

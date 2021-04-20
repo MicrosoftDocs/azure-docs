@@ -72,5 +72,5 @@ This setting allows you to identify, block, and delete external identities from 
 
 ## Next steps
 
-- [Access reviews - Graph API](/graph/api/resources/accessreviews-root?view=graph-rest-beta)
-- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)
+- [Access reviews - Graph API](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)
+- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-root)
