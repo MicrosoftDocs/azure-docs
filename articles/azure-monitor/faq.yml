@@ -322,7 +322,7 @@ sections:
           * Open the **Usage and estimated costs page** in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
           * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
           
-      - question: <a name="q14"></a>What does Application Insights modify in my project?
+      - question: What does Application Insights modify in my project?
         answer: |
           The details depend on the type of project. For a web application:
           
@@ -346,7 +346,7 @@ sections:
         answer: |
           See the [release notes](app/release-notes.md) for the SDK appropriate to your type of application.
           
-      - question: <a name="update"></a>How can I change which Azure resource my project sends data to?
+      - question: How can I change which Azure resource my project sends data to?
         answer: |
           In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
 
@@ -418,7 +418,7 @@ sections:
           You can [use Power BI](app/export-power-bi.md ) to display your request telemetry on a map.
           
           
-      - question: <a name="data"></a>How long is data retained in the portal? Is it secure?
+      - question: How long is data retained in the portal? Is it secure?
         answer: |
           Take a look at [Data Retention and Privacy][data].
           
@@ -450,7 +450,7 @@ sections:
           * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data. Or
           * Write a proxy that runs in your server, and have the web client send data through that proxy.
           
-      - question: <a name="post"></a>How do I see POST data in Diagnostic search?
+      - question: How do I see POST data in Diagnostic search?
         answer: |
           We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it.
           
@@ -483,7 +483,7 @@ sections:
           
           Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. Additionally, the [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
           
-      - question: <a name="q17"></a> Have I enabled everything in Application Insights?
+      - question:  Have I enabled everything in Application Insights?
         answer: |
           | What you should see | How to get it | Why you want it |
           | --- | --- | --- |
@@ -532,9 +532,26 @@ sections:
           > [!NOTE]
           > If the resource you are creating in a new region is replacing a classic resource we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace-based](app/convert-classic-resource.md). 
           
-      - question: |
-          Automation
+  - name: Automation
+    questions:
+     - question: |
+          Configuring Application Insights
         answer: |
+          You can [write PowerShell scripts](app/powershell.md) using Azure Resource Monitor to:
+
+          * Create and update Application Insights resources.
+          * Set the pricing plan.
+          * Get the instrumentation key.
+          * Add a metric alert.
+          * Add an availability test.
+
+          You can't set up a Metric Explorer report or set up continuous export.
+
+     - question: |
+          Querying the telemetry
+        answer: |
+          Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](./logs/log-query-overview.md) queries.
+
       - question: |
           How can I set an alert on an event?
         answer: |
@@ -563,7 +580,55 @@ sections:
           
           
           Review our full list of services and IP addresses [here](app/ip-addresses.md).
-          
+
+          **Firewall exception**
+
+          Allow your web server to send telemetry to our endpoints. 
+
+          **Gateway redirect**
+
+          Route traffic from your server to a gateway on your intranet by overwriting Endpoints in your configuration. If these "Endpoint" properties are not present in your config, these classes will use the default values shown below in the example ApplicationInsights.config. 
+
+          Your gateway should route traffic to our endpoint's base address. In your configuration, replace the default values with `http://<your.gateway.address>/<relative path>`.
+
+
+          **Example ApplicationInsights.config with default endpoints:**
+          ```xml
+          <ApplicationInsights>
+            ...
+            <TelemetryModules>
+              <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+                <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+              </Add>
+            </TelemetryModules>
+              ...
+            <TelemetryChannel>
+               <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+            </TelemetryChannel>
+            ...
+            <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+              <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+            </ApplicationIdProvider>
+            ...
+          </ApplicationInsights>
+          ```
+
+          > [!NOTE]
+          > ApplicationIdProvider is available starting in v2.6.0.
+
+
+          **Proxy passthrough**
+
+          Proxy passthrough can be achieved by configuring either a machine level or application level proxy. For more information see dotnet's article on [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+           Example Web.config:
+           ```xml
+          <system.net>
+              <defaultProxy>
+                <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+              </defaultProxy>
+          </system.net>
+          ```
       - question: |
           Can I run Availability web tests on an intranet server?
         answer: |
@@ -656,7 +721,7 @@ sections:
   - name: Container insights
     questions:
       - question: |
-          What does *Other Processes* represent under the Node view?
+          What does 'Other Processes' represent under the Node view?
         answer: |
           **Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
           
@@ -684,6 +749,43 @@ sections:
           I don't see Image and Name property values populated when I query the ContainerLog table.
         answer: |
           For agent version ciprod12042019 and later, by default these two properties are not populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
+
+          **Option 1** 
+          
+          Join other tables to include these property values in the results.
+          
+          Modify your queries to include Image and ImageTag properties from the ```ContainerInventory``` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the ```ContainerLog``` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property. This is the recommended option.
+          
+          The following example is a sample detailed query that explains how to get these field values with joins.
+          
+          ```
+          //lets say we are querying an hour worth of logs
+          let startTime = ago(1h);
+          let endTime = now();
+          //below gets the latest Image & ImageTag for every containerID, during the time window
+          let ContainerInv = ContainerInventory | where TimeGenerated >= startTime and TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID, Image, ImageTag | project-away TimeGenerated | project ContainerID1=ContainerID, Image1=Image ,ImageTag1=ImageTag;
+          //below gets the latest Name for every containerID, during the time window
+          let KubePodInv  = KubePodInventory | where ContainerID != "" | where TimeGenerated >= startTime | where TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID2 = ContainerID, Name1=ContainerName | project ContainerID2 , Name1;
+          //now join the above 2 to get a 'jointed table' that has name, image & imagetag. Outer left is safer in-case there are no kubepod records are if they are latent
+          let ContainerData = ContainerInv | join kind=leftouter (KubePodInv) on $left.ContainerID1 == $right.ContainerID2;
+          //now join ContainerLog table with the 'jointed table' above and project-away redundant fields/columns and rename columns that were re-written
+          //Outer left is safer so you dont lose logs even if we cannot find container metadata for loglines (due to latency, time skew between data types etc...)
+          ContainerLog
+          | where TimeGenerated >= startTime and TimeGenerated < endTime 
+          | join kind= leftouter (
+             ContainerData
+          ) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1 
+          
+          ```
+          
+          **Option 2**
+          
+          Re-enable collection for these properties for every container log line.
+          
+          If the first option is not convenient due to query changes involved, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the [data collection configuration settings](containers/container-insights-agent-config.md).
+          
+          > [!NOTE]
+          > The second option is not recommended with large clusters that have more than 50 nodes because it generates API server calls from every node in the cluster to perform this enrichment. This option also increases data size for every log line collected.
           
       - question: |
           Can I view metrics collected in Grafana?
@@ -706,7 +808,7 @@ sections:
           The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
 
       - question: |
-          How do I resolve *Missing Subscription registration* error?
+          How do I resolve 'Missing Subscription registration' error?
         answer: |
           If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../azure-resource-manager/templates/error-register-resource-provider.md).
           

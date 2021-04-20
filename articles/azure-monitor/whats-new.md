@@ -13,7 +13,7 @@ Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March
 
 **Updated articles**
 
-- [Azure Monitor Frequently Asked Questions](faq.md)
+- [Azure Monitor Frequently Asked Questions](faq.yml)
 - [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
 - [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
 - [Deploy Azure Monitor](deploy.md)

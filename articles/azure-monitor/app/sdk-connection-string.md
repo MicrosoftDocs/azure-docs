@@ -27,7 +27,7 @@ Customer scenarios where we visualize this having the most impact:
 
 - Firewall exceptions or proxy redirects 
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.md#can-i-monitor-an-intranet-web-server). 
+    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.yml#can-i-monitor-an-intranet-web-server). 
     Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
 - Sovereign or Hybrid cloud environments

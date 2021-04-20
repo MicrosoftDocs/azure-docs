@@ -5,7 +5,7 @@
   - name: What is Azure Monitor?
     href: overview.md
   - name: FAQ
-    href: faq.md
+    href: faq.yml
   - name: What's new?
     href: whats-new.md
   - name: Migrate from Operations Manager
@@ -360,7 +360,7 @@
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: faq.md#agents
+      href: faq.yml#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -621,7 +621,7 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
-      href: ./faq.md
+      href: ./faq.yml
     - name: Code-based monitoring
       items:
       - name: ASP.NET Core 
@@ -761,7 +761,7 @@
     - name: OpenTelemetry
       items: 
       - name: FAQ
-        href: faq.md#opentelemetry
+        href: faq.yml#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -999,7 +999,7 @@
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.yml  
     - name: FAQ
-      href: faq.md#vm-insights
+      href: faq.yml#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1053,7 +1053,7 @@
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: faq.md#container-insights
+      href: faq.yml#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1141,7 +1141,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: faq.md#sql-insights-preview
+        href: faq.yml#sql-insights-preview
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
