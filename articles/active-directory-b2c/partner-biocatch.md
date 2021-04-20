@@ -9,14 +9,14 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 04/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
 
 # Tutorial: Configure BioCatch with Azure Active Directory B2C
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BioCatch](https://www.biocatch.com/) to further augment your security posture. BioCatch analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals.
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BioCatch](https://www.biocatch.com/) to further augment your Customer Identity and Access Management (CIAM) security posture. BioCatch analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals.
 
 ## Prerequisites
 
@@ -34,24 +34,23 @@ BioCatch integration includes the following components:
 
 - **A web app or web service** - The user first browses to this web service. This web service instantiates a unique client session ID that is sent to BioCatch. The client session ID then immediately begins transmitting user behavior characteristics to BioCatch.
 
-- **A method** - Sends the unique client session ID to Azure AD B2C. In the provided example, JavaScript is used to input the value into a hidden field.
+- **A method** - Sends the unique client session ID to Azure AD B2C. In the provided example, JavaScript is used to input the value into a hidden HTML field.
 
-- **An Azure AD B2C customized UI** - Hides a field for the client session ID input from JavaScript, if using the above method
+- **An Azure AD B2C customized UI** - Hides an HTML field for the client session ID input from JavaScript, if using the above method
 
 - **Azure AD B2C custom policy**
 
-  - Takes the custom client session ID from the UI in the form of a claim. This is done via a self-asserted technical profile
+  - Takes the custom client session ID from the UI in the form of a claim. This is achieved via a self-asserted technical profile
 
   - Integrates with BioCatch via a REST API claims provider and passes the client session ID to the BioCatch platform
 
-  - Multiple custom claims are returned from BioCatch to then act upon
+  - Multiple custom claims are returned from BioCatch for the custom policy logic to then act upon
 
-  - A userjourney, which evaluates a returned claim, for example, session risk, conditionally executes an action, such as invoke Multi-factor authentication (MFA).
+  - A userjourney, which evaluates a returned claim, for example, session risk, and conditionally executes an action, such as invoke Multi-factor authentication (MFA).
 
 ![image shows biocatch architecture diagram](media/partner-biocatch/biocatch-architecture-diagram.png)
-
 | Step  | Description |
-|:---|:-------------------|
+|---|---|
 |1a     | The user browses the web service. The web service then returns HTML, CSS, or JavaScript values and configures to load the BioCatch JavaScript SDK. Client-side JavaScript configures/sets client session ID for the BioCatch SDK. Alternately, the web service can pre-configure client session ID and send to the client.        |
 |1b    |  Configure the instantiated BioCatch JavaScript SDK against the BioCatch platform. Immediately begin to send user behavior characteristics to BioCatch from the client device, using the client session ID from step 1a.    |
 |2     |  User tries to sign-up/sign-in and is redirected to Azure AD B2C.      |
@@ -59,7 +58,7 @@ BioCatch integration includes the following components:
 |3b     | The client session ID is submitted to the BioCatch platform to determine a risk score. |
 |3c     | BioCatch returns information about the session, such as risk score, and a recommendation on what to do – allow or block |
 |3d    |The userjourney has a conditional check step, which acts upon the returned claims|
-|4   | Based on the conditional check result, an action such as *step-up MFA* is invoked|
+| 4   | Based on the conditional check result, an action such as *step-up MFA* is invoked|
 |5    | At any time from when the user first hits the web service page, the web service can use the client session ID to query the BioCatch API to determine risk score and session information in real-time. |
 
 ## Onboard with BioCatch
@@ -68,7 +67,11 @@ Contact [BioCatch](https://www.biocatch.com/contact-us) and create an account.
 
 ## Configure the custom UI
 
-It's recommended to hide the client session ID field. Use CSS, JavaScript, or any other method to hide the field. For testing purposes, you may unhide the field.
+It's recommended to hide the client session ID field. Use CSS, JavaScript, or any other method to hide the field. For testing purposes, you may unhide the field. For example, JavaScript is used to hide the input field as:
+
+```
+document.getElementById("clientSessionId").style.display = 'none';
+```
 
 ## Configure  Azure AD B2C Identity Experience Framework policies
 
@@ -138,7 +141,7 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-```
+```azurecli
 <ClaimsProvider> 
 
       <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -228,8 +231,7 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
   </TechnicalProfiles>
 ```
 
->[!NOTE]
->BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
+>[!NOTE] BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
 
 7. Configure the userjourney; follow the example
 
@@ -239,8 +241,9 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
 
    c. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
-```
-<OrchestrationStep Order="8" Type="ClaimsExchange"> 
+```azurecli
+
+```<OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
           <ClaimsExchanges> 
 
@@ -284,7 +287,9 @@ It's recommended to hide the client session ID field. Use CSS, JavaScript, or an
 
 ```
 
-8. As an optional step, configure on relying party configuration. It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
+8. Configure on relying party configuration (optional)
+
+It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
 
 ```
 <RelyingParty> 
