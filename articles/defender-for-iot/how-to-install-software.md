@@ -698,7 +698,19 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
 
-## Dell R340 on-premises management console installation
+## On-premises management console installation
+
+Before installing the software on the appliance, you need to adjust the appliance's BIOS configuration:
+
+### BIOS configuration
+
+To configure the BIOS for your appliance:
+
+1. [Enable remote access and update the password](#enable-remote-access-and-update-the-password).
+
+1. [Configure the BIOS](#configure-the-hpe-bios).
+
+### Software installation
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times. 
 
@@ -720,7 +732,7 @@ To install the software:
 
    | Parameter | Configuration |
    |--|--|
-   | **configure management network interface** | **eth0, eth1** |
+   | **configure management network interface** | For Dell: **eth0, eth1** <br> For HP: **enu1, enu2** |
    | **configure management network IP address:** | **provided by the customer** |
    | **configure subnet mask:** | **provided by the customer** |
    | **configure DNS:** | **provided by the customer** |
