@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Call an ASP.NET web API that's protected by Microsoft identity platform
 
-In this quickstart, you'll download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
 The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how you can request an access token to access a web API.
 
@@ -49,12 +49,12 @@ Register your web API in **App registrations** in the Azure portal.
 
 To register your apps manually, choose the Azure Active Directory (Azure AD) tenant where you want to create your apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant that you want to use.
 
 ### Register the TodoListService app
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Find and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
