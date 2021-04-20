@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/20/2021
 
 ms.author: justinha
 author: justinha
@@ -93,13 +93,15 @@ For Azure Multifactor Authentication Server, the following Azure portal pages mi
 
 ## Multifactor authentication logs location
 
-The following table shows the location for service logs for public clouds.
+The following table shows the location for logs for public clouds. 
+Multifactor authentication activity reports store activity from on-premises components: NPS Extension, AD FS adapter, and MFA server. 
+The multifactor authentication service logs are used to operate the service.
 
-| Public cloud| Sign-in logs | Multifactor authentication activity report        | Multifactor authentication service logs       |
-|-------------|--------------|----------------------------------------|------------------------|
-| United States          | United States           | United States                                     | United States                     |
-| Europe      | Europe       | United States                                     | Europe <sup>2</sup>    |
-| Australia   | Australia    | United States<sup>1</sup>                         | Australia <sup>2</sup> |
+| Public cloud  | Sign-in logs | Multifactor authentication activity report        | Multifactor authentication service logs       |
+|---------------|--------------|---------------------------------------------------|------------------------|
+| United States | United States| United States                                     | United States                     |
+| Europe        | Europe       | United States                                     | Europe <sup>2</sup>    |
+| Australia     | Australia    | United States<sup>1</sup>                         | Australia <sup>2</sup> |
 
 <sup>1</sup>OATH Code logs are stored in Australia.
 
@@ -111,11 +113,57 @@ The following table shows the location for service logs for sovereign clouds.
 |--------------------------------------|--------------------------------------|-------------------------------|------------------|
 | Microsoft Azure Germany              | Germany                              | United States                            | United States               |
 | Azure China 21Vianet                 | China                                | United States                            | United States               |
-| Microsoft Government Cloud           | United States                                   | United States                            | United States               |
+| Microsoft Government Cloud           | United States                        | United States                            | United States               |
 
 The multifactor authentication activity reports contain personal data such as User Principal Name (UPN) and complete phone number.
 
+## Multifactor authentication activity reports in public cloud
+
+Multifactor authentication activity reports store activity from on-premises components: NPS Extension, AD FS adapter, and MFA server. 
 The multifactor authentication service logs are used to operate the service.
+The following sections show where activity reports and services logs are stored for specific authentication methods for each component in different customer regions. 
+Standard voice calls may failover to a different region.
+
+>[!NOTE]
+>The multifactor authentication activity reports contain personal data such as User Principal Name (UPN) and complete phone number.
+
+### NPS extension
+
+| Authentication method                          | Customer region                      | Activity report location | Service log location         |
+|------------------------------------------------|--------------------------------------|--------------------------|------------------------------|
+| Phone App<br> OTP                              | Australia and New Zealand            | Australia/New Zealand    | Cloud in-region              |
+| Phone App<br> OTP                              | Outside of Australia and New Zealand | United States            | Cloud in-region              |
+| Standard voice calls and all other methods     | Any                                  | United States            | Cloud in-region              |
+| Voice calls with custom greetings              | Any                                  | United States            | MFA backend in United States 
+| Non-OTP<br>Non-voice                           | Any                                  | United States            | Cloud in-region              |
+
+### AD FS Adapter
+
+| Authentication method                          | Customer region                      | Activity report location | Service log location         |
+|------------------------------------------------|--------------------------------------|--------------------------|------------------------------|
+| Phone App<br> OTP                              | Australia and New Zealand            | Australia/New Zealand    | Cloud in-region              |
+| Phone App<br> OTP                              | Outside of Australia and New Zealand | United States            | Cloud in-region              |
+| Standard voice calls and all other methods     | Any                                  | United States            | Cloud in-region              |
+| Voice calls with custom greetings              | Any                                  | United States            | MFA backend in United States |
+| Non-OTP<br>Non-voice                           | Any                                  | United States            | Cloud in-region              |
+
+### MFA server and cloud-based MFA
+
+| Component  | Authentication method                          | Customer region                      | Activity report location        | Service log location         |
+|------------|------------------------------------------------|--------------------------------------|---------------------------------|------------------------------|
+| MFA server | All methods                                    | Any                                  | United States                   | MFA backend in United States |
+| Cloud MFA  | Standard voice calls and all other methods     | Any                                  | Azure AD Sign-in logs in region | Cloud in-region              |
+| Cloud MFA  | Voice calls with custom greetings              | Any                                  | Azure AD Sign-in logs in region | MFA backend in United States |
+
+## Multifactor authentication activity reports in sovereign clouds
+
+The following table shows the location for service logs for sovereign clouds.
+
+| Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report | Multifactor authentication service logs |
+|--------------------------------------|--------------------------------------|--------------------------------------------|-----------------------------------------|
+| Microsoft Azure Germany              | Germany                              | United States                              | United States                           |
+| Azure China 21Vianet                 | China                                | United States                              | United States                           |
+| Microsoft Government Cloud           | United States                        | United States                              | United States                           |
 
 ## Next steps
 
