@@ -21,7 +21,7 @@ The following example requires that you use [Cloud Shell](https://shell.azure.co
 
 The following steps show how to take a snapshot using the **az snapshot create** command with the **--source-disk** parameter. The following example assumes that there is a VM called *myVM* in the *myResourceGroup* resource group.
 
-Get the disk ID using [az vm show](/cli/azure/vm#az-vm-show).
+Get the disk ID using [az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -31,7 +31,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
+Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az_snapshot_create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -43,7 +43,7 @@ az snapshot create \
 > [!NOTE]
 > If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.
 
-You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az_snapshot_list).
 
 ```azurecli-interactive
 az snapshot list \

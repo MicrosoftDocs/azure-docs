@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/02/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -14,7 +14,7 @@ Azure File Sync connects your on-premises servers to Azure Files, enabling multi
 
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
 
-We recommend reading [Azure File Sync networking considerations](storage-sync-files-networking-overview.md) prior to reading this how to guide.
+We recommend reading [Azure File Sync networking considerations](file-sync-networking-overview.md) prior to reading this how to guide.
 
 ## Overview
 Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you will need to configure your servers to communicate with the following Azure services:
@@ -192,7 +192,7 @@ If you are using Azure File Sync on-premises, you can use the service tag API to
 - The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
     - [REST API](/rest/api/virtualnetwork/servicetags/list)
     - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+    - [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 Because the service tag discovery API is not updated as frequently as the JSON documents published to the Microsoft Download Center, we recommend using the JSON document to update your on-premises firewall's allow list. This can be done as follows:
 
@@ -308,6 +308,6 @@ The lists earlier in this document contain the URLs Azure File Sync currently co
 Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and might even change over time. Check this article periodically.
 
 ## Next steps
-- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
-- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
+- [Planning for an Azure File Sync deployment](file-sync-planning.md)
+- [Deploy Azure File Sync](file-sync-deployment-guide.md)
+- [Monitor Azure File Sync](file-sync-monitoring.md)
