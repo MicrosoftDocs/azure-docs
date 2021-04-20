@@ -25,7 +25,7 @@ Learn how to add a new update into Device Update for IoT Hub.
 
 ## Obtain an update for your devices
 
-Now that Device Update is [set up](create-device-update-account.md), you’re ready to update your devices. But first, you need the actual update file(s) for those devices that you will be deploying.
+Now that Device Update is [set up](create-device-update-account.md), you’re ready to update your devices. Next, you will need the actual update file(s) that you will be deploying to those devices.
 
 If you’ve purchased devices from an OEM or solution integrator, that organization will most likely provide update files for you, without you needing to create the updates. Contact the OEM or solution integrator to find out how they make updates available.
 
