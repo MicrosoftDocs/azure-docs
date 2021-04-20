@@ -856,7 +856,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | No | No | No |
 > | servergroups | No | No | No |
-> | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn-more](../../postgresql/howto-move-regions-portal.md).
+> | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | Yes | Yes | No |
 > | singleservers | Yes | Yes | No |
 
@@ -1155,7 +1155,7 @@ Jump to a resource provider namespace:
 ## Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription | Region Move |
+> | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | graph | Yes | Yes | No |
 
