@@ -1,14 +1,14 @@
 ---
 title: Create a Cognitive Services resource using the Azure CLI
 titleSuffix: Azure Cognitive Services
-description: Get started with Azure Cognitive Services by creating and subscribing to a resource using the Azure command line interface.
+description: Get started with Azure Cognitive Services by creating and subscribing to a resource using the Azure command-line interface.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 3/22/2021
 ms.author: aahi
 ---
 
@@ -94,16 +94,6 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
-### Search
-
-| Service            | Kind                  |
-|--------------------|-----------------------|
-| Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
-| Bing Entity Search | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Bing Spell Check   | `Bing.SpellCheck.v7`  |
-
 ### Speech
 
 | Service            | Kind                 |
@@ -176,7 +166,7 @@ Use the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/ac
 Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
 * maximum number of allowed transactions per second (TPS).
 * service features enabled within the pricing tier.
-* The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
+* The cost for a predefined number of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
 ## Get current quota usage for your resource
 
@@ -201,7 +191,8 @@ az group delete --name cognitive-services-resource-group
 
 ## See also
 
-* [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
-* [Natural language support](language-support.md)
-* [Docker container support](cognitive-services-container-support.md)
+* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.

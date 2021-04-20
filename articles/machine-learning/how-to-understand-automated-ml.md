@@ -87,6 +87,8 @@ Automated ML doesn't differentiate between binary and multiclass metrics. The sa
 
 For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
+Automated ML doesn't calculate binary metrics, that is metrics for binary classification datasets. However, these metrics can be manually calculated using the [confusion matrix](#confusion-matrix) that Automated ML generated for that particular run. For example, you can calculate precision, `tp / (tp + fp)`,  with the true positive and false positive values shown in a 2x2 confusion matrix chart.
+
 ## Confusion matrix
 
 Confusion matrices provide a visual for how a machine learning model is making systematic errors in its predictions for classification models. The word "confusion" in the name comes from a model "confusing" or mislabeling samples. A cell at row `i` and column `j` in a confusion matrix contains the number of samples in the evaluation dataset that belong to class `C_i` and were classified by the model as class `C_j`.
@@ -227,18 +229,9 @@ In this example, note that the better model has a predicted vs. true line that i
 
 ## Model explanations and feature importances
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model interpretability dashboard to measure and report the relative contributions of dataset features.
+While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
 
-To view the interpretability dashboard in the studio:
-1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace
-2. In the left menu, select **Experiments**
-3. Select your experiment from the list of experiments
-4. In the table at the bottom of the page, select an AutoML run
-5. In the **Models** tab, select the **Algorithm name** for the model you want to explain
-6. In the **Explanations** tab, you may see an explanation was already created if the model was the best
-7. To create a new explanation, select **Explain model** and select the remote compute with which to compute explanations
-
-[Learn more about model explanations in automated ML](how-to-machine-learning-interpretability-automl.md).
+For a code first experience, see how to set up [model explanations for automated ML experiments with the Azure Machine Learning Python SDK](how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
 > The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.

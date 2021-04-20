@@ -9,7 +9,9 @@ ms.topic: overview
 ms.date: 8/20/2020
 ---
 
-# Common errors
+# Commonly encountered errors during or post migration to Azure Database for MySQL service
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you will see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL service for the first time.
 
@@ -48,7 +50,7 @@ BEGIN
 END;
 ```
 
-**Resolution**:  To resolve the error, set log_bin_trust_function_creators to 1 from [server parameters](howto-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects and revert back the log_bin_trust_function_creators parameter to its previous value after creation.
+**Resolution**:  To resolve the error, set log_bin_trust_function_creators to 1 from [server parameters](howto-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects. You can continue to maintain log_bin_trust_function_creators to 1 for your server to avoid the error in future. Our recommendation is to set log_bin_trust_function_creators as the security risk highlighted in [MySQL community documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) is minimal in Azure DB for MySQL service as bin log is not exposed to any threats.
 
 #### ERROR 1227 (42000) at line 101: Access denied; you need (at least one of) the SUPER privilege(s) for this operation. Operation failed with exitcode 1
 
@@ -84,6 +86,18 @@ The above error may occur while executing CREATE VIEW with DEFINER statements as
 
 > [!Tip] 
 > Use sed or perl to modify a dump file or SQL script to replace the DEFINER= statement
+
+#### ERROR 1227 (42000) at line 18: Access denied; you need (at least one of) the SUPER privilege(s) for this operation
+
+The above error may occur if you are using trying to import the dump file from MySQL server with GTID enabled to the target Azure Database for MySQL server. Mysqldump adds SET @@SESSION.sql_log_bin=0 statement to a dump file from a server where GTIDs are in use, which disables binary logging while the dump file is being reloaded.
+
+**Resolution**: 
+To resolve this error while importing, remove or comment out the below lines in your mysqldump file and run import again to ensure it is successful. 
+
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN; 
+SET @@SESSION.SQL_LOG_BIN= 0;
+SET @@GLOBAL.GTID_PURGED='';
+SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 
 ## Common connection errors for server admin login
 

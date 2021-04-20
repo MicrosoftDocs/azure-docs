@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using the Azure portal.
 services: virtual-network
 author: KumudD
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
+# Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021

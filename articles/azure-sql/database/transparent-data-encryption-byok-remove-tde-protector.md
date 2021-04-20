@@ -1,15 +1,15 @@
 ---
 title: Remove TDE protector (PowerShell & the Azure CLI)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: "Learn how to respond to a potentially compromised TDE protector for Azure SQL Database or Azure Synapse Analytics using TDE with Bring YOur Own Key (BYOK) support."
+description: "Learn how to respond to a potentially compromised TDE protector for Azure SQL Database or Azure Synapse Analytics using TDE with Bring Your Own Key (BYOK) support."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang:
 ms.topic: how-to
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/24/2020
 ---

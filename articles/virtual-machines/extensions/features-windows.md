@@ -115,7 +115,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](../troubleshooting/reset-rdp.md). Once you have run this, you should reset the password at first login:
+In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](/troubleshoot/azure/virtual-machines/reset-rdp). Once you have run this, you should reset the password at first login:
 
 ```powershell
 $cred=Get-Credential

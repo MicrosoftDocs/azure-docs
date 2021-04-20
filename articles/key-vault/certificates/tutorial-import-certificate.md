@@ -132,7 +132,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?).
 
 
 ## Clean up resources

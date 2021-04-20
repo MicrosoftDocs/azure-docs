@@ -21,7 +21,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 ## Enabling clustering on a data source
 
-Enable clustering in the `DataSource` class by setting the `cluster` option to true. Set `clusterRadius` to select nearby points and combines them into a cluster. The value of `clusterRadius` is in pixels. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
+Enable clustering in the `DataSource` class by setting the `cluster` option to `true`. Set `clusterRadius` to select nearby points and combines them into a cluster. The value of `clusterRadius` is in pixels. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
 
 ```javascript
 //Create a data source and enable clustering.

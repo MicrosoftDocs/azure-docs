@@ -32,7 +32,6 @@ This article assumes that you have familiarity with the following topics:
 + [Azure Private Link](how-to-configure-private-link.md)
 + [Network Security Groups (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Network firewalls](../firewall/overview.md)
-
 ## Example scenario
 
 In this section, you learn how a common network scenario is set up to secure Azure Machine Learning communication with private IP addresses.
@@ -58,8 +57,8 @@ The next five sections show you how to secure the network scenario described abo
 1. Secure the [**training environment**](#secure-the-training-environment).
 1. Secure the [**inferencing environment**](#secure-the-inferencing-environment).
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
-1. Configure [**firewall settings**](#configure-firewall-settings)
-
+1. Configure [**firewall settings**](#configure-firewall-settings).
+1. Configure [DNS name resolution](#custom-dns).
 ## Secure the workspace and associated resources
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
@@ -182,3 +181,5 @@ This article is part one of a five-part virtual network series. See the rest of 
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
 * [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
+
+Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.

@@ -188,6 +188,7 @@ This article provides answers to some of the most common questions about running
    1. Uninstall SQL Server completely, including the SQL IaaS extension (if present).
    1. Install the free [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads).
    1. Register with the SQL IaaS Agent extension in [lightweight mode](sql-agent-extension-manually-register-single-vm.md).
+   1. [Change the edition of SQL Server](change-sql-server-edition.md#change-edition-in-portal) in the [Azure portal](https://portal.azure.com) to Express to stop billing.  
    1. (optional) Disable the Express SQL Server service by disabling service startup. 
 
 1. **Can I use the Azure portal to manage multiple instances on the same VM?**
@@ -239,6 +240,10 @@ This article provides answers to some of the most common questions about running
 1. **Are distributed transactions with MSDTC supported on SQL Server VMs?**
    
     Yes. Local DTC is supported for SQL Server 2016 SP2 and greater. However, applications must be tested when utilizing Always On availability groups, as transactions in-flight during a failover will fail and must be retried. Clustered DTC is available starting with Windows Server 2019. 
+    
+1. **Does Azure SQL virtual machine move or store customer data out of region?**
+
+   No. In fact, Azure SQL virtual machine and the SQL IaaS Agent Extension do not store any customer data.
 
 ## SQL Server IaaS Agent extension
 

@@ -2,7 +2,7 @@
 title: Tutorial - use parameter file to deploy Azure Resource Manager Bicep file
 description: Use parameter files that contain the values to use for deploying your Bicep file.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ---

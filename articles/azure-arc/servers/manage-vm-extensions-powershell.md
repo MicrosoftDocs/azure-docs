@@ -1,13 +1,16 @@
 ---
 title: Enable VM extension using Azure PowerShell
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using Azure PowerShell.
-ms.date: 01/05/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
 ---
 
 # Enable Azure VM extensions using Azure PowerShell
 
 This article shows you how to deploy and uninstall Azure VM extensions, supported by Azure Arc enabled servers, to a Linux or Windows hybrid machine using Azure PowerShell.
+
+> [!NOTE]
+> Azure Arc enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
 ## Prerequisites
 

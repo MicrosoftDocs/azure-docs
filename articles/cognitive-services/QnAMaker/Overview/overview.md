@@ -15,6 +15,8 @@ QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows
 
 QnA Maker is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications.
 
+QnA Maker doesn't store customer data. All customer data (question answers and chatlogs) is stored in the region the customer deploys the dependent service instances in. For more details on dependent services see [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/plan?tabs=v1).
+
 ## When to use QnA Maker
 
 * **When you have static information** - Use QnA Maker when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../Concepts/data-sources-and-content.md).

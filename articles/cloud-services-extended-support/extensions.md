@@ -32,6 +32,14 @@ With advanced monitoring, additional metrics are sampled and collected at interv
 
 For more information, see [Apply the Windows Azure diagnostics extension in Cloud Services (extended support)](enable-wad.md)
 
+## Anti Malware Extension
+An Azure application or service can enable and configure Microsoft Antimalware for Azure Cloud Services using PowerShell cmdlets. Note that Microsoft Antimalware is installed in a disabled state in the Cloud Services platform running Windows Server 2012 R2 and older which requires an action by an Azure application to enable it. For Windows Server 2016 and above, Windows Defender is enabled by default, hence these cmdlets can be used for configuring Antimalware.
+
+For more information, see [Add Microsoft Antimalware to Azure Cloud Service using Extended Support(CS-ES)](https://docs.microsoft.com/azure/security/fundamentals/antimalware-code-samples#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)
+
+To know more about Azure Antimalware, please visit [here](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+
+
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).

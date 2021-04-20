@@ -66,7 +66,7 @@ The Azure VM Image Builder is a fully managed Azure service that is accessible b
 
 Template configurations can be passed using PowerShell, Az CLI, ARM templates and using the Azure VM Image Builder DevOps task, when you submit it to the service we will create an Image Template Resource. When the Image Template Resource is created you will see a staging resource group created in your subscription, in the format: IT_\<DestinationResourceGroup>_\<TemplateName>_\(GUID). The staging resource group contains files and scripts referenced in the File, Shell, PowerShell customization in the ScriptURI property.
 
-To run the build you will invoke `Run` on the Image Template resource, the service will then deploy additional resources for the build, such as a VM, Network, Disk, Network Adapter etc. If you build an image without using an existing VNET Image Builder will also deploy a Public IP and NSG, the service connects to the build VM using SSH or WinRM. If you select an existing VNET, then the service will deploy using Azure Private Link, and a Public IP address is not required, for more details on Image Builder networking review the [details](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+To run the build you will invoke `Run` on the Image Template resource, the service will then deploy additional resources for the build, such as a VM, Network, Disk, Network Adapter etc. If you build an image without using an existing VNET Image Builder will also deploy a Public IP and NSG, the service connects to the build VM using SSH or WinRM. If you select an existing VNET, then the service will deploy using Azure Private Link, and a Public IP address is not required, for more details on Image Builder networking review the [details](./linux/image-builder-networking.md).
 
 When the build finishes all resources will be deleted, except for the staging resource group and the storage account, to remove these you will delete the Image Template resource, or you can leave them there to run the build again.
 
@@ -80,7 +80,7 @@ When you register for the (AIB), this grants the AIB Service permission to creat
 
 To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private and public containers.
 
-Permissions are explained in more detail for [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell), and [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli).
+Permissions are explained in more detail for [PowerShell](./linux/image-builder-permissions-powershell.md), and [AZ CLI](./linux/image-builder-permissions-cli.md).
 
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
@@ -97,4 +97,3 @@ Image Builder currently only natively supports creating Hyper-V generation (Gen1
 ## Next steps 
  
 To try out the Azure Image Builder, see the articles for building [Linux](./linux/image-builder.md) or [Windows](./windows/image-builder.md) images.
-

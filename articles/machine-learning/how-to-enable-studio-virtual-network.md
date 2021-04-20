@@ -163,3 +163,5 @@ This article is part five of a five-part virtual network series. See the rest of
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
+
+Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.

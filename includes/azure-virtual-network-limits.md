@@ -68,12 +68,12 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per NIC (across all IPs on a NIC) | 300                           |
 | Frontend IP configurations              | 600                           |
 | Backend pool size                       | 1,000 IP configurations, single virtual network |
-| Backend resources per Load Balancer <sup>1<sup> | 250                   |
+| Backend resources per Load Balancer <sup>1<sup> | 1,200                   |
 | High-availability ports                 | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
 | Load Balancers per VM                   | 2 (1 Public and 1 internal)   |
 
-<sup>1</sup> The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
+<sup>1</sup> The limit is up to 1,200 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
 
 **Basic Load Balancer**
 

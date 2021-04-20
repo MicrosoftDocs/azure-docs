@@ -3,7 +3,6 @@ title: Tutorial to order Azure Data Box | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box, a hybrid solution that allows you to import on-premises data into Azure, and how to order Azure Data Box.
 services: databox
 author: v-dalc
-
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
@@ -786,7 +785,7 @@ To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/ext/
    |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
    |reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
-   |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
+   |yes| Do not prompt for confirmation. | --yes (-y)| 
    |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
@@ -823,7 +822,7 @@ If you have canceled an Azure Data Box order, you can run [`az databox job delet
    |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
    |subscription| The name or ID (GUID) of your Azure subscription. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
+   |yes| Do not prompt for confirmation. | --yes (-y)|
    |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
