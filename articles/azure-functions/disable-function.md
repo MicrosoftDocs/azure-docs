@@ -30,7 +30,7 @@ Even when you publish to your function app from a local project, you can still u
 
 # [Azure CLI](#tab/azurecli)
 
-In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \

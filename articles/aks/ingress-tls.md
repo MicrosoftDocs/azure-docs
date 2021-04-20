@@ -421,7 +421,7 @@ You can also:
 - [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az_network_dns_record_set_a_add_record
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/
@@ -438,8 +438,8 @@ You can also:
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md
