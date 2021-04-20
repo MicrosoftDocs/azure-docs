@@ -279,6 +279,16 @@ To get the PetClinic app functioning with all features like Admin Server, Visits
 * vets-service
 * visits-service
 
+Navigate to the URL of the form: `https://<service name>-api-gateway.azuremicroservices.io.`
+
+![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
+
+You can also navigate the Azure portal to find the URL. 
+1. Navigate to the service
+2. Select **Apps**
+3. Select **api-gateway** 
+4. Find the URL on the **api-gateway | Overview** page
+
 #### [IntelliJ](#tab/IntelliJ)
 
 ## Import sample project in IntelliJ
