@@ -145,6 +145,18 @@ The IntelliSense features are at different levels of maturity for different lang
 |SparkSQL|Yes|Yes|-|-|-|-|-|-|
 |.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
+
+
+### Code Snippets
+
+Azure Synapse Studio notebooks provide code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
+
+Snippets appear in [IntelliSense](#ide-style-intellisense) mixed with other suggestions. The code snippets contents align with the code cell language. You can see available snippets by typing **Snippet** or any keywords appear in the snippet title in the code cell editor. For example, by typing **read** you can see the list of snippets to read data from various data sources.
+
+![Synapse code snippets](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
+
+
+
 ### Format text cell with toolbar buttons
 
 # [Classical Notebook](#tab/classical)
@@ -176,7 +188,7 @@ Undo cell operation is not available for the preview notebook experience yet.
 
 # [Classical Notebook](#tab/classical)
 
-Select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Move cell up** or **Move cell down** to move the current cell. 
+Select the ellipses (...) to access the other cell actions menu at the far right. Then select **Move cell up** or **Move cell down** to move the current cell. 
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Ctrl+Alt+↑** to move up the current cell. Press **Ctrl+Alt+↓** to move the current cell down.
 
@@ -193,7 +205,7 @@ Click on the left-hand side of a cell and drag it to the desired position.
 
 # [Classical Notebook](#tab/classical)
 
-To delete a cell, select the ellipses (...) to access the additional cell actions menu at the far right then select **Delete cell**. 
+To delete a cell, select the ellipses (...) to access the other cell actions menu at the far right then select **Delete cell**. 
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **D,D** to delete the current cell.
   
@@ -268,7 +280,7 @@ Select the **Run All** button to run all the cells in current notebook in sequen
 
 # [Classical Notebook](#tab/classical)
 
-To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
+To Access the other cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -466,7 +478,7 @@ Select the **Add to pipeline** button on the upper right corner to add a noteboo
 
 # [Classical Notebook](#tab/classical)
 
-To parameterize your notebook, select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
+To parameterize your notebook, select the ellipses (...) to access the other cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 

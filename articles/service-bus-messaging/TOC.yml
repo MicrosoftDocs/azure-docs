@@ -100,6 +100,8 @@
     items: 
     - name: Message sessions
       href: message-sessions.md
+    - name: Duplicate message detection
+      href: duplicate-detection.md
     - name: Topic filters and actions
       href: topic-filters.md
     - name: Message browsing
@@ -206,8 +208,6 @@
       items:
       - name: Prefetch messages
         href: service-bus-prefetch.md
-      - name: Duplicate message detection
-        href: duplicate-detection.md
       - name: Message deferral
         href: message-deferral.md
       - name: Chain entities with auto-forwarding
@@ -236,6 +236,14 @@
       href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
+    - name: Enable sessions for a queue or subscription
+      href: enable-message-sessions.md
+    - name: Enable duplicate detection for a queue or topic
+      href: enable-duplicate-detection.md
+    - name: Enable partitions for a queue or topic
+      href: enable-partitions.md
+    - name: Enable auto forwarding for a queue or subscription
+      href: enable-auto-forward.md      
     - name: Move across regions
       href: move-across-regions.md
     - name: Automatically update messaging units 
