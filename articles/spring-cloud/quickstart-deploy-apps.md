@@ -189,6 +189,8 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 ## Deployment procedures
 
+#### [CLI](#tab/Azure-CLI)
+
 ## Build the microservices applications locally
 
 1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project. 
@@ -199,8 +201,6 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
     mvn clean package -DskipTests -Denv=cloud
     ```
 Compiling the project takes 5 -10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
-
-#### [CLI](#tab/Azure-CLI)
 
 ## Create and deploy apps on Azure Spring Cloud CLI
 
@@ -238,7 +238,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 > [!TIP]
 > To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring-cloud app logs --name <app name> -f`.
 
-### Deploy extra apps
+## Deploy extra apps
 
 To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other apps with following commands:
 
@@ -252,7 +252,18 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 ```
 #### [Maven](#tab/Maven)
 
-### Generate configurations and deploy to the Azure Spring Cloud
+## Build the microservices applications locally
+
+1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project. 
+
+    ```azurecli
+    git clone https://github.com/azure-samples/spring-petclinic-microservices
+    cd spring-petclinic-microservices
+    mvn clean package -DskipTests -Denv=cloud
+    ```
+Compiling the project takes 5 -10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
+
+## Generate configurations and deploy to the Azure Spring Cloud
 
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
