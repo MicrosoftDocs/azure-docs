@@ -14,7 +14,7 @@ ms.author: cynthn
 #Customer intent: As an IT administrator, I want to learn how to install the LAMP stack so that I can quickly prepare a Linux VM to run web applications.
 ---
 
-# Tutorial: Install a LAMP stack on a Linux virtual machine in Azure
+# Tutorial: Install a LAMP stack on an Azure Linux VM
 
 This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. To see the LAMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
 
