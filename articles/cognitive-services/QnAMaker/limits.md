@@ -108,6 +108,10 @@ These represent the limits for each update action; that is, clicking *Save and t
 These represent the limits when unstructured files are used to *Create KB* or call the CreateKnowledgeBase API:
 * Length of file: 32000 characters
 
+## Add Prebuilt question answering limits
+These represent the limits when Prebuilt API is used to fecth answer or call the GenerateAnswer API:
+** Number of documents: 5
+
 ## Next steps
 
 Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).
