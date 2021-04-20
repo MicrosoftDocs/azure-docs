@@ -27,32 +27,32 @@ This article shows you how you can wrap AI model(s) of your choice within a gRPC
 
 ## gRPC implementation steps
 
-To create a gRPC inference server and implement it as an extension with Azure Video Analyzer, following steps will be used:
+To create a gRPC inference server and implement it as an extension with Video Analyzer, following steps will be used:
 
-### Setup Azure Video Analyzer module
+### Setup Video Analyzer module
 
-Perform the necessary steps to have Azure Video Analyzer module deployed and working on an IoT Edge device.
+Perform the necessary steps to have Video Analyzer module deployed and working on an IoT Edge device.
 
 ### High level Implementation Steps
 
 1. Choose one of the many languages that are supported by gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
-1. Implement a gRPC Server that will communicate with Azure Video Analyzer using [the proto3 files](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc).
+1. Implement a gRPC Server that will communicate with Video Analyzer using [the proto3 files](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc).
 
-    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="gRPC Server that will communicate with Azure Video Analyzer using the proto3 files":::
+    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="gRPC Server that will communicate with Video Analyzer using the proto3 files":::
 
     Within this service:
     1. Handle session description message exchange between the server and the client.
     1. Handle [sample messages](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto) and return results.
 
         1. Invoke your inferencing engine that uses a trained model to make inferences on the incoming messages.
-        1. Receive inferencing results from the engine, package them back as a media sample and submit back to Azure Video Analyzer using the [inferencing.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/inferencing.proto) file.
+        1. Receive inferencing results from the engine, package them back as a media sample and submit back to Video Analyzer using the [inferencing.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/inferencing.proto) file.
 
             Alternatively, invoke any media transformation function to the media sample.
     1. Deploy the gRPC server implementation. There are two ways of doing this:
 
-        1. Deploy as an IoT module co-located with Azure Video Analyzer module
-        1. Deploy as an IoT module to a network accessible node (on premise or on cloud) that can exchange data with the Azure Video Analyzer module.
-    1. Configure an Azure Video Analyzer pipeline topology with the Azure Video Analyzer module and point it to the gRPC server.
+        1. Deploy as an IoT module co-located with Video Analyzer module
+        1. Deploy as an IoT module to a network accessible node (on premise or on cloud) that can exchange data with the Video Analyzer module.
+    1. Configure an Video Analyzer pipeline topology with the Video Analyzer module and point it to the gRPC server.
 
 ### Recommendation
 
@@ -60,19 +60,19 @@ When collocating on the same node, `shared memory` can be used for best performa
 
 1. Open the Linux shared memory handle.
 1. Upon receiving of a frame, access the address offset within the shared memory.
-1. Acknowledge the frame processing completion so its memory can be reclaimed by Azure Video Analyzer.
+1. Acknowledge the frame processing completion so its memory can be reclaimed by Video Analyzer.
 
 ## Create a gRPC inference server
 
-Now you will build an IoT Edge module (External AI) that accepts video frames from Azure Video Analyzer using [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) messages via shared memory, classify the frames as **dark** or **light** and return inference results back to the IoT Hub Message Sink in Azure Video Analyzer using the inference metadata schema.
+Now you will build an IoT Edge module (External AI) that accepts video frames from Video Analyzer using [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) messages via shared memory, classify the frames as **dark** or **light** and return inference results back to the IoT Hub Message Sink in Video Analyzer using the inference metadata schema.
 
 :::image type="content" source="./media/develop-deploy-grpc-inference-srv/external-ai.png" alt-text="build an IoT Edge module (External AI)":::
 
-This gRPC inference server is a .NET Core console application built handle the [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) messages sent between Azure Video Analyzer and your custom AI. Following is the flow of messages between Azure Video Analyzer and the gRPC inference server:
+This gRPC inference server is a .NET Core console application built handle the [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) messages sent between Video Analyzer and your custom AI. Following is the flow of messages between Video Analyzer and the gRPC inference server:
 
-1. Azure Video Analyzer sends a media stream descriptor (see [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto)) which defines the media stream information that will be sent followed by video frames to the server as a [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) message over the gRPC stream session.
+1. Video Analyzer sends a media stream descriptor (see [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto)) which defines the media stream information that will be sent followed by video frames to the server as a [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) message over the gRPC stream session.
 1. The server validates and acknowledges the stream descriptor and sets up the desired data transfer method.
-1. Azure Video Analyzer then starts sending the MediaSample files which contain the video frames.
+1. Video Analyzer then starts sending the MediaSample files which contain the video frames.
 1. The server analyses the video frames as it receives and starts processing them using an Image Processor defined by you.
 1. The server then returns inference results as [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) messages as soon as they are available.
 
@@ -171,7 +171,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
             ```
         1. In our server implementation, the method `ProcessMediaStreamDescriptor` will validate the MediaStreamDescriptor’s MediaDescriptor property for a Video file and then will setup the data transfer mode (which is either using shared memory or using embedded frame transfer mode) depending on what you specify in the topology and the deployment template file used.
         1. Upon receiving the message and successfully setting up the data transfer mode, the gRPC server then returns the MediaStreamDescriptor message back to the client as an acknowledgment and thus establishing a connection between the server and the client.
-        1. After Azure Video Analyzer receives the acknowledgment, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto).
+        1. After Video Analyzer receives the acknowledgment, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto).
 
             ```
             message MediaStreamMessage {
@@ -204,7 +204,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
 
     Once you've added the new class, you'll have to update the **MediaGraphExtensionService.cs** so it instantiates your class and invokes the ProcessImage method on it to run your processing logic.
 
-## Connect with Azure Video Analyzer module
+## Connect with Video Analyzer module
 
 Now that you have created your gRPC extension module, we will now create and deploy the media graph topology.
 
@@ -215,7 +215,7 @@ Now that you have created your gRPC extension module, we will now create and dep
 
     Then select **Build and Push IoT Edge Solution**. Use *src/edge/deployment.grpc.template.json* for this step.
 
-    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/build-push-iot-edge-solution.png" alt-text="Connect with Azure Video Analyzer module":::
+    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/build-push-iot-edge-solution.png" alt-text="Connect with Video Analyzer module":::
 
     This action builds the grpc server module and pushes the image to your Azure Container Registry.
     Check that you have the environment variables `CONTAINER_REGISTRY_USERNAME_myacr` and `CONTAINER_REGISTRY_PASSWORD_myacr` defined in the *.env* file.
