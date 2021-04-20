@@ -18,7 +18,7 @@ ms.date: 12/08/2020
    | **Name**  | Enter a name for the connection.  |
    | **Connection type**  | Select **ExpressRoute**.  |
    | **Redeem authorization**  | Ensure this box is selected.  |
-   | **Virtual network gateway** | The virtual network gateway you intent to use.  |
+   | **Virtual network gateway** | The virtual network gateway your intent to use.  |
    | **Authorization key**  | Paste the authorization key you copied earlier. |
    | **Peer circuit URI**  | Paste the ExpressRoute ID you copied earlier.  |
 

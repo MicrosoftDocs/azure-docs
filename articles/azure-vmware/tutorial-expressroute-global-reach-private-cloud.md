@@ -37,7 +37,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 - Established connectivity to and from an Azure VMware Solution private cloud with its ExpressRoute circuit peered with an ExpressRoute gateway in an Azure virtual network (VNet) – which is circuit 2 from peering procedures.
 - A separate, functioning ExpressRoute circuit used to connect on-premises environments to Azure – which is circuit 1 from the peering procedures' perspective.
 - A /29 non-overlapping [network address block](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) for the ExpressRoute Global Reach peering.
-- Ensure that all gateways, including the ExpressRoute provider's service, support 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
+- Ensure that all gateways, including the ExpressRoute provider's service, supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 >[!IMPORTANT]
 >In the context of these prerequisites, your on-premises ExpressRoute circuit is _circuit 1_, and your private cloud ExpressRoute circuit is in a different subscription and labeled _circuit 2_.
@@ -60,7 +60,7 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
 1. Create an on-premises cloud connection. Do one of the following and then select **Create**:
 
    - Select the **ExpressRoute circuit** from the list, or
-   - Paste the circuit ID and authorization key you just created.
+   - Paste the circuit ID and authorization key you created.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Screenshot that shows the dialog for entering the connection information.":::   
    

@@ -10,7 +10,7 @@ ms.date: 04/23/2021
 
 Azure VMware Solution gives you the ability to deploy a vSphere cluster in Azure. [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)] 
 
-Because Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter at launch, additional configuration is needed. These procedures and related prerequisites are covered in this tutorial.
+Because Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter at launch, extra configuration is needed. These procedures and related prerequisites are covered in this tutorial.
 
 In this tutorial, you'll learn how to:
 
@@ -24,7 +24,7 @@ In this tutorial, you'll learn how to:
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum contributor level in the subscription.
 - Follow the information you gathered in the [planning](production-ready-deployment-steps.md) article to deploy Azure VMware Solution.
 - Ensure you have the appropriate networking configured as described in [Tutorial: Network checklist](tutorial-network-checklist.md).
-- Hosts have been provisioned and the Microsoft.AVS resource provider registered as described in [Request hosts and enable the Microsoft.AVS resource provider](enable-azure-vmware-solution.md).
+- Hosts have been provisioned and the Microsoft.AVS resource provider has been registered as described in [Request hosts and enable the Microsoft.AVS resource provider](enable-azure-vmware-solution.md).
 
 ## Create a private cloud
 
