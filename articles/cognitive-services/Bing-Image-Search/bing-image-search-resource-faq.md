@@ -64,7 +64,7 @@ This approach also protects your API key from exposure to the public, since only
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it on our [User Voice web site](https://cognitive.uservoice.com/forums/555907-bing-search).
+Is your question about a missing feature or functionality? Consider requesting or voting for it on our User Voice web site.
 
 ## See also
 
