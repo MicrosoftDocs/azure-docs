@@ -4,7 +4,7 @@ description: Understand cloud tiering, an optional Azure File Sync feature. Freq
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/4/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -31,10 +31,10 @@ To learn how the volume free space policy affects files initially downloaded whe
 #### Date policy
 With the **date policy**, cool files are tiered to the cloud if they haven't been accessed (that is, read or written to) for x number of days. For example, if you noticed that files that have gone more than 15 days without being accessed are typically archival files, you should set your date policy to 15 days. 
 
-For more examples on how the date policy and volume free space policy work together, see [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md).
+For more examples on how the date policy and volume free space policy work together, see [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md).
 
 ### Windows Server data deduplication
-Data deduplication is supported on volumes that have cloud tiering enabled beginning with Windows Server 2016. For more details, please see [Planning for an Azure File Sync deployment](./storage-sync-files-planning.md#data-deduplication).
+Data deduplication is supported on volumes that have cloud tiering enabled beginning with Windows Server 2016. For more details, please see [Planning for an Azure File Sync deployment](file-sync-planning.md#data-deduplication).
 
 ### Cloud tiering heatmap
 Azure File Sync monitors file access (read and write operations) over time and, based on how frequent and recent access is, assigns a heat score to every file. It uses these scores to build a "heatmap" of your namespace on each server endpoint. This heatmap is a list of all syncing files in a location with cloud tiering enabled, ordered by their heat score. Frequently accessed files that were recently opened are considered hot, while files that were barely touched and haven't been accessed for some time are considered cool. 
@@ -78,7 +78,7 @@ Enabling proactive recalling may also result in increased bandwidth usage on the
 
 :::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows to change it.":::
 
-For more details on proactive recalling, see [Deploy Azure File Sync](storage-sync-files-deployment-guide.md#proactively-recall-new-and-changed-files-from-an-azure-file-share).
+For more details on proactive recalling, see [Deploy Azure File Sync](file-sync-deployment-guide.md#proactively-recall-new-and-changed-files-from-an-azure-file-share).
 
 ## Tiered vs. locally cached file behavior
 
@@ -102,5 +102,6 @@ It's also possible for a file to be partially tiered (or partially recalled). In
 > Size represents the logical size of the file. Size on disk represents the physical size of the file stream that's stored on the disk.
 
 ## Next steps
-* [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md)
-* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+
+* [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md)
+* [Planning for an Azure File Sync deployment](file-sync-planning.md)
