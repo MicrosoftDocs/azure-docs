@@ -102,7 +102,7 @@ For a new AKS cluster deployment scenario, you will start with a brand new deplo
 
 ### Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
