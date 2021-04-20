@@ -122,7 +122,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command:
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -603,19 +603,19 @@ If this issue occurs with a system-assigned identity, please [create an Azure su
 
 <!-- LINKS - internal -->
 
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-show]: /cli/azure/feature#az-feature-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-keyvault-create]: /cli/azure/keyvault#az_keyvault_create
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az_keyvault_key_create
 [az-keyvault-key]: /cli/azure/keyvault/key
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
-[az-resource-show]: /cli/azure/resource#az-resource-show
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az-acr-encryption-rotate-key
-[az-acr-encryption-show]: /cli/azure/acr/encryption#az-acr-encryption-show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az_keyvault_delete_policy
+[az-resource-show]: /cli/azure/resource#az_resource_show
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az_acr_encryption_rotate_key
+[az-acr-encryption-show]: /cli/azure/acr/encryption#az_acr_encryption_show

@@ -217,7 +217,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 ## <a name="bkmk_KVperCLI"></a> Setting key vault advanced access policies
 
-Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault.
+Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable advanced policies for the key vault.
 
  Enable Key Vault for deployment: Allows virtual machines to retrieve certificates stored as secrets from the vault.
 

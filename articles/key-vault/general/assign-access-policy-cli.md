@@ -20,7 +20,7 @@ A Key Vault access policy determines whether a given security principal, namely 
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-For more information on creating groups in Azure Active Directory using the Azure CLI, see [az ad group create](/cli/azure/ad/group#az-ad-group-create) and [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add).
+For more information on creating groups in Azure Active Directory using the Azure CLI, see [az ad group create](/cli/azure/ad/group#az_ad_group_create) and [az ad group member add](/cli/azure/ad/group/member#az_ad_group_member_add).
 
 ## Configure the Azure CLI and sign in
 
@@ -40,19 +40,19 @@ For more information on creating groups in Azure Active Directory using the Azur
 
 Determine the object ID of the application, group, or user to which you want to assign the access policy:
 
-- Applications and other service principals: use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) command to retrieve your service principals. Examine the output of the command to determine the object ID of the security principal to which you want to assign the access policy.
+- Applications and other service principals: use the [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) command to retrieve your service principals. Examine the output of the command to determine the object ID of the security principal to which you want to assign the access policy.
 
     ```azurecli-interactive
     az ad sp list --show-mine
     ```
 
-- Groups: use the [az ad group list](/cli/azure/ad/group#az-ad-group-list) command, filtering the results with the `--display-name` parameter:
+- Groups: use the [az ad group list](/cli/azure/ad/group#az_ad_group_list) command, filtering the results with the `--display-name` parameter:
 
      ```azurecli-interactive
     az ad group list --display-name <search-string>
     ```
 
-- Users: use the [az ad user show](/cli/azure/ad/user#az-ad-user-show) command, passing the user's email address in the `--id` parameter:
+- Users: use the [az ad user show](/cli/azure/ad/user#az_ad_user_show) command, passing the user's email address in the `--id` parameter:
 
     ```azurecli-interactive
     az ad user show --id <email-address-of-user>
@@ -60,7 +60,7 @@ Determine the object ID of the application, group, or user to which you want to 
 
 ## Assign the access policy
     
-Use the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to assign the desired permissions:
+Use the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command to assign the desired permissions:
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
@@ -68,7 +68,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permis
 
 Replace `<object-id>` with the object ID of your security principal.
 
-You need only include `--secret-permissions`, `--key-permissions`, and `--certificate-permissions` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) documentation.
+You need only include `--secret-permissions`, `--key-permissions`, and `--certificate-permissions` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) documentation.
 
 ## Next steps
 

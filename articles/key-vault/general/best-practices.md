@@ -40,9 +40,9 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 ### Azure CLI Backup Commands
 
-* [Backup Certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Backup Key](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Backup Secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
+* [Backup Certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
+* [Backup Key](/cli/azure/keyvault/key#az_keyvault_key_backup)
+* [Backup Secret](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
 
 
 ## Turn on Logging

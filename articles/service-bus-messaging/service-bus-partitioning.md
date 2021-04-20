@@ -141,6 +141,7 @@ Currently Service Bus imposes the following limitations on partitioned queues an
 * Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace (does not apply to Premium tier).
 
 ## Next steps
+You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning](enable-partitions.md). 
 
 Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md).
 
