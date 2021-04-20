@@ -111,7 +111,7 @@ The following are known limitations:
 
 ### Delta Synchronization
 
-- Group scope filtering for delta sync does not support more than 1500 members.
+- Group scope filtering for delta sync does not support more than 50,000 members.
 - When you delete a group that's used as part of a group scoping filter, users who are members of the group, don't get deleted. 
 - When you rename the OU or group that's in scope, delta sync will not remove the users.
 
