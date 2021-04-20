@@ -201,7 +201,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     
     > [!NOTE] 
     > Though you can select multiple databases in this step, but there are limits to how many and how fast the DBs can be migrated this way, since each database will share compute. With the default configuration of the Premium SKU, each migration task will attempt to migrate two tables in parallel. These tables could be from any of the selected databases. If this isn't fast enough, you can split database migration activities into different migration tasks and scale across multiple services. Also, there is a limit of 10 instances of Azure Database Migration Service per subscription per region.
-    > For more granular control on the migration throughput and parallelization, please refer to the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS](./howto-mysql-to-azure-mysql-powershell.md)
+    > For more granular control on the migration throughput and parallelization, please refer to the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS](./migrate-mysql-to-azure-mysql-powershell.md)
 
 4. On the **Configure migration settings** screen, select the tables to be part of migration, and select **Next : Summary>>**. If the target tables have any data, they are not selected by default but you can explicitly select them and they will be truncated before starting the migration.
 
@@ -243,7 +243,7 @@ If you're not going to continue to use the Database Migration Service, then you 
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
 
-    ![Locate all instances of Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-offline-portal/08-01-dms-portal-searchservice.png)
+    ![Locate all instances of DMS](media/tutorial-mysql-to-azure-mysql-offline-portal/08-01-dms-portal-search-service.png)
 
 2. Select your migration service instance from the search results and select **Delete Service**.
     
@@ -259,4 +259,4 @@ If you're not going to continue to use the Database Migration Service, then you 
 * For troubleshooting source database connectivity issues while using DMS, see the article [Issues connecting source databases](./known-issues-troubleshooting-dms-source-connectivity.md).
 * For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 * For information about Azure Database for MySQL, see the article [What is Azure Database for MySQL?](../mysql/overview.md).
-* For guidance about using DMS via PowerShell, see the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS](./howto-mysql-to-azure-mysql-powershell.md)
+* For guidance about using DMS via PowerShell, see the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS](./migrate-mysql-to-azure-mysql-powershell.md)
