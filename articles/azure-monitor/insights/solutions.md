@@ -117,7 +117,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 1. Sign in.
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az_login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
