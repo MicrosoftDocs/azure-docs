@@ -5,6 +5,7 @@
   href: overview.md
   items:
   - name: What's new?
+    displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
   - name: What is Agentless solution architecture
     displayName: deployment, where to deploy
@@ -353,23 +354,21 @@
       href: edge-security-module-deprecation.md
 - name: Resource
   items:
+  - name: Build your security skills with Microsoft Learn
+    href: /learn/browse/?term=securityS&terms=securityS
+  - name: Azure Security Center documentation
+    href: ../security-center/
+  - name: Azure security documentation 
+    href: ../security/index.yml
+  - name: Azure IoT Security, Privacy, & Compliance blog
+    href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-defender/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Agent-based solution for Device Builders
     items: 
-    - name: Build your security skills with Microsoft Learn
-      href: /learn/browse/?term=securityS&terms=securityS
-    - name: Azure Security Center documentation
-      href: ../security-center/
-    - name: Azure security documentation 
-      href: ../security/index.yml
     - name: Azure RTOS Defender-IoT-micro-agent on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
-    - name: Azure IoT Security, Privacy, & Compliance blog
-      href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
-    - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/azure-defender/
-    - name: Support policies for Azure Defender for IoT
-      href: support-policies.md
-    - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest

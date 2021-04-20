@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -43,6 +43,9 @@ A phone number that can be used by a user to sign-in using [SMS or voice calls](
 Note, the [list](/graph/api/authentication-list-phonemethods) operation returns  only enabled phone numbers. The following phone number should be enabled to use with the list operations. 
 
 ![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
+> [!NOTE]
+> In the current beta version, this API works only if the phone number is stored with a space between the country code and the phone number. The Azure AD B2C service doesn't currently add this space by default.
 
 ## Self-service password reset email address (beta)
 
