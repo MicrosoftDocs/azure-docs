@@ -4,7 +4,7 @@ description: Learn how to bring files or third party library
 ms.date: 4/6/2020
 ms.topic: tutorial
 ms.custom: "devx-track-python, devx-track-java"
-zone_pivot_groups: programming-languages-set-functions-full
+zone_pivot_groups: "two-programming-functions-test"
 ---
 
 # Bring dependencies or third party library to Azure Functions
@@ -57,15 +57,20 @@ FFMPEG_RELATIVE_PATH = "../ffmpeg_lib/ffmpeg"
 def main(req: func.HttpRequest,
          context: func.Context) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-    
+
+    command = req.params.get('command')
+    # If no command specified, set the command to help
+    if not command:
+        command = "-h"
+
     # context.function_directory returns the current directory in which functions is executed 
     ffmpeg_path = "/".join([str(context.function_directory), FFMPEG_RELATIVE_PATH])
-
+    
     try:
-        subprocess.call(ffmpeg_path)
-        return func.HttpResponse("ffmpeg is successfully executed",status_code=200)
-    except Exception:
-        return func.HttpResponse("Unexpected exception happened when executing ffmpeg",status_code=200)
+        byte_output  = subprocess.check_output([ffmpeg_path, command])
+        return func.HttpResponse(byte_output.decode('UTF-8').rstrip(),status_code=200)
+    except Exception as e:
+        return func.HttpResponse("Unexpected exception happened when executing ffmpeg. Error message:" + str(e),status_code=200)
 ```
 >[!NOTE]
 > You may need to use `chmod` to provide `Execute` rights to the ffmpeg binary in a Linux environment
