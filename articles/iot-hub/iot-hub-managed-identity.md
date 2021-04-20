@@ -45,7 +45,7 @@ In this section, you learn how to add and remove a user-assigned managed identit
 In IoT Hub, managed identities can be used for egress connectivity from IoT Hub to other Azure services for [message routing](iot-hub-devguide-messages-d2c), [file upload](iot-hub-devguide-file-upload), and [bulk device import/export](iot-hub-bulk-identity-mgmt). You can choose which managed identity to use for each IoT Hub egress connectivity to customer-owned endpoints including storage accounts, event hubs and service bus endpoints. 
 
 ### Message routing
-In this section we use the message routing to event hub custom endpoint as an example. The same thing applies to other routing custom endpoints. 
+In this section we use the [message routing](iot-hub-devguide-messages-d2c) to event hub custom endpoint as an example. The same thing applies to other routing custom endpoints. 
 
 1.	First we need to go to your event hub in Azure portal, to assign the managed identity the right access. 
 2.	In your event hub, navigate to the **Access control (IAM)** tab and click **Add** then **Add a role assignment**.
@@ -74,14 +74,18 @@ In this section we use the message routing to event hub custom endpoint as an ex
 10. Choose the new authentication type to be updated for this endpoint, click **Save**.
 
 ### File Upload
-IoT Hub's file upload feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, IoT Hub need to have connectivity to the storage account. Similar to message routing, you can pick the preferred authentication type and managed identity for IoT Hub egress connectivity to your Azure Storage account. 
+IoT Hub's [file upload](iot-hub-devguide-file-upload) feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, IoT Hub need to have connectivity to the storage account. Similar to message routing, you can pick the preferred authentication type and managed identity for IoT Hub egress connectivity to your Azure Storage account. 
 
 1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 2. Select **Storage Blob Data Contributor** (not Contributor or Storage Account Contributor) as role.
 3. For user-assigned, choose **User-assigned managed identity** under Assign access to. Select your subscription and your user-assigned managed identity in the drop-down list. Click the **Save** button.
 4. For system-assigned, under **Assign access to** choose **User, group, or service principal** and select your IoT Hub's resource name in the drop-down list. Click **Save**.
-5. On your IoT Hub's resource page, navigate to **File upload** tab.
-6. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings, SAS TTL, Default TTL, and Maximum delivery count** as desired. Choose the preferred authentication type, and click **Save**.
+
+> [!NOTE]
+> You need to complete above steps to assign the managed identity the right access before saving the storage account in IoT Hub for file upload using the managed identity.
+ 
+1. On your IoT Hub's resource page, navigate to **File upload** tab.
+1. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings, SAS TTL, Default TTL, and Maximum delivery count** as desired. Choose the preferred authentication type, and click **Save**.
 
 :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="File Upload":::
 
