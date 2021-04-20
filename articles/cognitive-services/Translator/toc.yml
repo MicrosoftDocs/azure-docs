@@ -155,8 +155,8 @@
       - name: Start translation
         href: document-translation/reference/start-translation.md
       - name: Get documents status
-        href: document-translation/reference/get-operation-documents-status.md 
-      - name: Get documents status
+        href: document-translation/reference/get-documents-status.md 
+      - name: Get document status
         href: document-translation/reference/get-document-status.md
       - name: Get translations status
         href: document-translation/reference/get-translations-status.md
