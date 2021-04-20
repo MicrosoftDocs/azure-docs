@@ -110,10 +110,10 @@ The following shows an example of the output:
 
 If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you create a new managed identity and then try to assign a role to that service principal, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet.
 
-To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later.
+To address this scenario, use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API and set the `principalType` property to `ServicePrincipal`. You must also set the `apiVersion` to `2018-09-01-preview` or later.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2018-09-01-preview
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2018-09-01-preview
 ```
 
 ```json

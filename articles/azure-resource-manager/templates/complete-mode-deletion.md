@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 04/16/2021
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -911,8 +911,8 @@ Jump to a resource provider namespace:
 > | galleries | Yes |
 > | galleries / applications | No |
 > | galleries / applications / versions | No |
-> | galleries / images | No |
-> | galleries / images / versions | No |
+> | galleries / images | Yes |
+> | galleries / images / versions | Yes |
 > | hostGroups | Yes |
 > | hostGroups / hosts | Yes |
 > | images | Yes |

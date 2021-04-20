@@ -231,31 +231,6 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 ]
 ```
 
-### Update an existing extension instance
-
-Update an extension instance on a cluster with `k8s-extension update`, passing in the values to update.  This command only updates the `auto-upgrade-minor-version`, `release-train`, and `version` properties. For example:
-
-- **Update release train:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --release-train Preview
-    ```
-
-- **Turn off auto-upgrade and pin extension instance to a specific version:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version false --version 2.2.2
-    ```
-
-- **Turn on auto-upgrade for the extension instance:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version true
-    ```
-
-> [!NOTE]
-> The `version` parameter can be set only when `--auto-upgrade-minor-version` is set to `false`.
-
 ### Delete extension instance
 
 Delete an extension instance on a cluster with `k8s-extension delete`, passing in values for the mandatory parameters.

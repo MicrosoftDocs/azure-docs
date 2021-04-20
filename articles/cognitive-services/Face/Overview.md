@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/14/2021
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -30,7 +30,7 @@ This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concepts/face-detection.md) provide in-depth explanations of the service's functionality and features.
-* The [tutorials](./Tutorials/FaceAPIinCSharpTutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
+* The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Face detection and analysis
 
