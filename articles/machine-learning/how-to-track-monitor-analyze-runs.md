@@ -27,8 +27,6 @@ This article shows how to do the following tasks:
 * Cancel or fail runs.
 * Create child runs.
 * Monitor the run status by email notification.
-
-![Run details in the Azure Machine Learning studio](media/how-to-track-monitor-analyze-runs/run-history.png)
  
 
 > [!TIP]
