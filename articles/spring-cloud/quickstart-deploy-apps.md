@@ -235,7 +235,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of "https://<service name>-api-gateway.azuremicroservices.io".
 
-    ![Access petclinic customers service](media/build-and-deploy/access-customers-service.png)
+![Access petclinic customers service](media/build-and-deploy/access-customers-service.png)
 
 > [!TIP]
 > To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring-cloud app logs --name <app name> -f`.
