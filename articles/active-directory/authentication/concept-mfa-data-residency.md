@@ -91,32 +91,6 @@ For Azure Multifactor Authentication Server, the following Azure portal pages mi
 * Caching rules
 * Multifactor Authentication Server status
 
-## Multifactor authentication logs location
-
-The following table shows the location for logs for public clouds. 
-Multifactor authentication activity reports store activity from on-premises components: NPS Extension, AD FS adapter, and MFA server. 
-The multifactor authentication service logs are used to operate the service.
-
-| Public cloud  | Sign-in logs | Multifactor authentication activity report        | Multifactor authentication service logs       |
-|---------------|--------------|---------------------------------------------------|------------------------|
-| United States | United States| United States                                     | United States                     |
-| Europe        | Europe       | United States                                     | Europe <sup>2</sup>    |
-| Australia     | Australia    | United States<sup>1</sup>                         | Australia <sup>2</sup> |
-
-<sup>1</sup>OATH Code logs are stored in Australia.
-
-<sup>2</sup>Voice calls multifactor authentication service logs are stored in the United States.
-
-The following table shows the location for service logs for sovereign clouds.
-
-| Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report (includes personal data)| Multifactor authentication service logs |
-|--------------------------------------|--------------------------------------|-------------------------------|------------------|
-| Microsoft Azure Germany              | Germany                              | United States                            | United States               |
-| Azure China 21Vianet                 | China                                | United States                            | United States               |
-| Microsoft Government Cloud           | United States                        | United States                            | United States               |
-
-The multifactor authentication activity reports contain personal data such as User Principal Name (UPN) and complete phone number.
-
 ## Multifactor authentication activity reports in public cloud
 
 Multifactor authentication activity reports store activity from on-premises components: NPS Extension, AD FS adapter, and MFA server. 
