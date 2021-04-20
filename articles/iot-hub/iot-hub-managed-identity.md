@@ -72,7 +72,6 @@ In this section we use the message routing to event hub custom endpoint as an ex
 :::image type="content" source="./media/iot-hub-managed-identity/change-authentication-type.png" alt-text="Change authentication type":::
 
 10. Choose the new authentication type to be updated for this endpoint, click **Save**.
-:::image type="content" source="./media/iot-hub-managed-identity/change-authentication-type-system-assigned.png" alt-text="Change authentication type example":::
 
 ### File Upload
 IoT Hub's file upload feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, IoT Hub need to have connectivity to the storage account. Similar to message routing, you can pick the preferred authentication type and managed identity for IoT Hub egress connectivity to your Azure Storage account. 
