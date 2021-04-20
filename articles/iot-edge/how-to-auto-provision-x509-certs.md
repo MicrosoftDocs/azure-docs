@@ -262,7 +262,7 @@ Have the following information ready:
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. Optionally, provide a `registration_id` for the device. Otherwise, leave that line commented out to register the device with the CN name of the identity certificate.
+1. Optionally, provide the `registration_id` for the device, which needs to match the common name (CN) of the identity certificate. If you leave that line commented out, the CN will automatically be applied.
 
 1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
@@ -312,7 +312,7 @@ Have the following information ready:
 
 1. Update the value of `id_scope` with the scope ID you copied from your instance of DPS.
 
-1. Provide a `registration_id` for the device, which is the ID that the device will have in IoT Hub.
+1. Provide a `registration_id` for the device, which is the ID that the device will have in IoT Hub. The registration ID must match the common name (CN) of the identity certificate.
 
 1. Update the values of `identity_cert` and `identity_pk` with your certificate and key information.
 
