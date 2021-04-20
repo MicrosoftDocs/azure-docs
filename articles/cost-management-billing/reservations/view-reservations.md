@@ -68,7 +68,7 @@ Get list of all reservations using the following resources:
 
 - [API: Reservation Order - List](/rest/api/reserved-vm-instances/reservationorder/list)
 - [PowerShell: Reservation Order - List](/powershell/module/azurerm.reservations/get-azurermreservationorder)
-- [CLI: Reservation Order - List](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
+- [CLI: Reservation Order - List](/cli/azure/reservations/reservation-order#az_reservations_reservation_order_list)
 
 You can also get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API. 
 
@@ -88,4 +88,3 @@ If you have questions or need help, [create a support request](https://go.micros
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md).
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md).
 - [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations).
-

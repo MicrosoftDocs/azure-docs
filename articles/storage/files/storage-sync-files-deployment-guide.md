@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync, from start to finish, using th
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -492,13 +492,13 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
 If you'd like to configure your Azure File sync to work with firewall and virtual network settings, do the following:
 
 1. From the Azure portal, navigate to the storage account you want to secure.
-1. Select the **Firewalls and virtual networks** button on the left menu.
-1. Select **Selected networks** under **Allow access from**.
-1. Make sure your servers IP or virtual network is listed under the appropriate section.
+1. Select **Networking** on the left menu.
+1. Under **Selected networks** under **Allow access from**.
+1. Make sure your servers IP or virtual network is listed under the **Address range** section.
 1. Make sure **Allow trusted Microsoft services to access this storage account** is checked.
 1. Select **Save** to save your settings.
 
-![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+    ![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## Onboarding with Azure File Sync
 The recommended steps to onboard on Azure File Sync for the first time with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:

@@ -89,7 +89,7 @@ To enable Azure AD DS authentication over SMB with the [Azure portal](https://po
 
 The following image shows how to enable Azure AD DS authentication over SMB for your storage account.
 
-![Enable Azure AD DS authentication over SMB in the Azure portal](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
+:::image type="content" source="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png" alt-text="Screenshot of the configuration blade in your storage account, azure active directory doman services is enabled." lightbox="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
