@@ -74,6 +74,9 @@ No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../a
 ### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
 No. After you create an Azure AD Domain Services managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the managed domain.
 
+### Can I rename an existing Azure AD Domain Services domain name?
+No. After you create an Azure AD Domain Services managed domain, you can't rename the DNS domain name. Take care to choose the most appropriate DNS domain name at the creation time. Refer this document to see the considerations when you choose the DNS domain name: https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain
+
 ### Does Azure AD Domain Services include high availability options?
 
 Yes. Each Azure AD Domain Services managed domain includes two domain controllers. You don't manage or connect to these domain controllers, they're part of the managed service. If you deploy Azure AD Domain Services into a region that supports Availability Zones, the domain controllers are distributed across zones. In regions that don't support Availability Zones, the domain controllers are distributed across Availability Sets. You have no configuration options or management control over this distribution. For more information, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md).
