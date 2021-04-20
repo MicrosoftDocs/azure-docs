@@ -67,7 +67,7 @@ az acr login --name myregistry
 
 Related links:
 
-* [az acr login succeeds but docker fails with error: unauthorized: authentication required](container-registry-faq.md#az_acr_login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required )
+* [az acr login succeeds but docker fails with error: unauthorized: authentication required](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 
 ### Confirm credentials to access registry
 
