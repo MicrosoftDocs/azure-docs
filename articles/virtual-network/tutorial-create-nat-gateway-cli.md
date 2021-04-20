@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial 
 ms.date: 03/10/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Create a NAT gateway using the Azure CLI

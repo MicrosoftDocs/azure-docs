@@ -22,7 +22,7 @@
 - name: Quickstarts
   items:
   - name: Deploy the device simulation solution accelerator
-    href: https://github.com/Azure/device-simulation-dotnet/blob/master/README.md
+    href: https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md
   - name: Try a connected factory solution
     href: quickstart-connected-factory-deploy.md
   expanded: true
@@ -127,7 +127,7 @@
     - name: Developer reference guide
       href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
     - name: GitHub repository
-      href: https://github.com/Azure/device-simulation-dotnet
+      href: https://github.com/Azure/azure-iot-pcs-device-simulation
   - name: Reference Architecture
     href: /azure/architecture/reference-architectures/iot
     items:
