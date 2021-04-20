@@ -16,7 +16,7 @@
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
   items:
-  - name: Create and deploy an app using the LUIS portal
+  - name: Use the LUIS portal
     href: luis-get-started-create-app.md
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
