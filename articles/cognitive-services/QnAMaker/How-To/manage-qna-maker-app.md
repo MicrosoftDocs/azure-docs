@@ -44,7 +44,7 @@ You should apply RBAC controls to the Text Analytics resource with Custom questi
 
 The following steps use the collaborator role but any of the roles can be added using these steps
 
-1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your QnA Maker resource.
+1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your cognitive resource.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.png)
 
