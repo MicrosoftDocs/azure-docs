@@ -56,62 +56,6 @@ To check roles assigned to a user for a subscription:
 
 If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
-
-## In which Azure regions is Traffic Analytics available?
-
-You can use traffic analytics for NSGs in any of the following supported regions:
-- Canada Central
-- West Central US
-- East US
-- East US 2
-- North Central US
-- South Central US
-- Central US
-- West US
-- West US 2
-- France Central
-- West Europe
-- North Europe
-- Brazil South
-- UK West
-- UK South
-- Australia East
-- Australia Southeast 
-- East Asia
-- Southeast Asia
-- Korea Central
-- Central India
-- South India
-- Japan East
-- Japan West
-- US Gov Virginia
-- China East 2
-
-The Log Analytics workspace must exist in the following regions:
-- Canada Central
-- West Central US
-- East US
-- East US 2
-- North Central US
-- South Central US
-- Central US
-- West US
-- West US 2
-- France Central
-- West Europe
-- North Europe
-- UK West
-- UK South
-- Australia East
-- Australia Southeast
-- East Asia
-- Southeast Asia 
-- Korea Central
-- Central India
-- Japan East
-- US Gov Virginia
-- China East 2
-
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
 Yes, these NSGs can be in different regions than your Log Analytics workspace.

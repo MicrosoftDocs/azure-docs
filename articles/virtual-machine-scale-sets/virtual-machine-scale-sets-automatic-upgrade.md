@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma, devx-track-azurecli
+ms.custom: avverma
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
