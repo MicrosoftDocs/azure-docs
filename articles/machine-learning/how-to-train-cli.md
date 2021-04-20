@@ -52,7 +52,7 @@ From the cloned examples repository, there is a
 
 YAML file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/basic.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
 Create job:
 
@@ -70,7 +70,7 @@ Stream logs to console:
 
 YAML file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
 Create job:
 
@@ -98,7 +98,7 @@ Download, extract/remove, and relocate CIFAR-10 dataset locally:
 
 YAML file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/pytorch/cifar-distributed/basic.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
 
 Create the job:
 
@@ -108,7 +108,7 @@ Create the job:
 
 YAML file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/basic.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
 
 Create the job:
 
@@ -118,12 +118,11 @@ Create the job:
 
 YAML file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/basic.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
 
 Create the job:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
-
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
 
 ## Tracking metrics
 
