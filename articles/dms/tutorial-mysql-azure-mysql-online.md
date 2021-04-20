@@ -223,11 +223,11 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
 
-    ![Locate all instances of Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/08-01-dms-portal-searchservice.png)
+    ![Locate all instances of Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/08-01-dms-portal-search-service.png)
 
 2. Select your migration service instance from the search results and select + **New Migration Project**.
     
-    ![Create a new migration project](media/tutorial-mysql-to-azure-mysql-online/08-02-dms-portal-newproject.png)
+    ![Create a new migration project](media/tutorial-mysql-to-azure-mysql-online/08-02-dms-portal-new-project.png)
 
 3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Online data migration**. Select **Create and run activity**.
 
@@ -249,18 +249,18 @@ After the service is created, locate it within the Azure portal, open it, and th
 3. On the **Select databases** screen, map the source and the target database for migration, and select **Next : Configure migration settings>>**. You can select the **Make Source Server Readonly** option to make the source as read-only, but be cautious that this is a server level setting. If selected, it sets the entire server to read-only, not just the selected databases.
     
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
-    ![Select database details screen](media/tutorial-mysql-to-azure-mysql-online/12-dms-portal-project-mysql-selectdb.png)
+    ![Select database details screen](media/tutorial-mysql-to-azure-mysql-online/12-dms-portal-project-mysql-select-db.png)
     
     > [!NOTE] 
    > Though you can select multiple databases in this step, each instance of Azure Database Migration Service supports up to 4 databases for concurrent migration. Also, there is a limit of 10 instances of Azure Database Migration Service per subscription per region. For example, if you have 80 databases to migrate, you can migrate 40 of them to the same region concurrently, but only if you have created 10 instances of the Azure Database Migration Service.
 
 4. On the **Configure migration settings** screen, select the tables to be part of migration, and select **Next : Summary>>**. If the target tables have any data, they are not selected by default but you can explicitly select them and they will be truncated before starting the migration.
 
-    ![Select tables screen](media/tutorial-mysql-to-azure-mysql-online/13-dms-portal-project-mysql-selecttbl.png)
+    ![Select tables screen](media/tutorial-mysql-to-azure-mysql-online/13-dms-portal-project-mysql-select-tbl.png)
 
 5. On the **Summary** screen, in the **Activity name** text box, specify a name for the migration activity and review the summary to ensure that the source and target details match what you previously specified.
 
-    ![Migration project summary](media/tutorial-mysql-to-azure-mysql-online/14-dms-portal-project-mysql-activitysummary.png)
+    ![Migration project summary](media/tutorial-mysql-to-azure-mysql-online/14-dms-portal-project-mysql-activity-summary.png)
 
 6. Select **Start migration**. The migration activity window appears, and the **Status** of the activity is **Initializing**. The **Status** changes to **Running** when the table migrations start.
 
