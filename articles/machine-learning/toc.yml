@@ -395,7 +395,7 @@
               href: how-to-track-monitor-analyze-runs.md
             - name: Log & view metrics and log files
               displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-and-view-metrics.md
+              href: how-to-log-view-metrics.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md

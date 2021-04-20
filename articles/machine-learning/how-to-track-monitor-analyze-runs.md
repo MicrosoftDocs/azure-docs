@@ -480,5 +480,5 @@ The following notebooks demonstrate the concepts in this article:
 
 ## Next steps
 
-* To learn how to log metrics for your experiments, see [Log metrics during training runs](how-to-log-and-view-metrics.md).
+* To learn how to log metrics for your experiments, see [Log metrics during training runs](how-to-log-view-metrics.md).
 * To learn how to monitor resources and logs from Azure Machine Learning, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
