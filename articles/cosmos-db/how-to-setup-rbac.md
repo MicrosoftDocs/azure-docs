@@ -325,9 +325,10 @@ To use the Azure Cosmos DB RBAC in your application, you have to update the way 
 
 The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of AAD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
-- [in .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [in Java](/java/api/overview/azure/identity-readme#credential-classes)
-- [in JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [In Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- In REST API
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
@@ -374,6 +375,12 @@ const client = new CosmosClient({
     aadCredentials: servicePrincipal
 });
 ```
+
+### In REST API
+
+The Azure Cosmos DB RBAC is currently supported with the 2021-03-15 version of REST API. When constructing the [authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **aad** and the hash signature **(sig)** to the **oauth token** as shown in the following example:
+
+`type=aad&ver=1.0&sig=<token-from-oauth>`
 
 ## Auditing data requests
 

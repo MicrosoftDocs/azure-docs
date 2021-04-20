@@ -345,7 +345,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: service-bus-faq.md
+    href: service-bus-faq.yml
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-service-bus
   - name: Azure Roadmap
