@@ -44,7 +44,7 @@ Bi-directional communication between Windows process and the Linux virtual machi
 
 IoT Edge for Linux on Windows emphasizes interoperability between the Linux and Windows components.
 
-For samples that demonstrate communication between Windows applications and IoT Edge modules, see [Windows 10 IoT Samples](https://github.com/microsoft/Windows-IoT-Samples).
+For samples that demonstrate communication between Windows applications and IoT Edge modules, see [EFLOW & Windows 10 IoT Samples](https://aka.ms/AzEFLOW-Samples).
 
 ## Public preview
 
@@ -54,7 +54,7 @@ IoT Edge for Linux on Windows is currently in [public preview](https://azure.mic
 
 Use the IoT Edge support and feedback channels to get assistance with IoT Edge for Linux on Windows.
 
-**Reporting bugs** – Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the IoT Edge open-source project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues).
+**Reporting bugs** – Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the IoT Edge open-source project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://aka.ms/AzEFLOW-Issues).
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

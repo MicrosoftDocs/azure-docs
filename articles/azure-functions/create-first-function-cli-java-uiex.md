@@ -193,7 +193,7 @@ To create a function app running on Linux instead of Windows, change the `runtim
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
