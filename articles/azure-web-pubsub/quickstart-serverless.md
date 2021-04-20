@@ -59,25 +59,27 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     - For **AzureWebJobsStorage** setting, 
         - If you created the Azure storage instance, paste the Azure storage instance connection string.
         - If you installed and launched Azure storage emulator, paste "UseDevelopmentStorage=true".
-- JavaScript functions are organized into folders. In each folder are two files: *function.json* defines the bindings that are used in the function, and *index.js* is the body of the function. There are several HTTP triggered functions in this function app:
+- JavaScript functions are organized into folders. In each folder are two files: *function.json* defines the bindings that are used in the function, and *index.js* is the body of the function. There are several triggered functions in this function app:
 
-    - **login** - Uses the *webPubSubConnection* input binding to generate and return valid connection information.
-    - **messages** - Receives a chat message in the request body and uses the *webPubSub* output binding to broadcast the message to all connected client applications.
-    - **connect** and **connected** - Handle the connect and connected events. 
+    - **login** - This is the HTTP triggered function. Uses the *webPubSubConnection* input binding to generate and return valid connection information.
+    - **messages** - This is the WebPubSubTrigger triggered function. Receives a chat message in the request body and uses the *webPubSub* output binding to broadcast the message to all connected client applications.
+    - **connect** and **connected** - These are the WebPubSubTrigger triggered functions. Handle the connect and connected events. 
 
-- In the terminal, ensure that you are in the *samples/simplechat/function-js* folder. Run the function app.
+- In the terminal, ensure that you are in the *samples/simplechat/function-js* folder. Install the extensions and run the function app.
 
     ```bash
+    func extensions install
+
     func start
     ```
 
-- The local function will default use port 7071 as set in the local.settings.json file. To make it available in public network. You need to work with [ngrok](https://ngrok.com) to expose this endpoint. Run command below and you'll get a forwarding endpoint.
+- The local function will use port defined in the local.settings.json file. To make it available in public network. You need to work with [ngrok](https://ngrok.com) to expose this endpoint. Run command below and you'll get a forwarding endpoint.
 
     ```bash
     ngrok http 7071
     ```    
 
-- Go to the settings of Azure Web PubSub instance, create a new hub with the name `simplechat` and set the endpoint to Azure Web PubSub service settings as `<forwarding endpoint>/runtime/webhooks/webpubsub`，like http://d3d17c23a4f2.ngrok.io/runtime/webhooks/webpubsub
+- Go to the settings of Azure Web PubSub instance, create a new hub with the name `simplechat` defined in function attributes and then set the endpoint to Azure Web PubSub service settings as `<forwarding endpoint>/runtime/webhooks/webpubsub`，like http://d3d17c23a4f2.ngrok.io/runtime/webhooks/webpubsub
 
 ---
 
@@ -89,7 +91,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 
 1. Enter a username when prompted.
 
-1. The web application calls the *GetWebPubSubInfo* function in the function app to retrieve the connection information to connect to Azure Web PubSub service. When the connection is complete, the chat message input box appears.
+1. The web application calls the *login* function in the function app to retrieve the connection information to connect to Azure Web PubSub service. When the connection is complete, the chat message input box appears.
 
 1. Type a message and press enter. The application sends the message to the *messages* function in the Azure Function app, which then uses the Web PubSub output binding to broadcast the message to all connected clients. If everything is working correctly, the message should appear in the application.
 
