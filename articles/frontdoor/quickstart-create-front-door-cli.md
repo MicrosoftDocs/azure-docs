@@ -43,7 +43,7 @@ In Azure, you allocate related resources to a resource group. You can either use
 
 For this quickstart, you need two resource groups. One in *Central US* and the second in *South Central US*.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create):
+Create a resource group with [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create \
