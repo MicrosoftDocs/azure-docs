@@ -33,7 +33,7 @@ Learn about the [benefits of developing using Azure IoT SDKs](https://azure.micr
 
 Supported platforms for the SDKs can be found in [Azure IoT SDKs Platform Support](iot-hub-device-sdk-platform-support.md).
 
-For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/) or individual repository.
+For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/) or individual repository.
 
 ## Azure IoT Hub Device SDKs
 

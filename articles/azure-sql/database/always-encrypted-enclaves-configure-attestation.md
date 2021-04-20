@@ -68,7 +68,7 @@ The above policy verifies:
 - The security version number (SVN) of the library is greater than 0.
   > The SVN allows Microsoft to respond to potential security bugs identified in the enclave code. In case a security issue is dicovered and fixed, Microsoft will deploy a new version of the enclave with a new (incremented) SVN. The above recommended policy will be updated to reflect the new SVN. By updating your policy to match the recommended policy you can ensure that if a malicious administrator tries to load an older and insecure enclave, attestation will fail.
 - The library in the enclave has been signed using the Microsoft signing key (the value of the x-ms-sgx-mrsigner claim is the hash of the signing key).
-  > One of the main goals of attestation is to convince clients that the binary running in the enclave is the binary that is supposed to run. Attestation policies provide two mechanisms for this purpose. One is the **mrenclave** claim which is the hash of the binary that is supposed to run in an enclave. The problem with the **mrenclave** is that the binary hash changes even with trivial changes to the code, which makes it hard to rev the code running in the enclave. Hence, we recommend the use of the **mrsigner**, which is a hash of a key that is used to sign the enclave binary. When Microsoft revs the enclave, the **mrsigner** stays the same as long as the signing key does not change. In this way, it becomes feasible to deploy updated binaries without breaking customers’ applications. 
+  > One of the main goals of attestation is to convince clients that the binary running in the enclave is the binary that is supposed to run. Attestation policies provide two mechanisms for this purpose. One is the **mrenclave** claim which is the hash of the binary that is supposed to run in an enclave. The problem with the **mrenclave** is that the binary hash changes even with trivial changes to the code, which makes it hard to rev the code running in the enclave. Hence, we recommend the use of the **mrsigner**, which is a hash of a key that is used to sign the enclave binary. When Microsoft revs the enclave, the **mrsigner** stays the same as long as the signing key does not change. In this way, it becomes feasible to deploy updated binaries without breaking customers' applications. 
 
 > [!IMPORTANT]
 > An attestation provider gets created with the default policy for Intel SGX enclaves, which does not validate the code running inside the enclave. Microsoft strongly advises you set the above recommended policy, and not use the default policy, for Always Encrypted with secure enclaves.
@@ -95,7 +95,7 @@ Use the following script to determine your attestation URL:
 
 ```powershell
 $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-$attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
+$attestationUrl = $attestationProvider.AttestUri + "/attest/SgxEnclave"
 Write-Host "Your attestation URL is: " $attestationUrl 
 ```
 
@@ -132,7 +132,7 @@ See the below screenshot for an example.
 ```powershell
 $serverResourceGroupName = "<server resource group name>"
 $serverName = "<server name>" 
-$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName
+$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
 ```
  
 2. Assign the server to the Attestation Reader role for the resource group containing your attestation provider.

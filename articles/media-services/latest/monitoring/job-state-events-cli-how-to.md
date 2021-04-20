@@ -29,7 +29,7 @@ In this article, you use the Azure CLI to subscribe to events for your Azure Med
 
     Currently, not all [Media Services v3 CLI](/cli/azure/ams) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
-- [Create a Media Services account](../create-account-howto.md).
+- [Create a Media Services account](../account-create-how-to.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name.
 

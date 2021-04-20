@@ -12,7 +12,7 @@ This article describes how Azure Event Grid handles events when delivery isn't a
 Event Grid provides durable delivery. It delivers each message **at least once** for each subscription. Events are sent to the registered endpoint of each subscription immediately. If an endpoint doesn't acknowledge receipt of an event, Event Grid retries delivery of the event.
 
 > [!NOTE]
-> Event Grid doesn't guarantee order for event delivery, so subscriber may receive them out of order. 
+> Event Grid doesn't guarantee order for event delivery, so subscribers may receive them out of order. 
 
 ## Batched event delivery
 
@@ -50,11 +50,11 @@ For more information on using Azure CLI with Event Grid, see [Route storage even
 
 ## Retry schedule and duration
 
-When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery or dead-letter or drop the event based on the type of the error. 
+When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery, dead-letter the event, or drop the event based on the type of the error. 
 
-If the error returned by the subscribed endpoint is configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead lettering the event or drop the event if dead letter isn't configured.
+If the error returned by the subscribed endpoint is a configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead-lettering on the event or drop the event if dead-letter isn't configured.
 
-Following are the types of endpoints for which retry doesn't happen:
+The following table describes the types of endpoints and errors for which retry doesn't happen:
 
 | Endpoint Type | Error codes |
 | --------------| -----------|
@@ -62,7 +62,7 @@ Following are the types of endpoints for which retry doesn't happen:
 | Webhook | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found, 401 Unauthorized |
  
 > [!NOTE]
-> If Dead-Letter isn't configured for endpoint, events will be dropped when above errors happen. Consider configuring Dead-Letter, if you don't want these kinds of events to be dropped.
+> If Dead-Letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring Dead-Letter if you don't want these kinds of events to be dropped.
 
 If the error returned by the subscribed endpoint isn't among the above list, EventGrid performs the retry using policies described below:
 
@@ -84,7 +84,7 @@ If the endpoint responds within 3 minutes, Event Grid will attempt to remove the
 
 Event Grid adds a small randomization to all retry steps and may opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
 
-For deterministic behavior, set the event time to live and max delivery attempts in the [subscription retry policies](manage-event-delivery.md).
+For deterministic behavior, set the event time-to-live and max delivery attempts in the [subscription retry policies](manage-event-delivery.md).
 
 By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
 
@@ -106,12 +106,12 @@ Event Grid sends an event to the dead-letter location when it has tried all of i
 
 The time-to-live expiration is checked ONLY at the next scheduled delivery attempt. So, even if time-to-live expires before the next scheduled delivery attempt, event expiry is checked only at the time of the next delivery and then subsequently dead-lettered. 
 
-There is a five-minute delay between the last attempt to deliver an event and when it is delivered to the dead-letter location. This delay is intended to reduce the number Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
+There is a five-minute delay between the last attempt to deliver an event and when it is delivered to the dead-letter location. This delay is intended to reduce the number of Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-You might want to be notified when an event has been sent to the dead letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events. For an example of setting up a dead letter location and retry policies, see [Dead letter and retry policies](manage-event-delivery.md).
+You might want to be notified when an event has been sent to the dead-letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events. For an example of setting up a dead-letter location and retry policies, see [Dead letter and retry policies](manage-event-delivery.md).
 
 ## Delivery event formats
 This section gives you examples of events and dead-lettered events in different delivery schema formats (Event Grid schema, CloudEvents 1.0 schema, and custom schema). For more information about these formats, see [Event Grid schema](event-schema.md) and [Cloud Events 1.0 schema](cloud-event-schema.md) articles. 
@@ -284,15 +284,15 @@ All other codes not in the above set (200-204) are considered failures and will 
 | 503 Service Unavailable | Retry after 30 seconds or more |
 | All others | Retry after 10 seconds or more |
 
-## Delivery with custom headers
-Event subscriptions allow you to set up http headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set up to 10 headers when creating an event subscription. Each header value shouldn't be greater than 4,096 (4K) bytes. You can set custom headers on the events that are delivered to the following destinations:
+## Custom delivery properties
+Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set up to 10 headers when creating an event subscription. Each header value shouldn't be greater than 4,096 (4K) bytes. You can set custom headers on the events that are delivered to the following destinations:
 
 - Webhooks
 - Azure Service Bus topics and queues
 - Azure Event Hubs
 - Relay Hybrid Connections
 
-For more information, see [Delivery with custom headers](delivery-properties.md). 
+For more information, see [Custom delivery properties](delivery-properties.md). 
 
 ## Next steps
 

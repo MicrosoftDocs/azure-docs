@@ -3,7 +3,6 @@ title: Tutorial - Import a certificate in Key Vault using Azure portal | Microso
 description: Tutorial showing how to import a certificate in Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -101,9 +100,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Learn more about the [parameters](/cli/azure/keyvault/certificate#az-keyvault-certificate-import).
+Learn more about the [parameters](/cli/azure/keyvault/certificate#az_keyvault_certificate_import).
 
-After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show)
+After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az_keyvault_certificate_show)
 
 
 ```azurecli
@@ -132,7 +131,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?).
 
 
 ## Clean up resources

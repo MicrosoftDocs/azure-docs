@@ -5,11 +5,12 @@
   href: overview.md
   items:
   - name: What's new?
+    displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - name: Agentless solution architecture
+  - name: What is Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
-  - name: Agent-based solution architecture 
+  - name: What is Agent-based solution architecture 
     href: architecture-agent-based.md
 - name: Quickstarts
   expanded: true
@@ -20,7 +21,7 @@
       displayName: firewall, proxy, open ports
       href: quickstart-system-prerequisites.md
     - name: Get started with Azure Defender for IoT
-      displayName: getting started, registration, onboarding
+      displayName: getting started, registration, onboarding, activation, threat intelligence 
       href: getting-started.md
   - name: Agent-based solution for device builders
     items: 
@@ -122,19 +123,30 @@
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
-        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
+        displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
         href: how-to-activate-and-set-up-your-sensor.md
     - name: Prepare your on-premises management console
       items:
+      - name: Manage subscriptions
+        displayName: onboard, offboard, subscription, billing, pricing, payment
+        href: how-to-manage-subscriptions.md 
       - name: Activate and set up your on-premises management console
         displayName: deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
         displayName: primary, secondary, failover, failback fail, recovery 
         href: how-to-set-up-high-availability.md
+    - name: Prepare your sensors
+      items:
+      - name: Onboard sensors
+        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
+        href: how-to-manage-sensors-on-the-cloud.md
+      - name: Activate and set up your sensor
+        displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
+        href: how-to-activate-and-set-up-your-sensor.md
     - name: Manage users and user access
       items:
       - name: Create and manage users
@@ -159,6 +171,7 @@
       displayName: mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
+      displayName: packages, automatic, intelligence, push, threat
     - name: Work with device inventory information
       items: 
       - name: Investigate all enterprise sensor detections in a device inventory
@@ -172,7 +185,7 @@
       displayName: connections, Purdue, zoom, delete device 
     - name: Work with alerts detected by a sensor
       items:
-      - name: About sensor alerts
+      - name: Understand sensor alerts
         href: how-to-work-with-alerts-on-your-sensor.md
       - name: Filter and manage alerts from the Alerts page 
         href: how-to-view-alerts.md
@@ -181,11 +194,11 @@
         displayName: PCAP, metadata, alerts, link, device map, 
       - name: Alert types and descriptions
         href: alert-engine-messages.md
-        displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational
-      - name: Manage the alert event
+        displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts, 
+      - name: Manage alert events
         href: how-to-manage-the-alert-event.md
         displayName: PCAP, acknowledge, learn, mute, policy
-      - name: Accelerate alert incident response
+      - name: Accelerate alert workflows
         href: how-to-accelerate-alert-incident-response.md
         displayName: custom, alerts, comments, groups
       - name: Forward alert information
@@ -342,23 +355,21 @@
       href: edge-security-module-deprecation.md
 - name: Resource
   items:
+  - name: Build your security skills with Microsoft Learn
+    href: /learn/browse/?term=securityS&terms=securityS
+  - name: Azure Security Center documentation
+    href: ../security-center/
+  - name: Azure security documentation 
+    href: ../security/index.yml
+  - name: Azure IoT Security, Privacy, & Compliance blog
+    href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-defender/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Agent-based solution for Device Builders
     items: 
-    - name: Build your security skills with Microsoft Learn
-      href: /learn/browse/?term=securityS&terms=securityS
-    - name: Azure Security Center documentation
-      href: ../security-center/
-    - name: Azure security documentation 
-      href: ../security/index.yml
     - name: Azure RTOS Defender-IoT-micro-agent on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
-    - name: Azure IoT Security, Privacy, & Compliance blog
-      href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
-    - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/azure-defender/
-    - name: Support policies for Azure Defender for IoT
-      href: support-policies.md
-    - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest

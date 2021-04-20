@@ -192,4 +192,4 @@ In the preceding scenarios, we recommend that you trigger a re-register operatio
 
 ## Next steps
 
-- Review the [frequently asked questions](./sap-hana-faq-backup-azure-vm.md) about backing up SAP HANA databases on Azure VMs.
+- Review the [frequently asked questions](./sap-hana-faq-backup-azure-vm.yml) about backing up SAP HANA databases on Azure VMs.

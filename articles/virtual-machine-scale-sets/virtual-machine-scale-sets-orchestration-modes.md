@@ -5,11 +5,10 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: extensions
+
 ms.date: 02/12/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt
-
+ms.custom: mimckitt, devx-track-azurecli
 ---
 
 # Preview: Orchestration modes for virtual machine scale sets in Azure 
@@ -162,7 +161,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### Azure CLI 2.0 
-Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription. 
+Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
@@ -303,7 +302,7 @@ You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
 
 **How does availability with Flexible orchestration compare to Availability Sets or Uniform orchestration?**
 
-|   | Flexible orchestration  | Uniform orchestration  | Availability Sets  |
+| Availability attribute  | Flexible orchestration  | Uniform orchestration  | Availability Sets  |
 |-|-|-|-|
 | Deploy across availability zones  | No  | Yes  | No  |
 | Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |

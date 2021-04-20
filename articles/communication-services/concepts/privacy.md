@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 
 # Region availability and data residency
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you are potentially a controller of their data. Since Azure Communication Services is storing and encrypting this data at rest on your behalf, we are most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
 
 ## Data residency

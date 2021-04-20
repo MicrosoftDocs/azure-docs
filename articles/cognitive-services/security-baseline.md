@@ -4,7 +4,7 @@ description: The Cognitive Services security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,17 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Cognitive Services
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Cognitive Services. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Cognitive Services. **Controls** not applicable to Cognitive Services have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Cognitive Services. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Cognitive Services. **Controls** not applicable to Cognitive Services, or for which the responsibility is Microsoft's, have been excluded.
 
- 
-To see how Cognitive Services completely maps to the Azure
-Security Benchmark, see the [full Cognitive Services security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Cognitive Services completely maps to the Azure Security Benchmark, see the [full Cognitive Services security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
@@ -36,7 +28,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 Virtual network and service endpoint support for Cognitive Services is limited to a specific set of regions.
 
-- [How to configure Azure Cognitive Services virtual networks](./cognitive-services-virtual-networks.md?tabs=portal)
+- [How to configure Azure Cognitive Services virtual networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)
 
 - [Overview of Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 
@@ -67,7 +59,7 @@ Bear in mind that Cognitive Services containers are required to submit metering 
 
 Also note that you must disable deep packet inspection for your firewall solution on the secure channels that the Cognitive Services containers create to Microsoft servers. Failure to do so will prevent the container from functioning correctly.
 
-- [Understand Azure Cognitive Services container security](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
+- [Understand Azure Cognitive Services container security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
 
 **Responsibility**: Customer
 
@@ -87,7 +79,7 @@ If you are using Cognitive Services within a container, you may augment your con
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
-- [Understand Azure Cognitive Services container security](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
+- [Understand Azure Cognitive Services container security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
 
 **Responsibility**: Customer
 
@@ -116,7 +108,7 @@ Bear in mind that Cognitive Services containers are required to submit metering 
 
 Also note that you must disable deep packet inspection for your firewall solution on the secure channels that the Cognitive Services containers create to Microsoft servers. Failure to do so will prevent the container from functioning correctly.
 
-- [Understand Azure Cognitive Services container security](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
+- [Understand Azure Cognitive Services container security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
@@ -135,7 +127,7 @@ Bear in mind that Cognitive Services containers are required to submit metering 
 
 Also note that you must disable deep packet inspection for your firewall solution on the secure channels that the Cognitive Services containers create to Microsoft servers. Failure to do so will prevent the container from functioning correctly.
 
-- [Understand Azure Cognitive Services container security](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
+- [Understand Azure Cognitive Services container security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
 
 **Responsibility**: Customer
 
@@ -149,7 +141,7 @@ You may also use application security groups to help simplify complex security c
 
 - [Virtual network service tags](../virtual-network/service-tags-overview.md)
 
-- [Application Security Groups](../virtual-network/network-security-groups-overview.md#application-security-groups)
+- [Application Security Groups](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#application-security-groups)
 
 **Responsibility**: Customer
 
@@ -183,9 +175,9 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use the Azure Activity log to monitor network resource configurations and detect changes for network resources related to your Cognitive Services container. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsibility**: Customer
 
@@ -199,7 +191,7 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Cognitive Services container at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure Cache for Redis instances.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
 
 **Responsibility**: Customer
 
@@ -211,7 +203,7 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 Additionally, Cognitive Services sends diagnostics events that can be collected and used for the purposes of analysis, alerting and reporting. You can configure diagnostics settings for a Cognitive Services container via the Azure portal. You can send one or more diagnostics events to a Storage Account, Event Hub, or a Log Analytics workspace.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 - [Using diagnostic settings to for Azure Cognitive Services](diagnostic-logging.md)
 
@@ -223,7 +215,7 @@ Additionally, Cognitive Services sends diagnostics events that can be collected 
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -233,9 +225,9 @@ Additionally, Cognitive Services sends diagnostics events that can be collected 
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Azure Cognitive Services.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
 
-- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/activity-log.md)
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](/azure/azure-monitor/platform/activity-log)
 
 **Responsibility**: Customer
 
@@ -249,7 +241,7 @@ Configure diagnostic settings for your Cognitive Services container and send log
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/platform/alerts-log)
 
 **Responsibility**: Customer
 
@@ -263,9 +255,9 @@ Configure diagnostic settings for your Cognitive Services container and send log
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Responsibility**: Customer
 
@@ -279,7 +271,7 @@ Data plane access to Cognitive Services is controlled through access keys. These
 
 It is not recommended that you build default passwords into your application. Instead, you can store your passwords in Azure Key Vault and then use Azure AD to retrieve them.
 
-- [How to regenerate Azure Cache for Redis access keys](../azure-cache-for-redis/cache-configure.md#settings)
+- [How to regenerate Azure Cache for Redis access keys](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
 
 **Responsibility**: Customer
 
@@ -369,7 +361,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 Currently, only the Computer Vision API, Face API, Text Analytics API, Immersive Reader, Form Recognizer, Anomaly Detector, and all Bing services except Bing Custom Search support authentication using Azure AD.
 
-- [How to authenticate requests to Cognitive Services](./authentication.md#authenticate-with-azure-active-directory)
+- [How to authenticate requests to Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-azure-active-directory)
 
 **Responsibility**: Customer
 
@@ -383,7 +375,7 @@ Customer to maintain inventory of API Management user accounts, reconcile access
 
 - [How to manage user accounts in Azure API Management](../api-management/api-management-howto-create-or-invite-developers.md)
 
-- [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser?amp;preserve-view=true&view=azps-4.8.0)
+- [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -423,7 +415,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not available for Cognitive Services. Customer Lockbox is not yet supported for Cognitive Services.
 
-- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -518,7 +510,7 @@ Microsoft manages the underlying platform and treats all customer content as sen
 
 You may also use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.
 
-- [List of services that encrypt information at rest](./encryption/cognitive-services-encryption-keys-portal.md)
+- [List of services that encrypt information at rest](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal)
 
 **Responsibility**: Customer
 
@@ -528,7 +520,7 @@ You may also use Azure Key Vault to store your customer-managed keys. You can ei
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Cognitive Services and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsibility**: Customer
 
@@ -546,7 +538,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -608,7 +600,7 @@ In addition, use Azure Resource Graph to query or discover resources within the 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
+- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsibility**: Customer
 
@@ -632,7 +624,7 @@ In addition, use Azure Resource Graph to query or discover resources within the 
 
 **Guidance**: Define and implement standard security configurations for your Cognitive Services container with Azure Policy. Use Azure Policy aliases in the "Microsoft.CognitiveServices" namespace to create custom policies to audit or enforce the configuration of your Azure Cache for Redis instances.
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -656,9 +648,9 @@ In addition, use Azure Resource Graph to query or discover resources within the 
 
 **Guidance**: If you are using custom Azure Policy definitions or Azure Resource Manager templates for your Cognitive Services containers and related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/)
 
 **Responsibility**: Customer
 
@@ -690,7 +682,7 @@ In addition, use Azure Resource Graph to query or discover resources within the 
 
 - [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
 - [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 
@@ -764,7 +756,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 - [Overview of Azure Resource Manager](../azure-resource-manager/management/overview.md)
 
-- [How to create a Cognitive Services resource using an Azure Resource Manager template](./create-account-resource-manager-template.md?tabs=portal)
+- [How to create a Cognitive Services resource using an Azure Resource Manager template](https://docs.microsoft.com/azure/cognitive-services/resource-manager-template?tabs=portal)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -772,7 +764,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 - [Introduction to Azure Automation](../automation/automation-intro.md)
 
-- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Responsibility**: Customer
 
@@ -784,7 +776,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 - [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 
-- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsibility**: Customer
 
@@ -796,7 +788,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 Use Azure role-based access control to protect customer-managed keys. Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -894,5 +886,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
-- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
+- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)

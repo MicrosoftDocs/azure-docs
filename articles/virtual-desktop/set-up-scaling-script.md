@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Scale session hosts using Azure Automation
 
