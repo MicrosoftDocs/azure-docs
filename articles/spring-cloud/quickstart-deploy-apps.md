@@ -231,7 +231,9 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
     ```
 
-1. Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of **https://\<service name\>-api-gateway.azuremicroservices.io**.
+## Run the services
+
+Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of "https://<service name>-api-gateway.azuremicroservices.io".
 
     ![Access petclinic customers service](media/build-and-deploy/access-customers-service.png)
 
@@ -285,12 +287,15 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 ## Deploy extra apps
 
-To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other microservices:
+To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other microservices.   Rerun the configuration command and select the following microservices.
 * admin-server
 * vets-service
 * visits-service
+Then run the `deploy` command again.
 
-A successful deployment command will return a the URL of the form: `https://<spring cloud service name>-spring-petclinic-api-gateway.azuremicroservices.io`.  Use it to navigate to the running service.
+## Run the services
+
+A successful deployment command will return a the URL of the form: "https://<spring cloud service name>-spring-petclinic-api-gateway.azuremicroservices.io".  Use it to navigate to the running service.
 
 ![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 
@@ -347,7 +352,7 @@ Repeat the steps above to deploy `customers-service` and other Pet Clinic apps t
 1. In the **Before launch** section of the dialog, switch the **Working directory** to the *piggymetrics/customers-service* folder.
 1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. 
 
-1. Other microservices included in this sample can be deployed similarly:
+1. Other microservices included in this sample can be deployed similarly. 
     * admin-server
     * vets-service
     * visits-service
