@@ -5,7 +5,7 @@ services: firewall
 author: jocortems
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/21/2021
 ms.author: jocorte
 ---
 
@@ -36,4 +36,3 @@ az network nat gateway create --name firewall-nat --resource-group nat-rg --publ
 # Associate NAT gateway to subnet
 az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --resource-group nat-rg --nat-gateway firewall-nat
 ```
-
