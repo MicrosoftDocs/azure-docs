@@ -4,14 +4,14 @@ description: Details on what to keep in mind when choosing Azure File Sync cloud
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/24/2021
+ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---
 
 # Choose cloud tiering policies
 
-This article provides guidance for users who are selecting and adjusting their cloud tiering policies. Before reading through this article, ensure that you understand how cloud tiering works. For cloud tiering fundamentals, see [Understand Azure File Sync cloud tiering](storage-sync-cloud-tiering-overview.md). For an in-depth explanation of cloud tiering policies with examples, see [Azure File Sync cloud tiering policies](storage-sync-cloud-tiering-policy.md).
+This article provides guidance for users who are selecting and adjusting their cloud tiering policies. Before reading through this article, ensure that you understand how cloud tiering works. For cloud tiering fundamentals, see [Understand Azure File Sync cloud tiering](file-sync-cloud-tiering-overview.md). For an in-depth explanation of cloud tiering policies with examples, see [Azure File Sync cloud tiering policies](file-sync-cloud-tiering-policy.md).
 
 ## Limitations
 - Cloud tiering is not supported on the Windows system volume.
@@ -61,11 +61,11 @@ The reason for the absolute minimum is found in the way NTFS stores extremely sm
 
 ## Selecting your initial policies
 
-Generally, when you enable cloud tiering on a server endpoint, you should create one local virtual drive for each individual server endpoint. Isolating the server endpoint makes it easier to understand how cloud tiering works and adjust your policies accordingly. However, Azure File Sync works even if you have multiple server endpoints on the same drive, for details see the [Multiple server endpoints on local volume](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume) section. We also recommend that when you first enable cloud tiering, you keep the date policy disabled and volume free space policy at around 10% to 20%. For most file server volumes, 20% volume free space is usually the best option.
+Generally, when you enable cloud tiering on a server endpoint, you should create one local virtual drive for each individual server endpoint. Isolating the server endpoint makes it easier to understand how cloud tiering works and adjust your policies accordingly. However, Azure File Sync works even if you have multiple server endpoints on the same drive, for details see the [Multiple server endpoints on local volume](file-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume) section. We also recommend that when you first enable cloud tiering, you keep the date policy disabled and volume free space policy at around 10% to 20%. For most file server volumes, 20% volume free space is usually the best option.
 
 For simplicity and to have a clear understanding of how items will be tiered, we recommend you primarily adjust your volume free space policy and keep your date policy disabled unless needed. We recommend this because most customers find it valuable to fill the local cache with as many hot files as possible and tier the rest to the cloud. However, the date policy may be beneficial if you want to proactively free up local disk space and you know files in that server endpoint accessed after the number of days specified in your date policy don't need to be kept locally. Setting the date policy frees up valuable local disk capacity for other endpoints on the same volume to cache more of their files.
 
-After setting your policies, monitor egress and adjust both policies accordingly. We recommend specifically looking at the **cloud tiering recall size** and **cloud tiering recall size by application** metrics in Azure Monitor. To learn how to monitor egress, see [Monitor cloud tiering](storage-sync-monitor-cloud-tiering.md).
+After setting your policies, monitor egress and adjust both policies accordingly. We recommend specifically looking at the **cloud tiering recall size** and **cloud tiering recall size by application** metrics in Azure Monitor. To learn how to monitor egress, see [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md).
 
 ## Adjusting your policies
 
@@ -83,4 +83,5 @@ When adjusting your volume free space policy, the amount of data you should keep
 - If tiering occurs before a heatmap is formed, files will be tiered by last modified timestamp
 
 ## Next steps
-* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+
+* [Planning for an Azure File Sync deployment](file-sync-planning.md)

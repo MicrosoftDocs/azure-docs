@@ -36391,6 +36391,96 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/files/storage-sync-choose-cloud-tiering-policies.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-choose-cloud-tiering-policies",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering-overview.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-cloud-tiering-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering-policy.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-cloud-tiering-policy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-deployment-guide.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-deployment-guide",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-extend-servers.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-extend-servers",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-firewall-and-proxy.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-firewall-and-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-how-to-manage-tiered-files.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-how-to-manage-tiered-files",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-monitor-cloud-tiering.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-monitor-cloud-tiering",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-monitoring.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-monitoring",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-networking-endpoints.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-networking-endpoints",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-networking-overview.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-networking-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-offline-data-transfer.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-offline-data-transfer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-planning.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-planning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-release-notes.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-release-notes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-resource-move.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-resource-move",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-server-endpoint.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-server-registration.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-server-registration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-sync-files-troubleshoot.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-troubleshoot",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/storage/files/storage-files-active-directory-enable.md",
       "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable",
       "redirect_document_id": true
@@ -42857,12 +42947,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/create-cluster.md",
-      "redirect_url": "/cli/azure/aks#az-aks-create",
+      "redirect_url": "/cli/azure/aks#az_aks_create",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/aks/delete-cluster.md",
-      "redirect_url": "/cli/azure/aks#az-aks-delete",
+      "redirect_url": "/cli/azure/aks#az_aks_delete",
       "redirect_document_id": false
     },
     {

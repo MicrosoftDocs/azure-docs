@@ -87,7 +87,9 @@ If you'd like to share feedback or encounter issues with this feature, share via
 
 Administrator provisioning and de-provisioning of security keys is not available.
 
-**Note:** FIDO2 Cached logon fails on hybrid Azure AD joined machine specific to win10 20H2 version (when LOS to DC unavailable). This is currently under investigation with Engineering.
+### Cached logon on Hybrid Azure AD joined devices
+
+Cached logon with FIDO2 keys fails on hybrid Azure AD joined devices on Windows 10, version 20H2. As a result, users will not be able to login when line of sight to the on-premises domain controller is unavailable. This is currently under investigation.
 
 ### UPN changes
 
