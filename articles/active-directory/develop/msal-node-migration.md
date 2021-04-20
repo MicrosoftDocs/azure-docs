@@ -64,7 +64,7 @@ var authorityURI = "https://login.microsoftonline.com/common";
 var authenticationContex = new adal.AuthenticationContext(authorityURI);
 ```
 
-In MSAL Node, you have two alternatives instead: If you are building a mobile app or a desktop app, you instantiate a `PublicClientApplication` object. The constructor expects a [configuration object](#configuration-options) that contains the `clientId` parameter at the very least. MSAL defaults the authority URI to `https://login.microsoftonline.com/common` if you do not specify it.
+In MSAL Node, you have two alternatives instead: If you are building a mobile app or a desktop app, you instantiate a `PublicClientApplication` object. The constructor expects a [configuration object](#configure-msal) that contains the `clientId` parameter at the very least. MSAL defaults the authority URI to `https://login.microsoftonline.com/common` if you do not specify it.
 
 ```javascript
 const msal = require('@azure/msal-node');
@@ -238,7 +238,7 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 |-----------------------------------|---------------------------------|-----------------------------------|
 | `acquireUserCode`                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
 | N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) |
-| `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configuration-options)) |
+| `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configure-msal)) |
 | N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols#endpoints) URL construction |
 
 ## Use promises instead of callbacks
