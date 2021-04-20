@@ -8,19 +8,18 @@ ms.date: 04/12/2021
 ---
 # Video playback 
 
+You can use [pipelines]() to record video into your Azure Video Analyzer account [AVA video](). In this article, you learn about the steps you need to take in order to play an asset using existing streaming capabilities of Video Analyzer.
+
 ## Suggested pre-reading 
 
 * [Azure Video Analyzer overview]()
 * [Azure Video Analyzer terminology]()
 * [Pipeline concept]()
 
-## Overview  
-
-You can use [pipelines]() to record video into your Azure Video Analyzer account [AVA Video](). In this document, you can learn about the steps you need to take in order to play an asset using existing streaming capabilities of Azure Video Analyzer.
 
 ## RVX Widget One Player
 
-You can install the RVX Widget to playback video stored in your Azure Video Analyzer. The widget can be installed using npm or yarn and this will allow you to include it in your own client-side application. Run one of the following commands to include the widget in your own application:
+You can install the RVX Widget to playback video stored in your Video Analyzer. The widget can be installed using npm or yarn and this will allow you to include it in your own client-side application. Run one of the following commands to include the widget in your own application:
 
 NPM:
 ```
@@ -38,7 +37,8 @@ Alternatively you can embed an existing pre-build script by adding type="module"
 
 ## Media endpoint 
 
-The media endpoints authorize a player by verifying the playback token presented by the player. You can use your own player to play videos directly from your Azure Video Analyzer account in DASH/HLS format. In order to get access to the video you will need to provide a JWT token to the API. Currently we support a JWT token to be passed to the API by the following ways:
+The media endpoints authorize a player by verifying the playback token presented by the player. You can use your own player to play videos directly from your Video Analyzer account in DASH/HLS format. In order to get access to the video you will need to provide a JWT token to the API. Currently we support a JWT token to be passed to the API by the following ways:
+
 * JWT token as HTTP authorization header
 * JWT token as cookie
 * JWT token as querystring
@@ -51,7 +51,7 @@ The JWT will expire and you will need to renew the JWT at regular intervals for 
 
 ## Steps to playback video  
 
-The following steps can be used to setup video playback using Azure Video Analyzer Video Application APIs: 
+The following steps can be used to setup video playback using Video Analyzer Video Application APIs: 
 
 1. Create topology with video sink.
 1. Create stream using topology created in previous step. Once stream is started, video is going to be created. 
