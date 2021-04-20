@@ -59,7 +59,7 @@ The instructions in the following quickstarts refer to the source code as needed
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-In this quickstart, we use the microservices version of the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinc** sample demonstrates microservice architecture pattern and highlights the services breakdown. You will see how it is deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, and distributed tracing and developer-friendly tooling support. 
+In this quickstart, we use the microservices version of the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinc** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support. 
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
 
@@ -69,17 +69,17 @@ To follow the Azure Spring Cloud deployment examples, you only need the location
 
 PetClinic is decomposed into 4 core microservices. All of them are independently deployable applications organized by business domains.
 
-* **Customers service**: Contains general user input logic and validation including pets and owners information(Name, Address, City, Telephone).
-* **Visits service**: Stores and show visits information for each pets' comments.
-* **Vets service**: Stores and show Veterinarians information including names and specialties.
-* **API Gateway**: The API Gateway is a single entry point into the system, used to handle requests and route them to the appropriate backend service or to invoke multiple backend services, aggregating the results.  The three core services expose an external API to client. In real-world systems, the number of functions can grow very quickly with system complexity. Hundreds of services might be involved in rendering of one complex webpage. 
+* **Customers service**: Contains general user input logic and validation including pets and owners information (Name, Address, City, Telephone).
+* **Visits service**: Stores and shows visits information for each pets' comments.
+* **Vets service**: Stores and shows Veterinarians' information, including names and specialties.
+* **API Gateway**: The API Gateway is a single entry point into the system, used to handle requests and route them to an appropriate service or to invoke multiple services, and aggregate the results.  The three core services expose an external API to client. In real-world systems, the number of functions can grow very quickly with system complexity. Hundreds of services might be involved in rendering of one complex webpage. 
 
 ## Infrastructure services hosted by Azure Spring Cloud
 
-There are several common patterns in distributed systems that support core services. Azure Spring cloud provides tools that enhance Spring Boot applications behavior to implement the following patterns: 
+There are several common patterns in distributed systems that support core services. Azure Spring cloud provides tools that enhance Spring Boot applications to implement the following patterns: 
 
 * **Config service**: Azure Spring Cloud Config is a horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository that currently supports local storage, Git, and Subversion.
-* **Service discovery**: It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of autoscaling, failures and upgrades.
+* **Service discovery**: It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of autoscaling, failures, and upgrades.
 
 ## Database configuration
 In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySql if a persistent database configuration is needed. Dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
