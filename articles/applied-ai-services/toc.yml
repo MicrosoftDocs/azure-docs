@@ -1,0 +1,7 @@
+- name: Azure Applied AI Services Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are Applied AI Services?
+    href: what-are-applied-ai-services.md
