@@ -84,15 +84,9 @@
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
   - name: Point-to-site
-<<<<<<< HEAD
-    items: 
-    - name : About IPsec policies
-      href : #NEED TO FILL THIS REFERENCE IN STILL
-=======
     items:
     - name: About P2S IPsec policies
       href: point-to-site-ipsec.md
->>>>>>> de4ace059c27f3fe5a3f6daf5720f7fcda389563
   - name: Security
     items:
     - name: Security baseline

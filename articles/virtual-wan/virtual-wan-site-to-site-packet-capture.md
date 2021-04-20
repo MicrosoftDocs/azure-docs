@@ -38,7 +38,7 @@ Ensure you are in the right subscription context by running the following script
 
 ## <a name="createstorage"></a> Create a Storage Account
 
-You must create a storage account under your Azure subscription to store the results of your packet capture. Please reference this [document](../../storage/common/sotrage-account-create.md) for instructions on how to create a storage account.
+You must create a storage account under your Azure subscription to store the results of your packet capture. Please reference this [document](../../storage/common/storage-account-create.md) for instructions on how to create a storage account.
 
 After creating your account, please run the following commands to generate a sas URL. The results of your packet capture will be stored via this URL.
    ```azurepowershell-interactive
@@ -73,7 +73,7 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 >[!NOTE]
 > Please note you can only run a packet capture on 5 VPN connections concurrently.
 
-![Virtual WAN Link Names](./media/virtual-wan-pcap-screenshots/sampleconnection.png)
+![Virtual WAN Connection Names](./media/virtual-wan-pcap-screenshots/sampleconnection.png)
 
 The name of the links connected to a specific VPN site can be found by clicking on the VPN site
 
