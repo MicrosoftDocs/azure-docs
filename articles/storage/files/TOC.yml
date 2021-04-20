@@ -83,6 +83,8 @@
     items:
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
+    - name: Use DFS-N with Azure Files
+      href: files-manage-namespaces.md
     - name: Create an NFS share
       href: storage-files-how-to-create-nfs-shares.md
     - name: SQL Server FCI with premium file shares
