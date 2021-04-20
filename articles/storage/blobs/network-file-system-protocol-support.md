@@ -101,22 +101,21 @@ The status of items that appear in this tables will change over time as support 
 
 | Storage feature | Supported | Storage Feature | Supported|
 |-----------------|---------------------|----|----|
-| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | Azure attribute-based access control (Azure ABAC) | ⛔ |
+| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | [Posix-like access control lists (ACLs)](data-lake-storage-access-control.md) | ⛔   |
 | [Access tiers for Azure Blob storage](storage-blob-storage-tiers.md) |	✔️ | [Blob index tags](storage-blob-index-how-to.md) |	⛔ |
 | [Azure Blob Storage lifecycle management](storage-lifecycle-management-concepts.md) | ✔️  | [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |
 |  [Azure Storage blob inventory](blob-inventory.md) |	✔️  | [Change Feed](storage-blob-change-feed.md) |	⛔ |
 | [Azure Monitor](monitor-blob-storage.md) |	✔️ | [Blob versioning](versioning-enable.md) | ⛔ |
-| [Immutable Blob storage](storage-blob-immutable-storage.md) | ✔️    |  VLW | ⛔ |
 | [Blob snapshots](snapshots-overview.md) |	✔️  | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | ⛔ |
-| [Private endpoints](common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | [Azure Backup integration](/azure/backup/blob-backup-overview) | ⛔ |
+| [Private endpoints](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | [Azure Backup integration](/azure/backup/blob-backup-overview) | ⛔ |
 | [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  | [Soft delete for containers](soft-delete-container-overview.md) |	⛔ |
 | [Firewall rules](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  | [Soft delete for blobs](soft-delete-blob-overview.md) |	⛔ |
-| Disable Account keys | ✔️ | Access based lifecycle management |	⛔|
-| [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md) |	✔️   | [Customer-provided keys for Azure Storage encryption](encryption-customer-provided-keys.md)  |	⛔ |
+| [Disallow shared key authorization](../common/shared-key-authorization-prevent.md)  | ✔️ | [Last access time tracking for lifecycle management](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) |	⛔|
+| [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md) |	✔️   | [Customer-provided keys for Azure Storage encryption](encryption-customer-provided-keys.md)  |	⛔ |
+| [Immutable Blob storage](storage-blob-immutable-storage.md) | ✔️    | [Static websites hosting](storage-blob-static-website.md) |	⛔  |
 | [Append blobs](storage-blobs-introduction.md#blobs) | ✔️   | [Page blobs](storage-blobs-introduction.md#blobs) | ⛔ |
 | [Azure Active Directory (AD) security](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ | [Encryption scopes](encryption-scope-overview.md)  |	⛔ |
-| [Object replication for block blobs](blobs/object-replication-overview.md) | ⛔  | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |
-| [Posix-like access control lists (ACLs)](data-lake-storage-access-control.md) | ⛔  | [Static websites hosting](storage-blob-static-website.md) |	⛔ |
+| [Object replication for block blobs](object-replication-overview.md) | ⛔  | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |
 
 > [!NOTE]
 > You can't enable NFS 3.0 support on existing storage accounts, nore can you disable NFS 3.0 support in a storage account after you've enabled it.
