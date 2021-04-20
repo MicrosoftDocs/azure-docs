@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql
 
 # Introduction to Microsoft Spark Utilities
 
-Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and Synapse pipelines.
+Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, to chain notebooks together, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and Synapse pipelines.
 
 ## Pre-requisites
 
@@ -36,7 +36,7 @@ You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
 ### Configure access to Azure Blob Storage  
 
-Synapse leverage **Shared access signature (SAS)** to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
+Synapse use **Shared access signature (SAS)** to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
 
 Follow these steps to add a new linked service for an Azure Blob Storage account:
 
@@ -388,7 +388,7 @@ Appends the given string to a file, encoded in UTF-8.
 :::zone pivot = "programming-language-python"
 
 ```python
-mssparkutils.fs.append('file path','content to append',True) # Set the last parameter as True to create the file if it does not exist
+mssparkutils.fs.append("file path","content to append",True) # Set the last parameter as True to create the file if it does not exist
 ```
 ::: zone-end
 
@@ -433,6 +433,154 @@ mssparkutils.fs.rm("file path", true) // Set the last parameter as True to remov
 FS.Rm("file path", true) // Set the last parameter as True to remove all files and directories recursively 
 ```
 
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+## Notebook utilities 
+
+You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
+Run the following command to get an overview of the available methods:
+
+```python
+mssparkutils.notebook.help()
+```
+
+Get results:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### Run a notebook
+Runs a notebook and returns its exit value.
+
+```python
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+### Exit a notebook
+Exits a notebook with a value.
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+For example:
+
+**Sample1** notebook locates under **mssparkutils/folder/** with following two cells: 
+- cell 1 defines an **input** parameter with default value set to 10.
+- cell 2 exits the notebook with **input** as exit value. 
+
+![sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+You can run the **Sample1** in another notebook with default values:
+
+```python
+
+exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1")
+print (exitVal)
+
+```
+Results in:
+
+```
+Sample1 run success with input is 10
+```
+
+You can run the **Sample1** in another notebook and set the **input** value as 20:
+
+```python
+exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print (exitVal)
+```
+
+Results in:
+
+```
+Sample1 run success with input is 20
+```
+::: zone-end
+
+
+:::zone pivot = "programming-language-scala"
+
+## Notebook utilities 
+
+You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
+Run the following command to get an overview of the available methods:
+
+```scala
+mssparkutils.notebook.help()
+```
+
+Get results:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### Run a notebook
+Runs a notebook and returns its exit value.
+
+```scala
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+### Exit a notebook
+Exits a notebook with a value.
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+For example:
+
+**Sample1** notebook locates under **mssparkutils/folder/** with following two cells: 
+- cell 1 defines an **input** parameter with default value set to 10.
+- cell 2 exits the notebook with **input** as exit value. 
+
+![sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+You can run the **Sample1** in another notebook with default values:
+
+```scala
+
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1")
+print(exitVal)
+
+```
+Results in:
+
+```
+exitVal: String = Sample1 run success with input is 10
+Sample1 run success with input is 10
+```
+
+
+You can run the **Sample1** in another notebook and set the **input** value as 20:
+
+```scala
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print(exitVal)
+```
+
+Results in:
+
+```
+exitVal: String = Sample1 run success with input is 20
+Sample1 run success with input is 20
+```
 ::: zone-end
 
 
