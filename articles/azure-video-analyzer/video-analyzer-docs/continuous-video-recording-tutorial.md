@@ -79,7 +79,7 @@ Of interest in this tutorial are the files:
 
 You'll need the files for these steps:
 
-1. Clone the repo from the GitHub link https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this -->.
+1. Clone the repo from the GitHub link <!--TODO: replace this  https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp -->.
 1. Start Visual Studio Code, and open the folder where you downloaded the repo.
 1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
 1. Copy the contents from the arm-template/appsettings.json file. The text should look like: <!--TODO: replace this -->
@@ -135,10 +135,8 @@ The deployment manifest defines what modules are deployed to an edge device and 
         ```
         Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
         ```
-1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
-<!-- commenting out the image for now   ![Generate IoT Edge deployment manifest]()./media/quickstarts/generate-iot-edge-deployment-manifest.png-->
-1. Right-click the src/edge/config/deployment.amd64.json file, and select **Create Deployment for Single Device**.
-<!-- commenting out the image for now   ![Create Deployment for Single Device]()<!--./media/quickstarts/create-deployment-single-device.png-->
+1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**. <!-- commenting out the image for now   ![Generate IoT Edge deployment manifest]()./media/quickstarts/generate-iot-edge-deployment-manifest.png-->
+1. Right-click the src/edge/config/deployment.amd64.json file, and select **Create Deployment for Single Device**. <!-- commenting out the image for now   ![Create Deployment for Single Device]()<!--./media/quickstarts/create-deployment-single-device.png-->
 1. You're then asked to **Select an IoT Hub device**. Select ava-sample-device from the drop-down list.
 1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device has the following modules deployed:
     * Azure Video Analyzer on IoT Edge (module name **avaedge**)
@@ -152,9 +150,7 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 
 1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
 1. Expand the **Devices** node.
-1. Right-click the lva-sample-device file, and select **Start Monitoring Built-in Event Endpoint**.
-
-    ![Start Monitoring Built-in Event Endpoint]()<!--./media/quickstarts/start-monitoring-iothub-events.png-->
+1. Right-click the ava-sample-device file, and select **Start Monitoring Built-in Event Endpoint**.
 
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
@@ -181,7 +177,6 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 
     `"topologyName" : "CVRToVideo"`  
 1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/cvr-video/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-cvr-video`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.
-1. 
 1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
 1. The operations.json file starts off with calls to pipelineTopologyList and livePipelineList. If you've cleaned up resources after previous quickstarts or tutorials, this action returns empty lists and then pauses for you to select **Enter**, as shown:
 
@@ -363,15 +358,10 @@ You can examine the Video Analyzer video resource that was created by the live p
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
-1. Select **Videos** in the **Video Analyzers** list.
-
-    ![Video Analyzers videos]()<!--./media/continuous-video-recording-tutorial/assets.png-->
+1. Select **Videos** in the **Video Analyzers** list. <!--    ![Video Analyzers videos]() ./media/continuous-video-recording-tutorial/assets.png-->
 1. You'll find a video listed with the name `sample-cvr-video`. This is the name chosen in your pipeline topology file.
 1. Select the video.
-1. On the video details page, select playback option <!-- TODO: fix this-->
-
-    ![VIdeo playback]()<!--TODO: new screenshot is needed here-->
-
+1. On the video details page, select playback option <!-- TODO:  ![VIdeo playback]() new screenshot is needed here -->
 1. For more information on scrubbing the video to see the entire recording, see [video playback]()<!--video-playback-concept.md-->.
 
 > [!NOTE]
