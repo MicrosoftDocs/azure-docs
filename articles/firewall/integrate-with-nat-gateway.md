@@ -19,7 +19,7 @@ A better option to scale outbound SNAT ports is to use [NAT gateway resource](..
 
 When a NAT gateway resource is associated with an Azure Firewall subnet, all outbound Internet traffic automatically uses the public IP address of the NAT gateway. There is no need to configure [User Defined Routes](../virtual-network/tutorial-create-route-table-portal.md). Response traffic uses the Azure Firewall public IP address to maintain flow symmetry. If there are multiple IP addresses associated with the NAT gateway, the IP address is randomly selected. It isn't possible to specify what address to use.
 
-There is no double NAT with this architecture, Azure Firewall instances will send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
+There is no double NAT with this architecture. Azure Firewall instances sends the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
 ## Associate NAT gateway with Azure Firewall subnet
 
