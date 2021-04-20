@@ -4,6 +4,7 @@ description: Learn how to bring files or third party library
 ms.date: 4/6/2020
 ms.topic: tutorial
 ms.custom: "devx-track-python, devx-track-java"
+zone_pivot_groups: programming-languages-set-functions-full
 ---
 
 # Bring dependencies or third party library to Azure Functions
