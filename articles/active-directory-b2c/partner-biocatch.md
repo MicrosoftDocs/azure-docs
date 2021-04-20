@@ -232,7 +232,8 @@ document.getElementById("clientSessionId").style.display = 'none';
   </TechnicalProfiles>
 ```
 
->[!NOTE] BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
+>[!NOTE]
+>BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
 
 7. Configure the userjourney; follow the example
 
@@ -242,9 +243,9 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    c. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
-```azurecli
 
-```<OrchestrationStep Order="8" Type="ClaimsExchange"> 
+```
+<OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
           <ClaimsExchanges> 
 
