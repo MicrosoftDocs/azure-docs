@@ -2,7 +2,7 @@
 title: Azure Service Bus duplicate message detection | Microsoft Docs
 description: This article explains how you can detect duplicates in Azure Service Bus messages. The duplicate message can be ignored and dropped.
 ms.topic: article
-ms.date: 04/14/2021
+ms.date: 04/19/2021
 ---
 
 # Duplicate detection
@@ -32,7 +32,7 @@ The *MessageId* can always be some GUID, but anchoring the identifier to the bus
 >- The [premier tier](service-bus-premium-messaging.md) doesn't support partitioning, so we recommend that you use unique message IDs in your applications and not rely on partition keys for duplicate detection. 
 
 
-## Enable duplicate detection
+## Duplicate detection window size
 
 Apart from just enabling duplicate detection, you can also configure the size of the duplicate detection history time window during which message-ids are retained.
 This value defaults to 10 minutes for queues and topics, with a minimum value of 20 seconds to maximum value of 7 days.
@@ -41,37 +41,20 @@ Enabling duplicate detection and the size of the window directly impact the queu
 
 Keeping the window small means that fewer message-ids must be retained and matched, and throughput is impacted less. For high throughput entities that require duplicate detection, you should keep the window as small as possible.
 
-### Using the portal
-
-In the portal, the duplicate detection feature is turned on during entity creation with the **Enable duplicate detection** check box, which is off by default. The setting for creating new topics is equivalent.
-
-![Screenshot of the Create queue dialog box with the Enable duplicate detection option selected and outlined in red.][1]
-
-> [!IMPORTANT]
-> You can't enable/disable duplicate detection after the queue is created. You can only do so at the time of creating the queue. 
-
-The duplicate detection history time window can be changed in the queue and topic properties window in the Azure portal.
-
-![Screenshot of the Service Bus feature with the Properties setting highlighted adn the Duplicate detection history option outlined in red.][2]
-
-### Using SDKs
-
-You can any of our SDKs across .NET, Java, JavaScript, Python and Go to enable duplicate detection feature when creating queues and topics. You can also change the duplicate detection history time window.
-The properties to update when creating queues and topics to achieve this are:
-- `RequiresDuplicateDetection`
-- `DuplicateDetectionHistoryTimeWindow`
-
-Please note that while the property names are provided in pascal casing here, JavaScript and Python SDKs will be using camel casing and snake casing respectively.
-
 ## Next steps
-
-To learn more about Service Bus messaging, see the following topics:
-
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+You can enable duplicate message detection using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable duplicate message detection](enable-duplicate-detection.md). 
 
 In scenarios where client code is unable to resubmit a message with the same *MessageId* as before, it is important to design messages that can be safely reprocessed. This [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean) describes various techniques for how to do that.
 
-[1]: ./media/duplicate-detection/create-queue.png
-[2]: ./media/duplicate-detection/queue-prop.png
+Try the samples in the language of your choice to explore Azure Service Bus features. 
+
+- [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+
+Find samples for the older .NET and Java client libraries below:
+- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [azure-servicebus samples for Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+
