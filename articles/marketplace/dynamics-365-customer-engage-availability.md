@@ -34,4 +34,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Set offer technical configuration](d365-customer-engage-technical-configuration.md)
+- [Set offer technical configuration](dynamics-365-customer-engage-technical-configuration.md)

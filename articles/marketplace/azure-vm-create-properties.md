@@ -33,8 +33,6 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 [!INCLUDE [Legal section, standard](includes/legal-contracts-standard.md)].
 
-1. Select **Save draft** before continuing.
-
 ##### Add amendments to the standard contract (optional)
 
 [!INCLUDE [Legal section, standard, amendments](includes/legal-contracts-amendments.md)].

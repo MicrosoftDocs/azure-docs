@@ -9,8 +9,6 @@ ms.author: mingshen
 ms.date: 10/09/2020
 ---
 
-#### Add amendments to the standard contract (optional)
-
 There are two kinds of amendments available: *universal* and *custom*.
 
 ##### Add universal amendment terms

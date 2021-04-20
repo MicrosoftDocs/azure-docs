@@ -21,4 +21,4 @@ Select **Save draft**, then continue with review and publish in **Next steps** b
 
 ## Next steps
 
-- [Review and publish](d365-customer-engage-review-publish.md)
+- [Review and publish](dynamics-365-customer-engage-review-publish.md)

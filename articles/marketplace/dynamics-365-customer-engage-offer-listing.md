@@ -18,7 +18,7 @@ This page lets you define the offer details such as offer name, description, lin
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
-:::image type="content" source="media/dynamics-365/example-d365-customer-engagement.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/dynamics-365/example-dynamics-365-customer-engagement.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 ##### Call-out descriptions
 
@@ -100,4 +100,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Set offer availability](d365-customer-engage-availability.md)
+- [Set offer availability](dynamics-365-customer-engage-availability.md)

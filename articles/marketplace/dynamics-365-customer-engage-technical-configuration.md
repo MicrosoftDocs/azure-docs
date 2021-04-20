@@ -4,6 +4,7 @@ description: Set up Dynamics 365 for Customer Engagement & PowerApps offer techn
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
+ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
@@ -42,4 +43,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure supplemental content](d365-customer-engage-supplemental-content.md)
+- [Configure supplemental content](dynamics-365-customer-engage-supplemental-content.md)

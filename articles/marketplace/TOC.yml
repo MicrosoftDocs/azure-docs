@@ -204,19 +204,19 @@
     - name: Create a Customer Engagement & Power Apps offer
       items: 
       - name: Create the offer
-        href: d365-customer-engage-offer-setup.md
+        href: dynamics-365-customer-engage-offer-setup.md
       - name: Properties
-        href: d365-customer-engage-properties.md
+        href: dynamics-365-customer-engage-properties.md
       - name: Offer listing
-        href: d365-customer-engage-offer-listing.md
+        href: dynamics-365-customer-engage-offer-listing.md
       - name: Availability
-        href: d365-customer-engage-availability.md
+        href: dynamics-365-customer-engage-availability.md
       - name: Technical configuration
-        href: d365-customer-engage-technical-configuration.md
+        href: dynamics-365-customer-engage-technical-configuration.md
       - name: Supplemental content
-        href: d365-customer-engage-supplemental-content.md
+        href: dynamics-365-customer-engage-supplemental-content.md
       - name: Review and publish
-        href: d365-customer-engage-review-publish.md
+        href: dynamics-365-customer-engage-review-publish.md
     - name: Create an Operations offer
       items: 
       - name: Create a Dynamics 365 for Operations offer
