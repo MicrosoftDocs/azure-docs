@@ -95,11 +95,11 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 >|Value name|Description|
 >|---------|---------|
->|Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application(client) ID** value. |
+>|Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
 >|Enter_the_Cloud_Instance_Id_Here|This is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
->|Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, `contoso.microsoft.com`). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
+>|Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, `contoso.microsoft.com`). If your application supports *accounts in any organizational directory*, replace this value with `organizations`. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`. |
 >|Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`.|
->|cacheLocation  | (Optional) Set the browser storage for the authentication state. The default is **sessionStorage**.   |
+>|cacheLocation  | (Optional) Set the browser storage for the authentication state. The default is `sessionStorage`.   |
 >|storeAuthStateInCookie  | (Optional) Identify the library that stores the authentication request state. This state is required to validate the authentication flows in the browser cookies. This cookie is set for Internet Explorer and Microsoft Edge to accommodate those two browsers. For more details, see the [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 >
 > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
