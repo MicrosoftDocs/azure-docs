@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -232,10 +232,10 @@ You can obtain an access token in one of several ways: by obtaining it [from a f
 
 The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
 
-To acquire an Azure AD access token, create an application in your Azure AD tenant:
+Before the technical profile can interact with Azure AD to obtain an access token, you need to register an application. Azure AD B2C relies the Azure AD platform. You can create the app in your Azure AD B2C tenant, or in any Azure AD tenant you manage. To register an application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD tenant.
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD, or Azure AD B2C tenant.
 1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *Client_Credentials_Auth_app*.
@@ -246,7 +246,7 @@ To acquire an Azure AD access token, create an application in your Azure AD tena
 
 For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. The secret will be used by your application to acquire an access token.
 
-1. In the **Azure AD B2C - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
+1. In the **Azure AD - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
 1. In the left menu, under **Manage**, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
@@ -266,7 +266,7 @@ You need to store the client ID and the client secret that you previously record
 7. Enter a **Name** for the policy key, `SecureRESTClientId`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. In **Secret**, enter your client ID that you previously recorded.
 9. For **Key usage**, select `Signature`.
-10. Click **Create**.
+10. Select **Create**.
 11. Create another policy key with the following settings:
     -   **Name**: `SecureRESTClientSecret`.
     -   **Secret**: enter your client secret that you previously recorded
@@ -274,7 +274,7 @@ You need to store the client ID and the client secret that you previously record
 For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tenant. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
 
 ```xml
-<TechnicalProfile Id="SecureREST-AccessToken">
+<TechnicalProfile Id="REST-AcquireAccessToken">
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
@@ -308,7 +308,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Change or add the *UseClaimAsBearerToken* to *bearerToken*, as follows. The *bearerToken* is the name of the claim that the bearer token will be retrieved from (the output claim from `SecureREST-AccessToken`).
+1. Change or add the *UseClaimAsBearerToken* to *bearerToken*, as follows. The *bearerToken* is the name of the claim that the bearer token will be retrieved from (the output claim from `REST-AcquireAccessToken`).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>

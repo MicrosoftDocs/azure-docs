@@ -37,7 +37,7 @@
           href: batch-transcription.md
         - name: Migrate from v2.0 to v3.0
           href: migrate-v2-to-v3.md
-        - name: Assess pronunciation
+        - name: Use Pronunciation Assessment
           href: how-to-pronunciation-assessment.md
         - name: Customization
           items:

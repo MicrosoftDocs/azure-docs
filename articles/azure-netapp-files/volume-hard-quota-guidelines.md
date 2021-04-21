@@ -192,13 +192,13 @@ This action will open the Azure Cloud Shell:
 
 [ ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-The following examples use the commands to [show](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) and [update](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) the size of a volume:
+The following examples use the commands to [show](/cli/azure/netappfiles/volume#az_netappfiles_volume_show) and [update](/cli/azure/netappfiles/volume#az_netappfiles_volume_update) the size of a volume:
  
 [ ![Screenshot that shows using PowerShell to show volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [ ![Screenshot that shows using PowerShell to update volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-The following examples use the commands to [show](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) and [update](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) the size of a capacity pool:
+The following examples use the commands to [show](/cli/azure/netappfiles/pool#az_netappfiles_pool_show) and [update](/cli/azure/netappfiles/pool#az_netappfiles_pool_update) the size of a capacity pool:
 
 [ ![Screenshot that shows using PowerShell to show capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 
