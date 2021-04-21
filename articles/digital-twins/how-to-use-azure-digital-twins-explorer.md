@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins Explorer
+# Use Azure Digital Twins Explorer
 
 [**Azure Digital Twins Explorer**](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. 
 
@@ -98,7 +98,7 @@ To delete all of the models in your instance at once, choose the **Delete All Mo
 
 ### Upload model images
 
-You can upload custom images to represent different models in the [model graph](#model-graph-viewer) and [twin graph]() views. You can upload images for individual models, or for several models at once.
+You can upload custom images to represent different models in the [model graph](#view-models-in-model-graph) and [twin graph](#view-twins-and-relationships-in-twin-graph) views. You can upload images for individual models, or for several models at once.
 
 To upload an image for a single model, find that model in the list and choose the **Upload Model Image** icon next to the model name. In the file selector box that appears, navigate on your machine to the image file you want to upload for that model. Choose **Open** to upload it.
 
@@ -325,7 +325,7 @@ Use these zoom options to **Zoom in**, **Zoom out**, **Center**, or **Zoom to fi
 
 You can filter the twins and relationships that appear in the graph by text, using this **Filter** icon:
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
 
 #### Show and hide elements
 
@@ -376,7 +376,7 @@ Enter the query you want to run and select the **Run Query** button. This will l
 
 You can check the **Overlay results** box before running your query if you'd like the results to be highlighted from what is currently being shown in the **TWIN GRAPH** panel, instead of completely replacing the panel's contents with the new query results.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/query-explorer-overlay-results.png" alt-text="Screenshot of Azure Digital Twins Explorer QUERY EXPLORER panel. The Overlay results box is checked, and two twins are highlighted in the larger graph that is shown in the TWIN GRAPH panel." lightbox="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel-overlay-results.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel-overlay-results.png" alt-text="Screenshot of Azure Digital Twins Explorer QUERY EXPLORER panel. The Overlay results box is checked, and two twins are highlighted in the larger graph that is shown in the TWIN GRAPH panel." lightbox="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel-overlay-results.png":::
 
 If the query result includes something that is not currently being shown in the **TWIN GRAPH** panel, the element will be added onto the existing view.
 
@@ -435,7 +435,7 @@ You can view this file and additional .xlsx graph examples in the [Azure Digital
 
 Once you have a file on your machine that's ready to be imported, select the **Import Graph** icon in the TWIN GRAPH panel.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Import Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-import.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Import Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png":::
 
 In the file selector box that appears, navigate on your machine to the graph file (.xlsx or .json) that you want to upload and choose **Open** to upload it.
 
@@ -443,7 +443,7 @@ Azure Digital Twins will open an **IMPORT** panel showing a preview of the graph
 
 If import is successful, a modal window will display the number of models, twins, and relationships that were uploaded.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays an Import Successful modal showing 4 twins imported and 2 relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-import-successful.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays an Import Successful modal showing 4 twins imported and 2 relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
 
 ### Export
 
@@ -456,7 +456,7 @@ To begin, use the [**QUERY EXPLORER**](#query) panel to run a query that selects
 
 Once the TWIN GRAPH panel is showing the portion of the graph you want to download, select the **Export Graph** icon.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-export.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Export Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-export.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-export.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Export Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-export.png":::
 
 This action enables a **Download** link in the TWIN GRAPH box. Select it to download a JSON-based representation of the query result, and all the models in your instance, to your machine.
 
