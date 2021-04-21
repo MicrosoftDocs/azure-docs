@@ -47,7 +47,7 @@ This topic shows you how to perform these tasks:
 
 ### [Portal](#tab/azure-portal)
 
-For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount), or [Azure CLI](/cli/azure/resource#az-resource-create).
+For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount), or [Azure CLI](/cli/azure/resource#az_resource_create).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
@@ -221,7 +221,7 @@ To make this change, you can use either the Azure portal or the Azure CLI.
 
    ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. At the command prompt, enter the [**az resource** command](/cli/azure/resource#az-resource-update), and set `skuName` to the higher tier that you want.
+1. At the command prompt, enter the [**az resource** command](/cli/azure/resource#az_resource_update), and set `skuName` to the higher tier that you want.
 
    ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
@@ -247,7 +247,7 @@ To make this change, use the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
    ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. At the command prompt, enter the [**az resource** command](/cli/azure/resource#az-resource-update) and set `skuName` to the lower tier that you want.
+1. At the command prompt, enter the [**az resource** command](/cli/azure/resource#az_resource_update) and set `skuName` to the lower tier that you want.
 
    ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
@@ -307,7 +307,7 @@ If you want to link your logic app to another integration account, or no longer 
 
 You can move your integration account to another Azure resource group or Azure subscription. When you move resources, Azure creates new resource IDs, so make sure that you use the new IDs instead and update any scripts or tools associated with the moved resources. If you want to change the subscription, you must also specify an existing or new resource group.
 
-For this task, you can use either the Azure portal by following the steps in this section or the [Azure CLI](/cli/azure/resource#az-resource-move).
+For this task, you can use either the Azure portal by following the steps in this section or the [Azure CLI](/cli/azure/resource#az_resource_move).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
@@ -339,7 +339,7 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 ## Delete integration account
 
-For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](/cli/azure/resource#az-resource-delete), or [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
+For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](/cli/azure/resource#az_resource_delete), or [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 

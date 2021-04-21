@@ -266,13 +266,14 @@ In Python, you can send the HTTP post easily with [requests](https://pypi.org/pr
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
 import requests
+import os
 ...
 payload = {
     "email": "a-valid@emailaddress.com",
     "due": "4/1/2020",
     "task": "My new task!"
 }
-response = requests.post("https://prod-112.westeurope.logic.azure.com:443/workfl$
+response = requests.post(os.environ['LOGIC_APP_URL'], data = payload)
 print(response.status_code)
 ```
 <!-- ```python
