@@ -59,7 +59,7 @@ After custom domain for Azure AD B2C is successfully configured using Azure Fron
 
    ![Image shows how to select proxied](./media/partner-cloudflare/select-proxied.png)
 
-## Configure WAF
+### Configure WAF
 
 [Configure WAF](https://www.cloudflare.com/waf/) in your Cloudflare settings.
 
@@ -69,16 +69,16 @@ Add, update, or remove firewall rules using the firewall option available in the
 
 ![Image shows how to enforce captcha](./media/partner-cloudflare/configure-firewall-rule.png)
 
-## Test the settings
+### Test the settings
 
-After saving the rule, it's required to complete CAPTCHA every time access to custom domain is requested.
+1. After saving the rule, it's required to complete CAPTCHA every time access to custom domain is requested.
 
 ![Image shows cloudflare waf enforce CAPTCHA](./media/partner-cloudflare/enforce-captcha.png)
 
 >[!NOTE]
 >Cloudflare also provides various [**other options**](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-) to create customized  block pages.  
 
-User taken to Azure AD B2C policy after successfully completing CAPTCHA.
+2. User is taken to Azure AD B2C policy after successfully completing CAPTCHA.
 
 ![Image shows Azure AD B2C policy login](./media/partner-cloudflare/azure-ad-b2c-policy.png)
 
