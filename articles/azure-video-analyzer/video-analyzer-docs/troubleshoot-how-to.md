@@ -67,7 +67,7 @@ You can use the Azure portal to run a diagnosis of the media graph using direct 
     * Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. 
     * Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as GraphTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Live Video Analytics IoT Edge module is functionally OK.
         
-        :::image type="content" source="./media/troubleshoot-how-to/direct-method.png" alt-text="Screenshot of the "Direct method" pane for the IoT Edge module." lightbox="./media/troubleshoot-how-to/direct-method.png":::
+    :::image type="content" source="./media/troubleshoot-how-to/direct-method.png" alt-text="Screenshot of the "Direct method" pane for the IoT Edge module." lightbox="./media/troubleshoot-how-to/direct-method.png":::
 
 1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Live Video Analytics on IoT Edge module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
 
@@ -247,7 +247,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
 ### Best practices around logging
 
-[Monitoring and logging](monitoring-logging.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with LVA. 
+[Monitoring and logging]()<!--monitoring-logging.md)--> should help in understanding the taxonomy and how to generate logs that will help in debugging issues with LVA. 
 
 As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.  
 
@@ -327,4 +327,4 @@ To use your gRPC server with Live Video Analytics, shared memory can be used for
 
 ## Next steps
 
-[Tutorial: Event-based video recording to cloud and playback from cloud](event-based-video-recording-tutorial.md)
+[Tutorial: Event-based video recording to cloud and playback from cloud]()<!--event-based-video-recording-tutorial.md)-->
