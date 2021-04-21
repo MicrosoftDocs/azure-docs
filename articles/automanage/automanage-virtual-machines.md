@@ -179,6 +179,12 @@ Read carefully through the messaging in the resulting pop-up before agreeing to 
 
 First and foremost, we will not off-board the virtual machine from any of the services that we onboarded it to and configured. So any charges incurred by those services will continue to remain billable. You will need to off-board if necessary. Any Automanage behavior will stop immediately. For example, we will no longer monitor the VM for drift.
 
+## Automanage and Azure Disk Encryption
+Automanage is compatible with VMs that have Azure Disk Encryption (ADE) enabled.
+
+If you are using the Production environment, you will also be onboarded to Azure Backup. There is one prerequisite to successfully using ADE and Azure Backup:
+* Before you onboard your ADE-enabled VM to Automanage's Production environment, ensure that you have followed the steps located in the **Before you start** section of [this document](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#before-you-start).
+
 ## Next steps
 
 In this article, you learned that Automanage for virtual machines provides a means for which you can eliminate the need for you to know of, onboard to, and configure best practices Azure services. In addition, if a machine you onboarded to Automanage for virtual machines drifts from the environment setup, we will automatically bring it back into compliance.
