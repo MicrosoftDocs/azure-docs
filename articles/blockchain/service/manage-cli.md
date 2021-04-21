@@ -23,7 +23,7 @@ If you prefer to install and use the CLI locally, see [install Azure CLI](/cli/a
 
 1. Sign in.
 
-    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
+    Sign in using the [az login](/cli/azure/reference-index#az_login) command if you're using a local install of the CLI.
 
     ```azurecli
     az login

@@ -4,7 +4,7 @@ description: Migrate to Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Migrate to Azure Kubernetes Service (AKS)

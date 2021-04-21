@@ -11,9 +11,12 @@ ms.author: cshoe
 
 # GitHub Actions workflows for Azure Static Web Apps Preview
 
-When you create a new Azure Static Web App resource, Azure generates a GitHub Actions workflow to control the app's continuous deployment. The workflow is driven by a YAML file. This article details the structure and options of the workflow file.
+When you create a new Azure Static Web Apps resource, Azure generates a GitHub Actions workflow to control the app's continuous deployment. The workflow is driven by a YAML file. This article details the structure and options of the workflow file.
 
 Deployments are initiated by [triggers](#triggers), which run [jobs](#jobs) that are defined by individual [steps](#steps).
+
+> [!NOTE]
+> Azure Static Web Apps also supports Azure DevOps. See [Publish with Azure DevOps](publish-devops.md) for information on setting up a pipeline.
 
 ## File location
 
@@ -174,13 +177,16 @@ with:
 
 ## Route file location
 
-You can customize the workflow to look for the [staticwebapp.config.json](routes.md) in any folder in your repository. The following property can be defined under a job's `with` section.
+You can customize the workflow to look for the [routes.json](routes.md) in any folder in your repository. The following property can be defined under a job's `with` section.
 
 | Property          | Description                                                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routes_location` | Defines the directory location where the _staticwebapp.config.json_ file is found. This location is relative to the root of the repository. |
+| `routes_location` | Defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository. |
 
-Being explicit about the location of your _staticwebapp.config.json_ file is particularly important if your front-end framework build step does not move this file to the `output_location` by default.
+Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `output_location` by default.
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated. See the Azure Static Web Apps [configuration file](./configuration.md) for information about _staticwebapp.config.json_.
 
 ## Environment variables
 

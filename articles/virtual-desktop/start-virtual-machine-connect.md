@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
 ---
@@ -14,7 +14,7 @@ manager: femila
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Start Virtual Machine (VM) on Connect (preview) feature lets you save costs by letting you deallocate your VMs when you aren't using them. When you need to use the VM again, all you have to do is turn your VMs back on.
+The Start Virtual Machine (VM) on Connect (preview) feature lets you save costs by allowing end users to turn on their VMs only when they need them. You can then turn off VMs when they're not needed.
 
 >[!NOTE]
 >Windows Virtual Desktop (classic) doesn't support this feature.
@@ -114,7 +114,7 @@ Start VM on Connect is a host pool setting. If you only want a select group of u
 
 To use the Azure portal to configure Start VM on Connect:
 
-1. Open your browser and go to [the Azure portal](https://portal.azure.com/?feature.startVMonConnect=true#home). We recommend you open the Azure portal in an InPrivate window.
+1. Open your browser and go to [the Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, go to **Windows Virtual Desktop**.
 
