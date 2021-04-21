@@ -185,7 +185,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Hendrix Corporation](https://www.hendrixcorp.com/)|
 |[Hewlett Packard Enterprise](https://www.hpe.com)|
 |[Hiscomp](http://www.hiscompllc.com/)|
-|[Hitachi Vantara](https://www.hitachivantarafederal.com/rean-cloud/)|
+|[Hitachi Vantara](https://www.hitachivantarafederal.com/services/cloud-services/)|
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
@@ -334,7 +334,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
 |[RoboTech Science, Inc.](https://robotechscience.com)|
-|[Rollout Systems LLC](https://www.rolloutsys.com)|
+|[Rollout Systems LLC](http://www.rolloutsys.com/)|
 |[RV Global Solutions](https://rvglobalsolutions.com/)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
 |[SAP NS2](https://sapns2.com)|
@@ -343,7 +343,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Secure-24](https://www.secure-24.com)|
 |[Selex Galileo Inc](http://www.selexgalileo.com/)|
 |[Sev1Tech](https://www.sev1tech.com/)|
-|[SEV Technologies](https://sevtechnologies.com/)|
+|[SEV Technologies](http://sevtechnologies.com/)|
 |[Sevatec Inc.](https://www.sevatec.com/)|
 |[Shadow-Soft, LLC.](https://shadow-soft.com)|
 |[SHI International Corp](https://www.shi.com)|

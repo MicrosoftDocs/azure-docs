@@ -142,7 +142,7 @@ When the command finishes, find the output lines that being with `Ran Database Q
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `--location <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
+> `--location <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az_account_list_locations) command. For production apps, put your database and your app in the same location.
 
 ## Connect app to Azure Postgres
 
@@ -250,7 +250,7 @@ In this step, you deploy the Postgres-connected Rails application to Azure App S
 
 ### Configure database settings
 
-In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in the Cloud Shell.
+In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command in the Cloud Shell.
 
 The following Cloud Shell command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;postgres-server-name>_.
 

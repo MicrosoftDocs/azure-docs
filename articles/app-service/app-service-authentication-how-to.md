@@ -647,7 +647,7 @@ You can view the current version of the platform authentication middleware eithe
 
 ##### From the Azure CLI
 
-Using the Azure CLI, view the current middleware version with the [az webapp auth show](/cli/azure/webapp/auth#az-webapp-auth-show) command.
+Using the Azure CLI, view the current middleware version with the [az webapp auth show](/cli/azure/webapp/auth#az_webapp_auth_show) command.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -678,7 +678,7 @@ You can also hit /.auth/version endpoint on an app also to view the current midd
 
 #### Update the current runtime version
 
-Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth#az-webapp-auth-update) command.
+Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth#az_webapp_auth_update) command.
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -688,7 +688,7 @@ az webapp auth update --name <my_app_name> \
 
 Replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app. Also, replace `<version>` with a valid version of the 1.x runtime or `~1` for the latest version. You can find the release notes on the different runtime versions [here] (https://github.com/Azure/app-service-announcements) to help determine the version to pin to.
 
-You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az_login) to sign in.
 
 ## Next steps
 

@@ -68,7 +68,7 @@ If you haven't created an app yet, see [Create a Git enabled app](#create-a-git-
 
 # [Azure CLI](#tab/cli)
 
-Run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git). For example:
+Run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git). For example:
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>

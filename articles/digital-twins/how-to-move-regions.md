@@ -82,9 +82,13 @@ If the sample isn't able to handle the size of your graph, you can export and im
 
 To proceed with Azure Digital Twins Explorer, first download the sample application code and set it up to run on your machine.
 
-To get the sample, see [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Download ZIP** button to download a .zip file of this sample code to your machine as **Azure_Digital_Twins__ADT__explorer.zip**. Unzip the file.
+To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file to your machine.
 
-Next, set up and configure permissions for Azure Digital Twins Explorer. Follow the instructions in the [Set up Azure Digital Twins and Azure Digital Twins Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
+:::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/how-to-move-regions/download-repo-zip.png":::
+
+Unzip the file.
+
+Next, set up and configure permissions for Azure Digital Twins Explorer. Follow the instructions in the [Set up Azure Digital Twins and Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
 
 1. Set up an Azure Digital Twins instance. You can skip this part because you already have an instance.
 1. Set up local Azure credentials to provide access to your instance.

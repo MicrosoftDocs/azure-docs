@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/20/2021
 ms.author: memildin
 
 ---
@@ -24,11 +24,58 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 ## April 2021
 
 Updates in April include:
-- [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Recommendations to enable Azure Defender for DNS and Resource Manager (preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+- [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 
+### Recently pulled container registry images are now rescanned weekly (General Availability)
+
+Azure Defender for container registries includes a built-in vulnerability scanner. This scanner immediately scans any image you push to your registry and any image pulled within the last 30 days.
+
+New vulnerabilities are discovered every day. With this update, container images that were pulled from your registries during the last 30 days will be **rescanned** every week. This ensures that newly discovered vulnerabilities are identified in your images.
+
+Scanning is charged on a per image basis, so there's no additional charge for these rescans.
+
+Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
+
+
+### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)
+
+Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md). 
+
+When you've enabled Azure Arc on your non-Azure Kubernetes clusters, a new recommendation from Azure Security Center offers to deploy the Azure Defender extension to them with only a few clicks.
+
+Use the recommendation (**Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed**) and the extension to protect Kubernetes clusters deployed in other cloud providers, although not on their managed Kubernetes services.
+
+This integration between Azure Security Center, Azure Defender, and Azure Arc enabled Kubernetes brings:
+
+- Easy provisioning of the Azure Defender extension to unprotected Azure Arc enabled Kubernetes clusters (manually and at-scale)
+- Monitoring of the Azure Defender extension and its provisioning state from the Azure Arc Portal
+- Security recommendations from Security Center are reported in the new Security page of the Azure Arc Portal
+- Identified security threats from Azure Defender are reported in the new Security page of the Azure Arc Portal
+- Azure Arc enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
+
+Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
+
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+
+### Recommendations to enable Azure Defender for DNS and Resource Manager (preview)
+
+Two new recommendations have been added to simplify the process of enabling [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for DNS](defender-for-dns-introduction.md):
+
+- **Azure Defender for Resource Manager should be enabled** - Defender for Resource Manager automatically monitors the resource management operations in your organization. Azure Defender detects threats and alerts you about suspicious activity.
+- **Azure Defender for DNS should be enabled** - Defender for DNS provides an additional layer of protection for your cloud resources by continuously monitoring all DNS queries from your Azure resources. Azure Defender alerts you about suspicious activity at the DNS layer.
+
+Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center .
+
+> [!TIP]
+> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
 ### Four new recommendations related to guest configuration (preview)
 
@@ -46,24 +93,24 @@ We've added four new recommendations to Security Center to make the most of this
 
 Learn more in [Understand Azure Policy's Guest Configuration](../governance/policy/concepts/guest-configuration.md).
 
+### CMK recommendations moved to best practices security control
 
-### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)
+Every organization's security program includes data encryption requirements. By default, Azure customers' data is encrypted at rest with service-managed keys. However, customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs let you encrypt your data with an [Azure Key Vault](../key-vault/general/overview.md) key created and owned by you. This gives you full control and responsibility for the key lifecycle, including rotation and management.
 
-Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new extensions capabilities. 
+Azure Security Center's security controls are logical groups of related security recommendations, and reflect your vulnerable attack surfaces. Each control has a maximum number of points you can add to your secure score if you remediate all of the recommendations listed in the control, for all of your resources. The **Implement security best practices** security control is worth zero points. So recommendations in this control don't affect your secure score.
 
-When you've enabled Azure Arc on your non-Azure Kubernetes clusters, a new recommendation from Azure Security Center offers to deploy the Azure Defender extension to them with only a few clicks.
+The recommendations listed below are being moved to the **Implement security best practices** security control to better reflect their optional nature. This move ensures that these recommendations are in the most appropriate control to meet their objective.
 
-Use the recommendation (**Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed**) and the extension to protect Kubernetes clusters deployed in other cloud providers, although not on their managed Kubernetes services.
+- Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
+- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)
+- Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)
+- Container registries should be encrypted with a customer-managed key (CMK)
+- SQL managed instances should use customer-managed keys to encrypt data at rest
+- SQL servers should use customer-managed keys to encrypt data at rest
+- Storage accounts should use customer-managed key (CMK) for encryption
 
-This integration between Azure Security Center, Azure Defender, and Azure Arc enabled Kubernetes brings:
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
-- Easy provisioning of the Azure Defender extension to unprotected Azure Arc enabled Kubernetes clusters (manually and at-scale)
-- Monitoring of the Azure Defender extension and its provisioning state from the Azure Arc Portal
-- Security recommendations from Security Center are reported in the new Security page of the Azure Arc Portal
-- Identified security threats from Azure Defender are reported in the new Security page of the Azure Arc Portal
-- Azure Arc enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
-
-Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
 
 ### 11 Azure Defender alerts deprecated
 
@@ -105,6 +152,10 @@ The following two recommendations were deprecated and the changes might result i
 We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
 
 Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
+
+### Azure Defender for SQL on machine tile removed from Azure Defender dashboard
+
+The Azure Defender dashboard's coverage area includes tiles for the relevant Azure Defender plans for your environment. Due to an issue with the reporting of the numbers of protected and unprotected resources, we've decided to temporarily remove the resource coverage status for **Azure Defender for SQL on machines** until the issue is resolved.
 
 
 ## March 2021
@@ -293,7 +344,7 @@ When you enable Azure Defender for servers on a Windows server, a license for De
 Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enabling the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### Direct link to policy from recommendation details page
 
@@ -375,7 +426,7 @@ Existing recommendations are unaffected and as the benchmark grows, changes will
 
 To learn more, see the following pages:
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)
@@ -490,7 +541,7 @@ Learn more in [Request tenant-wide permissions when yours are insufficient](tena
 
 ### 35 preview recommendations added to increase coverage of Azure Security Benchmark
 
-Azure Security Benchmark is the default policy initiative in Azure Security Center. 
+[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) is the default policy initiative in Azure Security Center. 
 
 To increase the coverage of this benchmark, the following 35 preview recommendations have been added to Security Center.
 
@@ -508,7 +559,7 @@ To increase the coverage of this benchmark, the following 35 preview recommendat
 
 Related links:
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
 - [Learn more about Azure Database for MySQL](../mysql/overview.md)
 - [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
@@ -734,7 +785,7 @@ Updates in November include:
 
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
 
-Azure Security Benchmark is the Microsoft-authored, Azure-specific, set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+Azure Security Benchmark is the Microsoft-authored, Azure-specific, set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 The following 29 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
 
@@ -751,7 +802,7 @@ Preview recommendations don't render a resource unhealthy, and they aren't inclu
 
 Related links:
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
 - [Learn more about Azure function apps](../azure-functions/functions-overview.md)
 - [Learn more about Azure web apps](../app-service/overview.md)

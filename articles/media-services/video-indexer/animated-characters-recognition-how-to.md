@@ -55,7 +55,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Select **Connect Custom Vision Account (PREVIEW)** and click **Try it**.
 1. Fill in the required fields as well as the access token and click **Send**. 
 
-    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Once the call return 200 OK response, your account is connected.
 1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
 1. Click on the **Content model customization** button in the top-right corner.
@@ -151,16 +151,16 @@ Once trained, any video that will be indexed or reindexed with that model will r
     If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
     If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
-    [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
+    [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Connect-Custom-Vision-Account).
 1. Create an animated characters model.
 
-    Use the [create animation model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag) API.
+    Use the [create animation model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Animation-Model) API.
 1. Index or re-index a video.
 
-    Use the [re-indexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) API. 
+    Use the [re-indexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API. 
 1. Customize the animated characters models.
 
-    Use the [train animation model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) API.
+    Use the [train animation model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Train-Animation-Model) API.
 
 ### View the output
 

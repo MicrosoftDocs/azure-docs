@@ -129,12 +129,12 @@ In this article, the service principal for the AKS cluster itself and the AAD In
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-update-credentials]: /cli/azure/aks#az_aks_update_credentials
 [best-practices-identity]: operator-best-practices-identity.md
 [aad-integration]: ./azure-ad-integration-cli.md
 [create-aad-app]: ./azure-ad-integration-cli.md#create-azure-ad-server-component
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
