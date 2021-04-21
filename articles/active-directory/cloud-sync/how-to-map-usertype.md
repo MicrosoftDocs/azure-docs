@@ -24,9 +24,8 @@ By default, the UserType attribute is not enabled for synchronization because th
 
 Before adding a mapping for the  UserType attribute, you must first decide how the attribute is derived from on-premises Active Directory. The following are the most common approaches:
 
-Designate an unused on-premises AD attribute (such as extensionAttribute1) to be used as the source attribute. The designated on-premises AD attribute should be of the type string, be single-valued, and contain the value Member or Guest.
-
-If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
+ - Designate an unused on-premises AD attribute (such as extensionAttribute1) to be used as the source attribute. The designated on-premises AD attribute should be of the type string, be single-valued, and contain the value Member or Guest.
+ - If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
 
 ## To add the UserType mapping
 To add the UserType mapping, use the following steps.
