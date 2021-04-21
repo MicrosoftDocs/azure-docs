@@ -43,9 +43,9 @@ If you're not running Samba on your Linux server and rather want to migrate fold
 * Create a Windows Server 2019 instance as a virtual machine or physical server. Windows Server 2012 R2 is the minimum requirement. A Windows Server failover cluster is also supported.
 * Provision or add direct attached storage (DAS). Network attached storage (NAS) is not supported.
 
-  The amount of storage that you provision can be smaller than what you're currently using on your Linux Samba server, if you use the Azure File Sync [cloud tiering](storage-sync-cloud-tiering-overview.md) feature. 
+  The amount of storage that you provision can be smaller than what you're currently using on your Linux Samba server, if you use the Azure File Sync [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) feature. 
 
-The amount of storage you provision can be smaller than what you are currently using on your Linux Samba server. This configuration choice requires that you also make use of Azure File Syncs [cloud tiering](storage-sync-cloud-tiering-overview.md) feature. However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you'll need to work in batches:
+The amount of storage you provision can be smaller than what you are currently using on your Linux Samba server. This configuration choice requires that you also make use of Azure File Syncs [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) feature. However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you'll need to work in batches:
 
   1. Move a set of files that fits onto the disk.
   2. Let file sync and cloud tiering engage.
@@ -55,7 +55,7 @@ The amount of storage you provision can be smaller than what you are currently u
 
 The resource configuration (compute and RAM) of the Windows Server instance that you deploy depends mostly on the number of items (files and folders) you'll be syncing. We recommend going with a higher-performance configuration if you have any concerns.
 
-[Learn how to size a Windows Server instance based on the number of items (files and folders) you need to sync.](storage-sync-files-planning.md#recommended-system-resources)
+[Learn how to size a Windows Server instance based on the number of items (files and folders) you need to sync.](../file-sync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > The previously linked article presents a table with a range for server memory (RAM). You can orient toward the smaller number for your server, but expect that initial sync can take significantly more time.
@@ -104,7 +104,7 @@ Run the first local copy to your Windows Server target folder:
 
 The following Robocopy command will copy files from your Linux Samba server's storage to your Windows Server target folder. Windows Server will sync it to the Azure file shares. 
 
-If you provisioned less storage on your Windows Server instance than your files take up on the Linux Samba server, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering-overview.md) will start and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the Linux Samba server. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the policy of 99 percent free space for a volume.
+If you provisioned less storage on your Windows Server instance than your files take up on the Linux Samba server, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) will start and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the Linux Samba server. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the policy of 99 percent free space for a volume.
 
 It's possible that Robocopy moves files faster than you can sync to the cloud and tier locally, causing you to run out of local disk space. Robocopy will then fail. We recommend that you work through the shares in a sequence that prevents the problem. For example, consider not starting Robocopy jobs for all shares at the same time. Or consider moving shares that fit on the current amount of free space on the Windows Server instance. If your Robocopy job does fail, you can always rerun the command as long as you use the following mirror/purge option:
 
@@ -156,6 +156,6 @@ Check the link in the following section for troubleshooting Azure File Sync prob
 
 There's more to discover about Azure file shares and Azure File Sync. The following articles contain advanced options, best practices, and troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
-* [Azure File Sync overview](./storage-sync-files-planning.md)
-* [Azure File Sync deployment guide](./storage-how-to-create-file-share.md)
-* [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md)
+* [Azure File Sync overview](../file-sync/file-sync-planning.md)
+* [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Azure File Sync troubleshooting](../file-sync/file-sync-troubleshoot.md)
