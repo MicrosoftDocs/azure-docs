@@ -30,21 +30,21 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 
 1. Once the function is created, add the Event Grid source parameter.
 
-# [C#](#tab/csharp)
-Add **Source = BlobTriggerSource.EventGrid** to the function parameters.
-
-```csharp
+    # [C#](#tab/csharp)
+    Add **Source = BlobTriggerSource.EventGrid** to the function parameters.
+    
+    ```csharp
     [FunctionName("BlobTriggerCSharp")]
     public static void Run([BlobTrigger("samples-workitems/{name}", Source = BlobTriggerSource.EventGrid, Connection = "connection")]Stream myBlob, string name, ILogger log)
     {
         log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
     }
-```
-
-# [C# Script](#tab/csharp-script)
-Add **"source": "EventGrid"** to the function.json binding data.
-
-```json
+    ```
+    
+    # [C# Script](#tab/csharp-script)
+    Add **"source": "EventGrid"** to the function.json binding data.
+    
+    ```json
     {
         "disabled": false,
         "bindings": [
@@ -57,12 +57,12 @@ Add **"source": "EventGrid"** to the function.json binding data.
             }
         ]
     }
-```
-
-# [Java](#tab/java)
-This function writes a log when a blob is added or updated in the `myblob` container.
-
-```java
+    ```
+    
+    # [Java](#tab/java)
+    This function writes a log when a blob is added or updated in the `myblob` container.
+    
+    ```java
     @FunctionName("blobprocessor")
     public void run(
       @BlobTrigger(name = "file",
@@ -75,12 +75,12 @@ This function writes a log when a blob is added or updated in the `myblob` conta
     ) {
       context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
     }
-```
-
-# [JavaScript](#tab/javascript)
-Add **"source": "EventGrid"** to the function.json binding data.
-
-```json
+    ```
+    
+    # [JavaScript](#tab/javascript)
+    Add **"source": "EventGrid"** to the function.json binding data.
+    
+    ```json
     {
         "disabled": false,
         "bindings": [
@@ -94,12 +94,12 @@ Add **"source": "EventGrid"** to the function.json binding data.
             }
         ]
     }
-```
-
-# [PowerShell](#tab/powershell)
-Add **"source": "EventGrid"** to the function.json binding data.
-
-```json
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    Add **"source": "EventGrid"** to the function.json binding data.
+    
+    ```json
     {
       "bindings": [
         {
@@ -112,27 +112,27 @@ Add **"source": "EventGrid"** to the function.json binding data.
         }
       ]
     }
-```
-
-# [Python](#tab/python)
-Add **"source": "EventGrid"** to the function.json binding data.
-
-```json
-    {
-      "scriptFile": "__init__.py",
-      "bindings": [
+    ```
+    
+    # [Python](#tab/python)
+    Add **"source": "EventGrid"** to the function.json binding data.
+    
+    ```json
         {
-          "name": "myblob",
-          "type": "blobTrigger",
-          "direction": "in",
-          "path": "samples-workitems/{name}",
-          "source": "EventGrid",
-          "connection": "MyStorageAccountConnectionString"
+          "scriptFile": "__init__.py",
+          "bindings": [
+            {
+              "name": "myblob",
+              "type": "blobTrigger",
+              "direction": "in",
+              "path": "samples-workitems/{name}",
+              "source": "EventGrid",
+              "connection": "MyStorageAccountConnectionString"
+            }
+          ]
         }
-      ]
-    }
-```
----
+    ```
+    ---
 
 1. Set a breakpoint in your function on the line that handles logging.
 
