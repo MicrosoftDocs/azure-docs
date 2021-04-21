@@ -22,11 +22,11 @@ You can use Video Analyzer to create video resources and add data to existing vi
 
 ## Pipeline topology
 
-[Pipeline topology]()<!--media-graph.md--> lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
+[Pipeline topology](pipeline.md) lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
 
 ## Recording
 
-In the context of a video management system for security cameras, video recording refers to the process of capturing video from the cameras and storing it in a file (or files) for subsequent viewing via mobile and browser apps. Video recording can be categorized into [continuous video recording]()<!--continuous-video-recording.md--> and [event-based video recording]()<!--event-based-video-recording.md-->. These are explained in more detail in the [Video recording]()<!--video-recording.md--> concept page.
+In the context of a video management system for security cameras, video recording refers to the process of capturing video from the cameras and storing it in a file (or files) for subsequent viewing via mobile and browser apps. Video recording can be categorized into [continuous video recording](continuous-video-recording.md) and [event-based video recording](vent-based-video-recording-concept.md). These are explained in more detail in the [video recording](video-recording.md) concept page.
 
 ## RTSP
 
