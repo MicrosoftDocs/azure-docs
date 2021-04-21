@@ -178,7 +178,7 @@ This section describes how to perform the following management activities:
 * [Edit twins and relationships](#edit-twins-and-relationships)
 * [Delete twins and relationships](#delete-twins-and-relationships)
 
-For more about the experience of viewing the graph in the **TWIN GRAPH** window, see [View twins and relationships in TWIN GRAPH](#view-twins-and-relationships-in-twin-graph).
+For information about the viewing experience for twins and relationships, see [Explore twins and the TWIN GRAPH](#explore-twins-and-the-twin-graph).
 
 ### Create twins
 
@@ -338,13 +338,13 @@ To see the definition of the model, find that model in the **MODELS** pane and c
     :::column-end:::
 :::row-end:::
 
-You can also view a model's full definition by selecting it in the [**MODEL GRAPH** viewer](#view-models-in-model-graph), and using the **Toggle model details** button to expand the **MODEL DETAIL** panel. This panel will also display the full DTDL code for the model.
+You can also view a model's full definition by selecting it in the **MODEL GRAPH**, and using the **Toggle model details** button to expand the **MODEL DETAIL** panel. This panel will also display the full DTDL code for the model.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The Floor model is selected, and the MODEL DETAILS panel is expanded, showing the DTDL code of the model." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png":::
 
 ### Upload model images
 
-You can upload custom images to represent different models in the [model graph](#view-models-in-model-graph) and [twin graph](#view-twins-and-relationships-in-twin-graph) views. You can upload images for individual models, or for several models at once.
+You can upload custom images to represent different models in the MODEL GRAPH and [TWIN GRAPH](#explore-twins-and-the-twin-graph) views. You can upload images for individual models, or for several models at once.
 
 >[!NOTE]
 >These images are stored in local browser storage. This means that the images will not be available in other browsers apart from the one where you saved them, and they will remain in the browser storage indefinitely until the local storage is cleared.
@@ -437,7 +437,7 @@ With this panel, you can complete the following model management activities:
 * [Upload models](#upload-models) into your Azure Digital Twins instance
 * [Delete models](#delete-models) from your instance
 
-For more about the experience of viewing models in the **MODEL GRAPH** window, see [View models in MODEL GRAPH](#view-models-in-model-graph).
+For information about the viewing experience for models, see [Explore models and the MODEL GRAPH](#explore-models-and-the-model-graph).
  
 ### Download models
 
