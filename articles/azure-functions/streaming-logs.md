@@ -3,7 +3,7 @@ title: Stream execution logs in Azure Functions
 description: 115-145 characters including spaces. This abstract displays in the search result.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: "contperf-fy21q2, devx-track-azurecli"
+ms.custom: "contperf-fy21q2, devx-track-azurecli, devx-track-azurepowershell"
 # Customer intent: As a developer, I want to be able to configure streaming logs so that I can see what's happening in my functions in near real time.
 ---
 
