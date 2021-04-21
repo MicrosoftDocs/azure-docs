@@ -100,10 +100,10 @@ Refer to the following document to reconfigure a managed identity if you have mo
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Refer to the following documents to use managed identity with [Azure Automation](../../automation-intro.md):
+Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
-* [Automation account authentication overview - Managed identities](../../azure/automation/automation-security-overview#managed-identities.md)
-* [Enable and use managed identity for Automation](../../azure/automation/enable-managed-identity-for-automation.md)
+* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities)
+* [Enable and use managed identity for Automation](https://docs.microsoft.com/azure/automation/enable-managed-identity-for-automation)
 
 ### Azure Blueprints
 
