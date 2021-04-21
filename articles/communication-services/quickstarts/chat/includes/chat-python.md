@@ -67,7 +67,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create a chat client
 
-To create a chat client, use the Communications Service endpoint and the access token you generated as part of prerequisite steps.
+To create a chat client, use the Communication Services endpoint and the access token you generated as part of prerequisite steps.
 
 ```console
 pip install azure-communication-identity
