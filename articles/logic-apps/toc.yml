@@ -394,7 +394,7 @@
   - name: Pricing model & usage metering
     href: logic-apps-pricing.md
   - name: Azure CLI
-    href: /cli/azure/ext/logic/logic
+    href: /cli/azure/logic
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API
