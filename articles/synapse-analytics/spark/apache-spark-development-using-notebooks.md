@@ -256,7 +256,7 @@ Select the **More commands** ellipses (...) on the cell toolbar and **output** t
 
 ---
 
-### Navigate in a Notebook (Outline)
+### Notebook outline
 
 # [Classical Notebook](#tab/classical)
 
