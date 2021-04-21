@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 04/20/2021
+ms.date: 04/21/2021
 ms.author: alkohli
 ---
 
@@ -31,9 +31,9 @@ To review data copy errors during an upload, do the following:
 
    On the other hand, if a large set of files failed to upload for unknown reasons, you'll need to cancel the upload, investigate, and start a new import order after resolving the issues.
 
-   For detailed troubleshooting for this type of errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](../../articles/databox/data-box-troubleshoot-data-upload.md).
+   For detailed troubleshooting for this type of errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
 
-   For more information about the copy log, see [Review copy log during upload to Azure](../../articles/databox/data-box-logs.md#review-copy-log-during-upload-to-azure).
+   For more information about the copy log, see [Review copy log during upload to Azure](../articles/databox/data-box-logs.md#review-copy-log-during-upload-to-azure).
 
 1. Select the check box to confirm that you've reviewed the errors in the copy log.
 
@@ -43,7 +43,7 @@ To review data copy errors during an upload, do the following:
 
      The data will be secure erased from the Data Box after the upload is completed.
    
-   - Select **Cancel** to cancel the data copy. Then [start a new import order](../../articles/databox/data-box-deploy-ordered.md?tabs=portal). after resolving the issues. 
+   - Select **Cancel** to cancel the data copy. Then [start a new import order](../articles/databox/data-box-deploy-ordered.md?tabs=portal). after resolving the issues. 
 
 #### Verify completed data upload
 
