@@ -110,6 +110,8 @@
       href: message-transfers-locks-settlement.md
     - name: Dead-letter queues
       href: service-bus-dead-letter-queues.md
+    - name: Message deferral
+      href: message-deferral.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
     - name: Geo-disaster recovery and geo-replication
@@ -206,8 +208,6 @@
       items:
       - name: Prefetch messages
         href: service-bus-prefetch.md
-      - name: Message deferral
-        href: message-deferral.md
       - name: Chain entities with auto-forwarding
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
