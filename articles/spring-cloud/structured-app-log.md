@@ -28,8 +28,8 @@ To improve log query experience, an application log is required to be in JSON fo
 | stackTrace    | string      |     No    | StackTrace      | exception stack trace    |
 | exceptionClass| string      |     No    | ExceptionClass  | exception class name     |
 | mdc           | nested JSON |     No    |                 | mapped diagnostic context|
-| mdc.traceId   | string      |     No    | TraceId         |trace Id for distributed tracing|
-| mdc.spanId    | string      |     No    | SpanId          |span Id for distributed tracing |
+| mdc.traceId   | string      |     No    | TraceId         |trace ID for distributed tracing|
+| mdc.spanId    | string      |     No    | SpanId          |span ID for distributed tracing |
 |               |             |           |                 |                          |
 
 * The "timestamp" field is required, and should be in UTC format, all other fields are optional.
@@ -112,9 +112,8 @@ The procedure:
         </springProfile>
 
         <springProfile name="!dev">
-            <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
-                <!-- JSON appender configuration from previous step, used for staging / production -->
-            </appender>
+            <!-- JSON appender configuration from previous step, used for staging / production -->
+            ...
         </springProfile>
     </configuration>
     ```
