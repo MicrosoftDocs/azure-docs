@@ -90,7 +90,20 @@ All Azure Arc enabled servers have a system assigned identity. You cannot disabl
 | User assigned | Not available | Not available | Not available | Not available |
 
 Refer to the following document to reconfigure a managed identity if you have moved your subscription to a new tenant:
+
 * [Repair a broken Automanage Account](../../automanage/repair-automanage-account.md)
+
+### Azure Automation
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
+
+* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Enable and use managed identity for Automation](https://docs.microsoft.com/azure/automation/enable-managed-identity-for-automation)
 
 ### Azure Blueprints
 
