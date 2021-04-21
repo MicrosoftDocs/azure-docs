@@ -34,9 +34,7 @@ In the context of a video management system for security cameras, video recordin
 
 ## Streaming
 
-If you have watched video on a mobile device from services like Netflix, YouTube, and others, you have experienced streaming video. Playback begins soon after you hit “play” (if you have sufficient bandwidth), and you can seek back and forth along the timeline of the video. With streaming, the idea is to deliver only the portion of the video that is being watched, and to let the viewer start playing the video while the data is still being transferred from a server to the playback client. In the context of Video Analyzer, [streaming](https://en.wikipedia.org/wiki/Streaming_media) refers to the process of delivering media from Video Analyzer videos to a streaming client. You can use Video Analyzer to stream video to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). HLS is supported by Video Analyzer Player, and web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by Video Analyzer Player, [find a list of clients on this page](https://dashif.org/clients/). 
-
-By using [pipeline topologies](#pipeline-topology) to record video to an Video Analyzer video resource, you can make use of Video Analyzer streaming capability to deliver video streams in HLS and DASH. You can learn more about that in the [video playback]()<!--video-playback.md--> article.
+You can use Video Analyzer to stream video to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). HLS is supported by web-players like J[JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by [a list of clients on this page](https://dashif.org/clients/). You can learn more about that in the [video playback](video-playback-concept.md) article.
 
 ## VMS
 
@@ -44,4 +42,4 @@ By using [pipeline topologies](#pipeline-topology) to record video to an Video A
 
 ## Next steps
 
-[Media graphs]()<!--media-graph.md-->
+[Pipeline topology](pipeline.md)
