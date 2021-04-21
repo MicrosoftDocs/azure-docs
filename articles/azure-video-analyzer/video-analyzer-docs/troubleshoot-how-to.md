@@ -61,14 +61,16 @@ You can use the Azure portal to run a diagnosis of the media graph using direct 
 
     > [!TIP]
     > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
+
 ### Post deployment: Direct method error code
+
 1. If you get a status `501 code`, check to ensure that the direct method name is accurate. If the method name and request payload are accurate, you should get results along with success code =200. 
 1. If the request payload is inaccurate, you will get a status `400 code` and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
     * Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. 
     * Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as GraphTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Live Video Analytics IoT Edge module is functionally OK.
         
-    :::image type="content" source="./media/troubleshoot-how-to/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot-how-to/direct-method.png":::
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/troubleshoot-how-to/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot-how-to/direct-method.png":::
 1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Live Video Analytics on IoT Edge module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
 
 ### Post deployment: Diagnose logs for issues during the run 
