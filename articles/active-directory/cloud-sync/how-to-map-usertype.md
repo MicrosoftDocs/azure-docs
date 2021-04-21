@@ -40,10 +40,10 @@ To add the UserType mapping, use the following steps.
 
  6. Click **Add attribute mapping**.
     ![Add a new attribute mapping](media/how-to-map-usertype/usertype-2.png) 
-7. Select the mapping type. This can be:
+7. Select the mapping type. You can do the mapping in one of three ways:
  - a direct mapping (ie from an AD attribute)
  - an expression (IIF(InStr([userPrincipalName], "@partners") > 0,"Guest","Member"))
- - a constant (ie make all user objects as Guest).
+ - a constant (that is, make all user objects as Guest).
   ![Add usertype](media/how-to-map-usertype/usertype-3.png) 
 8. In the Target attribute dropdown, select UserType.
 9. Click the **Apply** button at the bottom of the page. This will create a mapping for the AAD UserType attribute.
