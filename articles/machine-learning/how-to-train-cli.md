@@ -164,31 +164,29 @@ Show in studio:
 
 ## Distributed training
 
-Words
+You can specify the `distributed:` section in a command job, which currently supports: PyTorch, Tensorflow, and MPI.
 
-Currently supported:
+PyTorch and Tensorflow respectively enable native distributed training from the frameworks, for instance using `tf.distributed.Strategy` APIs.
 
-- pytorch
-- tensorflow
-- mpi
+Be sure to set the `compute:/instance_count:`, which defaults to 1, to the desired number of nodes to run the job on.
 
 ### PyTorch
 
-Download, extract/remove, and relocate CIFAR-10 dataset locally:
-
-:::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
-
-YAML file:
+An example YAML file for distributed pytorch training on the cifar dataset:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
 
-Create the job:
+Notice this refers to local data, which is not present in the cloned examples repository. You first need to download, extract, and relocate the CIFAR-19 dataset locally, placing it in the proper location in the project directory: 
+
+:::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
+
+Now you can submit the job:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="pytorch_cifar":::
 
 ### Tensorflow
 
-YAML file:
+An example YAML file for distributed tensorflow training on the mnist dataset:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
 
