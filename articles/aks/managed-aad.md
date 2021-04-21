@@ -183,64 +183,6 @@ If you want to access the cluster, follow the steps [here][access-cluster].
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
-## Disable local accounts
-
-When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists.  This is essentially a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local`. A field, `properties.disableLocalCredential`, has also been added to the managed cluster API.
-
-### Create a new cluster without local accounts
-
-To create a new AKS cluster without any local accounts, use the [az aks create][az-aks-create] command with the `disable-local` flag:
-
-```azurecli-interactive
-az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
-```
-
-In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalCredential` is set to true:
-
-```output
-"properties": {
-    ...
-    "disableLocalCredential": true,
-    ...
-}
-```
-
-### Disable local user accounts on an existing cluster
-
-To disable local accounts on an existing AKS cluster, use the [az aks update][az-aks-update] command with the `disable-local` flag:
-
-```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
-```
-
-In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalCredential` is set to true:
-
-```output
-"properties": {
-    ...
-    "disableLocalCredential": true,
-    ...
-}
-```
-
-### Re-enable local accounts on an existing cluster
-
-AKS also offers the ability to re-enable local accounts on an existing cluster with the `enable-local` flag:
-
-```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --enable-local
-```
-
-In the output, confirm local accounts have been re-enabled by checking the field `properties.disableLocalCredential` is set to false:
-
-```output
-"properties": {
-    ...
-    "disableLocalCredential": false,
-    ...
-}
-```
-
 ## Use Conditional Access with Azure AD and AKS
 
 When integrating Azure AD with your AKS cluster, you can also use [Conditional Access][aad-conditional-access] to control access to your cluster.
@@ -370,7 +312,6 @@ Make sure the admin of the security group has given your account an *Active* ass
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
