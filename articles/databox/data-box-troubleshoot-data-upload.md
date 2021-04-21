@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot data upload issues for import orders to Azure Data Box, Azure Data Box Heavy
+title: Troubleshoot paused uploads from Azure Data Box, Azure Data Box Heavy devices
 description: Describes how to troubleshoot data configuration issues that pause a data copy when data is uploaded to the cloud from an Azure Data Box or Azure Data Box Heavy device.
 services: databox
 author: v-dalc
@@ -11,7 +11,7 @@ ms.date: 04/20/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot errors that pause a data upload in Azure Data Box and Azure Data Box Heavy
+# Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices
 
 This article details information on how to troubleshoot errors that cause a data copy to pause while data is being uploaded to the cloud from an Azure Data Box or Azure Data Box Heavy device.
 
@@ -25,15 +25,13 @@ The information in this article does not apply to export orders created for Data
 
 Data configuration errors that pause a data upload to the cloud from a Data Box and Data Box Heavy device are summarized as follows.
 
-These errors can't be fixed during the data copy. Evaluate each error to decide whether to proceed with the data copy or cancel it and create a new import order.
+You can't fix these errors during the data copy. But you can evaluate whether you can fix the issues with a network transfer or you need to cancel the data copy and start a new import order.
 
 | Error category        | Description           | Recommended action        |
 |-----------------------|-----------------------|---------------------------|
-|                       |                       |                           | 
-
+|                       |                       |                           |
 
 For information about other types of copy log entries, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
-
 
 ## Container or share name errors (Example category)
 
