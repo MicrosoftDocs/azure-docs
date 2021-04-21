@@ -43,7 +43,7 @@ Click on the name of a solution to open its summary page. This page displays any
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solutionaz_monitor_log_analytics_solution_list) command to list the monitoring solutions installed in your subscription.   Before running the `list` command, follow the prerequisites found in [Install a monitoring solution](#install-a-monitoring-solution).
+Use the [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_list) command to list the monitoring solutions installed in your subscription.   Before running the `list` command, follow the prerequisites found in [Install a monitoring solution](#install-a-monitoring-solution).
 
 ```azurecli
 # List all log-analytics solutions in the current subscription.
@@ -256,7 +256,7 @@ To remove an installed solution using the portal, locate it in the [list of inst
 
 ### [Azure CLI](#tab/azure-cli)
 
-To remove an installed solution using the Azure CLI, use the [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solutionaz_monitor_log_analytics_solution_delete) command.
+To remove an installed solution using the Azure CLI, use the [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_delete) command.
 
 ```azurecli
 az monitor log-analytics solution delete --name
