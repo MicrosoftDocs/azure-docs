@@ -40,7 +40,7 @@ The choice between a pop-up or redirect experience depends on your application f
 
 ## Sign-in with a pop-up window
 
-# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
 
@@ -81,7 +81,7 @@ myMsal.loginPopup(loginRequest)
     });
 ```
 
-# [JavaScript (MSAL.js 1.x)](#tab/javascript1)
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
 
@@ -230,7 +230,7 @@ function App() {
 
 ## Sign-in with redirect
 
-# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
 
@@ -270,7 +270,7 @@ myMsal.handleRedirectPromise().then(handleResponse);
 myMsal.loginRedirect(loginRequest);
 ```
 
-# [JavaScript (MSAL.js 1.x)](#tab/javascript1)
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, register success and error callbacks before you call the redirect methods.
 
@@ -380,7 +380,7 @@ You can configure the URI to which Azure AD should redirect after sign-out by se
 
 You can also configure `logoutPopup` to redirect the main window to a different page, such as the home page or sign-in page, after logout is complete by passing `mainWindowRedirectUri` as part of the request.
 
-# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
 const config = {
@@ -401,6 +401,13 @@ const logoutRequest = {
 
 await myMsal.logoutPopup(logoutRequest);
 ```
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
+
+Signing out with a popup window is not supported in MSAL.js v1
+
+# [Angular](#tab/angular)
+
+Signing out with a popup window is not supported in MSAL Angular v1
 
 # [React](#tab/react)
 
@@ -448,7 +455,7 @@ MSAL.js provides a `logout` method in v1, and `logoutRedirect` method in v2, tha
 
 You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect Uri in your application registration.
 
-# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
 const config = {
@@ -469,7 +476,7 @@ const logoutRequest = {
 myMsal.logoutRedirect(logoutRequest);
 ```
 
-# [JavaScript (MSAL.js 1.x)](#tab/javascript1)
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
 const config = {
