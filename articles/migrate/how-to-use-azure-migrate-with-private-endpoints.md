@@ -91,7 +91,7 @@ This creates a migrate project and attaches a private endpoint to it.
 #### Download the appliance installer file  
 
 > [!Note]
-> If you are having issues downloading appliance installer file, please create a support case.
+> If you are facing issues downloading the appliance installer file, please create a support case.
 
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
