@@ -115,4 +115,4 @@ See the [FAQ](container-registry-faq.md) for frequently asked questions and othe
 
 
 <!-- LINKS - internal -->
-[az-acr-check-health]: /cli/azure/acr#az-acr-check-health
+[az-acr-check-health]: /cli/azure/acr#az_acr_check_health

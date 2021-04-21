@@ -1,9 +1,9 @@
 ---
 title: Azure Key Vault authentication fundamentals
 description: Learn about how key vault's authentication model works
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 09/25/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 04/15/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -114,7 +114,7 @@ Key Vault role assignments are a set of Azure built-in role assignments that enc
 
 To learn more about Azure RBAC for Key Vault, see the following documents:
 
-* Azure RBAC for Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Azure RBAC for Key Vault [link](rbac-guide.md)
 * Azure RBAC for Key Vault roles [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator)
 
 ## Configure Key Vault Firewall

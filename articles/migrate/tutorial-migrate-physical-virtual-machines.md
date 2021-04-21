@@ -121,23 +121,25 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Discover VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-3. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
-4. In **Target region**, select the Azure region to which you want to migrate the machines.
-5. Select **Confirm that the target region for migration is region-name**.
-6. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
+2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
+3. In **Target region**, select the Azure region to which you want to migrate the machines.
+4. Select **Confirm that the target region for migration is region-name**.
+5. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
     - If you've already set up migration with Azure Migrate: Server Migration, the target option can't be configured, since resources were set up previously.    
     - You can't change the target region for this project after clicking this button.
-    - All subsequent migrations are to this region.
+    - All subsequent migrations are to this region. 
+    > [!NOTE]
+    > If you selected private endpoint as the connectivity method for the Azure Migrate project when it was created, the Recovery Services vault will also be configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
 
-7. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
-9. In **Download and install the replication appliance software**, download the appliance installer, and the registration key. You need to the key in order to register the appliance. The key is valid for five days after it's downloaded.
+6. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
+7. In **Download and install the replication appliance software**, download the appliance installer, and the registration key. You need to the key in order to register the appliance. The key is valid for five days after it's downloaded.
 
     ![Download provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
-10. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
-11. After the installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). Use the Manage Accounts tab of the wizard to add account details to use for push installation of the Mobility service. In this tutorial, we'll be manually installing the Mobility Service on source VMs to be replicated, so create a dummy account in this step and proceed. You can provide the following details for creating the dummy account - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will be using this dummy account in the Enable Replication stage. 
+8. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
+9. After the installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). Use the Manage Accounts tab of the wizard to add account details to use for push installation of the Mobility service. In this tutorial, we'll be manually installing the Mobility Service on source VMs to be replicated, so create a dummy account in this step and proceed. You can provide the following details for creating the dummy account - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will be using this dummy account in the Enable Replication stage. 
 
-12. After the appliance has restarted after setup, in **Discover machines**, select the new appliance in **Select Configuration Server**, and click **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
+10. After the appliance has restarted after setup, in **Discover machines**, select the new appliance in **Select Configuration Server**, and click **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -212,18 +214,24 @@ Now, select machines for migration.
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 4. In **Process Server**, select the name of the replication appliance.
-6. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
+5. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
 
     ![Screenshot of the Source settings tab in the Replicate screen with the Guest credentials field highlighted.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
-8. Check each VM you want to migrate. Then click **Next: Target settings**.
+6. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
+7. Check each VM you want to migrate. Then click **Next: Target settings**.
 
     ![Select VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 
-9. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
-10. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
+8. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
+9. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.   
+10. In  **Cache storage account**, keep the default option to use the cache storage account that is automatically created for the project. Use the drop down if you'd like to specify a different storage account to use as the cache storage account for replication. <br/> 
+    > [!NOTE]
+    >
+    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+  
 11. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
@@ -242,7 +250,7 @@ Now, select machines for migration.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-    ![Target settings](./media/tutorial-migrate-vmware/target-settings.png)
+    ![Target settings](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
 14. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
