@@ -644,12 +644,12 @@ To configure the BIOS:
     | Parameter | Configuration |
     |--|--|
     | **configure hardware profile** | **office** |
-    | **configure management network interface** | **enp3s0** |
+    | **configure management network interface** | **enp3s0** <br />or <br />**possible value** |
     | **configure management network IP address:** | **IP address provided by the customer** |
     | **configure subnet mask:** | **IP address provided by the customer** |
     | **configure DNS:** | **IP address provided by the customer** |
     | **configure default gateway IP address:** | **IP address provided by the customer** |
-    | **configure input interface(s)** | **enp4s0** |
+    | **configure input interface(s)** | **enp4s0** <br />or <br />**possible value** |
     | **configure bridge interface(s)** | N/A |
 
 1. Accept the settings and continue by entering `Y`.
