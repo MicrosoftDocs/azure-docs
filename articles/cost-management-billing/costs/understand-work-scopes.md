@@ -60,7 +60,6 @@ Cost Management supports the following built-in roles for each of the following 
 - [**Reader**](../../role-based-access-control/built-in-roles.md#reader) – Can view everything, including cost data and configuration, but can't make any changes.
 - [**Cost Management Contributor**](../../role-based-access-control/built-in-roles.md#cost-management-contributor) – Can view costs, manage cost configuration, and view recommendations.
 - [**Cost Management Reader**](../../role-based-access-control/built-in-roles.md#cost-management-reader) – Can view cost data, cost configuration, and view recommendations.
-- **Legacy pay-as-you-go (PAYG) account owner** – Can view costs, manage cost configuration, and view recommendations.
 
 Cost Management Contributor is the recommended least-privilege role. The role allows people to create and manage budgets and exports to more effectively monitor and report on costs. Cost Management Contributors might also require additional roles to support complex cost management scenarios. Consider the following scenarios:
 
@@ -75,14 +74,14 @@ Management groups are only supported if they contain Enterprise Agreement (EA), 
 
 The following table shows how Cost Management features are used by each role. The behavior below is applicable to all Azure RBAC scopes.
 
-| **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Cost Management Reader** | **Cost Management Contributor** | **Legacy PAYG Account Owner** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only | Read only | Read only |
-| **Shared views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Alerts** | Read, Update | Read, Update | Read only | Read only | Read, Update | Read, Update |
-| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Cost Allocation rules** | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes |
+| **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Cost Management Reader** | **Cost Management Contributor** |
+| --- | --- | --- | --- | --- | --- | 
+| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only | Read only |
+| **Shared views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only |  Create, Read, Update, Delete|
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update | Read only | Read only | Read, Update |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete |
+| **Cost Allocation rules** | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | 
 
 ## Enterprise Agreement scopes
 
