@@ -236,7 +236,7 @@ First, register the feature flag for Kubelet identity:
 az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
 ```
 
-If you don't have a control plane managed identity yet, you should go ahead and create one. The following example uses the [az identity CLI][az-identity-create]:
+If you don't have a control plane managed identity yet, you should go ahead and create one. The following example uses the [az identity create][az-identity-create] command:
 
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
@@ -262,7 +262,7 @@ The result should look like:
 If you don't have a kubelet managed identity yet, you should go ahead and create one. The following example uses the [az identity create][az-identity-create] command:
 
 ```azurecli-interactive
-az identity create --name myIdentity --resource-group myResourceGroup
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
 ```
 
 The result should look like:
@@ -271,13 +271,13 @@ The result should look like:
 {
   "clientId": "<client-id>",
   "clientSecretUrl": "<clientSecretUrl>",
-  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
   "location": "westus2",
-  "name": "myIdentity",
+  "name": "myKubeletIdentity",
   "principalId": "<principalId>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
-  "tenantId": "<tenant-id>>",
+  "tenantId": "<tenant-id>",
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```
@@ -312,7 +312,7 @@ A successful cluster creation using your own kubelet managed identities contains
     "tenantId": null,
     "type": "UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyIdentity": {
+      "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
         "clientId": "<client-id>",
         "principalId": "<principal-id>"
       }
@@ -322,7 +322,7 @@ A successful cluster creation using your own kubelet managed identities contains
     "kubeletidentity": {
       "clientId": "<client-id>",
       "objectId": "<object-id>",
-      "resourceId": "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyIdentity"
+      "resourceId": "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity"
     }
   },
 ```
