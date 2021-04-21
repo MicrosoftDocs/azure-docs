@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 03/30/2021 
+  ms.date: 04/20/2021 
 
 
 # card 1
@@ -202,3 +202,5 @@ landingContent:
         links:
           - text: Open a support request for deployment failures
             url: fix-deployment-provisioning-failures.md
+          - text: VMware tools vix error code = 21009
+            url: https://kb.vmware.com/s/article/2129927

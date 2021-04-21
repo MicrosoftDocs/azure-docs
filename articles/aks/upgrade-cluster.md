@@ -175,13 +175,13 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster

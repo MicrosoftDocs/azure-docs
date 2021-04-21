@@ -130,7 +130,7 @@ You can programmatically retrieve the current list of service tags together with
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
 > It takes up to 4 weeks for new Service Tag data to propagate in the API results. The change number in the response metadata will be incremented when this happens. There may be temporary differences in results when different location values are specified. When using the results to create NSG rules, you should set the location paramater to match the NSG's region. 

@@ -46,7 +46,7 @@ To transform device data at ingress, there are two options:
 
 - **IoT Edge**: Use an IoT Edge module to transform data from downstream devices before sending the data to your IoT Central application.
 
-- **IoT Central device bridge**: The [IoT Central device bridge](https://github.com/Azure/iotc-device-bridge) connects other IoT device clouds, such as Sigfox, Particle, and The Things Network, to IoT Central. The device bridge uses an Azure function to forward the data and you can customize the function to transform the device data.
+- **IoT Central device bridge**: The [IoT Central device bridge](howto-build-iotc-device-bridge.md) connects other IoT device clouds, such as Sigfox, Particle, and The Things Network, to IoT Central. The device bridge uses an Azure function to forward the data and you can customize the function to transform the device data.
 
 ### Use IoT Edge to transform device data
 

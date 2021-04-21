@@ -134,6 +134,6 @@ Another method for providing sensitive information to containers (including Wind
 [tmpfs]: https://wikipedia.org/wiki/Tmpfs
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

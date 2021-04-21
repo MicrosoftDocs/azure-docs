@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.date: 06/30/2020
+ms.date: 04/01/2021
 
 # Customer intent: As a developer, I want to automate creating and deploying a logic app workflow to whichever environment that I want by using Azure Resource Manager templates.
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the quickstart template's ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) in the templates gallery.
 
-The quickstart template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](../connectors/apis-list.md#connector-types), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
+The quickstart template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](../connectors/built-in.md), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
 
 This template creates the following Azure resource:
 
@@ -301,7 +301,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [Azure CLI: az group delete](/cli/azure/group#az-group-delete).
+For more information, see [Azure CLI: az group delete](/cli/azure/group#az_group_delete).
 
 ### [PowerShell](#tab/azure-powershell)
 
