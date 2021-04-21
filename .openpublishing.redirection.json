@@ -61343,7 +61343,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/quickstarts/create-luis.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-intent-recognition",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-faq.md",
