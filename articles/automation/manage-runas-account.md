@@ -4,7 +4,8 @@ description: This article tells how to manage your Run As account with PowerShel
 services: automation
 ms.subservice:
 ms.date: 01/19/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage an Azure Automation Run As account
