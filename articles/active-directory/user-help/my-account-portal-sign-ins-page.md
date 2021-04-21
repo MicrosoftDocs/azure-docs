@@ -40,6 +40,18 @@ You can view all of your recent work or school account sign-in activity, from th
 
     ![Recent activity page with expanded sign-in details](media/my-account-portal-sign-ins-page/recent-activity.png)
 
+### View sign-in activity in Authenticator on Android
+
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
+
+2. Select **My Sign-ins** from the left navigation pane or select the **Review recent activity** link from the **My sign-ins** block.
+
+    ![My Account page, showing highlighted Recent activity links](media/my-account-portal/my-account-portal-sign-ins.png)
+
+3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
+
+    ![Recent activity page with expanded sign-in details](media/my-account-portal-sign-ins-page/recent-activity.png)
+
 ### If you see a successful sign-in
 
 Sometimes, while reviewing your own normal sign-in activity, you might see a successful sign-in from an unfamiliar location, browser, or operating system. Unfamiliar sign-ins can mean an attacker has gained access to your account. If you see activity that you didn't authorize, we recommend you immediately change your password, and then go to [Security info](https://mysignins.microsoft.com/security-info) to update your security settings.
