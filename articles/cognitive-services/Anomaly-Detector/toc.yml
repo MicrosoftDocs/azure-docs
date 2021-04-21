@@ -18,7 +18,7 @@
 - name: Samples
   items:
     - name: Interactive demo (univariate)
-      href: https://aka.ms/adDemo 
+      href: https://aka.ms/adDemo
     - name: Jupyter Notebook (univariate)
       href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook
     - name: Jupyter Notebook (multivariate)
