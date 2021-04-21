@@ -34,7 +34,7 @@ Watch the following video to learn how to view what resources users have access 
 
 This report enables you to list all of the access packages a user can request and the access packages that are currently assigned to the user.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. Click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -58,7 +58,7 @@ This report enables you to list all of the access packages a user can request an
 
 This report enables you to list the resources currently assigned to a user in entitlement management. Note that this report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. Click **Azure Active Directory** and then click **Identity Governance**.
 

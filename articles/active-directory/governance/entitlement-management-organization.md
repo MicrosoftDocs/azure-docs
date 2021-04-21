@@ -59,7 +59,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
 
-**Prerequisite role**: *Global administrator* or *User administrator*
+**Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
