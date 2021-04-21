@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 The new Machine Learning extension requires Azure CLI version `>=2.15.0`. Check your version:
 
-xxxcode language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_version"xxx
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_version":::
 
 If you do not 
 * If you have access to multiple subscriptions and workspace, set the defaults.
@@ -64,7 +64,7 @@ az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-
 
 Below is the yml file. To use a registered model, replace the model section in yml with **model:azureml:<modelName>:<modelVersion>**.
 
-xxxcode language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.ymlxxx
+:::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.yml:::
 
 ## Check batch endpoint details
 
