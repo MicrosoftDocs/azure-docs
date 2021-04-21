@@ -150,12 +150,11 @@ Migrating a database with geo-replication or BACPAC file does not copy over the 
 A new PowerShell command **Copy-AzSqlDatabaseLongTermRetentionBackup** has been introduced, which can be used to copy the long-term retention backups from Azure Germany to Azure global regions. 
 
 1. **Copy LTR backup using backup name**
-Following example shows how you can copy a LTR backup from Azure Germany to Azure global region, using the backupname. This example can be used to copy backups of a deleted database as well. 
+Following example shows how you can copy a LTR backup from Azure Germany to Azure global region, using the backupname.  
 
 ```powershell
 # Source database and target database info
 $location = "<location>"
-$sourceSubscriptionId = "<source subscriptionID>"
 $sourceRGName = "<source resourcegroup name>"
 $sourceServerName = "<source server name>"
 $sourceDatabaseName = "<source database name>"
@@ -167,7 +166,6 @@ $targetServerFQDN = "<targetservername.database.windows.net>"
 
 Copy-AzSqlDatabaseLongTermRetentionBackup 
     -Location $location 
-    -SourceSubscriptionId $sourceSubscriptionId 
     -ResourceGroupName $sourceRGName 
     -ServerName $sourceServerName 
     -DatabaseName $sourceDatabaseName
@@ -182,13 +180,18 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
 Following example shows how you can copy LTR backup from Azure Germany to Azure global region, using a backup resourceID. This example can be used to copy backups of a deleted database as well. 
 
 ```powershell
+# list LTR backups for All databases (you have option to choose All/Live/Deleted)
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState All
+
+# select the LTR backup you want to copy
+$ltrBackup = $ltrBackups[0]
+$resourceID = $ltrBackup.ResourceId
+
 # Source Database and target database info
-$resourceID = "/subscriptions/000000000-eeee-4444-9999-e9999a5555ab/resourceGroups/mysourcergname/providers/Microsoft.Sql/locations/germanynorth/longTermRetentionServers/mysourceserver/longTermRetentionDatabases/mysourcedb/longTermRetentionBackups/0e848ed8-c229-444c-a3ba-75ac0507dd31;132567894740000000"
 $targetDatabaseName = "<target database name>"
 $targetSubscriptionId = "<target subscriptionID>"
 $targetRGName = "<target resource group name>"
 $targetServerFQDN = "<targetservername.database.windows.net>"
-
 
 Copy-AzSqlDatabaseLongTermRetentionBackup 
     -ResourceId $resourceID 
