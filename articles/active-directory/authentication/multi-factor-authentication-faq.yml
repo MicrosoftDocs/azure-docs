@@ -73,11 +73,7 @@ sections:
           
           We don't support short codes for countries or regions besides the United States and Canada.
           
-  - name: Ignored
-    questions:
-      - question: |
-          Billing
-        answer: |
+          ## Billing
           Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation for [Azure AD Multi-Factor Authentication versions and consumption plans](concept-mfa-licensing.md).
           
       - question: |
