@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Add Azure Load Balancer to an existing virtual machine scale set using the Azure portal
 
-The need may arise when a Azure Load Balancer isn't associated with a virtual machine scale set. 
+The need may arise when an Azure Load Balancer isn't associated with a virtual machine scale set. 
 
 You may have an existing virtual machine scale set deployed with an Azure Load Balancer that requires changing.
 
