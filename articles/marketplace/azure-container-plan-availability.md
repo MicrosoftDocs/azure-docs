@@ -6,12 +6,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2021
+ms.date: 04/21/2021
 ---
 
 # Set plan availability for an Azure Container offer
 
-If you want to hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box.
+Use this tab to set the availability of your Azure Container plan.
+
+## Set plan availability
+
+To hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box.
 
 This field is commonly used when:
 
