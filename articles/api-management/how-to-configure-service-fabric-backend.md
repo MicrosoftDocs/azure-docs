@@ -9,7 +9,8 @@ editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 01/29/2021
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Set up a Service Fabric backend in API Management using the Azure portal
