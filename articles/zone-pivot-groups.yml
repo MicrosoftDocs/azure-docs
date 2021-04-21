@@ -400,9 +400,10 @@ groups:
     title: Command line
   - id: development-environment-vs
     title: Visual Studio
-- id: two-programming-functions-test
-  title: Development environment
-  prompt: Choose a development environment
+#Owner: shinardi
+- id: bring-third-party-dependency-programming-functions
+  title: Programming Languages
+  prompt: Choose a programming language
   pivots:
   - id: programming-language-python
     title: Python

@@ -3,8 +3,7 @@ title: Bring dependencies or third party library to Azure Functions
 description: Learn how to bring files or third party library 
 ms.date: 4/6/2020
 ms.topic: tutorial
-ms.custom: "devx-track-python, devx-track-java"
-zone_pivot_groups: "two-programming-functions-test"
+zone_pivot_groups: "bring-third-party-dependency-programming-functions"
 ---
 
 # Bring dependencies or third party library to Azure Functions
@@ -14,15 +13,26 @@ In this tutorial, you learn to bring in third party dependencies, such as json f
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Bring in dependencies via Functions Code project 
+::: zone pivot="programming-language-python"
 > * Bring in dependencies via mounting Azure Fileshare
-
+::: zone-end
 ## Prerequisites
-* An Azure account with an active subscription. Create an account for free.
+*  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * The Azure Functions Core Tools
-* Visual Studio Code on one of the supported platforms.
-* The Python extension for Visual Studio Code.*
-* The Azure Functions extension for Visual Studio Code.
-* Local Functions project setup with 1 HTTP Triggered function created. To learn more, **TODO** link to the vs code tutorial
+* [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms)
+* The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
+::: zone pivot="programming-language-python"
+* [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
+* Python Azure functions app deployed on Linux consumption plan. [Create your first Azure function in Python](./create-first-function-vs-code-python.md)
+::: zone-end
+::: zone pivot="programming-language-java"
+* The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11.
+* [Apache Maven](https://maven.apache.org), version 3.0 or above.
+* The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) 
+* Java Azure functions app deployed on Windows consumption plan. [Create your first Azure function in Java](./create-first-function-vs-code-java.md) 
+::: zone-end
+
+
 
 ::: zone pivot="programming-language-python"
 ## Bring Dependencies by putting them in Azure Functions Project Directory
@@ -126,27 +136,11 @@ Here is an example to access and execute ```ffmpeg``` dependency that is put int
 
 
 ```java
-package com.function;
-
-import com.microsoft.azure.functions.ExecutionContext;
-import com.microsoft.azure.functions.HttpMethod;
-import com.microsoft.azure.functions.HttpRequestMessage;
-import com.microsoft.azure.functions.HttpResponseMessage;
-import com.microsoft.azure.functions.HttpStatus;
-import com.microsoft.azure.functions.annotation.AuthorizationLevel;
-import com.microsoft.azure.functions.annotation.FunctionName;
-import com.microsoft.azure.functions.annotation.HttpTrigger;
-
-import java.util.*;
-import java.nio.file.Files;
-import java.io.File;
-import java.io.IOException;
-/**
- * Azure Functions with HTTP Trigger.
- */
 public class Function {
-    public final static String BASE_PATH = "BASE_PATH";
-    public final static String FFMPEG_EXE_PATH = "/artifacts/ffmpeg/ffmpeg.exe";
+    final static String BASE_PATH = "BASE_PATH";
+    final static String FFMPEG_PATH = "/artifacts/ffmpeg/ffmpeg.exe";
+    final static String HELP_FLAG = "-h";
+    final static String COMMAND_QUERY = "command";
 
     @FunctionName("HttpExample")
     public HttpResponseMessage run(
@@ -157,20 +151,30 @@ public class Function {
                 HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) throws IOException{
         context.getLogger().info("Java HTTP trigger processed a request.");
+            
+        // Parse query parameter
+        String flags = request.getQueryParameters().get(COMMAND_QUERY);
+        
+        if (flags == null || flags.isBlank()) {
+            flags = HELP_FLAG;
+        }
 
         Runtime rt = Runtime.getRuntime();
-        // Getting the base path of the execution from the environment variables
-        String[] commands = { System.getenv(BASE_PATH) + FFMPEG_EXE_PATH, "-h"};
+        String[] commands = { System.getenv(BASE_PATH) + FFMPEG_PATH, flags};
         Process proc = rt.exec(commands);
-
-        if (name == null) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("successful").build();
-        } else {
-            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+        BufferedReader stdInput = new BufferedReader(new 
+        InputStreamReader(proc.getInputStream()));
+   
+        String out = stdInput.lines().collect(Collectors.joining("\n"));
+        if(out.isEmpty()) {
+            BufferedReader stdError = new BufferedReader(new 
+                InputStreamReader(proc.getErrorStream()));
+            out = stdError.lines().collect(Collectors.joining("\n"));
         }
-    }
-}
+        return request.createResponseBuilder(HttpStatus.OK).body(out).build();
 
+    }
 ```
 >[!NOTE]
 > To get this snippet of code to work in Azure, you need to specify a custom application setting of "BASE_PATH" with value of "/home/site/wwwroot"
@@ -234,13 +238,16 @@ FFMPEG = "ffmpeg"
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
-    
-    out = subprocess.check_output(["/".join(FILE_SHARE_MOUNT_PATH, FFMPEG) ,'-h'])
+    command = req.params.get('command')
+    # If no command specified, set the command to help
+    if not command:
+        command = "-h"
 
-    return func.HttpResponse(
-            str(out),
-            status_code=200
-    )
+    try:
+        byte_output  = subprocess.check_output(["/".join(FILE_SHARE_MOUNT_PATH, FFMPEG), command])
+        return func.HttpResponse(byte_output.decode('UTF-8').rstrip(),status_code=200)
+    except Exception as e:
+        return func.HttpResponse("Unexpected exception happened when executing ffmpeg. Error message:" + str(e),status_code=200)
 ```
 
 When you deploy this code snippet to Azure, you need to configure a custom app setting with key of "FILE_SHARE_MOUNT_PATH" and value of the mounted file share path e.g. `/azure-files-share`. To do local debugging, you need to populate the `FILE_SHARE_MOUNT_PATH` with the file path where your dependencies are stored in your local machine. Here is an example to set `FILE_SHARE_MOUNT_PATH` using `local.settings.json`:
