@@ -36,8 +36,12 @@
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
-  - name: Connectors for Logic Apps
+  - name: Connectors overview for Logic Apps
     href: ../connectors/apis-list.md
+  - name: Managed connectors for Logic Apps
+    href: ../connectors/managed.md
+  - name: Built-in connectors for Logic Apps
+    href: ../connectors/built-in.md
   - name: Schedule recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure

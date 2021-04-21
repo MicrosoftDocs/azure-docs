@@ -14,7 +14,7 @@ Learn how to add a new update into Device Update for IoT Hub.
 ## Prerequisites
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). 
-* An IoT device (or simulator) provisioned for Device Update within IoT Hub.
+* An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub.
 * [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS and Windows installs)
 * Supported browsers:
   * [Microsoft Edge](https://www.microsoft.com/edge)
@@ -25,7 +25,7 @@ Learn how to add a new update into Device Update for IoT Hub.
 
 ## Obtain an update for your devices
 
-Now that Device Update is [set up](create-device-update-account.md), you’re ready to update your devices. Next, you will need the actual update file(s) that you will be deploying to those devices.
+Now that you've set up Device Update and provisioned your devices, you will need the update file(s) that you will be deploying to those devices.
 
 If you’ve purchased devices from an OEM or solution integrator, that organization will most likely provide update files for you, without you needing to create the updates. Contact the OEM or solution integrator to find out how they make updates available.
 
