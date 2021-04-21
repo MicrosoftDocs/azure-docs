@@ -288,7 +288,7 @@ If your managed identity is part of your subscription, you can use the [az ident
 az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 ```
 
-Now you can use the following command to create your cluster with your existing identity:
+Now you can use the following command to create your cluster with your existing identities:
 
 ```azurecli-interactive
 az aks create \
