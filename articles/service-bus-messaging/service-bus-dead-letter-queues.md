@@ -70,8 +70,4 @@ You can access the dead-letter queue by using the following syntax:
 
 
 ## Next steps
-
-For more information about Service Bus queues, see the following articles:
-
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+See [Enable dead lettering for a queue or subscription](enable-dead-letter.md) to learn about different ways of configuring the **dead lettering on message expiration** setting.

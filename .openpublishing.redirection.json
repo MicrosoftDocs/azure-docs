@@ -21741,6 +21741,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/industrial-iot/overview-what-is-industrial-iot-platform.md",
+      "redirect_url": "/azure/industrial-iot/overview-what-is-industrial-iot",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
       "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
       "redirect_document_id": false
@@ -24782,7 +24787,7 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_url": "/azure/key-vault/general/security-features",
       "redirect_document_id": false
     },
     {
@@ -24876,13 +24881,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/key-vault/general/security-overview.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/overview-security.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_url": "/azure/key-vault/general/security-features",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/key-vault/general/overview-security.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_url": "/azure/key-vault/general/security-features",
       "redirect_document_id": false
     },
     {
@@ -24912,12 +24922,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-secure-your-key-vault.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_url": "/azure/key-vault/general/security-features",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/key-vault/general/secure-your-key-vault.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_url": "/azure/key-vault/general/security-features",
       "redirect_document_id": false
     },
     {
@@ -24937,12 +24947,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/security-recommendations.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_url": "/azure/key-vault/general/security-features",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/key-vault/general/security-recommendations.md",
-      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_url": "/azure/key-vault/general/security-features",
       "redirect_document_id": false
     },
     {
@@ -26543,6 +26553,21 @@
     {
       "source_path_from_root": "/articles/machine-learning/studio/export-delete-personal-data-dsr.md",
       "redirect_url": "/azure/machine-learning/classic/export-delete-personal-data-dsr",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-monitor-view-training-logs.md",
+      "redirect_url": "/azure/machine-learning/how-to-log-view-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-manage-runs.md",
+      "redirect_url": "/azure/machine-learning/how-to-track-monitor-analyze-runs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-track-experiments.md",
+      "redirect_url": "/azure/machine-learning/how-to-log-view-metrics",
       "redirect_document_id": true
     },
     {
@@ -29242,67 +29267,72 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-contacts-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/request-to-publish-the-app.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-customer-engagement-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": true
     },
     {
