@@ -189,7 +189,7 @@ Organizations should choose one of the following options to enable a sign-in ris
 
 To create a Sign-in risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
 
-The following template is used to create a Conditional Access policy with display name "CA002: Require MFA for medium+ sign-in risk" in report-only mode.
+The following template can be used to create a Conditional Access policy with display name "CA002: Require MFA for medium+ sign-in risk" in report-only mode.
 
 ```json
 {
