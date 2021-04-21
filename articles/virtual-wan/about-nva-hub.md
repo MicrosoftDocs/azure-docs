@@ -72,13 +72,14 @@ NVA in the virtual hub is available for Preview in the following regions:
 
 |Geopolitical region | Azure regions|
 |---|---|
-| North America| West US, South Central US, East US 2   |
-| South America | Brazil South |
-| Europe | West Europe, UK South|
+| North America| Canada Central, Canada East, Central US, East US, East US 2, North Central US, West Central US, West US, West US 2 |
+| South America | Brazil South, Brazil Southeast |
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe|
 |  Middle East | UAE North |
-| Asia | Japan East |
-| Australia | Australia East |
-
+| Asia |  East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia | 
+| Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
+| Africa | South Africa North |
+| India | South India, West India, Central India | 
 ## FAQ
 
 ### I am a network appliance partner and want to get our NVA in the hub.  Can I join this partner program?
@@ -87,7 +88,7 @@ Unfortunately, we do not have capacity to on-board any new partner offers at thi
 
 ### Can I deploy any NVA from Azure Marketplace into the Virtual WAN hub?
 
-At this time, only [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) and [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) are available to be deployed into the Virtual WAN hub.
+At this time, only [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer)  [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) and [VMware Sd-WAN](https://aka.ms/vmwareMarketplaceLink) are available to be deployed into the Virtual WAN hub.
 
 ### What is the cost of the NVA?
 
@@ -99,7 +100,7 @@ No. You must use a Standard hub if you want to deploy an NVA.
 
 ### Can I deploy an NVA into a Secure hub?
 
-Yes. Barracuda CloudGen WAN can be deployed into a hub with Azure Firewall.
+Yes. Partner NVA's can be deployed into a hub with Azure Firewall.
 
 ### Can I connect any CPE device in my branch office to Barracuda CloudGen WAN NVA in the hub?
 

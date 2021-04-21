@@ -60,7 +60,7 @@ In this section, you install the Microsoft Azure IoT Extension for Azure CLI to 
 > [!IMPORTANT]
 > The terminal commands in the rest of this quickstart work the same in Cloud Shell or a local terminal. To run a command, select **Copy** to copy a block of code in this quickstart. Then paste it into your CLI shell and run it.
 
-Run the [az extension add](/cli/azure/extension#az-extension-add) command. 
+Run the [az extension add](/cli/azure/extension#az_extension_add) command. 
 
    ```azurecli
    az extension add --name azure-iot
@@ -72,7 +72,7 @@ In this section, you use Azure CLI to create an IoT hub and a resource group.  A
 
 To create an IoT hub and a resource group:
 
-1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
+1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
     >[!NOTE]
     > You can optionally set an alternate location. To see available locations, run `az account list-locations`. This tutorial uses *eastus* as shown in the example command. 
 
@@ -80,7 +80,7 @@ To create an IoT hub and a resource group:
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Run the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
+1. Run the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
 
     *YourIotHubName*. Replace this placeholder and the surrounding braces in the following command, using the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. Use your IoT hub name in the rest of this quickstart wherever you see the placeholder.
 

@@ -63,15 +63,15 @@ Your storage account must be contained within a VNet. A VNet enables clients to 
 
 ## Step 4: Configure network security
 
-The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
+The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
 
 To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
 ## Step 5: Create and configure a storage account
 
-To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
+To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature.
 
-In the preview release of this feature, NFS 3.0 protocol is supported in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) and [general-purpose V2](../common/storage-account-overview.md#general-purpose-v2-accounts) accounts.
+In the preview release of this feature, NFS 3.0 protocol is supported for standard general-purpose v2 storage accounts and for premium block blob storage accounts. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 As you configure the account, choose these values:
 

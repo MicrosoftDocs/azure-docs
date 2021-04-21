@@ -1,5 +1,5 @@
 ---
-title: Document Translation get document status method
+title: Get document status method
 titleSuffix: Azure Cognitive Services
 description: The get document status method returns the status for a specific document.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get document status
+# Get document status
 
 The Get Document Status method returns the status for a specific document. The method returns the translation status for a specific document based on the request ID and document ID.
 
