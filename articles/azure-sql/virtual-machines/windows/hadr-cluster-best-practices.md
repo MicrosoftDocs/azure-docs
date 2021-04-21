@@ -64,7 +64,7 @@ this is rewrite:
 | If an availability group has more than one secondary replica, only enable votes for the replicas that have automatic failover. | 
 | Disable votes for nodes that are in secondary disaster recovery sites. Nodes in secondary sites should not contribute to the decision of taking a cluster offline if there's nothing wrong with the primary site. | 
 | Have an odd number of votes, with three quorum votes minimum. Add a quorum witness for an additional vote if necessary in a two-node cluster. | 
-| Re-assess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
+| Reassess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
 
 
 this is original: 
@@ -76,7 +76,7 @@ this is original:
 | Include possible automatic failover owners. Each node that could host a primary replica, as the result of an automatic availability group failover or FCI failover, should have a vote. If there's only one availability group in the WSFC cluster and availability replicas are hosted only by standalone instances, this rule includes only the secondary replica that is the automatic failover target. |
 | Exclude secondary site nodes. In general, don't give votes to WSFC nodes located at a secondary disaster recovery site. You don't want nodes in the secondary site to contribute to a decision to take the cluster offline when there's nothing wrong with the primary site. |
 | Odd number of votes. If necessary, add a cloud witness, file share witness, a witness node, or a witness disk to the cluster and adjust the quorum mode to prevent possible ties in the quorum vote. It's recommended to have three or more quorum votes. |
-| Re-assess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
+| Reassess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
 
 please ensure i have not technically changed the meaning in any way 
 
@@ -86,7 +86,7 @@ please ensure i have not technically changed the meaning in any way
 
 Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
-## Heartbeat & threshold 
+## Heartbeat and threshold 
 
 The default heartbeat and threshold cluster settings are designed for highly tuned on-premises networks and do not consider the possibility of induced latency in a cloud environment. The heartbeat network is maintained with UDP 3343, which is traditionally far less reliable than TCP and more prone to incomplete conversations.
  
@@ -201,7 +201,7 @@ Before making any changes, consider the following:
 - The lease interval (½ * LeaseTimeout) must be shorter than SameSubnetThreshold * SameSubnetDelay
 - For synchronous-commit replicas, changing session-timeout to a high value can increase HADR_Sync_commit waits.
 
-Use Transact-SQL (T-SQL) to modify the session time out for an availability group: 
+Use Transact-SQL (T-SQL) to modify the session timeout for an availability group: 
 
 ```sql
 ALTER AVAILABILITY GROUP AG1
@@ -214,7 +214,7 @@ Use the Failover Cluster Manager to modify the lease timeout settings for your a
 
 VM or disk limits could result in a resource bottleneck that impacts the health of the cluster, and impedes the health check. If you're experiencing issues with resource limits, consider the following: 
 
-* Ensure your OS, drivers and SQL Server are at the latest builds.
+* Ensure your OS, drivers, and SQL Server are at the latest builds.
 * Optimize SQL Server on Azure VM environment as described in the [performance guidelines](performance-guidelines-best-practices-checklist.md) for SQL Server on Azure Virtual Machines
 * Reduce or spread out the workload to reduce utilization without exceeding resource limits
 * Tune the SQL Server workload if there is any opportunity, such as
@@ -260,8 +260,8 @@ If the session timeout is too aggressive for your availability group environment
 
 | Message ID | Description |
 |-|-|
-| 35201 | A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with id [availability_group_id]. Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance. |
-| 35206 | A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with id [availability_group_id]. Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. 
+| 35201 | A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance. |
+| 35206 | A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. 
 
 
 ## Next steps
