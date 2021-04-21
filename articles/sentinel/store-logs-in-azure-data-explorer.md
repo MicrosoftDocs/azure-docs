@@ -43,7 +43,7 @@ If you only need to access specific tables occasionally, such as for periodic in
 You can access the data in ADX directly from Azure Sentinel using the [Log Analytics ADX proxy feature](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). To do so, use cross cluster queries in your log search or workbooks. 
 
 > [!IMPORTANT]
-> Core SIEM capabilities, including Analytic rules, UEBA, and the investigation graph do not support data stored in ADX.
+> Core SIEM capabilities, including Analytic rules, UEBA, and the investigation graph, do not support data stored in ADX.
 >
 
 > [!NOTE]
