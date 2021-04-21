@@ -67,7 +67,7 @@ You can use the Azure portal to run a diagnosis of the media graph using direct 
     * Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. 
     * Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as GraphTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Live Video Analytics IoT Edge module is functionally OK.
         
-    :::image type="content" source="./media/troubleshoot-how-to/direct-method.png" alt-text="Screenshot of the "Direct method" pane for the IoT Edge module." lightbox="./media/troubleshoot-how-to/direct-method.png":::
+    :::image type="content" source="./media/troubleshoot-how-to/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot-how-to/direct-method.png":::
 
 1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Live Video Analytics on IoT Edge module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
 
@@ -231,7 +231,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
     b. At the top of the pane, select **Module Identity Twin**. An editable pane opens.  
     c. Under **desired key**, add the following key/value pair:  
     
-        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+    `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
     > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location on the device:
