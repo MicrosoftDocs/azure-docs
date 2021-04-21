@@ -215,9 +215,9 @@ az network private-endpoint create \
 
 ## Configure the private DNS zone
 
-In this section, you'll create and configure the private DNS zone using [az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+In this section, you'll create and configure the private DNS zone using [az network private-dns zone create](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create).  
 
-You'll use [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) to create the virtual network link to the dns zone.
+You'll use [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create) to create the virtual network link to the dns zone.
 
 You'll create a dns zone group with [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 

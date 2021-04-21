@@ -298,7 +298,7 @@
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
   - name: Azure CLI
-    href: /cli/azure/ext/sentinel/sentinel
+    href: /cli/azure/sentinel
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
