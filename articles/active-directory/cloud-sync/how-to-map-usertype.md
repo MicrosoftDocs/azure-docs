@@ -45,7 +45,7 @@ To add the UserType mapping, use the following steps.
  - a constant (that is, make all user objects as Guest).
   ![Add usertype](media/how-to-map-usertype/usertype-3.png) 
 8. In the Target attribute dropdown, select UserType.
-9. Click the **Apply** button at the bottom of the page. This will create a mapping for the AAD UserType attribute.
+9. Click the **Apply** button at the bottom of the page. This will create a mapping for the Azure AD UserType attribute.
 
 ## Next steps 
 
