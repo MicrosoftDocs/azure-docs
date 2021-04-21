@@ -28,7 +28,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 ## Storage policies and fault tolerance
 
-That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning.  Unless you adjust the storage policy or you apply a new policy, the cluster continues to grow with this configuration. In a three-host cluster, it means only a single host can fail before data is lost (FFT-1). Microsoft governs failures regularly and replaces the hardware when events are detected from an architecture perspective. So, FTT-1 accommodates a single host's failure. 
+That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning.  Unless you adjust the storage policy or you apply a new policy, the cluster continues to grow with this configuration. In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an architecture perspective.
 
 :::image type="content" source="media/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::
 
@@ -36,7 +36,7 @@ That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provi
 |Policy  |Description  |
 |---------|---------|
 |Thick provisioning     | Is reserved or pre-allocated storage space. It protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, if you create a 10-GB virtual disk with thick provisioning, the full amount of virtual disk storage capacity is pre-allocated on the physical storage of the virtual disk and consumes all the space allocated to it in the datastore. It won't allow other VMs to share the space from the datastore.         |
-|Thin provisioning     | Consumes the space that it needs initially and grows to the data space demand used in the datastore. Outside the default (thick provision), you can create VMs with FTT1 thin provisioning. For dedupe setup, use thin provisioning for your VM template.         |
+|Thin provisioning     | Consumes the space that it needs initially and grows to the data space demand used in the datastore. Outside the default (thick provision), you can create VMs with FTT-1 thin provisioning. For dedupe setup, use thin provisioning for your VM template.         |
 
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend to deploy the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. 
