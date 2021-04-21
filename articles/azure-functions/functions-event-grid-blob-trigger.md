@@ -28,6 +28,14 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 
 1. **Press F1** to create a new blob trigger function. Make sure to use the connection string for your storage account.
 
+1. The default url for your event grid based blob trigger is:
+
+    ```http
+    http://localhost:7071/runtime/webhooks/blobs?functionName={functionname}
+    ```
+
+    Please note your function app's name and that the trigger type is a blob trigger which is indicated by `blobs` in the url. This will be needed when setting up endpoints later in the how to guide.
+
 1. Once the function is created, add the Event Grid source parameter.
 
     # [C#](#tab/csharp)
@@ -40,80 +48,7 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
         log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
     }
     ```
-    
-    # [C# Script](#tab/csharp-script)
-    Add **"source": "EventGrid"** to the function.json binding data.
-    
-    ```json
-    {
-        "disabled": false,
-        "bindings": [
-            {
-                "name": "myBlob",
-                "type": "blobTrigger",
-                "direction": "in",
-                "path": "samples-workitems/{name}",
-                "connection":"MyStorageAccountAppSetting"
-            }
-        ]
-    }
-    ```
-    
-    # [Java](#tab/java)
-    This function writes a log when a blob is added or updated in the `myblob` container.
-    
-    ```java
-    @FunctionName("blobprocessor")
-    public void run(
-      @BlobTrigger(name = "file",
-                   dataType = "binary",
-                   path = "myblob/{name}",
-                   source: "EventGrid",
-                   connection = "MyStorageAccountAppSetting") byte[] content,
-      @BindingName("name") String filename,
-      final ExecutionContext context
-    ) {
-      context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-    }
-    ```
-    
-    # [JavaScript](#tab/javascript)
-    Add **"source": "EventGrid"** to the function.json binding data.
-    
-    ```json
-    {
-        "disabled": false,
-        "bindings": [
-            {
-                "name": "myBlob",
-                "type": "blobTrigger",
-                "direction": "in",
-                "path": "samples-workitems/{name}",
-                "source": "EventGrid",
-                "connection":"MyStorageAccountAppSetting"
-            }
-        ]
-    }
-    ```
-    
-    # [PowerShell](#tab/powershell)
-    Add **"source": "EventGrid"** to the function.json binding data.
-    
-    ```json
-    {
-      "bindings": [
-        {
-          "name": "InputBlob",
-          "type": "blobTrigger",
-          "direction": "in",
-          "path": "samples-workitems/{name}",
-          "source": "EventGrid",
-          "connection": "MyStorageAccountConnectionString"
-        }
-      ]
-    }
-    ```
-    
+ 
     # [Python](#tab/python)
     Add **"source": "EventGrid"** to the function.json binding data.
     
