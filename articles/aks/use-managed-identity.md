@@ -344,7 +344,7 @@ A successful cluster creation using your own kubelet managed identity contains t
 ```
 
 ## Next steps
-* Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create Managed Identity enabled clusters.
+* Use [Azure Resource Manager templates ][aks-arm-template] to create Managed Identity enabled clusters.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
