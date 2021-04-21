@@ -1,5 +1,5 @@
 ---
-title: 'Install, setup, and use the new Azure Machine Leanring CLI'
+title: 'Install, setup, and use the new Azure Machine Learning CLI'
 description: Learn how how to install, setup, and use the new Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning

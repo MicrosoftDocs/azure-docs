@@ -1,5 +1,5 @@
 ---
-title: 'Manage resources with the new Azure Machine Leanring CLI'
+title: 'Manage resources with the new Azure Machine Learning CLI'
 description: Learn how to manage resources (Workspace, Data, Environment, etc.) using the Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
