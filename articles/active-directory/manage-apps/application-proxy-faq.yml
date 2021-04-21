@@ -9,7 +9,7 @@ metadata:
   ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: reference
-  ms.date: 07/23/2020
+  ms.date: 04/21/2021
   ms.author: kenwith
   ms.reviewer: japere
   ms.custom: contperf-fy21q2
@@ -22,9 +22,9 @@ sections:
   - name: Ignored
     questions:
       - question: |
-         Enabling Azure AD Application Proxy
+         Can I delete an App Proxy app from the App registrations page in the Azure portal? 
         answer: |
-
+              No. You should delete an App Proxy app from the **Enterprise applications** area of the Azure portal. If you delete the App Proxy app from the **App registrations** area of the Azure portal then you could experience issues.
       - question: |
          What license is required to use Azure AD Application Proxy?
         answer: |

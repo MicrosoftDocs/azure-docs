@@ -1986,6 +1986,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-auto-train-remote.md",
+      "redirect_url": "/azure/machine-learning/concept-automated-ml#local-remote",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/tutorials/aas-lesson-13-deploy.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -61338,6 +61343,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech/index.md",
       "redirect_url": "/azure/cognitive-services/Speech/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/speech-service/quickstarts/create-luis.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-intent-recognition",
       "redirect_document_id": false
     },
     {
