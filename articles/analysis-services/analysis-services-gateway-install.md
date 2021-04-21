@@ -6,7 +6,8 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Install and configure an on-premises data gateway
