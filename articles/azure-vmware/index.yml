@@ -69,15 +69,13 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: 1 - Request host quota 
-            url: enable-azure-vmware-solution.md
-          - text: 2 - Plan the deployment
+          - text: 1 - Plan the deployment
             url: production-ready-deployment-steps.md
-          - text: 3 - Deploy Azure VMware Solution
+          - text: 2 - Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md
-          - text: 4 - Connect to on-premises
+          - text: 3 - Connect to on-premises
             url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 5 - Deploy and configure HCX
+          - text: 4 - Deploy and configure HCX
             url: tutorial-deploy-vmware-hcx.md
       - linkListType: tutorial
         links:
