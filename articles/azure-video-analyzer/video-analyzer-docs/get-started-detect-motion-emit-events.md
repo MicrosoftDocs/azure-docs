@@ -3,7 +3,7 @@ title: Get started with Azure Video Analyzer
 description: This quickstart walks you through the steps to get started with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 21/04/2021
+ms.date: 04/21/2021
 
 ---
 
