@@ -3,8 +3,8 @@ title: Automated ML remote compute targets
 titleSuffix: Azure Machine Learning
 description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning
 services: machine-learning
-author: cartacioS
-ms.author: sacartac
+author: nibaccam
+ms.author: nibaccam
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
