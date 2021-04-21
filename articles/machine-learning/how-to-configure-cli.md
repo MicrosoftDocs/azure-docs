@@ -124,12 +124,6 @@ Check the status:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="check_job_status":::
 
-## Known limitations
-
-- python required on image
-- azureml-dataprep required for local runs using remote data
-- CLI list operations on many resources is not performant
-
 ## Next steps
 
 - [Train models using Machine Learning CLI extension](how-to-train-cli.md)
