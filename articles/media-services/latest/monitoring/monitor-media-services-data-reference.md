@@ -18,62 +18,37 @@ This article covers the data that is useful for monitoring Media Services. For m
 
 Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
 
+
 Media Services supports monitoring metrics for the following resources:
 
-* Account
-* Streaming Endpoint
+|Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
+|-------|-----|
+| Media Services general | [General](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) |
+| Live Events | [Microsoft.Media/mediaservices/liveEvents](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents) 
+| Streaming Endpoints | [Microsoft.Media/mediaservices/streamingEndpoints](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints), which are relevant to the [Streaming Endpoints REST API](/rest/api/media/streamingendpoints). 
 
-### Account
-
-You can monitor the following account metrics.
-
-|Metric name|Display name|Description|
-|---|---|---|
-|AssetCount|Asset count|Assets in your account.|
-|AssetQuota|Asset quota|Asset quota in your account.|
-|AssetQuotaUsedPercentage|Asset quota used percentage|The percentage of the Asset quota already used.|
-|ContentKeyPolicyCount|Content Key Policy count|Content Key Policies in your account.|
-|ContentKeyPolicyQuota|Content Key Policy quota|Content Key Policies quota in your account.|
-|ContentKeyPolicyQuotaUsedPercentage|Content Key Policy quota used percentage|The percentage of the Content Key Policy quota already used.|
-|StreamingPolicyCount|Streaming Policy count|Streaming Policies in your account.|
-|StreamingPolicyQuota|Streaming Policy quota|Streaming Policies quota in your account.|
-|StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage|The percentage of the Streaming Policy quota already used.|
 
 You should also review [account quotas and limits](../limits-quotas-constraints-reference.md).
 
-### Streaming Endpoint
-
-The following Media Services [Streaming Endpoints](/rest/api/media/streamingendpoints) metrics are supported:
-
-|Metric name|Display name|Description|
-|---|---|---|
-|Requests|Requests|Provides the total number of HTTP requests served by the Streaming Endpoint.|
-|Egress|Egress|Egress bytes total per minute per Streaming Endpoint.|
-|SuccessE2ELatency|Success end to end Latency|Time duration from when the Streaming Endpoint received the request to when the last byte of the response was sent.|
-|CPU usage| | CPU usage for premium streaming endpoints. This data is not available for standard streaming endpoints. |
-|Egress bandwidth | | Egress bandwidth in bits per second.|
 
 ## Metric Dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
+OutputFormat, 
+HttpStatusCode, 
+ErrorCode, 
+TrackName
 
 ## Resource logs
 
-## Media Services diagnostic logs
+## Media Services resource logs
 
-Diagnostic logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../../azure-monitor/essentials/platform-logs-overview.md).
+Resource logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../../azure-monitor/essentials/platform-logs-overview.md).
 
-Media Services supports the following diagnostic logs:
-
-* Key delivery
-
-### Key delivery
-
-|Name|Description|
-|---|---|
-|Key delivery service request|Logs that show the key delivery service request information. For more information, see [schemas](monitor-media-services-data-reference.md).|
+Media Services supports the following resource logs:
+[Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
 
 ## Schemas
 
