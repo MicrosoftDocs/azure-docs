@@ -14,7 +14,7 @@ ms.date: 01/27/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
 
-In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
+In this quickstart, you will create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. Then, you will query the database using **Query editor** in the Azure portal.
 
 
 
