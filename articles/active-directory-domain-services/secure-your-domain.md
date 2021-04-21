@@ -36,7 +36,7 @@ To complete this article, you need the following resources:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 
-## Use Security settings to disable weak ciphers and NTLM password hash sync
+## Use Security settings to harden your domain
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Azure AD Domain Services**.
@@ -51,7 +51,7 @@ To complete this article, you need the following resources:
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
-## Use PowerShell to disable weak ciphers and NTLM password hash sync
+## Use PowerShell to harden your domain
 
 If needed, [install and configure Azure PowerShell](/powershell/azure/install-az-ps). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
 
