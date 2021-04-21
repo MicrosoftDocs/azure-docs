@@ -196,7 +196,11 @@ Create the job:
 
 ### MPI
 
-YAML file:
+Azure ML supports launching an MPI job across multiple nodes and multiple processes per node. It launches the job via mpirun. If your training code uses the Horovod framework for distributed training, for example, you can leverage this job type to train on Azure ML.
+
+To launch an MPI job, specify type: mpi and the number of processes per node to launch (process_count_per_instance) in the distribution section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the node_count field in the compute section.
+
+An example YAML specification, which runs a tensorflow job using horovod:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
 
@@ -216,4 +220,4 @@ If using VSCode, consider configuring to autopopulate options when authoring YAM
 
 - [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).
 - [Manage resources with the Machine Learning CLI extension](how-to-manage-resources-cli.md)
-- [Deploy models with the Machine Leanring CLI extension](how-to-deploy-cli.md)
+- [Deploy models with the Machine Learning CLI extension](how-to-deploy-cli.md)
