@@ -24,7 +24,7 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
 
 - Create a resource group. All Azure resources must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
-   For this quickstart, create a resource group named *streamanalyticsrg* in the *eastus* location with the following [az group create](/cli/azure/group#az-group-create) command:
+   For this quickstart, create a resource group named *streamanalyticsrg* in the *eastus* location with the following [az group create](/cli/azure/group#az_group_create) command:
 
    ```azurecli
    az group create --name streamanalyticsrg --location eastus

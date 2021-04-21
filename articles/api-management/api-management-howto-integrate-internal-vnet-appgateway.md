@@ -14,7 +14,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: sasolank
+ms.author: sasolank 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Integrate API Management in an internal VNET with Application Gateway

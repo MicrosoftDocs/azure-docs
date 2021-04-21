@@ -4,7 +4,8 @@ description: This article tells how to author a graphical runbook without workin
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Author graphical runbooks in Azure Automation
