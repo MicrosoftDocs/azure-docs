@@ -46,8 +46,7 @@ That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provi
 
 ## Data-at-rest encryption
 
-vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. Keys are stored encrypted, wrapped by an Azure Key Vault master key. When a host is removed from a cluster, data on SSDs is invalidated immediately.
-
+vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter operations for key management.  When a host is removed from a cluster, data on SSDs is invalidated immediately.
 
 ## Azure storage integration
 
