@@ -16,6 +16,10 @@ ms.devlang: dotnet
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
 
+The application is available: 
+* [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website)
+* [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
+
 ## Azure SDK Azure.Search.Documents
 
 The Function app uses the Azure SDK for Cognitive Search:
