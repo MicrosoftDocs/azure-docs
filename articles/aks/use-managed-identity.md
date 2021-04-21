@@ -215,6 +215,8 @@ A successful cluster creation using your own managed identities contains this us
 
 ## Bring your own kubelet MI (Preview)
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
 
 ### Prerequisites
@@ -257,7 +259,7 @@ The result should look like:
 }
 ```
 
-If you don't have a kubelet managed identity yet, you should go ahead and create one. The following example uses the [az identity CLI][az-identity-create]:
+If you don't have a kubelet managed identity yet, you should go ahead and create one. The following example uses the [az identity create][az-identity-create] command:
 
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
