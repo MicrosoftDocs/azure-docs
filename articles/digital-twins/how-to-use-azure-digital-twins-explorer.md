@@ -44,6 +44,11 @@ If the query result includes something that is not currently being shown in the 
 
 ### Saved queries
 
+Queries can be saved in local storage in your browser, making them easy to select and rerun.
+
+>[!NOTE]
+>Local browser storage means that saved queries will not be available in other browsers apart from the one where you saved them, and they will remain in the browser storage indefinitely until the local storage is cleared.
+
 To save a query, enter it into the query box and select the **Save** icon at the right of the panel. Enter a name for the saved query when prompted.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel-save.png" alt-text="Screenshot of Azure Digital Twins Explorer QUERY EXPLORER panel. The Save icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel-save.png":::
@@ -340,6 +345,9 @@ You can also view a model's full definition by selecting it in the [**MODEL GRAP
 ### Upload model images
 
 You can upload custom images to represent different models in the [model graph](#view-models-in-model-graph) and [twin graph](#view-twins-and-relationships-in-twin-graph) views. You can upload images for individual models, or for several models at once.
+
+>[!NOTE]
+>These images are stored in local browser storage. This means that the images will not be available in other browsers apart from the one where you saved them, and they will remain in the browser storage indefinitely until the local storage is cleared.
 
 To upload an image for a single model, find that model in the **MODELS** panel and choose the **Upload Model Image** icon next to the model name. In the file selector box that appears, navigate on your machine to the image file you want to upload for that model. Choose **Open** to upload it.
 
