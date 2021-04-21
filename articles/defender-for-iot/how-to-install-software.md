@@ -732,11 +732,11 @@ To install the software:
 
    | Parameter | Configuration |
    |--|--|
-   | **configure management network interface** | For Dell: **eth0, eth1** <br> For HP: **enu1, enu2** |
-   | **configure management network IP address:** | **provided by the customer** |
-   | **configure subnet mask:** | **provided by the customer** |
-   | **configure DNS:** | **provided by the customer** |
-   | **configure default gateway IP address:** | **provided by the customer** |
+   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br /> or <br />**possible value** |
+   | **configure management network IP address:** | **IP address provided by the customer** |
+   | **configure subnet mask:** | **IP address provided by the customer** |
+   | **configure DNS:** | **IP address provided by the customer** |
+   | **configure default gateway IP address:** | **IP address provided by the customer** |
    
 1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
 
@@ -744,9 +744,9 @@ To install the software:
 
    | Parameter | Configuration |
    |--|--|
-   | **configure sensor monitoring interface (Optional):** | **eth1** |
-   | **configure an IP address for the sensor monitoring interface:** | **provided by the customer** |
-   | **configure a subnet mask for the sensor monitoring interface:** | **provided by the customer** |
+   | **configure sensor monitoring interface (Optional):** | **eth1**, or **possible value** |
+   | **configure an IP address for the sensor monitoring interface:** | **IP address provided by the customer** |
+   | **configure a subnet mask for the sensor monitoring interface:** | **IP address provided by the customer** |
 
 1. Accept the settlings and continue by typing `Y`. 
 
@@ -757,6 +757,8 @@ To install the software:
    Save the usernames, and passwords, you'll need these credentials to access the platform the first time you use it.
 
 1. Select **Enter** to continue.
+
+For information on how to find the physical port on your appliance, see [Find your port](#find-your-port).
 
 ### Add a secondary NIC
 
@@ -776,18 +778,30 @@ If you have already configured your on-premises management console, and would li
 
 1. Enter the following responses to the following questions:
 
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Enter the following answers to configure your appliance.":::
+
     | Parameters | Response to enter |
     |--|--|
     | **Management Network IP address** | `N` |
     | **Subnet mask** | `N` |
     | **DNS** | `N` |
     | **Default gateway IP Address** | `N` |
-    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, `eth1` |
-    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **provided by the customer**|
-    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **provided by the customer** |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, **select a possible value** |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer**|
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer** |
     | **Hostname** | **provided by the customer** |
 
-    :::image type="content" source="media/tutorial-install-components/install-screen-second-nic.png" alt-text="Fill in these answers to deploy the secondary NIC.":::
+1. Review all choices, and enter `Y` to accept the changes. The system reboots.
+
+### Find your port
+
+If you are having trouble locating the physical port on your device, you can use the following command to:
+
+```bash
+sudo ethtool -p <port value> <time-in-seconds>
+```
+
+This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes allowing you to find the port on the back of your appliance. 
 
 ## Virtual appliance: On-premises management console installation
 
