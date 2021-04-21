@@ -68,6 +68,8 @@
       href: how-to-gmsa-cmdlets.md
     - name: Install the provisioning agent using PowerShell
       href: how-to-install-pshell.md
+    - name: How to map usertype with cloud sync
+      href: how-to-map-usertype.md
   - name: Develop
     items:
     - name: Transformations
