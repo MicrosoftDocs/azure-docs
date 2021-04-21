@@ -52,7 +52,7 @@ The `Search` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/
 
 The Azure Function pulls in the Search configuration information, and fulfills the query.
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Search.cs" highlight="4-9, 75" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Search.cs" highlight="22-24, 55" :::
 
 ## Client: Search from the catalog
 
@@ -66,7 +66,7 @@ The `Suggest` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples
 
 The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website/bulk-insert/BookSearchIndex.cs) used during bulk upload.
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Suggest.cs" highlight="4-9, 21" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Suggest.cs" highlight="21-23, 50-52" :::
 
 ## Client: Suggestions from the catalog
 
@@ -78,7 +78,7 @@ Th Suggest function API is called in the React app at `\src\components\SearchBar
 
 The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotent-samples/blob/master/search-website/api/Lookup.cs) takes a ID and returns the document object from the Search Index. 
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Lookup.cs" highlight="4-9, 17" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Lookup.cs" highlight="19-21, 42" :::
 
 ## Client: Get specific document 
 
