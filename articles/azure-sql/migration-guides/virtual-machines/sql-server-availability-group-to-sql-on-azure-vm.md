@@ -23,14 +23,15 @@ In this article, you learn how to:
 > * Reconfigure Always On availability group. 
 
 
+This guide uses the agent-based migration approach of Azure Migrate, which treats any server or virtual machine as a physical server. When migrating physical machines, Azure Migrate: Server Migration uses the same replication architecture as the agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
+
+
 ## Prerequisites
 
-Before you begin this tutorial, you should complete the following prerequesites:
+Before you begin this tutorial, you should complete the following prerequisites:
 
 1. An Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/free-trial/), if necessary. 
-1. (Optional but recommended): Discover your source environment and prepare Azure based on your source: [Barebones physical server](../../../migrate/tutorial-discover-physical.md), [VMWare](../../../migrate/tutorial-discover-vmware.md), [Hyper-V](../../../migrate/tutorial-discover-hyper-v.md)
-1. (Optional but recommended): [Assess source servers](../../../migrate/tutorial-assess-physical.md) before migrating them to Azure.
-1. Install the [Azure PowerShell `Az` module]((/powershell/azure/install-az-ps). 
+1. Install the [Azure PowerShell `Az` module](/powershell/azure/install-az-ps). 
 1. Download the [PowerShell samples scripts](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate) from the GitHub repository.
 
 ## Prepare Azure

@@ -25,7 +25,7 @@ In this article, you learn how to:
 > * Reconfigure SQL failover cluster with Azure shared disks.
 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+This guide uses the agent-based migration approach of Azure Migrate, which treats any server or virtual machine as a physical server. When migrating physical machines, Azure Migrate: Server Migration uses the same replication architecture as the agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
 
 ## Prepare Azure
 
