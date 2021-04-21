@@ -103,6 +103,10 @@ Click **New** to create a new access review.
     - **Approve access** - Approve user's access
     - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
 
+1. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
+
+    ![Upon completion settings - Add additional users to receive notifications](./media/pim-how-to-start-security-review/upon-completion-settings-additional-receivers.png) 
+
 ### Advanced settings
 
 1. To specify additional settings, expand the **Advanced settings** section.
