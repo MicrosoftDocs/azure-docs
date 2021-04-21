@@ -1,7 +1,7 @@
 ---
 title: ".NET tutorial: Search integration highlights"
 titleSuffix: Azure Cognitive Search
-description: Understand the .NET SDK Search queries used in the Search-enabled website
+description: Understand the .NET SDK Search integration queries used in the Search-enabled website with this cheat sheet.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ms.devlang: dotnet
 ---
 
-# 4 - .NET Search integration cheat sheat
+# 4 - .NET Search integration cheat sheet
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
 

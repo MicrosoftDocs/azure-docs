@@ -44,7 +44,7 @@
   items:
   - name: Add Search to a website
     items: 
-    - name: C# function with React
+    - name: C#
       items: 
       - name: Website overview
         href: tutorial-csharp-overview.md
@@ -52,9 +52,9 @@
         href: tutorial-csharp-create-load-index.md
       - name: Deploy static web app
         href: tutorial-csharp-deploy-static-web-app.md
-      - name: Understand search integration
+      - name: Integration cheat sheet
         href: tutorial-csharp-search-query-integration.md          
-    - name: JavaScript function with React
+    - name: JavaScript 
       items:         
       - name: Website overview
         href: tutorial-javascript-overview.md
@@ -62,7 +62,7 @@
         href: tutorial-javascript-create-load-index.md
       - name: Deploy static web app
         href: tutorial-javascript-deploy-static-web-app.md
-      - name: Understand search integration
+      - name: Integration cheat sheet
         href: tutorial-javascript-search-query-integration.md     
   - name: Create a C# app
     items:
