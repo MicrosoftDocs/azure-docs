@@ -24,7 +24,7 @@ By default, your subscription uses Microsoft-managed encryption keys. There is a
 
 QnA Maker uses CMK support from Azure search. Configure [CMK in Azure Search using Azure Key Vault](../../search/search-security-manage-encryption-keys.md). This Azure instance should be associated with QnA Maker service to make it CMK enabled.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 QnA Maker uses [CMK support from Azure search](../../search/search-security-manage-encryption-keys.md), and automatically associates the provided CMK to encrypt the data stored in Azure search index.
 
@@ -55,9 +55,9 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 
 4. When finished, restart the runtime. Now your QnA Maker service is CMK-enabled.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-1.	Go to the **Encryption** tab of your QnA Maker managed (Preview) service.
+1.	Go to the **Encryption** tab of your Text Analytics service with Custom question answering (preview) feature.
 2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) and click on **Save**.
 
      :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="QnA Maker managed (Preview) CMK setting" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
