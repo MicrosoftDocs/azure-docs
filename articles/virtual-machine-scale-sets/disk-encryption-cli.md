@@ -82,7 +82,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## Enable encryption
 
-To encrypt VM instances in a scale set, first get some information on the Key Vault resource ID with [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). These variables are used to then start the encryption process with [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+To encrypt VM instances in a scale set, first get some information on the Key Vault resource ID with [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). These variables are used to then start the encryption process with [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -98,7 +98,7 @@ az vmss encryption enable \
 
 It may take a minute or two for the encryption process to start.
 
-As the scale set is upgrade policy on the scale set created in an earlier step is set to *automatic*, the VM instances automatically start the encryption process. On scale sets where the upgrade policy is to manual, start the encryption policy on the VM instances with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
+As the scale set is upgrade policy on the scale set created in an earlier step is set to *automatic*, the VM instances automatically start the encryption process. On scale sets where the upgrade policy is to manual, start the encryption policy on the VM instances with [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances).
 
 ### Enable encryption using KEK to wrap the key
 
@@ -126,7 +126,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## Check encryption progress
 
-To check on the status of disk encryption, use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
+To check on the status of disk encryption, use [az vmss encryption show](/cli/azure/vmss/encryption#az_vmss_encryption_show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
@@ -161,7 +161,7 @@ When VM instances are encrypted, the status code reports *EncryptionState/encryp
 
 ## Disable encryption
 
-If you no longer wish to use encrypted VM instances disks, you can disable encryption with [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable) as follows:
+If you no longer wish to use encrypted VM instances disks, you can disable encryption with [az vmss encryption disable](/cli/azure/vmss/encryption#az_vmss_encryption_disable) as follows:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

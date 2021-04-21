@@ -244,7 +244,7 @@ After the setting is saved, the specified percentage of clients is randomly rout
 After a client is automatically routed to a specific slot, it's "pinned" to that slot for the life of that client session. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Next to the Azure portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
+   > Next to the Azure portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
    > 
 
 ### Route production traffic manually

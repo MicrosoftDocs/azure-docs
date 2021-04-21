@@ -122,7 +122,7 @@ $importStatus
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
+Use the [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

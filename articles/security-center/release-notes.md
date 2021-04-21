@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/11/2021
+ms.date: 04/20/2021
 ms.author: memildin
 
 ---
@@ -26,10 +26,12 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in April include:
 - [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Recommendations to enable Azure Defender for DNS and Resource Manager (preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
 - [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+- [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 
 ### Recently pulled container registry images are now rescanned weekly (General Availability)
 
@@ -61,6 +63,19 @@ This integration between Azure Security Center, Azure Defender, and Azure Arc en
 Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+
+### Recommendations to enable Azure Defender for DNS and Resource Manager (preview)
+
+Two new recommendations have been added to simplify the process of enabling [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for DNS](defender-for-dns-introduction.md):
+
+- **Azure Defender for Resource Manager should be enabled** - Defender for Resource Manager automatically monitors the resource management operations in your organization. Azure Defender detects threats and alerts you about suspicious activity.
+- **Azure Defender for DNS should be enabled** - Defender for DNS provides an additional layer of protection for your cloud resources by continuously monitoring all DNS queries from your Azure resources. Azure Defender alerts you about suspicious activity at the DNS layer.
+
+Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center .
+
+> [!TIP]
+> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
 ### Four new recommendations related to guest configuration (preview)
 
@@ -137,6 +152,10 @@ The following two recommendations were deprecated and the changes might result i
 We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
 
 Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
+
+### Azure Defender for SQL on machine tile removed from Azure Defender dashboard
+
+The Azure Defender dashboard's coverage area includes tiles for the relevant Azure Defender plans for your environment. Due to an issue with the reporting of the numbers of protected and unprotected resources, we've decided to temporarily remove the resource coverage status for **Azure Defender for SQL on machines** until the issue is resolved.
 
 
 ## March 2021
