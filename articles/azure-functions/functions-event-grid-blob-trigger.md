@@ -10,7 +10,10 @@ ms.author: cachai
 
 # Azure Function Event Grid Blob Trigger
 
-The Event Grid Blob trigger is still in preview. This article demonstrates how to setup and debug a local function that uses an Event Grid Blob trigger to handle events raised by a storage account. It also details how to deploy the trigger to Azure.
+This article demonstrates how to debug and deploy a local Event Grid Blob triggered function that handles events raised by a storage account.
+
+> [!NOTE]
+> The Event Grid Blob trigger is in preview.
 
 ## Prerequisites
 
@@ -31,123 +34,123 @@ The Event Grid Blob trigger is still in preview. This article demonstrates how t
 Add **Source = BlobTriggerSource.EventGrid** to the function parameters.
 
 ```csharp
-[FunctionName("BlobTriggerCSharp")]
-public static void Run([BlobTrigger("samples-workitems/{name}", Source = BlobTriggerSource.EventGrid, Connection = "connection")]Stream myBlob, string name, ILogger log)
-{
-    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-}
+    [FunctionName("BlobTriggerCSharp")]
+    public static void Run([BlobTrigger("samples-workitems/{name}", Source = BlobTriggerSource.EventGrid, Connection = "connection")]Stream myBlob, string name, ILogger log)
+    {
+        log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+    }
 ```
 
 # [C# Script](#tab/csharp-script)
 Add **"source": "EventGrid"** to the function.json binding data.
 
 ```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myBlob",
-            "type": "blobTrigger",
-            "direction": "in",
-            "path": "samples-workitems/{name}",
-            "connection":"MyStorageAccountAppSetting"
-        }
-    ]
-}
+    {
+        "disabled": false,
+        "bindings": [
+            {
+                "name": "myBlob",
+                "type": "blobTrigger",
+                "direction": "in",
+                "path": "samples-workitems/{name}",
+                "connection":"MyStorageAccountAppSetting"
+            }
+        ]
+    }
 ```
 
 # [Java](#tab/java)
 This function writes a log when a blob is added or updated in the `myblob` container.
 
 ```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               source: "EventGrid",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
+    @FunctionName("blobprocessor")
+    public void run(
+      @BlobTrigger(name = "file",
+                   dataType = "binary",
+                   path = "myblob/{name}",
+                   source: "EventGrid",
+                   connection = "MyStorageAccountAppSetting") byte[] content,
+      @BindingName("name") String filename,
+      final ExecutionContext context
+    ) {
+      context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+    }
 ```
 
 # [JavaScript](#tab/javascript)
 Add **"source": "EventGrid"** to the function.json binding data.
 
 ```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myBlob",
-            "type": "blobTrigger",
-            "direction": "in",
-            "path": "samples-workitems/{name}",
-            "source": "EventGrid",
-            "connection":"MyStorageAccountAppSetting"
-        }
-    ]
-}
+    {
+        "disabled": false,
+        "bindings": [
+            {
+                "name": "myBlob",
+                "type": "blobTrigger",
+                "direction": "in",
+                "path": "samples-workitems/{name}",
+                "source": "EventGrid",
+                "connection":"MyStorageAccountAppSetting"
+            }
+        ]
+    }
 ```
 
 # [PowerShell](#tab/powershell)
 Add **"source": "EventGrid"** to the function.json binding data.
 
 ```json
-{
-  "bindings": [
     {
-      "name": "InputBlob",
-      "type": "blobTrigger",
-      "direction": "in",
-      "path": "samples-workitems/{name}",
-      "source": "EventGrid",
-      "connection": "MyStorageAccountConnectionString"
+      "bindings": [
+        {
+          "name": "InputBlob",
+          "type": "blobTrigger",
+          "direction": "in",
+          "path": "samples-workitems/{name}",
+          "source": "EventGrid",
+          "connection": "MyStorageAccountConnectionString"
+        }
+      ]
     }
-  ]
-}
 ```
 
 # [Python](#tab/python)
 Add **"source": "EventGrid"** to the function.json binding data.
 
 ```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
     {
-      "name": "myblob",
-      "type": "blobTrigger",
-      "direction": "in",
-      "path": "samples-workitems/{name}",
-      "source": "EventGrid",
-      "connection": "MyStorageAccountConnectionString"
+      "scriptFile": "__init__.py",
+      "bindings": [
+        {
+          "name": "myblob",
+          "type": "blobTrigger",
+          "direction": "in",
+          "path": "samples-workitems/{name}",
+          "source": "EventGrid",
+          "connection": "MyStorageAccountConnectionString"
+        }
+      ]
     }
-  ]
-}
 ```
 ---
 
-1. Then, set a breakpoint in your function on the line that handles logging.
+1. Set a breakpoint in your function on the line that handles logging.
 
-1. Next, **press F5** to start a debugging session.
+1. **Press F5** to start a debugging session.
 
 [!INCLUDE [functions-event-grid-local-dev](../../includes/functions-event-grid-local-dev.md)]
 
 ## Deployment
 
-When deploying your function app to Azure, you'll need to update the webhook endpoint from your local endpoint to your deployed app endpoint. To do this, follow the steps in [Add a storage event](#add-a-storage-event) and use the below for the webhook url in step 5.
+As you deploy the function app to Azure, update the webhook endpoint from your local endpoint to your deployed app endpoint. To update an endpoint, follow the steps in [Add a storage event](#add-a-storage-event) and use the below for the webhook URL in step 5.
 
 ```http
-https://[functionAppName].azurewebsites.net/runtime/webhooks/blobs?functionName=Function1&code=[blobExtensionKey]
+https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Function1&code=<BLOB-EXTENSION-KEY>
 ```
 
 ## Clean up resources
 
-To clean up the resources created in this article, delete the **test** container in your storage account.
+To clean up the resources created in this article, delete the event grid subscription you created in this tutorial.
 
 ## Next steps
 
