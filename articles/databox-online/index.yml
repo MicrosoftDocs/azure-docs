@@ -78,26 +78,6 @@ landingContent:
             url: azure-stack-edge-mini-r-deploy-prep.md 
 
   # Card
-  - title: "Deploy workloads"
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: GPU module via Marketplace
-            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-          - text: Deploy VMs - Azure portal
-            url: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
-          - text: Deploy VMs - Templates
-            url: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
-          - text: IoT Edge module via Azure portal
-            url: zure-stack-edge-gpu-deploy-compute-module-simple.md
-          - text: Kubernetes via IoT Edge
-            url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
-          - text: Kubernetes via kubectl
-            url: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md
-          - text: Kubernetes via Azure Arc
-            url: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
-
-  # Card
   - title: Manage 
     linkLists:
       - linkListType: how-to-guide
@@ -110,6 +90,28 @@ landingContent:
             url: azure-stack-edge-manage-compute.md
           - text: Edge storage accounts
             url: azure-stack-edge-gpu-manage-storage-accounts.md
+
+  # Card
+  - title: "Deploy workloads"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: GPU module via Marketplace
+            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+          - text: VMs via Azure portal
+            url: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
+          - text: VMs via Templates
+            url: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+          - text: IoT Edge module via Azure portal
+            url: azure-stack-edge-gpu-deploy-compute-module-simple.md
+          - text: Kubernetes via IoT Edge
+            url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+          - text: Kubernetes via kubectl
+            url: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md
+          - text: Kubernetes via Azure Arc
+            url: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+
+
 
   # Card
   - title: Troubleshoot
