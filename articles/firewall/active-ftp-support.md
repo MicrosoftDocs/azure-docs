@@ -28,7 +28,7 @@ To deploy using Azure PowerShell, use the `AllowActiveFTP` parameter. For more i
 
 ## Azure CLI
 
-To deploy using the Azure CLI, use the `--allow-active-ftp` parameter. For more information, see [az network firewall create](/cli/azure/ext/azure-firewall/network/firewall#ext_azure_firewall_az_network_firewall_create-optional-parameters). 
+To deploy using the Azure CLI, use the `--allow-active-ftp` parameter. For more information, see [az network firewall create](/cli/azure/network/firewall#az_network_firewall_create-optional-parameters). 
 
 ## Azure Resource Manager (ARM) template
 
