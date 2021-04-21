@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 03/14/2021
+ms.date: 04/21/2021
 ms.author: yelevin
 ---
 # Connect Azure SQL database diagnostics and auditing logs
@@ -27,21 +27,21 @@ Learn more about [Azure SQL Database diagnostic telemetry](../azure-sql/database
 
 - To connect auditing logs, you must have read and write permissions to Azure SQL Server audit settings.
 
-- To use Azure Policy to apply a log streaming policy to Azure SQL database and server resources, you must be assigned the Owner role for the policy assignment scope.
+- To use Azure Policy to apply a log streaming policy to Azure SQL database and server resources, you must have the Owner role for the policy assignment scope.
 
 ## Connect to Azure SQL database
 
-This connector uses Azure Policy to apply a single Azure SQL log-streaming configuration to a collection of instances, defined as a scope. The Azure SQL Database connector sends two types of logs to Azure Sentinel: diagnostics logs (from SQL databases) and auditing logs (from SQL servers). You can see the log types ingested from Azure SQL databases and servers on the left side of connector page, under **Data types**.
+This connector uses Azure Policy to apply a single Azure SQL log streaming configuration to a collection of instances, defined as a scope. The Azure SQL Database connector sends two types of logs to Azure Sentinel: diagnostics logs (from SQL databases) and auditing logs (at the SQL server level). You can see the log types ingested from Azure SQL databases and servers on the left side of connector page, under **Data types**.
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
-1. Select **Azure SQL Database** from the data connectors gallery, and then select **Open Connector Page**  on the preview pane.
+1. Select **Azure SQL Databases** from the data connectors gallery, and then select **Open Connector Page**  on the preview pane.
 
 1. In the **Configuration** section of the connector page, note the two categories of logs you can connect.
 
 ### Connect diagnostics logs
 
-1. Expand **Enable diagnostics logs on all of your Azure SQL databases**.
+1. Expand **Stream diagnostics logs from your Azure SQL databases at scale**.
 
 1. Select the **Launch Azure Policy Assignment wizard** button.
 
@@ -49,7 +49,7 @@ This connector uses Azure Policy to apply a single Azure SQL log-streaming confi
 
     1. In the **Basics** tab, click the button with the three dots under **Scope** to select your subscription (and, optionally, a resource group). You can also add a description.
 
-    1. In the **Parameters** tab, leave the first two settings populated as they are. Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list. The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
+    1. In the **Parameters** tab, leave the first two settings as they are. Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list. The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
 
     1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
 
@@ -57,11 +57,11 @@ This connector uses Azure Policy to apply a single Azure SQL log-streaming confi
 
 ### Connect audit logs
 
-1. Back in the connector page, expand **Enable auditing logs on all of your Azure SQL databases at the server level (Preview)**.
+1. Back in the connector page, expand **Stream auditing logs from your Azure SQL databases at the server level at scale**.
 
 1. Select the **Launch Azure Policy Assignment wizard** button.
 
-    The policy assignment wizard opens, ready to create a new policy called **Deploy - Configure diagnostic settings for SQL Databases to Log Analytics workspace**.
+    The policy assignment wizard opens, ready to create a new policy called **Deploy - Configure auditing settings for SQL Databases to Log Analytics workspace**.
 
     1. In the **Basics** tab, click the button with the three dots under **Scope** to select your subscription (and, optionally, a resource group). You can also add a description.
 
