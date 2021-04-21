@@ -84,7 +84,13 @@ The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotent-samples/
 
 This function API is called in the React app at `\src\pages\Details\Detail.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/pages/Details/Details.js" highlight="19-29" :::
+:::code language="javascript" source="~/azure-search-dotnet-samples/search-website/src/pages/Details/Details.js" highlight="19-29" :::
+
+## C# models to support function app
+
+The following models are used to support the functions in this app.
+
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Models.cs" :::
 
 ## Next steps
 
