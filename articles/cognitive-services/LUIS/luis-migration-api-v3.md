@@ -57,7 +57,10 @@ If you know none of your client application or integrations (Bot Framework, and 
 
 For information on using the Bing Spell Check API, see [How to correct misspelled words](luis-tutorial-bing-spellcheck.md).
 
-## Bot Framework and Azure Bot Service client applications
+
+## Not supported
+
+### Bot Framework and Azure Bot Service client applications
 
 Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released.
 
