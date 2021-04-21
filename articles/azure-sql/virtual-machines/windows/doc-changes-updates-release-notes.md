@@ -17,6 +17,13 @@ ms.date: 10/15/2020
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
+## May 2021
+
+| Changes | Details |
+| --- | --- |
+| **HADR content refresh** | We've refreshed and enhanced our high availability and disaster recovery (HADR) content! There's now an [Overview of the Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md), as well as a consolidated how-to for all the different ways to [Create a cluster](hadr-create-cluster-how-to.md) on SQL Server VMs, and configure quroum. Additionally, we've enhanced the [cluster best practices](hadr-cluster-best-practices.md) with more comprehensive setting recommendations.| 
+
+
 ## October 2020
 
 | Changes | Details |

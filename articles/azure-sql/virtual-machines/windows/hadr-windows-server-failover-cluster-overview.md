@@ -130,6 +130,63 @@ To get started, learn to configure a distributed network name resource for [a fa
 
 There are additional considerations when using the DNN with other SQL Server features. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
+## Quorum
+
+Although a two-node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support. Cluster validation won't pass any cluster without a quorum resource. 
+
+Technically, a three-node cluster can survive a single node loss (down to two nodes) without a quorum resource. But after the cluster is down to two nodes, there's a risk that the clustered resources will go offline if a node loss or communication failure to prevent a split-brain scenario.
+
+Configuring a quorum resource will allow the cluster to continue online with only one node online.
+
+The following table lists the quorum options available in the order recommended using with an Azure VM, with the disk witness being the preferred choice: 
+
+||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+|---------|---------|---------|---------|
+|**Supported OS**| All |Windows Server 2016+| All|
+
+
+
+### Disk witness
+
+A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's less than 1 GB. The disk witness is the preferred quorum option for any cluster that uses Azure Shared Disks (or any shared-disk solution like shared SCSI, iSCSI, or fiber channel SAN).  A Clustered Shared Volume cannot be used as a disk witness.
+
+Configure an Azure shared disk as the disk witness. 
+
+To get started, see [Configure a disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
+
+**Supported OS**: All
+
+### Cloud witness
+
+A cloud witness is a type of failover cluster quorum witness that uses Microsoft Azure to provide a vote on cluster quorum. The default size is about 1 MB and contains just the time stamp. A cloud witness is ideal for deployments in multiple sites, multiple zones, and multiple regions.
+
+To get started, see [Configure a cloud witness](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
+
+**Supported OS**: Windows Server 2016 and later  
+
+### File share witness
+
+A file share witness is an SMB file share that's typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can configure a file share on a separate virtual machine.
+
+To get started, see [Configure a file share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
+
+
+**Supported OS**: Windows Server 2012 and later   
+
+## Limitations
+
+Consider the following limitations when you're working with FCI or availability groups and SQL Server on Azure Virtual Machines. 
+
+### MSDTC 
+
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md) or on SQL Server VMs that are using Azure shared disks. 
+
+On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier with Clustered Shared Volumes because:
+
+- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
+- The basic load balancer doesn't handle RPC ports.
+
+
 
 ## Next steps
 

@@ -1234,8 +1234,6 @@
               href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
             - name: DNN interoperability
               href: virtual-machines/windows/availability-group-dnn-interoperability.md
-          - name: Cluster settings for AG 
-            href: virtual-machines/windows/availability-group-recommended-cluster-settings.md
 
         - name: Failover cluster instance (FCI)
           items:
