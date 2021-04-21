@@ -12,9 +12,9 @@ ms.date: 02/11/2021
 
 This article describes how to replicate, fail over, and fail back Azure virtual machines (VMs) running in a proximity placement group to a secondary region.
 
-[Proximity placement groups](../virtual-machines/windows/proximity-placement-groups-portal.md) are a logical grouping capability in Azure Virtual Machines. You can use it to decrease the inter-VM network latency associated with your applications. 
+[Proximity placement groups](../virtual-machines/windows/proximity-placement-groups-portal.md) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 
 
-When VMs are deployed within the same proximity placement group, they're physically located as close as possible to each other. Proximity placement groups are particularly useful to address the requirements of latency-sensitive workloads.
+When VMs are deployed within the same proximity placement group, they're physically located as close as possible to each other. Proximity placement groups are useful to address the requirements of latency-sensitive workloads.
 
 ## Disaster recovery with proximity placement groups
 
@@ -43,13 +43,13 @@ To select a proximity placement group in the DR region while enabling replicatio
 2. On the **Basics** tab, choose the DR region that you want to replicate the VM to. Go to **Advanced Settings**.
 3. You can see the proximity placement group of your VM and the option to select a proximity placement group in the DR region. Site Recovery also gives you the option of using a new proximity placement group that it creates for you, if you choose to use this default option. 
  
-   Choose the proximity placement group that you want. Then go to **Review + Start replication** and enable replication.
+   Choose the proximity placement group that you want. Then select **Review + Start replication**.
 
    :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="Screenshot that shows advanced settings to enable replication.":::
 
 To select a proximity placement group in the DR region while enabling replication through the vault page:
 
-1. Go to your Recovery Services vault and go to the **Site Recovery** tab.
+1. Go to your Recovery Services vault, and then go to the **Site Recovery** tab.
 2. Select **+ Enable Site Recovery**. Then select **1: Enable Replication** under **Azure virtual machines** (because you want to replicate an Azure VM).
 3. Fill in the required fields on the **Source** tab, and then select **Next**.
 4. Select the list of VMs that you want to enable replication for on the **Virtual machines** tab, and then select **Next**.
@@ -106,7 +106,7 @@ You can easily update your selection of a proximity placement group in the DR re
 ### Azure to Azure
 
 1. [Sign in to your account and set your subscription](./azure-to-azure-powershell.md#sign-in-to-your-microsoft-azure-subscription).
-2. [Get the details of the virtual machine you're planning to replicate](./azure-to-azure-powershell.md#get-details-of-the-virtual-machine-to-be-replicated).
+2. [Get the details of the virtual machine that you're planning to replicate](./azure-to-azure-powershell.md#get-details-of-the-virtual-machine-to-be-replicated).
 3. [Create your recovery services vault](./azure-to-azure-powershell.md#create-a-recovery-services-vault) and [set the vault context](./azure-to-azure-powershell.md#set-the-vault-context).
 4. Prepare the vault to start the replication virtual machine. This step involves [creating an Azure Service Fabric object](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region) for both the primary and recovery regions.
 5. [Create a Site Recovery protection container](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-primary-fabric) for both the primary and recovery fabrics.
@@ -199,9 +199,9 @@ You can easily update your selection of a proximity placement group in the DR re
 
     After the operation to start replication succeeds, virtual machine data is replicated to the recovery region.
 
-    The replication process starts by initially seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase.
+    The replication process starts by initially seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the *initial replication* phase.
 
-    After initial replication finishes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected, and you can perform a test failover operation on it. The replication state of the replicated item that represents the virtual machine goes to the protected state after initial replication finishes.
+    After initial replication finishes, replication moves to the *differential synchronization* phase. At this point, the virtual machine is protected, and you can perform a test failover operation on it. The replication state of the replicated item that represents the virtual machine goes to the protected state after initial replication finishes.
 
     Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item that corresponds to it:
 
@@ -228,7 +228,7 @@ You can easily update your selection of a proximity placement group in the DR re
 
 1. [Prepare your on-premises VMware servers](./vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
 2. [Sign in to your account and set your subscription](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
-3. [Set up a Recovery Services vault](./vmware-azure-disaster-recovery-powershell.md#set-up-a-recovery-services-vault), and [set a vault context](./vmware-azure-disaster-recovery-powershell.md#set-the-vault-context).
+3. [Set up a Recovery Services vault](./vmware-azure-disaster-recovery-powershell.md#set-up-a-recovery-services-vault) and [set a vault context](./vmware-azure-disaster-recovery-powershell.md#set-the-vault-context).
 4. [Validate your vault registration](./vmware-azure-disaster-recovery-powershell.md#validate-vault-registration).
 5. [Create a replication policy](./vmware-azure-disaster-recovery-powershell.md#create-a-replication-policy).
 6. [Add a vCenter server and discover virtual machines](./vmware-azure-disaster-recovery-powershell.md#add-a-vcenter-server-and-discover-vms),  and [create storage accounts for replication](./vmware-azure-disaster-recovery-powershell.md#create-storage-accounts-for-replication).
@@ -252,7 +252,7 @@ You can easily update your selection of a proximity placement group in the DR re
    $Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $targetPpg.Id
    ```
 
-8. You can check the replication state and replication health of the virtual machine by using the `Get-ASRReplicationProtectedItem` cmdlet:
+8. Check the replication state and replication health of the virtual machine by using the `Get-ASRReplicationProtectedItem` cmdlet:
 
    ```azurepowershell
    Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
@@ -266,7 +266,7 @@ You can easily update your selection of a proximity placement group in the DR re
 
 1. [Prepare your on-premises Hyper-V servers](./hyper-v-prepare-on-premises-tutorial.md) for disaster recovery to Azure.
 2. [Sign in to Azure](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account).
-3. [Set up your vault](./hyper-v-azure-powershell-resource-manager.md#step-2-set-up-the-vault), and [set the Recovery Services vault context](./hyper-v-azure-powershell-resource-manager.md#step-3-set-the-recovery-services-vault-context).
+3. [Set up your vault](./hyper-v-azure-powershell-resource-manager.md#step-2-set-up-the-vault) and [set the Recovery Services vault context](./hyper-v-azure-powershell-resource-manager.md#step-3-set-the-recovery-services-vault-context).
 4. [Create a Hyper-V site](./hyper-v-azure-powershell-resource-manager.md#step-4-create-a-hyper-v-site).
 5. [Install the provider and agent](./hyper-v-azure-powershell-resource-manager.md#step-5-install-the-provider-and-agent).
 6. [Create a replication policy](./hyper-v-azure-powershell-resource-manager.md#step-6-create-a-replication-policy).
