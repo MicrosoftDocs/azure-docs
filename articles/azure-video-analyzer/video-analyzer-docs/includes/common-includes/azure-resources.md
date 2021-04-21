@@ -1,6 +1,7 @@
 ---
 author: naiteeks
 ms.topic: include
+ms.service: azure-video-analyzer
 ms.date: 04/20/2021
 ms.author: juliako
 ---
