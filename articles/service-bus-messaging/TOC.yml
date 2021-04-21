@@ -112,6 +112,12 @@
       href: service-bus-dead-letter-queues.md
     - name: Message deferral
       href: message-deferral.md
+    - name: Prefetch messages
+      href: service-bus-prefetch.md
+    - name: Chain entities with auto-forwarding
+      href: service-bus-auto-forwarding.md
+    - name: Transaction processing
+      href: service-bus-transactions.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
     - name: Geo-disaster recovery and geo-replication
@@ -204,14 +210,6 @@
         href: service-bus-amqp-request-response.md
       - name: AMQP errors
         href: service-bus-amqp-troubleshoot.md
-    - name: Advanced features
-      items:
-      - name: Prefetch messages
-        href: service-bus-prefetch.md
-      - name: Chain entities with auto-forwarding
-        href: service-bus-auto-forwarding.md
-      - name: Transaction processing
-        href: service-bus-transactions.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
   - name: Migrate
