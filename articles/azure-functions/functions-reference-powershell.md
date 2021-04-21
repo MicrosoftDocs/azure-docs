@@ -120,7 +120,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * When the output binding only accepts a singleton value, calling `Push-OutputBinding` a second time raises an error.
 
-#### `Push-OutputBinding` syntax
+#### Push-OutputBinding syntax
 
 The following are valid parameters for calling `Push-OutputBinding`:
 
@@ -194,7 +194,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 When written to the queue, the message contains these four values: "output #1", "output #2", "output #3", and "output #4".
 
-#### `Get-OutputBinding` cmdlet
+#### Get-OutputBinding cmdlet
 
 You can use the `Get-OutputBinding` cmdlet to retrieve the values currently set for your output bindings. This cmdlet retrieves a hashtable that contains the names of the output bindings with their respective values. 
 
@@ -511,7 +511,7 @@ In Functions, `PSModulePath` contains two paths:
 * A `Modules` folder that exists at the root of your function app.
 * A path to a `Modules` folder that is controlled by the PowerShell language worker.
 
-### Function app-level `Modules` folder
+### Function app-level modules folder
 
 To use custom modules, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules. 
 
@@ -543,7 +543,7 @@ PSFunctionApp
 
 When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
 
-### Language worker level `Modules` folder
+### Language worker level modules folder
 
 Several modules are commonly used by the PowerShell language worker. These modules are defined in the last position of `PSModulePath`. 
 
@@ -598,7 +598,7 @@ Azure PowerShell uses some _process-level_ contexts and state to help save you f
 
 There's immense value in concurrency with Azure PowerShell, since some operations can take a considerable amount of time. However, you must proceed with caution. If you suspect that you're experiencing a race condition, set the PSWorkerInProcConcurrencyUpperBound app setting to `1` and instead use [language worker process level isolation](functions-app-settings.md#functions_worker_process_count) for concurrency.
 
-## Configure function `scriptFile`
+## Configure function scriptFile
 
 By default, a PowerShell function is executed from `run.ps1`, a file that shares the same parent directory as its corresponding `function.json`.
 
@@ -676,7 +676,7 @@ When you work with PowerShell functions, be aware of the considerations in the f
 
 When developing Azure Functions in the [serverless hosting model](consumption-plan.md), cold starts are a reality. *Cold start* refers to period of time it takes for your function app to start running to process a request. Cold start happens more frequently in the Consumption plan because your function app gets shut down during periods of inactivity.
 
-### Bundle modules instead of using `Install-Module`
+### Bundle modules instead of using Install-Module
 
 Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](dedicated-plan.md) set to *always on* or to a [Premium plan](functions-premium-plan.md).
 
