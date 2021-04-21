@@ -43,7 +43,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Set up a new manual QoS capacity pool 
 
-To create a new capacity pool using the manual QoS type:
+To create a new capacity pool using the manual QoS type: 
 
 1. Follow steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).  
 
