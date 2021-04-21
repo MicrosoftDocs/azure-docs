@@ -5,7 +5,7 @@ description: Learn how to deploy apps to a non-production slot and autoswap into
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 ---
 # Set up staging environments in Azure App Service
