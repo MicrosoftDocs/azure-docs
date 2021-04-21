@@ -29,10 +29,8 @@ sections:
           
           There is a current known issue causing latency in the user risk dismissal flow. If you have a "User risk policy", this policy will stop applying to dismissed users within minutes of clicking on "Dismiss user risk". However, there are known delays with the UX refreshing the "Risk state" of dismissed users. As a workaround, refresh the page on the browser level to see the latest user "Risk state".
           
-          
-      - question: |
-          Frequently asked questions
-        answer: |
+  - name: Frequently asked questions
+    questions:
       - question: |
           Why is a user at risk?
         answer: |
