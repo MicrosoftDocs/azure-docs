@@ -1,7 +1,7 @@
 ---
-title: How to build services that are resilient to Azure Active Directory OpenIdConnect metadata refresh | Azure
+title: Build services that are resilient to Azure AD's OpenID Connect metadata refresh | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to ensure that your web app or web api is resilient to metadata refresh.
+description: Learn how to ensure that your web app or web api is resilient to Azure AD's OpenID Connect metadata refresh.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: jmprieur
 ms.reviewer: marsma, jmprieur
 ms.custom: aaddev
@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 Protected web APIs need to validate access tokens. Web apps also validate the ID tokens. Token Validation has multiple parts, checking it's for the application, issued by a trusted Identity Provider (IDP), its lifetime is in range, and it wasn't tampered with. There can also be special validations. For instance, the app needs to validate the signature and that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. When the signing keys aren't embedded in the token, they need to be fetched from the identity provider (Discovery or Metadata). Sometimes it's also necessary to obtain keys dynamically at runtime.
 
-To build a resilient web app or web API, you'd want to respect the best practices highlighted in this article for refreshing stale metadata. It applies to ASP.NET Core, ASP.NET classic, and Microsoft.IdentityModel.
+To build a resilient web app or web API, you'd want to respect the best practices that are highlighted in this article for refreshing stale OpenID Connect metadata. It applies to ASP.NET Core, ASP.NET classic, and Microsoft.IdentityModel.
 
 ## ASP.NET Core
 
