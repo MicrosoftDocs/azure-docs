@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: jmprieur
-ms.reviewer: marsma, jmprieur
+ms.reviewer: marsma, shermanouko
 ms.custom: aaddev
 ---
 
