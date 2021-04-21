@@ -102,4 +102,4 @@ In this article, you learned how to:
 > * Delete your tenant resources
 > * Delete the tenant
 
-Next, learn more about getting started with Azure AD B2C [user flows and custom policies](user-flow-overview).
+Next, learn more about getting started with Azure AD B2C [user flows and custom policies](user-flow-overview.md).
