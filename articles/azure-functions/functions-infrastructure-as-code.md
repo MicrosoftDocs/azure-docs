@@ -5,7 +5,7 @@ description: Learn how to build an Azure Resource Manager template that deploys 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurepowershell
 ---
 
 # Automate resource deployment for your function app in Azure Functions
