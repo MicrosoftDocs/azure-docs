@@ -33,11 +33,13 @@ By default, every subscription has the **Azure Security Benchmark** assigned. Th
 
 You can also add standards such as:
 
-- NIST SP 800-53 R4
+- NIST SP 800-53
 - SWIFT CSP CSCF-v2020
 - UK Official and UK NHS
 - Canada Federal PBMM
-- Azure CIS 1.1.0
+- Azure CIS 1.3.0
+- CMMC Level 3
+- New Zealand ISM Restricted
 
 Standards are added to the dashboard as they become available.
 
@@ -62,13 +64,15 @@ The following steps explain how to add a package to monitor your compliance with
 
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards, including:
 
-    - **NIST SP 800-53 R4**
-    - **NIST SP 800 171 R2**
+    - **NIST SP 800-53**
+    - **NIST SP 800 171**
     - **SWIFT CSP CSCF v2020**
     - **UKO and UK NHS**
     - **Canada Federal PBMM**
     - **HIPAA HITRUST**
-    - **Azure CIS 1.1.0**
+    - **Azure CIS 1.3.0**
+    - **CMMC Level 3**
+    - **New Zealand ISM Restricted**
     
     ![Adding regulatory standards to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
