@@ -11,7 +11,7 @@ This article explains Azure functions language runtime support policy.
 
 ## Deprecation process
 
-Azure Functions runtime is built around various components, including operating systems, Azure Functions Host and language specific workers. To ensure full support coverages for function apps, Azure Functions will retire its support for programming languages that reach their End-Of-Life dates in phases.
+Azure Functions runtime is built around various components, including operating systems, Azure Functions Host and language specific workers. To ensure full support coverages for function apps, Azure Functions will retire its support for programming language versions that reach their End-Of-Life dates in phases. For most language versions, deprecation date will coincide with the community EOL date. 
 
 ### Notification phase
 
@@ -23,8 +23,6 @@ We will send notification emails to function apps that at least 1 year in advanc
 
 * __Phase 2:__ After the first phase, it is not guaranteed that function apps using deprecated languages will be able to run on the platform. 
 
- * __Phase 3:__ When it is deemed necessary (e.g., security concerns), functions apps with languages that already reached EOL will be automatically upgraded to the newer version of the language. Users could opt out of this automatic upgrade by manually pinning the language version. (Todo)   
-
 
 ## Deprecation policy exceptions
 
@@ -33,7 +31,7 @@ There are few exceptions to the deprecation policy outlined above. Here are list
 |Language Versions                        |EOL Date         |Expected Deprecation Date|
 |-----------------------------------------|-----------------|----------------|
 |Node 6|30 April 2019|TBA| 
-|Node 8|31 December 2021|TBA| 
+|Node 8|31 December 2019|TBA| 
 |Node 10|30 April 2021|TBA| 
 |PowerShell Core 6| 4 September 2020|TBA|
 |Python 3.6 |23 December 2021|TBA| 
