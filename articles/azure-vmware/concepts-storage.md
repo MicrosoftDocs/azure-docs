@@ -35,7 +35,7 @@ That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provi
 
 |Provisioning type  |Description  |
 |---------|---------|
-|**Thick**      | Is reserved or pre-allocated storage space. It protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, if you create a 10-GB virtual disk with thick provisioning, the full amount of virtual disk storage capacity is pre-allocated on the physical storage of the virtual disk and consumes all the space allocated to it in the datastore. It won't allow other VMs to share the space from the datastore.         |
+|**Thick**      | Is reserved or pre-allocated storage space. It protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, if you create a 10-GB virtual disk with thick provisioning, the full amount of virtual disk storage capacity is pre-allocated on the physical storage of the virtual disk and consumes all the space allocated to it in the datastore. It won't allow other virtual machines (VMs) to share the space from the datastore.         |
 |**Thin**      | Consumes the space that it needs initially and grows to the data space demand used in the datastore. Outside the default (thick provision), you can create VMs with FTT-1 thin provisioning. For dedupe setup, use thin provisioning for your VM template.         |
 
 >[!TIP]
