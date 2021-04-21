@@ -502,6 +502,16 @@ Clicking the settings cog in the top right corner allows the configuration of th
 
 <Any other toolbar settings we want to describe? (Like Azure Digital Twins URL--not sure if that will still be there once this is in portal)>
 
+### Reorganize panels
+
+You can edit the position of the panels that make up Azure Digital Twins Explorer (QUERY EXPLORER, MODELS, TWIN GRAPH, MODEL GRAPH).
+
+To move a panel to a different location, click and hold the panel name, and drag it to its new desired position.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Screenshot of Azure Digital Twins Explorer. The names of the QUERY EXPLORER, MODELS, TWIN GRAPH, and MODEL GRAPH panels are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
+
+The panel positions will be reset upon refresh of the browser window.
+
 ## Known limitations
 
 <Probably a new set of limitations for the hosted version?>
