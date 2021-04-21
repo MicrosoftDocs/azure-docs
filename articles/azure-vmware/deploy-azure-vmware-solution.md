@@ -13,9 +13,11 @@ In this article, you'll use the information from the [planning section](producti
 >[!IMPORTANT]
 >If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
 
+## Step 1. Register the **Microsoft.AVS** resource provider
 
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
-## Step 1. Create an Azure VMware Solution private cloud
+## Step 2. Create an Azure VMware Solution private cloud
 
 [!INCLUDE [create-private-cloud-azure-portal-steps](includes/create-private-cloud-azure-portal-steps.md)]
 
@@ -23,7 +25,7 @@ In this article, you'll use the information from the [planning section](producti
 >For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
 
 
-## Step 2. Connect to Azure Virtual Network with ExpressRoute
+## Step 3. Connect to Azure Virtual Network with ExpressRoute
 
 In the planning phase, you defined whether you to use an *existing* or *new* ExpressRoute virtual network gateway.  
 
@@ -43,7 +45,7 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 
 [!INCLUDE [connect-expressroute-vnet](includes/connect-expressroute-vnet.md)]
 
-## Step 3. Validate the connection
+## Step 4. Validate the connection
 
 You should have connectivity between the Azure Virtual Network where the ExpressRoute terminates and the Azure VMware Solution private cloud. 
 
