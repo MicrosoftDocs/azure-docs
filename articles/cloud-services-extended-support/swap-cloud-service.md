@@ -1,6 +1,6 @@
 ---
-title: Swap/Switch between two Azure Cloud Services (Extended Support)
-description: Swap/Switch between two Azure Cloud Services (Extended Support)
+title: Swap or switch deployments in Azure Cloud Services (extended support)
+description: Learn how to swap or switch between deployments in Azure Cloud Services (extended support).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -10,39 +10,58 @@ ms.date: 04/01/2021
 ms.custom: 
 ---
 
-# Swap/Switch between two Azure Cloud Services (Extended Support)
-With cloud services (extended support) you can swap between two independent cloud service deployments. Unlike cloud services (classic), the concept of slots does not exist with the Azure Resource Manager model. When you decide to deploy a new release of a cloud service (extended support), you can make it “swappable” with another existing cloud service (extended support) enabling you to stage and test your new release using this deployment. A cloud service can be made ‘swappable’ with another cloud service only at the time of deploying the second cloud service (of the pair). When using the ARM template-based deployment method, this is done by setting the SwappableCloudService property within the Network Profile of the Cloud Service object to the ID of the paired cloud service. 
+# Swap or switch deployments in Azure Cloud Services (extended support)
 
-```
+You can swap between two independent cloud service deployments in Azure Cloud Services (extended support). Unlike in Azure Cloud Services (classic), the Azure Resource Manager model in Azure Cloud Services (extended support) doesn't use deployment slots. In Azure Cloud Services (extended support), when you deploy a new release of a cloud service, you can make the cloud service “swappable” with an existing cloud service in Azure Cloud Services (extended support).
+
+After you swap the deployments, you can stage and test your new release by using the new cloud service deployment. In effect, swapping promotes a new cloud service that's staged to production release.
+
+> [!NOTE]
+> You can't swap between an Azure Cloud Services (classic) deployment and an Azure Cloud Services (extended support) deployment.
+
+You must make a cloud service swappable with another cloud service when you deploy the second of a pair of cloud services.
+
+You can swap the deployments by using an Azure Resource Manager template (ARM template), the Azure portal, or the REST API.
+
+## ARM template
+
+If you use an ARM template deployment method, to make the cloud services swappable, set the `SwappableCloudService` property in `networkProfile` in the `cloudServices` object to the ID of the paired cloud service:
+
+```json
 "networkProfile": {
  "SwappableCloudService": {
               "id": "[concat(variables('swappableResourcePrefix'), 'Microsoft.Compute/cloudServices/', parameters('cloudServicesToBeSwappedWith'))]"
             },
+        }
 ```
-> [!Note] 
-> You cannot swap between a cloud service (classic) and a cloud service (extended support)
 
-Use **Swap** to switch the URLs by which the two cloud services are addressed, in effect promoting a new cloud service (staged) to production release.
-You can swap deployments from the Cloud Services page or the dashboard.
+## Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), select the cloud service you want to update. This step opens the cloud service instance blade.
-2. On the blade, select **Swap**
-   :::image type="content" source="media/swap-cloud-service-1.png" alt-text="Image shows the swap option the cloud service":::
-   
-3. The following confirmation prompt opens
-   
-   :::image type="content" source="media/swap-cloud-service-2.png" alt-text="Image shows swapping the cloud service":::
-   
-4. After you verify the deployment information, select OK to swap the deployments.
-The swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the two cloud services.
+To swap a deployment in the Azure portal:
 
-To save compute costs, you can delete one of the cloud services (designated as a staging environment for your application deployment) after you verify that your swapped cloud service is working as expected.
+1. In the portal menu, select **Cloud Services (extended support)** or **Dashboard**.
+1. Select the cloud service you want to update.
+1. In **Overview** for the cloud service, select **Swap**:
 
-The rest API to perform a ‘swap’ between two cloud services extended support deployments is below:
+   :::image type="content" source="media/swap-cloud-service-portal-swap.png" alt-text="Screenshot that shows the swap tab for the cloud service.":::
+
+1. In the swap confirmation pane, verify the deployment information, and then select **OK** to swap the deployments:
+
+   :::image type="content" source="media/swap-cloud-service-portal-confirm.png" alt-text="Screenshot that shows confirming the deployment swap information.":::
+
+Deployments swap quickly because the only thing that changes is the virtual IP address for the cloud service that's deployed.
+
+To save compute costs, you can delete one of the cloud services (designated as a staging environment for your application deployment) after you verify that your swapped cloud service works as expected.
+
+## REST API
+
+To use the REST API to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
+
 ```http
 POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Network/locations/region/setLoadBalancerFrontendPublicIpAddresses?api-version=2020-11-01
 ```
-```
+
+```json
 {
   "frontendIPConfigurations": [
  	{
@@ -63,23 +82,36 @@ POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Networ
     }
   ]
  }
+}
 ```
+
 ## Common questions about swapping deployments
 
-### What are the prerequisites for swapping between two cloud services?
-There are two key prerequisites for a successful cloud service (extended support) swap:
-* If you want to use a static / reserved IP address for one of the swappable cloud services, the other cloud service must also use a reserved IP. Otherwise, the swap fails.
-* All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the Overview blade of the Azure portal. Alternatively, you can use the Get-AzRole command in Windows PowerShell.
+Review these answers to common questions about deployment swaps in Azure Cloud Services (extended support).
 
-Guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see Troubleshoot cloud service deployment problems.
+### What are the prerequisites for swapping to a new cloud services deployment?
 
-### Can I perform a VIP Swap in parallel with another mutating operation?
-No. VIP Swap is a networking only change that needs to complete before any other compute operation is performed on the cloud service(s). Performing an update, delete or autoscale operation on the cloud service(s) while a VIP Swap is in progress or triggering a VIP Swap while another compute operation is in progress can leave the cloud service in an undesired state from which recovery might not be possible. 
+You must meet two key prerequisites for a successful deployment swap in Azure Cloud Services (extended support):
 
-### Does a swap incur downtime for my application? How should I handle it?
-As described in the previous section, a cloud service swap is typically fast because it's just a configuration change in the Azure load balancer. In some cases, it can take 10 or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing client retry logic.
+* If you want to use a static or reserved IP address for one of the swappable cloud services, the other cloud service must also use a reserved IP address. Otherwise, the swap fails.
+* All instances of your roles must be running for the swap to succeed. To check the status of your instances, in the Azure portal, go to **Overview** for the newly deployed cloud service, or use the `Get-AzRole` command in Windows PowerShell.
+
+Guest OS updates and service healing operations might cause a deployment swap to fail. For more information, see [Troubleshoot cloud service deployments](../cloud-services/cloud-services-troubleshoot-deployment-problems.md).
+
+### Can I make a VIP swap in parallel with another mutating operation?
+
+No. A VIP swap is a networking-only change that must finish before any other compute operation is started on a cloud service. Starting an update, delete, or autoscale operation for a cloud service while a VIP swap is in progress or triggering a VIP swap while another compute operation is in progress might put the cloud service in a state of unrecoverable error.
+
+### Does a swap incur downtime for my application, and how should I handle it?
+
+A cloud service swap usually is fast because it's only a configuration change in the Azure load balancer. In some cases, the swap might take 10 or more seconds and result in transient connection failures. To limit the effect of the swap on users, consider implementing client retry logic.
 
 ## Next steps 
-- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
-- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
+
+* Review [deployment prerequisites](deploy-prerequisite.md) for Azure Cloud Services (extended support).
+* Review [frequently asked questions](faq.md) for Azure Cloud Services (extended support).
+* Deploy an Azure Cloud Services (extended support) cloud service by using one of these options:
+  * [Azure portal](deploy-portal.md)
+  * [PowerShell](deploy-powershell.md)
+  * [ARM template](deploy-template.md)
+  * [Visual Studio](deploy-visual-studio.md)

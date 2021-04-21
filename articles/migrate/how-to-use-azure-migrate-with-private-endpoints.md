@@ -88,31 +88,18 @@ This creates a migrate project and attaches a private endpoint to it.
 
 4. After the key is successfully generated, copy the key details to configure and register the appliance.   
 
-#### Download the appliance installer file
+#### Download the appliance installer file  
+
+> [!Note]
+> If you are facing issues downloading the appliance installer file, please create a support case.
 
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
-To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance.
+To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance. 
 
 Make sure the server meets the [hardware requirements](https://docs.microsoft.com/azure/migrate/migrate-appliance) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the required Azure URLs - [public](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) and [government](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity) clouds.
 
-After downloading the zipped file, verify the file security and run the installer script to deploy the appliance.
-
-#### Verify file security
-
-Check that the zipped file is secure before you deploy it.
-
-1. Open an administrator command window on the server to which you downloaded the file. 
-2. Run the following command to generate the hash for the zipped file
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-PrivateEndPoint.zip SHA256```
-3. Verify the latest appliance version and script for Azure public cloud:
-
-    **Algorithm** | **Download** | **SHA256**
-    --- | --- | ---
-    VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
-    Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
-    Physical or other (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
+After downloading the zipped file, run the installer script to deploy the appliance.
 
 #### Run the script
 

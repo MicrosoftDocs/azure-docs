@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-analysis-services
 tags:
   - azure-resource-manager
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - references_regions
   - mode-arm
