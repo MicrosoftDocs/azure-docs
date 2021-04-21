@@ -101,7 +101,10 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 
 ---
 
-You've now enabled large file shares on your storage account. Next, you must [update existing share's quota](#expand-existing-file-shares) to take advantage of increased capacity and scale.
+You've now enabled large file shares on your storage account. Next, you must [update existing share's quota](#expand-existing-file-shares) to take advantage of increased capacity and scale. 
+
+> [!Important]  
+> Existing file shares will not scale up to the advertised limits for large file shares unless the quota has been changed.
 
 ## Expand existing file shares
 After you've enabled large file shares on your storage account, you must expand existing file shares in that storage account to take advantage of the increased capacity and scale. 
