@@ -26556,6 +26556,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-monitor-view-training-logs.md",
+      "redirect_url": "/azure/machine-learning/how-to-log-view-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-manage-runs.md",
+      "redirect_url": "/azure/machine-learning/how-to-track-monitor-analyze-runs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-track-experiments.md",
+      "redirect_url": "/azure/machine-learning/how-to-log-view-metrics",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/machine-learning-faq.md",
       "redirect_url": "/azure/machine-learning/classic/faq",
       "redirect_document_id": false

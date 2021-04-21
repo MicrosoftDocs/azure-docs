@@ -390,15 +390,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Track & monitor training
           items: 
-            - name: Start, monitor or cancel runs
+            - name: Track, monitor, and analyze runs
               displayName: cancel, fail, status, child run
-              href: how-to-manage-runs.md
-            - name: Enable logs
-              displayName: troubleshoot, log, files, tracing
-              href: how-to-track-experiments.md
-            - name: View logs and metrics for runs
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Log & view metrics and log files
               displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
