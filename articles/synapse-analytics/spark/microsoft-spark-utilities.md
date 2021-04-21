@@ -467,7 +467,7 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 For example:
 
 ```python
-mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 ```
 
 ### Exit a notebook
@@ -553,7 +553,7 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 For example:
 
 ```scala
-mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 ```
 
 ### Exit a notebook
