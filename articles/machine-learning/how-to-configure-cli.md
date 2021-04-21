@@ -43,13 +43,17 @@ Check the extensions you have installed:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_list":::
 
-Ensure you do not have conflicting `ml` extensions installed, including the old `azure-cli-ml` and previous preview versions of `ml`:
+Ensure you do not have conflicting `ml` extensions installed, including the old `azure-cli-ml` and old versions of `ml`:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_remove":::
 
-Finally, install the new Machine Learning extension:
+Now, install the new Machine Learning extension:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_install":::
+
+You can upgrade the extension to newer version:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_update":::
 
 Run the help command to verify your installation and see available subcommands:
 
@@ -69,7 +73,7 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 Export your workspace name, resource group, and Azure location: 
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="export_variables_placeholder":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="export_variables_placeholders":::
 
 If it does not already exist, you can create the Azure resource group:
 
@@ -114,7 +118,7 @@ Then open the job in the studio:
 
 Or, stream to the logs, which will block the console:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="show_job_in_studio":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="stream_job_logs_to_console":::
 
 Check the status:
 

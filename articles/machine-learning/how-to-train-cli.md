@@ -94,7 +94,7 @@ Currently supported:
 
 Download, extract/remove, and relocate CIFAR-10 dataset locally:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
+:::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
 
 YAML file:
 
