@@ -4,7 +4,8 @@ description: This article describes how to run runbooks on machines in your loca
 services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Run runbooks on a Hybrid Runbook Worker

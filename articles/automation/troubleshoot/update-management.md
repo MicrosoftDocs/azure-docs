@@ -5,6 +5,7 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/18/2021
 ms.topic: troubleshooting
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Update Management issues

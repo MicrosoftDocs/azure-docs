@@ -673,11 +673,11 @@ Azure Archive Storage can be used in Azure Government to support Impact Level 5 
 
 The target storage account for Archive Storage can be located in any Azure Government or Azure Government for DoD region.
 
-### [Azure File Sync](../storage/files/storage-sync-files-planning.md)
+### [Azure File Sync](../storage/file-sync/file-sync-planning.md)
 
 Azure File Sync supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](../storage/files/storage-sync-files-planning.md#azure-file-share-encryption-at-rest).
+- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](../storage/file-sync/file-sync-planning.md#azure-file-share-encryption-at-rest).
 
 ### [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/)
 
