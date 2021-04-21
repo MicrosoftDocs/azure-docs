@@ -1,7 +1,7 @@
 ---
-title: Document Translation get operation status
+title: Cancel translation method
 titleSuffix: Azure Cognitive Services
-description: The get operation status method returns the status for a document translation request.
+description: The cancel translation method cancels a currently processing or queued operation.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,15 +13,16 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get operation status
+# Cancel translation
 
-The Get Operation Documents Status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request.
+Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed or failed or canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
 
 ## Request URL
 
-Send a `GET` request to:
-```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+Send a `DELETE` request to:
+
+```DELETE HTTP
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -31,38 +32,37 @@ Learn how to find your [custom domain name](../get-started-with-document-transla
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 > * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 
-
 ## Request parameters
 
 Request parameters passed on the query string are:
 
 |Query parameter|Required|Description|
-|--- |--- |--- |
-|id|True|The operation ID.|
+|-----|-----|-----|
+|id|True|The operation-id.|
 
 ## Request headers
 
 Request headers are:
 
 |Headers|Description|
-|--- |--- |
+|-----|-----|
 |Ocp-Apim-Subscription-Key|Required request header|
 
 ## Response status codes
 
 The following are the possible HTTP status codes that a request returns.
 
-|Status Code|Description|
-|--- |--- |
-|200|OK. Successful request and returns the status of the batch translation operation. HeadersRetry-After: integerETag: string|
+| Status Code| Description|
+|-----|-----|
+|200|OK. Cancel request has been submitted|
 |401|Unauthorized. Check your credentials.|
-|404|Resource is not found.|
-|500|Internal Server Error.|
+|404|Not found. Resource is not found. 
+|500|Internal Server Error.
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get operation status response
+## Cancel translation response
 
-### Successful get operation status response
+### Successful response
 
 The following information is returned in a successful response.
 
@@ -73,15 +73,15 @@ The following information is returned in a successful response.
 |lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
 |status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |summary|StatusSummary|Summary containing the details listed below.|
-|summary.total|integer|Total count.|
-|summary.failed|integer|Failed count.|
-|summary.success|integer|Number of successful.|
-|summary.inProgress|integer|Number of in progress.|
-|summary.notYetStarted|integer|Count of not yet started.|
+|summary.total|integer|Count of total documents.|
+|summary.failed|integer|Count of documents failed.|
+|summary.success|integer|Count of documents successfully translated.|
+|summary.inProgress|integer|Count of documents in progress.|
+|summary.notYetStarted|integer|Count of documents not yet started processing.|
 |summary.cancelled|integer|Number of canceled.|
 |summary.totalCharacterCharged|integer|Total characters charged by the API.|
 
-###Error response
+### Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -90,13 +90,15 @@ The following information is returned in a successful response.
 |target|string|Gets the source of the error. For example, it would be "documents" or "document id" for an invalid document.|
 |innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error (can be nested).|
 |innerError.code|string|Gets code error string.|
-|innerError.message|string|Gets high-level error message.|
+|inner.Eroor.message|string|Gets high-level error message.|
 
 ## Examples
 
 ### Example successful response
 
 The following JSON object is an example of a successful response.
+
+Status code: 200
 
 ```JSON
 {
@@ -120,17 +122,17 @@ The following JSON object is an example of a successful response.
 
 The following JSON object is an example of an error response. The schema for other error codes is the same.
 
-Status code: 401
+Status code: 500
 
 ```JSON
 {
   "error": {
-    "code": "Unauthorized",
-    "message": "User is not authorized",
-    "target": "Document",
+    "code": "InternalServerError",
+    "message": "Internal Server Error",
+    "target": "Operation",
     "innerError": {
-      "code": "Unauthorized",
-      "message": "Operation is not authorized"
+      "code": "InternalServerError",
+      "message": "Unexpected internal server error has occurred"
     }
   }
 }
