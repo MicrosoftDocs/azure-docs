@@ -31,7 +31,7 @@ ms.author: yelevin
 
 Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all M365D incidents and alerts into Azure Sentinel, and keeps the incidents synchronized between both portals. M365D incidents include all their alerts, entities, and other relevant information, and they are enriched by and group together alerts from M365D's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Cloud App Security**.
 
-The connector also lets you stream **advanced hunting** events from Microsoft Defender for Endpoint into Azure Sentinel, allowing you to copy MDE advanced hunting queries into Azure Sentinel, enrich Sentinel alerts with MDE raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
+The connector also lets you stream **advanced hunting** events from Microsoft Defender for Endpoint into Azure Sentinel, allowing you to copy Defender for Endpoint advanced hunting queries into Azure Sentinel, enrich Sentinel alerts with Defender for Endpoint raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
 
 For more information about incident integration and advanced hunting event collection, see [Microsoft 365 Defender integration with Azure Sentinel](microsoft-365-defender-sentinel-integration.md).
 

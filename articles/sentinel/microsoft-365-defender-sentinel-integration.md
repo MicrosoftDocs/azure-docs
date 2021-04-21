@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2021
+ms.date: 04/21/2021
 ms.author: yelevin
 
 ---
@@ -36,9 +36,9 @@ Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/mi
 
 This integration gives Microsoft 365 security incidents the visibility to be managed from within Azure Sentinel, as part of the primary incident queue across the entire organization, so you can see – and correlate – M365 incidents together with those from all of your other cloud and on-premises systems. At the same time, it allows you to take advantage of the unique strengths and capabilities of M365D for in-depth investigations and an M365-specific experience across the M365 ecosystem. M365 Defender enriches and groups alerts from multiple M365 products, both reducing the size of the SOC’s incident queue and shortening the time to resolve. The component services that are part of the M365 Defender stack are:
 
-- **Microsoft Defender for Endpoint** (MDE, formerly MDATP)
-- **Microsoft Defender for Identity** (MDI, formerly AATP)
-- **Microsoft Defender for Office 365** (MDO, formerly O365ATP)
+- **Microsoft Defender for Endpoint** (formerly MDATP)
+- **Microsoft Defender for Identity** (formerly AATP)
+- **Microsoft Defender for Office 365** (formerly O365ATP)
 - **Microsoft Cloud App Security** (MCAS)
 
 In addition to collecting alerts from these components, M365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Azure Sentinel.
@@ -60,7 +60,7 @@ Once you have enabled the Microsoft 365 Defender data connector to [collect inci
 
 - Incidents will be ingested and synchronized at no extra cost.
 
-Once the M365 Defender integration is connected, all the component alert connectors (MDE, MDI, MDO, MCAS) will be automatically connected in the background if they weren't already. If any component licenses were purchased after M365 Defender was connected, the alerts and incidents from the new product will still flow to Azure Sentinel with no additional configuration or charge.
+Once the M365 Defender integration is connected, all the component alert connectors (Defender for Endpoint, Defender for Identity, Defender for Office 365, MCAS) will be automatically connected in the background if they weren't already. If any component licenses were purchased after M365 Defender was connected, the alerts and incidents from the new product will still flow to Azure Sentinel with no additional configuration or charge.
 
 ### M365 Defender incidents and Microsoft incident creation rules
 
@@ -70,9 +70,9 @@ Once the M365 Defender integration is connected, all the component alert connect
 
 - Using both mechanisms together is completely supported, and this configuration can be used to facilitate the transition to the new M365 Defender incident creation logic. This will, however, create **duplicate incidents** for the same alerts.
 
-- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for M365 products (MDE, MDI, and MDO - see MCAS below) when connecting M365 Defender. This can be done by marking the relevant check box in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to M365 Defender incident integration.
+- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for M365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365 - see MCAS below) when connecting M365 Defender. This can be done by marking the relevant check box in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to M365 Defender incident integration.
 
-- For Microsoft Cloud App Security (MCAS) alerts, not all alert types are currently onboarded to M365 Defender. To make sure you are still getting incidents for all MCAS alerts, you must keep or create **Microsoft incident creation rules** for the alert types *not onboarded* to M365D.
+- For Microsoft Cloud App Security (MCAS) alerts, not all alert types are currently onboarded to M365 Defender. To make sure you are still getting incidents for all MCAS alerts, you must keep or create **Microsoft incident creation rules** for the [alert types *not onboarded* to M365D](mcas-alerts-not-imported-m365d.md).
 
 ### Working with M365 Defender incidents in Azure Sentinel and bi-directional sync
 
