@@ -220,6 +220,7 @@ The following template is used to create a Conditional Access policy with displa
         ]
     }
 }
+```
 
 ## Enable multi-factor authentication (optional)
 
