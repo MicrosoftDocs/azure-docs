@@ -113,9 +113,9 @@ When you submit a run, Azure Machine Learning compresses the directory that cont
 
 ### Logging
 
-Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-track-experiments.md).
+Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-log-view-metrics.md).
 
-There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-monitor-view-training-logs.md).
+There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-log-view-metrics.md).
 
 
 > [!NOTE]
@@ -253,8 +253,8 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 Azure Machine Learning provides the following monitoring and logging capabilities:
 
 * For __Data Scientists__, you can monitor your experiments and log information from your training runs. For more information, see the following articles:
-   * [Start, monitor, and cancel training runs](how-to-manage-runs.md)
-   * [Log metrics for training runs](how-to-track-experiments.md)
+   * [Start, monitor, and cancel training runs](how-to-track-monitor-analyze-runs.md)
+   * [Log metrics for training runs](how-to-log-view-metrics.md)
    * [Track experiments with MLflow](how-to-use-mlflow.md)
    * [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
 * For __Administrators__, you can monitor information about the workspace, related Azure resources, and events such as resource creation and deletion by using Azure Monitor. For more information, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).

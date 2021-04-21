@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Azure Notification Hubs, like all Azure resources, must be deployed into a resource group.  Resource groups allow you to organize and manage related Azure resources.  See [What is Azure Resource Manager](../azure-resource-manager/management/overview.md) to learn more about resource groups.
 
-For this quickstart, create a resource group named **spnhubrg** in the **eastus** location with the following [az group create](/cli/azure/group#az-group-create) command.
+For this quickstart, create a resource group named **spnhubrg** in the **eastus** location with the following [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli
 az group create --name spnhubrg --location eastus

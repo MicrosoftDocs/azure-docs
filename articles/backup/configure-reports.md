@@ -206,4 +206,4 @@ The widgets in the Backup report are powered by Kusto queries, which run on the 
 
 ## Next steps
 
-[Learn more about monitoring and reporting with Azure Backup](./backup-azure-monitor-alert-faq.md)
+[Learn more about monitoring and reporting with Azure Backup](./backup-azure-monitor-alert-faq.yml)

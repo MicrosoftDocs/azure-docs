@@ -299,6 +299,14 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The image definition you used to deploy the virtual machine does not contain any image versions that are included in latest.  
 **Workaround**: Ensure that there is at least one image version that has 'Exclude from latest' set to False. 
 
+**Message**: *The gallery image /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\>/versions/<versionNumber\> is not available in <region\> region. Please contact image owner to replicate to this region, or change your requested region.*  
+**Cause**: The version selected for deployment does not exist or does not have a replica in the indicated region.  
+**Workaround**: Ensure that the name of the image resource is correct and that there is at least one replica in the indicated region. 
+
+**Message**: *The gallery image /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\> is not available in <region\> region. Please contact image owner to replicate to this region, or change your requested region.*  
+**Cause**: The image definition selected for deployment does not have any image versions that are included in latest and also in the indicated region.  
+**Workaround**: Ensure that there is at least one image version in the region that has 'Exclude from latest' set to False. 
+
 **Message**: *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantID\> is not authorized to access linked subscription <subscriptionID\>.*  
 **Cause**: The virtual machine or scale set was created through a SIG image in another tenant. You've tried to make a change to the virtual machine or scale set, but you don't have access to the subscription that owns the image.  
 **Workaround**: Contact the owner of the subscription of the image version to grant read access to the image version.
@@ -314,10 +322,6 @@ If you have problems performing any operations on shared image galleries, image 
 **Message**: *Required parameter 'osProfile' is missing (null).*  
 **Cause**: The VM is created from a generalized image, and it's missing the admin username, password, or SSH keys. Because generalized images don't retain the admin username, password, or SSH keys, these fields must be specified during creation of a VM or scale set.  
 **Workaround**: Specify the admin username, password, or SSH keys, or use a specialized image version.
-
-**Message**: *Cannot create Gallery Image Version from: <resourceID\> since the OS State in the parent gallery image ('Specialized') is not 'Generalized'.*  
-**Cause**: The image version is created from a generalized source, but its parent definition is specialized.  
-**Workaround**: Either create the image version by using a specialized source or use a parent definition that's generalized.
 
 **Message**: *Cannot update Virtual Machine Scale Set <vmssName\> as the current OS state of the VM Scale Set is Generalized which is different from the updated gallery image OS state which is Specialized.*  
 **Cause**: The current source image for the scale set is a generalized source image, but it's being updated with a source image that is specialized. The current source image and the new source image for a scale set must be of the same state.  

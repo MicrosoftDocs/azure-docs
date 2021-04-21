@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 02/17/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -54,7 +54,8 @@ After the Resource Provider returns a success code on a Resource Manager mode re
 **AuditIfNotExists** and **DeployIfNotExists** evaluate to determine if additional compliance
 logging or action is required.
 
-Additionally, `PATCH` requests that only modify `tags` related fields restricts policy evaluation to policies containing conditions that inspect `tags` related fields.
+Additionally, `PATCH` requests that only modify `tags` related fields restricts policy evaluation to
+policies containing conditions that inspect `tags` related fields.
 
 ## Append
 
@@ -85,10 +86,10 @@ take either a single **field/value** pair or multiples. Refer to
 
 ### Append examples
 
-Example 1: Single **field/value** pair using a non-**\[\*\]** [alias](definition-structure.md#aliases)
-with an array **value** to set IP rules on a storage account. When the non-**\[\*\]** alias is an
-array, the effect appends the **value** as the entire array. If the array already exists, a deny
-event occurs from the conflict.
+Example 1: Single **field/value** pair using a non-**\[\*\]**
+[alias](definition-structure.md#aliases) with an array **value** to set IP rules on a storage
+account. When the non-**\[\*\]** alias is an array, the effect appends the **value** as the entire
+array. If the array already exists, a deny event occurs from the conflict.
 
 ```json
 "then": {
@@ -336,8 +337,10 @@ Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a te
 when the condition is met.
 
 > [!NOTE]
-> [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
-> [linked templates](../../../azure-resource-manager/templates/linked-templates.md#linked-template) are currently not supported.
+> [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template)
+> are supported with **deployIfNotExists**, but
+> [linked templates](../../../azure-resource-manager/templates/linked-templates.md#linked-template)
+> are currently not supported.
 
 ### DeployIfNotExists evaluation
 
@@ -402,7 +405,8 @@ related resources to match and the template deployment to execute.
   - Default is _ResourceGroup_.
 - **Deployment** (required)
   - This property should include the full template deployment as it would be passed to the
-    `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
+    `Microsoft.Resources/deployments` PUT API. For more information, see the
+    [Deployments REST API](/rest/api/resources/deployments).
 
   > [!NOTE]
   > All functions inside the **Deployment** property are evaluated as components of the template,
@@ -612,7 +616,7 @@ operations.
 
 The following operations are supported by Modify:
 
-- Add, replace or remove resource tags. For tags, a Modify policy should have `mode` set to
+- Add, replace, or remove resource tags. For tags, a Modify policy should have `mode` set to
   _Indexed_ unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
   virtual machine scale sets.
@@ -667,8 +671,8 @@ needed for remediation and the **operations** used to add, update, or remove tag
   - The role defined must include all operations granted to the
     [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
 - **conflictEffect** (optional)
-  - Determines which policy definition "wins" in the event that more than one policy definition
-    modifies the same property or when the Modify operation doesn't work on the specified alias.
+  - Determines which policy definition "wins" if more than one policy definition modifies the same
+    property or when the Modify operation doesn't work on the specified alias.
     - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
       definitions with _audit_ skip all **operations**. If more than one policy definition has
       _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none

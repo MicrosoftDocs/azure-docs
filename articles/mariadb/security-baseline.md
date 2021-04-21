@@ -2,10 +2,10 @@
 title: Azure security baseline for Azure Database for MariaDB
 description: The Azure Database for MariaDB security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/29/2021
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 03/29/2021
-ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.

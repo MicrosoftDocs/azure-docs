@@ -420,7 +420,7 @@
         href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
-      - name: API access keys
+      - name: API key authentication
         href: search-security-api-keys.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
