@@ -131,13 +131,13 @@ az group create --name spnhubrg --location eastus
    > [!IMPORTANT]
    > Do not use the _DefaultFullSharedAccessSignature_ policy in your application. This policy is meant to be used in your back-end only. Use only `Listen` access policies in your client application.
 
-2. If you want to create additional authorization rules with meaningful names, you can create and customize your own access policy by using the [az notification-hub authorization-rule create](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization-rule-create) command. The `--rights` parameter is a space delimited list of the permissions you want to assign.
+2. If you want to create additional authorization rules with meaningful names, you can create and customize your own access policy by using the [az notification-hub authorization-rule create](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_create) command. The `--rights` parameter is a space delimited list of the permissions you want to assign.
 
    ```azurecli
    az notification-hub authorization-rule create --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --rights Listen Manage Send
    ```
 
-3. There are two sets of keys and connection strings for each access policy. You'll need them later to [configure a notification hub](./configure-notification-hub-portal-pns-settings.md). To list the keys and connection strings for a Notification Hubs access policy, use the [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization-rule-list-keys) command.
+3. There are two sets of keys and connection strings for each access policy. You'll need them later to [configure a notification hub](./configure-notification-hub-portal-pns-settings.md). To list the keys and connection strings for a Notification Hubs access policy, use the [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) command.
 
    ```azurecli
    # query the keys and connection strings for DefaultListenSharedAccessSignature
@@ -150,7 +150,7 @@ az group create --name spnhubrg --location eastus
    ```
 
    > [!NOTE]
-   > A [Notification Hubs namespace](/cli/azure/notification-hub/namespace/authorization-rule#az_notification_hub_namespace_authorization-rule-list-keys) and a [notification hub](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization-rule-list-keys) have separate access policies. Make sure you are using the correct Azure CLI reference when querying for keys and connection strings.
+   > A [Notification Hubs namespace](/cli/azure/notification-hub/namespace/authorization-rule#az_notification_hub_namespace_authorization_rule_list_keys) and a [notification hub](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) have separate access policies. Make sure you are using the correct Azure CLI reference when querying for keys and connection strings.
 
 ## Clean up resources
 

@@ -81,7 +81,7 @@ Once your server is created, it comes with the following settings:
 
 After the `az postgres up` command is completed, a list of connection strings for popular programming languages is returned to you. These connection strings are pre-configured with the specific attributes of your newly created Azure Database for PostgreSQL server.
 
-You can use the [az postgres show-connection-string](/cli/azure/postgres#az_postgres_show-connection-string) command to list these connection strings again.
+You can use the [az postgres show-connection-string](/cli/azure/postgres#az_postgres_show_connection_string) command to list these connection strings again.
 
 ## Clean up resources
 
