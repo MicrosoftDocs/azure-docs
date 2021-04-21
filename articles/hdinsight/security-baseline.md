@@ -63,9 +63,9 @@ To reduce the risk of data loss via exfiltration, restrict outbound network traf
 
 **Guidance**: For protections from DDoS attacks, enable Azure DDoS Standard protection on the virtual network where your Azure HDInsight is deployed. Use Azure Security Center integrated threat intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-- [How to configure DDoS protection](/azure/virtual-network/manage-ddos-protection)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
-- [Understand Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Responsibility**: Customer
 
@@ -105,7 +105,7 @@ To reduce the risk of data loss via exfiltration, restrict outbound network traf
 
 **Guidance**: Use Virtual network service tags  to define network access controls on network security groups (NSG) that are attached to the subnet your Azure HDInsight cluster is deployed in. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [Understand and using Service Tags for Azure HDInsight](/azure/virtual-network/security-overview#service-tags)
+- [Understand and using Service Tags for Azure HDInsight](../virtual-network/network-security-groups-overview.md#service-tags)
 
 **Responsibility**: Customer
 
@@ -135,7 +135,7 @@ Use any of the built-in Azure Policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure command-line interface (CLI) to look up or perform actions on resources based on their Tags.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a virtual network](../virtual-network/quick-create-portal.md)
 
@@ -151,9 +151,9 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 detect changes for network resources related to your Azure HDInsight deployments. Create alerts within Azure Monitor that will trigger when 
 changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -193,7 +193,7 @@ changes to critical network resources take place.
 
 - [How to onboard an Azure HDInsight Cluster to Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-- [How to configure Log Analytics Workspace Retention Period](/azure/azure-monitor/platform/manage-cost-storage)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsibility**: Customer
 
@@ -205,7 +205,7 @@ changes to critical network resources take place.
 
 - [How to onboard an Azure HDInsight Cluster to Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-- [How to configure Log Analytics Workspace Retention Period](/azure/azure-monitor/platform/manage-cost-storage)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsibility**: Customer
 
@@ -227,7 +227,7 @@ changes to critical network resources take place.
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -237,7 +237,7 @@ changes to critical network resources take place.
 
 **Guidance**: Azure HDInsight comes with Clamscan pre-installed and enabled for the cluster node images, however you must manage the software and manually aggregate/monitor any logs Clamscan produces.
 
-- [Understand Clamscan](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Understand Clamscan](./hdinsight-faq.md#security-and-certificates)
 
 **Responsibility**: Customer
 
@@ -307,7 +307,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 **Guidance**: Use Azure HDInsight ID Broker to sign in to Enterprise Security Package (ESP) clusters by using multifactor authentication, without providing any passwords. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your Azure HDInsight cluster with a single sign-on (SSO) experience.
 
-- [How to enable Azure HDInsight ID Broker](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker)
+- [How to enable Azure HDInsight ID Broker](./domain-joined/identity-broker.md#enable-hdinsight-id-broker)
 
 **Responsibility**: Customer
 
@@ -341,7 +341,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 **Guidance**: Azure HDInsight clusters with the Enterprise Security Package configured can be connected to a domain so that domain users can use their domain credentials to authenticate. You may use Azure Active Directory (Azure AD) security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the Azure AD environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -399,7 +399,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Azure HDInsight clusters with Enterprise Security Package (ESP) configured can be connected to a domain so that domain users can use their domain credentials to authenticate with the clusters. Use Azure Active Directory (Azure AD) Risk Detections and Identity Protection feature to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -411,7 +411,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Not available; Customer Lockbox not yet supported for Azure HDInsight.
 
-- [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -425,7 +425,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Use tags on resources related to your Azure HDInsight  deployments to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -439,7 +439,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 - [How to secure Azure Data Lake Storage](../data-lake-store/data-lake-store-security-overview.md)
 
-- [How to secure Azure Storage Accounts](/azure/storage/common/storage-security-guide)
+- [How to secure Azure Storage Accounts](../storage/blobs/security-recommendations.md)
 
 **Responsibility**: Customer
 
@@ -513,13 +513,13 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: If using Azure SQL Database to store Apache Hive and Apache Oozie metadata, ensure SQL data remains encrypted at all times. For Azure Storage Accounts and Data Lake Storage (Gen1 or Gen2), it is recommended to allow Microsoft to manage your encryption keys, however, you have the option to manage your own keys.
 
-- [How to manage encryption keys for Azure Storage Accounts](/azure/storage/common/storage-encryption-keys-portal)
+- [How to manage encryption keys for Azure Storage Accounts](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [How to create Azure Data Lake Storage using customer-managed encryption keys](../data-lake-store/data-lake-store-get-started-portal.md)
 
-- [Understand encryption for Azure SQL Database](/azure/sql-database/sql-database-technical-overview#data-encryption)
+- [Understand encryption for Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md#data-encryption)
 
-- [How to configure Transparent Data Encryption for SQL Database using customer-managed keys](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)
+- [How to configure Transparent Data Encryption for SQL Database using customer-managed keys](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)
 
 **Responsibility**: Shared
 
@@ -529,7 +529,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Configure Diagnostic Settings for Azure Storage Accounts associated with Azure HDInsight clusters to monitor and log all CRUD operations against cluster data. Enable Auditing for any Storage Accounts or Data Lake Stores associated with the Azure HDInsight cluster.
 
-- [How to enable additional logging/auditing for an Azure Storage Account](/azure/storage/common/storage-monitor-storage-account)
+- [How to enable additional logging/auditing for an Azure Storage Account](../storage/common/manage-storage-analytics-logs.md)
 
 - [How to enable additional logging/auditing for Azure Data Lake Storage](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md)
 
@@ -621,7 +621,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph, it 
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -631,11 +631,11 @@ Although classic Azure resources may be discovered via Azure Resource Graph, it 
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -704,7 +704,7 @@ For more information, see the following references:
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -830,9 +830,9 @@ All managed disks in Azure HDInsight are protected with Azure Storage Service En
 
 Key Vault may also be use with Azure HDInsight deployments to manage keys for cluster storage (Azure Storage Accounts, and Azure Data Lake Storage)
 
-- [How to bring your own key for Apache Kafka on Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
+- [How to bring your own key for Apache Kafka on Azure HDInsight](./disk-encryption.md)
 
-- [How to manage encryption keys for Azure Storage Accounts](/azure/storage/common/storage-encryption-keys-portal)
+- [How to manage encryption keys for Azure Storage Accounts](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Responsibility**: Customer
 
@@ -866,7 +866,7 @@ Key Vault may also be use with Azure HDInsight deployments to manage keys for cl
 
 **Guidance**: Azure HDInsight comes with Clamscan pre-installed and enabled for the cluster node images, however you must manage the software and manually aggregate/monitor any logs Clamscan produces.
 
-- [Understand Clamscan for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Understand Clamscan for Azure HDInsight](./hdinsight-faq.md#security-and-certificates)
 
 **Responsibility**: Customer
 
@@ -888,7 +888,7 @@ Pre-scan any files being uploaded to any Azure resources related to your Azure H
 
 **Guidance**: Azure HDInsight comes with Clamscan pre-installed and enabled for the cluster node images. Clamscan will perform engine and definition updates automatically, however, aggregation and management of logs will need to be performed manually.
 
-- [Understand Clamscan for Azure Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Understand Clamscan for Azure Azure HDInsight](./hdinsight-faq.md#security-and-certificates)
 
 **Responsibility**: Customer
 
@@ -904,7 +904,7 @@ Pre-scan any files being uploaded to any Azure resources related to your Azure H
 
 - [How to configure storage redundancy for Azure Storage Accounts](../storage/common/storage-redundancy.md)
 
-- [How to configure redundancy for Azure SQL Database](/azure/sql-database/sql-database-active-geo-replication)
+- [How to configure redundancy for Azure SQL Database](../azure-sql/database/active-geo-replication-overview.md)
 
 **Responsibility**: Customer
 
@@ -928,7 +928,7 @@ Pre-scan any files being uploaded to any Azure resources related to your Azure H
 
 **Guidance**: If Azure Key Vault is being used with your Azure HDInsight deployment, test restoration of backed up customer-managed keys.
 
-- [How to bring your own key for Apache Kafka on Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
+- [How to bring your own key for Apache Kafka on Azure HDInsight](./disk-encryption.md)
 
 - [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
@@ -940,7 +940,7 @@ Pre-scan any files being uploaded to any Azure resources related to your Azure H
 
 **Guidance**: If Azure Key Vault is being used with your Azure HDInsight deployment, enable soft delete in Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable soft delete Azure Key Vault](/azure/key-vault/key-vault-ovw-soft-delete)
+- [How to enable soft delete Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
 **Responsibility**: Customer
 
@@ -1032,5 +1032,5 @@ Pre-scan any files being uploaded to any Azure resources related to your Azure H
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

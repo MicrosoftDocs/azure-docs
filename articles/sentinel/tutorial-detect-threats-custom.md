@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: yelevin
 
 ---
@@ -60,7 +60,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
 
-- Here's another sample query, one that would alert you when an anomalous number of resources is created in [Azure Activity](../azure-monitor/platform/activity-log.md).
+- Here's another sample query, one that would alert you when an anomalous number of resources is created in [Azure Activity](../azure-monitor/essentials/activity-log.md).
 
     ```kusto
     AzureActivity
@@ -71,7 +71,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     > [!NOTE]
     > #### Rule query best practices
-    > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or “`union *`”.
+    > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation.
     >
     > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
     >

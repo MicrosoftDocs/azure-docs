@@ -39,7 +39,7 @@ By default, the resources are grouped by app layer and resource type. **App laye
 
 The resource group insights page provides several other tools scoped to help you diagnose issues
 
-   |         |          |
+   | Tool | Description |
    | ---------------- |:-----|
    | [**Alerts**](../alerts/alerts-overview.md)      |  View, create, and manage your alerts. |
    | [**Metrics**](../data-platform.md) | Visualize and explore your metric based data.    |

@@ -73,14 +73,14 @@ built-in content, Guest Configuration handles loading these tools automatically.
 
 ### Validation frequency
 
-The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
+The Guest Configuration client checks for new or changed guest assignments every 5 minutes. Once a guest assignment is
 received, the settings for that configuration are rechecked on a 15-minute interval. Results are
 sent to the Guest Configuration resource provider when the audit completes. When a policy
 [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the
 machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
 evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the
 latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit
-of the configuration within the machine.
+of the configuration within the machine. The status is simultaneously written to Azure Resource Graph.
 
 ## Supported client types
 
@@ -255,7 +255,10 @@ The Guest Configuration extension writes log files to the following locations:
 
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux
+
+- Azure VM: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+- Azure VM: `/var/lib/GuestConfig/arc_policy_logs/gc_agent.log`
 
 ### Collecting logs remotely
 
@@ -295,9 +298,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 The Guest Configuration client downloads content packages to a machine and extracts the contents.
 To verify what content has been downloaded and stored, view the folder locations given below.
 
-Windows: `c:\programdata\guestconfig\configurations`
+Windows: `c:\programdata\guestconfig\configuration`
 
-Linux: `/var/lib/guestconfig/configurations`
+Linux: `/var/lib/GuestConfig/Configuration`
 
 ## Guest Configuration samples
 

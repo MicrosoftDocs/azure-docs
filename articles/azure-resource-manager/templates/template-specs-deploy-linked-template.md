@@ -87,7 +87,7 @@ To deploy a template spec in an ARM template, add a [deployments resource](/azur
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "createStorage",
       "properties": {
         "mode": "Incremental",

@@ -30,7 +30,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 ## Prerequisites
 
-* Make sure you have [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/windows) or later installed on your Windows-based machine.
+* Make sure you have [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later installed on your Windows-based machine.
 
 * Latest version of [Git](https://git-scm.com/download/) installed.
 

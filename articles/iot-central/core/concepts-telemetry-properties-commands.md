@@ -47,6 +47,10 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
 ## Telemetry
 
+### Telemetry in components
+
+If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+
 ### Primitive types
 
 This section shows examples of primitive telemetry types that a device streams to an IoT Central application.
@@ -432,6 +436,21 @@ A device client should send the state as JSON that looks like the following exam
 > [!NOTE]
 > The payload formats for properties applies to applications created on or after 07/14/2020.
 
+### Properties in components
+
+If the property is defined in a component, wrap the property in the component name. The following example sets the `maxTempSinceLastReboot` in the `thermostat2` component. The marker `__t` indicates that this a component:
+
+```json
+{
+  "thermostat2" : {  
+    "__t" : "c",  
+    "maxTempSinceLastReboot" : 38.7
+    } 
+}
+```
+
+To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+
 ### Primitive types
 
 This section shows examples of primitive property types that a device sends to an IoT Central application.
@@ -710,11 +729,27 @@ A device client should send a JSON payload that looks like the following example
 }
 ```
 
-### Writeable property types
+### Writable property types
 
-This section shows examples of writeable property types that a device receives from an IoT Central application.
+This section shows examples of writable property types that a device receives from an IoT Central application.
 
-IoT Central expects a response from the device to writeable property updates. The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
+If the writable property is defined in a component, the desired property message includes the component name. The following example shows the message requesting the device to update the `targetTemperature` in the `thermostat2` component. The marker `__t` indicates that this a component:
+
+```json
+{
+  "thermostat2": {
+    "targetTemperature": {
+      "value": 57
+    },
+    "__t": "c"
+  },
+  "$version": 3
+}
+```
+
+To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+
+IoT Central expects a response from the device to writable property updates. The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
 
 `ac` is a numeric field that uses the values in the following table:
 
@@ -729,7 +764,7 @@ IoT Central expects a response from the device to writeable property updates. Th
 
 `ad` is an option string description.
 
-The following snippet from a device model shows the definition of a writeable `string` property type:
+The following snippet from a device model shows the definition of a writable `string` property type:
 
 ```json
 {
@@ -764,7 +799,7 @@ The device should send the following JSON payload to IoT Central after it proces
 }
 ```
 
-The following snippet from a device model shows the definition of a writeable `Enum` property type:
+The following snippet from a device model shows the definition of a writable `Enum` property type:
 
 ```json
 {
@@ -829,6 +864,8 @@ The device should send the following JSON payload to IoT Central after it proces
 ```
 
 ## Commands
+
+If the command is defined in a component, the name of the command the device receives includes the component name. For example, if the command is called `getMaxMinReport` and the component is called `thermostat2`, the device receives a request to execute a command called `thermostat2*getMaxMinReport`.
 
 The following snippet from a device model shows the definition of a command that has no parameters and that doesn't expect the device to return anything:
 

@@ -51,6 +51,13 @@ Example output from `/var/log/messages` file.
 Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 ```
 
+## Failed communication with Azure NetApp Files
+
+When validating communication with Azure NetApp Files, communication might fail or time-out.  Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:-
+
+- (https://)management.azure.com:443
+- (https://)login.microsoftonline.com:443 
+
 ## Failed communication with SAP HANA
 
 When validating communication with SAP HANA by running a test with `azacsnap -c test --test hana` and it provides the following error:

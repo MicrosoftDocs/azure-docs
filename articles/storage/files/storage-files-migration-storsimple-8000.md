@@ -40,7 +40,7 @@ Migrations to Azure file shares from StorSimple volumes via migration jobs in a 
 
 Azure file shares open up a whole new world of opportunities for structuring your file services deployment. An Azure file share is just an SMB share in the cloud that you can set up to have users access directly over the SMB protocol with the familiar Kerberos authentication and existing NTFS permissions (file and folder ACLs) working natively. Learn more about [identity-based access to Azure file shares](storage-files-active-directory-overview.md).
 
-An alternative to direct access is [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync is a direct analog for StorSimple's ability to cache frequently used files on-premises.
+An alternative to direct access is [Azure File Sync](../file-sync/file-sync-planning.md). Azure File Sync is a direct analog for StorSimple's ability to cache frequently used files on-premises.
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
@@ -51,8 +51,8 @@ Azure file shares retain important file fidelity aspects on stored files like at
 
 This article focuses on the migration steps. If you want to learn more about Azure File Sync before migrating, see the following articles:
 
-* [Azure File Sync overview](./storage-sync-files-planning.md "Overview")
-* [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md)
+* [Azure File Sync overview](../file-sync/file-sync-planning.md "Overview")
+* [Azure File Sync deployment guide](../file-sync/file-sync-deployment-guide.md)
 
 ### StorSimple service data encryption key
 
@@ -60,11 +60,11 @@ When you first set up your StorSimple appliance, it generated a "service data en
 
 The "service data encryption key" is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
 
-If you can't find the keys in your records, you can retrieve the key from the appliance. Each appliance has a unique encryption key. To retrieve the key:
+If you can't find the keys in your records, you can generate a new key from the appliance. Each appliance has a unique encryption key.
 
-* File a support request with Microsoft Azure through the Azure portal. The request should contain your StorSimple device serial number(s) and a request to retrieve the "service data encryption key."
-* A StorSimple support engineer will contact you with a request for a virtual meeting.
-* Ensure that before the meeting begins, you connect to your StorSimple appliance [via a serial console](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) or through a [remote PowerShell session](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
+#### Change the service data encryption key
+
+[!INCLUDE [storage-files-migration-generate-key](../../../includes/storage-files-migration-generate-key.md)]
 
 > [!CAUTION]
 > When you're deciding how to connect to your StorSimple appliance, consider the following:
@@ -155,7 +155,7 @@ You can pick a different region from where your StorSimple data (storage account
 
 #### Performance
 
-You have the option to pick premium storage (SSD) for Azure file shares or standard storage. Standard storage includes [several tiers for a file share](storage-how-to-create-file-share.md#changing-the-tier-of-an-azure-file-share). Standard storage is the right option for most customers migrating from StorSimple.
+You have the option to pick premium storage (SSD) for Azure file shares or standard storage. Standard storage includes [several tiers for a file share](storage-how-to-create-file-share.md#change-the-tier-of-an-azure-file-share). Standard storage is the right option for most customers migrating from StorSimple.
 
 Still not sure?
 
@@ -497,7 +497,7 @@ At this point, there are differences between your on-premises Windows Server ins
 > [!WARNING]
 > You *must not* start the RoboCopy before the server has the namespace for an Azure file share downloaded fully. For more information, see [Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
- You only want to copy files that were changed after the migration job last ran and files that haven't moved through these jobs before. You can solve the problem as to why they didn't move later on the server, after the migration is complete. For more information, see [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+ You only want to copy files that were changed after the migration job last ran and files that haven't moved through these jobs before. You can solve the problem as to why they didn't move later on the server, after the migration is complete. For more information, see [Azure File Sync troubleshooting](../file-sync/file-sync-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
 RoboCopy has several parameters. The following example showcases a finished command and a list of reasons for choosing these parameters.
 
@@ -631,7 +631,7 @@ Your migration is complete.
 
 ## Next steps
 
-* Get more familiar with [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md).
-* Understand the flexibility of [cloud tiering](storage-sync-cloud-tiering-overview.md) policies.
+* Get more familiar with [Azure File Sync: aka.ms/AFS](../file-sync/file-sync-planning.md).
+* Understand the flexibility of [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) policies.
 * [Enable Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) on your Azure file shares to schedule snapshots and define backup retention schedules.
-* If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](storage-sync-files-troubleshoot.md) for steps to resolve these issues.
+* If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](../file-sync/file-sync-troubleshoot.md) for steps to resolve these issues.

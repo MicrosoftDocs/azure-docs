@@ -143,7 +143,7 @@ api-key: [admin key]
 
 ```
 
-For more information, see [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+For more information, see [Create Index (REST API)](/rest/api/searchservice/create-index).
 
 ### Step 5: Create an indexer
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer!
@@ -222,7 +222,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-More information on the indexer status can be found here: [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+More information on the indexer status can be found here: [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
 ## Updating the data source
 If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to login again in order for the indexer to run. For example, if you change the data source query, you will need to login again using the `https://microsoft.com/devicelogin` and a new code.
@@ -237,7 +237,7 @@ Once the data source has been updated, follow the below steps:
     api-key: [admin key]
     ```
 
-    More information on the indexer run request can be found here: [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer).
+    More information on the indexer run request can be found here: [Run Indexer](/rest/api/searchservice/run-indexer).
 
 1.	Check the indexer status. If the last indexer run has an error telling you to go to `https://microsoft.com/devicelogin`, go to that page and provide the new code. 
 
@@ -247,7 +247,7 @@ Once the data source has been updated, follow the below steps:
     api-key: [admin key]
     ```
 
-    More information on the indexer status can be found here: [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+    More information on the indexer status can be found here: [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
 1.	Login
 
@@ -356,7 +356,7 @@ For some documents, Azure Cognitive Search is unable to determine the content ty
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure Cognitive Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
+Azure Cognitive Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](./search-limits-quotas-capacity.md). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }

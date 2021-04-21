@@ -29,11 +29,11 @@ The first option is to pass the language and view regional information into the 
 
 ```java
 static {
-    //Set your Azure Maps Key.
-    AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
-
     //Alternatively use Azure Active Directory authenticate.
-    //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+    AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+
+    //Set your Azure Maps Key.
+    //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");   
 
     //Set the language to be used by Azure Maps.
     AzureMaps.setLanguage("fr-FR");
@@ -50,11 +50,11 @@ static {
 ```kotlin
 companion object {
     init {
-        //Set your Azure Maps Key.
-        AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
-
         //Alternatively use Azure Active Directory authenticate.
-        //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+        AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+
+        //Set your Azure Maps Key.
+        //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
     
         //Set the language to be used by Azure Maps.
         AzureMaps.setLanguage("fr-FR");

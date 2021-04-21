@@ -17,7 +17,7 @@ ms.date: 03/15/2021
 
    :::image type="content" source="../media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Screenshot showing the ExpressRoute Global Reach authorization key.":::
   
-1. Make a note of the authorization key and the ExpressRoute ID. You'll use them to complete the peering.  
+1. Copy the authorization key and ExpressRoute ID. You'll use them to complete the peering.  
 
    > [!NOTE]
    > The authorization key disappears after some time, so copy it as soon as it appears.

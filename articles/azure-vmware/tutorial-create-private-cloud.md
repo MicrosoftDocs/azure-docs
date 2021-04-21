@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 - Ensure you have the appropriate networking configured as described in [Tutorial: Network checklist](tutorial-network-checklist.md).
 - Hosts have been provisioned and the Microsoft.AVS resource provider registered as described in [Request hosts and enable the Microsoft.AVS resource provider](enable-azure-vmware-solution.md).
 
-## Create a Private Cloud
+## Create a private cloud
 
 You can create an Azure VMware Solution private cloud by using the [Azure portal](#azure-portal) or by using the [Azure CLI](#azure-cli).
 

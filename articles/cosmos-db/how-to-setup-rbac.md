@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/19/2021
 ms.author: thweiss
 ---
 
@@ -40,6 +40,16 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 
 ## <a id="permission-model"></a> Permission model
 
+> [!IMPORTANT]
+> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
+> - [ARM templates](manage-with-templates.md)
+> - [Azure PowerShell scripts](manage-with-powershell.md),
+> - [Azure CLI scripts](manage-with-cli.md),
+> - Azure management libraries available in
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
+>   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+
 The table below lists all the actions exposed by the permission model.
 
 | Name | Corresponding database operation(s) |
@@ -59,9 +69,6 @@ Wildcards are supported at both *containers* and *items* levels:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. To authenticate management operations with an AAD identity, use [Azure RBAC](role-based-access-control.md) instead.
 
 ### <a id="metadata-requests"></a> Metadata requests
 
@@ -309,7 +316,7 @@ resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
 principalId = '<aadPrincipalId>'
-az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ## Initialize the SDK with Azure AD
@@ -318,9 +325,10 @@ To use the Azure Cosmos DB RBAC in your application, you have to update the way 
 
 The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of AAD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
-- [in .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
-- [in JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
+- [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [In Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- In REST API
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
@@ -368,6 +376,12 @@ const client = new CosmosClient({
 });
 ```
 
+### In REST API
+
+The Azure Cosmos DB RBAC is currently supported with the 2021-03-15 version of REST API. When constructing the [authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **aad** and the hash signature **(sig)** to the **oauth token** as shown in the following example:
+
+`type=aad&ver=1.0&sig=<token-from-oauth>`
+
 ## Auditing data requests
 
 When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the AAD identity used for every data request sent to your Azure Cosmos DB account.
@@ -380,6 +394,7 @@ This additional information flows in the **DataPlaneRequests** log category and 
 ## Limits
 
 - You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
+- You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
 - Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
 - The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
 - Accessing your data with Azure AD through the [Azure Cosmos DB Explorer](data-explorer.md) isn't supported yet. Using the Azure Cosmos DB Explorer still requires the user to have access to the account's primary key for now.

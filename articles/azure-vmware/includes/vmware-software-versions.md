@@ -2,7 +2,7 @@
 title: VMware software versions
 description: Supported VMware software versions for Azure VMware Solution.
 ms.topic: include
-ms.date: 03/13/2021
+ms.date: 03/31/2021
 ---
 
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
@@ -12,10 +12,10 @@ The VMware software versions used in new deployments of Azure VMware Solution  p
 
 | Software              |    Version   |
 | :---                  |     :---:    |
-| VCSA / vSphere / ESXi |    6.7 U3    | 
-| ESXi                  |    6.7 U3    | 
-| vSAN                  |    6.7 U3    |
-| NSX-T <br />**NOTE:** NSX-T is the only supported version of NSX.               |      2.5     |
+| VCSA / vSphere / ESXi |    6.7 U3l    | 
+| ESXi                  |    6.7 U3l    | 
+| vSAN                  |    6.7 U3l    |
+| NSX-T <br />**NOTE:** NSX-T is the only supported version of NSX.               |      3.1.1     |
 
 
 New clusters added to an existing private cloud, the currently running software version is applied. For more information, see the [VMware software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
