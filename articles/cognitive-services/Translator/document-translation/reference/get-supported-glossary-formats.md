@@ -1,7 +1,7 @@
 ---
-title: Document Translation get glossary formats method
+title: Get supported glossary formats method
 titleSuffix: Azure Cognitive Services
-description: The get glossary formats method returns the list of supported glossary formats.
+description: The get supported glossary formats method returns the list of supported glossary formats.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get glossary formats
+# Get supported glossary formats
 
-The Get Glossary Formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
+The Get supported glossary formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
 
 ## Request URL
 
@@ -50,13 +50,13 @@ The following are the possible HTTP status codes that a request returns.
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 
-## Get glossary formats response
+## Get supported glossary formats response
 
-Base type for list return in the Get Glossary Formats API.
+Base type for list return in the Get supported glossary formats API.
 
-### Successful get glossary formats response
+### Successful get supported glossary formats response
 
-Base type for list return in the Get Glossary Formats API.
+Base type for list return in the Get supported glossary formats API.
 
 |Status Code|Description|
 |--- |--- |
