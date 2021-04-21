@@ -118,7 +118,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 3. If you want to set up Displayr manually, open a new web browser window and sign into your Displayr company site as an administrator and perform the following steps:
 
-4. Click on **User** then navigate to **Account settings**.
+4. Click on the **User** icon, then navigate to **Account settings**.
 
 	![Screenshot that shows the "Settings" icon and "Account" selected.](./media/displayr-tutorial/config01.png)
 
