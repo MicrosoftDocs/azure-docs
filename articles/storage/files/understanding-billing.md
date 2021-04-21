@@ -113,5 +113,5 @@ There are five basic transaction categories: write, list, read, other, and delet
 
 ## See also
 - [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
-- [Planning for an Azure Files deployment](./storage-files-planning.md) and [Planning for an Azure File Sync deployment](./storage-sync-files-planning.md).
-- [Create a file share](./storage-how-to-create-file-share.md) and [Deploy Azure File Sync](./storage-sync-files-deployment-guide.md).
+- [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
+- [Create a file share](storage-how-to-create-file-share.md) and [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md).

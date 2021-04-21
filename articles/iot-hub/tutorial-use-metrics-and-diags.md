@@ -404,7 +404,7 @@ In the [Collect logs for connections and device telemetry](#collect-logs-for-con
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics charts to the dashboard, you'll have to remove them manually by clicking on the three dots in the upper right-hand corner of each chart and selecting **Remove**. Be sure to save your changes after doing deleting the charts.
 
-To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name ContosoResources

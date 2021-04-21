@@ -110,8 +110,6 @@
       href: message-transfers-locks-settlement.md
     - name: Dead-letter queues
       href: service-bus-dead-letter-queues.md
-    - name: Message counters
-      href: message-counters.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
     - name: Geo-disaster recovery and geo-replication
@@ -244,6 +242,10 @@
       href: enable-partitions.md
     - name: Enable auto forwarding for a queue or subscription
       href: enable-auto-forward.md      
+    - name: Enable dead lettering for a queue or subscription
+      href: enable-dead-letter.md      
+    - name: Get message counters
+      href: message-counters.md
     - name: Move across regions
       href: move-across-regions.md
     - name: Automatically update messaging units 
