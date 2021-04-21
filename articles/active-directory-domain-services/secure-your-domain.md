@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/21/2021
 ms.author: justinha
 
 ---
@@ -41,6 +41,8 @@ To complete this article, you need the following resources:
    - **TLS 1.2 only mode**
    - **NTLM authentication**
    - **NTLM password synchronization from on-premises**
+   - **RC4 encryption**
+   - **Kerberos armoring**
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
