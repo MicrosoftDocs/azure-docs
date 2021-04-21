@@ -34,7 +34,7 @@ After completing the setup steps, you'll be able to run a simulated live video s
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
-[!INCLUDE [resources](includes/common-includes/azure-resources.md)]
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## Deploy modules on your edge device
 
