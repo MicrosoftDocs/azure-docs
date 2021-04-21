@@ -11,7 +11,7 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: alkohli
 
 ---
@@ -19,7 +19,7 @@ ms.author: alkohli
 
 ## Overview
 
-This tutorial explains how to install Update 5.1 on a StorSimple device running an earlier software version via the Azure portal or the hotfix method. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
+This tutorial explains how to install Update 5.1 on a StorSimple device running an earlier software version via the Azure portal or the hotfix method.
 
 Update 5.1 includes non-disruptive security updates that can be applied through the Azure portal or by the hotfix method.
 
@@ -32,9 +32,10 @@ The security updates in Update 5.1 takes about 30 minutes to install.
 > [!IMPORTANT]
 > * Update 5.1 is a mandatory update and should be installed immediately. For more information, see [Update 5.1 release notes](storsimple-update51-release-notes.md).
 > * Update 5 is a minimally supported version.
->  * We recommend that you install the software and other regular updates via the Azure portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed through the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device. RETAIN THIS NOTE FOR UPDATE 5.1?
-> * If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 5.1 before you update the device. RETAIN THIS NOTE FOR UPDATE 5.1?
 
+> [!NOTE]
+> * We recommend that you install the software and other regular updates via the Azure portal. <!--You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed through the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device. - N/A FOR 5.1? No maintenance mode updates, and the security updates go quickly.-->
+> * If you plan to install using the hotfix method, contact [Microsoft Support](mailto:support@microsoft.com) before you begin the installation.
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -71,13 +72,13 @@ Perform the following steps to update your device to [Update 5.1](storsimple-upd
 
      The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
 
-7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
+6. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
    
     ![Screenshot of the Notification that says, "Starting software updates job."](./media/storsimple-8000-install-update-51/update6.png)
    
     The update is then applied on your device.
 
-9. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+7. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
 
     ![Screenshot of the Device updates blade with the Download and install of software updates in progress option called out and the Install updates blade.](./media/storsimple-8000-install-update-51/update8.png)
 
@@ -85,14 +86,16 @@ Perform the following steps to update your device to [Update 5.1](storsimple-upd
 
      ![Screenshot of the Settings blade with Jobs called out and the Jobs blade showing the progress of the update.](./media/storsimple-8000-install-update-51/update7.png)
 
-10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
+8. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
 
-
-Verify that your device is running **StorSimple 8000 Series Update 5.1 (6.3.9600.17885)**. The **Last updated date** should be modified.
+   Verify that your device is running **StorSimple 8000 Series Update 5.1 (6.3.9600.17885)** and the **Last updated date** is today's date.
 
 ## Install Update 5.1 as a hotfix
 
-If you want to install Update 5.1 as a hotfix, you should install Update 5 before you install Update 5.1. For instructions, see [Install Update 5 on your StorSimple device](storsimple-8000-install-update-5.md).
+If you want to install Update 5.1 as a hotfix, do these steps before you begin the installation:
+
+* Install Update 5 before you install Update 5.1. For instructions, see [Install Update 5 on your StorSimple device](storsimple-8000-install-update-5.md).
+* Before you begin the hotfix installation, contact [Microsoft Support](mailto:support@microsoft.com).
 
 The hotfix method involves the following steps:
 
@@ -117,15 +120,18 @@ Perform the following steps to download and install the hotfixes.
 
 #### Download hotfixes
 
-To download the hotfixes, see [To download hotfixes](storsimple-8000-install-update-5.md#to-download-hotfixes)].
+To download the hotfixes, see [To download hotfixes](storsimple-8000-install-update-5.md#to-download-hotfixes).
 
 #### Install and verify device updates
 
 Install the device updates in KB4542887 by following the steps in [To install and verify regular mode hotfixes](storsimple-8000-install-update-5.md#to-install-and-verify-regular-mode-hotfixes) in **Install Update 5 on your StorSimple device**.
 
+> [!IMPORTANT]
+> If you haven't yet contacted [Microsoft Support](mailto:support@microsoft.com), you must do that now, before you install the hotfixes.
+
 Follow the steps to install first order updates. There are no second order updates in Update 5.1.
 
-For Update 5.1, check for these software versions after installing:<!--I left all of these, even though two are the same version as in the Update 5 procedure. It's less work for the reader to have the full list than to have to compare each entry to see whether it's the same.-->
+For Update 5.1, check for these software versions after installing:
 
  * FriendlySoftwareVersion: StorSimple 8000 Series Update 5.1
  * HcsSoftwareVersion: 6.3.9600.17885
