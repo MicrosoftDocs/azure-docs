@@ -187,45 +187,13 @@ Organizations should choose one of the following options to enable a sign-in ris
 
 ### Enable with Conditional Access APIs
 
-The steps to create a Sign-in risk-based Conditional Access policy with Conditional Access APIs is documented in a sample here, [Conditional Access APIs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). We will use the sample as a reference to create a policy called "Template 1: Require MFA for medium + sign-in risk" using the APIs.
+To create a Sign-in risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
 
-To create a Conditional Access policy, use the following `POST` operation.
-
-```http
-POST https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies
-```
-
-#### Create a POST request
-
-To create the `POST` request
-
-The following headers are required:
-
-| Request header | Description |
-| --- | --- |
-| *Content-Type:* | Required. Set to `application/json`. |
-| *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
-
-For more information about how to create the request, see [Components of API request/response](https://docs.microsoft.com/rest/api/azure/#components-of-a-rest-api-requestresponse).
-
-#### Create the POST request body
-
-The following common definitions are used to build a request body:
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| displayName | true | String | Policy name |
-| state | true | String | Policy state |
-| conditions | true | [Condition Set](https://docs.microsoft.com/graph/api/resources/conditionalaccessconditionset?view=graph-rest-1.0) | Represents the type of conditions that govern when the policy applies |
-| grantControls | true | [Grant Controls Set](https://docs.microsoft.com/graph/api/resources/conditionalaccessgrantcontrols?view=graph-rest-1.0) | Represents grant controls that must be fulfilled to pass the policy |
-
-#### Example POST request body
-
-The following template is used to create a Conditional Access policy with display name "CA002: Require MFA for medium + sign-in risk" in report-only mode.
+The following template is used to create a Conditional Access policy with display name "CA002: Require MFA for medium+ sign-in risk" in report-only mode.
 
 ```json
 {
-    "displayName": "Template 1: Require MFA for medium + sign-in risk",
+    "displayName": "Template 1: Require MFA for medium+ sign-in risk",
     "state": "enabledForReportingButNotEnforced",
     "conditions": {
         "signInRiskLevels": [ "high" ,
@@ -252,17 +220,6 @@ The following template is used to create a Conditional Access policy with displa
         ]
     }
 }
-```
-
-#### POST response
-
-A successful response for the operation to create a Conditional Access policy:
-
-| Name | Description |
-| --- | --- |
-| 201 Created | Created |
-
-For more information about REST API responses, see the article [Process the response message](https://docs.microsoft.com/rest/api/azure/#process-the-response-message).
 
 ## Enable multi-factor authentication (optional)
 
