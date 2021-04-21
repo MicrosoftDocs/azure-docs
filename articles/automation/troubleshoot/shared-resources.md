@@ -4,7 +4,8 @@ description: This article tells how to troubleshoot and resolve issues with Azur
 services: automation
 ms.subservice:
 ms.date: 01/27/2021
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot shared resource issues

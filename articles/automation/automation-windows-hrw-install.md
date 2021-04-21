@@ -4,7 +4,8 @@ description: This article tells how to deploy a Hybrid Runbook Worker that you c
 services: automation
 ms.subservice: process-automation
 ms.date: 04/02/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Deploy a Windows Hybrid Runbook Worker
 
