@@ -24,8 +24,9 @@ To show the current PHP version, run the following command in the [Cloud Shell](
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query phpVersion
 ```
+
 > [!NOTE]
-> To address a development slot, use additionally the parameter "--slot" followed by the name of the slot.
+> To address a development slot, include the parameter `--slot` followed by the name of the slot.
 
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -42,8 +43,9 @@ To show the current PHP version, run the following command in the [Cloud Shell](
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
+
 > [!NOTE]
-> To address a development slot, use additionally the parameter "--slot" followed by the name of the slot.
+> To address a development slot, include the parameter `--slot` followed by the name of the slot.
 
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
