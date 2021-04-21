@@ -128,5 +128,4 @@ Check the status:
 
 - [Train models using Machine Learning CLI extension](how-to-train-cli.md)
 - [Deploy models using Machine Learning CLI extension](how-to-deploy-cli.md)
-- [Manage resources with the Machine Learning CLI extension](how-to-manage-resources-cli.md)
 - [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).

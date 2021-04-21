@@ -218,6 +218,5 @@ If using VSCode, consider configuring to autopopulate options when authoring YAM
 
 ## Next steps
 
-- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).
-- [Manage resources with the Machine Learning CLI extension](how-to-manage-resources-cli.md)
 - [Deploy models with the Machine Learning CLI extension](how-to-deploy-cli.md)
+- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).
