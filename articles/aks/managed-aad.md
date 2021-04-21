@@ -205,7 +205,7 @@ In the output, confirm local accounts have been disabled by checking the field `
 }
 ```
 
-### Disable local user accounts on an existing cluster
+### Disable local accounts on an existing cluster
 
 To disable local accounts on an existing AKS cluster, use the [az aks update][az-aks-update] command with the `disable-local` flag:
 
