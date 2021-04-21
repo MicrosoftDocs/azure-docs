@@ -1154,7 +1154,7 @@
           href: use-multi-document-transactions.md
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
-          href: mongodb/estimate-ru-with-capacity-planner.md
+          href: mongodb/estimate-ru-capacity-planner.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
