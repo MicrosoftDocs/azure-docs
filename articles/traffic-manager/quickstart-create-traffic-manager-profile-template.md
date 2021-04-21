@@ -3,12 +3,13 @@ title: 'Quickstart: Create a Traffic Manager by using Azure Resource Manager tem
 description: This quickstart article describes how to create an Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
 services: traffic-manager
 author: duongau
-ms.service: traffic-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-
+ms.topic: quickstart
+ms.service: traffic-manager
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create a Traffic Manager profile using an ARM template

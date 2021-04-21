@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/20/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -22,9 +22,9 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files.
 
 ## Networking FAQs
 
-### Does the NFS data path go over the Internet?  
+### Does the data path for NFS or SMB go over the Internet?  
 
-No. The NFS data path does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
+No. The data path for NFS or SMB does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
 
 See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for details.  
 
@@ -208,6 +208,48 @@ Management of `SMB Shares`, `Sessions`, and `Open Files` through Computer Manage
 ### How can I obtain the IP address of an SMB volume via the portal?
 
 Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** -> **mountTargets**.
+
+### Can an Azure NetApp Files SMB share act as an DFS Namespace (DFS-N) root?
+
+No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
+To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
+
+### SMB encryption FAQs
+
+This section answers commonly asked questions about SMB encryption (SMB 3.0 and SMB 3.1.1).
+
+#### What is SMB encryption?  
+
+[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
+
+#### How does SMB encryption work?
+
+When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.
+
+#### Which clients support SMB encryption?
+
+Windows 10, Windows 2012, and later versions support SMB encryption.
+
+#### With Azure NetApp Files, at what layer is SMB encryption enabled?  
+
+SMB encryption is enabled at the share level.
+
+#### What forms of SMB encryption are used by Azure NetApp Files?
+
+SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm
+
+#### Is SMB encryption required?
+
+SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
+
+#### <a name="smb_encryption_impact"></a>What is the anticipated impact of SMB encryption on client workloads?
+
+Although SMB encryption has impact to both the client (CPU overhead for encrypting and decrypting messages) and the storage (reductions in throughput), the following table highlights storage impact only. You should test the encryption performance impact against your own applications before deploying workloads into production.
+
+|     I/O profile    	|     Impact    	|
+|-	|-	|
+|     Read and write workloads    	|     10% to 15%     	|
+|     Metadata intensive    	|     5%  	|
 
 ## Capacity management FAQs
 

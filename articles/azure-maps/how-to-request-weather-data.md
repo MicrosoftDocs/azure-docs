@@ -1,6 +1,6 @@
 ---
-title: Request real-time and forecasted weather data using Azure Maps Weather services (Preview) 
-description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services (Preview) 
+title: Request real-time and forecasted weather data using Azure Maps Weather services 
+description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -12,12 +12,7 @@ ms.custom: mvc
 ---
 
 
-# Request real-time and forecasted weather data using Azure Maps Weather services (Preview) 
-
-> [!IMPORTANT]
-> Azure Maps Weather services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Request real-time and forecasted weather data using Azure Maps Weather services
 
 Azure Maps [Weather services](/rest/api/maps/weather) are a set of RESTful APIs that allows developers to integrate highly dynamic historical, real-time, and forecasted weather data and visualizations into their solutions. In this article, we'll show you how to request both real-time and forecasted weather data.
 
@@ -752,7 +747,7 @@ In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services (Preview) concepts](./weather-services-concepts.md)
+> [Azure Maps Weather services concepts](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services (Preview) REST API](/rest/api/maps/weather)
+> [Azure Maps Weather services REST API](/rest/api/maps/weather)

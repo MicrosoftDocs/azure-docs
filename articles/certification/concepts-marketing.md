@@ -1,7 +1,7 @@
 ---
 title: Marketing properties
 description: A description of the different marketing fields collected in the portal and how they will appear on the Azure Certified Device catalog
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: conceptual 

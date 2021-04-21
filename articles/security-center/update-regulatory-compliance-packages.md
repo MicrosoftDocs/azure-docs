@@ -1,17 +1,11 @@
 ---
 title: Using the regulatory compliance dashboard in Azure Security Center
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 04/21/2021
 ms.author: memildin
 
 ---
@@ -19,6 +13,8 @@ ms.author: memildin
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
+> [!TIP]
+> Learn more about Security Center's regulatory compliance dashboard in the [frequently asked questions](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
 
 ## How are regulatory compliance standards represented in Security Center?
 
@@ -33,7 +29,7 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 ## What regulatory compliance standards are available in Security Center?
 
-By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 You can also add standards such as:
 
@@ -117,6 +113,6 @@ In this article, you learned how to **add compliance standards** to monitor your
 
 For related material, see the following pages:
 
-- [Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Security Center and external tools
 - [Working with security policies](tutorial-security-policy.md)
