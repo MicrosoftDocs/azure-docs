@@ -33,9 +33,58 @@ By default, Azure App Configuration only loads configuration values with no labe
 
 In the previous section, you created a different configuration value for the development environment. You use the `HostingEnvironment.EnvironmentName` variable to dynamically determine which environment the app currently runs in. To learn more, see [Use multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
-Load configuration values with the label corresponding to the current environment by passing the environment name into the `Select` method:
+Add a reference to the [Microsoft.Extensions.Configuration.AzureAppConfiguration](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration) namespace in order to access the [KeyFilter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.keyfilter) and [LabelFilter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.labelfilter) classes.
 
 ```csharp
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+``` 
+
+Load configuration values with the label corresponding to the current environment by passing the environment name into the `Select` method:
+
+### [.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                config.AddAzureAppConfiguration(options =>
+                    options
+                        .Connect(Environment.GetEnvironmentVariable("AppConfigConnectionString"))
+                        // Load configuration values with no label
+                        .Select(KeyFilter.Any, LabelFilter.Null)
+                        // Override with any configuration values specific to current hosting env
+                        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+                );
+            })
+            .UseStartup<Startup>();
+    ```
+
+    ### [.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                config.AddAzureAppConfiguration(options =>
+                    options
+                        .Connect(Environment.GetEnvironmentVariable("AppConfigConnectionString"))
+                        // Load configuration values with no label
+                        .Select(KeyFilter.Any, LabelFilter.Null)
+                        // Override with any configuration values specific to current hosting env
+                        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+                );
+            })
+            .UseStartup<Startup>());
+    ```
+
+    ### [.NET Core 5.x](#tab/core5x)
+
+    ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
@@ -53,6 +102,9 @@ Load configuration values with the label corresponding to the current environmen
             })
             .UseStartup<Startup>());
 ```
+    ```
+    ---
+
 
 > [!IMPORTANT]
 > The preceding code snippet loads the App Configuration connection string from an environment variable named `AppConfigConnectionString`. Be sure that this environment variable is set properly.

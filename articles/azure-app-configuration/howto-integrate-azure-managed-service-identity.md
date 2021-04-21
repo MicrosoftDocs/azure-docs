@@ -121,15 +121,28 @@ To set up a managed identity in the portal, you first create an application and 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            {
                 webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     var settings = config.Build();
                     config.AddAzureAppConfiguration(options =>
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                });
-            })
-            .UseStartup<Startup>());
+                })
+                .UseStartup<Startup>());
+    ```
+
+    ### [.NET Core 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+                })
+                .UseStartup<Startup>());
     ```
     ---
 
@@ -172,7 +185,6 @@ To set up a managed identity in the portal, you first create an application and 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            {
                 webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     var settings = config.Build();
@@ -181,14 +193,36 @@ To set up a managed identity in the portal, you first create an application and 
                     config.AddAzureAppConfiguration(options =>
                     {
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                               .ConfigureKeyVault(kv =>
-                               {
-                                   kv.SetCredential(credentials);
-                               });
+                                .ConfigureKeyVault(kv =>
+                                {
+                                    kv.SetCredential(credentials);
+                                });
                     });
-                });
-            })
-            .UseStartup<Startup>());
+                })
+                .UseStartup<Startup>());
+    ```
+
+    ### [.NET Core 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    var credentials = new ManagedIdentityCredential();
+
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                .ConfigureKeyVault(kv =>
+                                {
+                                    kv.SetCredential(credentials);
+                                });
+                    });
+                })
+                .UseStartup<Startup>());
     ```
     ---
 
