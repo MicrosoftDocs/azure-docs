@@ -465,7 +465,7 @@ To install the software:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
-1. In the Installation Wizard, define the hardware profile, and network properties:
+1. In the Installation Wizard define the hardware profile and network properties:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -549,7 +549,7 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
-1. In the Installation Wizard, define the appliance profile, and network properties.
+1. In the Installation Wizard define the appliance profile and network properties.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -675,7 +675,7 @@ To install:
 
 1. Select the required architecture.
 
-1. Define the appliance profile, and network properties:
+1. Define the appliance profile and network properties:
 
     | Parameter | Configuration |
     | ----------| ------------- |
@@ -714,7 +714,7 @@ To configure the BIOS for your appliance:
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times. 
 
-During the installation process you will have the option to add a secondary NIC. If you choose not to install the secondary NIC during installation you can [add a secondary NIC](#add-a-secondary-nic) at a later time. 
+During the installation process, you will can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic) at a later time. 
 
 To install the software:
 
@@ -764,7 +764,7 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
 
-Both NICs have the user interface (UI) enabled. When routing is not neccessary, all of the features that are supported by the UI, will be available on the secondary NIC. High Availability will run on the secondary NIC.
+Both NICs have the user interface (UI) enabled. When routing is not necessary, all of the features that are supported by the UI, will be available on the secondary NIC. High Availability will run on the secondary NIC.
 
 If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
 
