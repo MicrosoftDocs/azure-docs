@@ -114,7 +114,7 @@ To remove the assignment created, follow these steps:
 
 ## Next steps
 
-In this tutorial, you assigned a policy definition to a scope and evaluated its compliance report. The policy definition validates that all the resources in the scope are compliant and identifies which ones aren't. Now you are ready to monitor your Azure Arc enabled servers machine by enabling [VM insights](../../azure-monitor/vm/vminsights-overview.md).
+In this tutorial, you assigned a policy definition to a scope and evaluated its compliance report. The policy definition validates that all the resources in the scope are compliant and identifies which ones aren't. Now you are ready to monitor your Azure Arc enabled servers machine by enabling [VM insights](../../../azure-monitor/vm/vminsights-overview.md).
 
 To learn how to monitor and view the performance, running process and their dependencies from your machine, continue to the tutorial:
 
