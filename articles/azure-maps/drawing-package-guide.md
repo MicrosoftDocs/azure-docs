@@ -71,7 +71,7 @@ The drawings can be created using any unit of measurement. However, all drawings
 
 The following image shows the Drawing Units window within Autodesk's AutoCAD® software that you can use to verify the unit of measurement.  
 
-:::image border="true" type="content" source="{source}" alt-text="Drawing Units window within Autodesk's AutoCAD® software":::
+:::image border="true" type="content" source="./media/drawing-package-guide/units.png" alt-text="Drawing Units window within Autodesk's AutoCAD® software":::
 
 ### Alignment
 
@@ -91,7 +91,7 @@ A single level feature is created from each exterior layer or layers. This level
 
 The following image is taken from the sample package, and shows the exterior layer of the facility in red. The unit layer is turned off to help with visualization.
 
-:::image border="true" type="content" source="{source}" alt-text="Exterior layer of a facility.":::
+:::image border="true" type="content" source="./media/drawing-package-guide/exterior.png" alt-text="Exterior layer of a facility.":::
 
 ### Unit layer
 
@@ -99,19 +99,19 @@ Units are navigable spaces in the building, such as offices, hallways, stairs, a
 
 The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows the unit label layer and unit layer in red. All other layers are turned off to help with visualization. Also, one unit is selected to help show that each unit is a closed Polyline.  
 
-:::image border="true" type="content" source="{source}" alt-text="Unit layer of a facility.":::
+:::image border="true" type="content" source="./media/drawing-package-guide/unit.png" alt-text="Unit layer of a facility.":::
 
 ### Unit label layer
 
 If you'd like to add a name property to a unit, you'll need to add a separate layer for unit labels. Labels must be provided as single-line text entities that fall inside the bounds of a unit. A corresponding unit property must be added to the manifest file where the `unitName` matches the Contents of the Text.  To learn about all supported unit properties, see [`unitProperties`](#unitproperties).
 
-### Door lLayer
+### Door layer
 
 Doors are optional. However, doors may be used if you'd like to specify the entry point(s) for a unit. Doors can be drawn in any way if it's a supported entity type by the door layer. The door must overlap the boundary of a unit and the overlapping edge of the unit is then be treated as an opening to the unit.  
 
 The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows a unit with a door (in red) drawn on the unit boundary.
 
-:::image border="true" type="content" source="{source}" alt-text="Door layer of a facility.":::
+:::image border="true" type="content" source="./media/drawing-package-guide/door.png" alt-text="Door layer of a facility.":::
 
 ### Wall layer
 
@@ -129,7 +129,27 @@ The building level specifies which DWG file to use for which level. A level must
 
 The following example is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples). The facility has three levels: basement, ground, and level 2. The filename contains the full file name and path of the file relative to the manifest file within the .zip Drawing package.  
 
-:::image border="true" type="content" source="{source}" alt-text="Building levels in the manifest.":::
+```json
+    "buildingLevels": { 
+      "levels": [ 
+       { 
+           "levelName": "Basement", 
+           "ordinal": -1, 
+           "filename": "./Basement.dwg" 
+            }, { 
+
+            "levelName": "Ground", 
+            "ordinal": 0, 
+            "filename": "./Ground.dwg" 
+            }, { 
+
+            "levelName": "Level 2", 
+            "ordinal": 1, 
+             "filename": "./Level_2.dwg" 
+            } 
+        ] 
+    }, 
+```
 
 ### georeference
 
@@ -139,13 +159,37 @@ The `georeference` object is used to specify where the facility is located geogr
 
 The `dwgLayers` object is used to specify that DWG layer names where feature classes can be found. To receive a property converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have additional layers such as furniture or plumbing, but they'll be ignored by the Azure Maps Conversion service if they're not specified in the manifest.  
 
-The following image shows an example of the `dwgLayers` object of the manifest.  
+The following example of the `dwgLayers` object in the manifest.  
 
-:::image border="true" type="content" source="{source}" alt-text="DwgLayers in the manifest.":::
+```json
+"dwgLayers": { 
+        "exterior": [ 
+            "OUTLINE" 
+        ], 
+        "unit": [ 
+            "UNITS" 
+        ], 
+        "wall": [ 
+            "WALLS" 
+        ], 
+        "door": [ 
+            "DOORS" 
+        ], 
+        "unitLabel": [ 
+            "UNITLABELS" 
+        ], 
+        "zone": [ 
+            "ZONES" 
+        ], 
+        "zoneLabel": [ 
+            "ZONELABELS" 
+        ] 
+    } 
+```
 
 The following image shows the layers from the corresponding DWG drawing viewed in Autodesk's AutoCAD® software.
 
-:::image border="true" type="content" source="{source}" alt-text="DwgLayers in Autodesk's AutoCAD® software":::
+:::image border="true" type="content" source="./media/drawing-package-guide/layer.png" alt-text="DwgLayers in Autodesk's AutoCAD® software":::
 
 ### unitProperties
 
@@ -153,11 +197,31 @@ The `unitProperties` object allows you to define other properties for a unit tha
 
 The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows the unit label that will be associated to the unit property in the manifest.
 
-:::image border="true" type="content" source="{source}" alt-text="Unit label that will be associated to the unity property in the manifest":::
+:::image border="true" type="content" source="./media/drawing-package-guide/unit-property.png" alt-text="Unit label that will be associated to the unity property in the manifest":::
 
 The following snippet shows the unit property object that is associated with the unit.  
 
-:::image border="true" type="content" source="{source}" alt-text="Unit property object that is associated with the unit":::
+```json
+ "unitProperties": [ 
+        { 
+            "unitName": "B01", 
+            "categoryName": "room.office", 
+            "navigableBy": ["pedestrian", "wheelchair", "machine"], 
+            "routeThroughBehavior": "disallowed", 
+            "occupants": [ 
+                { 
+                    "name": "Joe's Office", 
+                    "phone": "1 (425) 555-1234" 
+                } 
+            ], 
+            "nameAlt": "Basement01", 
+            "nameSubtitle": "01", 
+            "addressRoomNumber": "B01", 
+            "nonPublic": true, 
+            "isRoutable": true, 
+            "isOpenArea": true 
+        }, 
+```
 
 ## Step 4: Prepare the Drawing Package
 
