@@ -1,17 +1,11 @@
 ---
 title: Using the regulatory compliance dashboard in Azure Security Center
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 04/21/2021
 ms.author: memildin
 
 ---
@@ -19,6 +13,8 @@ ms.author: memildin
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
+> [!TIP]
+> Learn more in the [frequently asked questions](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard) about Security Center's regulatory compliance dashboard.
 
 ## How are regulatory compliance standards represented in Security Center?
 
