@@ -1,4 +1,4 @@
-- name: Azure Stack Edge Pro Documentation 
+- name: Azure Stack Edge Documentation 
   href: ./index.yml
   expanded: true
 - name: Azure Stack Edge Pro - GPU
