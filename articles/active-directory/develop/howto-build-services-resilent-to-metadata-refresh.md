@@ -14,6 +14,7 @@ ms.date: 04/21/2021
 ms.author: jmprieur
 ms.reviewer: marsma, shermanouko
 ms.custom: aaddev
+# Customer intent: As a web app or web API developer, I want to learn how to ensure that my app is resilient to outages due to Azure AD OpenID Connect metadata refresh.
 ---
 
 # How to: Build services that are resilient to metadata refresh.
@@ -78,3 +79,7 @@ if (result.Exception != null && result.Exception is SecurityTokenSignatureKeyNot
   result = Handler.ValidateToken(jwtToken, validationParameters);
 }
 ```
+
+## Next Steps
+
+To learn more, see [token validation in a protected web API](scenario-protected-web-api-app-configuration.md#token-validation)
