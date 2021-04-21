@@ -51,6 +51,10 @@
       href: ../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: Deploy Azure File Sync
       href: file-sync-deployment-guide.md
+    - name: Use DFS-N with Azure Files
+      href: ../files/files-manage-namespaces.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Purchase storage reservations
+      href: ../files/files-reserve-capacity.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
   - name: Network
     items:
     - name: Configuring Azure File Sync network endpoints

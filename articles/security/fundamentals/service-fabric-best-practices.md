@@ -151,7 +151,7 @@ Service Fabric uses certificates to provide authentication and encryption for se
 
 Service Fabric uses X.509 certificates to secure a cluster and to provide application security features. You use Azure Key Vault to [manage certificates](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) for Service Fabric clusters in Azure. The Azure resource provider that creates the clusters pulls the certificates from a key vault. The provider then installs the certificates on the VMs when the cluster is deployed on Azure.
 
-A certificate relationship exists between [Azure Key Vault](../../key-vault/general/security-overview.md), the Service Fabric cluster, and the resource provider that uses the certificates. When the cluster is created, information about the certificate relationship is stored in a key vault.
+A certificate relationship exists between [Azure Key Vault](../../key-vault/general/security-features.md), the Service Fabric cluster, and the resource provider that uses the certificates. When the cluster is created, information about the certificate relationship is stored in a key vault.
 
 There are two basic steps to set up a key vault:
 1. Create a resource group specifically for your key vault.
