@@ -61,25 +61,18 @@
         href: test-drive-hosted-detailed-config.md
       - name: Set up Azure subscription for hosted test drives
         href: test-drive-azure-subscription-setup.md
-  - name: Azure customer usage attribution
+  - name: Azure partner customer usage attribution
     href: azure-partner-customer-usage-attribution.md
   - name: Go-to-market options
     items:
     - name: Your marketplace benefits
-      href: gtm-your-marketplace-benefits.md
-      items: 
-    - name: Co-sell with Microsoft
-      items:
-      - name: Co-sell overview
-        href: co-sell-overview.md
-      - name: Co-sell requirements
-        href: co-sell-requirements.md 
-      - name: Configure co-sell
-        href: co-sell-configure.md
-      - name: Verify co-sell status
-        href: co-sell-status.md   
-      - name: Migrate co-sell solutions from OCP GTM
-        href: co-sell-solution-migration.md 
+      href: gtm-your-marketplace-benefits.md 
+    - name: Co-sell partner engagement
+      href: marketplace-co-sell.md 
+    - name: Co-sell option in Partner Center
+      href: commercial-marketplace-co-sell.md 
+    - name: Migrate co-sell solutions from OCP GTM
+      href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
@@ -206,20 +199,32 @@
       href: create-consulting-service-pricing-availability.md
   - name: Dynamics 365 offers
     items: 
-    - name: Plan a Dynamics 365 offer
-      href: appsource-offer-publishing-guide.md
-    - name: Create and publish a Dynamics 365 offer
-      items:
-      - name: Create a Dynamics 365 Customer Engagement & Power Apps offer
-        href: partner-center-portal/create-new-customer-engagement-offer.md
+    - name: Plan your offer
+      href: marketplace-dynamics-365.md
+    - name: Create a Customer Engagement & Power Apps offer
+      items: 
+      - name: Create the offer
+        href: dynamics-365-customer-engage-offer-setup.md
+      - name: Properties
+        href: dynamics-365-customer-engage-properties.md
+      - name: Offer listing
+        href: dynamics-365-customer-engage-offer-listing.md
+      - name: Availability
+        href: dynamics-365-customer-engage-availability.md
+      - name: Technical configuration
+        href: dynamics-365-customer-engage-technical-configuration.md
+      - name: Supplemental content
+        href: dynamics-365-customer-engage-supplemental-content.md
+      - name: Review and publish
+        href: dynamics-365-customer-engage-review-publish.md
+    - name: Create an Operations offer
+      items: 
       - name: Create a Dynamics 365 for Operations offer
-        items: 
-        - name: Create a Dynamics 365 for Operations offer
-          href: partner-center-portal/create-new-operations-offer.md
-        - name: Functional validation
-          href: dynamics-365-finance-operations-functional-validation.md
-      - name: Create a Dynamics 365 Business Central offer
-        href: partner-center-portal/create-new-business-central-offer.md
+        href: partner-center-portal/create-new-operations-offer.md
+      - name: Functional validation
+        href: dynamics-365-finance-operations-functional-validation.md
+    - name: Create a Business Central offer
+      href: partner-center-portal/create-new-business-central-offer.md
   - name: IoT Edge module offers
     items:
     - name: Plan an IoT Edge module offer
@@ -228,8 +233,6 @@
       href: partner-center-portal/azure-iot-edge-module-creation.md
     - name: Prepare IoT Edge module technical assets
       href: partner-center-portal/create-iot-edge-module-asset.md
-    - name: Pre-certification checklist
-      href: iot-edge-checklist.md
   - name: Managed Service offers
     items:
     - name: Plan a Managed Service offer
@@ -328,48 +331,6 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
-  - name: Programmatic access to analytics
-    items:
-    - name: Get started
-      href: analytics-get-started.md
-    - name: Programmatic access prerequisites
-      href: analytics-prerequisites.md 
-    - name: Programmatic access paradigm
-      href: analytics-programmatic-access.md
-    - name: Make your first API call
-      href: analytics-make-your-first-api-call.md
-    - name: List of system queries
-      href: analytics-system-queries.md
-    - name: Sample queries
-      href: analytics-sample-queries.md
-    - name: Sample application
-      href: analytics-sample-application.md
-    - name: Custom query specification
-      href: analytics-custom-query-specification.md
-    - name: Programmatic analytics FAQ
-      href: analytics-programmatic-faq.md  
-    - name: Analytics API reference
-      items:
-      - name: List of APIs 
-        href: analytics-available-apis.md
-      - name: Get all datasets
-        href: analytics-api-get-all-datasets.md
-      - name: Get report queries API
-        href: analytics-api-get-report-queries.md
-      - name: Delete report queries API
-        href: analytics-api-delete-report-queries.md
-      - name: Try report queries API
-        href: analytics-api-try-report-queries.md
-      - name: Get report API
-        href: analytics-api-get-report.md
-      - name: Update report API
-        href: analytics-api-update-report.md
-      - name: Delete report API
-        href: analytics-api-delete-report.md        
-      - name: Pause report executions API
-        href: analytics-api-pause-report-executions.md
-      - name: Resume report executions API
-        href: analytics-api-resume-report-executions.md
   - name: Manage metered billing anomalies 
     href: anomaly-detection.md
   - name: Analytics common questions 
@@ -470,8 +431,6 @@
     href: commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: commercial-marketplace-co-sell-states.md
-  - name: Reference Architecture Diagram
-    href: reference-architecture-diagram.md  
   - name: Categories and subcategories
     href: categories.md  
   - name: Supported HTML tags

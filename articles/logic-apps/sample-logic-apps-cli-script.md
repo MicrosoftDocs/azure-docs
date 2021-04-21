@@ -192,7 +192,7 @@ This sample script uses the following commands to create a new resource group an
 
 | Command | Notes |
 | ------- | ----- |
-| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which your logic app's resources are stored. |
+| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which your logic app's resources are stored. |
 | [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | Creates a logic app based on the workflow defined in the parameter `--definition`. |
 | [`az group delete`](/cli/azure/vm/extension) | Deletes a resource group and all of its nested resources. |
 

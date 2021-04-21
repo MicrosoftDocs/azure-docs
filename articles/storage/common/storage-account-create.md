@@ -86,7 +86,7 @@ Connect-AzAccount
 
 To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az_login) command:
 
 ```azurecli-interactive
 az login
@@ -319,7 +319,7 @@ Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-gro
 
 # [Azure CLI](#tab/azure-cli)
 
-To delete the storage account, use the [az storage account delete](/cli/azure/storage/account#az-storage-account-delete) command:
+To delete the storage account, use the [az storage account delete](/cli/azure/storage/account#az_storage_account_delete) command:
 
 ```azurecli-interactive
 az storage account delete --name <storage-account> --resource-group <resource-group>
