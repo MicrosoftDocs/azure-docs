@@ -239,7 +239,7 @@ az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdent
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -296,7 +296,7 @@ The result should look like:
 }
 ```
 
-If your managed identity is part of your subscription, you can use the [az identity list][az-identity-list] command to query it.  
+If your existing managed identity is part of your subscription, you can use the [az identity list][az-identity-list] command to query it:
 
 ```azurecli-interactive
 az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
@@ -304,7 +304,7 @@ az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 
 ### Create a cluster using kubelet identity
 
-Now you can use the following command to create your cluster with your existing identities:
+Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kublet-identity`:
 
 ```azurecli-interactive
 az aks create \
@@ -320,7 +320,7 @@ az aks create \
     --assign-kubelet-identity <kubelet-identity-id> \
 ```
 
-A successful cluster creation using your own kubelet managed identities contains this userAssignedIdentities profile information:
+A successful cluster creation using your own kubelet managed identity contains the following output:
 
 ```output
   "identity": {
