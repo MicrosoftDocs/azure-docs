@@ -235,7 +235,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     export class AppModule { }
     ```
 
-3. Add CSS to *src/style.css*:
+3. Add CSS to *src/style.css*: (OPTIONAL)
 
     ```javascript
     @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
@@ -245,7 +245,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     .container { margin: 1%; }
     ```
 
-4. Add CSS to *src/app/app.component.css*:
+4. Add CSS to *src/app/app.component.css*: (OPTIONAL)
 
     ```javascript
     .toolbar-spacer {
@@ -913,7 +913,9 @@ export class AppComponent implements OnInit {
   }
 
   logout() { // Add log out function here
-    this.authService.logoutRedirect();
+    this.authService.logoutRedirect({
+      postLogoutRedirectUri: 'http://localhost:4200'
+    });
   }
 
   setLoginDisplay() {
@@ -934,7 +936,7 @@ Update the code in *src/app/app.component.ts* to sign out a user using popups:
 ```javascript
 import { Component, OnInit, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
-import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
+import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -966,13 +968,27 @@ export class AppComponent implements OnInit {
 
   login() {
     if (this.msalGuardConfig.authRequest){
-      this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
+      this.authService.loginPopup({...this.msalGuardConfig.authRequest} as PopupRequest)
+        .subscribe({
+          next: (result) => {
+            console.log(result);
+            this.setLoginDisplay();
+          },
+          error: (error) => console.log(error)
+        });
     } else {
-      this.authService.loginRedirect();
+      this.authService.loginPopup()
+        .subscribe({
+          next: (result) => {
+            console.log(result);
+            this.setLoginDisplay();
+          },
+          error: (error) => console.log(error)
+        });
     }
   }
 
-  logout() {
+  logout() { // Add log out function here
     this.authService.logoutPopup({
       mainWindowRedirectUri: "/"
     });
