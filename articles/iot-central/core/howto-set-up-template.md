@@ -77,9 +77,12 @@ To create a device template in IoT Central:
 
 ## Manage a device template
 
-You can rename or delete a template from the template's home page.
+You can rename or delete a template from the template's editor page.
 
-After you've added a device model to your template, you can publish it. Until you've published the template, you can't connect a device based on this template for your operators to see in the **Devices** page.
+After you've defined the template, you can publish it. Until publishing, you will not be able to connect a device to this template, and it will not appear on the **Devices** page.
+
+> [!NOTE]
+> For best practices on managing a device template in accordance with your development stages, follow [Make changes to an existing device template](howto-edit-device-template.md)
 
 ## Create a capability model
 
@@ -166,6 +169,7 @@ The following table shows the configuration settings for a command capability:
 | Display Name | The display name for the command used on views and forms. |
 | Name | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Command. |
+| Queue if offline | If enabled, the command can be executed even if a device is offline. If not enabled, the command will only execute if the device is online. |
 | Comment | Any comments about the command capability. |
 | Description | A description of the command capability. |
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
@@ -190,9 +194,7 @@ Cloud-to-device messages:
 
 ## Manage a component
 
-If you haven't published the component, you can edit the capabilities defined by the component. After you publish the component, if you want to make any changes, you must create a new version of the device template and [version the component](howto-version-device-template.md). You can make changes that don't require versioning, such as display names or units, in the **Customize** section.
-
-You can also export the component as a JSON file if you want to reuse it in another capability model.
+Components can be used to create organizable sections within your device template. While inherited interfaces should typically be used for generic, reusable parts of a model, components are meant for independent instances of arranging capabilities within a model. Components can be edited directly in the device template or exported and imported as JSON files. 
 
 ## Add cloud properties
 
@@ -209,13 +211,7 @@ The following table shows the configuration settings for a cloud property:
 
 ## Add customizations
 
-Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. You can only customize fields that don't break component compatibility. For example, you can:
-
-- Customize the display name and units of a capability.
-- Add a default color to use when the value appears on a chart.
-- Specify initial, minimum, and maximum values for a property.
-
-You can't customize the capability name or capability type. If there are changes you can't make in the **Customize** section, you'll need to version your device template and component to modify the capability.
+Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. You can customize any part of an existing device template's capabilities.
 
 ### Generate default views
 
@@ -269,7 +265,7 @@ To add a form to a device template:
 
 Before you can connect a device that implements your device model, you must publish your device template.
 
-After you publish a device template, you can only make limited changes to the device model. To modify a component, you need to [create and publish a new version](./howto-version-device-template.md).
+ To learn more about modifying a device template after publishing, follow [Make changes to an existing device template](howto-edit-device-template.md)
 
 To publish a device template, go to you your device template, and select **Publish**.
 
@@ -277,4 +273,4 @@ After you publish a device template, an operator can go to the **Devices** page,
 
 ## Next steps
 
-A suggested next step is to read about [device template versioning](./howto-version-device-template.md).
+A suggested next step is to read about how to [Make changes to an existing device template](howto-edit-device-template.md).
