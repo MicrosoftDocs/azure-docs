@@ -70,7 +70,7 @@ const data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS
 Install the `ms-rest-azure` and `azure-ai-anomalydetector` NPM packages. The csv-parse library is also used in this quickstart:
 
 ```console
-npm install @azure/ai-anomaly-detector @azure/ms-rest-js csv-parse
+npm install @azure/ai-anomaly-detector csv-parse
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -90,7 +90,7 @@ These code snippets show you how to do the following with the Anomaly Detector c
 Instantiate a `AnomalyDetectorClient` object with your endpoint and credentials.
 
 ```javascript
-const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey)).client;
+const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
 ## Train a model
@@ -114,21 +114,21 @@ You will need to pass your model request to the Anomaly Detector client `trainMu
 
 ```javascript
 console.log("Training a new model...")
-var train_response = await client.trainMultivariateModel(Modelrequest)
-var model_id = train_response.location.split("/").pop()
+const train_response = await client.trainMultivariateModel(Modelrequest)
+const model_id = train_response.location?.split("/").pop() ?? ""
 console.log("New model ID: " + model_id)
 ```
 
 To check if training of your model is complete you can track the model's status:
 
 ```javascript
-var model_response = await client.getMultivariateModel(model_id)
-var model_status = model_response.modelInfo.status
+let model_response = await client.getMultivariateModel(model_id)
+let model_status = model_response.modelInfo?.status
 
 while (model_status != 'READY'){
     await sleep(10000).then(() => {});
-    var model_response = await client.getMultivariateModel(model_id)
-    var model_status = model_response.modelInfo.status
+    model_response = await client.getMultivariateModel(model_id)
+    model_status = model_response.modelInfo?.status
 }
 
 console.log("TRAINING FINISHED.")
@@ -146,14 +146,14 @@ const detect_request = {
     endTime: new Date(2021,0,3,0,0,0)
 };
 const result_header = await client.detectAnomaly(model_id, detect_request)
-const result_id = result_header.location.split("/").pop()
-var result = await client.getDetectionResult(result_id)
-var result_status = result.summary.status
+const result_id = result_header.location?.split("/").pop() ?? ""
+let result = await client.getDetectionResult(result_id)
+let result_status = result.summary.status
 
 while (result_status != 'READY'){
     await sleep(2000).then(() => {});
-    var result = await client.getDetectionResult(result_id)
-    var result_status = result.summary.status
+    result = await client.getDetectionResult(result_id)
+    result_status = result.summary.status
 }
 ```
 
@@ -165,7 +165,7 @@ To export your trained model use the `exportModel` function.
 const export_result = await client.exportModel(model_id)
 const model_path = "model.zip"
 const destination = fs.createWriteStream(model_path)
-export_result.readableStreamBody.pipe(destination)
+export_result.readableStreamBody?.pipe(destination)
 console.log("New model has been exported to "+model_path+".")
 ```
 
