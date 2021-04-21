@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 04/21/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
@@ -28,6 +28,9 @@ Before configuring AD FS single sign-on, you must have the following setup runni
 * We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
 * You must deploy **Azure AD Connect** to sync users to Azure AD. Azure AD Connect must be configured in [federation mode](../active-directory/connect/active-directory-aadconnect-get-started-custom.md).
 * [Set up your PowerShell environment](powershell-module.md) for Windows Virtual Desktop on the AD FS server.
+
+> [!NOTE]
+> This solution is not supported with Azure AD Domain Services. You must use an Active Directory Domain Controller.
 
 ## Supported clients
 
@@ -177,7 +180,7 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
 3. Set the access policy on the Azure Key Vault by running the following PowerShell cmdlet:
 
    ```powershell
-   Set-AzKeyVaultAccessPolicy -VaultName "<Key Vault Name>" -ServicePrincipalName 9cdead84-a844-4324-93f2-b2e6bb768d07 -PermissionsToSecrets get
+   Set-AzKeyVaultAccessPolicy -VaultName "<Key Vault Name>" -ServicePrincipalName 9cdead84-a844-4324-93f2-b2e6bb768d07 -PermissionsToSecrets get -PermissionsToKeys sign
    ```
 
 4. Store the shared key or certificate in Azure Key Vault.
@@ -237,7 +240,7 @@ You can follow the steps to [Configure your Windows Virtual Desktop host pool](#
 To disable SSO on the host pool, run the following cmdlet:
 
 ```powershell
-Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority '' -SsoClientId '' -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath ''
+Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority ''
 ```
 
 If you also want to disable SSO on your AD FS server, run this cmdlet:
