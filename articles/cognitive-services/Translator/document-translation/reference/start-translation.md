@@ -1,7 +1,7 @@
 ---
-title: Document Translation submit batch request
+title: Start translation
 titleSuffix: Azure Cognitive Services
-description: Submit a document translation request to the Document Translation service.
+description: Start a document translation request with the Document Translation service.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: submit batch request
+# Start translation
 
-Use this API to submit a bulk (batch) translation request to the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
+Use this API to start a bulk (batch) translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
 
 The prefix and suffix filter (if supplied) are used to filter folders. The prefix is applied to the subpath after the container name.
 

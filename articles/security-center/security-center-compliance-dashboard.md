@@ -131,8 +131,8 @@ By default, the regulatory compliance dashboard shows you the Azure Security Ben
 
 To track your compliance with any other standard, you'll need to explicitly add them to your dashboard.
  
-You can add standards such as Azure CIS 1.1.0 (new), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP, and PCI-DSS 3.2.1.  
- 
+You can add other standards such as Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP, and PCI-DSS 3.2.1.  
+
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 ### Why do some controls appear grayed out?

@@ -65143,6 +65143,48 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-sign-ins-error-codes.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/cancel-operation.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/cancel-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-document-formats.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-supported-document-formats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-document-storage-source.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-supported-storage-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-glossary-formats.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-supported-glossary-formats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-operation-documents-status.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-documents-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-operations.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-translations-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-operation-status.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-translation-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/submit-batch-request.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/start-translation",
+      "redirect_document_id": false
     }
   ]
 }
+
+

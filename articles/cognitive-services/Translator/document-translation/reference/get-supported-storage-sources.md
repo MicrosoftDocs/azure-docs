@@ -1,7 +1,7 @@
 ---
-title: Document Translation get document storage source method
+title: Get supported storage sources method
 titleSuffix: Azure Cognitive Services
-description: The get document storage source method returns a list of supported storage sources.
+description: The get supported storage sources method returns a list of supported storage sources.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 03/25/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get document storage source
+# Get supported storage sources
 
-The Get Document Storage Source method returns a list of storage sources/options supported by the Document Translation service.
+The Get supported storage sources method returns a list of storage sources/options supported by the Document Translation service.
 
 ## Request URL
 
@@ -49,10 +49,10 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get document storage source response
+## Get supported storage sources response
 
-### Successful get document storage source response
-Base type for list return in the Get Document Storage Source API.
+### Successful get supported storage sources response
+Base type for list return in the Get supported storage sources API.
 
 |Name|Type|Description|
 |--- |--- |--- |
