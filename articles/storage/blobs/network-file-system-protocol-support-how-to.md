@@ -17,7 +17,7 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
 
 ## Step 1: Register the NFS 3.0 protocol feature with your subscription
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 1. Open a PowerShell command window. 
 
@@ -48,8 +48,9 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
    ```
    
-# [AzureCLI](#tab/azurecli)
-1. Open a Terminal window
+# [Azure CLI](#tab/azure-cli)
+
+1. Open a Terminal window.
 
 2. Sign in to your Azure subscription with the `az login` command and follow the on-screen directions.
 
@@ -57,7 +58,7 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
    az login
    ```
    
-2. Register the `AllowNFSV3` feature by using the following command.
+3. Register the `AllowNFSV3` feature by using the following command.
 
    ```azurecli-interactive
    az feature register --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
@@ -65,7 +66,7 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the resource provider by using the following command.
+4. Register the resource provider by using the following command.
     
    ```azurecli-interactive
    az provider register -n Microsoft.Storage --subscription <subscription-id>
@@ -73,22 +74,27 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
+---
 
 ## Step 2: Verify that the feature is registered 
 
 Registration approval can take up to an hour. To verify that the registration is complete, use the following commands.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
 ```
 
-# [AzureCLI](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az feature show --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
 ```
+
 Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
+---
 
 ## Step 3: Create an Azure Virtual Network (VNet)
 
