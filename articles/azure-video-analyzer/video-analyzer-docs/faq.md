@@ -232,4 +232,4 @@ For billing details, see [Azure Video Analyzer pricing]()<!--https://azure.micro
 
 ## Next steps
 
-[Quickstart: Get started with Azure Video Analyzer on IoT Edge]()<!--get-started-detect-motion-emit-events-quickstart.md-->
+[Quickstart: Get started with Azure Video Analyzer on IoT Edge](get-started-detect-motion-emit-events.md)
