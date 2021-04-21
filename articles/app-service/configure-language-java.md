@@ -459,16 +459,18 @@ Next, determine if the data source should be available to one application or to 
 
 #### Shared server-level resources
 
-Tomcat installations on App Service Windows exist in shared space on the App Service Plan. Therefore, it is not possible to modify a Tomcat installation for server-wide configuration directly. Tomcat must be copied to a folder in which modifications to Tomcat's configuration can be made for server-level configuration changes. 
+Tomcat installations on App Service on Windows exist in shared space on the App Service Plan. You can't directly modify a Tomcat installation for server-wide configuration. To make server-level configuration changes to your Tomcat installation, you must copy Tomcat to a local folder, in which you can modify Tomcat's configuration. 
 
-##### Automating creating custom Tomcat on app start
+##### Automate creating custom Tomcat on app start
 
-Startup scripts can be used to perform actions before a web app starts. The startup script for customizing Tomcat needs to do the following:
+You can use a startup script to perform actions before a web app starts. The startup script for customizing Tomcat needs to complete the following steps:
 
-1. Check if Tomcat was already copied and configured locally. If it was, the startup script can end here
-2. Copy Tomcat locally
-3. Perform required configuration
-4. Mark that configuration was done successfully
+1. Check whether Tomcat was already copied and configured locally. If it was, the startup script can end here.
+2. Copy Tomcat locally.
+3. Make the required configuration changes.
+4. Indicate that configuration was successfully completed.
+
+Here's a PowerShell script that completes these steps:
 
 ```powershell
     # Check for marker file indicating that config has already been done
@@ -495,11 +497,11 @@ Startup scripts can be used to perform actions before a web app starts. The star
 
 ##### Transforms
 
-A common use case for customizing a Tomcat version is modifying Tomcat configuration files, namely `server.xml`, `context.xml`, or `web.xml`. App Service already modifies these files to provide platform features. To continue to use these features, it is important to preserve the content of these files while making changes to them. To accomplish this, [xslt transformations](https://www.w3schools.com/xml/xsl_intro.asp) are recommended. They can be used to make changes to the XML files while preserving the original contents of the file.
+A common use case for customizing a Tomcat version is to modify the `server.xml`, `context.xml`, or `web.xml` Tomcat configuration files. App Service already modifies these files to provide platform features. To continue to use these features, it's important to preserve the content of these files when you make changes to them. To accomplish this, we recommend that you use an [XSL transformation (XSLT)](https://www.w3schools.com/xml/xsl_intro.asp). Use an XSL transform to make changes to the XML files while preserving the original contents of the file.
 
 ###### Example XSLT file
 
-This example transform adds a new connector node to `server.xml`. Note the *Identity Transform*, which preserves the original contents of the file
+This example transform adds a new connector node to `server.xml`. Note the *Identity Transform*, which preserves the original contents of the file.
 
 ```xml
     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -563,9 +565,9 @@ This example transform adds a new connector node to `server.xml`. Note the *Iden
 </xsl:stylesheet>
 ```
 
-###### Function for XSLT transform
+###### Function for XSL transform
 
-PowerShell has built in tools for transforming XML files using XSL transforms. This is an example function which can be used in `startup.ps1` to perform the transform.
+PowerShell has built-in tools for transforming XML files by using XSL transforms. The following script is an example function that you can use in `startup.ps1` to perform the transform:
 
 ```powershell
     function TransformXML{
@@ -599,25 +601,27 @@ PowerShell has built in tools for transforming XML files using XSL transforms. T
     }
 ```
 
-##### The App Settings
+##### App settings
 
-The platform also needs to know where your custom version of Tomcat is installed. This can be set through the CATALINA_BASE app setting.
+The platform also needs to know where your custom version of Tomcat is installed. You can set the installation's location in the `CATALINA_BASE` app setting.
 
-This setting can be changed through the Azure CLI:
+You can use the Azure CLI to change this setting:
 
 ```powershell
     az webapp config appsettings set -g $MyResourceGroup -n $MyUniqueApp --settings CATALINA_BASE="%LOCAL_EXPANDED%\tomcat"
 ```
 
-Or manually through the portal:
+Or, you can manually change the setting in the Azure portal:
 
-1. Go to Settings -> Configuration -> Application settings
-2. Go to + New Application Setting
-3. Name: `CATALINA_BASE` Value: `"%LOCAL_EXPANDED%\tomcat"`
+1. Go to **Settings** > **Configuration** > **Application settings**.
+1. Select **New Application Setting**.
+1. Use these values to create the setting:
+   1. **Name**: `CATALINA_BASE`
+   1. **Value**: `"%LOCAL_EXPANDED%\tomcat"`
 
 ##### Example startup.ps1
 
-An example script that copies a custom Tomcat to local, performs an xsl transform, and marks that the transform was successful
+The following example script copies a custom Tomcat to a local folder, performs an XSL transform, and indicates that the transform was successful:
 
 ```powershell
     # Locations of xml and xsl files
