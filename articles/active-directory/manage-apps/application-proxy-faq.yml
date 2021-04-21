@@ -22,9 +22,9 @@ sections:
   - name: Ignored
     questions:
       - question: |
-         Can I delete an App Proxy app from the App Registration page in the Azure portal? 
+         Can I delete an App Proxy app from the App registrations page in the Azure portal? 
         answer: |
-              No. You should delete an App Proxy app from the Enterprise Applications area of the Azure portal. If you delete the App Proxy app from the App Registrations area of the Azure portal then you could experience issues.
+              No. You should delete an App Proxy app from the **Enterprise Applications** area of the Azure portal. If you delete the App Proxy app from the App registrations area of the Azure portal then you could experience issues.
       - question: |
          What license is required to use Azure AD Application Proxy?
         answer: |
