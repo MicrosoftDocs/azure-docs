@@ -27,7 +27,7 @@ If you apply Update 5.1 from the Azure portal, manual and automatic pre-checks a
 
 If you'd rather use the hotfix method, we strongly recommend that you install Update 5 first using the instructions in [Install Update 5 on your StorSimple device](storsimple-8000-install-update-5.md). Then follow the steps in [Install Update 5.1 as a hotfix](#install-update-51-as-a-hotfix), below, to install Update 5.1.
 
-The security updates in Update 5.1 takes about 30 minutes to install.
+The security updates in Update 5.1 take about 30 minutes to install.
 
 > [!IMPORTANT]
 > * Update 5.1 is a mandatory update and should be installed immediately. For more information, see [Update 5.1 release notes](storsimple-update51-release-notes.md).
@@ -35,7 +35,7 @@ The security updates in Update 5.1 takes about 30 minutes to install.
 
 > [!NOTE]
 > * We recommend that you install the software and other regular updates via the Azure portal. <!--You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed through the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device. - N/A FOR 5.1? No maintenance mode updates, and the security updates go quickly.-->
-> * If you plan to install using the hotfix method, contact [Microsoft Support](mailto:support@microsoft.com) before you begin the installation.
+> * If you plan to install using the hotfix method, you must contact [Microsoft Support](mailto:support@microsoft.com) before you begin the installation.
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
