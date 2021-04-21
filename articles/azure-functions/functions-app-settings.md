@@ -200,6 +200,44 @@ Valid values:
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
+## MDMaxBackgroundUpgradePeriod 
+
+Controls the background update period for PowerShell function apps, with a default value of `7.00:00:00` (7 days). 
+
+Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it may also delay delivering new module versions to your app. 
+
+|Key|Sample value|
+|---|------------|
+|MDMaxBackgroundUpgradePeriod|7.00:00:00|
+
+To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
+
+## MDNewSnapshotCheckPeriod
+
+The period during which the worker processes for a PowerShell function app are restarted due to updates, with a default of `01:00:00` (1 hour). 
+
+After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers completes within `MDNewSnapshotCheckPeriod`. Increasing this value decreases the frequency of interruptions, but may also increase the period of time when function invocations use either the old or the new module versions non-deterministically. 
+
+|Key|Sample value|
+|---|------------|
+|MDNewSnapshotCheckPeriod|01:00:00|
+
+To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
+
+
+## MDMinBackgroundUpgradePeriod
+
+The period of time after a previous upgrade check before another upgrade check is started, with a default of  `1.00:00:00` (1 day). 
+
+To avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades isn't performed when any worker has already initiated that check in the last `MDMinBackgroundUpgradePeriod`. |
+
+
+|Key|Sample value|
+|---|------------|
+|MDMinBackgroundUpgradePeriod|1.00:00:00|
+
+To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
+
 ## PIP\_EXTRA\_INDEX\_URL
 
 The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.   

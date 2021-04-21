@@ -462,36 +462,47 @@ When you create a new PowerShell functions project, dependency management is ena
 
 When you update the requirements.psd1 file, updated modules are installed after a restart.
 
-If you want to use a specific version of a module, ie an older version of Az.Accounts then the one included in the included Az module, you need to add an import statement to the top of your profile.ps1 file like this:
+### Target specific versions
 
-requirements.psd1
+You may want to target a specific version of a module in your requirements.psd1 file. For example, if you wanted to use an older version of Az.Accounts than the one in the included Az module, would need to target a specific version as in the following example: 
+
 ```powershell
 @{
 	Az.Accounts = '1.9.5'
 }
 ```
-profile.ps1
-```
+
+In this case, you also need to add an import statement like the following to the top of your profile.ps1 file:
+
+```powershell
 Import-Module Az.Accounts -RequiredVersion '1.9.5'
 ```
 
-This ensures, that the older version of the Az.Account module is loaded first once the function starts up.
+In this way, the older version of the Az.Account module is loaded first when the function is started.
 
-> [!NOTE]
-> Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
+### Dependency management considerations
 
-> [!NOTE]
-> Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
+The following considerations apply when using dependency management:
 
-The following application settings can be used to change how the managed dependencies are downloaded and installed. Your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
++ Managed dependencies requires access to <www.powershellgallery.com> to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
+
++ Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
+
+### Dependency management app settings
+
+The following application settings can be used to change how the managed dependencies are downloaded and installed. 
 
 | Function App setting              | Default value             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 days)     | Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it may also delay delivering new module versions to your app. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hour)       | After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers complete within `MDNewSnapshotCheckPeriod`. Increasing this value decreases the frequency of interruptions, but may also increase the period of time when function invocations use either the old or the new module versions non-deterministically. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 day)     | To avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades isn't performed when any worker has already initiated that check in the last `MDMinBackgroundUpgradePeriod`. |
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 days)     | Controls the background update period for PowerShell function apps. To learn more, see [MDMaxBackgroundUpgradePeriod](functions-app-settings.md#mdmaxbackgroundupgradeperiod). | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hour)       | The period during which the worker processes for a PowerShell function app are restarted due to updates. To learn more, see [MDNewSnapshotCheckPeriod](functions-app-settings.md#mdnewsnapshotcheckperiod).|
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 day)     | The period of time after a previous upgrade check before another upgrade check is started. To learn more, see [MDMinBackgroundUpgradePeriod](functions-app-settings.md#mdminbackgroundupgradeperiod).|
 
-Leveraging your own custom modules is a little different than how you would do it normally.
+Essentially, your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
+
+## Custom modules
+
+Leveraging your own custom modules in Azure Functions differs from how you would do it normally for PowerShell.
 
 On your local computer, the module gets installed in one of the globally available folders in your `$env:PSModulePath`. When running in Azure, you don't have access to the modules installed on your machine. This means that the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script.
 
@@ -500,13 +511,12 @@ In Functions, `PSModulePath` contains two paths:
 * A `Modules` folder that exists at the root of your function app.
 * A path to a `Modules` folder that is controlled by the PowerShell language worker.
 
-
 ### Function app-level `Modules` folder
 
 To use custom modules, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules. 
 
 > [!NOTE]
-> Modules specified in the requirements.psd1 file are automatically downloaded and included in the path so you don't need to include them in the modules folder. These are stored locally in the `$env:LOCALAPPDATA/AzureFunctions` folder and in the `/data/ManagedDependencies` folder when run in the cloud.
+> Modules specified in the [requirements.psd1 file](#dependency-management) are automatically downloaded and included in the path so you don't need to include them in the modules folder. These are stored locally in the `$env:LOCALAPPDATA/AzureFunctions` folder and in the `/data/ManagedDependencies` folder when run in the cloud.
 
 To take advantage of the custom module feature, create a `Modules` folder in the root of your function app. Copy the modules you want to use in your functions to this location.
 
