@@ -332,7 +332,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/sap-hana/hanainstance
+    href: /cli/azure/hanainstance
   - name: Azure PowerShell
     href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Resources
