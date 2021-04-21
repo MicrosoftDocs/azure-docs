@@ -404,8 +404,10 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
 1. Follow the instructions found in the panel to the right of the **AppMenu**.
     You should see something similar to this:
     ![Illustration that shows the instruction panel that appears to the right of the AppMenu.](./media/device-flow-instructions.png)
-    After entering the provided coded on your secondary device (or browser on the same device) and logging in using your credentials, an Access Token will be returned to the requesting application, in this case, the Unity Editor.
-1. After this point, everything in the application should proceed normally. Check the Unity Console for any errors if you're not progressing through the stages as expected.
+    
+    After entering the provided code on your secondary device (or browser on the same device) and logging in using your credentials, an Access Token will be returned to the requesting application, in this case, the Unity Editor.
+
+After this point, everything in the application should proceed normally. Check the Unity Console for any errors if you're not progressing through the stages as expected.
 
 ## Build to device
 
