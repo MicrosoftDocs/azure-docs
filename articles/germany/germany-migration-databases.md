@@ -180,8 +180,9 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
 Following example shows how you can copy LTR backup from Azure Germany to Azure global region, using a backup resourceID. This example can be used to copy backups of a deleted database as well. 
 
 ```powershell
+$location = "<location>"
 # list LTR backups for All databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState All
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $location -DatabaseState All
 
 # select the LTR backup you want to copy
 $ltrBackup = $ltrBackups[0]
