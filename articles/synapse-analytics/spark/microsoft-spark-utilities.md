@@ -490,7 +490,7 @@ For example:
 - cell 1 defines an **input** parameter with default value set to 10.
 - cell 2 exits the notebook with **input** as exit value. 
 
-![sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+![Screenshot of a sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
 
 You can run the **Sample1** in another notebook with default values:
 
@@ -576,7 +576,7 @@ For example:
 - cell 1 defines an **input** parameter with default value set to 10.
 - cell 2 exits the notebook with **input** as exit value. 
 
-![sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+![Screenshot of a sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
 
 You can run the **Sample1** in another notebook with default values:
 
