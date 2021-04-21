@@ -32,11 +32,11 @@ You can also optionally pass the scopes of the APIs for which you need the user 
 
 ## Choosing between a pop-up or redirect experience
 
-You can't use both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow:
+The choice between a pop-up or redirect experience depends on your application flow:
 
 * If you don't want users to move away from your main application page during authentication, we recommend the pop-up method. Because the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-* If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
+* If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
 
 ## Sign-in with a pop-up window
 
@@ -159,6 +159,74 @@ For a pop-up window experience, enable the `popUp` configuration option. You can
     ]
 })
 ```
+
+# [React](#tab/react)
+
+The MSAL React wrapper allows you to protect specific components by wrapping them in the `MsalAuthenticationTemplate` component. This component will invoke login if a user is not already signed in or render child components otherwise.
+
+```javascript
+import { InteractionType } from "@azure/msal-browser";
+import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <MsalAuthenticationTemplate interactionType={InteractionType.Popup}>
+            <p>This will only render if a user is signed-in.</p>
+            <WelcomeUser />
+        </MsalAuthenticationTemplate>
+      )
+};
+```
+
+You can also use the `@azure/msal-browser` APIs directly to invoke a login paired with the `AuthenticatedTemplate` and/or `UnauthenticatedTemplate` components to render specific contents to signed-in or signed-out users respectively. This is the recommended approach if you need to invoke login as a result of user interaction such as a button click.
+
+```javascript
+import { useMsal } from "@azure/msal-react";
+
+function signInClickHandler(instance) {
+    instance.loginPopup();
+}
+
+// SignInButton Component returns a button that invokes a popup login when clicked
+function SignInButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signInClickHandler(instance)}>Sign In</button>
+};
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <WelcomeUser />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+                <SignInButton />
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
+```
+
 ---
 
 ## Sign-in with redirect
@@ -236,13 +304,82 @@ myMsal.loginRedirect(loginRequest);
 
 The code here is the same as described earlier in the section about sign-in with a pop-up window. The default flow is redirect.
 
+# [React](#tab/react)
+
+The MSAL React wrapper allows you to protect specific components by wrapping them in the `MsalAuthenticationTemplate` component. This component will invoke login if a user is not already signed in or render child components otherwise.
+
+```javascript
+import { InteractionType } from "@azure/msal-browser";
+import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <MsalAuthenticationTemplate interactionType={InteractionType.Redirect}>
+            <p>This will only render if a user is signed-in.</p>
+            <WelcomeUser />
+        </MsalAuthenticationTemplate>
+      )
+};
+```
+
+You can also use the `@azure/msal-browser` APIs directly to invoke a login paired with the `AuthenticatedTemplate` and/or `UnauthenticatedTemplate` components to render specific contents to signed-in or signed-out users respectively. This is the recommended approach if you need to invoke login as a result of user interaction such as a button click.
+
+```javascript
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+
+function signInClickHandler(instance) {
+    instance.loginRedirect();
+}
+
+// SignInButton Component returns a button that invokes a popup login when clicked
+function SignInButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signInClickHandler(instance)}>Sign In</button>
+};
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <WelcomeUser />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+                <SignInButton />
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
+```
+
 ---
 
-## Sign-out
+## Sign-out with a popup window
 
-The MSAL library provides a `logout` method that clears the cache in browser storage and sends a sign-out request to Azure Active Directory (Azure AD). After sign-out, the library redirects back to the application start page by default.
+MSAL.js v2 provides a `logoutPopup` method that clears the cache in browser storage and opens a popup window to the Azure Active Directory (Azure AD) sign-out page. After sign-out, Azure AD redirects the popup back to your application and MSAL.js will close the popup.
 
-You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should also be registered as the logout URI in your application registration.
+You can configure the URI to which Azure AD should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect Uri in your application registration.
+
+You can also configure `logoutPopup` to redirect the main window to a different page, such as the home page or sign-in page, after logout is complete by passing `mainWindowRedirectUri` as part of the request.
 
 # [JavaScript (MSAL.js 2.x)](#tab/javascript2)
 
@@ -259,10 +396,76 @@ const myMsal = new PublicClientApplication(config);
 
 // you can select which account application should sign out
 const logoutRequest = {
-    account: myMsal.getAccountByUsername(username)
+    account: myMsal.getAccountByHomeId(homeAccountId),
+    mainWindowRedirectUri: "your_app_main_window_redirect_uri"
 }
 
-myMsal.logout(logoutRequest);
+await myMsal.logoutPopup(logoutRequest);
+```
+
+# [React](#tab/react)
+
+```javascript
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+
+function signOutClickHandler(instance) {
+    const logoutRequest = {
+        account: instance.getAccountByHomeId(homeAccountId),
+        mainWindowRedirectUri: "your_app_main_window_redirect_uri",
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+    instance.logoutPopup(logoutRequest);
+}
+
+// SignOutButton Component returns a button that invokes a popup logout when clicked
+function SignOutButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signOutClickHandler(instance)}>Sign In</button>
+};
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <SignOutButton />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
+```
+
+## Sign-out with a redirect
+
+MSAL.js provides a `logout` method in v1, and `logoutRedirect` method in v2, that clears the cache in browser storage and redirects the window to the Azure Active Directory (Azure AD) sign-out page. After sign-out, Azure AD redirects back to the page that invoked logout by default.
+
+You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect Uri in your application registration.
+
+# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
+
+```javascript
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const myMsal = new PublicClientApplication(config);
+
+// you can select which account application should sign out
+const logoutRequest = {
+    account: myMsal.getAccountByHomeId(homeAccountId)
+}
+
+myMsal.logoutRedirect(logoutRequest);
 ```
 
 # [JavaScript (MSAL.js 1.x)](#tab/javascript1)
@@ -298,6 +501,43 @@ myMsal.logout();
 
 // In app.component.ts
 this.authService.logout();
+```
+
+# [React](#tab/react)
+
+```javascript
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+
+function signOutClickHandler(instance) {
+    const logoutRequest = {
+        account: instance.getAccountByHomeId(homeAccountId),
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+    instance.logoutRedirect(logoutRequest);
+}
+
+// SignOutButton Component returns a button that invokes a redirect logout when clicked
+function SignOutButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signOutClickHandler(instance)}>Sign In</button>
+};
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <SignOutButton />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
 ```
 
 ---
