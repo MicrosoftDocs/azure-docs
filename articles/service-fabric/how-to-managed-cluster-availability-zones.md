@@ -14,7 +14,7 @@ Service Fabric managed cluster supports deployments which span across multiple A
 
 Sample templates are available: [Service Fabric cross availability zone template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## Requirements, recommendations, and minimums for Azure Service Fabric managed clusters spanning across Availability Zones
+## Recommendations for zone resilient Azure Service Fabric managed clusters
 A Service Fabric cluster distributed across Availability Zones ensures high availability of the cluster state. 
 
 The recommended topology for managed cluster requires the resources outlined below:
@@ -36,6 +36,7 @@ Diagram that shows the Azure Service Fabric Availability Zone architecture
 Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones
 
  ![Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones.][sf-multi-az-nodes]
+ <UPDATE THIS PICTURE>
 
  **Distribution of Service replicas across zones**:
 When a service is deployed on the nodeTypes which are spanning zones, the replicas are placed to ensure they land up in separate zones. This is ensured as the fault domain’s on the nodes present in each of these nodeTypes are configured with the zone information (i.e FD = fd:/zone1/1 etc..). For example: for 5 replicas or instances of a service the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
@@ -53,8 +54,8 @@ make edit in referenced page to include this note
 >[!NOTE]
 > For managed clusters the NSG is configured to allow all outbound traffic by default. The NSG rules can be modified to meet your requirements.
 
-## Enabling an Azure Service Fabric managed cluster across Availability Zones
-To enable an Azure Service Fabric managed cluster across Availability Zones you must include the following value in the managed cluster resource definition.
+## Enabling a zone resilient Azure Service Fabric managed cluster
+To enable a zone resilient Azure Service Fabric managed cluster you must include the following value in the managed cluster resource definition.
 
 * The value **ZonalResiliency** property, which specifies if the cluster is zone resilient or not.
 
