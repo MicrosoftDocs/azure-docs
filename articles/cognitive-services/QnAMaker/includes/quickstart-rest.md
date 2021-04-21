@@ -144,7 +144,7 @@ When you create a knowledge base, because the operation is async, the response i
 |--|--|--|
 |Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
 |Operation Id|URL route|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to Text Analytics service|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and operation ID.
 
@@ -295,8 +295,6 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 A successful response includes the top answer along with other information a client application, such as a chat bot, needs to display an answer to the user.
 
 # [Custom question answering (preview release)](#tab/v2)
-
-Getting an answer from the knowledge is done from a separate runtime than managing the knowledge base. Because it is a separate runtime, you need to authenticate with a runtime key.
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
