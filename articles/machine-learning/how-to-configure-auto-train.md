@@ -390,7 +390,7 @@ Configure  `max_concurrent_iterations` in your `AutoMLConfig` object. If it is n
 
 Automated ML offers options for you to monitor and evaluate your training results. 
 
-* You can view your training results in a widget or inline if you are in a notebook. See [how to monitor automated ML runs](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) for more details.
+* You can view your training results in a widget or inline if you are in a notebook. See [Monitor automated machine learning runs](#monitor) for more details.
 
 * For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md) . 
 
@@ -492,6 +492,22 @@ print_model(model_from_aml)
 ```
 > [!NOTE]
 > The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
+
+## <a name="monitor"></a> Monitor automated machine learning runs
+
+For automated machine learning runs, to access the charts from a previous run, replace `<<experiment_name>>` with the appropriate experiment name:
+
+```python
+from azureml.widgets import RunDetails
+from azureml.core.run import Run
+
+experiment = Experiment (workspace, <<experiment_name>>)
+run_id = 'autoML_my_runID' #replace with run_ID
+run = Run(experiment, run_id)
+RunDetails(run).show()
+```
+
+![Jupyter notebook widget for Automated Machine Learning](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
 ## Register and deploy models
 

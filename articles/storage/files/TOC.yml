@@ -20,59 +20,41 @@
 - name: Tutorials
   items:
   - name: Extend Windows file servers with Azure File Sync
-    href: storage-sync-files-extend-servers.md
+    href: ../file-sync/file-sync-extend-servers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Concepts
   items:
-  - name: Azure Files
-    items: 
-    - name: Planning for an Azure Files deployment
-      href: storage-files-planning.md
-    - name: Available file share protocols
-      href: storage-files-compare-protocols.md
-    - name: Identity-based authentication and authorization
-      href: storage-files-active-directory-overview.md
-    - name: Networking considerations for direct access
-      href: storage-files-networking-overview.md
-    - name: Disaster recovery and failover
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure file share snapshots
-      href: storage-snapshots-files.md
-    - name: Development
+  - name: Planning for an Azure Files deployment
+    href: storage-files-planning.md
+  - name: Available file share protocols
+    href: storage-files-compare-protocols.md
+  - name: Identity-based authentication and authorization
+    href: storage-files-active-directory-overview.md
+  - name: Networking considerations for direct access
+    href: storage-files-networking-overview.md
+  - name: Disaster recovery and failover
+    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Azure file share snapshots
+    href: storage-snapshots-files.md
+  - name: Development
+    items:
+    - name: Shared key authentication
+      href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
+    - name: Shared access signatures (SAS)
+      href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Monitor and troubleshoot
+    items:
+    - name: Transition from classic metrics
+      href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Monitoring (classic)
       items:
-      - name: Shared key authentication
-        href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-      - name: Shared access signatures (SAS)
-        href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Monitor and troubleshoot
-      items:
-      - name: Transition from classic metrics
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Monitoring (classic)
-        items:
-        - name: Storage Analytics
-          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Metrics
-          href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Logs
-          href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Monitor, diagnose, and troubleshoot
-          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Azure File Sync
-    items: 
-    - name: Planning for an Azure File Sync deployment
-      href: storage-sync-files-planning.md
-    - name: Networking considerations for hybrid access
-      href: storage-sync-files-networking-overview.md
-    - name: Cloud tiering
-      items:
-      - name: Cloud tiering overview
-        href: storage-sync-cloud-tiering-overview.md
-      - name: Cloud tiering policies overview
-        href: storage-sync-cloud-tiering-policy.md
-      - name: Choose your cloud tiering policies
-        href: storage-sync-choose-cloud-tiering-policies.md
-      - name: Monitor cloud tiering
-        href: storage-sync-monitor-cloud-tiering.md
+      - name: Storage Analytics
+        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Metrics
+        href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Logs
+        href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Monitor, diagnose, and troubleshoot
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Performance and scale
     items:
     - name: SMB Multichannel performance
@@ -85,10 +67,12 @@
     href: storage-files-prevent-file-share-deletion.md
   - name: Back up file shares
     href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Encryption at-rest
-    href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Encryption at-rest with customer-managed keys
-    href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Encryption
+    items: 
+    - name: Encryption at-rest
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Encryption at-rest with customer-managed keys
+      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
@@ -99,8 +83,6 @@
     items:
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
-    - name: Deploy Azure File Sync
-      href: storage-sync-files-deployment-guide.md
     - name: Use DFS-N with Azure Files
       href: files-manage-namespaces.md
     - name: Create an NFS share
@@ -121,18 +103,10 @@
       href: storage-how-to-use-files-mac.md
   - name: Network
     items:
-    - name: Azure Files
-      items:
-      - name: Configure Azure Files network endpoints
-        href: storage-files-networking-endpoints.md
-      - name: Configuring DNS forwarding for Azure Files
-        href: storage-files-networking-dns.md
-    - name: Azure File Sync
-      items:
-      - name: Configuring Azure File Sync network endpoints
-        href: storage-sync-files-networking-endpoints.md
-      - name: Configure File Sync proxy and firewall settings
-        href: storage-sync-files-firewall-and-proxy.md
+    - name: Configure Azure Files network endpoints
+      href: storage-files-networking-endpoints.md
+    - name: Configuring DNS forwarding for Azure Files
+      href: storage-files-networking-dns.md
     - name: Configure Site-to-Site VPN 
       href: storage-files-configure-s2s-vpn.md
     - name: Configure Point-to-Site VPN on Windows
@@ -159,18 +133,10 @@
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
   - name: Manage
     items:
-    - name: Register a server with Azure File Sync
-      href: storage-sync-files-server-registration.md
-    - name: Add an Azure File Sync Server endpoint
-      href: storage-sync-files-server-endpoint.md
     - name: Manage storage in Azure independent clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Initiate an account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Move resources to other resource groups, subscriptions and AAD tenants
-      href: storage-sync-resource-move.md
-    - name: How to manage tiered files
-      href: storage-sync-how-to-manage-tiered-files.md
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -219,12 +185,8 @@
         href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: REST API
         href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Monitor
-    items:
-    - name: Monitor Azure Files
-      href: storage-files-monitoring.md
-    - name: Monitor Azure File Sync
-      href: storage-sync-files-monitoring.md
+  - name: Monitor Azure Files
+    href: storage-files-monitoring.md
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
@@ -236,7 +198,7 @@
     - name: Target a hybrid deployment
       items:
       - name: Migrate bulk data to Azure File Sync with Azure Data Box
-        href: storage-sync-offline-data-transfer.md
+        href: ../file-sync/file-sync-offline-data-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Migrate from Linux to a hybrid file server with Azure File Sync
         href: storage-files-migration-linux-hybrid.md
       - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
@@ -311,8 +273,6 @@
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure Files on Linux (NFS)
       href: storage-troubleshooting-files-nfs.md
-    - name: Troubleshoot Azure File Sync
-      href: storage-sync-files-troubleshoot.md
     - name: Troubleshoot deleting Azure file shares
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
     - name: Troubleshoot backing up file shares
@@ -332,8 +292,6 @@
   items:
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?category=storage
-  - name: Azure File Sync release notes
-    href: storage-files-release-notes.md
   - name: Azure Files on Microsoft Q&A
     href: /answers/topics/azure-files.html
   - name: Azure Files on Stack Overflow

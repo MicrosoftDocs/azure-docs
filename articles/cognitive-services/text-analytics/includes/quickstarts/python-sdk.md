@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ---
 
@@ -803,15 +803,19 @@ key_phrase_extraction_example(client)
 Create a new function called `analyze_batch_actions_example()` that takes the client as an argument, then calls the `begin_analyze_batch_actions()` function. The result will be a long running operation which will be polled for results.
 
 ```python
-    def analyze_batch_actions_example(client):
+from azure.ai.textanalytics import (
+    RecognizeEntitiesAction
+)
+
+def analyze_batch_example(client):
         documents = [
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = text_analytics_client.begin_analyze_batch_actions(
+        poller = client.begin_analyze_batch_actions(
             documents,
             display_name="Sample Text Analysis",
-            entities_recognition_tasks=[EntitiesRecognitionTask()]
+            actions=[RecognizeEntitiesAction()]
         )
 
         result = poller.result()
@@ -819,7 +823,7 @@ Create a new function called `analyze_batch_actions_example()` that takes the cl
 
         entities_recognition_task_result = action_results[0]
         print("Results of Entities Recognition action:")
-        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
+        docs = [doc for doc in entities_recognition_task_result.document_results if not doc.is_error]
 
         for idx, doc in enumerate(docs):
             print("\nDocument text: {}".format(documents[idx]))
@@ -830,7 +834,7 @@ Create a new function called `analyze_batch_actions_example()` that takes the cl
                 print("...Offset: {}".format(entity.offset))
             print("------------------------------------------")
 
-analyze_example(client)
+analyze_batch_example(client)
 ```
 
 ### Output

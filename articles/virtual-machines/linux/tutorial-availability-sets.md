@@ -31,7 +31,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set). In this example, the number of update and fault domains is set to *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
-First, create a resource group with [az group create](/cli/azure/group#az-group-create), then create the availability set:
+First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create the availability set:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
@@ -75,7 +75,7 @@ The availability set distribution can be viewed in the portal by going to Resour
 
 ## Check for available VM sizes
 
-Additional VMs can be added to the availability set later, where VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) to list all the available sizes on the hardware cluster for the availability set:
+Additional VMs can be added to the availability set later, where VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az_vm_availability_set_list_sizes) to list all the available sizes on the hardware cluster for the availability set:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \
