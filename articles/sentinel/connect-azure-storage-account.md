@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 04/21/2021
 ms.author: yelevin
 ---
 # Connect Azure Storage account diagnostics logs
@@ -23,7 +23,7 @@ To ingest Azure Storage account diagnostics logs into Azure Sentinel:
 
 - You must have read and write permissions on the Azure Sentinel workspace.
 
-- To use Azure Policy to apply a log streaming policy to Azure Storage resources, you must be assigned the Owner role for the policy assignment scope.
+- To use Azure Policy to apply a log streaming policy to Azure Storage resources, you must have the Owner role for the policy assignment scope.
 
 ## Connect to Azure Storage account
 
@@ -33,18 +33,19 @@ This connector uses Azure Policy to apply a single log streaming configuration t
 
 1. Select **Azure Storage account** from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
 
-1. In the **Configuration** section of the connector page, expand **Ingest Diagnostics logs from your Azure Storage accounts**.
+1. In the **Configuration** section of the connector page, expand **Stream diagnostics logs from your Azure Storage Account at scale**.
 
 1. Select the **Launch Azure Policy Assignment wizard** button.
 
-    The policy assignment wizard opens, ready to create a new policy called **Deploy - Configure diagnostic settings for Azure Storage account to Log Analytics workspace**.
+    The policy assignment wizard opens, ready to create a new policy called **Configure diagnostic settings for storage accounts to Log Analytics workspace**.
 
     1. In the **Basics** tab, click the button with the three dots beside **Scope** to select your subscription (and, optionally, a resource group). You can also add a description.
 
     1. In the **Parameters** tab:
-        1. Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list.
-        1. Choose, from the **Storage services to deploy** drop-down list, the storage resource types (file, queue, container, etc.) to which you want to deploy diagnostics settings.
-        1. The remaining drop-down fields represent the available diagnostic log and metric types. Leave marked as “True” all the types you want to ingest.
+        - Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list.
+        - Select, from the **Storage services to deploy** drop-down list, the storage resource types (file, table, queue, etc.) to which you want to deploy diagnostics settings.
+        - Leave the **Setting name** and **Effect** fields as is.
+        - The remaining drop-down fields represent the available diagnostic log and metric types. Leave marked as “True” all the types you want to ingest.
 
     1. The steps above will apply the policy to all future storage resources. To apply the policy on your existing resources, select the **Remediation** tab and mark the **Create a remediation task** check box.
 
