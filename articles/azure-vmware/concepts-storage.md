@@ -12,10 +12,7 @@ Azure VMware Solution private clouds provide native, cluster-wide storage with V
 
 ## vSAN clusters
 
-Local storage in each cluster host is used as part of a vSAN datastore. Each host has two vSAN disk groups with a capacity tier of 15.4 TB and a 3.2-TB NVMe cache tier (1.6 TB in each disk group). The size of the raw capacity tier of a cluster is the per-host capacity times the number of hosts. For example, a four host cluster provides 61.6-TB raw capacity in the vSAN capacity tier.
-
->[!TIP]
->the [AVS36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes two 1.6-TB NVMe cache and eight 1.9-TB raw storage capacity. These are then split into two disk groups. 
+Local storage in each cluster host is used as part of a vSAN datastore. The [AVS36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes two 1.6-TB NVMe cache and eight 1.9-TB raw storage capacity. These are then split into two disk groups. The size of the raw capacity tier of a cluster is the per-host capacity times the number of hosts. For example, a four host cluster provides 61.6-TB raw capacity in the vSAN capacity tier.
 
 Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datastores are created as part of private cloud deployment and are available for use immediately. The **cloudadmin** user and all users assigned to the CloudAdmin role can manage datastores with these vSAN privileges:
 
@@ -64,10 +61,10 @@ Microsoft provides alerts when capacity consumption exceeds 75%.  You can monito
 
 Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
 
-- [Private cloud identity concepts](concepts-identity.md).
 - [Scale clusters in the private cloud][tutorial-scale-private-cloud]
-- [vSphere role-based access control for Azure VMware Solution](concepts-identity.md).
 - [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md)
+- [vSphere role-based access control for Azure VMware Solution](concepts-identity.md)
+
 
 <!-- LINKS - external-->
 
