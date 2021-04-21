@@ -27,6 +27,7 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 - Supports pod portability with the SecretProviderClass CRD
 - Supports windows containers (Kubernetes version v1.18+)
 - Sync with Kubernetes Secrets (Secrets Store CSI Driver v0.0.10+)
+- Supports auto rotation of mounted contents and synced Kubernetes secrets (Secrets Store CSI Driver v0.0.15+)
 
 ## Register the `AKS-AzureKeyVaultSecretsProvider` preview feature
 
@@ -79,10 +80,16 @@ kube-system   aks-secrets-store-provider-azure-f5qlm   1/1     Running   0      
 
 ### Enabling autorotation
 
+> [!NOTE]
+> When enabled, the Secrets Store CSI Driver will update the pod mount and the Kubernetes Secret defined in secretObjects of the SecretProviderClass periodically based on the rotation poll interval, which is 2 minutes by default.
+>
+> The rotation poll interval can be defined via the `rotation-poll-interval` flag.
+
+
 To enable autorotation of secrets, use the flag `enable-secret-rotation` when creating your cluster:
 
 ```azurecli-interactive
-az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
+az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
 ```
 
 ## Create or use an existing Azure Key Vault
@@ -153,25 +160,30 @@ kubectl apply -f ./new-secretproviderclass.yaml
 To ensure your cluster is using the new custom resource, update the deployment YAML. For a more comprehensive example, take a look at a [sample deployment][sample-deployment] using Service Principal to access Azure Key Vault. Be sure to follow any additional steps from your chosen method of key vault access.
 
 ```yml
-apiVersion: v1
 kind: Pod
+apiVersion: v1
 metadata:
-  name: nginx-secrets-store-inline
+  name: busybox-secrets-store-inline
 spec:
   containers:
-    - name: nginx
-      image: nginx
-      volumeMounts:
-        - name: secrets-store-inline
-          mountPath: "/mnt/secrets-store"
-          readOnly: true
+  - name: busybox
+    image: k8s.gcr.io/e2e-test-images/busybox:1.29
+    command:
+      - "/bin/sh"
+      - "10000"
+    volumeMounts:
+    - name: secrets-store-inline
+      mountPath: "/mnt/secrets-store"
+      readOnly: true
   volumes:
     - name: secrets-store-inline
       csi:
         driver: secrets-store.csi.k8s.io
         readOnly: true
         volumeAttributes:
-          secretProviderClass: azure-kvname
+          secretProviderClass: "azure-kvname"
+        nodePublishSecretRef:                       # Only required when using service principal mode
+          name: secrets-store-creds                 # Only required when using service principal mode. The name of the Kubernetes secret that contains the service principal credentials to access keyvault.
 ```
 
 Apply the updated deployment to the cluster:
@@ -186,10 +198,10 @@ After the pod starts, the mounted content at the volume path specified in your d
 
 ```Bash
 ## show secrets held in secrets-store
-kubectl exec nginx-secrets-store-inline -- ls /mnt/secrets-store/
+kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
 
 ## print a test secret 'secret1' held in secrets-store
-kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
+kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/secret1
 ```
 
 ## Next steps
@@ -216,7 +228,7 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [key-vault-provider-install]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/installation
 [sample-secret-provider-class]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/usage/#create-your-own-secretproviderclass-object
 [service-principal-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/service-principal-mode/
-[pod-identity-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/pod-identity-mode/l
+[pod-identity-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/pod-identity-mode/
 [ua-mi-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/user-assigned-msi-mode/
 [sa-mi-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/system-assigned-msi-mode/
 [sample-deployment]: https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/service-principal/pod-inline-volume-service-principal.yaml
