@@ -59,7 +59,7 @@ Make sure that your on-premises vSphere environment (source environment) meets t
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
    
-## Download the VMware HCX Connector OVA
+## Step 1. Download the VMware HCX Connector OVA
 
 Before you deploy the virtual appliance to your on-premises vCenter, you must download the VMware HCX Connector OVA.  
 
@@ -85,7 +85,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
 1. Select the option of your choice to download the VMware HCX Connector OVA file.
 
-## Deploy the VMware HCX Connector OVA on-premises
+## Step 2. Deploy the VMware HCX Connector OVA on-premises
 
 1. In your on-premises vCenter, select an [OVF template](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) to deploy the VMware HCX Connector to your on-premises vCenter. 
 
@@ -114,7 +114,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Appliance Deployment](https://www.youtube.com/embed/UKmSTYrL6AY) video. 
 
 
-## Activate VMware HCX
+## Step 3. Activate VMware HCX
 
 After you deploy the VMware HCX Connector OVA on-premises and start the appliance, you're ready to activate. First, you need to get a license key from the Azure VMware Solution portal.
 
@@ -160,7 +160,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: A
    > [!IMPORTANT]
    > Whether you're using HCX Advanced or HCX Enterprise, you may need to install the patch from VMware's [KB article 81558](https://kb.vmware.com/s/article/81558). 
 
-## Configure the VMware HCX Connector
+## Step 4. Configure the VMware HCX Connector
 
 Now you're ready to add a site pairing, create a network and compute profile, and enable services such as migration, network extension, or disaster recovery. 
 
@@ -333,9 +333,9 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
 
-### (Optional) Create a network extension
+### Step 5. Create a network extension
 
-If you want to extend any networks from your on-premises environment to Azure VMware Solution, follow these steps:
+This is an optional step to extend any networks from your on-premises environment to Azure VMware Solution.
 
 1. Under **Services**, select **Network Extension** > **Create a Network Extension**.
 
