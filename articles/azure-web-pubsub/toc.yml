@@ -19,6 +19,8 @@
     items:
     - name: Create instance
       href: howto-develop-create-instance.md
+    - name: Connect to instance
+      href: howto-develop-connect-to-service.md
   - name: Secure
     items:
     - name: Protect the access key
