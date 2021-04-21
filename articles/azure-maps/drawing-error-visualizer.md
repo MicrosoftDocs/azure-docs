@@ -3,7 +3,7 @@ title: Use Azure Maps Drawing Error Visualizer
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator (Preview) Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/21/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -18,7 +18,7 @@ manager: philmea
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](/rest/api/maps/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
+The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with the [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](/rest/api/maps/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 Inside the downloaded zipped package from the `diagnosticPackageLocation` link, you'll find two files.
 
 * _VisualizationTool.zip_: Contains the source code, media, and web page for the Drawing Error Visualizer.
-* _ConversionWarningsAndErrors.json_: Contains a formatted list of warnings, errors, and additional details that are used by the Drawing Error Visualizer.
+* _ConversionWarningsAndErrors.json_: Contains a formatted list of warnings, errors, and other details that are used by the Drawing Error Visualizer.
 
 Unzip the _VisualizationTool.zip_ folder. It contains the following items:
 
@@ -81,7 +81,7 @@ After launching the Drawing Error Visualizer tool, you'll be presented with the 
 
 :::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="Drawing Error Visualizer App - Start Page":::
 
-The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the downloaded directory. To load the _ConversionWarningsAndErrors.json_ you can either drag & drop the file onto the box or click on the box, find the file in the File Explorer dialogue, and then upload the file.
+The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the downloaded directory. To load the _ConversionWarningsAndErrors.json_, drag & drop the file onto the box. Or, click on the box, find the file in the `File Explorer dialogue`, and upload the file.
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Drawing Error Visualizer App - Drag and drop to load data":::
 

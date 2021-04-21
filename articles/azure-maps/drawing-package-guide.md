@@ -121,7 +121,7 @@ The wall layer is meant to represent the physical extents of a facility such as 
 
 The Drawing package Manifest is a JSON file. The Manifest tells the Azure Maps Conversion service how to read the facility DWG files and metadata. Some examples of this information could be the specific information each DWG layer contains, or the geographical location of the facility.
 
-In order to achieve a successful conversion, all “required” properties must be defined. A sample manifest file can be found inside the  [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples). This guide does not cover properties supported by the manifest. For more information about manifest properties, see  [Manifest File Properties](drawing-requirements.md#manifest-file-requirements).
+To achieve a successful conversion, all “required” properties must be defined. A sample manifest file can be found inside the  [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples). This guide does not cover properties supported by the manifest. For more information about manifest properties, see  [Manifest File Properties](drawing-requirements.md#manifest-file-requirements).
 
 ### Building levels
 
@@ -157,7 +157,7 @@ The `georeference` object is used to specify where the facility is located geogr
 
 ### dwgLayers
 
-The `dwgLayers` object is used to specify that DWG layer names where feature classes can be found. To receive a property converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have additional layers such as furniture or plumbing, but they'll be ignored by the Azure Maps Conversion service if they're not specified in the manifest.  
+The `dwgLayers` object is used to specify that DWG layer names where feature classes can be found. To receive a property converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, they'll be ignored by the Azure Maps Conversion service if they're not specified in the manifest.  
 
 The following example of the `dwgLayers` object in the manifest.  
 
@@ -195,7 +195,7 @@ The following image shows the layers from the corresponding DWG drawing viewed i
 
 The `unitProperties` object allows you to define other properties for a unit that you can’t do in the DWG file. Examples could be directory information of a unit or the category type of a unit. A unit property is associated with a unit by having the `unitName` object match the label in the `unitLabel` layer.  
 
-The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) and shows the unit label that will be associated to the unit property in the manifest.
+The following image is taken from the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples). It displays the unit label that's associated to the unit property in the manifest.
 
 :::image border="true" type="content" source="./media/drawing-package-guide/unit-property.png" alt-text="Unit label that will be associated to the unity property in the manifest":::
 
@@ -225,4 +225,4 @@ The following snippet shows the unit property object that is associated with the
 
 ## Step 4: Prepare the Drawing Package
 
-At this point you should have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files will need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples) 
+You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files will need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
