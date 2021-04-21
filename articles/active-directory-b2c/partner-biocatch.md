@@ -48,7 +48,7 @@ BioCatch integration includes the following components:
 
   - A userjourney, which evaluates a returned claim, for example, session risk, and conditionally executes an action, such as invoke Multi-factor authentication (MFA).
 
-![image shows biocatch architecture diagram](media/partner-biocatch/biocatch-architecture-diagram.png)
+![Diagram of the bio catch architecture.](media/partner-biocatch/biocatch-architecture-diagram.png)
 
 | Step  | Description |
 |:---|:-----------------------|
@@ -80,271 +80,270 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. Create a new file, which inherits from the extensions file.
 
-```
-<BasePolicy> 
+    ```
+    <BasePolicy> 
 
-    <TenantId>tenant.onmicrosoft.com</TenantId> 
+        <TenantId>tenant.onmicrosoft.com</TenantId> 
 
-    <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId> 
+        <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId> 
 
-  </BasePolicy> 
-```
+      </BasePolicy> 
+    ```
 
 3. Create a reference to the custom UI to hide the input box, under the BuildingBlocks resource.
 
-```
-<ContentDefinitions> 
+    ```
+    <ContentDefinitions> 
 
-    <ContentDefinition Id="api.selfasserted"> 
+        <ContentDefinition Id="api.selfasserted"> 
 
-        <LoadUri>https://domain.com/path/to/selfAsserted.cshtml</LoadUri> 
+            <LoadUri>https://domain.com/path/to/selfAsserted.cshtml</LoadUri> 
 
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri> 
+            <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri> 
 
-      </ContentDefinition> 
+          </ContentDefinition> 
 
-    </ContentDefinitions>
-```
+        </ContentDefinitions>
+    ```
 
 4. Add the following claims under the BuildingBlocks resource.
 
-```
-<ClaimsSchema> 
+    ```
+    <ClaimsSchema> 
 
-      <ClaimType Id="riskLevel"> 
+          <ClaimType Id="riskLevel"> 
 
-        <DisplayName>Session risk level</DisplayName> 
+            <DisplayName>Session risk level</DisplayName> 
 
-        <DataType>string</DataType>       
+            <DataType>string</DataType>       
 
-      </ClaimType> 
+          </ClaimType> 
 
-      <ClaimType Id="score"> 
+          <ClaimType Id="score"> 
 
-        <DisplayName>Session risk score</DisplayName> 
+            <DisplayName>Session risk score</DisplayName> 
 
-        <DataType>int</DataType>       
+            <DataType>int</DataType>       
 
-      </ClaimType> 
+          </ClaimType> 
 
-      <ClaimType Id="clientSessionId"> 
+          <ClaimType Id="clientSessionId"> 
 
-        <DisplayName>The ID of the client session</DisplayName> 
+            <DisplayName>The ID of the client session</DisplayName> 
 
-        <DataType>string</DataType> 
+            <DataType>string</DataType> 
 
-        <UserInputType>TextBox</UserInputType> 
+            <UserInputType>TextBox</UserInputType> 
 
-      </ClaimType> 
+          </ClaimType> 
 
-<ClaimsSchema> 
-```
+    <ClaimsSchema> 
+    ```
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-```
-<ClaimsProvider> 
+    ```
+    <ClaimsProvider> 
 
-      <DisplayName>Client Session ID Claims Provider</DisplayName> 
+          <DisplayName>Client Session ID Claims Provider</DisplayName> 
 
-      <TechnicalProfiles> 
+          <TechnicalProfiles> 
 
-        <TechnicalProfile Id="login-NonInteractive-clientSessionId"> 
+            <TechnicalProfile Id="login-NonInteractive-clientSessionId"> 
 
-          <DisplayName>Client Session ID TP</DisplayName> 
+              <DisplayName>Client Session ID TP</DisplayName> 
 
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
+              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
 
-          <Metadata> 
+              <Metadata> 
 
-            <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item> 
+                <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item> 
 
-          </Metadata> 
+              </Metadata> 
 
-          <CryptographicKeys> 
+              <CryptographicKeys> 
 
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" /> 
+                <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" /> 
 
-          </CryptographicKeys> 
+              </CryptographicKeys> 
 
-        <!—Claim we created earlier --> 
+            <!—Claim we created earlier --> 
 
-          <OutputClaims> 
+              <OutputClaims> 
 
-            <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
+                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
 
-          </OutputClaims> 
+              </OutputClaims> 
 
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" /> 
+            <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" /> 
 
-        </TechnicalProfile> 
+            </TechnicalProfile> 
 
-      </TechnicalProfiles> 
+          </TechnicalProfiles> 
 
-    </ClaimsProvider> 
-```
+        </ClaimsProvider> 
+    ```
 
 6. Configure REST API claims provider for BioCatch. 
 
-```
-<TechnicalProfile Id="BioCatch-API-GETSCORE"> 
+    ```
+    <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
-      <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
+          <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
 
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
 
-      <Metadata> 
+          <Metadata> 
 
-        <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item> 
+            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item> 
 
-        <Item Key="SendClaimsIn">Url</Item> 
+            <Item Key="SendClaimsIn">Url</Item> 
 
-        <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item> 
+            <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item> 
 
-        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments --> 
+            <!-- Set AuthenticationType to Basic or ClientCertificate in production environments --> 
 
-        <Item Key="AuthenticationType">None</Item> 
+            <Item Key="AuthenticationType">None</Item> 
 
-        <!-- REMOVE the following line in production environments --> 
+            <!-- REMOVE the following line in production environments --> 
 
-        <Item Key="AllowInsecureAuthInProduction">true</Item> 
+            <Item Key="AllowInsecureAuthInProduction">true</Item> 
 
-      </Metadata> 
+          </Metadata> 
 
-      <InputClaims> 
+          <InputClaims> 
 
-        <InputClaim ClaimTypeReferenceId="clientsessionId" /> 
+            <InputClaim ClaimTypeReferenceId="clientsessionId" /> 
 
-      </InputClaims> 
+          </InputClaims> 
 
-      <OutputClaims> 
+          <OutputClaims> 
 
-        <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
+            <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
 
-        <OutputClaim ClaimTypeReferenceId="score" /> 
+            <OutputClaim ClaimTypeReferenceId="score" /> 
 
-      </OutputClaims> 
+          </OutputClaims> 
 
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" /> 
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" /> 
 
-    </TechnicalProfile> 
+        </TechnicalProfile> 
 
-  </TechnicalProfiles>
-```
+      </TechnicalProfiles>
+    ```
 
->[!Note]
->BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
+    > [!Note]
+    > BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
 
 7. Configure the userjourney; follow the example
 
-   a. Get the clientSessionID as a claim
+   1. Get the clientSessionID as a claim
 
-   b. Call the BioCatch API to get the session information
+   1. Call the BioCatch API to get the session information
 
-   c. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
+   1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
+    ```
+    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
-```
-<OrchestrationStep Order="8" Type="ClaimsExchange"> 
+              <ClaimsExchanges> 
 
-          <ClaimsExchanges> 
+                <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
 
-            <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
+              </ClaimsExchanges> 
 
-          </ClaimsExchanges> 
+            </OrchestrationStep> 
 
-        </OrchestrationStep> 
+            <OrchestrationStep Order="9" Type="ClaimsExchange"> 
 
-        <OrchestrationStep Order="9" Type="ClaimsExchange"> 
+              <ClaimsExchanges> 
 
-          <ClaimsExchanges> 
+                <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
 
-            <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
+              </ClaimsExchanges> 
 
-          </ClaimsExchanges> 
+            </OrchestrationStep> 
 
-        </OrchestrationStep> 
+            <OrchestrationStep Order="10" Type="ClaimsExchange"> 
 
-        <OrchestrationStep Order="10" Type="ClaimsExchange"> 
+              <Preconditions> 
 
-          <Preconditions> 
+                <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
 
-            <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
+                  <Value>riskLevel</Value> 
 
-              <Value>riskLevel</Value> 
+                  <Value>LOW</Value> 
 
-              <Value>LOW</Value> 
+                  <Action>SkipThisOrchestrationStep</Action> 
 
-              <Action>SkipThisOrchestrationStep</Action> 
+                </Precondition> 
 
-            </Precondition> 
+              </Preconditions> 
 
-          </Preconditions> 
+              <ClaimsExchanges> 
 
-          <ClaimsExchanges> 
+                <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
 
-            <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
+              </ClaimsExchanges>  
 
-          </ClaimsExchanges>  
-
-```
+    ```
 
 8. Configure on relying party configuration (optional)
 
-It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
+    It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
 
-```
-<RelyingParty> 
+    ```
+    <RelyingParty> 
 
-    <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
+        <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
 
-    <UserJourneyBehaviors> 
+        <UserJourneyBehaviors> 
 
-      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
+          <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
 
-      <SessionExpiryType>Absolute</SessionExpiryType> 
+          <SessionExpiryType>Absolute</SessionExpiryType> 
 
-      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
+          <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
 
-      <ScriptExecution>Allow</ScriptExecution> 
+          <ScriptExecution>Allow</ScriptExecution> 
 
-    </UserJourneyBehaviors> 
+        </UserJourneyBehaviors> 
 
-    <TechnicalProfile Id="PolicyProfile"> 
+        <TechnicalProfile Id="PolicyProfile"> 
 
-      <DisplayName>PolicyProfile</DisplayName> 
+          <DisplayName>PolicyProfile</DisplayName> 
 
-      <Protocol Name="OpenIdConnect" /> 
+          <Protocol Name="OpenIdConnect" /> 
 
-      <OutputClaims> 
+          <OutputClaims> 
 
-        <OutputClaim ClaimTypeReferenceId="displayName" /> 
+            <OutputClaim ClaimTypeReferenceId="displayName" /> 
 
-        <OutputClaim ClaimTypeReferenceId="givenName" /> 
+            <OutputClaim ClaimTypeReferenceId="givenName" /> 
 
-        <OutputClaim ClaimTypeReferenceId="surname" /> 
+            <OutputClaim ClaimTypeReferenceId="surname" /> 
 
-        <OutputClaim ClaimTypeReferenceId="email" /> 
+            <OutputClaim ClaimTypeReferenceId="email" /> 
 
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
+            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
 
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
+            <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
 
-        <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
+            <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
 
-        <OutputClaim ClaimTypeReferenceId="score" /> 
+            <OutputClaim ClaimTypeReferenceId="score" /> 
 
-        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
+            <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
 
-      </OutputClaims> 
+          </OutputClaims> 
 
-      <SubjectNamingInfo ClaimType="sub" /> 
+          <SubjectNamingInfo ClaimType="sub" /> 
 
-    </TechnicalProfile> 
+        </TechnicalProfile> 
 
-  </RelyingParty> 
+      </RelyingParty> 
 
-```
+    ```
 
 ## Integrate with Azure AD B2C
 
@@ -370,54 +369,54 @@ Follow these steps to add the policy files to Azure AD B2C
 
 4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
 
-```
-{ 
+    ```
+    { 
 
-  "typ": "JWT", 
+      "typ": "JWT", 
 
-  "alg": "RS256", 
+      "alg": "RS256", 
 
-  "kid": "_keyid" 
+      "kid": "_keyid" 
 
-}.{ 
+    }.{ 
 
-  "exp": 1615872580, 
+      "exp": 1615872580, 
 
-  "nbf": 1615868980, 
+      "nbf": 1615868980, 
 
-  "ver": "1.0", 
+      "ver": "1.0", 
 
-  "iss": "https://tenant.b2clogin.com/12345678-1234-1234-1234-123456789012/v2.0/", 
+      "iss": "https://tenant.b2clogin.com/12345678-1234-1234-1234-123456789012/v2.0/", 
 
-  "sub": "12345678-1234-1234-1234-123456789012", 
+      "sub": "12345678-1234-1234-1234-123456789012", 
 
-  "aud": "12345678-1234-1234-1234-123456789012", 
+      "aud": "12345678-1234-1234-1234-123456789012", 
 
-  "acr": "b2c_1a_signup_signin_biocatch_policy", 
+      "acr": "b2c_1a_signup_signin_biocatch_policy", 
 
-  "nonce": "defaultNonce", 
+      "nonce": "defaultNonce", 
 
-  "iat": 1615868980, 
+      "iat": 1615868980, 
 
-  "auth_time": 1615868980, 
+      "auth_time": 1615868980, 
 
-  "name": "John Smith", 
+      "name": "John Smith", 
 
-  "email": "john.smith@contoso.com", 
+      "email": "john.smith@contoso.com", 
 
-  "given_name": "John", 
+      "given_name": "John", 
 
-  "family_name": "Smith", 
+      "family_name": "Smith", 
 
-  "riskLevel": "LOW", 
+      "riskLevel": "LOW", 
 
-  "score": 275, 
+      "score": 275, 
 
-  "tid": "12345678-1234-1234-1234-123456789012" 
+      "tid": "12345678-1234-1234-1234-123456789012" 
 
-}.[Signature]  
+    }.[Signature]  
 
-```
+    ```
 
 ## Additional resources
 
