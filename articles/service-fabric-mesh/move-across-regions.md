@@ -44,7 +44,7 @@ This article describes how to move your Service Fabric Mesh application and its 
 
 1. When the deployment is complete, test the application endpoint(s) to verify the functionality of your application.
 
-2. You can also verify the status of your application by checking the application status ([az mesh app show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) and reviewing the application logs and ([az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log)) commands using the [Azure Service Fabric Mesh CLI](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
+2. You can also verify the status of your application by checking the application status ([az mesh app show](/cli/azure/mesh/app#az_mesh_app_show)) and reviewing the application logs and ([az mesh code-package-log](/cli/azure/mesh/code-package-log)) commands using the [Azure Service Fabric Mesh CLI](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## Commit
 

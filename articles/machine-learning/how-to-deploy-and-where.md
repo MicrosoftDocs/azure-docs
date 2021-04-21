@@ -107,7 +107,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
 To include multiple files in the model registration, set `-p` to the path of a folder that contains the files.
 
-For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ext/azure-cli-ml/ml/model).
+For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml/model).
 
 # [Python](#tab/python)
 
@@ -385,7 +385,7 @@ To delete a deployed webservice, use `az ml service <name of webservice>`.
 
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-Read more about [deleting a webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) and [deleting a model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
+Read more about [deleting a webservice](/cli/azure/ml/service#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
 
 # [Python](#tab/python)
 
