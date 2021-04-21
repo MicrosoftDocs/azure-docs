@@ -15,7 +15,7 @@ Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/az
 
 The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resources. The CLI is designed to flexibly query data, support long-running operations as non-blocking processes, and make scripting easy. You can install it locally by following the steps in [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index#az-login) command.
+To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index#az_login) command.
 
 ```azurecli
 az login
@@ -27,7 +27,7 @@ If you would like to select a tenant to sign in under, use:
 az login --tenant <tenant>
 ```
 
-If you have multiple subscriptions and want to specify a specific one, get your subscription list with [az account list](/cli/azure/account#az-account-list) and specify with [az account set](/cli/azure/account#az-account-set).
+If you have multiple subscriptions and want to specify a specific one, get your subscription list with [az account list](/cli/azure/account#az_account_list) and specify with [az account set](/cli/azure/account#az_account_set).
      
 ```azurecli
 az account list

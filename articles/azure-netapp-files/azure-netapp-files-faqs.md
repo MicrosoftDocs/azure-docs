@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -208,6 +208,11 @@ Management of `SMB Shares`, `Sessions`, and `Open Files` through Computer Manage
 ### How can I obtain the IP address of an SMB volume via the portal?
 
 Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** -> **mountTargets**.
+
+### Can an Azure NetApp Files SMB share act as an DFS Namespace (DFS-N) root?
+
+No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
+To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
 
 ### SMB encryption FAQs
 

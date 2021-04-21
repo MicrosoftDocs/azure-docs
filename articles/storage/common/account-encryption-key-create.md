@@ -54,7 +54,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 To use Azure CLI to create a storage account that relies on the account encryption key, make sure you have installed Azure CLI version 2.0.80 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Next, create a general-purpose v2 storage account by calling the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command, with the appropriate parameters:
+Next, create a general-purpose v2 storage account by calling the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command, with the appropriate parameters:
 
 - Include the `--encryption-key-type-for-queue` option and set its value to `Account` to use the account encryption key to encrypt data in Queue storage.
 - Include the `--encryption-key-type-for-table` option and set its value to `Account` to use the account encryption key to encrypt data in Table storage.
@@ -115,7 +115,7 @@ After you have created an account that relies on the account encryption key, you
 
 ## Verify the account encryption key
 
-To verify that a service in a storage account is using the account encryption key, call the Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
+To verify that a service in a storage account is using the account encryption key, call the Azure CLI [az storage account](/cli/azure/storage/account#az_storage_account_show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
 
 # [PowerShell](#tab/powershell)
 
@@ -130,7 +130,7 @@ $account.Encryption.Services.Table
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify that a service in a storage account is using the account encryption key, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
+To verify that a service in a storage account is using the account encryption key, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
 
 ```azurecli
 az storage account show /
