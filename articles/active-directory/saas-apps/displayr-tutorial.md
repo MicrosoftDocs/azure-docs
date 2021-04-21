@@ -100,10 +100,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    c. Select **Source Attribute** of **Group ID**.
 
-   d. Check **Customize the name of the group claim**.
-
-   e. Check **Emit groups as role claims**.
-
    f. Click **Save**.
 
 1. On the **Set-up Displayr** section, copy the appropriate URL(s) based on your requirement.
@@ -122,11 +118,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 3. If you want to set up Displayr manually, open a new web browser window and sign into your Displayr company site as an administrator and perform the following steps:
 
-4. Click on **Settings** then navigate to **Account**.
+4. Click on **User** then navigate to **Account settings**.
 
 	![Screenshot that shows the "Settings" icon and "Account" selected.](./media/displayr-tutorial/config01.png)
 
-5. Switch to **Settings** from the top menu and scroll down the page for clicking **Configure Single Sign On (SAML)**.
+5. Switch to **Settings** from the top menu and scroll down the page to click on **Configure Single Sign On (SAML)**.
 
 	![Screenshot that shows the "Settings" tab selected and the "Configure Single Sign On (S A M L)" action selected.](./media/displayr-tutorial/config02.png)
 
