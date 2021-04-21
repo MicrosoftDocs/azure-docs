@@ -122,7 +122,7 @@ There are two modes of schema representation in the analytical store. These mode
 * Full fidelity schema representation
 
 > [!NOTE]
-> For SQL (Core) API accounts, when analytical store is enabled, the default schema representation in the analytical store is well-defined. Whereas for Azure Cosmos DB API for MongoDB accounts, the default schema representation in the analytical store is a full fidelity schema representation. If you have scenarios requiring a different schema representation than the default offering for each of these APIs, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) to enable it.
+> For SQL (Core) API accounts, when analytical store is enabled, the default schema representation in the analytical store is well-defined. Whereas for Azure Cosmos DB API for MongoDB accounts, the default schema representation in the analytical store is a full fidelity schema representation. 
 
 **Well-defined schema representation**
 
