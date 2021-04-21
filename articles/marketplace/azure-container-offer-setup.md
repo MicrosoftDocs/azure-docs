@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2021
+ms.date: 04/21/2021
 ---
 
 # Create an Azure Container offer
@@ -50,7 +50,7 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
