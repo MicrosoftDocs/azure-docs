@@ -69,10 +69,10 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: 1 - Plan the deployment
-            url: production-ready-deployment-steps.md
-          - text: 2 - Request host quota 
+          - text: 1 - Request host quota 
             url: enable-azure-vmware-solution.md
+          - text: 2 - Plan the deployment
+            url: production-ready-deployment-steps.md
           - text: 3 - Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md
           - text: 4 - Connect to on-premises

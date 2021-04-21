@@ -8,10 +8,10 @@
     href: azure-vmware-solution-platform-updates.md
 - name: Quick start
   items:
-    - name: 1 - Plan the deployment
-      href: production-ready-deployment-steps.md
-    - name: 2 - Request host quota 
+    - name: 1 - Request host quota 
       href: enable-azure-vmware-solution.md
+    - name: 2 - Plan the deployment
+      href: production-ready-deployment-steps.md
     - name: 3 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
     - name: 4 - Connect to on-premises
