@@ -23,11 +23,11 @@ Install a code editor, such as [Visual Studio Code](https://code.visualstudio.co
 
 Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Azure Function apps locally.
 
+---
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
-
----
 
 ## Clone the sample application
 
