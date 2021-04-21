@@ -162,9 +162,9 @@ You can also highlight the twins and graph that appear in the graph by text, by 
 
 ### View tooltips
 
-You can hover over a twin or relationship in the MODEL GRAPH panel to display more details about it in a tooltip box.
+You can hover over a twin or relationship in the TWIN GRAPH panel to display more details about it in a tooltip box.
 
-Here is an example of the tooltip for the `FactoryA` twin in this example model graph:
+Here is an example of the tooltip for the `FactoryA` twin in this example twin graph:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-tooltip.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The FactoryA twin is highlighted, and there is a box near it showing its DTID, MODEL DISPLAY NAME, MODEL ID, DEFINED PROPERTIES, and DEFINED RELATIONSHIPS." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-tooltip.png":::
 
@@ -210,11 +210,11 @@ Once the two twins are multi-selected, click on the **Create Relationship** butt
 
 ### Edit twins and relationships
 
-To view the property values of a twin or a relationship, select the element in the **TWIN GRAPH** and use the **Toggle property inspector** button to expand the **PROPERTIES** panel. This panel will display all the properties associated with the element, along with their values. It also includes default values for properties that have not yet been set.
+To view the property values of a twin or a relationship, select the element in the **TWIN GRAPH** and use the **Toggle property inspector** button to expand the **PROPERTIES** panel.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The FactoryA twin is selected, and the PROPERTIES panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-You can also use the **PROPERTIES** panel to directly edit writeable properties. Update their values inline, and click the **Patch twin** (save) button at the top of the panel to save your changes. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
+You can use this panel to directly edit writeable properties. Update their values inline, and click the **Patch twin** (save) button at the top of the panel to save your changes. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 
@@ -231,74 +231,6 @@ You can delete multiple twins or multiple relationships at once, by using the CT
 You can also choose to delete all of the twins in your instance at the same time, using the **Delete All Twins** button in the top toolbar.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/delete-all-twins.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Delete All Twins icon is selected." lightbox="media/how-to-use-azure-digital-twins-explorer/delete-all-twins.png":::
-
-## Import/export graph
-
-From the **TWIN GRAPH** panel, you have the options to [import](#import) and [export](#export) graph features.
-
-### Import
-
-You can use the import feature to add twins, relationships, and models to your instance. This can be useful for creating many twins, relationships, and/or models at once.
-
-#### Create import file
-
-The first step in importing a graph is creating a file representing the twins and relationships you want to add.
-
-The import file can be in either of these two formats:
-* The **custom Excel-based format** described in the remainder of this section. This allows you to upload twins and relationships.
-* The **JSON-based format** generated on [graph export](#export). This can contain twins, relationships, and/or models.
-
-To create a custom graph in Excel, use the following format.
-
-Each row represents an element to create: either a twin, a relationship, or a combination of twin and corresponding relationship.
-Use the following columns to structure the twin or relationship data. The column names can be customized, but they should remain in this order.
-
-| ModelID | ID | Relationship (source) | Relationship Name | Init Data |
-| --- | --- | --- | --- | --- |
-| *Optional*<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | *Required*<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this will be the ID of the new twin.<br>If there is relationship information in the row, this ID will be used as the **target** of the relationship. | *Optional*<br>The ID of a twin that should be the **source** twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | *Optional*<br>The name for the new relationship to create. The relationship direction will be **from** the twin in column C **to** the twin in column B. | *Optional*<br>A JSON string containing property settings for the twin to be created. The properties must match those defined in the model from column A. |
-
-<can you specify relationship properties with this graph?>
-
-Here is an example .xlsx file creating a small graph of two floors and two rooms.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/import-example.png" alt-text="Screenshot of graph data in Excel. The column headers correspond to the fields above, in order, and the rows contain corresponding data values." lightbox="media/how-to-use-azure-digital-twins-explorer/import-example.png":::
-
-You can view this file and additional .xlsx graph examples in the [Azure Digital Twins Explorer repository](https://github.com/Azure-Samples/digital-twins-explorer/tree/main/client/examples) on GitHub.
-
->[!NOTE]
->The properties and relationships described in the .xlsx must match what's defined in the model definitions for the related twins.
-
-#### Import file to Azure Digital Twins Explorer
-
-Once you have a file on your machine that's ready to be imported, select the **Import Graph** icon in the TWIN GRAPH panel.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Import Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png":::
-
-In the file selector box that appears, navigate on your machine to the graph file (.xlsx or .json) that you want to upload and choose **Open** to upload it.
-
-Azure Digital Twins will open an **IMPORT** panel showing a preview of the graph to be imported. To confirm, select the **Save** icon in the upper-right corner of the panel.
-
-If import is successful, a modal window will display the number of models, twins, and relationships that were uploaded.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays an Import Successful modal showing 4 twins imported and 2 relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
-
-### Export
-
-You can use the export feature to export partial or complete graphs, including models, twins, and relationships. Export serializes the twins and relationships from the most recent query results, as well as all models in the instance, to a JSON-based format that you can download to your machine.
-
-To begin, use the [**QUERY EXPLORER**](#query) panel to run a query that selects the twins and relationships that you want to download. This will populate them in the TWIN GRAPH panel.
-
->[!TIP]
->The query to display all twins and relationships is `SELECT * FROM digitaltwins`.
-
-Once the TWIN GRAPH panel is showing the portion of the graph you want to download, select the **Export Graph** icon.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-export.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Export Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-export.png":::
-
-This action enables a **Download** link in the TWIN GRAPH box. Select it to download a JSON-based representation of the query result, and all the models in your instance, to your machine.
-
->[!TIP]
->This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import) feature.
 
 ## Explore models and the MODEL GRAPH
 
@@ -328,7 +260,7 @@ You can use the **MODEL GRAPH** panel to view a graphical representation of the 
 
 #### View model definition
 
-To see the definition of the model, find that model in the **MODELS** pane and choose the **View Model** icon next to the model name. This will display a Model Information overlay showing the raw DTDL definition of the model.
+To see the full definition of a model, find that model in the **MODELS** pane and choose the **View Model** icon next to the model name. This will display a **Model Information** modal showing the raw DTDL definition of the model.
 
 :::row:::
     :::column:::
@@ -470,7 +402,7 @@ In the file selector box that appears, navigate on your machine to the model(s) 
 >[!IMPORTANT]
 >If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them both in the same import and Azure Digital Twins will infer the order to upload them in.
 
-<Information about support for uploading large model sets?>
+<Information about support for uploading large model sets? Maybe we'd like to indicate how many you can upload at a time.>
 
 ### Delete models
 
@@ -495,6 +427,74 @@ To delete all of the models in your instance at once, choose the **Delete All Mo
     :::column:::
     :::column-end:::
 :::row-end:::
+
+## Import/export graph
+
+From the **TWIN GRAPH** panel, you have the options to [import](#import) and [export](#export) graph features.
+
+### Import
+
+You can use the import feature to add twins, relationships, and models to your instance. This can be useful for creating many twins, relationships, and/or models at once.
+
+#### Create import file
+
+The first step in importing a graph is creating a file representing the twins and relationships you want to add.
+
+The import file can be in either of these two formats:
+* The **custom Excel-based format** described in the remainder of this section. This allows you to upload twins and relationships.
+* The **JSON-based format** generated on [graph export](#export). This can contain twins, relationships, and/or models.
+
+To create a custom graph in Excel, use the following format.
+
+Each row represents an element to create: either a twin, a relationship, or a combination of twin and corresponding relationship.
+Use the following columns to structure the twin or relationship data. The column names can be customized, but they should remain in this order.
+
+| ModelID | ID | Relationship (source) | Relationship Name | Init Data |
+| --- | --- | --- | --- | --- |
+| *Optional*<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | *Required*<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this will be the ID of the new twin.<br>If there is relationship information in the row, this ID will be used as the **target** of the relationship. | *Optional*<br>The ID of a twin that should be the **source** twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | *Optional*<br>The name for the new relationship to create. The relationship direction will be **from** the twin in column C **to** the twin in column B. | *Optional*<br>A JSON string containing property settings for the twin to be created. The properties must match those defined in the model from column A. |
+
+<can you specify relationship properties with this graph?>
+
+Here is an example .xlsx file creating a small graph of two floors and two rooms.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/import-example.png" alt-text="Screenshot of graph data in Excel. The column headers correspond to the fields above, in order, and the rows contain corresponding data values." lightbox="media/how-to-use-azure-digital-twins-explorer/import-example.png":::
+
+You can view this file and additional .xlsx graph examples in the [Azure Digital Twins Explorer repository](https://github.com/Azure-Samples/digital-twins-explorer/tree/main/client/examples) on GitHub.
+
+>[!NOTE]
+>The properties and relationships described in the .xlsx must match what's defined in the model definitions for the related twins.
+
+#### Import file to Azure Digital Twins Explorer
+
+Once you have a file on your machine that's ready to be imported, select the **Import Graph** icon in the TWIN GRAPH panel.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Import Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png":::
+
+In the file selector box that appears, navigate on your machine to the graph file (.xlsx or .json) that you want to upload and choose **Open** to upload it.
+
+Azure Digital Twins will open an **IMPORT** panel showing a preview of the graph to be imported. To confirm, select the **Save** icon in the upper-right corner of the panel.
+
+If import is successful, a modal window will display the number of models, twins, and relationships that were uploaded.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays an Import Successful modal showing 4 twins imported and 2 relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
+
+### Export
+
+You can use the export feature to export partial or complete graphs, including models, twins, and relationships. Export serializes the twins and relationships from the most recent query results, as well as all models in the instance, to a JSON-based format that you can download to your machine.
+
+To begin, use the [**QUERY EXPLORER**](#query) panel to run a query that selects the twins and relationships that you want to download. This will populate them in the TWIN GRAPH panel.
+
+>[!TIP]
+>The query to display all twins and relationships is `SELECT * FROM digitaltwins`.
+
+Once the TWIN GRAPH panel is showing the portion of the graph you want to download, select the **Export Graph** icon.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-export.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Export Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-export.png":::
+
+This action enables a **Download** link in the TWIN GRAPH box. Select it to download a JSON-based representation of the query result, and all the models in your instance, to your machine.
+
+>[!TIP]
+>This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import) feature.
 
 ## Advanced settings
 
