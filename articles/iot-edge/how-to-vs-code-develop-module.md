@@ -43,7 +43,7 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 You'll also need to install some additional, language-specific tools to develop your module:
 
-- C#, including Azure Functions: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
+- C#, including Azure Functions: [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1)
 
 - Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
 
