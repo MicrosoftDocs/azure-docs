@@ -1,42 +1,41 @@
 ---
-title: Estimate costs using the Azure Cosmos DB capacity planner - SQL API
-description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the capacity planner to estimate the throughput and cost required when using SQL API. 
+title: Estimate costs using the Azure Cosmos DB capacity planner - API for Mongo DB
+description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the capacity planner to estimate the throughput and cost required when using Azure Cosmos DB API for MongoDB. 
 author: deborahc
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: dech
 
 ---
 
-# Estimate RU/s using the Azure Cosmos DB capacity planner - SQL API
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+# Estimate RU/s using the Azure Cosmos DB capacity planner - Azure Cosmos DB API for MongoDB
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-mongodb-api.md)]
 
-Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimizing cost and performance. This article describes how to use the Azure Cosmos DB [capacity planner](https://cosmos.azure.com/capacitycalculator/) to get an estimate of the required RU/s and cost of your workload when using the SQL API.
+Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimizing cost and performance. This article describes how to use the Azure Cosmos DB [capacity planner](https://cosmos.azure.com/capacitycalculator/) to get an estimate of the required RU/s and cost of your workload when using the Azure Cosmos DB API for MongoDB.
 
-[!INCLUDE [capacity planner modes](includes/capacity-planner-modes.md)]
+[!INCLUDE [capacity planner modes](../includes/capacity-planner-modes.md)]
 
 ## <a id="basic-mode"></a>Estimate provisioned throughput and cost using basic mode
 To get a quick estimate for your workload using the basic mode, navigate to the [capacity planner](https://cosmos.azure.com/capacitycalculator/). Enter in the following parameters based on your workload:
 
 |**Input**  |**Description**  |
 |---------|---------|
-| API |Choose SQL(Core) API |
+| API |Choose MongoDB API |
 |Number of regions|Azure Cosmos DB is available in all Azure regions. Select the number of regions required for your workload. You can associate any number of regions with your Cosmos account. See [global distribution](distribute-data-globally.md) in Azure Cosmos DB for more details.|
 |Multi-region writes|If you enable [multi-region writes](distribute-data-globally.md#key-benefits-of-global-distribution), your application can read and write to any Azure region. If you disable multi-region writes, your application can write data to a single region. <br/><br/> Enable multi-region writes if you expect to have an active-active workload that requires low latency writes in different regions. For example, an IOT workload that writes data to the database at high volumes in different regions. <br/><br/> Multi-region writes guarantees 99.999% read and write availability. Multi-region writes require more throughput when compared to the single write regions. To learn more, see [how RUs are different for single and multiple-write regions](optimize-cost-regions.md) article.|
 |Total data stored in transactional store |Total estimated data stored(GB) in the transactional store in a single region.|
 |Use analytical store| Choose **On** if you want to use analytical store. Enter the **Total data stored in analytical store**, it represents the estimated data stored(GB) in the analytical store in a single region.  |
 |Item size|The estimated size of the data item (for example, document), ranging from 1 KB to 2 MB. |
-|Queries/sec |Number of queries expected per second per region. The average cost of queries/sec per region is estimated at 10 RU/s. |
-|Point reads/sec |Number of point read operations expected per second per region. Point reads are the key/value lookup on a single item ID and a partition key. To learn more about point reads, see the [options to read data](optimize-cost-reads-writes.md#reading-data-point-reads-and-queries) article. |
-|Creates/sec |Number of create operations expected per second per region. |
+|Finds/sec |Number of find operations expected per second per region. |
+|Inserts/sec |Number of insert operations expected per second per region. |
 |Updates/sec |Number of update operations expected per second per region. |
 |Deletes/sec |Number of delete operations expected per second per region. |
 
 After filling the required details, select **Calculate**. The **Cost Estimate** tab shows the total cost for storage and provisioned throughput. You can expand the **Show Details** link in this tab to get the breakdown of the throughput required for different CRUD requests. Each time you change the value of any field, select **Calculate** to recalculate the estimated cost.
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode-sql-api.png" alt-text="Capacity planner basic mode" border="true":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode-mongodb-api.png" alt-text="Capacity planner basic mode" border="true":::
 
 ## <a id="advanced-mode"></a>Estimate provisioned throughput and cost using advanced mode
 
@@ -55,23 +54,19 @@ After you sign in, you can see more fields compared to the fields in basic mode.
 |Use analytical store| Choose **On** if you want to use analytical store. Enter the **Total data stored in analytical store**, it represents the estimated data stored(GB) in the analytical store in a single region.  |
 |Workload mode|Select **Steady** option if your workload volume is constant. <br/><br/> Select **Variable** option if your workload volume changes over time.  For example, during a specific day or a month. The following setting is available if you choose the variable workload option:<ul><li>Percentage of time at peak: Percentage of time in a month where your workload requires peak (highest) throughput. </li></ul> <br/><br/> For example, if you have a workload that has high activity during 9am – 6pm weekday business hours, then the percentage of time at peak is: 45 hours at peak / 730 hours / month = ~6%.<br/><br/>With peak and off-peak intervals, you can optimize your cost by [programmatically scaling your provisioned throughput](set-throughput.md#update-throughput-on-a-database-or-a-container) up and down accordingly.|
 |Item size|The size of the data item (for example, document), ranging from 1 KB to 2 MB. You can add estimates for multiple sample items. <br/><br/>You can also **Upload sample (JSON)** document for a more accurate estimate.<br/><br/>If your workload has multiple types of items (with different JSON content) in the same container, you can upload multiple JSON documents and get the estimate. Use the **Add new item** button to add multiple sample JSON documents.|
-| Number of properties | The average number of properties per an item. |
-|Point reads/sec |Number of point read operations expected per second per region. Point reads are the key/value lookup on a single item ID and a partition key. Point read operations are different from query read operations. To learn more about point reads, see the [options to read data](optimize-cost-reads-writes.md#reading-data-point-reads-and-queries) article. If your workload mode is **Variable**, you can provide the expected number of point read operations at peak and off peak. |
-|Creates/sec |Number of create operations expected per second per region. |
-|Updates/sec |Number of update operations expected per second per region. |
-|Deletes/sec |Number of delete operations expected per second per region. |
-|Queries/sec |Number of queries expected per second per region. For an accurate estimate, either use the average cost of queries or enter the RU/s your queries use from query stats in Azure portal. |
-| Average RU/s charge per query | By default, the average cost of queries/sec per region is estimated at 10 RU/s. You can increase or decrease it based on the RU/s charges based on your estimated query charge.|
+| Operation type | The type of operation such as **Find**, **Aggregate**, **Modify** etc.  |
+| Request unit (RU) charge per call | The estimated RU/s charge to execute the selected operation type. |
+| Calls/sec per region | Number selected operation types executed per second per region. |
 
 You can also use the **Save Estimate** button to download a CSV file containing the current estimate.
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode-sql-api.png" alt-text="Capacity planner advanced mode" border="true":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode-mongodb-api.png" alt-text="Capacity planner advanced mode" border="true":::
 
 The prices shown in the Azure Cosmos DB capacity planner are estimates based on the public pricing rates for throughput and storage. All prices are shown in US dollars. Refer to the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to see all rates by region.  
 
 ## Estimating throughput for queries
 
-The Azure Cosmos capacity calculator assumes point reads (a read of a single item, for example, document, by ID and partition key value) and writes for the workload. To estimate the throughput needed for queries, run your query on a representative data set in a Cosmos container and [obtain the RU charge](find-request-unit-charge.md). Multiply the RU charge by the number of queries that you anticipate to run per second to get the total RU/s required. 
+The Azure Cosmos capacity calculator assumes point reads (a read of a single item, for example, document, by ID and partition key value) and writes for the workload. To estimate the throughput needed for queries, run your query on a representative data set in a Cosmos container and [obtain the RU charge](find-request-unit-charge.md). Multiply the RU charge by the number of queries that you anticipate to run per second to get the total RU/s required.
 
 For example, if your workload requires a query, ``SELECT * FROM c WHERE c.id = 'Alice'`` that is run 100 times per second, and the RU charge of the query is 10 RUs, you will need 100 query / sec * 10 RU / query = 1000 RU/s in total to serve these requests. Add these RU/s to the RU/s required for any reads or writes happening in your workload.
 
