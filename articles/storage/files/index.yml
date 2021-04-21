@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: roygara #Required; your GitHub user alias, with correct capitalization.
   ms.author: rogarana #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/27/2019 #Required; mm/dd/yyyy format.
+  ms.date: 04/19/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,10 +27,10 @@ landingContent:
         links:
           - text: Azure Files planning guide
             url: storage-files-planning.md
-          - text: Azure File Sync planning guide
-            url: storage-sync-files-planning.md
           - text: What is Azure Files?
             url: storage-files-introduction.md
+          - text: Identity-based authentication
+            url: storage-files-active-directory-overview.md
 
 
   # Card (optional)
@@ -40,14 +40,6 @@ landingContent:
         links:
           - text: Create/use file shares - Windows
             url: storage-files-quick-create-use-windows.md
-          - text: Create premium file shares
-            url: ./storage-how-to-create-file-share.md
-          - text: Manage your server with Azure File Sync
-            url: storage-sync-files-server-registration.md
-      - linkListType: tutorial
-        links:
-          - text: Extend Windows file servers with Azure File Sync
-            url: storage-sync-files-extend-servers.md
 
   # Card
   - title: Troubleshoot
@@ -60,5 +52,3 @@ landingContent:
             url: storage-troubleshoot-linux-file-connection-problems.md
           - text: Azure Files performance troubleshooting
             url: storage-troubleshooting-files-performance.md
-          - text: Azure File Sync troubleshooting
-            url: storage-sync-files-troubleshoot.md
