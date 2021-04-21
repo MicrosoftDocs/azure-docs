@@ -232,12 +232,10 @@ You can obtain an access token in one of several ways: by obtaining it [from a f
 
 The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
 
-Before the technical profile can interact with Azure AD to obtain an access token, you need registered an app in a tenant that you manage. Azure AD B2C relies the Azure AD platform. You can create the app in your Azure AD B2C tenant, or in any Azure AD tenant you have.  
-
-To create an application in your Azure AD, or Azure AD B2C tenant:
+Before the technical profile can interact with Azure AD to obtain an access token, you need to register an application. Azure AD B2C relies the Azure AD platform. You can create the app in your Azure AD B2C tenant, or in any Azure AD tenant you manage. To register an application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD tenant.
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD, or Azure AD B2C tenant.
 1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *Client_Credentials_Auth_app*.
@@ -268,7 +266,7 @@ You need to store the client ID and the client secret that you previously record
 7. Enter a **Name** for the policy key, `SecureRESTClientId`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. In **Secret**, enter your client ID that you previously recorded.
 9. For **Key usage**, select `Signature`.
-10. Click **Create**.
+10. Select **Create**.
 11. Create another policy key with the following settings:
     -   **Name**: `SecureRESTClientSecret`.
     -   **Secret**: enter your client secret that you previously recorded
