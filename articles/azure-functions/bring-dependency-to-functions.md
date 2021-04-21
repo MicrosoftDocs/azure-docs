@@ -14,6 +14,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Bring in dependencies via Functions Code project 
 ::: zone pivot="programming-language-python"
+> [!div class="checklist"]
 > * Bring in dependencies via mounting Azure Fileshare
 ::: zone-end
 ## Prerequisites
@@ -31,8 +32,6 @@ In this tutorial, you learn how to:
 * The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) 
 * Java Azure functions app deployed on Windows consumption plan. [Create your first Azure function in Java](./create-first-function-vs-code-java.md) 
 ::: zone-end
-
-
 
 ::: zone pivot="programming-language-python"
 ## Bring Dependencies by putting them in Azure Functions Project Directory
