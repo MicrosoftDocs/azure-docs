@@ -89,7 +89,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference. 
+For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) reference. 
 
 ## Using VS Code
 

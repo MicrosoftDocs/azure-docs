@@ -87,7 +87,7 @@ Apply rules and rule groups to Azure Web Application Firewall (WAF) policies bas
 
 - [WAF policy on Application Gateway](/cli/azure/network/application-gateway/waf-policy)
 
-- [WAF policy on Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy)
+- [WAF policy on Front Door](/cli/azure/network/front-door/waf-policy)
 
 **Responsibility**: Customer
 
