@@ -40,7 +40,7 @@ only for specific scenarios:
 
 More about Azure Key Vault management guidelines, see:
 
-- [Azure Key Vault security overview](security-overview.md)
+- [Azure Key Vault security features](security-features.md)
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations

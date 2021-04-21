@@ -70,15 +70,15 @@ Refer to the documentation [Connect downstream IoT Edge devices - Azure IoT Edge
 
 1. Modify the image path for the Edge agent as demonstrated in the example below:
 
-```markdown
-[agent]
-name = "edgeAgent"
-type = "docker"
-env = {}
-[agent.config]
-image = "<parent_device_fqdn_or_ip>:8000/iotedge/azureiotedge-agent:1.2.0-rc2"
-auth = {}
-```
+    ```markdown
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    env = {}
+    [agent.config]
+    image = "<parent_device_fqdn_or_ip>:8000/iotedge/azureiotedge-agent:1.2.0-rc2"
+    auth = {}
+    ```
 2. Modify the Edge Hub and Edge agent Runtime Settings in the Azure IoT Edge deployment as demonstrated in this example:
 	
     * Under Edge Hub, in the image field, enter ```$upstream:8000/iotedge/azureiotedge-hub:1.2.0-rc2```
@@ -93,7 +93,7 @@ auth = {}
 >[!Note]
 >The CACHE_NODE_ID shoudl be unique.  The CUSTOMER_ID and CUSTOMER_KEY values will be identical to the parent. (see [Configure Microsoft Connected Cache](connected-cache-configure.md)
 
-For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the IoT Edge device hosting the module or any device on the network. Replace \<Azure IOT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
+For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the IoT Edge device hosting the module or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
 
 ```bash
     wget http://<CHILD Azure IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
