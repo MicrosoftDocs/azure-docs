@@ -53,7 +53,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+For production use, you should import a valid certificate signed by trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). You can use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
 
 ```powershell
 New-SelfSignedCertificate `

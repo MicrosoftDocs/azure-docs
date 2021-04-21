@@ -5,7 +5,7 @@ description: Learn what types of deployment credentials are in Azure App Service
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
