@@ -465,7 +465,7 @@ To install the software:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
-1. In the Installation Wizard, define the appliance profile, and network properties:
+1. In the Installation Wizard, define the hardware profile, and network properties:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -726,7 +726,7 @@ To install the software:
 
    :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::   
 
-1. In the Installation Wizard, define the appliance profile, and network properties:
+1. In the Installation Wizard, define the network properties:
 
    :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::   
 
