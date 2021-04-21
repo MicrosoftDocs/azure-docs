@@ -1,17 +1,17 @@
 ﻿---
-title: Connect Azure SQL database diagnostics and auditing logs to Azure Sentinel
-description: Learn how to connect Azure SQL database diagnostics logs and security auditing logs to Azure Sentinel.
+title: Connect all Azure SQL database diagnostics and auditing logs to Azure Sentinel
+description: Learn how to use Azure Policy to enforce the connection of Azure SQL database diagnostics logs and security auditing logs to Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 04/21/2021
 ms.author: yelevin
 ---
 # Connect Azure SQL database diagnostics and auditing logs
 
-Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without user involvement. 
+Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without necessitating user involvement. 
 
 The Azure SQL database connector lets you stream your databases' auditing and diagnostic logs into Azure Sentinel, allowing you to continuously monitor activity in all your instances.
 
@@ -19,7 +19,7 @@ The Azure SQL database connector lets you stream your databases' auditing and di
 
 - Connecting auditing logs allows you to stream security audit logs from all your Azure SQL databases at the server level.
 
-Learn more about [monitoring Azure SQL Databases](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+Learn more about [Azure SQL Database diagnostic telemetry](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and about [Azure SQL server auditing](../azure-sql/database/auditing-overview.md).
 
 ## Prerequisites
 
@@ -27,79 +27,57 @@ Learn more about [monitoring Azure SQL Databases](../azure-sql/database/metrics-
 
 - To connect auditing logs, you must have read and write permissions to Azure SQL Server audit settings.
 
+- To use Azure Policy to apply a log streaming policy to Azure SQL database and server resources, you must have the Owner role for the policy assignment scope.
+
 ## Connect to Azure SQL database
-	
+
+This connector uses Azure Policy to apply a single Azure SQL log streaming configuration to a collection of instances, defined as a scope. The Azure SQL Database connector sends two types of logs to Azure Sentinel: diagnostics logs (from SQL databases) and auditing logs (at the SQL server level). You can see the log types ingested from Azure SQL databases and servers on the left side of connector page, under **Data types**.
+
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
-1. Select **Azure SQL Database** from the data connectors gallery, and then select **Open Connector Page**  on the preview pane.
+1. Select **Azure SQL Databases** from the data connectors gallery, and then select **Open Connector Page**  on the preview pane.
 
 1. In the **Configuration** section of the connector page, note the two categories of logs you can connect.
 
 ### Connect diagnostics logs
 
-1. Under **Diagnostics logs**, expand **Enable diagnostics logs on each of your Azure SQL databases manually**.
+1. Expand **Stream diagnostics logs from your Azure SQL databases at scale**.
 
-1. Select the **Open Azure SQL >** link to open the **Azure SQL** resources blade.
+1. Select the **Launch Azure Policy Assignment wizard** button.
 
-1. **(Optional)** To find your database resource easily, select **Add filter** on the filters bar at the top.
-    1. In the **Filter** drop-down list, select **Resource type**.
-    1. In the **Value** drop-down list, deselect **Select all**, then select **SQL database**.
-    1. Click **Apply**.
-    
-1. Select the database resource whose diagnostics logs you want to send to Azure Sentinel.
+    The policy assignment wizard opens, ready to create a new policy called **Deploy - Configure diagnostic settings for SQL Databases to Log Analytics workspace**.
 
-    > [!NOTE]
-    > For each database resource whose logs you want to collect, you must repeat this process, starting from this step.
+    1. In the **Basics** tab, click the button with the three dots under **Scope** to select your subscription (and, optionally, a resource group). You can also add a description.
 
-1. From the resource page of the database you selected, under **Monitoring** on the navigation menu, select **Diagnostic settings**.
+    1. In the **Parameters** tab, leave the first two settings as they are. Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list. The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
 
-    1. Select the **+ Add diagnostic setting** link at the bottom of the table.​
+    1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
 
-    1. In the **Diagnostic setting** screen, enter a name in the  **Diagnostic setting name** field.
-    
-    1. In the **Destination details** column, mark the **Send to Log Analytics workspace** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics workspace** (where Azure Sentinel resides).​
-
-    1. In the **Category details** column, mark the check boxes of the log and metric types you want to ingest. We recommend selecting all available types under both **log** and **metric**.​
-
-    1. Select **Save** at the top of the screen.
-
-- Alternatively, you can use the supplied **PowerShell script** to connect your diagnostics logs.
-    1. Under **Diagnostics logs**, expand **Enable by PowerShell script**.
-
-    1. Copy the code block and paste in PowerShell.
+    1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
 
 ### Connect audit logs
 
-1. Under **Auditing logs (preview)**, expand **Enable auditing logs on all Azure SQL databases (at the server level)**.
+1. Back in the connector page, expand **Stream auditing logs from your Azure SQL databases at the server level at scale**.
 
-1. Select the **Open Azure SQL >** link to open the **SQL servers** resource blade.
+1. Select the **Launch Azure Policy Assignment wizard** button.
 
-1. Select the SQL server whose auditing logs you want to send to Azure Sentinel.
+    The policy assignment wizard opens, ready to create a new policy called **Deploy - Configure auditing settings for SQL Databases to Log Analytics workspace**.
 
-    > [!NOTE]
-    > For each server resource whose logs you want to collect, you must repeat this process, starting from this step.
+    1. In the **Basics** tab, click the button with the three dots under **Scope** to select your subscription (and, optionally, a resource group). You can also add a description.
 
-1. From the resource page of the server you selected, under **Security** on the navigation menu, select **Auditing**.
+    1. In the **Parameters** tab, choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list. Leave the **Effect** setting as is.
 
-    1. Move the **Enable Azure SQL Auditing** toggle to **ON**.​
+    1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
 
-    1. Under **Audit log destination**, select **Log Analytics (Preview)**.
-    
-    1. From the list of workspaces that appears, choose your workspace (where Azure Sentinel resides).​
-
-    1. Select **Save** at the top of the screen.
-
-- Alternatively, you can use the supplied **PowerShell script** to connect your diagnostics logs.
-    1. Under **Auditing logs**, expand **Enable by PowerShell script**.
-
-    1. Copy the code block and paste in PowerShell.
-
+    1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
 
 > [!NOTE]
 >
-> With this particular data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) will show as *connected* (green) only if data has been ingested at some point in the past two weeks. Once two weeks have passed with no data ingestion, the connector will show as being disconnected. The moment more data comes through, the *connected* status will return.
+> With this particular data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) will show as *connected* (green) only if data has been ingested at some point in the past 14 days. Once 14 days have passed with no data ingestion, the connector will show as being disconnected. The moment more data comes through, the *connected* status will return.
 
 ## Next steps
-In this document, you learned how to connect Azure SQL database diagnostics and auditing logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+
+In this document, you learned how to use Azure Policy to connect Azure SQL database diagnostics and auditing logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
+- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
