@@ -54,7 +54,9 @@ The Microsoft Connected Cache module has a .NET Core service, which is used by t
 >[!Note]
 >To support Azure IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
 
+
 Sample Container Create Options
+
 ```json
 {
     "HostConfig": {
@@ -85,5 +87,6 @@ The summary report is currently the only way for a customer to view caching data
 * **missBytes** - This is the sum of bytes delivered that Microsoft Connected Cache had to download from CDN to see the cache.
 * **eggressBytes** - This is the sum of hitBytes and missBytes and is the total bytes delivered to clients.
 * **hitRatioBytes** - This is the ratio of hitBytes to egressBytes.  If 100% of eggressBytes delivered in a period were equal to the hitBytes this would be 1 for example.
+
 
 The summary report is available at `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary` Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).

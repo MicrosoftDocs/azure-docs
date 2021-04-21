@@ -71,7 +71,7 @@ In this scenario there is an Azure IoT Edge Gateway that has access to CDN resou
 2. Add the environment variables for the deployment. Below is an example of the environment variables.
 
     **Environment Variables**
-    
+
     | Name                          | Value                                                                 |
     | ----------------------------- | ----------------------------------------------------------------------| 
     | CACHE_NODE_ID                 | See [environment variable](connected-cache-configure.md) descriptions |

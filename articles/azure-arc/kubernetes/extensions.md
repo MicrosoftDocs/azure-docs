@@ -46,7 +46,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | Extension | Description |
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
-| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers audit log data from control plane nodes of the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
+| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 
 ## Usage of cluster extensions
 
@@ -230,31 +230,6 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
   }
 ]
 ```
-
-### Update an existing extension instance
-
-Update an extension instance on a cluster with `k8s-extension update`, passing in the values to update.  This command only updates the `auto-upgrade-minor-version`, `release-train`, and `version` properties. For example:
-
-- **Update release train:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --release-train Preview
-    ```
-
-- **Turn off auto-upgrade and pin extension instance to a specific version:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version false --version 2.2.2
-    ```
-
-- **Turn on auto-upgrade for the extension instance:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version true
-    ```
-
-> [!NOTE]
-> The `version` parameter can be set only when `--auto-upgrade-minor-version` is set to `false`.
 
 ### Delete extension instance
 

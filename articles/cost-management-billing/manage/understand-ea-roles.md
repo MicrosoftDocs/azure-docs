@@ -13,7 +13,7 @@ ms.custom: contperf-fy21q1
 
 # Managing Azure Enterprise Agreement roles
 
-To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign five distinct administrative roles:
+To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign six distinct administrative roles:
 
 - Enterprise Administrator
 - Enterprise Administrator (read only)<sup>1</sup>
@@ -57,7 +57,7 @@ The following diagram illustrates simple Azure EA hierarchies.
 The following administrative user roles are part of your enterprise enrollment:
 
 - Enterprise administrator
-- Ea purchaser
+- EA purchaser
 - Department administrator
 - Account owner
 - Service administrator
