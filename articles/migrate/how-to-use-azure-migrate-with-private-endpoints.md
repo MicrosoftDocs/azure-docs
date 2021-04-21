@@ -92,7 +92,7 @@ This creates a migrate project and attaches a private endpoint to it.
 
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
-To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance.
+To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance. After downloading the zipped file, verify the file security and run the installer script to deploy the appliance. 
 
 Here are the download links for each of the scenario with their hash values:
 
@@ -117,7 +117,6 @@ Check that the zipped file is secure, before you deploy it.
 
 Make sure the server meets the [hardware requirements](https://docs.microsoft.com/azure/migrate/migrate-appliance) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the required Azure URLs - [public](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) and [government](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity) clouds.
 
-After downloading the zipped file, run the installer script to deploy the appliance.
 
 #### Run the script
 
