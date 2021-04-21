@@ -157,7 +157,7 @@ Test Logstash in interactive mode to make sure it's working correctly:
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-This is a basic logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
+This is a basic Logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
 
 ```output
 The stdin plugin is now waiting for input:
