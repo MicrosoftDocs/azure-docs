@@ -46,7 +46,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/m
 
 Install the following for your local development environment. 
 
-- [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0)  
+- [.NET 3](https://dotnet.microsoft.com/download/dotnet/5.0)  
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
