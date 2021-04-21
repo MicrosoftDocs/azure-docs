@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -37,13 +37,14 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
 1. If you have not already done so, you need to register as a Facebook developer. To do this, select **Get Started** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
 1. Select **My Apps** and then **Create App**.
-1. Select **Build Connected Experiences**.
-1. Enter a **Display Name** and a valid **Contact Email**.
-1. Select **Create App ID**. This may require you to accept Facebook platform policies and complete an online security check.
+1. Select **Build Connected Experiences**, then select **Continue**.
+1. Enter a **App Display Name** and a valid **App Contact Email**.
+1. Select **Create App**. This may require you to accept Facebook platform policies and complete an online security check.
 1. Select **Settings** > **Basic**.
     1. Choose a **Category**, for example `Business and Pages`. This value is required by Facebook, but not used for Azure AD B2C.
     1. Enter a URL for the **Terms of Service URL**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
     1. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
+    1. Enter a URL for the **User Data Deletion**, for example `http://www.contoso.com/delete_my_data`. The User Data Deletion URL is a page you maintain to provide away for users to request that their data be deleted. 
 1. At the bottom of the page, select **Add Platform**, and then select **Website**.
 1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
 1. Select **Save Changes**.
