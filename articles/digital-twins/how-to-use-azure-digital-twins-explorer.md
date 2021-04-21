@@ -21,8 +21,7 @@ ms.service: digital-twins
 
 ## Set up
 
-<how to access it in the portal>
-<any other setup steps>
+<Add later: how to access it in the portal, any other setup steps>
 
 ## Manage models
 
@@ -59,7 +58,7 @@ To upload a model, select the **Upload a model** icon showing an arrow pointing 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-download.png" alt-text="Screenshot of Azure Digital Twins Explorer MODELS panel. The Upload a model icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-download.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png" alt-text="Screenshot of Azure Digital Twins Explorer MODELS panel. The Upload a model icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -70,7 +69,7 @@ In the file selector box that appears, navigate on your machine to the model(s) 
 >[!IMPORTANT]
 >If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them both in the same import and Azure Digital Twins will infer the order to upload them in.
 
-<Information about support for uploading large model sets>
+<Information about support for uploading large model sets?>
 
 ### Delete models
 
@@ -184,7 +183,7 @@ You can select a model in the graph to highlight that model, its connections, it
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The Floor model is selected, and the MODEL GRAPH has highlighted only that model and its incoming and outgoing connections." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph.png":::
 
-You can also highlight the models and connections that appear in the graph by text, using this **Highlight** icon:
+You can also highlight the models and connections that appear in the graph by text, by selecting this **Highlight** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png":::
 
@@ -194,7 +193,7 @@ You can filter the types of connections that appear in the graph. Turning off on
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The filter menu for Relationships, Inheritance, and Components are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png":::
 
-You can also filter the models and connections that appear in the graph by text, using this **Filter** icon:
+You can also filter the models and connections that appear in the graph by text, by selecting this **Filter** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png":::
 
@@ -311,7 +310,7 @@ To set the number of layers to expand, use the **Expansion Level** option. This 
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Expansion Level button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png":::
 
-To indicate which types of relationships to follow when expanding, use the **Expansion mode** button. This allows you to select from just incoming, just outgoing, or both incoming and outgoing relationships.
+To indicate which types of relationships to follow when expanding, use the **Expansion Mode** button. This allows you to select from just incoming, just outgoing, or both incoming and outgoing relationships.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-mode.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Expansion Mode button is highlighted, showing a menu with the options In, Out, and In/Out." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-mode.png":::
  
@@ -323,7 +322,7 @@ Use these zoom options to **Zoom in**, **Zoom out**, **Center**, or **Zoom to fi
 
 ### Filter
 
-You can filter the twins and relationships that appear in the graph by text, using this **Filter** icon:
+You can filter the twins and relationships that appear in the graph by text, by selecting this **Filter** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
 
@@ -349,7 +348,7 @@ You can perform multi-select using the CTRL/CMD or SHIFT keys.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Floor0 twin is selected, and the TWIN GRAPH has highlighted only that twin, its incoming and outgoing relationships, and the twins targeted by those relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph.png":::
 
-You can also highlight the twins and graph that appear in the graph by text, using this **Highlight** icon:
+You can also highlight the twins and graph that appear in the graph by text, by selecting this **Highlight** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png":::
 
@@ -476,9 +475,10 @@ Clicking the settings cog in the top right corner allows the configuration of th
 * **Output**: This feature enables display of an output window, which shows a diagnostic trace of operations.
 
 <Any other toolbar settings we want to describe? (Like Azure Digital Twins URL--not sure if that will still be there once this is in portal)>
+
 ## Known limitations
 
-<Probably a new set of limitations for the hosted version>
+<Probably a new set of limitations for the hosted version?>
 
 ## Next steps 
 
