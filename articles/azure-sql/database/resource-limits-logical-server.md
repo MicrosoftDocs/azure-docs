@@ -175,7 +175,7 @@ When encountering a log rate limit that is hampering desired scalability, consid
 
 ### Storage space governance
 
-In Premium and Business Critical service tiers, customer data including *data files*, *transaction log files*, and *tempdb files* is stored on the local SSD volume of the machine hosting the database or elastic pool. Using local SSD storage provides high IOPS and throughput, and low IO latency. The size of this local volume is finite and depends on the capabilities of each hardware generation. In addition to customer data, local volume space is used for the operating system, management software, monitoring data and logs, and other files necessary for system operation.
+In Premium and Business Critical service tiers, customer data including *data files*, *transaction log files*, and *tempdb files* is stored on the local SSD volume of the machine hosting the database or elastic pool. Using local SSD storage provides high IOPS and throughput, and low IO latency. The size of this local volume is finite and depends on hardware capabilities. In addition to customer data, local volume space is used for the operating system, management software, monitoring data and logs, and other files necessary for system operation.
 
 Hardware capabilities dictate the size of **maximum local storage** that can be set aside for customer data. This limit is set to maximize customer data storage, while ensuring safe and reliable system operation. To find the **maximum local storage** value for each service objective, see resource limits documentation for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
 
@@ -193,7 +193,7 @@ WHERE database_id = DB_ID();
 |`database_name`|Database name|
 |`slo_name`|Service objective name, including hardware generation|
 |`user_data_directory_space_quota_mb`|**Maximum local storage**, in MB|
-|`user_data_directory_space_usage_mb`|Current local storage consumption by data, transaction log, and tempdb files, in MB|
+|`user_data_directory_space_usage_mb`|Current local storage consumption by data, transaction log, and tempdb files, in MB. Updated every five minutes.|
 |||
 
 This query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
