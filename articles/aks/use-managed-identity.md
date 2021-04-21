@@ -236,6 +236,20 @@ First, register the feature flag for Kubelet identity:
 az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
 ```
 
+It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Create or obtain managed identities
+
 If you don't have a control plane managed identity yet, you should go ahead and create one. The following example uses the [az identity create][az-identity-create] command:
 
 ```azurecli-interactive
@@ -288,6 +302,8 @@ If your managed identity is part of your subscription, you can use the [az ident
 az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 ```
 
+### Create a cluster using kubelet identity
+
 Now you can use the following command to create your cluster with your existing identities:
 
 ```azurecli-interactive
@@ -332,5 +348,9 @@ A successful cluster creation using your own kubelet managed identities contains
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+
+<!-- LINKS - internal -->
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-identity-list]: /cli/azure/identity#az_identity_list
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
