@@ -232,7 +232,7 @@ You can also manage application settings in one of these other ways:
 
 * [Use the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Use the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Use the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+* [Use the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ## Monitoring functions
 

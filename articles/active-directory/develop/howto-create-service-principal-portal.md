@@ -178,7 +178,7 @@ If you choose not to use a certificate, you can create a new application secret.
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Configure access policies on resources
-Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/security-overview.md#privileged-access) to give your application access to keys, secrets, or certificates.
+Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/security-features.md#privileged-access) to give your application access to keys, secrets, or certificates.
 
 1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, navigate to your key vault and select **Access policies**.
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.

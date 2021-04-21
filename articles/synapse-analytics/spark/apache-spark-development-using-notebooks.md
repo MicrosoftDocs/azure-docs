@@ -326,6 +326,22 @@ Example: ``` %run /path/notebookA ```.
 
 ---
 
+### Variable explorer
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+Synapse notebook provides a built-in variables explorer for you to see the list of the variables name, type, length, and value in the current Spark session for PySpark (Python) cells. More variables will show up automatically as they are defined in the code cells. Clicking on each column header will sort the variables in the table.
+
+You can select the **Variables** button on the notebook command bar to open or hide the variable explorer.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### Cell status indicator
 
