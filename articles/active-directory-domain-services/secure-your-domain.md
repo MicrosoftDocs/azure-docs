@@ -14,11 +14,16 @@ ms.date: 04/21/2021
 ms.author: justinha
 
 ---
-# Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain
+# Harden an Azure Active Directory Domain Services managed domain
 
 By default, Azure Active Directory Domain Services (Azure AD DS) enables the use of ciphers such as NTLM v1 and TLS v1. These ciphers may be required for some legacy applications, but are considered weak and can be disabled if you don't need them. If you have on-premises hybrid connectivity using Azure AD Connect, you can also disable the synchronization of NTLM password hashes.
 
-This article shows you how to disable NTLM v1 and TLS v1 ciphers and disable NTLM password hash synchronization.
+This article shows you how to harden a managed domain by using setting setting such as: 
+
+- Disable NTLM v1 and TLS v1 ciphers
+- Disable NTLM password hash synchronization
+- Disable the ability to change passwords with RC4 encryption
+- Enable Kerberos armoring
 
 ## Prerequisites
 
