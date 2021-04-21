@@ -333,6 +333,8 @@
     href: ueba-enrichments.md
   - name: CEF log field mapping
     href: cef-name-mapping.md
+  - name: MCAS alerts not onboarded to Microsoft 365 Defender
+    href: mcas-alerts-not-imported-m365d.md
 - name: Resources
   items:
   - name: Useful resources

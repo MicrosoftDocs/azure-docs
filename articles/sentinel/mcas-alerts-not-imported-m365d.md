@@ -1,6 +1,6 @@
 ---
-title: MCAS alerts not imported into Azure Sentinel through M365 Defender integration | Microsoft Docs
-description: This article displays the alerts from Microsoft Cloud App Security that must be ingested directly into Azure Sentinel, since they are not collected by M365 Defender.
+title: MCAS alerts not imported into Azure Sentinel through Microsoft 365 Defender integration | Microsoft Docs
+description: This article displays the alerts from Microsoft Cloud App Security that must be ingested directly into Azure Sentinel, since they are not collected by Microsoft 365 Defender.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -19,15 +19,15 @@ ms.author: yelevin
 
 ---
 
-# MCAS alerts not imported into Azure Sentinel through M365 Defender integration
+# MCAS alerts not imported into Azure Sentinel through Microsoft 365 Defender integration
 
-Like the other Microsoft Defender components (Defender for Endpoint, Defender for Identity, and Defender for Office 365), Microsoft Cloud App Security (MCAS) generates alerts that are collected by Microsoft 365 Defender. M365 Defender in turn produces incidents that are ingested by and [synchronized with Azure Sentinel](microsoft-365-defender-sentinel-integration.md#m365-defender-incidents-and-microsoft-incident-creation-rules) when the Microsoft 365 Defender connector is enabled.
+Like the other Microsoft Defender components (Defender for Endpoint, Defender for Identity, and Defender for Office 365), Microsoft Cloud App Security (MCAS) generates alerts that are collected by Microsoft 365 Defender. Microsoft 365 Defender in turn produces incidents that are ingested by and [synchronized with Azure Sentinel](microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules) when the Microsoft 365 Defender connector is enabled.
 
-Unlike with the other three components, **not all types of** MCAS alerts are onboarded to M365 Defender, so that if you want the incidents from all MCAS alerts in Azure Sentinel, you will have to adjust your Microsoft incident creation analytics rules accordingly, so that those alerts that are ingested directly to Sentinel continue to generate incidents, while those that are onboarded to M365 Defender don't (so there won't be duplicates).
+Unlike with the other three components, **not all types of** MCAS alerts are onboarded to Microsoft 365 Defender, so that if you want the incidents from all MCAS alerts in Azure Sentinel, you will have to adjust your Microsoft incident creation analytics rules accordingly, so that those alerts that are ingested directly to Sentinel continue to generate incidents, while those that are onboarded to Microsoft 365 Defender don't (so there won't be duplicates).
 
-## MCAS alerts not onboarded to M365 Defender
+## MCAS alerts not onboarded to Microsoft 365 Defender
 
-The following alerts are not onboarded to M365 Defender, and Microsoft incident creation rules resulting in these alerts should continue to be configured to generate incidents.
+The following alerts are not onboarded to Microsoft 365 Defender, and Microsoft incident creation rules resulting in these alerts should continue to be configured to generate incidents.
 
 | MCAS alert display name | MCAS alert name |
 |-|-|
