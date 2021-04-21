@@ -54,7 +54,7 @@ You can use Azure storage services in workloads running in your private cloud. T
 
 ## Alerts and monitoring
 
-Microsoft provides alerts when capacity consumption exceeds 75%.  You can monitor capacity consumption metrics that are integrated into Azure Monitor.
+Microsoft provides alerts when capacity consumption exceeds 75%.  You can monitor capacity consumption metrics that are integrated into Azure Monitor. For more information, see [Configure Azure Alerts in Azure VMware Solution](configure-alerts-for-azure-vmware-solution.md).
 
 ## Next steps
 
