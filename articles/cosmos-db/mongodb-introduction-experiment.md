@@ -5,12 +5,10 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 04/20/2021
-author: gahl.levy
+author: gahl-levy
 ms.author: gahllevy
-adobe-target: true
-adobe-target-activity: ""
-adobe-target-experience: ""
-adobe-target-content: ""
+robots: noindex
+
 ---
 # Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
