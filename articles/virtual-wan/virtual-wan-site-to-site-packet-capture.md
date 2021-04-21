@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Performing packet capture on Virtual WAN site-to-site connections'
+title: 'Tutorial: Performing packet capture on Azure Virtual WAN site-to-site connections'
 description: In this tutorial, learn how to perform packet capture on the Virtual WAN Site-to-site VPN Gateway.
 services: virtual-wan
 author: wellee
@@ -10,7 +10,7 @@ ms.author: wellee
 Customer intent: As someone with a networking background using Virtual WAN, I want to perform a packet capture on my Site-to-site VPN Gateway.
 ---
 
-# Performing a Packet Capture on the Virtual WAN Site-to-site VPN Gateway 
+# Perform packet Capture on the Azure Virtual WAN Site-to-site VPN Gateway 
 
 Connectivity and performance-related problems are often complex. It can take significant time and effort just to narrow down the cause of the problem. Packet capture can help you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the customer side of the network, the Azure side of the network, or somewhere in between. After you narrow down the problem, it's more efficient to debug and take remedial action.
 
@@ -61,8 +61,7 @@ To start the packet capture, you have two options, capturing packets on a single
 
 Please run the following commands. The Name of the Site-to-site VPN Gateway can be found by navigating to your Virtual Hub, clicking on VPN (Site-to-site) under Connectivity.
 
-![Virtual WAN Gateway Name](./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png)
-
+:::image type="content" source="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png" alt-text="Image of Virtual WAN gateway name." lightbox="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png":::
 
    ```azurepowershell-interactive
 Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -Sasurl $sasurl
@@ -76,11 +75,11 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 
 Please run the following commands. The Name of the Site-to-site VPN Connections can be found by navigating to your Virtual Hub, clicking on VPN (Site-to-site) under Connectivity. Then, navigate to the VPN Site you want to perform the packet capture on and click on the three dots on the right. Click **Edit VPN Connection** in the menu that pops up.
 
-![Virtual WAN Connection Names](./media/virtual-wan-pcap-screenshots/sample-connection.png)
+:::image type="content" source="./media/virtual-wan-pcap-screenshots/sample-connection.png" alt-text="Image of how to find VPN connection names." lightbox="./media/virtual-wan-pcap-screenshots/sample-connection.png":::
 
 The name of the links connected to a specific VPN site can be found by clicking on the VPN site from the previous section and looking at the **Links** table. 
 
-![Virtual WAN Link Names](./media/virtual-wan-pcap-screenshots/link-name-sample.png)
+:::image type="content" source="./media/virtual-wan-pcap-screenshots/link-name-sample.png" alt-text="Image of how to find VPN link name." lightbox="./media/virtual-wan-pcap-screenshots/link-name-sample.png":::
 
    ```azurepowershell-interactive
 Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links eg. "link1,link2">” -Sasurl $sasurl 
@@ -136,7 +135,7 @@ Stop-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name <name of the VPN 
 
 In Azure portal, navigate to the Storage Account created in “Create a Storage Account” Click on your container and download the file. Packet capture data files are generated in PCAP format. You can use Wireshark or another commonly available application to open PCAP files.
 
-## Next Steps
+## Next steps
 
 Next, to learn more about Virtual WAN, see:
 
