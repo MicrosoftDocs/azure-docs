@@ -74,8 +74,8 @@ To create a knowledge base with the REST APIs and cURL, you need to have the fol
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
 |JSON describing knowledge base|`-d` param|[Examples](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
 
@@ -142,9 +142,9 @@ When you create a knowledge base, because the operation is async, the response i
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
 |Operation Id|URL route|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and operation ID.
 
@@ -207,8 +207,8 @@ This task publishes the knowledge base. Getting the runtime endpoint key is a [s
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
@@ -300,8 +300,8 @@ Getting an answer from the knowledge is done from a separate runtime than managi
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 |JSON describing query|`-d` param|[Request body parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) and [examples](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
@@ -351,8 +351,8 @@ When you are done with the knowledge base, delete it.
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
