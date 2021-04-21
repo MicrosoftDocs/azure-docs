@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ms.devlang: dotnet
 ---
 
-# 4 - .NET Search integration highlights
+# 4 - .NET Search integration cheat sheat
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
 

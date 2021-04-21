@@ -39,7 +39,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/m
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
 |Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website/src](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website/src)|
-|Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using .NET SDK |[/search-website/api](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website/src)|
+|Server|Azure .NET Function app (business layer) - calls the Azure Cognitive Search API using .NET SDK |[/search-website/api](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website/api)|
 |Bulk insert|.NET file to create the index and add documents to it.|[/search-website/bulk-insert](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website/bulk-insert)|
 
 ## Set up your development environment

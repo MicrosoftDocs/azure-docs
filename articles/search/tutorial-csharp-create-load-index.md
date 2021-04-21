@@ -63,7 +63,7 @@ The script uses the Azure SDK for Cognitive Search:
 
     :::code language="csharp" source="~/azure-search-dotnet-samples/search-website/bulk-insert/Program.cs" highlight="13-14" :::
 
-1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-web/bulk-insert`, then run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `search-web/bulk-insert`, then run the following command to install the dependencies. 
 
     ```bash
     dotnet restore
