@@ -40,7 +40,6 @@ The choice between a pop-up or redirect experience depends on your application f
 
 ## Sign-in with a pop-up window
 
-
 # [JavaScript (MSAL.js 2.x)](#tab/javascript2)
 
 ```javascript
@@ -440,6 +439,8 @@ function App() {
     )
 }
 ```
+
+---
 
 ## Sign-out with a redirect
 
