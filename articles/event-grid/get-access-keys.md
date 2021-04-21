@@ -29,13 +29,13 @@ Get-AzEventGridDomainKey -ResourceGroup <RESOURCE GROUP NAME> -Name <DOMAIN NAME
 ```
 
 ## Azure CLI
-Use the [az eventgrid topic key list](/cli/azure/eventgrid/topic/key#az-eventgrid-topic-key-list) to get access keys for topics. 
+Use the [az eventgrid topic key list](/cli/azure/eventgrid/topic/key#az_eventgrid_topic_key_list) to get access keys for topics. 
 
 ```azurecli-interactive
 az eventgrid topic key list --resource-group <RESOURCE GROUP NAME> --name <TOPIC NAME>
 ```
 
-Use [az eventgrid domain key list](/cli/azure/eventgrid/domain/key#az-eventgrid-domain-key-list) to get access keys for domains. 
+Use [az eventgrid domain key list](/cli/azure/eventgrid/domain/key#az_eventgrid_domain_key_list) to get access keys for domains. 
 
 ```azurecli-interactive
 az eventgrid domain key list --resource-group <RESOURCE GROUP NAME> --name <DOMAIN NAME>

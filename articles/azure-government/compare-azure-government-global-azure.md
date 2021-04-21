@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 04/14/2021
+ms.date: 04/20/2021
 ---
 
 # Compare Azure Government and global Azure
 
 Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to [screened US persons](./documentation-government-plan-security.md#screening). These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations.
 
-### Export control implications
+## Export control implications
 
 Customers are responsible for designing and deploying their applications to meet [US export control requirements](./documentation-government-overview-itar.md) such as the requirements prescribed in the EAR, ITAR, and DoE 10 CFR Part 810. In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).
 
-### Guidance for developers
+## Guidance for developers
 
 Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure. Table below lists API endpoints in Azure vs. Azure Government for accessing and managing various services.
 
@@ -87,7 +87,7 @@ Azure Government services operate the same way as the corresponding services in 
 |||abfa0a7c-a6b6-4736-8310-5855508787cd|6a02c803-dafd-4136-b4c3-5a6f318b4714|Service Principal ID|
 ||Azure Cognitive Search|\*.search.windows.net|\*.search.windows.us||
 
-### Service availability
+## Service availability
 
 Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact is not reiterated in the rest of this article. Instead, customers are encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) for the latest, up-to-date information on service availability.
 
@@ -229,7 +229,11 @@ The following Virtual Machines **features are not currently available** in Azure
 
 ### [Azure Functions](../azure-functions/index.yml)
 
-When connecting your function app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
+The following Functions **features are not currently available** in Azure Government:
+
+- Running .NET 5 apps
+
+When connecting your Functions app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 
 ## Databases
@@ -241,7 +245,6 @@ This section outlines variations and considerations when using Databases service
 The following Azure Database for MySQL **features are not currently available** in Azure Government:
 
 - Advanced Threat Protection
-- Private endpoint connections
 
 ### [Azure Database for PostgreSQL](../postgresql/index.yml)
 
@@ -250,7 +253,6 @@ The following Azure Database for PostgreSQL **features are not currently availab
 - Hyperscale (Citus) and Flexible server deployment options
 - The following features of the Single server deployment option
    - Advanced Threat Protection
-   - Private endpoint connections
 
 
 ## Developer Tools
@@ -613,6 +615,8 @@ The following App Service **features are not currently available** in Azure Gove
     - Deployment options: only Local Git Repository and External Repository are available
 - Development tools
     - Resource explorer
+- Azure Government portal
+    - Private endpoints for Web Apps cannot be configured in the UI; however, private endpoints are enabled in Azure Government and you can use the Private Link Center if you need the UI.
 
 
 ## Next steps
