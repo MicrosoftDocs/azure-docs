@@ -4,7 +4,7 @@ description: This article  provides information on Web Application Firewall DRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/16/2021
+ms.date: 04/21/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -62,7 +62,7 @@ There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *C
 DRS 2.0 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> DRS 2.0 is only available on the WAF_v2 SKU.
+> DRS 2.0 is only available on Azure Front Door Premium.
 
 |Rule group|Description|
 |---|---|
