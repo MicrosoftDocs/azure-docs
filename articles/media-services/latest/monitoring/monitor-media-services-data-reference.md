@@ -7,7 +7,7 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
-ms.date: 03/17/2021
+ms.date: 04/21/2021
 ---
 
 # Monitoring Media Services data reference
@@ -35,15 +35,13 @@ You should also review [account quotas and limits](../limits-quotas-constraints-
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-<!--**PLACEHOLDER** for dimensions table.-->
-OutputFormat, 
-HttpStatusCode, 
-ErrorCode, 
-TrackName
+Media services has the following dimensions. 
+- OutputFormat 
+- HttpStatusCode
+- ErrorCode 
+- TrackName
 
 ## Resource logs
-
-## Media Services resource logs
 
 Resource logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../../azure-monitor/essentials/platform-logs-overview.md).
 
