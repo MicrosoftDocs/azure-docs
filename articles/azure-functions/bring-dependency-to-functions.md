@@ -49,7 +49,7 @@ One of the simplest ways to bring in dependencies is to put the files/artifact t
  | - host.json
  | - local.settings.json
 ```
-By putting the dependencies in a folder inside functions app project directory, the dependencies folder will get deployed together with the code.This means that your function code will be able to access the dependencies in the cloud via file system api. 
+By putting the dependencies in a folder inside functions app project directory, the dependencies folder will get deployed together with the code. This means that your function code will be able to access the dependencies in the cloud via file system api. 
 
 ### Accessing the dependencies in your code
 
@@ -184,11 +184,11 @@ public class Function {
 ::: zone pivot="programming-language-python"
 ## Bring dependencies by mounting a file share
 
-Another way to bring in 3rd party dependency, available in Linux offering, is to utilize Azure Functions feature to mount a file share using Azure Files. This might be appropriate if you want to decouple dependencies or artifacts from your application code.
+Another way to bring in third party dependency, available in Linux offering, is to utilize Azure Functions feature to mount a file share using Azure Files. This might be appropriate if you want to decouple dependencies or artifacts from your application code.
 
-First, you need to create a Azure Storage Account. In the account, you also need to create file share in Azure files. To create these resources, please follow this [guide](../storage/files/storage-how-to-use-files-portal.md)
+First, you need to create an Azure Storage Account. In the account, you also need to create file share in Azure files. To create these resources, please follow this [guide](../storage/files/storage-how-to-use-files-portal.md)
 
-Once the storage account and file share are created, using Az CLI , execute the following command to attach the file share to your functions app.
+Once the storage account and file share are created, using Az CLI, execute the following command to attach the file share to your functions app.
 
 ```console
 az webapp config storage-account add \
@@ -208,7 +208,7 @@ az webapp config storage-account add \
 #### storage-type 
  Only AzureFiles is supported currently
 #### share-name 
- Pre existing share
+ Pre-existing share
 #### mount-path 
  Path at which the share will be accessible inside the container. has to be of the format /dir-name. Cannot start with /home.
 
@@ -217,14 +217,14 @@ Additional commands to modify/delete the file share configuration can be found [
 
 ### Uploading the dependencies to Azure Files
 
-One option to upload your dependency into Azure Files is through Azure Portal. Please refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. 
+One option to upload your dependency into Azure Files is through Azure portal. Refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. 
 
 
 ### Accessing the dependencies in your code
 
 Once your dependencies file is uploaded in the file share, it is time to access your dependencies from your access code. The mounted share will be available at the path specified. Ex: ```/path/to/mount```. The target directory can be accessed by file system APIs.
 
-This example is to access `ffmpeg` library that is stored in azure file share in HTTP triggered functions
+This example is to access `ffmpeg` library that is stored in Azure file share in HTTP triggered functions
 
 ```python
 import logging
@@ -250,7 +250,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse("Unexpected exception happened when executing ffmpeg. Error message:" + str(e),status_code=200)
 ```
 
-When you deploy this code snippet to Azure, you need to configure a custom app setting with key of "FILE_SHARE_MOUNT_PATH" and value of the mounted file share path e.g. `/azure-files-share`. To do local debugging, you need to populate the `FILE_SHARE_MOUNT_PATH` with the file path where your dependencies are stored in your local machine. Here is an example to set `FILE_SHARE_MOUNT_PATH` using `local.settings.json`:
+When you deploy this code snippet to Azure, you need to configure a custom app setting with key of "FILE_SHARE_MOUNT_PATH" and value of the mounted file share path for example, `/azure-files-share`. To do local debugging, you need to populate the `FILE_SHARE_MOUNT_PATH` with the file path where your dependencies are stored in your local machine. Here is an example to set `FILE_SHARE_MOUNT_PATH` using `local.settings.json`:
 
 ```json
 {
