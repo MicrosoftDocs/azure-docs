@@ -1,7 +1,6 @@
 ---
 title: Respond to events with Azure Log Analytics Alerts | Microsoft Docs
 description: This tutorial helps you understand alerting with Log Analytics to identify important information in your workspace and proactively notify you of issues or invoke actions to attempt to correct them.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
@@ -11,7 +10,7 @@ ms.custom: mvc
 ---
 
 # Respond to events with Azure Monitor Alerts
-Alerts in Azure Monitor can identify important information in your Log Analytics repository. They are created by alert rules that automatically run log searches at regular intervals, and if results of the log search match particular criteria, then an alert record is created and it can be configured to perform an automated response.  This tutorial is a continuation of the [Create and share dashboards of Log Analytics data](../learn/tutorial-logs-dashboards.md) tutorial.   
+Alerts in Azure Monitor can identify important information in your Log Analytics repository. They are created by alert rules that automatically run log searches at regular intervals, and if results of the log search match particular criteria, then an alert record is created and it can be configured to perform an automated response.  This tutorial is a continuation of the [Create and share dashboards of Log Analytics data](../visualize/tutorial-logs-dashboards.md) tutorial.   
 
 In this tutorial, you learn how to:
 
@@ -27,7 +26,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 ## Create alerts
 Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals.  You can create alerts based on specific performance metrics or when certain events are created, absence of an event, or a number of events are created within a particular time window.  For example, alerts can be used to notify you when average CPU usage exceeds a certain threshold, when a missing update is detected, or when an event is generated upon detecting that a specific Windows service or Linux daemon is not running.  If the results of the log search match particular criteria, then an alert is created. The rule can then automatically run one or more actions, such as notify you of the alert or invoke another process. 
 
-In the following example, you create a metric measurement alert rule based off of the *Azure VMs - Processor Utilization* query saved in the [Visualize data tutorial](../learn/tutorial-logs-dashboards.md).  An alert is created for each virtual machine that exceeds a threshold of 90%.  
+In the following example, you create a metric measurement alert rule based off of the *Azure VMs - Processor Utilization* query saved in the [Visualize data tutorial](../visualize/tutorial-logs-dashboards.md).  An alert is created for each virtual machine that exceeds a threshold of 90%.  
 
 1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In the left-hand pane, select **Alerts** and then click **New Alert Rule** from the top of the page to create a new alert.<br><br> ![Create new alert rule](./media/tutorial-response/alert-rule-02.png)<br>
@@ -65,4 +64,4 @@ In this tutorial, you learned how alert rules can proactively identify and respo
 Follow this link to see pre-built Log Analytics script samples.  
 
 > [!div class="nextstepaction"]
-> [Log Analytics script samples](../samples/powershell-samples.md)
+> [Log Analytics script samples](../powershell-samples.md)

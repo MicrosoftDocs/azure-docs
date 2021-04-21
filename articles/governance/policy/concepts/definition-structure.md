@@ -156,7 +156,8 @@ The following Resource Provider modes are currently supported as a **preview**:
 
 The optional `metadata` property stores information about the policy definition. Customers can
 define any properties and values useful to their organization in `metadata`. However, there are some
-_common_ properties used by Azure Policy and in built-ins.
+_common_ properties used by Azure Policy and in built-ins. Each `metadata` property has a limit of
+1024 characters.
 
 ### Common metadata properties
 
@@ -211,7 +212,7 @@ A parameter has the following properties that are used in the policy definition:
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
   Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment.
+  assignment. Allowed value comparisons are case-sensitive. 
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter would

@@ -91,4 +91,4 @@ Honey comb authors can specify what content goes to the different parts of a nod
 ## Next steps
 
 - Learn how to create a [Composite bar renderer in workbooks](workbooks-composite-bar.md).
-- Learn how to [import Azure Monitor log data into Power BI](../platform/powerbi.md).
+- Learn how to [import Azure Monitor log data into Power BI](./powerbi.md).

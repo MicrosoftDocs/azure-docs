@@ -117,8 +117,8 @@ The query acceleration SQL language supports the following standard SQL string f
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Returns a character expression with lowercase character data converted to uppercase.|
 |[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Returns part of a character, binary, text, or image expression in SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Removes the space character char(32) or other specified characters from the start and end of a string.|
-|LEADING    |Description|
-|TRAILING    |Description|
+|LEADING    |Removes the space character char(32) or other specified characters from the start of a string.|
+|TRAILING    |Removes the space character char(32) or other specified characters from the end of a string.|
 
 Here's a few examples:
 

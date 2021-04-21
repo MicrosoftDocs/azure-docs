@@ -1,7 +1,6 @@
 ---
 title: Monitoring solutions in Azure Monitor | Microsoft Docs
 description: Monitoring solutions in Azure Monitor are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides information on installing and using monitoring solutions.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -118,7 +117,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 1. Sign in.
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az_login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login

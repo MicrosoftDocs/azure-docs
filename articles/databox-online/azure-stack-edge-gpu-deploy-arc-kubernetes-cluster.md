@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
 # Enable Azure Arc on Kubernetes cluster on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge Pro device. 
 
@@ -68,7 +70,7 @@ Before you enable Azure Arc on the Kubernetes cluster, you will need to enable a
     
     ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
+You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
 
 ## Create service principal, assign role
 
@@ -82,7 +84,7 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. To create a service principal, use the following command via the `az cli`.
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
     For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
@@ -220,9 +222,9 @@ To remove the Azure Arc management, follow these steps:
 
 
 > [!NOTE]
-> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
+> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)
 
 ## Next steps
 
 To understand how to run an Azure Arc deployment, see 
-[Deploy a stateless PHP Guestbook application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+[Deploy a stateless PHP `Guestbook` application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

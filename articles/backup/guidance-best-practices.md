@@ -256,4 +256,4 @@ As a backup user or administrator, you should be able to monitor all backup solu
 We recommend that you read the following articles as starting points for using Azure Backup:
 
 * [Azure Backup overview](backup-overview.md)
-* [Frequently Asked Questions](backup-azure-backup-faq.md)
+* [Frequently Asked Questions](backup-azure-backup-faq.yml)

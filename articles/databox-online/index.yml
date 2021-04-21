@@ -30,9 +30,9 @@ landingContent:
           - text: What is Azure Stack Edge Pro FPGA?
             url: azure-stack-edge-overview.md
           - text: What is Azure Stack Edge R?
-            url: azure-stack-edge-j-series-overview.md 
+            url: ./azure-stack-edge-pro-r-overview.md
           - text: What is Azure Stack Edge Mini R?
-            url: azure-stack-edge-k-series-overview.md   
+            url: azure-stack-edge-mini-r-overview.md   
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
@@ -93,7 +93,7 @@ landingContent:
           - text: Edge compute
             url: azure-stack-edge-manage-compute.md
           - text: Edge storage accounts
-            url: azure-stack-edge-j-series-manage-storage-accounts.md
+            url: azure-stack-edge-gpu-manage-storage-accounts.md
 
   # Card
   - title: Troubleshoot

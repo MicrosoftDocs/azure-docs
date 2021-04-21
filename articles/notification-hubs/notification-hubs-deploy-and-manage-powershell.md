@@ -74,7 +74,7 @@ catch [System.Exception]
 
 ## Create the `NamespaceManager` class
 
-To provision Notification Hubs, create an instance of the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) class from the SDK.
+To provision Notification Hubs, create an instance of the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) class from the SDK.
 
 You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string. A reference to the `NamespaceManager` instance is stored in the `$NamespaceManager` variable. `$NamespaceManager` is used to provision a notification hub.
 
@@ -158,7 +158,7 @@ Some ready-made scripts are also available for download:
 [Member Offers]: https://azure.microsoft.com/pricing/member-offers/
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell]: /powershell/azure/
-[.NET API for Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[.NET API for Notification Hubs]: /dotnet/api/overview/azure/notification-hubs
 [Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
 [New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
 [Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure.service/get-azuresbauthorizationrule

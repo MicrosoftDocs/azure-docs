@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.author: dukek
-ms.subservice: alerts
 ---
 
 # Create an action group with a Resource Manager template

@@ -6,18 +6,17 @@ ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 
 # Webhook actions for log alert rules
 
-[Log alert](alerts-log.md) supports [configuring webhook action groups](../platform/action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
+[Log alert](alerts-log.md) supports [configuring webhook action groups](./action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
 
 > [!NOTE]
-> Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`
+> Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`.
 
 > [!NOTE]
-> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common schema reverts payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
+> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). This means that if you want to have a custom JSON payload defined, the webhook can't use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
 ## Webhook payload properties
 
@@ -42,7 +41,7 @@ Default webhook action properties and their custom JSON parameter names:
 | *SearchQuery* |#searchquery |Log search query used by the alert rule. |
 | *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
 | *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
-| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](../platform/alerts-unified-log.md#measure).|
+| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](./alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
 | *Application ID* |#applicationid |ID of your Application Insights app. |
 | *Subscription ID* |#subscriptionid |ID of your Azure subscription used. |
@@ -79,69 +78,72 @@ This section shows sample payloads for webhooks for log alerts. The sample paylo
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](../alerts/alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](../platform/api-alerts.md).
+> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](../alerts/alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](./api-alerts.md).
 
 ```json
 {
-    "SubscriptionId": "12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName": "AcmeRule",
-    "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-    "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-    "Description": "log alert rule",
-    "Severity": "Warning",
-    "AffectedConfigurationItems": [
-        "INC-Gen2Alert"
-    ],
-    "Dimensions": [
-        {
-            "name": "Computer",
-            "value": "INC-Gen2Alert"
-        }
-    ],
-    "SearchResult": {
-        "tables": [
+   "schemaId":"Microsoft.Insights/LogAlert",
+   "data":{
+      "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
+      "AlertRuleName":"AcmeRule",
+      "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+      "SearchIntervalStartTimeUtc":"2018-03-26T08:10:40Z",
+      "SearchIntervalEndtimeUtc":"2018-03-26T09:10:40Z",
+      "AlertThresholdOperator":"Greater Than",
+      "AlertThresholdValue":0,
+      "ResultCount":2,
+      "SearchIntervalInSeconds":3600,
+      "LinkToSearchResults":"https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+      "LinkToFilteredSearchResultsUI":"https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+      "LinkToSearchResultsAPI":"https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+      "LinkToFilteredSearchResultsAPI":"https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+      "Description":"log alert rule",
+      "Severity":"Warning",
+      "AffectedConfigurationItems":[
+         "INC-Gen2Alert"
+      ],
+      "Dimensions":[
+         {
+            "name":"Computer",
+            "value":"INC-Gen2Alert"
+         }
+      ],
+      "SearchResult":{
+         "tables":[
             {
-                "name": "PrimaryResult",
-                "columns": [
-                    {
-                        "name": "$table",
-                        "type": "string"
-                    },
-                    {
-                        "name": "Computer",
-                        "type": "string"
-                    },
-                    {
-                        "name": "TimeGenerated",
-                        "type": "datetime"
-                    }
-                ],
-                "rows": [
-                    [
-                        "Fabrikam",
-                        "33446677a",
-                        "2018-02-02T15:03:12.18Z"
-                    ],
-                    [
-                        "Contoso",
-                        "33445566b",
-                        "2018-02-02T15:16:53.932Z"
-                    ]
-                ]
+               "name":"PrimaryResult",
+               "columns":[
+                  {
+                     "name":"$table",
+                     "type":"string"
+                  },
+                  {
+                     "name":"Computer",
+                     "type":"string"
+                  },
+                  {
+                     "name":"TimeGenerated",
+                     "type":"datetime"
+                  }
+               ],
+               "rows":[
+                  [
+                     "Fabrikam",
+                     "33446677a",
+                     "2018-02-02T15:03:12.18Z"
+                  ],
+                  [
+                     "Contoso",
+                     "33445566b",
+                     "2018-02-02T15:16:53.932Z"
+                  ]
+               ]
             }
-        ]
-    },
-    "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
-    "AlertType": "Metric measurement"
+         ]
+      },
+      "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+      "AlertType":"Metric measurement"
+   }
 }
 ```
 
@@ -313,8 +315,8 @@ The following sample payload is for a custom webhook action for any log alert:
 ```
 
 ## Next steps
-- Learn about [log alerts in Azure alerts](../platform/alerts-unified-log.md).
+- Learn about [log alerts in Azure alerts](./alerts-unified-log.md).
 - Understand how to [manage log alerts in Azure](alerts-log.md).
-- Create and manage [action groups in Azure](../platform/action-groups.md).
-- Learn more about [Application Insights](../log-query/log-query-overview.md).
-- Learn more about [log queries](../log-query/log-query-overview.md). 
+- Create and manage [action groups in Azure](./action-groups.md).
+- Learn more about [Application Insights](../logs/log-query-overview.md).
+- Learn more about [log queries](../logs/log-query-overview.md).

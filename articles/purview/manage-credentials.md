@@ -36,7 +36,7 @@ If you are using the Purview managed identity to set up scans, you will not have
 
 Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Azure Purview account.
 
-1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account. Navigate to the **Management Center** and then navigate to **credentials**.
+1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account and Open Azure Purview Studio. Navigate to the **Management Center** on Azure Purview Studio and then navigate to **credentials**.
 
 2. From the **Credentials** page, select **Manage Key Vault connections**.
 
@@ -80,8 +80,9 @@ These credential types are supported in Purview:
 - Service Principal: You add the **service principal key** as a secret in key vault.
 - SQL authentication: You add the **password** as a secret in key vault.
 - Account Key: You add the **account key** as a secret in key vault.
+- Role ARN: For an Amazon S3 data source, add your **role ARN** in AWS. 
 
-For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) and [Create a new AWS role for Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
 After storing your secrets in the key vault:
 

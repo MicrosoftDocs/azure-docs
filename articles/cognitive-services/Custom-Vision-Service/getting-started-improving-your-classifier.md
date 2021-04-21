@@ -16,7 +16,7 @@ ms.custom: cog-serv-seo-aug-2020
 
 # How to improve your Custom Vision model
 
-In this guide, you'll learn how to improve the quality of your Custom Vision Service model. The quality of your [classifier](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) or [object detector](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) depends on the amount, quality, and variety of the labeled data you provide it and how balanced the overall dataset is. A good model has a balanced training dataset that is representative of what will be submitted to it. The process of building such a model is iterative; it's common to take a few rounds of training to reach expected results.
+In this guide, you'll learn how to improve the quality of your Custom Vision Service model. The quality of your [classifier](./getting-started-build-a-classifier.md) or [object detector](./get-started-build-detector.md) depends on the amount, quality, and variety of the labeled data you provide it and how balanced the overall dataset is. A good model has a balanced training dataset that is representative of what will be submitted to it. The process of building such a model is iterative; it's common to take a few rounds of training to reach expected results.
 
 The following is a general pattern to help you train a more accurate model:
 

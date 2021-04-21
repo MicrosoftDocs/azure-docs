@@ -1,7 +1,6 @@
 ---
 title: VMware Monitoring solution in Azure Monitor | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

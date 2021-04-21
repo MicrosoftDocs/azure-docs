@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Manage access, power, and connectivity mode for your Azure Stack Edge Pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro with GPU device. These operations are performed via the local web UI or the Azure portal.
 

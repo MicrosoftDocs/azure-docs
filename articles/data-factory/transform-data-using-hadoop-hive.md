@@ -62,6 +62,9 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 | defines             | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
 | queryTimeout        | Query timeout value (in minutes). Applicable when the HDInsight cluster is with Enterprise Security Package enabled. | No       |
 
+>[!NOTE]
+>The default value for queryTimeout is 120 minutes. 
+
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 

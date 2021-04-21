@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
+ms.date: 03/10/2021
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -134,9 +134,12 @@ For both SQL Database and SQL Managed Instance, you can configure full backup lo
 
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
-## Storage costs
+## Backup storage costs
 
 The price for backup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
+
+> [!NOTE]
+> Azure invoice will show only the excess backup storage consumed, not the entire backup storage consumption. For example, in a hypothetical scenario, if you have provisioned 4TB of data storage, you will get 4TB of free backup storage space. In case that you have used the total of 5.8TB of backup storage space, Azure invoice will show only 1.8TB, as only excess backup storage used is charged.
 
 ### DTU model
 
@@ -223,17 +226,15 @@ You can change the default PITR backup retention period by using the Azure porta
 
 ### Change the PITR backup retention period by using the Azure portal
 
-To change the PITR backup retention period for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. 
+To change the PITR backup retention period for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. Select **Backups** in the left pane, then select the **Retention policies** tab. Select the database(s) for which you want to change the PITR backup retention. Then select **Configure retention** from the action bar.
+
+
 
 #### [SQL Database](#tab/single-database)
-
-Changes to PITR backup retention for SQL Database are done on the server page in the portal. To change PITR retention for databases on a server, go to the server overview blade. Select **Manage Backups** in the left pane, select the databases in scope of your change, and then select **Configure retention** at the top of the screen:
 
 ![Change PITR retention, server level](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### [SQL Managed Instance](#tab/managed-instance)
-
-Changes to PITR backup retention for SQL Managed Instance are done at an individual database level. To change PITR backup retention for an instance database from the Azure portal, go to the individual database overview blade. Then select **Configure backup retention** at the top of the screen:
 
 ![Change PITR retention, managed instance](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 
@@ -443,7 +444,7 @@ A full list of built-in policy definitions for SQL Database and Managed Instance
 To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure portal or Azure PowerShell. 
 
 > [!IMPORTANT]
-> Azure policies are not enforced when creating a database via T-SQL. To enforce data residency when creating a database using T-SQL, [use 'LOCAL' or 'ZONE' as input to BACKUP_STORAGE_REDUNDANCY paramater in CREATE DATABASE statement](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Azure policies are not enforced when creating a database via T-SQL. To enforce data residency when creating a database using T-SQL, [use 'LOCAL' or 'ZONE' as input to BACKUP_STORAGE_REDUNDANCY paramater in CREATE DATABASE statement](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Learn how to assign policies using the [Azure portal](../../governance/policy/assign-policy-portal.md) or [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
 
@@ -455,4 +456,5 @@ Learn how to assign policies using the [Azure portal](../../governance/policy/as
 - Get more information about how to [restore a database to a point in time by using PowerShell](scripts/restore-database-powershell.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](long-term-backup-retention-configure.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](long-term-backup-retention-configure.md).
+- To learn all about backup storage consumption on Azure SQL Managed Instance, see [Backup storage consumption on Managed Instance explained](https://aka.ms/mi-backup-explained).
 - To learn how to fine-tune backup storage retention and costs for Azure SQL Managed Instance, see [Fine tuning backup storage costs on Managed Instance](https://aka.ms/mi-backup-tuning).

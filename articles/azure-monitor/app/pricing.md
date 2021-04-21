@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 2/7/2021
+ms.date: 3/30/2021
 
-ms.reviewer: mbullwin
+ms.reviewer: lagayhar
 ---
 
 # Manage usage and costs for Application Insights
@@ -21,7 +21,7 @@ If you have questions about how pricing works for Application Insights, you can 
 
 ## Pricing model
 
-The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. There is no data volume charge for using the [Live Metrics Stream](./live-stream.md).
+The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. Data volume is measured in GB (10^9 bytes). There is no data volume charge for using the [Live Metrics Stream](./live-stream.md).
 
 [Multi-step web tests](./availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
@@ -39,7 +39,10 @@ There are two approaches to address this: use of default monitoring and adaptive
 
 ### Data collection when using sampling
 
-With the ASP.NET SDK's [adaptive sampling](sampling.md#adaptive-sampling), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of five events per second, adaptive sampling will limit the number of daily events to 432,000. Using a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application (since the sampling is done local to each node.) 
+With the ASP.NET SDK's [adaptive sampling](sampling.md#adaptive-sampling), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of five events per second, adaptive sampling will limit the number of daily events to 432,000. Using a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application since the sampling is done local to each node.
+
+> [!NOTE]
+> Azure Monitor log data size is calculated in GB (1 GB = 10^9 bytes).
 
 For SDKs that don't support adaptive sampling, you can employ [ingestion sampling](./sampling.md#ingestion-sampling), which samples when the data is received by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](sampling.md#fixed-rate-sampling) to reduce the traffic sent from your web server and web browsers
 
@@ -290,7 +293,7 @@ For current prices in your currency and region, see [Application Insights pricin
 
 ### Understanding billed usage on the legacy Enterprise (Per Node) tier 
 
-As described below in more detail, the legacy Enterprise (Per Node) tier combines usage from across all Application Insights resources in a subscription to calculate the number of nodes and the data overage. Due to this combination process, **usage for all Application Insights resources in a subscription are reported against just one of the resources**.  This makes reconciling your [billed usage](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) with the usage you observe for each Application Insights resources very complicated. 
+As described below in more detail, the legacy Enterprise (Per Node) tier combines usage from across all Application Insights resources in a subscription to calculate the number of nodes and the data overage. Due to this combination process, **usage for all Application Insights resources in a subscription are reported against just one of the resources**.  This makes reconciling your [billed usage](#viewing-application-insights-usage-on-your-azure-bill) with the usage you observe for each Application Insights resources very complicated. 
 
 > [!WARNING]
 > Because of the complexity of tracking and understanding usage of Application Insights resources in the legacy Enterprise (Per Node) tier we strongly recommend using the current Pay-As-You-Go pricing tier. 

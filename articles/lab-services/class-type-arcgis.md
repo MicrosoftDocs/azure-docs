@@ -19,7 +19,7 @@ After you get an Azure subscription, you can create a new lab account in Azure L
 
 ### Lab account settings
 
-Enable your lab account settings as described in the following table.  For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images).
+Enable your lab account settings as described in the following table.  For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
@@ -29,7 +29,7 @@ Enable your lab account settings as described in the following table.  For more 
 
 One type of licensing that ArcGIS Desktop offers is [concurrent use licenses](https://desktop.arcgis.com/en/license-manager/latest/license-manager-basics.htm).  This requires that you install ArcGIS License Manager on your license server.  The License Manager keeps track of the number of copies of software that can be run at the same time.  For more information on how to set up the License Manager on your server, see the [License Manager Guide](https://desktop.arcgis.com/en/license-manager/latest/welcome.htm).
 
-The license server is typically located in either your on-premises network or hosted on an Azure virtual machine within an Azure virtual network.  After your license server is set up, you’ll need to [peer the virtual network](https://docs.microsoft.com/azure/lab-services/how-to-connect-peer-virtual-network) with your [lab account](https://docs.microsoft.com/azure/lab-services/tutorial-setup-lab-account).  You need to do the network peering before you create the lab so that your lab VMs can access the license server and vice versa.
+The license server is typically located in either your on-premises network or hosted on an Azure virtual machine within an Azure virtual network.  After your license server is set up, you’ll need to [peer the virtual network](./how-to-connect-peer-virtual-network.md) with your [lab account](./tutorial-setup-lab-account.md).  You need to do the network peering before you create the lab so that your lab VMs can access the license server and vice versa.
 
 For more information, see [Set up a license server as a shared resource](how-to-create-a-lab-with-shared-resource.md).
 

@@ -1,7 +1,9 @@
 ---
 title: Mainframe workloads supported on Azure | Microsoft Docs
 description: Use a mainframe emulator and other services from Microsoft partners to rehost your mainframe workloads such as IBM Z-based systems using Microsoft Azure.
-services: virtual-machines-linux
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -9,7 +11,6 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe workloads supported on Azure
@@ -46,7 +47,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 
 ## Code conversion
 
-- [Asysco](https://www.asysco.com/azure-cloud/) system conversion technology covering source code, data, batch, scheduling, TP monitors, interfaces, security, management, and more.
+- [Asysco](https://asysco.com/) system conversion technology covering source code, data, batch, scheduling, TP monitors, interfaces, security, management, and more.
 - [Asysco AMT Services](https://www.asysco.com/migration-services/) end-to-end services for migration projects, including inventory and analysis, design training, dress rehearsals, go-live, and post-migration support.
 - [Blu Age](https://www.bluage.com/) tools for digitizing legacy business applications and databases.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) services to convert mainframe COBOL, CICS, and VSAM to Java.

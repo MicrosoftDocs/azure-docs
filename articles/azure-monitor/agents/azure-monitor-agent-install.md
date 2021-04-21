@@ -1,7 +1,6 @@
 ---
 title: Install the Azure Monitor agent
 description: Options for installing the Azure Monitor Agent (AMA) on Azure virtual machines and Azure Arc enabled servers.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -17,6 +16,9 @@ The following prerequisites are required prior to installing the Azure Monitor a
 
 - [Managed system identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) must be enabled on Azure virtual machines. This is not required for Azure Arc enabled servers. The system identity will be enabled automatically if the agent is installed as part of the process for [creating and assigning a data collection rule using the Azure portal](#install-with-azure-portal).
 - The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine.
+
+> [!IMPORTANT]
+> The Azure Monitor agent does not currently support network proxies.
 
 ## Virtual machine extension details
 The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article.
@@ -59,11 +61,11 @@ You can install the Azure Monitor agent on Azure virtual machines and on Azure A
 Use the following PowerShell commands to install the Azure Monitor agent on Azure virtual machines.
 # [Windows](#tab/PowerShellWindows)
 ```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0
 ```
 # [Linux](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0
 ```
 ---
 

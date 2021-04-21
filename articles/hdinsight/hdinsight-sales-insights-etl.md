@@ -13,7 +13,7 @@ In this tutorial, you'll build an end-to-end data pipeline that performs extract
 
 This data pipeline combines the data from various stores, removes any unwanted data, appends new data, and loads all this back to your storage to visualize business insights. Read more about ETL pipelines in [Extract, transform, and load (ETL) at scale](./hadoop/apache-hadoop-etl-at-scale.md).
 
-![ETL architecture](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="ETL architecture" border="false":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -85,7 +85,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
+    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list_locations) command.
 
     The command will deploy the following resources:
 

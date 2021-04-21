@@ -14,6 +14,8 @@ ms.date: 02/08/2021
 
 Use the Parse transformation to parse columns in your data that are in document form. The current supported types of embedded documents that can be parsed are JSON and delimited text.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
+
 ## Configuration
 
 In the parse transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.

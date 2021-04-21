@@ -22,6 +22,10 @@
     href: connection-telemetry.md
   - name: Onboarding model
     href: onboarding-model.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: security-baseline.md
 - name: How-to-guides
   items:
   - name: Register Peering Service

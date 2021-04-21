@@ -154,7 +154,7 @@ When your template works as expected, we recommend you continue using the same A
 
 Don't use a parameter for the API version. Resource properties and values can vary by API version. IntelliSense in a code editor can't determine the correct schema when the API version is set to a parameter. If you pass in an API version that doesn't match the properties in your template, the deployment will fail.
 
-Don't use variables for the API version. In particular, don't use the [providers function](template-functions-resource.md#providers) to dynamically get API versions during deployment. The dynamically retrieved API version might not match the properties in your template.
+Don't use variables for the API version. 
 
 ## Resource dependencies
 

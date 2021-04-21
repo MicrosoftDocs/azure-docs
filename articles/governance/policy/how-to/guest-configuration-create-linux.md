@@ -1,7 +1,7 @@
 ---
 title: How to create Guest Configuration policies for Linux
 description: Learn how to create an Azure Policy Guest Configuration policy for Linux.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -106,9 +106,9 @@ The name of the custom configuration must be consistent everywhere. The name of 
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
 
-PowerShell cmdlets assist in creating the package.
-No root level folder or version folder is required.
-The package format must be a .zip file. and cannot exceed a total size of 100MB when uncompressed.
+PowerShell cmdlets assist in creating the package. No root level folder or version folder is
+required. The package format must be a .zip file. and cannot exceed a total size of 100 MB when
+uncompressed.
 
 ### Custom Guest Configuration configuration on Linux
 
@@ -197,8 +197,8 @@ The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of th
 - **Configuration**: Compiled configuration document full path.
 - **Path**: Output folder path. This parameter is optional. If not specified, the package is created
   in current directory.
-- **ChefInspecProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
-  content to audit Linux.
+- **ChefInspecProfilePath**: Full path to InSpec profile. This parameter is supported only when
+  creating content to audit Linux.
 
 Run the following command to create a package using the configuration given in the previous step:
 
@@ -246,7 +246,8 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
 - **Path**: Location of the package to be published
 - **ResourceGroupName**: Name of the resource group where the storage account is located
 - **StorageAccountName**: Name of the storage account where the package should be published
-- **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
+- **StorageContainerName**: (default: _guestconfiguration_) Name of the storage container in the
+  storage account
 - **Force**: Overwrite existing package in the storage account with the same name
 
 The example below publishes the package to a storage container name 'guestconfiguration'.
@@ -325,7 +326,7 @@ definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 
 Guest Configuration supports overriding properties of a Configuration at run time. This feature
 means that the values in the MOF file in the package don't have to be considered static. The
-override values are provided through Azure Policy and don't impact how the Configurations are
+override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.
 
 With InSpec, parameters are typically handled as input either at runtime or as code using
@@ -404,8 +405,8 @@ New-GuestConfigurationPolicy -ContentUri $uri `
 
 ## Policy lifecycle
 
-If you would like to release an update to the policy, make the change for both the Guest Configuration
-package and the Azure Policy definition details.
+If you would like to release an update to the policy, make the change for both the Guest
+Configuration package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
@@ -413,9 +414,9 @@ package and the Azure Policy definition details.
 > the version in the file name.
 
 First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
-unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
-The number in this example is only used to make the package unique, not to specify that the package
-should be considered newer or older than other packages.
+unique from previous versions. You can include a version number in the name such as
+`PackageName_1.0.0`. The number in this example is only used to make the package unique, not to
+specify that the package should be considered newer or older than other packages.
 
 Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
 the explanations below.

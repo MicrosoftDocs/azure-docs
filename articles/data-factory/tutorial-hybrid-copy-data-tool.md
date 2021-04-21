@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 03/26/2021
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -83,21 +83,6 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial.
 
-#### Create the adftutorial container
-In this section, you create a blob container named **adftutorial** in your Blob storage.
-
-1. In the **Storage account** window, switch to **Overview**, and then select **Blobs**.
-
-1. In the **Blobs** window, select **+ Container**.
-
-1. In the **New container** window, under **Name**, enter **adftutorial**, and then select **OK**.
-
-1. In the list of containers, select **adftutorial**.
-
-
-1. Keep the **Container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
-
-
 ## Create a data factory
 
 1. On the menu on the left, select **Create a resource** > **Integration** > **Data Factory**.
@@ -108,7 +93,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
    The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-   ![New data factory name](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
 
@@ -123,7 +108,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. After the creation is finished, you see the **Data Factory** page as shown in the image.
 
-     ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 1. Select **Author & Monitor** to launch the Data Factory user interface in a separate tab.
 
 ## Use the Copy Data tool to create a pipeline

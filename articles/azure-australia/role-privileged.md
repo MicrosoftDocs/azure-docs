@@ -6,7 +6,8 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: yvettep
+ms.author: yvettep 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure role-based access control (Azure RBAC) and Privileged Identity Management (PIM)

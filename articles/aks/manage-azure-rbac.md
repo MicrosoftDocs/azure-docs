@@ -151,17 +151,17 @@ Copy the below json into a file called `deploy-view.json`.
 
 ```json
 {
-	"Name": "AKS Deployment Viewer",
-	"Description": "Lets you view all deployments in cluster/namespace.",
+    "Name": "AKS Deployment Viewer",
+    "Description": "Lets you view all deployments in cluster/namespace.",
     "Actions": [],
     "NotActions": [],
     "DataActions": [
-        "Microsoft.ContainerService/managedClusters/apps/deployments/read"	
+        "Microsoft.ContainerService/managedClusters/apps/deployments/read"
     ],
     "NotDataActions": [],
-	"assignableScopes": [
-		"/subscriptions/<YOUR SUBSCRIPTION ID>"
-	]	
+    "assignableScopes": [
+        "/subscriptions/<YOUR SUBSCRIPTION ID>"
+    ]
 }
 ```
 
@@ -277,9 +277,9 @@ az group delete -n MyResourceGroup
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-provider-register]: /cli/azure/provider#az_provider_register

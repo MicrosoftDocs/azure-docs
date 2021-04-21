@@ -2,7 +2,7 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
 
 ---
@@ -12,11 +12,6 @@ ms.custom: seodec18
 When you select a node size for an Azure Batch pool, you can choose from among almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
 
 ## Supported VM series and sizes
-
-There are a few exceptions and limitations to choosing a VM size for your Batch pool:
-
-- Some VM series or VM sizes are not supported in Batch.
-- Some VM sizes are restricted and need to be specifically enabled before they can be allocated.
 
 ### Pools in Virtual Machine configuration
 
@@ -28,16 +23,14 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | A | All sizes *except* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | All sizes |
 | B | Not supported |
-| DC | Not supported |
+| DCsv2 | All sizes |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4 | All sizes |
-| Dasv4 | All sizes |
+| Dav4, Dasv4 | All sizes |
 | Ddv4, Ddsv4 |  All sizes |
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
-| Eav4 | All sizes |
-| Easv4 | All sizes |
+| Eav4, Easv4 | All sizes |
 | Edv4, Edsv4 |  All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
@@ -46,6 +39,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | H | All sizes |
 | HB | All sizes |
 | HBv2 | All sizes |
+| HBv3 | Standard_HB120rs_v3 (other sizes not yet available) |
 | HC | All sizes |
 | Ls | All sizes |
 | Lsv2 | All sizes |
@@ -54,7 +48,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | NC | All sizes |
 | NCv2 | All sizes |
 | NCv3 | All sizes |
-| NCasT4_v3 | None - not yet available |
+| NCasT4_v3 | All sizes |
 | ND | All sizes |
 | NDv2 | None - not yet available |
 | NV | All sizes |
@@ -98,6 +92,8 @@ Use one of the following APIs to return a list of Windows and Linux VM images cu
 - Batch Service REST API: [List Supported Images](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
+
+It is strongly recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via the [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Please see the [Batch best practices guide](best-practices.md) for more information regarding Batch pool VM image selection.
 
 ## Next steps
 
