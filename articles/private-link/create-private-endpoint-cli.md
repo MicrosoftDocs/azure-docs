@@ -68,7 +68,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Update the subnet to disable private endpoint network policies for the private endpoint with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Update the subnet to disable private endpoint network policies for the private endpoint with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -78,7 +78,7 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public ip address for the bastion host:
 
 * Create a standard zone redundant public IP address named **myBastionIP**.
 * In **CreatePrivateEndpointQS-rg**.
@@ -90,7 +90,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a bastion subnet:
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a bastion subnet:
 
 * Named **AzureBastionSubnet**.
 * Address prefix of **10.0.1.0/24**.
@@ -105,7 +105,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a bastion host:
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create a bastion host:
 
 * Named **myBastionHost**.
 * In **CreatePrivateEndpointQS-rg**.

@@ -4,7 +4,8 @@ description: This article describes how to set up managed identity for Azure Aut
 services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Enable a managed identity for your Azure Automation account (preview)
 
