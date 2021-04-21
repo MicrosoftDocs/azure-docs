@@ -62,7 +62,7 @@
     href: scenes-shots-keyframes.md
   - name: Identify and transcribe multi-language content
     href: multi-language-identification-transcription.md
-  - name: View and edit Video Analyzer for Media insights
+  - name: View and edit insights
     href: video-indexer-view-edit.md
   - name: Use editor to create projects
     href: use-editor-create-project.md
@@ -78,21 +78,21 @@
       href: animated-characters-recognition-how-to.md
     - name: Person
       items: 
-      - name: using Video Analyzer for Media website
+      - name: using the website
         href: customize-person-model-with-website.md
-      - name: using Video Analyzer for Media API
+      - name: using the API
         href: customize-person-model-with-api.md
     - name: Brands 
       items: 
-      - name: using Video Analyzer for Media website
+      - name: using the website
         href: customize-brands-model-with-website.md
-      - name: using Video Analyzer for Media API
+      - name: using the API
         href: customize-brands-model-with-api.md        
     - name: Language
       items: 
-      - name: using Video Analyzer for Media website
+      - name: using the website
         href: customize-language-model-with-website.md
-      - name: using Video Analyzer for Media API
+      - name: using the API
         href: customize-language-model-with-api.md        
 - name: Reference
   items:
