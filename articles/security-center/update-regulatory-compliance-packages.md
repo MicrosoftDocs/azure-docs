@@ -14,7 +14,7 @@ ms.author: memildin
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
 > [!TIP]
-> Learn more in the [frequently asked questions](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard) about Security Center's regulatory compliance dashboard.
+> Learn more about Security Center's regulatory compliance dashboard in the [frequently asked questions](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
 
 ## How are regulatory compliance standards represented in Security Center?
 
