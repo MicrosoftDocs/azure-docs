@@ -56,7 +56,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > You can also set add `tags` and `properties` dictionary objects to the registered model. These values can be used later to help identify a specific model. For example, the framework used, training parameters, etc.
 
-For more information, see the [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register) reference.
+For more information, see the [az ml model register](/cli/azure/ml/model#az_ml_model_register) reference.
 
 
 For more information on model registration in general, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
@@ -263,7 +263,7 @@ To deploy the model from the CLI, use the following command. This command deploy
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference.
+For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) reference.
 
 For more information on deployment, see [How and where to deploy models](how-to-deploy-and-where.md).
 

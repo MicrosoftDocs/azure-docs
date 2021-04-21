@@ -82,7 +82,7 @@
   - name: Service Fabric Mesh Resource Provider REST APIs
     href: /rest/api/servicefabric/sfmeshrp-index
   - name: Service Fabric Mesh CLI Reference
-    href: /cli/azure/ext/mesh
+    href: /cli/azure/
   - name: Service Fabric Client Resource REST APIs
     href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
   - name: Service Fabric Maven CLI Reference
@@ -103,4 +103,3 @@
     href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
- 
