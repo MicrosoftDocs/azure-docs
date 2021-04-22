@@ -176,7 +176,7 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
     }
     ```
 > [!NOTE]
-> For more information using managed indentity for authentication follow the tutorial [access data via managed identity](/azure/app-service/app-service-web-tutorial-connect-msi).
+> For more information using managed indentity for authentication follow the tutorial [access data via managed identity](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-connect-msi).
 
 > [!NOTE]
 > The code example uses the **AdventureWorksLT** sample database in Azure SQL Database.
