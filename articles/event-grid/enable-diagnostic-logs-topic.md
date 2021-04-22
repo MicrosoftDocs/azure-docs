@@ -9,7 +9,7 @@ ms.date: 04/22/2021
 This article provides step-by-step instructions to enable diagnostic settings for Event Grid topics or domains.  These settings allow you to capture and view **publish and delivery failure** logs. 
 
 > [!IMPORTANT]
-> For the schema for diagnostic logs, see [Diagnostic logs]. 
+> For the schema for diagnostic logs, see [Diagnostic logs](diagnostic-logs.md). 
 
 
 ## Prerequisites
