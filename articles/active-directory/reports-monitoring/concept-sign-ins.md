@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/19/2021
+ms.date: 04/22/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -289,3 +289,4 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 * [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)
+* [First party Microsoft applications in sign-ins report](https://docs.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
