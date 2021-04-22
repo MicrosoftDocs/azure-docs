@@ -53,7 +53,7 @@ Refer to this [document](../articles/event-hubs/event-hubs-dedicated-cluster-cre
 | Feature | Standard | Dedicated |
 | --- |:---|:---|
 | Bandwidth | 20 TUs (up to 40 TUs)	| 20 CUs |
-| Namespaces |  1 | 50 per CU |
+| Namespaces |  100 per subscription | 50 per CU (100 per subscription) |
 | Event Hubs |  10 per namespace | 1000 per namespace |
 | Ingress events | Pay per million events | Included |
 | Message Size | 1 Million Bytes | 1 Million Bytes |

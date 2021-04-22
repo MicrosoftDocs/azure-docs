@@ -10,7 +10,7 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
 adobe-target: true
 ---
 
@@ -102,6 +102,8 @@ az ml model register -bidaf_onnx  --asset-path outputs/model.onnx  --experiment-
 [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
 The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
+
+For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml/model).
 
 # [Python](#tab/python)
 
@@ -546,7 +548,7 @@ To delete a deployed webservice, use `az ml service delete <name of webservice>`
 
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-Read more about [deleting a webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) and [deleting a model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
+Read more about [deleting a webservice](/cli/azure/ml/service#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
 
 # [Python](#tab/python)
 

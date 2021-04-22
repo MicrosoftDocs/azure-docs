@@ -5,8 +5,8 @@ description: Learn how to use an Azure Resource Manager template to create a new
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
+ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020

@@ -85,7 +85,7 @@ landingContent:
           - text: REST API
             url: /rest/api/azureml/
           - text: Machine learning CLI
-            url: /cli/azure/ext/azure-cli-ml/ml
+            url: /cli/azure/ml
 
   # Studio (classic) catchall
   - title: 'Looking for Studio (classic)'
