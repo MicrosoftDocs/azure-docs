@@ -1,5 +1,5 @@
 ---
-title: Build services that are resilient to Azure AD's OpenID Connect metadata refresh | Azure
+title: "How to: Build services that are resilient to Azure AD's OpenID Connect metadata refresh | Azure"
 titleSuffix: Microsoft identity platform
 description: Learn how to ensure that your web app or web api is resilient to Azure AD's OpenID Connect metadata refresh.
 services: active-directory
@@ -17,15 +17,15 @@ ms.custom: aaddev
 # Customer intent: As a web app or web API developer, I want to learn how to ensure that my app is resilient to outages due to Azure AD OpenID Connect metadata refresh.
 ---
 
-# How to: Build services that are resilient to metadata refresh.
+# How to: Build services that are resilient to Azure AD's OpenID Connect metadata refresh.
 
-Protected web APIs need to validate access tokens. Web apps also validate the ID tokens. Token Validation has multiple parts, checking it's for the application, issued by a trusted Identity Provider (IDP), its lifetime is in range, and it wasn't tampered with. There can also be special validations. For instance, the app needs to validate the signature and that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. When the signing keys aren't embedded in the token, they need to be fetched from the identity provider (Discovery or Metadata). Sometimes it's also necessary to obtain keys dynamically at runtime.
+Protected web APIs need to validate access tokens. Web apps also validate the ID tokens. Token Validation has multiple parts, checking whether the token belongs to the application, has been issued by a trusted Identity Provider (IDP), has a lifetime that's still in range and hasn't been tampered with. There can also be special validations. For instance, the app needs to validate the signature and that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. When the signing keys aren't embedded in the token, they need to be fetched from the identity provider (Discovery or Metadata). Sometimes it's also necessary to obtain keys dynamically at runtime.
 
-To build a resilient web app or web API, you'd want to respect the best practices that are highlighted in this article for refreshing stale OpenID Connect metadata. It applies to ASP.NET Core, ASP.NET classic, and Microsoft.IdentityModel.
+Web apps and web APIs need to refresh stale OpenID Connect metadata for them to be resilient. This article helps guide on how to achieve resilient apps. It applies to ASP.NET Core, ASP.NET classic, and Microsoft.IdentityModel.
 
 ## ASP.NET Core
 
-Use latest version of [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually ensure that you follow the guidelines below.
+Use latest version of [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually follow the guidelines below.
 
 Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and that you're using the latest Microsoft.IdentityModel.* library. This property should be enabled by default.
 
@@ -43,7 +43,7 @@ Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and th
 
 Microsoft recommends that you move to ASP.NET Core, as development has stopped on ASP.NET. 
 
-If you're using ASP.NET classic, use the latest [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually ensure that you follow the guidelines below.
+If you're using ASP.NET classic, use the latest [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually follow the guidelines below.
 
 OWIN has an automatic 24-hour refresh interval for the `OpenIdConnectConfiguration`. This refresh will only be triggered if a request is received after the 24-hour time span has passed. As far as we know, there's no way to change this value or trigger a refresh early, aside from restarting the application.
 
