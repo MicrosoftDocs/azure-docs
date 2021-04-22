@@ -87,7 +87,7 @@ Recurring built-in triggers follow the schedule that you set, including any spec
 For more information, review the following documentation:
 
 * [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
-* [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence)
+* [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](connectors-native-recurrence.md)
 * [Troubleshooting recurrence issues](#recurrence-issues)
 
 ### Recurrence for connection-based triggers
@@ -115,7 +115,7 @@ To make sure that your workflow runs at your specified start time and doesn't mi
 
 * If you're using a **Recurrence** trigger, specify a time zone, a start date and time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
 
-* Consider using a [**Sliding Window** trigger](../connectors/connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
+* Consider using a [**Sliding Window** trigger](connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
 ## Custom APIs and connectors
 
