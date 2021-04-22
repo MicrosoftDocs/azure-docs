@@ -31,16 +31,16 @@ The following data configuration errors require your action to proceed with a da
 
 |Error category                    |Error code |Error message                                                                             |
 |----------------------------------|-----------|------------------------------------------------------------------------------------------|
-|UploadErrorCloudHttp              |400        |Bad Request (Invalid file name)                                                           |
-|UploadErrorCloudHttp              |400        |Bad Request (File property failure for Azure Files)                                       |
-|UploadErrorCloudHttp              |400        |The value for one of the HTTP headers is not in the correct format.                       |
-|UploadErrorCloudHttp              |409        |This operation is not permitted as the blob is immutable due to a policy.                 |
-|UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares cannot exceed the account maximum size limit.|
-|UploadErrorCloudHttp              |409        |The blob type is invalid for this operation.                                              |
-|UploadErrorCloudHttp              |409        |There is currently a lease on the blob and no lease ID was specified in the request.      |
-|UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB|
+|UploadErrorCloudHttp              |400        |Bad Request (Invalid file name) [Learn more](#bad-request-invalid-file-name).|
+|UploadErrorCloudHttp              |400        |Bad Request (File property failure for Azure Files) [Learn more](#bad-request-file-property-failure-for-azure-files).|
+|UploadErrorCloudHttp              |400        |The value for one of the HTTP headers is not in the correct format. [Learn more](#the-value-for-one-of-the-http-headers-is-not-in-the-correct-format).|
+|UploadErrorCloudHttp              |409        |This operation is not permitted as the blob is immutable due to a policy. [Learn more](#this-operation-is-not-permitted-as-the-blob-is-immutable-due-to-policy).|
+|UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares cannot exceed the account maximum size limit. [Learn more](#the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit).|
+|UploadErrorCloudHttp              |409        |The blob type is invalid for this operation. [Learn more](#the-blob-type-is-invalid-for-this-operation).|
+|UploadErrorCloudHttp              |409        |There is currently a lease on the blob and no lease ID was specified in the request. [Learn more](#there-is-currently-a-lease-on-the-blob-and-no-lease-id-was-specified-in-the-request).|
+|UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
 
-For information about other types of copy log entries, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).<!--Recast "For information" - lame.-->
+For information about other types of copy log entries, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).<!--NOTE TO ME: Recast "For information" - lame.-->
 
 > [!NOTE]
 > The **Follow-up** sections in the error descriptions describe how to update your data configuration before you place a new import order or perform a network transfer. You can't fix these errors in the current upload. The upload will complete with errors.
