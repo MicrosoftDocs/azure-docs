@@ -44,10 +44,10 @@ The solution consists of the following components:
 
 ## Sample folder structure
 
-The sample application on GiHub contains the following folders:
+The sample application on GitHub contains the following folders:
 
 - **NotificationHub.Sample.API**: A Visual Studio 2019 ASP.NET web API solution that acts as a back end.
-- **app**: A cross-platform React Native application that enables dispatching notifications with a manager login, and to subsequently receive notifications with a survey user login.
+- **app**: A cross-platform React Native application that enables dispatching notifications with a manager login, and to then receive notifications with a survey user login.
 - **azure-template**: Azure Resource Manager templates (`parameters.json` and `template.json`) that you can use to deploy all the necessary resources to configure this deployment in your Azure subscription. For more information about Resource Manager template deployment, see [Create and deploy ARM templates using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
 
 ## Sample overview
@@ -58,7 +58,7 @@ The following sections provide an overview of the components that comprise the s
 
 #### Authentication
 
-The following methods in AuthenticateController.cs authenticate a logged-in user:
+The following methods in AuthenticateController.cs authenticatesubs a logged-in user:
 
 ```css
 [HttpPost]
@@ -251,7 +251,7 @@ POST {{endpoint}}api/authenticate/register-admin
 }
 ```
 
-Once registered, you should be able to login to the UWP application with the same credentials.
+Once registered, you should be able to sign in to the UWP application with the same credentials.
 
 ### Notification controller
 
