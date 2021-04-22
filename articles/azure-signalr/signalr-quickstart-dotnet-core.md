@@ -24,7 +24,7 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 ## Prerequisites
 
-* Install the [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* Install the [.NET Core SDK](https://dotnet.microsoft.com/download).
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository. 
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).

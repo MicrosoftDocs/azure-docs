@@ -176,7 +176,7 @@ landingContent:
           - text: REST API
             url: /rest/api/avs
           - text: Azure CLI
-            url: /cli/azure/ext/vmware/vmware
+            url: /cli/azure/vmware
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
           - text: Terraform Azure provider

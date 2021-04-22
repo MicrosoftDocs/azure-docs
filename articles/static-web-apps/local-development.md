@@ -74,7 +74,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
     `swa start`
 
-1. Navigate to http://localhost:4280 to view the app in the browser.
+1. Navigate to `http://localhost:4280` to view the app in the browser.
 
 ### Other ways to start the CLI
 

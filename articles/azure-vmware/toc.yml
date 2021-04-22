@@ -179,7 +179,7 @@
   - name: REST API
     href: /rest/api/avs
   - name: Azure CLI
-    href: /cli/azure/ext/vmware/vmware
+    href: /cli/azure/vmware
   - name: Azure PowerShell
     href: /powershell/module/az.vmware/
   - name: Terraform Azure provider
