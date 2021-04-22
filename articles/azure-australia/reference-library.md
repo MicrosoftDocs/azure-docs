@@ -27,7 +27,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Key Vault Overview](../key-vault/general/overview.md)
 * [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md)
 * [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md)
-* [Secure access to a key vault](../key-vault/general/security-overview.md)
+* [Secure access to a key vault](../key-vault/general/security-features.md)
 * [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md)
 * [How to use Azure Key Vault with Azure Windows Virtual Machines in .NET](../key-vault/general/tutorial-net-virtual-machine.md)
 * [Azure Key Vault managed storage account - PowerShell](../key-vault/general/tutorial-net-virtual-machine.md)

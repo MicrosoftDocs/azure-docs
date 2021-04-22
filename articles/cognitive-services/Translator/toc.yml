@@ -6,16 +6,16 @@
   - name: Language Support
     href: language-support.md
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator 
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
 - name: Text Translation
   expanded: true
   items:
   - name: What is Translator?
     href: translator-info-overview.md
   - name: Translator FAQ
-    href: https://www.microsoft.com/translator/faq.aspx    
+    href: https://www.microsoft.com/translator/faq.aspx
   - name: Quickstart
-    href: quickstart-translator.md  
+    href: quickstart-translator.md
   - name: Samples
     items:
     - name: Code Sample page
@@ -59,7 +59,7 @@
     - name: Create a WPF app for Translator, C#
       href: tutorial-wpf-translation-csharp.md
     - name: Create a Flask translation app, Python
-      href: tutorial-build-flask-app-translation-synthesis.md 
+      href: tutorial-build-flask-app-translation-synthesis.md
   - name: Reference
     items:
     - name: v3 Translator reference
@@ -81,7 +81,7 @@
     - name: Dictionary Lookup
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
-      href: reference/v3-0-dictionary-examples.md      
+      href: reference/v3-0-dictionary-examples.md
 - name: Custom Translation
   items:
   - name: What is the Custom Translator?
@@ -89,7 +89,7 @@
   - name: FAQ
     href: custom-translator/faq.md
   - name: Quickstart
-    href: custom-translator/quickstart-build-deploy-custom-model.md  
+    href: custom-translator/quickstart-build-deploy-custom-model.md
   - name: How-to guides
     items:
     - name: Create a project
@@ -115,9 +115,9 @@
   - name: Concepts
     items:
     - name: Key terms
-      href: custom-translator/terminology.md    
+      href: custom-translator/terminology.md
     - name: Customize and improve text translation
-      href: customization.md  
+      href: customization.md
     - name: Workspaces and projects
       href: custom-translator/workspace-and-project.md
     - name: Parallel documents
@@ -142,26 +142,28 @@
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
-      - name: Create SAS tokens for Document Translation 
-        href: document-translation/create-sas-tokens.md 
+      - name: Create SAS tokens for Document Translation
+        href: document-translation/create-sas-tokens.md
     - name: Reference
-      items:     
-      - name: Get document formats
-        href: document-translation/reference/get-document-formats.md
-      - name: Get glossary formats
-        href: document-translation/reference/get-glossary-formats.md
-      - name: Get document storage source
-        href: document-translation/reference/get-document-storage-source.md 
-      - name: Submit batch request
-        href: document-translation/reference/submit-batch-request.md
-      - name: Get operation documents status
-        href: document-translation/reference/get-operation-documents-status.md 
+      items:
+      - name: Get supported document formats
+        href: document-translation/reference/get-supported-document-formats.md
+      - name: Get supported glossary formats
+        href: document-translation/reference/get-supported-glossary-formats.md
+      - name: Get supported storage sources
+        href: document-translation/reference/get-supported-storage-sources.md
+      - name: Start translation
+        href: document-translation/reference/start-translation.md
       - name: Get documents status
+        href: document-translation/reference/get-documents-status.md
+      - name: Get document status
         href: document-translation/reference/get-document-status.md
-      - name: Get operations
-        href: document-translation/reference/get-operations.md
-      - name: Cancel operation
-        href: document-translation/reference/cancel-operation.md
+      - name: Get translations status
+        href: document-translation/reference/get-translations-status.md
+      - name: Get translation status
+        href: document-translation/reference/get-translation-status.md
+      - name: Cancel translation
+        href: document-translation/reference/cancel-translation.md
 - name: How-to guides
   items:
   - name: Enterprise readiness
@@ -182,5 +184,5 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
   - name: Code samples on GitHub
     href: https://aka.ms/TranslatorGitHub
-  - name: Privacy and cookies 
+  - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement

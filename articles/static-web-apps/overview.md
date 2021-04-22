@@ -40,7 +40,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 
 ## What you can do with Static Web Apps
 
-- **Build modern web applications** with JavaScript frameworks and libraries like [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react), or using [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) to create WebAssembly applications, with an [Azure Functions](apis.md) back-end.
+- **Build modern web applications** with JavaScript frameworks and libraries like [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=vue), or using [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) to create WebAssembly applications, with an [Azure Functions](apis.md) back-end.
 - **Publish static sites** with frameworks like [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Deploy web applications** with frameworks like [Next.js](deploy-nextjs.md) and [Nuxt.js](deploy-nuxtjs.md).
 

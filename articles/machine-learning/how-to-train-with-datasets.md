@@ -314,7 +314,7 @@ If you are using file share for other workloads, such as data transfer, the re
 
 ## Next steps
 
-* [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets.
+* [Auto train machine learning models](how-to-configure-auto-train.md#data-source-and-format) with TabularDatasets.
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
 
