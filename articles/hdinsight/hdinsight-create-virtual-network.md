@@ -362,6 +362,74 @@ This example makes the following assumptions:
 
 After completing these steps, you can connect to resources in the virtual network using fully qualified domain names (FQDN). You can now install HDInsight into the virtual network.
 
+## Test your settings before deploying
+
+Before deploying your cluster, you can check that your network configuration settings are correct by running the [networkValidator script](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/blob/main/HDInsightNetworkValidator/networkValidator.sh) on a virtual machine in the same VNet and subnet as the planned cluster.
+
+To test your configuration settings
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
+
+## Create virtual machine
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Add**. The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.*
+
+	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/hdinsight-create-virtual-network/project-details.png)
+
+1. Under **Instance details**, type *myVM* for the **Virtual machine name**, choose *East US* for your **Region**, and choose *Ubuntu 18.04 LTS* for your **Image**. Leave the other defaults.
+
+	![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/hdinsight-create-virtual-network/instance-details.png)
+
+1. Under **Administrator account**, select **SSH public key**.
+
+1. In **Username** type *azureuser*.
+
+1. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
+
+    ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](./media/hdinsight-create-virtual-network/administrator-account.png)
+
+1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
+
+	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/hdinsight-create-virtual-network/inbound-port-rules.png)
+
+1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
+
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
+
+1. When the deployment is finished, select **Go to resource**.
+
+1. On the page for your new VM, select the public IP address and copy it to your clipboard.
+
+
+	![Screenshot showing how to copy the IP address for the virtual machine](./media/hdinsight-create-virtual-network/ip-address.png)
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
+## Connect to virtual machine
+
+Create an SSH connection with the VM.
+
+1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt. 
+
+1. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
+
+```console
+ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
+```
+
+> [!TIP]
+> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+
+
 ## Next steps
 
 * For a complete example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
