@@ -55,6 +55,20 @@ dependencies {
 }
 ```
 
+Update the values on the `build.gradle` file
+
+```groovy
+ buildTypes {
+        release {
+        ...
+            minifyEnabled true
+            shrinkResources true
+        ...
+    }
+}
+```
+
+
 ### Install the Teams Embed package
 
 Download the [`MicrosoftTeamsSDK` package.](https://github.com/Azure/communication-teams-embed/releases)
