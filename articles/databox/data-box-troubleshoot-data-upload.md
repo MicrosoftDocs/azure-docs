@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/21/2021
+ms.date: 04/22/2021
 ms.author: alkohli
 ---
 
@@ -17,7 +17,7 @@ This article describes how to troubleshoot errors that pause a data upload to th
 
 When data is uploaded from an Azure Data Box or Azure Data Box device to the cloud, some data configuration errors will cause the data copy to pause. You'll see the following notification in the Azure portal.
 
-![Copy completed with errors notification in local web UI](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-01.png)
+![Copy errors notification](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
 
 To complete the data copy, you must confirm that you want to proceed after reviewing the errors in the data copy log. Or you can cancel the data copy. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
 

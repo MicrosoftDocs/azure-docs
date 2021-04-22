@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: alkohli
 ---
 
@@ -193,8 +193,6 @@ The BOM or manifest files are also copied to the Azure storage account. You can 
 
 During the data upload to Azure, a copy log is created.
 
-<!--Check for ICM updates throughout the section. Certain customer configuration errors cause the job to pause for customer review and release.-->
-
 ### Copy log
 
 For each order that is processed, the Data Box service creates copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
@@ -222,13 +220,36 @@ The following sample describes the general format of a copy log for a Data Box u
 </CopyLog>
 ```
 
-### Upload completed with errors 
+### Copy errors
 
-<!--Scenario that triggers ICM operational improvements.-->Upload to Azure may also complete with errors.
+When some types of data configuration errors cause a file upload to fail, the upload is paused and the order is placed in a **Copy error** state. To proceed with the upload, you must confirm that you've reviewed the errors and want the copy to proceed. These errors can't be fixed in the current order, but you can evaluate whether it's more useful to complete the copy or to cancel it and start a new order. If only a few files failed to upload, you may be able to do a network transfer after the order completes.
+
+![Copy errors notification in Azure portal when data configuration errors pause an upload](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
+
+For a summary of the errors that place an order in a **Copy errors** state, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For the steps to proceed or cancel the data copy, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
+
+Here is an example of a copy log where upload of a 5 TiB Azure File failed because of a data configuration error:<!--This is identical, except for detail, to the "Upload completed with errors" example. That's not wrong. Should we try to distinguish between the two?-->
+
+```xml
+<ErroredEntity Path="lfs5tbfile032521\lfs5tbfile"> 
+  <Category>UploadErrorCloudHttp</Category> 
+  <ErrorCode>400</ErrorCode> 
+    <ErrorMessage>The file size exceeds the maximum permissible limit.</ErrorMessage> 
+  <Type>File</Type> 
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status> 
+  <TotalFiles_Blobs>8</TotalFiles_Blobs> 
+  <FilesErrored>1</FilesErrored> 
+</CopyLog>
+```
+
+### Upload completed with errors
+
+Upload to Azure may also complete with errors.
 
 ![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
 
-Here is an example of a copy log where the upload completed with errors:<!--Compare with log format and example in "ICM Operational Improvements documentation" at https://microsoft.sharepoint.com/:w:/t/CloudintegratedStorage/EYipXh5wyv1PkQVUfGE0NhkBqIAkrsWs0BPaz8yiILE4UA?e=xh9BtZ.-->
+Here is an example of a copy log where the upload completed with errors:
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
