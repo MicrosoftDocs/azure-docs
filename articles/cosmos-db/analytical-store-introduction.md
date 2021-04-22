@@ -264,6 +264,6 @@ To learn more, see the following docs:
 
 * [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
 
-* [Frequently asked questions about Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Frequently asked questions about Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.yml)
 
 * [Azure Synapse Link for Azure Cosmos DB Use cases](synapse-link-use-cases.md)
