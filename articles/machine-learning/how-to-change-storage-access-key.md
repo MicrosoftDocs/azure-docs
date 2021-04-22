@@ -6,7 +6,6 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
