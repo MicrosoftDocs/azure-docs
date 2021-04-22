@@ -2174,7 +2174,9 @@
       - name: Brivo Onair Identity Connector
         href: brivo-onair-identity-connector-provisioning-tutorial.md
       - name: Britive
-        href: britive-provisioning-tutorial.md       
+        href: britive-provisioning-tutorial.md
+      - name: BrowserStack Single Sign-on
+        href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
