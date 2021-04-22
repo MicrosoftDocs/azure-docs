@@ -200,6 +200,25 @@ And you can customize the workbook by Kusto query and configure alerts.
    | order by TimeGenerated asc
    ```
 
+## Spark Logging Examples
+
+- Log4j API example:
+
+   ```scala
+   // Create a logger
+   val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
+   logger.info("Hello, info message")
+   logger.warn("Hello, warn message")
+   logger.error("Hello, error message")
+
+   // Log an exception
+   try {
+      1 / 0
+   } catch {
+      case exception: Exception => logger.error("Hello, Some exception", exception)
+   }
+   ```
+
 ## Create and manage alerts using Azure Log Analytics
 
 Azure Monitor alerts allow users to use a Log Analytics query to evaluate metrics and logs every set frequency, and fire an alert based on the results.
@@ -209,10 +228,6 @@ For more information, see [Create, view, and manage log alerts using Azure Monit
 ## Limitation
 
  - Azure Synapse Analytics workspace with [managed virtual network](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-vnet) enabled is not supported.
- - The following regions aren't currently supported:
-   - East US 2
-   - Norway East
-   - UAE North
 
 ## Next steps
 
