@@ -87,7 +87,7 @@
           - name: Continuous backup - Introduction
             href: continuous-backup-restore-introduction.md
           - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.md
+            href: continuous-backup-restore-frequently-asked-questions.yml
           - name: Continuous backup - Resource model
             href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
