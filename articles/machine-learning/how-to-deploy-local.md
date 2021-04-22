@@ -180,7 +180,7 @@ Using Docker to deploy your model as a web service is the most common option. Bu
 You can download the model:  
 
 - From the portal, by selecting the **Models** tab, selecting the desired model, and on the **Details** page, selecting **Download**.
-- From the command line, by using `az ml model download`. (See [model download.](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download))
+- From the command line, by using `az ml model download`. (See [model download.](/cli/azure/ml/model#az_ml_model_download))
 - By using the Python SDK `Model.download()` method. (See [Model class.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-))
 
 An Azure model is one or more serialized Python objects, packaged as a Python pickle file (.pkl extension). The contents of the pickle file depend on the machine learning library or technique used to train the model. For example, if you're using the model from the tutorial, you might load the model with:

@@ -18,7 +18,7 @@ ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
 
 In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
 
-To view examples of automated machine learning experiments, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
+For an end to end example of an automated machine learning experiment, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md).
 
 Configuration options available in automated machine learning:
 
@@ -390,7 +390,7 @@ Configure  `max_concurrent_iterations` in your `AutoMLConfig` object. If it is n
 
 Automated ML offers options for you to monitor and evaluate your training results. 
 
-* You can view your training results in a widget or inline if you are in a notebook. See [how to monitor automated ML runs](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) for more details.
+* You can view your training results in a widget or inline if you are in a notebook. See [Monitor automated machine learning runs](#monitor) for more details.
 
 * For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md) . 
 
@@ -493,6 +493,22 @@ print_model(model_from_aml)
 > [!NOTE]
 > The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
+## <a name="monitor"></a> Monitor automated machine learning runs
+
+For automated machine learning runs, to access the charts from a previous run, replace `<<experiment_name>>` with the appropriate experiment name:
+
+```python
+from azureml.widgets import RunDetails
+from azureml.core.run import Run
+
+experiment = Experiment (workspace, <<experiment_name>>)
+run_id = 'autoML_my_runID' #replace with run_ID
+run = Run(experiment, run_id)
+RunDetails(run).show()
+```
+
+![Jupyter notebook widget for Automated Machine Learning](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
+
 ## Register and deploy models
 
 You can register a model, so you can come back to it for later use. 
@@ -535,7 +551,7 @@ For general information on how model explanations and feature importance can be 
 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-+ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
++ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
 
 + Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 
