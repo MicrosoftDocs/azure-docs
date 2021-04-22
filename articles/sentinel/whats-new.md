@@ -32,11 +32,11 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ### Azure Policy-based data connectors
 
+Azure Policy allows you to apply a common set of diagnostics logs settings to all (current and future) resources of a particular type whose logs you want to ingest into Azure Sentinel.
+
 Continuing our efforts to bring the power of [Azure Policy](../governance/policy/overview.md) to the task of data collection configuration, we are now offering another Azure Policy-enhanced data collector, for [Azure Storage account](connect-azure-storage-account.md) resources, released to public preview.
 
 Also, two of our in-preview connectors, for [Azure Key Vault](connect-azure-key-vault.md) and [Azure Kubernetes Service](connect-azure-kubernetes-service.md), have now been released to general availability (GA), joining our [Azure SQL Databases](connect-azure-sql-logs.md) connector.
-
-See our [previous announcement on the subject](#new-microsoft-service-connectors-using-azure-policy) for additional context.
 
 ### Incident timeline (Public preview)
 
