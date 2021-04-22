@@ -173,11 +173,11 @@ Be sure to set the `compute:/instance_count:`, which defaults to 1, to the desir
 
 ### PyTorch
 
-An example YAML file for distributed pytorch training on the cifar dataset:
+An example YAML file for distributed PyTorch training on the CIFAR-10 dataset:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
 
-Notice this refers to local data, which is not present in the cloned examples repository. You first need to download, extract, and relocate the CIFAR-19 dataset locally, placing it in the proper location in the project directory: 
+Notice this refers to local data, which is not present in the cloned examples repository. You first need to download, extract, and relocate the CIFAR-10 dataset locally, placing it in the proper location in the project directory:
 
 :::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
 
@@ -185,9 +185,9 @@ Now you can submit the job:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="pytorch_cifar":::
 
-### Tensorflow
+### TensorFlow
 
-An example YAML file for distributed tensorflow training on the mnist dataset:
+An example YAML file for distributed TensorFlow training on the MNIST dataset:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
 
@@ -201,7 +201,7 @@ Azure ML supports launching an MPI job across multiple nodes and multiple proces
 
 To launch an MPI job, specify type: mpi and the number of processes per node to launch (`process_count_per_instance`) in the `distribution:` section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the `node_count` field in the `compute:` section.
 
-An example YAML specification, which runs a tensorflow job using horovod:
+An example YAML specification, which runs a TensorFlow job on MNIST using Horovod:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
 
