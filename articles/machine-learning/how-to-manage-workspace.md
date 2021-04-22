@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/21/2021
-ms.topic: conceptual
-ms.custom: how-to, fasttrack-edit
+ms.date: 04/22/2021
+ms.topic: how-to
+ms.custom: fasttrack-edit
 
 ---
 

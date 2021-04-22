@@ -1,4 +1,4 @@
-﻿---
+---
 title: Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) in Azure Kubernetes Service (AKS)
 services: container-service

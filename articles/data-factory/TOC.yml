@@ -827,7 +827,7 @@
   - name: Azure Policy built-ins
     href: policy-reference.md
   - name: Azure CLI
-    href: /cli/azure/ext/datafactory/datafactory
+    href: /cli/azure/datafactory
 - name: Resources
   items:
   - name: Whitepapers

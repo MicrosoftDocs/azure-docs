@@ -39,7 +39,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.peering
   - name: Azure CLI
-    href: /cli/azure/ext/peering/peering
+    href: /cli/azure/peering
 - name: Resources
   items:
   - name: Azure roadmap

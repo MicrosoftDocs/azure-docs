@@ -224,6 +224,6 @@ In this article, we set up a new instance of GitHub Enterprise Server, the self-
 
 Now that you've covered setting up GitHub Enterprise Server on your Azure VMware Solution private cloud, you may want to learn about: 
 
-- [Getting started with GitHub Actions](https://docs.github.com/en/actions).
-- [Joining the beta program](https://resources.github.com/beta-signup/).
-- [Administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started).
+- [How to get started with GitHub Actions](https://docs.github.com/en/actions)
+- [How to join the beta program](https://resources.github.com/beta-signup/)
+- [Administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started)
