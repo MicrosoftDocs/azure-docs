@@ -402,7 +402,7 @@ Before deploying your cluster, you can check that your network configuration set
 
 	![Screenshot showing how to copy the IP address for the virtual machine](./media/hdinsight-create-virtual-network/ip-address.png)
 
- <! -- [!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)] --!>
+
 
 ## Connect to virtual machine
 
