@@ -11,7 +11,7 @@ ms.date: 08/07/2020
 
 # Create an IoT Edge module offer
 
-This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](../create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -414,7 +414,7 @@ You'll provide the following information on the **Image repository details** tab
 
 1. Admin user
 
-<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](/cli/azure/acr/credential#az-acr-credential-show)
+<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](/cli/azure/acr/credential#az_acr_credential_show)
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustrates the access key screen in the Azure portal.":::
 

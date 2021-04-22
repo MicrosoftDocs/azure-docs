@@ -4,7 +4,7 @@ description: Open Service Mesh (OSM) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
 ---
@@ -102,7 +102,7 @@ For a new AKS cluster deployment scenario, you will start with a brand new deplo
 
 ### Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
@@ -2145,7 +2145,7 @@ On the **Configure your Prometheus data source below** page, enter the Kubernete
 
 OSM Dashboards are available both through:
 
-- [Our repository](/charts/osm/grafana), and are importable as json blobs through the web admin portal
+- [Our repository](https://github.com/grafana/grafana), and are importable as json blobs through the web admin portal
 - or [online at Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
 To import a dashboard, look for the `+` sign on the left menu and select `import`.

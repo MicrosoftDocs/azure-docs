@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: aashishb
 author: aashishb
 ms.date: 03/11/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning

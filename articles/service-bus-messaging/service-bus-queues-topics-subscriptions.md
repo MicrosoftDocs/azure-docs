@@ -2,7 +2,7 @@
 title: Azure Service Bus messaging - queues, topics, and subscriptions
 description: This article provides an overview of Azure Service Bus messaging entities (queue, topics, and subscriptions).
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 04/08/2021
 ---
 
 # Service Bus queues, topics, and subscriptions
@@ -48,7 +48,7 @@ In many scenarios, messages that have specific characteristics must be processed
 
 For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
 
-For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
+For more information about filters, see [Topic filters and actions](topic-filters.md).
 
 ## Java message service (JMS) 2.0 entities
 The following entities are accessible through the Java message service (JMS) 2.0 API.
