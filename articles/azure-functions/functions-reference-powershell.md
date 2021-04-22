@@ -464,7 +464,7 @@ When you update the requirements.psd1 file, updated modules are installed after 
 
 ### Target specific versions
 
-You may want to target a specific version of a module in your requirements.psd1 file. For example, if you wanted to use an older version of Az.Accounts than the one in the included Az module, would need to target a specific version as in the following example: 
+You may want to target a specific version of a module in your requirements.psd1 file. For example, if you wanted to use an older version of Az.Accounts than the one in the included Az module, you would need to target a specific version as shown in the following example: 
 
 ```powershell
 @{
@@ -472,7 +472,7 @@ You may want to target a specific version of a module in your requirements.psd1 
 }
 ```
 
-In this case, you also need to add an import statement like the following to the top of your profile.ps1 file:
+In this case, you also need to add an import statement to the top of your profile.ps1 file, which looks like the following example:
 
 ```powershell
 Import-Module Az.Accounts -RequiredVersion '1.9.5'
