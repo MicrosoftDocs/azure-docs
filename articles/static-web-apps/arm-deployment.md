@@ -23,7 +23,7 @@ In this tutorial, you learn to:
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - **GitHub Account:** If you don't have one, you can [create a GitHub Account for free](https://github.com) 
-- **Github Personal Access Token (PAT):** Will be used by Static Web Apps Instance to interact with GitHub repo and GitHub Actions pipeline for publishing your static site content. More details on [GitHub PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+- **Github Personal Access Token (PAT):** Used by Static Web Apps to interact with a GitHub repo and GitHub Actions pipeline for publishing your static site content. More details on [GitHub PAT](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token).
 - **GitHub Repo holding your Static Web Site code:** We will create a basic index.html for this deployment, but know this could also be existing static site code you already have and store in a GitHub repo. Read a [Quickstart Tutorial](https://docs.github.com/en/github/getting-started-with-github/create-a-repo) if you are new to GitHub repository.
 - **Editor for ARM Templates:** emplates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see Quickstart: [Create ARM templates with Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code).
 
@@ -326,5 +326,4 @@ Clean up the resources you deployed by deleting the resource group.
 ## Next steps
 
 You learned how to deploy Static Web Apps using a local ARM template process. For other deployment methods, have a look at <URL to SWA Portal deployment> + <URL to SWA Azure DevOps deployment>
-
 
