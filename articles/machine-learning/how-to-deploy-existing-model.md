@@ -9,8 +9,8 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
+ms.topic: how-to
+ms.custom: devx-track-python, deploy
 ---
 
 # Deploy your existing model with Azure Machine Learning
