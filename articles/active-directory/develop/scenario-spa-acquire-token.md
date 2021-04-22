@@ -64,7 +64,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
 The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 
@@ -139,6 +139,65 @@ export class AppComponent implements OnInit {
 
 Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
 
+# [Angular (MSAL.js v1)](#tab/angular1)
+The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
+You can specify the scopes for APIs in the `protectedResourceMap` configuration option. `MsalInterceptor` will request these scopes when automatically acquiring tokens.
+
+```javascript
+// app.module.ts
+@NgModule({
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+For success and failure of the silent token acquisition, MSAL Angular provides callbacks that you can subscribe to. It's also important to remember to unsubscribe.
+
+```javascript
+// In app.component.ts
+ ngOnInit() {
+    this.subscription=  this.broadcastService.subscribe("msal:acquireTokenFailure", (payload) => {
+    });
+}
+ngOnDestroy() {
+   this.broadcastService.getMSALSubject().next(1);
+   if (this.subscription) {
+     this.subscription.unsubscribe();
+   }
+ }
+```
+
+Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
+
 ---
 
 ## Acquire a token with a redirect
@@ -201,7 +260,7 @@ myMSALObj.acquireTokenPopup(request);
 
 To learn more, see [Optional claims](active-directory-optional-claims.md).
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
 This code is the same as described earlier, except we recommend bootstrapping the `MsalRedirectComponent` to handle redirects. `MsalInterceptor` configurations can also be changed to use redirects.
 
@@ -244,6 +303,9 @@ This code is the same as described earlier, except we recommend bootstrapping th
 })
 export class AppModule { }
 ```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
+This code is the same as described earlier.
 
 ---
 

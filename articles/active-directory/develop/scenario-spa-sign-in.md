@@ -109,7 +109,7 @@ myMsal.loginPopup(loginRequest)
     });
 ```
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
 The MSAL Angular wrapper allows you to secure specific routes in your application by adding `MsalGuard` to the route definition. This guard will invoke the method to sign in when that route is accessed.
 
@@ -166,6 +166,54 @@ For a pop-up window experience, set the `interactionType` configuration to `Inte
 })
 export class AppModule { }
 ```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
+The MSAL Angular wrapper allows you to secure specific routes in your application by adding `MsalGuard` to the route definition. This guard will invoke the method to sign in when that route is accessed.
+```javascript
+// In app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { MsalGuard } from '@azure/msal-angular';
+import { HomeComponent } from './home/home.component';
+const routes: Routes = [
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [
+      MsalGuard
+    ]
+  },
+  {
+    path: '',
+    component: HomeComponent
+  }
+];
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+For a pop-up window experience, enable the `popUp` configuration option. You can also pass the scopes that require consent as follows:
+
+```javascript
+// In app.module.ts
+@NgModule({
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id',
+            }
+        }, {
+            popUp: true,
+            consentScopes: ["User.ReadWrite"]
+        })
+    ]
+})
+```
+
 ---
 
 ## Sign-in with redirect
@@ -239,7 +287,7 @@ myMsal.handleRedirectCallback(authCallback);
 myMsal.loginRedirect(loginRequest);
 ```
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
 The code here is the same as described earlier in the section about sign-in with a pop-up window, except that the `interactionType` is set to `InteractionType.Redirect` for the Msal Guard Configuration.
 
@@ -265,6 +313,10 @@ The code here is the same as described earlier in the section about sign-in with
 })
 export class AppModule { }
 ```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
+
+The code here is the same as described earlier in the section about sign-in with a pop-up window. The default flow is redirect.
 
 ---
 
@@ -311,7 +363,7 @@ const myMsal = new UserAgentApplication(config);
 myMsal.logout();
 ```
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
 ```javascript
 // In app.module.ts
@@ -326,18 +378,28 @@ myMsal.logout();
     ]
 })
 
-// In app.component.ts - If using redirect
+// In app.component.ts
 logout() {
     this.authService.logoutRedirect();
 }
-
-// In app.component.ts - If using popup
-logout() {
-    this.authService.logoutPopup({
-        mainWindowRedirectUri: "/"
-    });
-}
 ```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
+
+```javascript
+//In app.module.ts
+@NgModule({
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id',
+                postLogoutRedirectUri: "your_app_logout_redirect_uri"
+            }
+        })
+    ]
+})
+// In app.component.ts
+this.authService.logout();
 
 ---
 
