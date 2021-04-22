@@ -55,21 +55,6 @@ The primary settings that affect cluster heart beating and health detection betw
 
 By default, these values may be too low for the cloud environment, and could result in unnecessary failures due to transient network issues. To be more tolerant, use relaxed threshold settings. See [cluster best practices](hadr-cluster-best-practices.md#heartbeat-and-threshold) for more detail. 
 
-## Recovery actions
-
-The cluster service takes corrective action when a failure is detected. This could restart the resource on the existing node, or fail the resource over to another node. Once corrective measures are initiated, they make take some time to complete. 
-
-For example, a restarted availability group comes online per the following sequence: 
-
-1. Listener IP comes online
-1. Listener network name comes online
-1. Availability group comes online
-1. Individual databases go through recovery, which can take some time depending on a number of factors, such as the length of the redo log. Connections are routed by the listener only once the database is fully recovered. To learn more, see [Estimating failover time (RTO)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/monitor-performance-for-always-on-availability-groups). 
-
-Since recovery could take some time, aggressive monitoring set to detect a failure in 20 seconds could result in an outage of minutes if a transient event occurs (such as memory-preserving [Azure VM maintenance](#azure-platform-maintenance)). Setting the monitoring to a more relaxed value of 40 seconds can help avoid a longer interruption of service. 
-
-To adjust threshold settings, see [cluster best practices](hadr-cluster-best-practices.md) for more detail. 
-
 ## Quorum
 
 Although a two-node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support. Cluster validation won't pass any cluster without a quorum resource. 
@@ -83,8 +68,6 @@ The following table lists the quorum options available in the order recommended 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Supported OS**| All |Windows Server 2016+| All|
-
-
 
 ### Disk witness
 
@@ -149,6 +132,22 @@ Most SQL Server features work transparently with FCI and availability groups whe
 To get started, learn to configure a distributed network name resource for [a failover cluster instance](failover-cluster-instance-distributed-network-name-dnn-configure.md) or an [availability group](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 There are additional considerations when using the DNN with other SQL Server features. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
+
+## Recovery actions
+
+The cluster service takes corrective action when a failure is detected. This could restart the resource on the existing node, or fail the resource over to another node. Once corrective measures are initiated, they make take some time to complete. 
+
+For example, a restarted availability group comes online per the following sequence: 
+
+1. Listener IP comes online
+1. Listener network name comes online
+1. Availability group comes online
+1. Individual databases go through recovery, which can take some time depending on a number of factors, such as the length of the redo log. Connections are routed by the listener only once the database is fully recovered. To learn more, see [Estimating failover time (RTO)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/monitor-performance-for-always-on-availability-groups). 
+
+Since recovery could take some time, aggressive monitoring set to detect a failure in 20 seconds could result in an outage of minutes if a transient event occurs (such as memory-preserving [Azure VM maintenance](#azure-platform-maintenance)). Setting the monitoring to a more relaxed value of 40 seconds can help avoid a longer interruption of service. 
+
+To adjust threshold settings, see [cluster best practices](hadr-cluster-best-practices.md) for more detail. 
+
 
 ## Node location
 

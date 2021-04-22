@@ -17,7 +17,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure Azure Load Balancer for failover cluster instance VNN
+# Configure Azure Load Balancer for an FCI VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by the clustered resource in Azure. 
@@ -31,10 +31,9 @@ For an alternative connectivity option for SQL Server 2019 CU2 and later, consid
 
 Before you complete the steps in this article, you should already have:
 
-- Decided that Azure Load Balancer is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
-- Configured your [availability group listener](availability-group-overview.md) or [failover cluster instances](failover-cluster-instance-overview.md). 
-- Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
-
+- Determined that Azure Load Balancer is the appropriate [connectivity option for your FCI](hadr-windows-server-failover-cluster-overview.md#connectivity).
+- Configured your [failover cluster instances](failover-cluster-instance-overview.md). 
+- Installed the latest version of [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). 
 
 ## Create load balancer
 
@@ -71,7 +70,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI or availability group.
+1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI.
 
 1. Select **OK** to create the backend pool.
 
@@ -119,7 +118,7 @@ To set the cluster probe port parameter, update the variables in the following s
 
 ```powershell
 $ClusterNetworkName = "<Cluster Network Name>"
-$IPResourceName = "<SQL Server FCI / AG Listener IP Address Resource Name>" 
+$IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
 $ILBIP = "<n.n.n.n>" 
 [int]$ProbePort = <nnnnn>
 
@@ -146,6 +145,24 @@ After you set the cluster probe, you can see all the cluster parameters in Power
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
+## Modify connection string 
+
+For clients that support it, add the `MultiSubnetFailover=True` to the connection string.  While the MultiSubnetFailover connection option is not required, it does provide the benefit of a faster subnet failover. This is because the client driver will attempt to open up a TCP socket for each IP address in parallel. The client driver will wait for the first IP to respond with success and once it does, will then use it for the connection.
+
+If your client does not support the MultiSubnetFailover parameter, you can modify the RegisterAllProvidersIP and HostRecordTTL settings to prevent connectivity delays upon failover. 
+
+Use PowerShell to modify the RegisterAllProvidersIp and HostRecordTTL settings: 
+
+```powershell
+Get-ClusterResource yourFCIname | Set-ClusterParameter RegisterAllProvidersIP 0  
+Get-ClusterResource yourFCIname|Set-ClusterParameter HostRecordTTL 300 
+```
+
+To learn more, see the SQL Server [listener connection timeout](/troubleshoot/sql/availability-groups/listener-connection-times-out) documentation. 
+
+>[!TIP]
+> Set the MultiSubnetFailover parameter = true in the connection string even for HADR solutions that span a single subnet to support future spanning of subnets without the need to update connection strings.  
+
 
 ## Test failover
 
@@ -168,6 +185,8 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 >[!NOTE]
 >If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
+
 
 
 

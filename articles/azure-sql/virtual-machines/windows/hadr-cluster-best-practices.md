@@ -81,10 +81,27 @@ this is original:
 please ensure i have not technically changed the meaning in any way 
 
 
+## Connectivity
 
-## Networking
+It's possible to configure either a virtual network name (VNN), or starting with SQL Server 2019, a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
 
-Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+The distributed network name is the recommended connectivity option, when available: 
+- The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
+- Eliminating the load balancer probes minimizes failover duration. 
+- The DNN simplifies provisioning and management of the failover cluster instance or availability group listener with SQL Server on Azure VMs. 
+
+If you're using using DNN, or using an AG or FCI that spans across multiple subnets, you must use a client driver that supports the MultiSubnetFailover parameter, and specify MultiSubnetFailover=True in the connection string. For availability groups, the connection string should contain the DNN port number (not required for FCI). 
+
+To learn more, see the [Windows Server Failover Cluster overview](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn). 
+
+To configure connectivity, see the following articles:
+- Availability group:  [Configure DNN  for AG](availability-group-distributed-network-name-dnn-listener-configure.md), [Configure VNN for AG](availability-group-vnn-azure-load-balancer-configure.md)
+- Failover cluster instance: [Configure DNN for FCI](failover-cluster-instance-distributed-network-name-dnn-configure.md), [Configure VNN for FCI](failover-cluster-instance-vnn-azure-load-balancer-configure.md). 
+
+Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
+
+>[!TIP]
+> Set the MultiSubnetFailover parameter = true in the connection string even for HADR solutions that span a single subnet to support future spanning of subnets without the need to update connection strings.  
 
 ## Heartbeat and threshold 
 
@@ -132,7 +149,6 @@ Use PowerShell to verify your changes:
 ```powershell
 get-cluster | fl *subnet*
 ```
-
 
 Consider the following: 
 
@@ -194,21 +210,28 @@ Specific to availability groups, review the following parameters:
 |Parameter |Default value  |Description  |
 |---------|---------|---------|
 |**Lease timeout**|20000|Prevents split-brain. |
-|**Session timeout**|10 |Checks communication issues between replicas. The session-timeout period is a replica property that controls how long (in seconds) that an availability replica waits for a ping response from a connected replica before considering the connection to have failed. By default, a replica waits 10 seconds for a ping response. This replica property applies only the connection between a given secondary replica and the primary replica of the availability group. |
+|**Session timeout**|10 |Checks communication issues between replicas. The session-timeout period is a replica property that controls how long (in seconds) that an availability replica waits for a ping response from a connected replica before considering the connection to have failed. By default, a replica waits 10 seconds for a ping response. This replica property applies to only the connection between a given secondary replica and the primary replica of the availability group. |
+| **Max failures in specified period** | 2 | Used to avoid indefinite movement of a clustered resource within multiple node failures. Too low of a value c Increase the value to prevent short disruptions from performance issues as too low a value can lead to the AG being in a failed state. | 
 
 Before making any changes, consider the following: 
 - Do not lower any timeout values below their default values. 
 - The lease interval (½ * LeaseTimeout) must be shorter than SameSubnetThreshold * SameSubnetDelay
-- For synchronous-commit replicas, changing session-timeout to a high value can increase HADR_Sync_commit waits.
+- For synchronous-commit replicas, changing session-timeout to a high value can increase HADR_sync_commit waits.
 
-Use Transact-SQL (T-SQL) to modify the session timeout for an availability group: 
+Use Transact-SQL (T-SQL) to modify the **session timeout** for an availability group: 
 
 ```sql
 ALTER AVAILABILITY GROUP AG1
 MODIFY REPLICA ON 'INSTANCE01' WITH (SESSION_TIMEOUT = 15);
 ```
 
-Use the Failover Cluster Manager to modify the lease timeout settings for your availability group.  See the SQL Server [availability group lease health check](/sql/database-engine/availability-groups/windows/availability-group-lease-healthcheck-timeout#lease-timeout) documentation for detailed steps.
+Use the Failover Cluster Manager to modify the **Max failures in specified period** value: 
+1. Select **Roles** in the navigation pane.
+1. Under **Roles**, right-click the clustered resource and choose **Properties**. 
+1. Select the **Failover** tab, and increase the **Max failures in specified period** value as desired. 
+
+Use the Failover Cluster Manager to modify the **lease timeout** settings for your availability group. See the SQL Server [availability group lease health check](/sql/database-engine/availability-groups/windows/availability-group-lease-healthcheck-timeout#lease-timeout) documentation for detailed steps.
+
 
 ## Resource limits
 
@@ -223,45 +246,37 @@ VM or disk limits could result in a resource bottleneck that impacts the health 
     * Use features like resource governor (starting with SQL Server 2014, enterprise only) to limit resource utilization during specific workloads, such as backups or index maintenance. 
 * Move to a VM or disk that has higher limits to meet or exceed the demands of your workload. 
 
+## Networking
 
-## Connectivity
-
-It's possible to configure either a virtual network name (VNN), or starting with SQL Server 2019, a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
-
-The distributed network name is the recommended connectivity option, when available: 
-- The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
-- Eliminating the load balancer probes minimizes failover duration. 
-- The DNN simplifies provisioning and management of the failover cluster instance or availability group listener with SQL Server on Azure VMs. 
-
-To learn more, see the [Windows Server Failover Cluster overview](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn). 
-
-To configure connectivity, see the following articles:
-- Availability group:  [Configure DNN  for AG](availability-group-distributed-network-name-dnn-listener-configure.md), [Configure VNN for AG](availability-group-vnn-azure-load-balancer-configure.md)
-- Failover cluster instance: [Configure DNN for FCI](failover-cluster-instance-distributed-network-name-dnn-configure.md), [Configure VNN for FCI](failover-cluster-instance-vnn-azure-load-balancer-configure.md). 
-
-Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
+Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
 ## Known issues
 
-If the Windows cluster settings are too aggressive for your environment, you may see following message in the system event log frequently. For more information, review [Troubleshooting cluster issue with Event ID 1135.](https://docs.microsoft.com/windows-server/troubleshoot/troubleshooting-cluster-event-id-1135)
+If the **Windows cluster settings** are too aggressive for your environment, you may see following message in the system event log frequently. For more information, review [Troubleshooting cluster issue with Event ID 1135.](/windows-server/troubleshoot/troubleshooting-cluster-event-id-1135)
 
-| Event ID        | Description                                                            |
+| Event ID  | Description                                                            |
 |----|----|
 |       1135      |  Cluster node 'Node1' was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.|
 
-If the monitoring is too aggressive for your environment, you may see frequent AG or FCI restarts, failures, or failovers. Additionally for availability groups, you may see the following messages in the SQL Server error log: 
+If **monitoring** is too aggressive for your environment, you may see frequent AG or FCI restarts, failures, or failovers. Additionally for availability groups, you may see the following messages in the SQL Server error log: 
 
 | Message ID | Description                                                                   |
 |--|--|
 | 19407| The lease between availability group 'PRODAG' and the Windows Server Failover Cluster has expired. A connectivity issue occurred between the instance of SQL Server and the Windows Server Failover Cluster. To determine whether the availability group is failing over correctly, check the corresponding availability group resource in the Windows Server Failover Cluster |
 | 19419| The renewal of the lease between availability group '%.*ls' and the Windows Server Failover Cluster failed because the existing lease is no longer valid.   |
 
-If the session timeout is too aggressive for your availability group environment, you may see following messages frequently:
+If the **session timeout** is too aggressive for your availability group environment, you may see following messages frequently:
 
 | Message ID | Description |
 |-|-|
 | 35201 | A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance. |
 | 35206 | A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. 
+
+If the **Maximum Failures in the Specified Period**
+
+| Message ID | Description |
+|-|-|
+| N/A | Not failing over group <Resource name>, failoverCount 3, failoverThresholdSetting <Number>, computedFailoverThreshold 2. |
 
 
 ## Next steps
