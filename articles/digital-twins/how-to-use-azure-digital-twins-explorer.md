@@ -107,9 +107,7 @@ You can also apply one of several layout algorithms to the graph from the option
 
 ### Control twin graph expansion
 
-When a twin is selected, the graph will fetch its relationships and related twins. You can control this expansion by setting a size and direction for the expansion from a selected twin.
-
-<This doesn't seem to be working. Maybe I'm not doing it right?>
+While viewing a query result in the **TWIN GRAPH** panel, you can double-click a twin to have the graph fetch its relationships and related twins and display them if they're not already present in the view. You can customize this expansion by setting a size and direction to determine how many twins to fetch.
 
 To set the number of layers to expand, use the **Expansion Level** option. This number indicates how many layers of relationships to fetch from the selected twin.
 
