@@ -204,7 +204,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 ## Create and deploy apps on Azure Spring Cloud
 
-1. Create the 2 core microservices for PetClinic: API gateway and customer-service.
+1. Create the 2 core microservices for PetClinic: API gateway and customers-service.
 
     ```azurecli
     az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --assign-endpoint
@@ -245,7 +245,7 @@ Access the app gateway and customers service from browser with the **Public Url*
 To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other apps with following commands:
 
 ```azurecli
-az spring-cloud app create --name admin-server --instance-count 1 --memory 2 --is-public
+az spring-cloud app create --name admin-server --instance-count 1 --memory 2 --assign-endpoint
 az spring-cloud app create --name vets-service --instance-count 1 --memory 2
 az spring-cloud app create --name visits-service --instance-count 1 --memory 2
 az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
@@ -278,6 +278,21 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     * **Subscription:** This is your subscription used to create an Azure Spring Cloud instance.
     * **Service Instance:** This is the name of your Azure Spring Cloud instance.
     * **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`.  This gives it public access.
+
+1. Verify the `appName` elements in the POM files are correct:
+    ```
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-spring-cloud-maven-plugin</artifactId>
+                <version>1.3.0</version>
+                <configuration>
+                    <subscriptionId>bb881e62-cf77-4d5d-89fb-29d71e930b66</subscriptionId>
+                    <clusterName>v-gedo-spr-cld</clusterName>
+                    <appName>customers-service</appName>
+    
+    ```
 
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command. 
 
@@ -365,9 +380,9 @@ You can also navigate the Azure portal to find the URL.
 
 ## Deploy extra apps
 Other microservices included in this sample can be deployed similarly. 
-    * admin-server
-    * vets-service
-    * visits-service
+* admin-server
+* vets-service
+* visits-service
 
 ::: zone-end
 

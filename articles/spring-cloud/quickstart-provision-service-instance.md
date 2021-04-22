@@ -146,13 +146,12 @@ The following procedure uses the Azure CLI extension to provision an instance of
 1. Create a resource group to contain your Azure Spring Cloud service. Create the Azure Spring Cloud service.
 
     ```azurecli
-    az group create --name <resource group name> --location eastus 
-    az spring-cloud create --name <spring cloud service name> --g <resource group name> --enable-java-agent
+    az group create --name <resource group name>
     ```
 
     Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
-1. Set your default resource group name and cluster name using the following commands:.
+1. Set your default resource group name and Spring Cloud service name using the following command:
 
     ```azurecli
     az configure --defaults group=<resource group name> location=eastus spring-cloud=<spring cloud service name>
