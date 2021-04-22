@@ -34,7 +34,7 @@ To create your own key vault and setup certificates, follow the instructions fro
 > The key vault must be [enabled for template deployment](https://docs.microsoft.com/en-us/azure/key-vault/general/manage-with-cli2#bkmk_KVperCLI) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
 
 ## Install the certificate in your cluster
-This certificate must be installed on each node in the cluster and Service Fabric managed clusters helps make this easy. The managed cluster service can push version-specific secrets to the nodes to help install secrets that won't change often or installing a private root CA to the nodes. For most production workloads we suggest using [KeyVault extension][key-vault-windows]. The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault vs a static version.
+This certificate must be installed on each node in the cluster and Service Fabric managed clusters helps make this easy. The managed cluster service can push version-specific secrets to the nodes to help install secrets that won't change often like installing a private root CA to the nodes. For most production workloads we suggest using [KeyVault extension][key-vault-windows]. The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault vs a static version.
 
 For managed clusters you'll need three values, two from Azure Key Vault, and one you decide on for the local store name on the nodes.
 

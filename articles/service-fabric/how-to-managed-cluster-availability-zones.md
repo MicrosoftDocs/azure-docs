@@ -2,7 +2,7 @@
 title: Deploy a Service Fabric managed cluster across Availability Zones
 description: Learn how to deploy Service Fabric managed cluster across Availability Zones and how to configure in an arm template.
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 04/22/2021
 ---
 # Deploy an Azure Service Fabric managed cluster across availability zones
 Availability Zones in Azure is a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
@@ -21,7 +21,7 @@ The recommended topology for managed cluster requires the resources outlined bel
 
 * The cluster SKU must be Standard
 * Primary node type should have at least 9 nodes for best resiliency, but supports minimum number of 6.
-* Secondary node type should have at least 6 nodes for best resiliency, but supports minimum number of 3.
+* Secondary node type(s) should have at least 6 nodes for best resiliency, but supports minimum number of 3.
 
 >[!NOTE]
 >Only 3 Availability Zone deployments are supported.
@@ -30,15 +30,13 @@ The recommended topology for managed cluster requires the resources outlined bel
 > It is not possible to do an in-place change of a managed cluster from non-spanning to a spanned cluster.
 
 Diagram that shows the Azure Service Fabric Availability Zone architecture
- ![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
-<REDO DIAGRAM to show simplified version of implementation (obfuscating vmss)
+ ![Azure Service Fabric Availability Zone Architecture][sf-multi-az-arch]
 
 Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones
 
- ![Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones.][sf-multi-az-nodes]
- <UPDATE THIS PICTURE>
+ ![Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones.][sfmc-multi-az-nodes]
 
- **Distribution of Service replicas across zones**:
+**Distribution of Service replicas across zones**:
 When a service is deployed on the nodeTypes which are spanning zones, the replicas are placed to ensure they land up in separate zones. This is ensured as the fault domain’s on the nodes present in each of these nodeTypes are configured with the zone information (i.e FD = fd:/zone1/1 etc..). For example: for 5 replicas or instances of a service the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
 
 **User Service Replica Configuration**:
@@ -47,17 +45,13 @@ Stateful user services deployed on the cross availability zone nodeTypes should 
 **Zone down scenario**:
 When a zone goes down, all the nodes in that zone will appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not yet achieved and since the VM count is still more than min target replica size. Subsequently, Service Fabric load balancer will bring up replicas in the working zones to match the configured target replica count. At this point the services will appear healthy. When the zone which was down comes back up the load balance will again spread all the service replicas evenly across all the zones.
 
-## Networking requirements
-For more information see [networking requirements](https://docs.microsoft.com/en-us/azure/service-fabric/how-to-managed-cluster-networking)
-
-make edit in referenced page to include this note
->[!NOTE]
-> For managed clusters the NSG is configured to allow all outbound traffic by default. The NSG rules can be modified to meet your requirements.
+## Networking Configuration
+For more information see [Configure network settings for Service Fabric managed clusters](https://docs.microsoft.com/en-us/azure/service-fabric/how-to-managed-cluster-networking)
 
 ## Enabling a zone resilient Azure Service Fabric managed cluster
-To enable a zone resilient Azure Service Fabric managed cluster you must include the following value in the managed cluster resource definition.
+To enable a zone resilient Azure Service Fabric managed cluster you must include the following in the managed cluster resource definition.
 
-* The value **ZonalResiliency** property, which specifies if the cluster is zone resilient or not.
+* The **ZonalResiliency** property, which specifies if the cluster is zone resilient or not.
 
 ```json
 {
@@ -67,7 +61,7 @@ To enable a zone resilient Azure Service Fabric managed cluster you must include
     
 }
 ```
-
+[sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
-[sf-multi-az-nodes]: ./media/service-fabric-cross-availability-zones/sf-multi-az-nodes.png
+[sfmc-multi-az-nodes]: ./media/how-to-managed-cluster-availability-zones/sfmc-multi-az-nodes.png

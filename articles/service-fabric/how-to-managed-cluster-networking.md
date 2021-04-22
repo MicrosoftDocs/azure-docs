@@ -1,12 +1,12 @@
 ---
-title: Configure network settings for Service Fabric managed clusters (preview)
+title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load balancing rules, and more.
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/22/2021
 ---
-# Configure network settings for Service Fabric managed clusters (preview)
+# Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of mandatory rules for essential cluster functionality, and a few optional rules which are intended to make customer configuration easier.
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of mandatory rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier.
 
 Beyond the default networking configuration, you can modify the networking rules to meet the needs of your scenario.
 
