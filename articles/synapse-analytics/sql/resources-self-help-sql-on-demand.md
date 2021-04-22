@@ -68,6 +68,77 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
+## Query fails with error while handling an external file. 
+
+If your query fails with the error message “error handling external file: Max errors count reached’, it means that there is a mismatch of a specified column type and the data that needs to be loaded. 
+To get more information about the error and which rows and columns to look at, change the parser version from ‘2.0’ to ‘1.0’. 
+
+### Example
+If you would like to query the file ‘names.csv’ with this query 1, Synapse SQL Serverless will return with this error. 
+
+names.csv
+```csv
+Id, First name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+5,Eva
+```
+
+Query 1
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='2.0',
+       FIELDTERMINATOR =';',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] SMALLINT, 
+    [Text] VARCHAR (1) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+causes:
+```Error handling external file: ‘Max error count reached’. File/External table name: [filepath].```
+
+As soon as parser version is changed from version 2.0 to version 1.0, the error messages help to identify the problem. The new error message is now instead: 
+
+```Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]```
+
+Truncation tells us that our column type is too small to fit our data. The longest first name in this ‘names.csv’ file has 7 characters. Therefore, the according data type to be used should be at least VARCHAR(7). 
+The error is caused by this line of code: 
+
+```sql 
+    [Text] VARCHAR (1) COLLATE Latin1_General_BIN2
+```
+Changing the query accordingly resolves the error: After debugging, change the parser version to 2.0 again to achieve maximum performance. Read more about when to use which parser version [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-openrowset) 
+
+```sql 
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='2.0',
+        FIELDTERMINATOR =';',
+        FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] SMALLINT, 
+    [Text] VARCHAR (7) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
 ## Next steps
 
 Review the following articles to learn more about how to use serverless SQL pool:
