@@ -23,7 +23,7 @@ ms.service: digital-twins
 
 <Add later: how to access it in the portal, any other setup steps>
 
-## Query
+## Query your digital twin graph
 
 You can use the **QUERY EXPLORER** panel to perform [queries](concepts-query-language.md) on your graph.
 
@@ -34,7 +34,7 @@ Enter the query you want to run and select the **Run Query** button. This will l
 >[!NOTE]
 > Query results containing relationships can only be rendered in the **TWIN GRAPH** panel if the results include at least one twin as well. While queries that return only relationships are possible in Azure Digital Twins, you can only view them in Azure Digital Twins Explorer by using the [Output panel](#advanced-settings).
 
-### Overlay results
+### Overlay query results
 
 You can check the **Overlay results** box before running your query if you'd like the results to be highlighted from what is currently being shown in the **TWIN GRAPH** panel, instead of completely replacing the panel's contents with the new query results.
 
@@ -42,7 +42,7 @@ You can check the **Overlay results** box before running your query if you'd lik
 
 If the query result includes something that is not currently being shown in the **TWIN GRAPH** panel, the element will be added onto the existing view.
 
-### Saved queries
+### Save and rerun queries
 
 Queries can be saved in local storage in your browser, making them easy to select and rerun.
 
@@ -62,7 +62,7 @@ To delete a saved query, select the **X** icon next to the name of the query whe
 >[!TIP]
 >For large graphs, it's suggested to query only a limited subset and then load the remainder of the graph as required. You can double-click on a twin in the **TWIN GRAPH** panel to retrieve additional related nodes.
 
-## Explore twins and the TWIN GRAPH
+## Explore the TWIN GRAPH
 
 The **TWIN GRAPH** panel allows you to explore the twins and relationships in your instance.
 
@@ -71,13 +71,10 @@ The **TWIN GRAPH** panel allows you to explore the twins and relationships in yo
 You can use this panel to [view your twins and relationships](#view-twins-and-relationships).
 
 The TWIN GRAPH panel also provides several abilities to customize your graph viewing experience:
-* [Edit layout](#edit-layout)
-* [Control graph expansion](#control-expansion)
-* [Zoom and center](#zoom-and-center)
-* [Highlight](#highlight)
-* [Filter](#filter)
-* [Show and hide elements](#show-and-hide-elements)
-* [View tooltips](#view-tooltips)
+* [Edit twin graph layout](#edit-twin-graph-layout)
+* [Control twin graph expansion](#control-twin-graph-expansion)
+* [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
+* [Filter and highlight twin graph elements](#filter-and-highlight-twin-graph-elements)
 
 ### View twins and relationships
 
@@ -86,13 +83,13 @@ Run a query using the [QUERY EXPLORER](#query) to see the twins and relationship
 >[!TIP]
 >The query to display all twins and relationships is `SELECT * FROM digitaltwins`.
 
-#### View properties
+#### View twin and relationship properties
 
-To view the property values of a twin or a relationship, select the element in the **TWIN GRAPH** and use the **Toggle property inspector** button to expand the **PROPERTIES** panel. This panel will display all the properties associated with the element, along with their values. It also includes default values for properties that have not yet been set.
+To view the property values of a twin or a relationship, select the twin or relationship in the **TWIN GRAPH** and use the **Toggle property inspector** button to expand the **PROPERTIES** panel. This panel will display all the properties associated with the element, along with their values. It also includes default values for properties that have not yet been set.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The FactoryA twin is selected, and the PROPERTIES panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-#### View relationships involving a twin
+#### View a twin's relationships
 
 You can also quickly view the code of all relationships that involve a certain twin (including incoming and outgoing relationships).
 
@@ -100,7 +97,7 @@ To do this, right-click a twin in the graph, and choose **Get relationships**. T
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-get-relationships.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays a Relationship Information modal showing Incoming and Outgoing relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-get-relationships.png":::
 
-### Edit layout
+### Edit twin graph layout
 
 You can rearrange the twins into different configurations by clicking and dragging them around the TWIN GRAPH screen.
 
@@ -108,7 +105,7 @@ You can also apply one of several layout algorithms to the graph from the option
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Run Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, and Klay." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png":::
 
-### Control expansion
+### Control twin graph expansion
 
 When a twin is selected, the graph will fetch its relationships and related twins. You can control this expansion by setting a size and direction for the expansion from a selected twin.
 
@@ -121,20 +118,8 @@ To set the number of layers to expand, use the **Expansion Level** option. This 
 To indicate which types of relationships to follow when expanding, use the **Expansion Mode** button. This allows you to select from just incoming, just outgoing, or both incoming and outgoing relationships.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-mode.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Expansion Mode button is highlighted, showing a menu with the options In, Out, and In/Out." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-mode.png":::
- 
-### Zoom and center
 
-Use these zoom options to **Zoom in**, **Zoom out**, **Center**, or **Zoom to fit** when looking at the TWIN GRAPH.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-zoom.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The zoom and center options are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-zoom.png":::
-
-### Filter
-
-You can filter the twins and relationships that appear in the graph by text, by selecting this **Filter** icon:
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
-
-#### Show and hide elements
+### Show and hide twin graph elements
 
 You can toggle the option to hide twins or relationships from the graph view. 
 
@@ -148,25 +133,15 @@ To return to showing all twins after some have been hidden, use the **Show All**
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-show.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Show All and Show All Relationships buttons are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-show.png":::
 
-### Highlight
+### Filter and highlight twin graph elements
 
-You can select a twin in the graph to highlight that twin, its relationships, and its and connected twins in the graph. Similarly, you can select a relationship to highlight only that relationship.
+You can filter the twins and relationships that appear in the graph by text, by selecting this **Filter** icon:
 
-You can perform multi-select using the CTRL/CMD or SHIFT keys.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The Floor0 twin is selected, and the TWIN GRAPH has highlighted only that twin, its incoming and outgoing relationships, and the twins targeted by those relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
 
 You can also highlight the twins and graph that appear in the graph by text, by selecting this **Highlight** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png":::
-
-### View tooltips
-
-You can hover over a twin or relationship in the TWIN GRAPH panel to display more details about it in a tooltip box.
-
-Here is an example of the tooltip for the `FactoryA` twin in this example twin graph:
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-tooltip.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The FactoryA twin is highlighted, and there is a box near it showing its DTID, MODEL DISPLAY NAME, MODEL ID, DEFINED PROPERTIES, and DEFINED RELATIONSHIPS." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-tooltip.png":::
 
 ## Manage twins and graph
 
@@ -182,9 +157,9 @@ For information about the viewing experience for twins and relationships, see [E
 
 ### Create twins
 
-You can create a new digital twin from its model definition in the **MODELS** panel. Creating a twin through this process allows you to set the twin's **name**, but no other properties.
+You can create a new digital twin from its model definition in the **MODELS** panel.
 
-To create a basic twin from a model, find that model in the list and choose the **Create a Twin** icon next to the model name. You'll be asked to enter a name for the new twin, which must be unique. Then save the twin, which will add it to your graph.
+To create a twin from a model, find that model in the list and choose the **Create a Twin** icon next to the model name. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
 :::row:::
     :::column:::
@@ -194,19 +169,17 @@ To create a basic twin from a model, find that model in the list and choose the 
     :::column-end:::
 :::row-end:::
 
-To create a twin that's instantiated with properties,
-
-<How to create a twin instantiated with properties?>
+To add property values to your twin, see [Edit twins and relationships](#edit-twins-and-relationships).
 
 ### Create relationships
 
-<How to create relationships? (original icon appears to be missing)>
+To create a relationship between two twins, start by selecting the source twin for the relationship in the **TWIN GRAPH** window. Next, hold down a CTRL/CMD or SHIFT key while you select a second twin to be the target of the relationship.
 
-To create a relationship between two twins, start by selecting the source twin for the relationship in the **TWIN GRAPH** window. 
+Once the two twins are simultaneously selected, right-click either one of the twins. This will bring up a menu with an option to **Add relationships** between them.
 
-Next, hold down a CTRL/CMD or SHIFT key while you select a second twin to be the target of the relationship.
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The FactoryA and Consumer twins are selected, and a menu shows the option to Add relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
-Once the two twins are multi-selected, click on the **Create Relationship** button and select the type of relationship to create between them. The types of relationships you can create between the twins are defined in the DTDL model definition for the source twin. 
+This will bring up the **Create Relationship** dialog, which shows the source twin and target twin of the relationship, followed by a **Relationship** dropdown menu that contains the types of relationship that the source twin can have (defined in its DTDL model). Select an option for the relationship type, and **Save** the new relationship.
 
 ### Edit twins and relationships
 
@@ -245,12 +218,9 @@ The **MODEL GRAPH** panel:
 You can use these panels to [view your models](#view-models).
 
 The MODEL GRAPH panel also provides several abilities to customize your graph viewing experience:
+* [Edit model graph layout](#edit-model-graph-layout)
+* [Filter and highlight model graph elements](#filter-and-highlight-model-graph-elements)
 * [Upload model images](#upload-model-images) to represent models in the graphs
-* [Edit layout](#edit-layout-1)
-* [Zoom and center](#zoom-and-center-1)
-* [Highlight](#highlight-1)
-* [Filter](#filter-1)
-* [View tooltips](#view-tooltips-1)
 
 ### View models
 
@@ -273,6 +243,28 @@ To see the full definition of a model, find that model in the **MODELS** pane an
 You can also view a model's full definition by selecting it in the **MODEL GRAPH**, and using the **Toggle model details** button to expand the **MODEL DETAIL** panel. This panel will also display the full DTDL code for the model.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The Floor model is selected, and the MODEL DETAILS panel is expanded, showing the DTDL code of the model." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png":::
+
+### Edit model graph layout
+
+You can rearrange the models into different configurations by clicking and dragging them around the MODEL GRAPH screen.
+
+You can also apply one of several layout algorithms to the model graph from the options in the **Run Layout** menu. 
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The Run Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
+
+### Filter and highlight model graph elements
+
+You can filter the types of connections that appear in the MODEL GRAPH. Turning off one of the connection types via the switches in this menu will prevent that connection type from displaying in the graph.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The filter menu for Relationships, Inheritance, and Components are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png":::
+
+You can also filter the models and connections that appear in the graph by text, by selecting this **Filter** icon:
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png":::
+
+You can highlight the models and connections that appear in the graph by text, by selecting this **Highlight** icon:
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png":::
 
 ### Upload model images
 
@@ -312,52 +304,6 @@ Then, to upload the images at the same time, use the **Upload Model Images** ico
     :::column-end:::
 :::row-end:::
 
-### Edit layout
-
-You can rearrange the models into different configurations by clicking and dragging them around the MODEL GRAPH screen.
-
-You can also apply one of several layout algorithms to the model graph from the options in the **Run Layout** menu. 
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The Run Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
-
-### Zoom and center
-
-Use these zoom options to **Zoom in**, **Zoom out**, or **Zoom to fit** when looking at the MODEL GRAPH.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-zoom.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The zoom options are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-zoom.png":::
-
-You can also right-click a connection in the graph to center that connection, its source, or its destination in the MODEL GRAPH window. This can help with navigation of larger model graphs.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-right-click-connection.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. A relationship is highlighted, and there is a box near it showing Show source, Show destination, and Scale to relationship." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-right-click-connection.png":::
-
-### Highlight
-
-You can select a model in the MODEL GRAPH to highlight that model, its connections, its and connected models in the graph. Similarly, you can select a connection to highlight only that connection.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The Floor model is selected, and the MODEL GRAPH has highlighted only that model and its incoming and outgoing connections." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph.png":::
-
-You can also highlight the models and connections that appear in the graph by text, by selecting this **Highlight** icon:
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png":::
-
-### Filter
-
-You can filter the types of connections that appear in the MODEL GRAPH. Turning off one of the connection types via the switches in this menu will prevent that connection type from displaying in the graph.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The filter menu for Relationships, Inheritance, and Components are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png":::
-
-You can also filter the models and connections that appear in the graph by text, by selecting this **Filter** icon:
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png":::
-
-### View tooltips
-
-You can hover over a model or connection in the MODEL GRAPH panel to display more details about it in a tooltip box.
-
-Here is an example of the tooltip for the `consumerRelationship` relationship in this example model graph:
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-tooltip.png" alt-text="Screenshot of Azure Digital Twins Explorer MODEL GRAPH panel. The consumerRelationship relationship is highlighted, and there is a box near it showing its SOURCE ID, RELATIONSHIP NAME, TARGET ID, and PROPERTIES." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-tooltip.png":::
-
 ## Manage models
 
 You can use the **MODELS** panel on the left side of the Azure Digital Twins Explorer screen to perform management activities on the entire set of models, or on individual models. 
@@ -365,29 +311,17 @@ You can use the **MODELS** panel on the left side of the Azure Digital Twins Exp
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The MODELS panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel.png":::
 
 With this panel, you can complete the following model management activities:
-* [Download models](#download-models) to refresh the panel and load the list of all models into Azure Digital Twins Explorer
 * [Upload models](#upload-models) into your Azure Digital Twins instance
 * [Delete models](#delete-models) from your instance
+* [Refresh models](#refresh-models) to reload the list of all models into this panel
 
 For information about the viewing experience for models, see [Explore models and the MODEL GRAPH](#explore-models-and-the-model-graph).
- 
-### Download models
-
-When you open Azure Digital Twins Explorer, the MODELS panel should automatically show all available models in your environment. 
-
-However, you can manually refresh the panel at any time to reload the list of all models in your Azure Digital Twins instance. To do this, select the **Download models** icon of an arrow pointing down out of a cloud. 
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-download.png" alt-text="Screenshot of Azure Digital Twins Explorer MODELS panel. The Download models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-download.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
 
 ### Upload models
 
-To upload a model, select the **Upload a model** icon showing an arrow pointing up into a cloud.
+You can upload models from your machine by selecting them individually, or by uploading an entire folder of models at once.
+
+To upload one or more models that are individually selected, select the **Upload a model** icon showing an arrow pointing up into a cloud.
 
 :::row:::
     :::column:::
@@ -397,7 +331,19 @@ To upload a model, select the **Upload a model** icon showing an arrow pointing 
     :::column-end:::
 :::row-end:::
 
-In the file selector box that appears, navigate on your machine to the model(s) you want to upload. You can select one or more JSON model files and choose **Open** to upload them.
+In the file selector box that appears, navigate on your machine to the model(s) you want to upload. You can select one or more JSON model files and select **Open** to upload them.
+
+To upload a folder of models, including everything that's inside it, select the **Upload a directory of Models** icon showing a file folder.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png" alt-text="Screenshot of Azure Digital Twins Explorer MODELS panel. The Upload a directory of Models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+In the file selector box that appears, navigate on your machine to a folder containing JSON model files. Select **Open** to upload that top-level folder and all of its contents.
 
 >[!IMPORTANT]
 >If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them both in the same import and Azure Digital Twins will infer the order to upload them in.
@@ -428,11 +374,25 @@ To delete all of the models in your instance at once, choose the **Delete All Mo
     :::column-end:::
 :::row-end:::
 
+### Refresh models
+
+When you open Azure Digital Twins Explorer, the MODELS panel should automatically show all available models in your environment. 
+
+However, you can manually refresh the panel at any time to reload the list of all models in your Azure Digital Twins instance. To do this, select the **Refresh models** icon of an arrow pointing down out of a cloud. 
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png" alt-text="Screenshot of Azure Digital Twins Explorer MODELS panel. The Refresh models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
 ## Import/export graph
 
-From the **TWIN GRAPH** panel, you have the options to [import](#import) and [export](#export) graph features.
+From the **TWIN GRAPH** panel, you have the options to [import](#import-graph) and [export](#export-graph-and-models) graph features.
 
-### Import
+### Import graph
 
 You can use the import feature to add twins, relationships, and models to your instance. This can be useful for creating many twins, relationships, and/or models at once.
 
@@ -442,7 +402,7 @@ The first step in importing a graph is creating a file representing the twins an
 
 The import file can be in either of these two formats:
 * The **custom Excel-based format** described in the remainder of this section. This allows you to upload twins and relationships.
-* The **JSON-based format** generated on [graph export](#export). This can contain twins, relationships, and/or models.
+* The **JSON-based format** generated on [graph export](#export-graph-and-models). This can contain twins, relationships, and/or models.
 
 To create a custom graph in Excel, use the following format.
 
@@ -478,7 +438,7 @@ If import is successful, a modal window will display the number of models, twins
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays an Import Successful modal showing 4 twins imported and 2 relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
 
-### Export
+### Export graph and models
 
 You can use the export feature to export partial or complete graphs, including models, twins, and relationships. Export serializes the twins and relationships from the most recent query results, as well as all models in the instance, to a JSON-based format that you can download to your machine.
 
@@ -494,31 +454,22 @@ Once the TWIN GRAPH panel is showing the portion of the graph you want to downlo
 This action enables a **Download** link in the TWIN GRAPH box. Select it to download a JSON-based representation of the query result, and all the models in your instance, to your machine.
 
 >[!TIP]
->This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import) feature.
+>This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import-graph) feature.
 
 ## Advanced settings
 
-You can enable several advanced setting options for Azure Digital Twins Explorer using the **Settings** cog in the top toolbar:
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/settings.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Settings icon is selected." lightbox="media/how-to-use-azure-digital-twins-explorer/settings.png":::
+You can enable several advanced setting options for Azure Digital Twins Explorer.
 
 Clicking the settings cog in the top right corner allows the configuration of the following advanced features:
-* **Eager Loading**: When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
-* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh.
-* **Console**: This feature enables display of a console window, capable of using simple shell functions for working with the graph.
-* **Output**: This feature enables display of an output window, which shows a diagnostic trace of operations.
+* **Eager Loading**: *Accessible via the **Settings** cog in the top toolbar*. When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
+* **Caching**: *Accessible via the **Settings** cog in the top toolbar*. When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh.
+* **Console**: *Accessible via the **Settings** cog in the top toolbar*. This feature enables display of a console window, capable of using simple shell functions for working with the graph.
+* **Output**: *Accessible via the **Settings** cog in the top toolbar*. This feature enables display of an output window, which shows a diagnostic trace of operations.
+* **Customize panel layout**: You can edit the position of the panels that make up Azure Digital Twins Explorer (QUERY EXPLORER, MODELS, TWIN GRAPH, MODEL GRAPH). To move a panel to a different location, click and hold the panel name, and drag it to its new desired position.
 
-<Any other toolbar settings we want to describe? (Like Azure Digital Twins URL--not sure if that will still be there once this is in portal)>
+    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Screenshot of Azure Digital Twins Explorer. The names of the QUERY EXPLORER, MODELS, TWIN GRAPH, and MODEL GRAPH panels are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
 
-### Reorganize panels
-
-You can edit the position of the panels that make up Azure Digital Twins Explorer (QUERY EXPLORER, MODELS, TWIN GRAPH, MODEL GRAPH).
-
-To move a panel to a different location, click and hold the panel name, and drag it to its new desired position.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Screenshot of Azure Digital Twins Explorer. The names of the QUERY EXPLORER, MODELS, TWIN GRAPH, and MODEL GRAPH panels are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
-
-The panel positions will be reset upon refresh of the browser window.
+    The panel positions will be reset upon refresh of the browser window.
 
 ## Known limitations
 
