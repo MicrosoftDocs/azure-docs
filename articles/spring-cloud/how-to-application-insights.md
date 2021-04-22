@@ -70,11 +70,11 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
   [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
 
-* In the left navigation pane, click **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
+* In the left navigation pane, click **Metrics** and select the namespace, you'll see both Spring Boot metrics and custom metrics, if any.
 
   [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
-* In the left navigation pane, click **Live Metrics** to see the real time metrics for different dimensions.
+* In the left navigation pane, click **Live Metrics** to see the real-time metrics for different dimensions.
 
   [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
