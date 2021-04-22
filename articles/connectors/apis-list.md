@@ -1,6 +1,6 @@
 ---
 title: Connectors for Azure Logic Apps
-description: Overview of connectors for building automated workflows with Azure Logic Apps. Learn how different types of connectors, triggers and actions work. 
+description: Overview about using connectors to build automated workflows with Azure Logic Apps. Learn how different triggers, actions, and connectors work.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
@@ -11,36 +11,36 @@ ms.custom: contperf-fy21q4
 
 # Connectors for Azure Logic Apps
 
-In Azure Logic Apps, *connectors* help you quickly access events, data, and actions from other apps, services, systems, protocols, and platforms. You can often do these tasks without additional code. You can also use connectors to build Logic Apps workflows that use this information in cloud-based, on-premises or hybrid environments.
+In Azure Logic Apps, *connectors* help you quickly access data, events, and other resources from other apps, services, systems, protocols, and platforms. When you use connectors, you can build logic app workflows that use, process, and integrate information across cloud-based, on-premises, and hybrid environments - often without having to write any code.
 
-There are hundreds of connectors available for Logic Apps. As a result, this documentation focuses on some of the most popular and commonly used connectors for Logic Apps. For complete information about connectors across Logic Apps, Microsoft Power Automate, and Microsoft Power Apps, see [Connectors documentation](/connectors). 
+You can choose from hundreds of connectors to use in your workflows. As a result, this documentation focuses on some popular and commonly used connectors for Logic Apps. For complete information about connectors across Logic Apps, Microsoft Power Automate, and Microsoft Power Apps, review the [Connectors documentation](/connectors). For information on pricing, review the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-For information on pricing, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
-
-To integrate your logic app with a service or API that doesn't have a connector, you can either call the service over a protocol, such as HTTP, or [create a custom connector](#custom-apis-and-connectors).
+> [!NOTE]
+> To integrate your workflow with a service or API that doesn't have a connector, you can either call 
+> the service over a protocol, such as HTTP, or [create a custom connector](#custom-apis-and-connectors).
 
 ## What are connectors?
 
-In Azure Logic Apps, connectors provide *triggers* and *actions* that you use to perform tasks in your logic app's workflow. Each trigger and action has properties that you can configure. Some triggers and actions require that you [create and configure connections](#connection-configuration) so that your workflow can access a specific service or system.
+Connectors provide *triggers* and *actions* that you use to perform tasks in your logic app's workflow. Each trigger and action has properties that you can configure. Some triggers and actions require that you [create and configure connections](#connection-configuration) so that your workflow can access a specific service or system.
 
 ### Triggers
 
-A *trigger* is always the first step in any workflow, which specifies the event that starts the workflow. There are multiple types of triggers:
+A *trigger* specifies the event that starts the workflow and is always the first step in any workflow. Each trigger also follows a specific firing pattern that controls how the trigger monitors and responds to events. Usually, a trigger follows the *polling* pattern or *push* pattern, but sometimes, a trigger is available in both versions.
 
 - *Polling triggers* regularly check a specific service or system on a specified schedule to check for new data or a specific event. If new data is available, or the specific event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
-- *Push triggers* listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your logic app. This new instance can then use the data that's passed as input.
+- *Push triggers* listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
 
-For example, you might want to build a workflow that does something when a file is uploaded to your FTP server. You can add the FTP connector trigger named **When a file is added or modified**, as the first step in your workflow. You can then specify a schedule to regularly check for upload events.
+For example, you might want to build a workflow that does something when a file is uploaded to your FTP server. As the first step in your workflow, you can use the FTP trigger named **When a file is added or modified**, which follows the polling pattern. You can then specify a schedule to regularly check for upload events.
 
-A trigger also passes along any inputs and other required data into your workflow where later actions can reference and use that data throughout the workflow. For example, you might want to use the Office 365 Outlook trigger named **When a new email arrives**. You can configure this trigger to pass along the content from each new email, such as the sender, subject line, body, attachments, and so on. Then, you can process that information in your logic app using actions.
+A trigger also passes along any inputs and other required data into your workflow where later actions can reference and use that data throughout the workflow. For example, suppose you want to use Office 365 Outlook trigger named **When a new email arrives** to start a workflow when you get a new email. You can configure this trigger to pass along the content from each new email, such as the sender, subject line, body, attachments, and so on. Your workflow can then process that information by using other actions.
 
 ### Actions
 
-An *action* is an operation that follows the trigger and performs some kind of task in your workflow. You can use multiple actions in your logic app. For example, you might have a SQL trigger that detects new customer data in a SQL database. Your workflow can include a first SQL action that gets the customer data, followed by another action that's not necessarily a SQL action, that processes the data.
+An *action* is an operation that follows the trigger and performs some kind of task in your workflow. You can use multiple actions in your workflow. For example, you might start the workflow with a SQL trigger that detects new customer data in a SQL database. Following the trigger, your workflow can have a SQL action that gets the customer data. Following the SQL action, your workflow can have another action, not necessarily SQL, that processes the data.
 
 ## Connector categories
 
-In Logic Apps, there are usually built-in or managed connector versions of triggers and actions. A small number of triggers and actions are available in both versions. The specific versions depend on whether you're creating a multi-tenant logic app or a single-tenant logic app, which is currently available only in [Logic Apps Preview](../logic-apps/logic-apps-overview-preview.md).
+In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A small number of triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [Logic Apps Preview](../logic-apps/logic-apps-overview-preview.md).
 
 [Built-in triggers and actions](built-in.md) run natively on the Logic Apps runtime, don't require creating connections, and perform these kinds of tasks:
 
@@ -48,16 +48,16 @@ In Logic Apps, there are usually built-in or managed connector versions of trigg
 - [Organize and control your data](built-in.md#control-workflow).
 - [Manage or manipulate data](built-in.md#manage-or-manipulate-data).
 
-[Managed connectors](managed.md) are deployed, hosted, and managed by Microsoft. These connectors provide triggers and actions for cloud services, on-premises systems, or both. These include:
+[Managed connectors](managed.md) are deployed, hosted, and managed by Microsoft. These connectors provide triggers and actions for cloud services, on-premises systems, or both. Managed connectors are available in these categories:
 
 - [On-premises connectors](managed.md#on-premises-connectors) that help you access data and resources in on-premises systems.
-- [Enterprise connectors](managed.md#enterprise-connectors), which are versions of some Logic Apps connectors that provide access to enterprise systems.
-- [Integration account connectors](managed.md#integration-account-connectors)that support business-to-business (B2B) communication scenarios.
-- [Integration Service Environment (ISE) connectors](managed.md#ise-connectors) that are a small group of [managed connectors available only for ISEs](#ise-and-connectors).
+- [Enterprise connectors](managed.md#enterprise-connectors) that provide access to enterprise systems.
+- [Integration account connectors](managed.md#integration-account-connectors) that support business-to-business (B2B) communication scenarios.
+- [Integration service environment (ISE) connectors](managed.md#ise-connectors) that are a small group of [managed connectors available only for ISEs](#ise-and-connectors).
 
 ## Connection configuration
 
-Most connectors require that you first create a *connection* to the target service or system before you can use its triggers or actions in your logic app. To create a connection, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account in a logic app, you must authorize a connection to that account.
+Most connectors require that you first create a *connection* to the target service or system before you can use its triggers or actions in your workflow. To create a connection, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account.
 
 For connectors that use Azure Active Directory (Azure AD) OAuth, such as Office 365, Salesforce, or GitHub, you must sign into the service where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also [encrypted and securely stored in Azure](../security/fundamentals/encryption-overview.md).
 
@@ -76,11 +76,11 @@ For both kinds of triggers, if a recurrence doesn't specify a specific start dat
 
 ### Recurrence for built-in triggers
 
-Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. For troubleshooting help, see the [recurrence issues](#recurrence-issues) section.
+Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. For troubleshooting help, review the [recurrence issues](#recurrence-issues) section.
 
 ### Recurrence for connection-based triggers
 
-In recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior. These include:
+In recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 - Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 - Any failures or retries that the trigger incurs.
@@ -88,7 +88,7 @@ In recurring connection-based triggers, such as Office 365 Outlook, the schedule
 - Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
 - Other factors that can affect when the next run time happens.
 
-For troubleshooting help, see the [Recurrence issues](#recurrence-issues) section. 
+For troubleshooting help, review the [Recurrence issues](#recurrence-issues) section. 
 
 ### Recurrence issues
 
