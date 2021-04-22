@@ -96,7 +96,7 @@ The line crossing processor node enables you to trigger an event when an object 
 
 #### Video sink
 
-A video sink node enables you to save video and associated metadata to your Azure Video Analyzer cloud resource. Video can be recorded continuously or dis-continuously (based on events). Video sink node can cache video on the edge device if connectivity to cloud is lost and resume uploading when connectivity is restored. You can see the [continuous video recording]()<!--TODO, add a link--> article for details on how the properties of this node can be configured.
+A video sink node enables you to save video and associated metadata to your Azure Video Analyzer cloud resource. Video can be recorded continuously or dis-continuously (based on events). Video sink node can cache video on the edge device if connectivity to cloud is lost and resume uploading when connectivity is restored. You can see the [continuous video recording](continuous-video-recording.md) article for details on how the properties of this node can be configured.
 
 #### File sink
 
@@ -117,9 +117,9 @@ See [limitations on pipelines]()<!--TODO, add a link--> for additional rules on 
 
 Using a combination of the sources, processors, and sinks defined above, you can build pipelines for a variety of scenarios involving analysis of live video. Example scenarios are:
 
-* [Continuous video recording]()<!--TODO, add a link-->
-* [Event-based video recording]()<!--TODO, add a link-->
-* [Video Analysis without video recording]()<!--TODO, add a link-->
+* [Continuous video recording](continuous-video-recording.md) 
+* [Event-based video recording](event-based-video-recording-concept.md ) 
+* [Video analysis without video recording](analyze-live-video-without-recording.md) 
 
 ## Next steps
 
