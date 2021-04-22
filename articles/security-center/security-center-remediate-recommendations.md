@@ -25,22 +25,22 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 1. Once completed, a notification appears informing you whether the issue is resolved.
 
-## Quick fix remediation
+## Fix button
 
-To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a quick fix option.
+To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option.
 
-Quick fix helps you to quickly remediate a recommendation on multiple resources.
+**Fix** helps you quickly remediate a recommendation on multiple resources.
 
 > [!TIP]
-> Quick fix solutions are only available for specific recommendations. To find the recommendations that have an available quick fix, use the **Response actions** filter for the list of recommendations:
+> The **Fix** feature is only available for specific recommendations. To find recommendations that have an available fix, use the **Response actions** filter for the list of recommendations:
 > 
-> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use the filters above the recommendations list to find recommendations that have the quick fix option":::
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use the filters above the recommendations list to find recommendations that have the Fix option":::
 
-To implement a quick fix solution:
+To implement a **Fix**:
 
-1. From the list of recommendations that have the **Quick Fix!** label, select a recommendation.
+1. From the list of recommendations that have the **Fix** action icon, :::image type="icon" source="media/security-center-remediate-recommendations/fix-icon.png" border="false":::, select a recommendation.
 
-    [![Select Quick Fix!](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/security-center-remediate-recommendations/security-center-recommendations-fix-action.png#lightbox":::
 
 1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Remediate**.
 
@@ -52,7 +52,7 @@ To implement a quick fix solution:
     ![Quick fix](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
-    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the quick fix remediation.
+    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the **Fix**.
 
 1. Insert the relevant parameters if necessary, and approve the remediation.
 
@@ -61,7 +61,7 @@ To implement a quick fix solution:
 
 1. Once completed, a notification appears informing you if the remediation succeeded.
 
-## Quick fix remediation logging in the activity log <a name="activity-log"></a>
+## Fix actions logged to the activity log <a name="activity-log"></a>
 
 The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/management/view-activity-logs.md).
 
