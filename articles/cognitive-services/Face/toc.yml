@@ -15,14 +15,14 @@
   href: /samples/browse/?products=azure&term=face
 - name: How-to guides
   items:
-  - name: Identify faces
+  - name: Identity verification
     items:
     - name: Detect and analyze faces
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Specify a face recognition model version
-      href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Specify a face detection model version
       href: Face-API-How-to-Topics/specify-detection-model.md
+    - name: Specify a face recognition model version
+      href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Add faces to a group
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Use the large-scale feature
