@@ -68,7 +68,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: View pre-deployment checklist
+          - text: View deployment checklist
             url: azure-stack-edge-gpu-deploy-checklist.md        
           - text: Azure Stack Edge Pro GPU
             url: azure-stack-edge-gpu-deploy-prep.md
