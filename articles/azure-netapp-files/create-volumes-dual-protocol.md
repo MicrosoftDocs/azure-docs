@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/22/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -128,6 +128,9 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
+    *  Customize **Unix Permissions** if needed. The default setting is `0770`.   
+        Registration and considerations apply for this feature. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
+
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
     ![Specify dual-protocol](../media/azure-netapp-files/create-volume-protocol-dual.png)
@@ -168,5 +171,6 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 ## Next steps  
 
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
+* [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Troubleshoot LDAP volume issues](troubleshoot-ldap-volumes.md)

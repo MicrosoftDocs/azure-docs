@@ -7,7 +7,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 04/22/2021
 ---
 # Configure export policy for an NFS volume
 
@@ -42,6 +42,12 @@ You can create up to five export policy rules.
 
       ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
+    * **Chown Mode**:	Modify the change ownership mode as needed.  
+        Registration and considerations apply for using this feature. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
+
+      ![Screenshot that shows the Chown Mode option.](../media/azure-netapp-files/chown-mode-export-policy.png) 
+
 ## Next steps 
-* [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)
