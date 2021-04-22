@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 04/16/2021
+ms.date: 04/22/2021
 ---
 
 # How to create a virtual machine using your own image
@@ -49,13 +49,15 @@ All images in the Azure Marketplace must be reusable in a generic fashion. To ac
 
 There are three ways to bring your image into Azure:
 
-1. Upload the vhd to a Shared Image Gallery (SIG).
+1. Upload the vhd either:
+    1. to a shared image gallery
+    1. as a shared image in shared image gallery
 1. Upload the vhd to an Azure storage account.
 1. Extract the vhd from a Managed Image (if using image building services).
 
 The following three sections describe these options.
 
-### Option 1: Upload the VHD as Shared Image Gallery
+### Option 1: Upload the VHD as shared image gallery
 
 1. Upload vhd(s) to Storage Account.
 2. On the Azure portal, search for **Deploy a custom template**.
