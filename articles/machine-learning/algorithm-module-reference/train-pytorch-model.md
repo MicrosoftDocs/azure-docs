@@ -41,9 +41,10 @@ Currently, **Train PyTorch Model** module supports both single node and distribu
 
 6.  For **Warmup step number**, specify how many epochs you'd like to warm up the training, in case initial learning rate is slightly too large to start converging, by default 0.
 
-7.  For **Learning rate**, specify a value for the *learning rate*. Learning rate controls the size of the step that is used in optimizer like sgd each time the model is tested and corrected.
+7.  For **Learning rate**, specify a value for the *learning rate*, and the default value is 0.001. Learning rate controls the size of the step that is used in optimizer like sgd each time the model is tested and corrected.
 
-    By making the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By making the rate larger, you can converge faster, at the risk of overshooting the true minima. by default 0.001.
+    By setting the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By setting the rate larger, you can converge faster, with the risk of overshooting the true minima.
+
     > [!NOTE]
     > If train loss becomes nan during training, which may be caused by too large learning rate, decreasing learning rate may help.
     > In distributed training, to keep gradient descent stable, the actual learning rate is calculated by `lr * torch.distributed.get_world_size()` because batch size of the process group is world size times that of single process.
@@ -77,6 +78,7 @@ Click on this module 'Metrics' tab and see training metric graphs, such as 'Trai
 ### How to enable distributed training
 
 To enable distributed training for **Train PyTorch Model** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+
 > [!NOTE]
 > **Multiple GPUs** are required to activate distributed training because NCCL backend Train PyTorch Model module uses needs cuda.
 

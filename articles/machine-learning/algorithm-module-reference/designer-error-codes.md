@@ -1598,9 +1598,15 @@ Search **in azureml_main** in **70_driver_logs** of **Execute Python Script Modu
 
 ## Distributed training
 
-Currently designer supports distributed training for [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) module and [Train PyTorch Model](train-pytorch-model.md) module.
+Currently designer supports distributed training for and [Train PyTorch Model](train-pytorch-model.md) module.
+
+<!-- [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) module  -->
 
 If the module enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
+
+  The following example shows that the **Node count** of run settings is larger than available node count of compute cluster.
+  
+  ![Screenshot showing node count error](./media/module/distributed-training-error1.png)
 
   The following example shows that **Process count per node** is larger than **Processing Unit** of the compute.
 

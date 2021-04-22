@@ -16,7 +16,7 @@ This article describes how to use the **Train Wide & Deep Recommender** module i
 
 The **Train Wide & Deep Recommender** module reads a dataset of user-item-rating triples and, optionally, some user and item features. It returns a trained Wide & Deep recommender.  You can then use the trained model to generate rating predictions or recommendations by using the [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md) module.  
 
-Currently, **Train Wide & Deep Recommender** module supports both single node and distributed training.
+<!-- Currently, **Train Wide & Deep Recommender** module supports both single node and distributed training. -->
 
 ## More about recommendation models and the Wide & Deep recommender  
 
@@ -135,7 +135,7 @@ For an example, a typical set of item features might look like this:
 17.  Run the pipeline.
 
 
-## Distributed training
+<!-- ## Distributed training
 
 In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Wide & Deep Recommender** module.
 
@@ -177,7 +177,7 @@ The following example shows a common error that is **Process count per node** is
 ## Results
 
 After pipeline run is completed, to use the model for scoring, connect the [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) to [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md), to predict values for new input examples.
-
+ -->
 
 ##  Technical notes
 
