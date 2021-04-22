@@ -30,7 +30,7 @@ You can perform management tasks on delegated resources either directly in the p
 
 The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) will show the `TenantId` for the managing tenant by default. You can use the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
 
-Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az_account_list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
 
 In the Azure REST API, the [Subscriptions - Get](/rest/api/resources/subscriptions/get) and [Subscriptions - List](/rest/api/resources/subscriptions/list) commands include `ManagedByTenant`.
 

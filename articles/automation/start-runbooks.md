@@ -4,7 +4,8 @@ description: This article tells how to start a runbook in Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Start a runbook in Azure Automation
 
