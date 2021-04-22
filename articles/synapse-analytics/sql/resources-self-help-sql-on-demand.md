@@ -74,11 +74,11 @@ If your query fails with the error message “error handling external file: Max 
 To get more information about the error and which rows and columns to look at, change the parser version from ‘2.0’ to ‘1.0’. 
 
 ### Example
-If you would like to query the file ‘names.csv’ with this query 1, Synapse SQL Serverless will return with this error. 
+If you would like to query the file ‘names.csv’ with this query 1, Synapse SQL Serverless will return with such error. 
 
 names.csv
 ```csv
-Id, First name, 
+Id,first name, 
 1,Adam
 2,Bob
 3,Charles
@@ -119,7 +119,7 @@ The error is caused by this line of code:
 ```sql 
     [Text] VARCHAR (1) COLLATE Latin1_General_BIN2
 ```
-Changing the query accordingly resolves the error: After debugging, change the parser version to 2.0 again to achieve maximum performance. Read more about when to use which parser version [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-openrowset) 
+Changing the query accordingly resolves the error: After debugging, change the parser version to 2.0 again to achieve maximum performance. Read more about when to use which parser version [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-openrowset). 
 
 ```sql 
 SELECT
@@ -139,6 +139,96 @@ FROM
 
     AS [result]
 ```
+
+## Query fails with error: Websocket connection was closed unexpectedly.
+
+If your query fails with the error message: ```Websocket connection was closed unexpectedly```, it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
+
+To resolve this, rerun this query. If this message occurs often in your environment, advise help from your network administrator, check firewall settings and [visit this troubleshooting guide for more information](https://docs.microsoft.com/en-us/azure/synapse-analytics/troubleshoot/troubleshoot-synapse-studio). 
+
+If the issue still continues, create a [support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure Portal and try [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) for the same queries instead of Synapse Studio for further investigation.
+
+## Query fails with conversion error
+If your query fails with the error message 
+```bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]```, it means that your data types did not match the actual data for row number n and column m. 
+
+For instance, if you expect only integers in your data but in row n there might be a string, this is the error message you will get. 
+To resolve this, inspect the file and the according data types you did choose. Also check if your row delimiter and field terminator settings are correct. The following example shows how inspecting can be done using VARCHAR as column type. 
+Read more on field terminators, row delimiters and escape quoting characters [here](query-single-csv-file.md). 
+
+### Example 
+If you would like to query the file ‘names.csv’ with this query 1, Synapse SQL Serverless will return with such error. 
+
+names.csv
+```csv
+Id, first name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+five,Eva
+```
+
+Query 1:
+```sql 
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =',',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] SMALLINT, 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
+causes this error: 
+```Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]```
+
+It is necessary to browse the data and make an informed decision to handle this. 
+To look at the data that causes this problem, the data type needs to be changed first. Instead of querying column “ID” with the data type “SMALLINT”, VARCHAR(100) is now used to analyze this issue. 
+Using this slightly changed Query 2, the data can now be processed and shows the list of names. 
+
+Query 2: 
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =',',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] VARCHAR(100), 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
+names.csv
+```csv
+Id, first name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+five,Eva
+```
+
+It looks like the data has unexpected values for ID in the fifth row. 
+In such circumstances it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention is not possible at application level and dealing with all kinds of data types for ID needs to be done, reasonable sized VARCHAR might be the only option here.
+
 
 ## Next steps
 
