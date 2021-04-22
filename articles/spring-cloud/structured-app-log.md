@@ -14,6 +14,7 @@ ms.custom: devx-track-java
 This article explains how to generate and collect structured application log data in Azure Spring Cloud. With proper configuration, Azure Spring Cloud provides useful application log query and analysis through Log Analytics.
 
 ## Log schema requirements
+
 To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics. 
 
 **JSON schema requirements:**
@@ -37,14 +38,17 @@ To improve log query experience, an application log is required to be in JSON fo
 * Log each JSON record in one line. 
 
 **Log record sample** 
+
  ```
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
 
 ## Generate schema-compliant JSON log  
+
 For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), such as [logback](http://logback.qos.ch/) and [log4j2](https://logging.apache.org/log4j/2.x/). 
 
 ### Log with logback 
+
 When using Spring Boot starters, logback is used by default. For logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+. 
 
 The procedure:
@@ -214,7 +218,9 @@ The procedure:
 After your application is properly set up, your application console log will be streamed to Log Analytics. The structure enables efficient query in Log Analytics.
 
 ### Check log structure in Log Analytics
+
 Use the following procedure:
+
 1. Go to service overview page of your service instance.
 2. Click `Logs` entry under `Monitoring` section.
 3. Run this query.
@@ -227,7 +233,8 @@ Use the following procedure:
 
 4. Application logs return as shown in the following image:
 
-![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
+   ![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
+
 
 ### Show log entries containing errors
 
@@ -243,6 +250,7 @@ AppPlatformLogsforSpring
 Use this query to find errors, or modify the query terms to find specific exception class or error code. 
 
 ### Show log entries for a specific traceId
+
 To review log entries for a specific tracing ID "trace_id", run the following query:
 
 ```
@@ -253,5 +261,6 @@ AppPlatformLogsforSpring
 | sort by AppTimestamp
 ```
 
-## Next Steps
+## Next steps
+
 * To learn more about the Log Query, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
