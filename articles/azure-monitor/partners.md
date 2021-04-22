@@ -109,7 +109,7 @@ If you are still using the previous manually configured integration, see the [do
 
 The Dynatrace OneAgent integrates with Azure VMs and App Services via the Azure extension mechanism. This way Dynatrace OneAgent can gather performance metrics about hosts, network, and services. Besides just displaying metrics, Dynatrace visualizes environments end-to-end. It shows transactions from the client side to the database layer. Dynatrace provides AI-based correlation of problems and fully integrated root-cause-analysis to give method level insights into code and database. This insight makes troubleshooting and performance optimizations much easier.
 
-[Dynatrack documentation](https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/)
+[Dynatrace documentation](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 
 
 ## Elastic

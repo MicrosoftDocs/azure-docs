@@ -112,7 +112,7 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 ---
 
 ## Assign permissions to the VM identity
-Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command:
+Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -135,7 +135,7 @@ Create a console app and install the required packages using the `dotnet` comman
 
 ### Install .NET Core
 
-To install .NET Core, go to the [.NET downloads](https://www.microsoft.com/net/download) page.
+To install .NET Core, go to the [.NET downloads](https://dotnet.microsoft.com/download) page.
 
 ### Create and run a sample .NET app
 

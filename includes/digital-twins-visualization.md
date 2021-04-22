@@ -11,9 +11,7 @@ ms.author: baanders
 
 While the primary way to interact with your Azure Digital Twins instance is through the [APIs and SDKs](../articles/digital-twins/how-to-use-apis-sdks.md), it can be helpful to see a visualization of the twins and graphs that you are creating in your instance.
 
-The [**Azure Digital Twins Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a tool for visualizing and working with Azure Digital Twins. Follow the instructions provided with the sample to download and run the application code. 
-
-This tool displays a visual representation of your digital twins and the graph that they create, among other creation and management activities.
+The [**Azure Digital Twins Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a tool for visualizing and working with Azure Digital Twins. This tool displays a visual representation of your digital twins and the graph that they create, among other creation and management activities.
 
 Here's a view of what the visualization looks like:
 

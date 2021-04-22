@@ -68,9 +68,11 @@ First, navigate to **Azure Digital Twins Explorer** in the [Azure portal](https:
 
 :::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-Select the **Run Query** button to run the default query to display all twins and relationships in the graph in the **QUERY EXPLORER** box. The full graph should now be visible in the **TWIN GRAPH** box.
+Select the **Run Query** button to run the default query to display all twins and relationships in the graph in the **QUERY EXPLORER** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
+
+The full graph should now be visible in the **TWIN GRAPH** box.
 
 Next, select the **Export Graph** icon in the **TWIN GRAPH** box that shows an arrow pointing down out of a cloud. This will enable you to download the models, twins, and graph in your solution to your machine.
 
