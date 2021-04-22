@@ -59,7 +59,7 @@
     - name: Delegation with Azure DNS
       href: dns-domain-delegation.md
     - name: FAQ
-      href: dns-faq.md
+      href: dns-faq.yml
     - name: DNS metrics and alerts
       href: dns-alerts-metrics.md
     - name: Reverse DNS
