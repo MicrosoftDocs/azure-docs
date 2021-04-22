@@ -95,7 +95,7 @@ Your administrator can make it possible for you to reset your password from the 
 
     ![Work or school account home page, showing highlighted Change password link](media/my-account-portal-sign-ins-page/android-change-password.png)
 
-1. If your sign-in is successful, you'll see the **Change password** page.
+1. If your sign-in is successful, you can update your password info on the **Change password** page.
 
     ![Recent activity page with old and new password entry](media/my-account-portal-sign-ins-page/android-password-page.png)
 
@@ -109,7 +109,7 @@ Each time you sign in to view or change security information, you must sign in t
 
     ![Work or school account home page, showing highlighted Update security info link](media/my-account-portal-sign-ins-page/android-update-security-info.png)
 
-1. If your sign-in is successful, you'll see the **Security info** page.
+1. If your sign-in is successful, you can update your security details the **Security info** page.
 
     ![Recent activity page with security info](media/my-account-portal-sign-ins-page/android-security-info-page.png)
 
