@@ -49,7 +49,7 @@ To provision autoscale on shared throughput database, select the **Provision dat
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Enabling autoscale on an existing container":::
 
 > [!NOTE]
-> When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.mymld#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
+> When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
 ## Azure Cosmos DB .NET V3 SDK
 

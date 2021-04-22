@@ -41,7 +41,7 @@
             - name: Autoscale introduction
               href: provision-throughput-autoscale.md
             - name: Autoscale FAQ
-              href: autoscale-faq.md
+              href: autoscale-faq.yml
         - name: Serverless
           href: serverless.md
         - name: Choose between autoscale and standard (manual) throughput
