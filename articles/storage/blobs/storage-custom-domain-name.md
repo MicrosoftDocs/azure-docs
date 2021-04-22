@@ -95,7 +95,7 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Custom domain**.
+2. In the menu pane, under **Settings**, select **Networking** and then select the **Custom domain** tab.
 
    > [!NOTE]
    > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
