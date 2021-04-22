@@ -54,7 +54,7 @@ Import-Module -Name AzFilesHybrid
 # for more information.
 Connect-AzAccount
 
-# Define parameters
+# Define parameters, $StorageAccountName currently has a maximum limit of 15 characters
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"

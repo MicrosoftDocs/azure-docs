@@ -1986,6 +1986,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-auto-train-remote.md",
+      "redirect_url": "/azure/machine-learning/concept-automated-ml#local-remote",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/tutorials/aas-lesson-13-deploy.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -28502,12 +28507,22 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-azure-container-offer.md",
-      "redirect_url": "/azure/marketplace/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-azure-container-offer.md",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-azure-container-technical-assets.md",
-      "redirect_url": "/azure/marketplace/create-azure-container-technical-assets",
+      "redirect_url": "/azure/marketplace/azure-container-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-azure-container-technical-assets.md",
+      "redirect_url": "/azure/marketplace/azure-container-technical-assets",
       "redirect_document_id": false
     },
     {
@@ -29097,52 +29112,52 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-containers-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -61341,6 +61356,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/speech-service/quickstarts/create-luis.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-intent-recognition",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-faq.md",
       "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
@@ -65143,6 +65163,48 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-sign-ins-error-codes.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/cancel-operation.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/cancel-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-document-formats.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-supported-document-formats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-document-storage-source.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-supported-storage-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-glossary-formats.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-supported-glossary-formats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-operation-documents-status.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-documents-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-operations.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-translations-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/get-operation-status.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/get-translation-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/submit-batch-request.md",
+      "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/start-translation",
+      "redirect_document_id": false
     }
   ]
 }
+
+

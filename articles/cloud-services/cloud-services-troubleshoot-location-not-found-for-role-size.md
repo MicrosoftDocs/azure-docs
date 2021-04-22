@@ -2,8 +2,8 @@
 title: Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service (classic) to Azure | Microsoft Docs
 description: This article shows how to resolve a LocationNotFoundForRoleSize exception when deploying a Cloud service (classic) to Azure.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021

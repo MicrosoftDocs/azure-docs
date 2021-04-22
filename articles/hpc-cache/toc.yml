@@ -60,7 +60,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/hpc-cache/hpc-cache
+    href: /cli/azure/hpc-cache
   - name: Azure PowerShell
     href: /powershell/module/Az.HPCCache
 

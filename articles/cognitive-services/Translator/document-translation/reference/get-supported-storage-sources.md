@@ -1,7 +1,7 @@
 ---
-title: Document Translation get glossary formats method
+title: Get supported storage sources method
 titleSuffix: Azure Cognitive Services
-description: The get glossary formats method returns the list of supported glossary formats.
+description: The get supported storage sources method returns a list of supported storage sources.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -9,19 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: get glossary formats
+# Get supported storage sources
 
-The Get Glossary Formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
+The Get supported storage sources method returns a list of storage sources/options supported by the Document Translation service.
 
 ## Request URL
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/storagesources
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -45,24 +45,19 @@ The following are the possible HTTP status codes that a request returns.
 
 |Status Code|Description|
 |--- |--- |
-|200|OK. Returns the list of supported glossary file formats.|
+|200|OK. Successful request and returns the list of storage sources.|
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
+## Get supported storage sources response
 
-## Get glossary formats response
+### Successful get supported storage sources response
+Base type for list return in the Get supported storage sources API.
 
-Base type for list return in the Get Glossary Formats API.
+|Name|Type|Description|
+|--- |--- |--- |
+|value|string []|List of objects.|
 
-### Successful get glossary formats response
-
-Base type for list return in the Get Glossary Formats API.
-
-|Status Code|Description|
-|--- |--- |
-|200|OK. Returns the list of supported glossary file formats.|
-|500|Internal Server Error.|
-|Other Status Codes|Too many requestsServer temporary unavailable|
 
 ### Error response
 
@@ -82,38 +77,14 @@ The following is an example of a successful response.
 
 ```JSON
 {
-    "value": [
-        {
-            "format": "XLIFF",
-            "fileExtensions": [
-                ".xlf"
-            ],
-            "contentTypes": [
-                "application/xliff+xml"
-            ],
-            "versions": [
-                "1.0",
-                "1.1",
-                "1.2"
-            ]
-        },
-        {
-            "format": "TSV",
-            "fileExtensions": [
-                ".tsv",
-                ".tab"
-            ],
-            "contentTypes": [
-                "text/tab-separated-values"
-            ],
-            "versions": []
-        }
-    ]
+  "value": [
+    "AzureBlob"
+  ]
 }
 ```
 
 ### Example error response
-the following is an example of an error response. The schema for other error codes is the same.
+The following is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 
