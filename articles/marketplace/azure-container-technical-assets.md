@@ -6,10 +6,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 11/30/2020
+ms.date: 03/30/2021
 ---
 
-# Prepare your Azure container technical assets
+# Prepare Azure container technical assets
 
 This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace.
 
@@ -34,7 +34,7 @@ In addition to your solution domain, your engineering team should have knowledge
 Choose one or both of the following scripting environments to help manage your Container image:
 
 - [Azure PowerShell](/powershell/azure/)
-- [Azure CLI](/cli/azure/).
+- [Azure CLI](/cli/azure/)
 
 We recommend adding these tools to your development environment:
 
@@ -56,4 +56,4 @@ You can't deploy an image to Azure Container Instances from an on-premises regis
 
 ## Next steps
 
-- [Create your container offer](create-azure-container-offer.md)
+- [Create your container offer](azure-container-offer-setup.md)

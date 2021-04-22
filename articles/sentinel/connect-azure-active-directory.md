@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2021
+ms.date: 04/21/2021
 ms.author: yelevin
 
 ---
@@ -40,7 +40,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 > As indicated above, some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 ## Prerequisites
 
-- Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
+- An Azure Active Directory P1 or P2 license is required to ingest sign-in logs into Azure Sentinel. Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest the other log types. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
 
 - Your user must be assigned the Azure Sentinel Contributor role on the workspace.
 
