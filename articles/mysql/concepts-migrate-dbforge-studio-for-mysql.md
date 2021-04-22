@@ -51,7 +51,7 @@ In this example, we migrate the *sakila* database from MySQL server to Azure Dat
 
 1. In the **Database Restore** wizard, select a file with a database backup.
 
-    :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/restore-step-1.png" alt-text="Screenshot showing the Restore step of the Database Restore wizard.":::
+    :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/restore-step-1.png" alt-text="Screenshot showing the Restore step of the Database Restore wizard." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/restore-step-1.png":::
 
 1. Select **Restore**.
 
@@ -112,13 +112,13 @@ The logic behind this approach is to create an empty database in Azure Database 
 
 1. In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the **Data Synchronization** wizard.
 
-    :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png" alt-text="Screenshot showing the results of the Data comparison." ligthbox="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png":::
+    :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png" alt-text="Screenshot showing the results of the Data comparison." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png":::
 
 1. Walk through the steps of the wizard configuring synchronization. Select **Synchronize** to deploy the changes.
 
 1. Check the result.
 
-    :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-sync-result.png" alt-text="Screenshot showing the results of the Data synchronization wizard." ligthbox="media/concepts-migrate-dbforge-studio-for-mysql/data-sync-result.png":::
+    :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-sync-result.png" alt-text="Screenshot showing the results of the Data synchronization wizard." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/data-sync-result.png":::
 
 ## Next steps
 - [MySQL overview](overview.md)
