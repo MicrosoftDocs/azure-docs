@@ -21,5 +21,5 @@ ms.author: juliako
 * If you didn't complete the [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart, be sure to [set up Azure resources]() <!--TODO: add a link once the topic is staged --> .
 
     > [!TIP]
-    > If you run into issues with Azure resources that get created, please view our [troubleshooting guide](../../../troubleshoot-how-to.md) to resolve some commonly encountered issues.
+    > If you run into issues with Azure resources that get created, please view our [troubleshooting guide](../../../troubleshoot.md) to resolve some commonly encountered issues.
     

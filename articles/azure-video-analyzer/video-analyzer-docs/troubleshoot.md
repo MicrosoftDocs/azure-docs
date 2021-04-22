@@ -51,7 +51,7 @@ You can use the Azure portal to run a diagnosis of the media graph using direct 
 1. Look for **Automatic device management**, and then select **IoT Edge**.  
 1. In the list of Edge devices, select the device that you want to diagnose.  
          
-    ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot-how-to/lva-sample-device.png)
+    ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot/lva-sample-device.png)
 1. Check to see whether the response code is *200-OK*. Other response codes for the [IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) include:
     * 400 - The deployment configuration is malformed or invalid.
     * 417 - The device doesn't have a deployment configuration set.
@@ -70,7 +70,7 @@ You can use the Azure portal to run a diagnosis of the media graph using direct 
     * Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as GraphTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Live Video Analytics IoT Edge module is functionally OK.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/troubleshoot-how-to/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot-how-to/direct-method.png":::
+    > :::image type="content" source="./media/troubleshoot/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot/direct-method.png":::
 1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Live Video Analytics on IoT Edge module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
 
 ### Post deployment: Diagnose logs for issues during the run 
@@ -113,7 +113,7 @@ Live Video Analytics via the media graph extension processors can extend the med
 * Check to see whether the hub that media graph is publishing to and the hub you're examining are the same. As you create multiple deployments, you might end up with multiple hubs and mistakenly check the wrong hub for events.
 * In Azure portal, check to see whether the external module is deployed and running. In the example image here, rtspsim, yolov3, tinyyolov3 and logAnalyticsAgent are IoT Edge modules running external to the lvaEdge module.
 
-    [ ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub-azure.png) ](./media/troubleshoot-how-to/iot-hub-azure.png#lightbox)
+    [ ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot/iot-hub-azure.png) ](./media/troubleshoot/iot-hub-azure.png#lightbox)
 
 * Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/2.0/topology.json), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the parameter or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).  
 
@@ -182,7 +182,7 @@ Configure your Live Video Analytics module to collect Verbose logs by setting th
 You can do this in either:
 
 * In **Azure portal**, by updating the Module Identity Twin properties of the Live Video Analytics module
-    [ ![Module Identity Twin Properies.](media/troubleshoot-how-to/module-twin.png) ](media/troubleshoot-how-to/module-twin.png#lightbox)    
+    [ ![Module Identity Twin Properies.](media/troubleshoot/module-twin.png) ](media/troubleshoot/module-twin.png#lightbox)    
 * Or in your **deployment manifest** file, you can add these entries in the properties node of the Live Video Analytics module
 
 ### Use the support-bundle command
@@ -213,7 +213,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 1. In the list of devices, select the ID of the target device.
 1. At the top of the pane, select **Set Modules**.
 
-   ![Screenshot of the "Set Modules" button in the Azure portal.](media/troubleshoot-how-to/set-modules.png)
+   ![Screenshot of the "Set Modules" button in the Azure portal.](media/troubleshoot/set-modules.png)
 1. In the **IoT Edge Modules** section, look for and select **lvaEdge**.
 1. Select **Container Create Options**.
 1. In the **Binds** section, add the following command:
