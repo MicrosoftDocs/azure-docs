@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/27/2020
 ms.custom: data4ml
 ---
@@ -69,12 +69,6 @@ Machine learning algorithms may be triggered. If these algorithms are enabled in
 * For object identification models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
 
 * For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page. 
-
-    > [!IMPORTANT]
-    > Features listed with (preview) are in public preview.   
-    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
 

@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Cognitive Services
 description: Lists Azure Policy built-in policy definitions for Azure Cognitive Services. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services

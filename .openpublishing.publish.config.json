@@ -360,7 +360,7 @@
     {
       "path_to_root": "media-services-v3-node-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
