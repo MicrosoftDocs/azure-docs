@@ -66,7 +66,7 @@ Before you continue, make sure that:
         * Select Apply - This operation should take about 2 minutes.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
+        > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
 
         * If DNS is not configured for the Kubernetes API and Azure Stack Edge resource, you can update your Window's host file.
         
