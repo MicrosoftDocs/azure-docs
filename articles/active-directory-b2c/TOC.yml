@@ -323,15 +323,18 @@
       href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
-  - name: Fraud protection
+  - name: Fraud protection partners
     items: 
-    - name: Microsoft Dynamics 365 Fraud Protection
-      href: partner-dynamics-365-fraud-protection.md
-      displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
     - name: Arkose Labs
       href: partner-arkose-labs.md
       displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection
-  - name: Secure legacy and on-premises apps
+    - name: BioCatch
+      href: partner-biocatch.md
+      displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
+      displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+  - name: Secure access to legacy and on-premises apps
     items:
     - name: Ping Identity
       href: partner-ping-identity.md
