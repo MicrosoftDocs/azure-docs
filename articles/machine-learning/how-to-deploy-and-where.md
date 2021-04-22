@@ -121,18 +121,16 @@ For more information on `az ml model register`, consult the [reference documenta
 
 You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file on your local machine.
 
-+ **Using the SDK and ONNX**
+```python
 
-    ```python
+import urllib.request
+from azureml.core.model import Model
+# Download model
+urllib.request.urlretrieve("https://aka.ms/bidaf-9-model", 'model.onnx')
 
-    import urllib.request
-    from azureml.core.model import Model
-    # Download model
-    urllib.request.urlretrieve("https://aka.ms/bidaf-9-model", 'model.onnx')
-
-    # Register model
-    model = Model.register(ws, model_name='bidaf_onnx', model_path='./model.onnx')
-    ```
+# Register model
+model = Model.register(ws, model_name='bidaf_onnx', model_path='./model.onnx')
+```
 
 To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files.
 
@@ -347,7 +345,7 @@ def preprocess(word):
 
     # split into lower-case word tokens, in numpy array with shape of (seq, 1)
     words = np.asarray([w.lower() for w in tokens]).reshape(-1, 1)
-    
+
     # split words into chars, in numpy array with shape of (seq, 1, 1, 16)
     chars = [[c for c in t][:16] for t in tokens]
     chars = [cs+['']*(16-len(cs)) for cs in chars]
