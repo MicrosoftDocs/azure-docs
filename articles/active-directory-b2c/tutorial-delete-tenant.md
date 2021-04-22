@@ -8,12 +8,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Clean up resources
+# Clean up resources and delete the tenant
 
 When you've finished the Azure AD B2C tutorials, you can delete the tenant you used for testing or training. To delete the tenant, you'll first need to delete all tenant resources. In this article, you'll:
 
@@ -40,7 +40,7 @@ When you've finished the Azure AD B2C tutorials, you can delete the tenant you u
 
 8. On the **Overview** page, select **Delete tenant**. The **Required action** column indicates the resources you'll need to remove.
 
-   ![Delete tenant tasks](media/tutorial-clean-up-resources/delete-tenant-tasks.png)
+   ![Delete tenant tasks](media/tutorial-delete-tenant/delete-tenant-tasks.png)
 
 ## Delete tenant resources
 
@@ -54,19 +54,19 @@ If you have the confirmation page open from the previous section, you use the li
 
 4. Delete all users *except* the admin account you're currently signed in as: Under **Manage**, select **Users**. Select the checkbox next to each user (except the admin account you're currently signed in as). Select **Delete**, and then select **Yes** when prompted.
 
-   ![Delete users](media/tutorial-clean-up-resources/delete-users.png)
+   ![Delete users](media/tutorial-delete-tenant/delete-users.png)
    
 5. Delete app registrations and the *b2c-extensions-app*: Under **Manage**, select **App registrations**. Select the **All applications** tab. Select an application, and then select **Delete**.Repeat for all applications, including the **b2c-extensions-app** application.
 
-   ![Delete application](media/tutorial-clean-up-resources/delete-applications.png)
+   ![Delete application](media/tutorial-delete-tenant/delete-applications.png)
 
 6. Delete any identity providers you configured: Under **Manage**, select **Identity providers**. Select an identity provider you configured, and then select **Remove**.
 
-   ![Delete identity provider](media/tutorial-clean-up-resources/identity-providers.png)
+   ![Delete identity provider](media/tutorial-delete-tenant/identity-providers.png)
 
 8. Delete user flows: Under **Policies**, select **User flows**. Next to each user flow, select the ellipses (...) and then select **Delete**.
 
-   ![Delete user flows](media/tutorial-clean-up-resources/user-flow.png)
+   ![Delete user flows](media/tutorial-delete-tenant/user-flow.png)
 
 9. Delete IEF policy keys: Under **Policies**, select **Identity Experience Framework**, and then select **Policy keys**. Next to each policy key, select the ellipses (...) and then select **Delete**.
 
@@ -90,7 +90,7 @@ If you have the confirmation page open from the previous section, you use the li
 
 8. On the **Overview** page, select **Delete tenant**.
 
-   ![Delete the tenant](media/tutorial-clean-up-resources/delete-tenant.png)
+   ![Delete the tenant](media/tutorial-delete-tenant/delete-tenant.png)
 
 9. Follow the on-screen instructions to complete the process.
 
