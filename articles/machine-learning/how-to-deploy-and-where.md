@@ -164,7 +164,7 @@ For more information, see the documentation for the [Model class](/python/api/az
 
 ---
 
-## Define a dummy entry script
+## Define an entry script
 
 [!INCLUDE [write entry script](../../includes/machine-learning-dummy-entry-script.md)]
 
@@ -410,6 +410,8 @@ Deploy your service again:
 
 Then ensure you can send a post request to the service:
 
+# [Azure CLI](#tab/azcli)
+
 ```bash
 curl -v -X POST -H "content-type:application/json" -d '{"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}' http://localhost:32267/score
 ```
@@ -430,12 +432,11 @@ print(response.json())
 
 ---
 
-
-## Choose a remote compute target
+## Choose a compute target
 
 Refer to the below diagram when choosing a compute target.
 
-[![How to choose a compute target](./media/how-to-deploy-and-where/how-to-choose-target.png)](././media/how-to-enable-data-collection/how-to-choose-target.png#lightbox)
+[![How to choose a compute target](./media/how-to-deploy-and-where/how-to-choose-target.png)](././media/how-to-deploy-and-where/how-to-choose-target.png#lightbox)
 
 
 In summary, use Azure Container Instances for dev/test deployments or Azure Kubernetes Service for high-availability production workloads.
