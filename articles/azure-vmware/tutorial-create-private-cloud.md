@@ -35,7 +35,7 @@ You can create an Azure VMware Solution private cloud by using the [Azure portal
 
 ### Azure CLI
 
-Instead of the Azure portal to create an Azure VMware Solution private cloud, you can use the Azure CLI using the Azure Cloud Shell.  For a list of commands you can use with Azure VMware Solution, see [Azure VMware commands](/cli/azure/ext/vmware/vmware).
+Instead of the Azure portal to create an Azure VMware Solution private cloud, you can use the Azure CLI using the Azure Cloud Shell.  For a list of commands you can use with Azure VMware Solution, see [Azure VMware commands](/cli/azure/vmware).
 
 #### Open Azure Cloud Shell
 
@@ -69,7 +69,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## Azure VMware commands
 
-For a list of commands you can use with Azure VMware Solution, see [Azure VMware commands](/cli/azure/ext/vmware/vmware).
+For a list of commands you can use with Azure VMware Solution, see [Azure VMware commands](/cli/azure/vmware).
 
 ## Next steps
 

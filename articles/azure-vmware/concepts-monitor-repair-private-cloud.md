@@ -40,5 +40,5 @@ Host remediation starts by adding a new healthy node in the cluster. Then, when 
 
 Now that you've covered how Azure VMware Solution monitors and repairs private clouds, you may want to learn about:
 
-- [Azure VMware Solution private cloud upgrades](concepts-upgrades.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [Azure VMware Solution private cloud upgrades](concepts-upgrades.md)
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
