@@ -9,7 +9,7 @@ ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
-# GitHub Actions workflows for Azure Static Web Apps Preview
+# GitHub Actions workflows for Azure Static Web Apps
 
 When you create a new Azure Static Web Apps resource, Azure generates a GitHub Actions workflow to control the app's continuous deployment. The workflow is driven by a YAML file. This article details the structure and options of the workflow file.
 

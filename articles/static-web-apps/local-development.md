@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Set up local development for Azure Static Web Apps Preview
+# Set up local development for Azure Static Web Apps
 
 When published to the cloud, an Azure Static Web Apps site has many services that work together as if they're the same application. These services include:
 
