@@ -477,7 +477,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
   - id: programming-language-objectivec
@@ -489,7 +489,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
 - id: code-editors-set-one

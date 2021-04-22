@@ -218,7 +218,7 @@ To manage database copy using the Azure portal, you will also need the following
    Microsoft.Resources/deployments/write
    Microsoft.Resources/deployments/operationstatuses/read
 
-If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional Azure roles:
+If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional permissions:
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read

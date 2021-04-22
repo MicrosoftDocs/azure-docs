@@ -96,6 +96,8 @@
         href: connect-azure-kubernetes-service.md
       - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
+      - name: Azure Storage accounts
+        href: connect-azure-storage-account.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
       - name: Defender for IoT (formerly ASC for IoT)
@@ -298,7 +300,7 @@
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
   - name: Azure CLI
-    href: /cli/azure/ext/sentinel/sentinel
+    href: /cli/azure/sentinel
   - name: Azure RBAC roles
     items:
     - name: All Azure roles

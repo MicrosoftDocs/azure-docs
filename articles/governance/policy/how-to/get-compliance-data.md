@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -52,6 +52,12 @@ Evaluations of assigned policies and initiatives happen as the result of various
   REST API, or a supported SDK. In this scenario, the effect event (append, audit, deny, deploy) and
   compliant status information for the individual resource becomes available in the portal and SDKs
   around 15 minutes later. This event doesn't cause an evaluation of other resources.
+
+- A subscription (resource type `Microsoft.Resource/subscriptions`) is created or moved within a
+  [management group hierarchy](../../management-groups/overview.md) with an assigned policy
+  definition targeting the subscription resource type. Evaluation of the subscription supported
+  effects (audit, auditIfNotExist, deployIfNotExists, modify), logging, and any remediation actions
+  takes around 30 minutes.
 
 - A [policy exemption](../concepts/exemption-structure.md) is created, updated, or deleted. In this
   scenario, the corresponding assignment is evaluated for the defined exemption scope.
