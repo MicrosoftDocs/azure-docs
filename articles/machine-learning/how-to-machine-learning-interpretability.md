@@ -5,7 +5,7 @@ description: Learn how to understand & explain how your machine learning model m
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: hwo-to
+ms.topic: how-to
 ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
