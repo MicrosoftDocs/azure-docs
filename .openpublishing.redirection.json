@@ -19306,6 +19306,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-custom-sdks.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/quickstart-adt-explorer.md",
       "redirect_url": "/azure/digital-twins/quickstart-azure-digital-twins-explorer",
       "redirect_document_id": false
