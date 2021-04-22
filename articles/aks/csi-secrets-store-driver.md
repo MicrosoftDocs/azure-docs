@@ -81,10 +81,7 @@ kube-system   aks-secrets-store-provider-azure-f5qlm   1/1     Running   0      
 ### Enabling autorotation
 
 > [!NOTE]
-> When enabled, the Secrets Store CSI Driver will update the pod mount and the Kubernetes Secret defined in secretObjects of the SecretProviderClass periodically based on the rotation poll interval, which is 2 minutes by default.
->
-> The rotation poll interval can be defined via the `rotation-poll-interval` flag.
-
+> When enabled, the Secrets Store CSI Driver will update the pod mount and the Kubernetes Secret defined in secretObjects of the SecretProviderClass by polling for changes every two minutes.
 
 To enable autorotation of secrets, use the flag `enable-secret-rotation` when creating your cluster:
 
