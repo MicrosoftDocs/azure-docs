@@ -5,7 +5,7 @@ description: 'Control access to Azure Machine Learning workspaces with Azure Fir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
