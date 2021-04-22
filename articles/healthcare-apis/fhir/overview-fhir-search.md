@@ -16,7 +16,7 @@ FHIR searches can be against a specific resource type, a specified [compartment]
 
 `GET {{FHIR URL}}/Patient`
 
-You can also search using `POST`. This is useful if the query string is too long. To search using `POST`, put the search content into a Parameters resource in the body of the `POST` request.
+You can also search using `POST`, which is useful if the query string is too long. To search using `POST`, put the search content into a Parameters resource in the body of the `POST` request.
 
 If the search request is successful, you’ll receive a FHIR bundle response with the type `searchset`. If the search fails, you’ll find these details in the `OperationOutcome` to help you understand why the search failed.
 
@@ -53,7 +53,7 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 | _list                       | Yes                  | Yes                       | Yes                             |                                |
 | _type                       | Yes                  | Yes                       | Yes                             |                                |
 | _security                   | Yes                  | Yes                       | Yes                             |                                |
-| _profile                    | Yes                  | Yes                       | Yes                             | **Note**: If you created your R4 database before February 20th, 2021, you’ll need to run a reindexing job to enable **_profile**.                                                    |
+| _profile                    | Yes                  | Yes                       | Yes                             | **Note**: If you created your R4 database before February 20, 2021, you’ll need to run a reindexing job to enable **_profile**.                                                    |
 | _text                       | No                   | No                        | No                              |                                |
 | _content                    | No                   | No                        | No                              |                                |
 | _has                        | No                   | No                        | No                              |                                |
@@ -86,7 +86,7 @@ With the Azure API for FHIR, we support the following search parameter type pair
 * Token, String
 * Token, Token
 
-For more information, refer to the HL7 [Composite Search Parameters](https://www.hl7.org/fhir/search.html#composite). 
+For more information, see the HL7 [Composite Search Parameters](https://www.hl7.org/fhir/search.html#composite). 
 
 > [!NOTE]
 > Composite search parameters do not support modifiers per the FHIR specification.
@@ -116,7 +116,7 @@ For search parameters that have a specific order (numbers, dates, and quantities
 
 
 
-To help manage the returned resources, there are additional search result parameters that you can use in your search. For details on how to use each of the search result parameters, refer to the [HL7](https://www.hl7.org/fhir/search.html#return) website. 
+To help manage the returned resources, there are other search result parameters that you can use in your search. For details on how to use each of the search result parameters, refer to the [HL7](https://www.hl7.org/fhir/search.html#return) website. 
 
 | **Search result parameters**  | **Supported - PaaS** | **Supported - OSS (SQL)** | **Supported - OSS (Cosmos DB)** | **Comments**                 |
 | ----------------------------  | -------------------- | ------------------------- | ------------------------------- | -----------------------------|
