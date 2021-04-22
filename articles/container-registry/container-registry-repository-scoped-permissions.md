@@ -71,7 +71,7 @@ The following example creates a token in the registry *myregistry* with the foll
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
   --repository samples/hello-world \
-  content/write content/read
+  content/write content/read \
   --output json
 ```
 
