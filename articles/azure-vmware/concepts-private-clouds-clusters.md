@@ -28,7 +28,9 @@ As with other resources, private clouds are installed and managed from within an
 
 ## Clusters
 
+
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
+
 
 
 ## VMware software versions
