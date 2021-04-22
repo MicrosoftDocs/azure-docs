@@ -140,15 +140,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Integrate Active Directory app** button. Then enter the domain of your organization and click **Save** button.
 
-    ![Screenshot for the single sign-on.](./media/tap-app-security-tutorial/domain.png)
+    ![Screenshot for the active directory.](./media/tap-app-security-tutorial/domain.png)
 
 1. Click the gear icon as shown below.
 
-    ![Screenshot for the single sign-on.](./media/tap-app-security-tutorial/gear-icon.png)
+    ![Screenshot for the icon.](./media/tap-app-security-tutorial/gear-icon.png)
 
 1. Perform the following steps in the **Active Directory integration** page.
 
-    ![Screenshot for the single sign-on.](./media/tap-app-security-tutorial/configuration.png)
+    ![Screenshot for the integration.](./media/tap-app-security-tutorial/configuration.png)
 
     a. Copy **Reply URL (Assertion Consumer Service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
