@@ -12,7 +12,7 @@ ms.date: 04/30/2021
 
 Learn about important updates in the commercial marketplace program of Partner Center. This page is updated frequently, so be sure to check back often!
 
-_**Table 1: New features**_
+## New features
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
@@ -20,7 +20,7 @@ _**Table 1: New features**_
 | Grow your business | Publishers can more easily mitigate the risk of their customers receiving an incorrect bill for metered billing usage. To learn more, see [Manage metered billing anomalies in Partner Center](anomaly-detection.md). | 2021-02-18 |
 ||||
 
-_**Table 2: Documentation updates**_
+## Documentation updates
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
