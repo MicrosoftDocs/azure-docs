@@ -88,15 +88,15 @@ In the `applicationinsights.json` file, you can additionally configure:
 
 See [configuration options](./java-standalone-config.md) for full details.
 
-## Auto-collected requests, dependencies, logs, and metrics
-
-### Requests
+## Auto-collected requests
 
 * JMS Consumers
 * Kafka Consumers
 * Netty/WebFlux
 * Servlets
 * Spring Scheduling
+
+## Auto-collected dependencies
 
 ### Dependencies with distributed trace propagation
 
@@ -115,21 +115,21 @@ See [configuration options](./java-standalone-config.md) for full details.
 * MongoDB (async and sync)
 * Redis (Lettuce and Jedis)
 
-### Logs
+## Auto-collected logs
 
 * java.util.logging
 * Log4j (including MDC properties)
 * SLF4J/Logback (including MDC properties)
 
-### Metrics
+## Auto-collected metrics
 
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
-### Azure SDKs (preview)
+## Azure SDKs (preview)
 
 See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)
-to enable this preview feature and capture the telemetry emitted by these Azure SDKs:
+to enable this preview feature and auto-collect the telemetry emitted by these Azure SDKs:
 
 * [App Configuration](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Cognitive Search](https://docs.microsoft.com/java/api/overview/azure/search-documents-readme) 11.3.0+
