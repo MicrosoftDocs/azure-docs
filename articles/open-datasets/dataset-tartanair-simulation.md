@@ -8,14 +8,79 @@ author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
 ---
-# Diabetes dataset
+# TartainAir: AirSim simulation dataset for simultaneous localization and mapping (SLAM)
 
-The Diabetes dataset has 442 samples with 10 features, making it ideal for getting started with machine learning algorithms. Its one of the most popular [Scikit Learn Toy Datasets](https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset).
+[!INCLUDE [Open Dataset usage notice](../includes/open-datasets-usage-note.md)]
+
+Simultaneous Localization and Mapping (SLAM) is one of the most fundamental capabilities necessary for robots. Due to the ubiquitous availability of images, Visual SLAM (V-SLAM) has become an important component of many autonomous systems. Impressive progress has been made with both geometric-based methods and learning-based methods. However, developing robust and reliable SLAM methods for real-world applications is still a challenging problem. Real-life environments are full of difficult cases such as light changes or lack of illumination, dynamic objects, and texture-less scenes. This dataset takes advantages of the advancing computer graphics technology, and aims to cover diverse scenarios with challenging features in simulation.
+
+The data is collected in photo-realistic simulation environments in the presence of various light conditions, weather and moving objects. By collecting data in simulation, we are able to obtain multi-modal sensor data and precise ground truth labels, including the stereo RGB image, depth image, segmentation, optical flow, and camera poses. We set up a large number of environments with various styles and scenes, covering challenging viewpoints and diverse motion patterns, which are difficult to achieve by using physical data collection platforms. The four most important features of our dataset are: 1) Large size diverse realistic data; 2) Multimodal ground truth labels; 3) Diversity of motion patterns; 4) Challenging Scenes.
+
+This dataset provides 5 types of data, including:
+
+Stereo images: image type (png).
+
+Depth file: numpy type (npy).
+
+Segmentation file: numpy type (npy).
+
+Optical flow file: numpy type (npy).
+
+Camera pose file: text type (txt).
+
+It is collected from different environments, contains hundreds of trajectories (3TB) in total as of 2019.
+
+
+Challenging visual effects
+In some simulations, The dataset simulates multiple types of challenging visual effects.
+
+Hard lighting conditions. Day-night alternating. Low-lighting. Rapidly changing illuminations.
+Weather effects. Clear, raining, snowing, windy, and fog.
+Seasonal change.
+
+Storage Location
+This dataset is stored in the East US Azure region. Allocating compute resources in East US is recommended for affinity.
+
+License Terms
+This project is released under the MIT License. Please review the [License file](https://github.com/microsoft/AirSim/blob/master/LICENSE) for more details.
+
+Additional Information
+Additional information about this dataset can be found [here](https://theairlab.org/tartanair-dataset/) and [here](https://arxiv.org/abs/2003.14338).
+
+
+Citation
+More technical details are available in [AirSim paper (FSR 2017 Conference)](https://arxiv.org/abs/1705.05065). Please cite this as:
+
+```
+@article{tartanair2020arxiv,
+  title =   {TartanAir: A Dataset to Push the Limits of Visual SLAM},
+  author =  {Wenshan Wang, Delong Zhu, Xiangwei Wang, Yaoyu Hu, Yuheng Qiu, Chen Wang, Yafei Hu, Ashish Kapoor, Sebastian Scherer},
+  journal = {arXiv preprint arXiv:2003.14338},
+  year =    {2020}, 
+  url = {https://arxiv.org/abs/2003.14338}
+}
+```
+```
+@inproceedings{airsim2017fsr,
+  author = {Shital Shah and Debadeepta Dey and Chris Lovett and Ashish Kapoor},
+  title = {AirSim: High-Fidelity Visual and Physical Simulation for Autonomous Vehicles},
+  year = {2017},
+  booktitle = {Field and Service Robotics},
+  eprint = {arXiv:1705.05065},
+  url = {https://arxiv.org/abs/1705.05065}
+}
+```
+
+Contact
+Email tartanair@hotmail.com if you have any questions about the data source. You can also reach out to contributers on the associated [GitHub](https://github.com/microsoft/AirSim).
+
+
+
 
 [Original dataset description](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html) 
 | [Original data file](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt)
 
-[!INCLUDE [Open Dataset usage notice](../includes/open-datasets-usage-note.md)]
+
 
 ## Data access
 
