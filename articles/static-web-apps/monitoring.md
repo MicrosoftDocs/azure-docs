@@ -30,6 +30,9 @@ Use the following steps to add Application Insights monitoring to your static we
 
 :::image type="content" source="media/monitoring/azure-static-web-apps-application-insights-add.png" alt-text="Add Application Insights to Azure Static Web Apps":::
 
+> [!NOTE]
+> Once you create the Application Insights instance, an associated application setting is created in the Azure Static Web Apps instance used to link the services together.
+
 ## Access data
 
 1. From the _Overview_ window in your static web app, select the link next to the _Resource group_.
