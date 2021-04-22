@@ -313,7 +313,7 @@ az deployment group create \
   --verbose
 ```
 
-To learn more about deploying template by using Azure CLI, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md).
+To learn more about deploying templates using the Azure CLI, see [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 ---
 
