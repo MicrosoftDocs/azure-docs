@@ -122,42 +122,49 @@ import { MsalGuard } from '@azure/msal-angular';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [
-      MsalGuard
-    ]
-  },
-  {
-    path: '',
-    component: HomeComponent
-  }
+    {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [
+            MsalGuard
+        ]
+    },
+    {
+        path: '',
+        component: HomeComponent
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: false })],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes, { useHash: false })],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
 ```
 
-For a pop-up window experience, enable the `popUp` configuration option. You can also pass the scopes that require consent as follows:
+For a pop-up window experience, set the `interactionType` configuration to `InteractionType.Popup` in the Guard configuration. You can also pass the scopes that require consent as follows:
 
 ```javascript
 // In app.module.ts
 @NgModule({
     imports: [
-        MsalModule.forRoot({
+        MsalModule.forRoot( new PublicClientApplication({
             auth: {
-                clientId: 'your_app_id',
+                clientId: 'Enter_the_Application_Id_Here',
+            },
+            cache: {
+                cacheLocation: 'localStorage',
+                storeAuthStateInCookie: isIE,
             }
-        }, {
-            popUp: true,
-            consentScopes: ["User.ReadWrite"]
-        })
+        }), {
+            interactionType: InteractionType.Popup, // Msal Guard Configuration
+            authRequest: {
+                scopes: ['user.read']
+            }
+        }, null)
     ]
 })
+export class AppModule { }
 ```
 ---
 
@@ -234,7 +241,30 @@ myMsal.loginRedirect(loginRequest);
 
 # [Angular](#tab/angular)
 
-The code here is the same as described earlier in the section about sign-in with a pop-up window. The default flow is redirect.
+The code here is the same as described earlier in the section about sign-in with a pop-up window, except that the `interactionType` is set to `InteractionType.Redirect` for the Msal Guard Configuration.
+
+```javascript
+// In app.module.ts
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'Enter_the_Application_Id_Here',
+            },
+            cache: {
+                cacheLocation: 'localStorage',
+                storeAuthStateInCookie: isIE,
+            }
+        }), {
+            interactionType: InteractionType.Redirect, // Msal Guard Configuration
+            authRequest: {
+                scopes: ['user.read']
+            }
+        }, null)
+    ]
+})
+export class AppModule { }
+```
 
 ---
 
@@ -284,20 +314,29 @@ myMsal.logout();
 # [Angular](#tab/angular)
 
 ```javascript
-//In app.module.ts
+// In app.module.ts
 @NgModule({
     imports: [
-        MsalModule.forRoot({
+        MsalModule.forRoot( new PublicClientApplication({
             auth: {
-                clientId: 'your_app_id',
-                postLogoutRedirectUri: "your_app_logout_redirect_uri"
+            clientId: 'your_app_id',
+            postLogoutRedirectUri: 'your_app_logout_redirect_uri'
             }
-        })
+        }), null, null)
     ]
 })
 
-// In app.component.ts
-this.authService.logout();
+// In app.component.ts - If using redirect
+logout() {
+    this.authService.logoutRedirect();
+}
+
+// In app.component.ts - If using popup
+logout() {
+    this.authService.logoutPopup({
+        mainWindowRedirectUri: "/"
+    });
+}
 ```
 
 ---

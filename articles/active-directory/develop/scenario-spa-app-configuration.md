@@ -49,19 +49,19 @@ For more information on the configurable options, see [Initializing application 
 # [Angular](#tab/angular)
 
 ```javascript
-// App.module.ts
+// In app.module.ts
 import { MsalModule } from '@azure/msal-angular';
+import { PublicClientApplication } from '@azure/msal-browser';
 
 @NgModule({
     imports: [
-        MsalModule.forRoot({
+        MsalModule.forRoot( new PublicClientApplication({
             auth: {
-                clientId: 'your_app_id'
+                clientId: 'Enter_the_Application_Id_Here',
             }
-        })
+        }), null, null)
     ]
 })
-
 export class AppModule { }
 ```
 

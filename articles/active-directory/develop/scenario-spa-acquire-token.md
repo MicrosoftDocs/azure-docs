@@ -71,57 +71,70 @@ The MSAL Angular wrapper provides the HTTP interceptor, which will automatically
 You can specify the scopes for APIs in the `protectedResourceMap` configuration option. `MsalInterceptor` will request these scopes when automatically acquiring tokens.
 
 ```javascript
-// app.module.ts
+// In app.module.ts
 @NgModule({
-  declarations: [
-    // ...
-  ],
-  imports: [
-    // ...
-    MsalModule.forRoot({
-      auth: {
-        clientId: 'Enter_the_Application_Id_Here',
-      }
-    },
-    {
-      popUp: !isIE,
-      consentScopes: [
-        'user.read',
-        'openid',
-        'profile',
-      ],
-      protectedResourceMap: [
-        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
-      ]
-    })
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: MsalInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		// ...
+	],
+	imports: [
+		// ...
+		MsalModule.forRoot( new PublicClientApplication({
+		auth: {
+			clientId: 'Enter_the_Application_Id_Here',
+		},
+		cache: {
+			cacheLocation: 'localStorage',
+			storeAuthStateInCookie: isIE,
+		}
+		}), {
+			interactionType: InteractionType.Popup,
+			authRequest: {
+				scopes: ['user.read']
+			}
+		}, {
+			interactionType: InteractionType.Popup,
+			protectedResourceMap: new Map([ 
+				['https://graph.microsoft.com/v1.0/me', ['user.read']]
+			])
+		})
+	],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: MsalInterceptor,
+			multi: true
+		}
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 
-For success and failure of the silent token acquisition, MSAL Angular provides callbacks that you can subscribe to. It's also important to remember to unsubscribe.
+For success and failure of the silent token acquisition, MSAL Angular provides events that you can subscribe to. It's also important to remember to unsubscribe.
 
 ```javascript
 // In app.component.ts
- ngOnInit() {
-    this.subscription=  this.broadcastService.subscribe("msal:acquireTokenFailure", (payload) => {
-    });
-}
+export class AppComponent implements OnInit {
+	private readonly _destroying$ = new Subject<void>();
 
-ngOnDestroy() {
-   this.broadcastService.getMSALSubject().next(1);
-   if (this.subscription) {
-     this.subscription.unsubscribe();
-   }
- }
+	constructor(private broadcastService: MsalBroadcastService) { }
+
+	ngOnInit() {
+		this.broadcastService.msalSubject$
+		.pipe(
+			filter((msg: EventMessage) => msg.eventType === EventType.ACQUIRE_TOKEN_SUCCESS),
+			takeUntil(this._destroying$)
+		)
+		.subscribe((result: EventMessage) => {
+			// Do something with event payload here
+		});
+	}
+
+	ngOnDestroy(): void {
+		this._destroying$.next(undefined);
+		this._destroying$.complete();
+	}
+}
 ```
 
 Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
@@ -190,7 +203,47 @@ To learn more, see [Optional claims](active-directory-optional-claims.md).
 
 # [Angular](#tab/angular)
 
-This code is the same as described earlier.
+This code is the same as described earlier, except we recommend bootstrapping the `MsalRedirectComponent` to handle redirects. `MsalInterceptor` configurations can also be changed to use redirects.
+
+```javascript
+// In app.module.ts
+@NgModule({
+    declarations: [
+      // ...
+    ],
+    imports: [
+		// ...
+		MsalModule.forRoot( new PublicClientApplication({
+			auth: {
+				clientId: 'Enter_the_Application_Id_Here',
+			},
+			cache: {
+				cacheLocation: 'localStorage',
+				storeAuthStateInCookie: isIE,
+			}
+		}), {
+			interactionType: InteractionType.Redirect,
+			authRequest: {
+				scopes: ['user.read']
+			}
+		}, {
+			interactionType: InteractionType.Redirect,
+			protectedResourceMap: new Map([ 
+				['https://graph.microsoft.com/v1.0/me', ['user.read']]
+			])
+		})
+    ],
+    providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: MsalInterceptor,
+			multi: true
+		}
+    ],
+    bootstrap: [AppComponent, MsalRedirectComponent]
+})
+export class AppModule { }
+```
 
 ---
 
