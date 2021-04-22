@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 4/20/2021
+ms.date: 4/21/2021
 ms.custom: template-tutorial
 ---
 
@@ -13,35 +13,27 @@ ms.custom: template-tutorial
 
 The need may arise when an Azure Load Balancer isn't associated with a virtual machine scale set. 
 
-You may have an existing virtual machine scale set deployed with an Azure Load Balancer that requires changing.
+You may have an existing virtual machine scale set deployed with an Azure Load Balancer that requires updating.
 
 The Azure portal can be used to add or update an Azure Load Balancer associated with a virtual machine scale set.  
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Create a virtual machine scale set without a load balancer
+> * Add a new load balancer to virtual machine scale set
 
 ## Prerequisites
 
-- <!-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F). -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+## Create virtual machine scale set
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
+In this section you'll create a virtual machine scale sets without a load balancer. Later in this tutorial, you'll add a load balancer to this scale set in the Azure portal.
 
-1. Sign in to the [<service> portal](url).
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. 
 
 ## [Section 2 heading]
 <!-- Introduction paragraph -->
