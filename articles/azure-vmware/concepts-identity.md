@@ -7,7 +7,7 @@ ms.date: 03/22/2021
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
 For more information, see [private cloud upgrades concepts article][concepts-upgrades].
 
@@ -34,7 +34,7 @@ You can view the privileges granted to the Azure VMware Solution CloudAdmin role
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
 
-The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more details, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
 | Privilege | Description |
 | --------- | ----------- |
