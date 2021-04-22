@@ -35,7 +35,7 @@ Azure VMware Solution clusters are based on hyper-converged, bare-metal infrastr
 
 | Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| AVS36          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
+| AV36          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
 
 Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted. 
 
