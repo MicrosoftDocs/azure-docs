@@ -979,7 +979,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: cassandra-faq.md
+          href: cassandra-faq.yml
         - name: Elastic scale
           href: manage-scale-cassandra.md
         - name: Partitioning
