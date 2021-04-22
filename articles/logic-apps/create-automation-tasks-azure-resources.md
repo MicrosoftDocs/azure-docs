@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 04/05/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
@@ -150,7 +150,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    The **Logic app run** pane opens and shows the underlying workflow that ran.
 
-   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers-actions). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
    * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
