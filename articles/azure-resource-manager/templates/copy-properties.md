@@ -43,7 +43,7 @@ Loops can be used declare multiple properties by:
   ```bicep
   <property-name>: [for <item> in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Iterating over the elements of an array
@@ -51,7 +51,7 @@ Loops can be used declare multiple properties by:
   ```bicep
   <property-name>: [for (<item>, <index>) in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Using loop index
@@ -59,7 +59,7 @@ Loops can be used declare multiple properties by:
   ```bicep
   <property-name>: [for <index> in range(<start>, <stop>): {
     <properties>
-  }
+  }]
   ```
 
 ---

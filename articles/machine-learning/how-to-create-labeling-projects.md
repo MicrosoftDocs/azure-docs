@@ -48,12 +48,7 @@ To create a project, select **Add project**. Give the project an appropriate nam
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
 * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
-* Choose **Instance Segmentation (Polygon)(Preview)** for projects when you want to assign a label and draw a polygon around each object within an image.
-
-> [!IMPORTANT]
-> Instance Segmentation (Polygon) is in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Choose **Instance Segmentation (Polygon)** for projects when you want to assign a label and draw a polygon around each object within an image.
 
 Select **Next** when you're ready to continue.
 
