@@ -346,6 +346,7 @@ function updateMetadataCallback(err, items, responseOptions) {
         if(!accept) throw "Unable to update metadata, abort";
         return;
 }
+}
 ```
 
 One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. The post-trigger runs as part of the same transaction for the underlying item itself. An exception during the post-trigger execution will fail the whole transaction. Anything committed will be rolled back and an exception returned.
