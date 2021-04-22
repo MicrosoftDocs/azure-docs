@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/02/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 ---
 # Set up compute targets for model training and deployment
 

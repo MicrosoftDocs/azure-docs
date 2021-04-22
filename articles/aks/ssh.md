@@ -204,10 +204,10 @@ If you need additional troubleshooting data, you can [view the kubelet logs][vie
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-vm-list]: /cli/azure/vm#az-vm-list
-[az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
-[az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-vm-list]: /cli/azure/vm#az_vm_list
+[az-vm-user-update]: /cli/azure/vm/user#az_vm_user_update
+[az-vm-list-ip-addresses]: /cli/azure/vm#az_vm_list_ip_addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: ./view-control-plane-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
@@ -216,6 +216,6 @@ If you need additional troubleshooting data, you can [view the kubelet logs][vie
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
-[az-vmss-list]: /cli/azure/vmss#az-vmss-list
-[az-vmss-extension-set]: /cli/azure/vmss/extension#az-vmss-extension-set
-[az-vmss-update-instances]: /cli/azure/vmss#az-vmss-update-instances
+[az-vmss-list]: /cli/azure/vmss#az_vmss_list
+[az-vmss-extension-set]: /cli/azure/vmss/extension#az_vmss_extension_set
+[az-vmss-update-instances]: /cli/azure/vmss#az_vmss_update_instances
