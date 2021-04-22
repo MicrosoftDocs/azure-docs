@@ -64,24 +64,11 @@ In this section, you'll prepare to re-create your instance by downloading your o
 
 ### Download models, twins, and graph with Azure Digital Twins Explorer
 
-First, navigate to **Azure Digital Twins Explorer** in the [Azure portal](https://portal.azure.com). 
+Navigate to **Azure Digital Twins Explorer** in the [Azure portal](https://portal.azure.com). 
 
 :::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-Select the **Run Query** button to run the default query to display all twins and relationships in the graph in the **QUERY EXPLORER** box.
-
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
-
-The full graph should now be visible in the **TWIN GRAPH** box.
-
-Next, select the **Export Graph** icon in the **TWIN GRAPH** box that shows an arrow pointing down out of a cloud. This will enable you to download the models, twins, and graph in your solution to your machine.
-
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the TWIN GRAPH box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
-
-This action enables a **Download** link in the **TWIN GRAPH** box. Select it to download a JSON-based representation of the query result, which includes your models, twins, and relationships. This action will download a .json file to your machine.
-
->[!NOTE]
->If the downloaded file appears to have a different file extension, try editing the extension directly and changing it to .json.
+Follow the Azure Digital Twins Explorer instructions to [Export graph and models](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). This will download a JSON file to your machine that contains the code for your models, twins, and relationships (including models that aren't currently being used in the graph).
 
 ## Move
 
@@ -104,35 +91,7 @@ In this section, you can reupload your models, twins, and graph to the new insta
 
 First, navigate to **Azure Digital Twins Explorer** for the new instance in the [Azure portal](https://portal.azure.com). 
 
-To upload your models, twins, and graph that you downloaded earlier, select the **Import Graph** icon in the **TWIN GRAPH** box that shows an arrow pointing into a cloud. This option uploads all three of these components at once. It even uploads models that aren't currently being used in the graph.
-
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the TWIN GRAPH box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
-
-In the Open window, navigate to your downloaded graph. Select the graph **.json** file, and select **Open**.
-
-After a few seconds, Azure Digital Twins Explorer opens an **IMPORT** view that shows a preview of the graph to be loaded.
-
-To confirm the graph upload, select the **Save** icon in the upper-right corner of the graph preview box.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Highlighting the Save icon in the Graph Preview pane." lightbox="media/how-to-move-regions/graph-preview-save.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-Azure Digital Twins Explorer now uploads your models and graph (including the twins and relationships) to your new Azure Digital Twins instance. You should see a success message noting how many models, twins, and relationships were uploaded.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 2 models imported. 4 twins imported. 2 relationships imported.'" lightbox="media/how-to-move-regions/import-success.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+Import the JSON file that you downloaded [earlier in this article](#download-models-twins-and-graph-with-azure-digital-twins-explorer) to your new instance by following the steps in the Azure Digital Twins Explorer instructions to [Import file to Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#import-file-to-azure-digital-twins-explorer). This will upload all of the models, twins, and relationships from your original instance into the new instance.
 
 To verify everything was uploaded successfully, select the **Run Query** button in the **QUERY EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
 
