@@ -72,7 +72,7 @@ SELECT <twin-or-relationship-collection>.<property-name>
 
 A collection of twins, properties, or relationships specified in the projection.
 
-If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set. For an example of this behavior, see [Project property example: Property not present for a data row](project-property-example-property-not-present-for-a-data-row).
+If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set. For an example of this behavior, see [Project property example: Property not present for a data row](#project-property-example-property-not-present-for-a-data-row).
 
 ### Examples
 
