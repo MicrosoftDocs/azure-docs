@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Explore a sample scenario
+  - name: Get started with Azure Digital Twins Explorer
     href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
@@ -261,12 +261,12 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
+      - name: Azure Digital Twins Explorer
+        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: Azure Digital Twins Postman Collection
         href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
-      - name: Azure Digital Twins explorer (sample)
-        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: Model Uploader (sample)
