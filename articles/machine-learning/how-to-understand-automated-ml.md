@@ -243,7 +243,7 @@ To view the interpretability dashboard in the studio:
 [Learn more about model explanations in automated ML](how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
-> Interpretability, best model explanation, is not available for Auto ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 
+> Interpretability, best model explanation, is not available for automated ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 
 > * TCNForecaster
 > * AutoArima
 > * ExponentialSmoothing
