@@ -22,6 +22,8 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Creates a Front Door profile and rule set.  |
 | [WAF policy with managed rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-waf-managed/) | Creates a Front Door profile and WAF with managed rule set.  |
 | [WAF policy with custom rule](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Creates a Front Door profile and WAF with custom rule.  |
+| [WAF policy with rate limit](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rate-limit/) | Creates a Front Door profile and WAF with a custom rule to perform rate limiting.  |
+| [WAF policy with geo-filtering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-geo-filtering/) | Creates a Front Door profile and WAF with a custom rule to perform geo-filtering.  |
 |**App Service origins**| **Description** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
 | [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
