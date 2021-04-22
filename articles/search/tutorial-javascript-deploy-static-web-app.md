@@ -79,6 +79,8 @@ The Azure Function app won't return Search data until the Search secrets are in 
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
+    Azure Cognitive Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
+
 1. Select **Save** to save the settings. 
 
     :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings.":::
