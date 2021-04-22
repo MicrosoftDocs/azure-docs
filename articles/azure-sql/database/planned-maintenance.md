@@ -38,7 +38,7 @@ Any client production application that connects to a cloud database service shou
 
 ### Alert
 
-If in case you would like to receive alerts for service issues/ planned maintenance activities, You could use the Azure service health to configure alerts with appropriate event type and action groups. For more info, see this [Receive alerts on Azure service notifications](https://docs.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2Fazure%2Fservice-health%2Ftoc.json#create-service-health-alert-using-azure-portal) 
+If in case you would like to receive alerts for service issues/ planned maintenance activities, You could use the Azure service health to configure alerts with appropriate event type and action groups. For more info, see this [Receive alerts on Azure service notifications](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2Fazure%2Fservice-health%2Ftoc.json#create-service-health-alert-using-azure-portal) 
 
 ## Resource health
 
