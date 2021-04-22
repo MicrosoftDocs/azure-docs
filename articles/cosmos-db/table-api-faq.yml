@@ -129,7 +129,7 @@ sections:
           [AzCopy](../storage/common/storage-use-azcopy-v10.md) and the [Azure Cosmos DB Data Migration Tool](import-data.md) are both supported.
           
       - question: |
-          How is expansion of the storage size done for this service if, for example, I start with *n* GB of data and my data will grow to 1 TB over time?
+          How is expansion of the storage size done for this service if, for example, I start with 'n' GB of data and my data will grow to 1 TB over time?
         answer: |
           Azure Cosmos DB is designed to provide unlimited storage via the use of horizontal scaling. The service can monitor and effectively increase your storage.
 

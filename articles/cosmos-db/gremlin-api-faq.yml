@@ -86,6 +86,8 @@ summary: |
   ```
   
   The output of the above profile shows how much time is spent obtaining the vertex objects, the edge objects, and the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
+  
+  ## Other frequently asked questions
 
 sections:
   - name: Other frequently asked questions
