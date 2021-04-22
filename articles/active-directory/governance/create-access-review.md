@@ -130,6 +130,21 @@ To learn more about best practices for removing guest users who no longer have a
 
        ![create review screen](./media/create-access-review/create-review.png)
 
+## Allow  group owners to create and manage access reviews (Preview)
+
+Prerequisite role: Global or User Admin
+
+1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+
+1. In the left menu, under **Access reviews**, **settings**.
+
+1. On the Delegate who can create and manage access reviews page, set the **(Preview) Group owners can create and manage for access reviews of groups they own** setting to **Yes**.
+
+    ![create reviews - Enable group owners to review](./media/create-access-review/group-owners-review-access.png)
+
+    > [!NOTE]
+    > By default, the setting is set to **No** so it must be updated to allow group owners to create and manage access reviews.
+
 ## Start the access review
 
 Once you have specified the settings for an access review, click **Start**. The access review will appear in your list with an indicator of its status.
