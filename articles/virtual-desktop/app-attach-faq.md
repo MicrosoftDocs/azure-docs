@@ -55,6 +55,10 @@ Yes. MSIX app attach doesn't support auto-update for MSIX applications.
 
 All virtual machines (VMs) in a host pool that uses MSIX app attach must have read permissions on the file share where the MSIX images are stored. If it also uses Azure Files, they'll need to be granted both role-based access control (RBAC) and New Technology File System (NTFS) permissions.
 
+## Can I use Azure Active Directory Domain Services (AAD DS) with MSIX app attach?
+
+We do not support AAD DS with MSIX app attach, as the AAD DS computer objects are not synchronised to AAD DS and thus cannot be provided the RBAC permissions required in Azure Files
+
 ## Can I use MSIX app attach for HTTP or HTTPs?
 
 Using MSIX app attach over HTTP or HTTPs is currently not supported.
