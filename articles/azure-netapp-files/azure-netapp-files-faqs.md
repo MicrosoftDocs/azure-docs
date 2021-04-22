@@ -263,7 +263,7 @@ No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ### How do I determine if a directory is approaching the limit size?
 
-See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md##directory-limit) for the limit and calculation. 
+See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#directory-limit) for the limit and calculation. 
 
 <!-- You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
 
