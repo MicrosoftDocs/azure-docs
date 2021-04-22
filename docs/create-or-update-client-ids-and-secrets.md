@@ -199,7 +199,7 @@ You might want to delete a client ID in certain situations, for example:
 ## See also
 
 - [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
-- [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
+- [Microsoft AppSource submission FAQ](appsource-submission-faq.yml)
 - [Certification policies](/legal/marketplace/certification-policies)
 
     

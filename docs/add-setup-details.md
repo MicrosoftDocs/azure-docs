@@ -195,4 +195,4 @@ Make sure that any correspondence you send to customers includes an option to un
 ## See also
 
 - [Create your Microsoft AppSource listing](appsource-listing.md)
-- [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
+- [Microsoft AppSource submission FAQ](appsource-submission-faq.yml)
