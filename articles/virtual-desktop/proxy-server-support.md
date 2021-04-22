@@ -3,7 +3,7 @@ title: Proxy server guidelines Windows Virtual Desktop
 description: Some guidelines and recommendations for using proxy servers in Windows Virtual Desktop deployments.
 author: sefriend
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 04/23/2021
 ms.author: sefriend
 manager: rkiran
 ---
@@ -96,9 +96,9 @@ The Windows Virtual Desktop client supports proxy servers configured with system
 
 Clients running on Windows 7 don't support proxy server connections for reverse-connect RDP data. If the client can't directly connect to the Windows Virtual Desktop gateways, the connection won't work.
 
-### Support for Windows Virtual Desktop clients
+### Windows Virtual Desktop client support
 
-The following Windows Virtual Desktop clients support proxy servers:
+The following table shows which Windows Virtual Desktop clients support proxy servers:
 
 | Client name | Proxy server support |
 |---|---|
