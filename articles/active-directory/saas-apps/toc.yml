@@ -1114,6 +1114,8 @@
         href: logicmonitor-tutorial.md
       - name: LoginRadius
         href: lr-tutorial.md
+      - name: LogMeIn
+        href: logmein-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Lucidchart
