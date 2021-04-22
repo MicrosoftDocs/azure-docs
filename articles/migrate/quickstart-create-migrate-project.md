@@ -12,7 +12,7 @@ ms.custom:
 
 This quickstart describes how to set up an Azure Migrate project Recovery by using an Azure Resource Manager template (ARM template). Azure Migrate provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. Azure Migrate supports assessment and migration of on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized VMs, databases, web apps, and virtual desktops.
 
-This template creates an Azure Migrate project which will be used further for assessing and migrating your Azure on-premises servers, infrastructure, applications, and data.
+This template creates an Azure Migrate project that will be used further for assessing and migrating your Azure on-premises servers, infrastructure, applications, and data.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -55,11 +55,11 @@ To deploy the template, the **Subscription**, **Resource group**, **Project name
    
 ## Validate the deployment
 
-To confirm that the Azure Migrate project was created, use the Azure Portal.
+To confirm that the Azure Migrate project was created, use the Azure portal.
 
 
-1. Navigate to Azure Migrate by searching for **Azure Migrate** in the search bar on the Azure Portal. 
-2. Click the **Discover, assess and migrate** button under the Windows, Linux and SQL Server tile.
+1. Navigate to Azure Migrate by searching for **Azure Migrate** in the search bar on the Azure portal. 
+2. Click the **Discover, assess, and migrate** button under the Windows, Linux, and SQL Server tile.
 3. Select the **Azure subscription** and **Project** as per the values specified in the deployment. 
 
 
