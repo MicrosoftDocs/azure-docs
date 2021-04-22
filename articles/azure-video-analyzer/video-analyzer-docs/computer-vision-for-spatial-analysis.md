@@ -1,6 +1,9 @@
 ---
 title: Analyze Live Video with Computer Vision for Spatial Analysis - Azure
 description: This tutorial shows you how to use Azure Video Analyzer together with Computer Vision spatial analysis AI feature from Azure Cognitive Services to analyze a live video feed from a (simulated) IP camera. 
+author: Juliako
+ms.author: juliako
+ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 04/01/2021
 
@@ -47,9 +50,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 ## Overview
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/overview.png" alt-text="Spatial Analysis overview":::
-
-<!--JK > ![Spatial Analysis overview](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/overview.png)-->
+> :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/overview.png" alt-text="Spatial Analysis overview":::
 
 This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
 
@@ -71,9 +72,7 @@ There are three primary parameters for all Cognitive Services' containers that a
 A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
->
-<!--JK > ![Endpoint URI](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png) -->
+> :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
 
 ## Set up Azure Stack Edge
 
@@ -171,23 +170,19 @@ Follow these steps to generate the manifest from the template file and then depl
 1. Next to the `AZURE IOT HUB` pane, select the More actions icon to set the IoT Hub connection string. You can copy the string from the `src/cloud-to-device-console-app/appsettings.json` file.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Spatial Analysis: connection string":::
-    >
-    <!-- > ![Spatial Analysis: connection string](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/connection-string.png)-->
+    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/connection-string.png" alt-text="Spatial Analysis: connection string":::
+    
 1. Right-click `src/edge/deployment.spatialAnalysis.template.json` and select Generate IoT Edge Deployment Manifest.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Spatial Analysis: deployment amd64 json":::
-    
-  <!--JK  > ![Spatial Analysis: deployment amd64 json](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-template-json.png)-->
-  
+    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Spatial Analysis: deployment amd64 json":::
+      
    This action should create a manifest file named `deployment.spatialAnalysis.amd64.json` in the src/edge/config folder.
 1. Right-click `src/edge/config/deployment.spatialAnalysis.amd64.json`, select **Create Deployment for Single Device**, and then select the name of your edge device.
    
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Spatial Analysis: deployment template json":::   
-    >
-   <!--JK > ![Spatial Analysis: deployment template json](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-amd64-json.png) -->
+    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Spatial Analysis: deployment template json":::   
+    
 1. At the top of the page,  you will be prompted to select an IoT Hub device, choose your Azure Stack Edge name from the drop-down menu.
 1. After about 30-seconds, in the lower-left corner of the window, refresh **Azure IoT Hub**. The edge device now shows the following deployed modules:
    
@@ -213,23 +208,19 @@ To see these events, follow these steps:
 1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
-    >
-  <!--JK  > ![Extension Settings](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png)-->
+    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+    
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
-    >
-  <!--JK  > ![Show Verbose Message](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png) -->
+    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+    
 1. Open the Explorer pane and look for Azure IoT Hub in the lower-left corner.
 1. Expand the Devices node.
 1. Right-click on your Azure Stack Edge and select Start Monitoring Built-in Event Endpoint.
    
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Spatial Analysis: start monitoring":::
-    >
- <!--JK   > ![Spatial Analysis: start monitoring](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/start-monitoring.png) -->
+    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Spatial Analysis: start monitoring":::
     
 ## Run the program
 
@@ -247,7 +238,6 @@ In operations.json:
     }
 },
 ```
-
 * Create a livePipeline like this, set the parameters in pipelineTopology here:
 
 ```json
@@ -677,7 +667,8 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 ## Shaka Viewer
 You can use the Shaka viewer to view the generated video including the inferences (bounding boxes) as shown below:
 
-![Image](./assets/inference.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Spatial Analysis: connection string":::
 
 ## Troubleshooting
 The spatialanalysis is a large container and its startup time can take up to 60 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events.
