@@ -141,16 +141,32 @@
       href: partner-center-portal/azure-apps-review-feedback.md
     - name: Azure application APIs
       href: partner-center-portal/azure-app-apis.md
-  - name: Azure Container offers
+  - name: Azure Container offer
     items: 
-    - name: Plan an Azure Container offer
+    - name: Plan the offer
       href: marketplace-containers.md
     - name: Prepare technical assets
-      href: create-azure-container-technical-assets.md
-    - name: Create and publish an Azure Container offer
+      href: azure-container-technical-assets.md
+    - name: Create the offer
+      href: azure-container-offer-setup.md
+    - name: Properties
+      href: azure-container-properties.md
+    - name: Offer listing
+      href: azure-container-offer-listing.md
+    - name: Preview audience
+      href: azure-container-preview-audience.md
+    - name: Create and edit plans
       items:
-      - name: Create an Azure Container offer
-        href: create-azure-container-offer.md
+      - name: Plan overview
+        href: azure-container-plan-overview.md
+      - name: Plan setup
+        href: azure-container-plan-setup.md
+      - name: Plan listing
+        href: azure-container-plan-listing.md
+      - name: Plan availability
+        href: azure-container-plan-availability.md
+      - name: Plan technical configuration
+        href: azure-container-plan-technical-configuration.md
   - name: Azure virtual machine offers
     items:
     - name: Plan a VM offer

@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.date: 04/09/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Use pipeline parameters in the designer to build versatile pipelines
