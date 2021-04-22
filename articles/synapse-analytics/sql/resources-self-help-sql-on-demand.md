@@ -28,6 +28,27 @@ If your query fails with the error saying 'File cannot be opened because it does
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
+### Alternative to Storage Blog Data Contributer 
+
+If you want to give permission only for a this or a subset of files, this is how it can be done: 
+
+* First of all, all users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). This needs to be set within the Azure Data Lake Gen2.  Learn more about this [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-explorer-acl)
+
+* Log into Synapse with a admin user that has full permissions on the data you want to access.
+
+* In the data pane, right click on the file and select MANAGE ACCESS.
+![Recursive data for external tables](./media/resources-self-help-sql-on-demand/manage_access.png)
+
+* Choose at least “read” permission, type in the users UPN or Object ID, e.g. user@contoso.com and click Add
+
+* Grant read permission for this user.
+![Recursive data for external tables](./media/resources-self-help-sql-on-demand/grant_permission.png)
+
+> [!NOTE]
+> For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Synapse. 
+
+
+
 ## Query fails because it cannot be executed due to current resource constraints 
 
 If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
@@ -229,6 +250,9 @@ five,Eva
 It looks like the data has unexpected values for ID in the fifth row. 
 In such circumstances it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention is not possible at application level and dealing with all kinds of data types for ID needs to be done, reasonable sized VARCHAR might be the only option here.
 
+> [!Tip]
+> Try to make VARCHAR() as short as possible. Avoid VARCHAR(MAX) if possible as this can impair performance. 
+
 ## The result table does not look like expected. Result columns are empty or unexpected loaded. 
 
 If your query does not fail but you find that your result table is not loaded as expected, it is likely that row delimiter or field terminator have been chosen wrong. 
@@ -397,6 +421,8 @@ To resolve this, create a master key with the following query:
 ```sql
 CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 ```
+
+
 
 ## Next steps
 
