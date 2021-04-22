@@ -58,7 +58,7 @@ The following example shows how to create a queue from Azure CLI using your Azur
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
 
-1. Call the [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create) command with the `--auth-mode` parameter set to `login` to create the queue using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
+1. Call the [`az storage queue create`](/cli/azure/storage/queue#az_storage_queue_create) command with the `--auth-mode` parameter set to `login` to create the queue using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
     ```azurecli
     az storage queue create \

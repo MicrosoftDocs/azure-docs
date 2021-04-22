@@ -139,7 +139,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 
 ## Check maintenance status by using the CLI
 
-You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances).
+You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances).
  
 Maintenance information is returned only if maintenance is planned. If no maintenance that affects the VM instance is scheduled, the command doesn't return any maintenance information. 
 
