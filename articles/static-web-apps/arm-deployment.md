@@ -29,23 +29,26 @@ In this tutorial, you learn to:
 - **Editor for ARM Templates:** Reviewing and editing templates requires a JSON editor. Visual Studio Code with the Resource Manager Tools extension is well suited for editing ARM Templates. For instructions on how to install and configure Visual Studio Code, see [Quickstart: Create ARM templates with Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
 
 
-## Create a GitHub Personal Access Token
-One of the required parameters we need in the ARM template is "repositoryToken", which allows the ARM deployment process to interact with the GitHub repo holding the static site source code. 
+## Create a GitHub personal access token
 
-1. From your GitHub Account Profile (in the upper right corner), go to **Settings** 
+One of the required parameters in the ARM template is `repositoryToken`, which allows the ARM deployment process to interact with the GitHub repo holding the static site source code. 
 
-1. Select **Developer Settings**
+1. From your GitHub Account Profile (in the upper right corner), select **Settings**.
 
-1. Select **Personal Access Tokens** / Click **Generate New Token**
+1. Select **Developer Settings**.
 
-1. **Provide a name** for this token in the **Note** field, for example "myfirstswadeployment"
+1. Select **Personal Access Tokens**.
 
-1. **Specify** the following **scopes**: repo, workflow, write:packages 
+1. Select **Generate New Token**.
 
-1. Your token gets created and the details are shown on screen. **IMPORTANT: Make sure you copy this token aside and store it somewhere safe**
+1. Provide a name for this token in the _Note_ field, for example *myfirstswadeployment*.
 
-(Note: In a full production scnenario, I would recommend storing this token in [Azure KeyVault](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-tutorial-use-key-vault) and reuse it out of your ARM Template, but for now, that's beyond the scope of this article.) 
+1. Specify the following *scopes*: **repo, workflow, write:packages**
 
+1. As your token is created the details are shown on screen.
+
+> [!IMPORTANT]
+> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure/azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template. 
 ## Create a GitHub Repo for your static content
 Follow these steps to create a new GitHub Repo with a sample "index.html" Static Web App
 
