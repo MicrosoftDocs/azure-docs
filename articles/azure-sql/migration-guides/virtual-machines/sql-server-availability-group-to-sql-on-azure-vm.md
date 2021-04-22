@@ -76,7 +76,7 @@ Azure Migrate:Server Migration uses a replication appliance to replicate machine
 
 Prepare for appliance deployment as follows:
 
-- Create a Windows Server 2016 machine to host the replication appliance. [Review](../../../migrate/migrate-replication-appliance.md#appliance-requirements) the machine requirements.
+- Create a Windows Server 2016 machine to host the replication appliance. Review the [machine requirements](../../../migrate/migrate-replication-appliance.md#appliance-requirements).
 - The replication appliance uses MySQL. Review the [options](../../../migrate/migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](../../../migrate/migrate-replication-appliance.md#url-access) and [government](../../../migrate/migrate-replication-appliance.md#azure-government-url-access) clouds.
 - Review [port](../../../migrate/migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
@@ -106,7 +106,13 @@ To download the replication appliance installer, follow these steps:
     ![Download provider](../../../migrate/media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
-11. After the installation completes, the Appliance configuration wizard will launch automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance machine). Use the **Manage Accounts** tab of the wizard, create a dummy account with the following details - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will use this dummy account in the Enable Replication stage. 
+11. After the installation completes, the Appliance configuration wizard will launch automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance machine). Use the **Manage Accounts** tab of the wizard to create a dummy account with the following details:
+
+   -  "guest" as the friendly name
+   -  "username" as the username
+   -  "password" as the password for the account. 
+   
+   You will use this dummy account in the Enable Replication stage. 
 
 12. After setup completes, and the appliance restarts, in **Discover machines**, select the new appliance in **Select Configuration Server**, and select **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
 
@@ -207,7 +213,7 @@ To replicate machines, follow these steps:
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 4. In **Process Server**, select the name of the replication appliance.
-6. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer). Then select **Next: Virtual machines**.   
+6. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-replication-appliance-installer) previously in this article. Then select **Next: Virtual machines**.   
 
     ![Screenshot of the Source settings tab in the Replicate screen with the Guest credentials field highlighted.](../../../migrate/media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
@@ -237,7 +243,7 @@ To replicate machines, follow these steps:
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 
-    ![Target settings](../../../migrate/media/tutorial-migrate-vmware/target-settings.png)
+    :::image type="content" source="../../../migrate/media/tutorial-migrate-vmware/target-settings.png" alt-text="Target settings":::
 
 14. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../../../migrate/migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
@@ -246,7 +252,7 @@ To replicate machines, follow these steps:
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
 
-![Compute settings](../../../migrate/media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
+   ![Compute settings](../../../migrate/media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.  
 
@@ -258,6 +264,8 @@ To replicate machines, follow these steps:
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
 ## Track and monitor
+
+Replication proceeds in the following sequence: 
 
 - When you select **Replicate**, a _Start Replication_ job begins. 
 - When the _Start Replication_ job finishes successfully, the machines begin their initial replication to Azure.
@@ -295,9 +303,8 @@ After machines are replicated, they are ready for migration. To migrate your ser
 After your VMs have migrated, reconfigure the cluster. Follow these steps: 
 
 1. Shutdown the migrated servers in Azure.
-2.  Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select backend pool > **add migrated machines**. 3. Start the migrated servers in Azure and login to any node. 
-
-4. Copy the `ClusterConfig.csv` file and run the `Update-ClusterConfig.ps1` script passing the CSV as a parameter. This ensures the cluster resources are updated with the new configuration for the cluster to work in Azure. 
+1.  Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select backend pool > **add migrated machines**. 3. Start the migrated servers in Azure and login to any node. 
+1. Copy the `ClusterConfig.csv` file and run the `Update-ClusterConfig.ps1` script passing the CSV as a parameter. This ensures the cluster resources are updated with the new configuration for the cluster to work in Azure. 
 
    ```powershell
    ./Update-ClusterConfig.ps1 -ConfigFilePath $filepath
@@ -324,7 +331,7 @@ Your Always On availability group is ready.
 - For SQL Server:
     -  Install [SQL Server IaaS Agent extension](../../virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md) to automate management and administration tasks. 
     - [Optimize](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md) SQL Server performance on Azure VMs. 
-    - Understand [pricing](../../virtual-machines/windows/pricing-guidance#free-licensed-sql-server-editions.md) for SQL Server on Azure. 
+    - Understand [pricing](../../virtual-machines/windows/pricing-guidance.md#free-licensed-sql-server-editions) for SQL Server on Azure. 
 - For increased resilience:
     - Keep data secure by backing up Azure VMs using the [Azure Backup service](../../../backup/quick-backup-vm-portal.md). 
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
