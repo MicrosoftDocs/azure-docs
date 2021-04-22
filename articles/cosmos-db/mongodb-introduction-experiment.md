@@ -13,10 +13,9 @@ robots: noindex
 # Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-## Overview
 The Azure Cosmos DB API for MongoDB makes it easy to use Cosmos DB as if it were a MongoDB database. You can leverage your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
 
-It's the API you love, with the added benefits of being built on [Azure Cosmos DB](introduction.md) such as:
+The API for MongoDB has the following added benefits of being built on [Azure Cosmos DB](introduction.md):
 
 * **Instantaneous scalability**: By enabling the [Autoscale](provision-throughput-autoscale.md) feature, your database can scale up/down with zero warmup period. 
 * **Fully managed sharding**: Managing database infrastructure is hard and time consuming. The API for MongoDB manages the infrastructure for you, which includes sharding. So you don't have to worry about the management and focus your time on building applications for your users.
