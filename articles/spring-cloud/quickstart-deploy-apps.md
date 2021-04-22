@@ -202,7 +202,7 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
     ```
 Compiling the project takes 5 -10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
 
-## Create and deploy apps on Azure Spring Cloud CLI
+## Create and deploy apps on Azure Spring Cloud
 
 1. Create the 2 core microservices for PetClinic: API gateway and customer-service.
 
@@ -231,7 +231,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
     ```
 
-## Run the services
+## Verify the services
 
 Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of "https://<service name>-api-gateway.azuremicroservices.io".
 
@@ -269,7 +269,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-    ```
+    ```azurecli
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
     ```
     
@@ -281,19 +281,10 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command. 
 
-    ```
+    ```azurecli
     mvn azure-spring-cloud:deploy
     ```
-
-## Deploy extra apps
-
-To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other microservices.   Rerun the configuration command and select the following microservices.
-* admin-server
-* vets-service
-* visits-service
-Then run the `deploy` command again.
-
-## Run the services
+## Verify the services
 
 A successful deployment command will return a the URL of the form: "https://<spring cloud service name>-spring-petclinic-api-gateway.azuremicroservices.io".  Use it to navigate to the running service.
 
@@ -304,6 +295,14 @@ You can also navigate the Azure portal to find the URL.
 2. Select **Apps**
 3. Select **api-gateway** 
 4. Find the URL on the **api-gateway | Overview** page
+
+## Deploy extra apps
+
+To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other microservices.   Rerun the configuration command and select the following microservices.
+* admin-server
+* vets-service
+* visits-service
+Then run the `deploy` command again.
 
 #### [IntelliJ](#tab/IntelliJ)
 
@@ -352,10 +351,7 @@ Repeat the steps above to deploy `customers-service` and other Pet Clinic apps t
 1. In the **Before launch** section of the dialog, switch the **Working directory** to the *piggymetrics/customers-service* folder.
 1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. 
 
-1. Other microservices included in this sample can be deployed similarly. 
-    * admin-server
-    * vets-service
-    * visits-service
+## Verify the services
 
 Navigate to the URL of the form: `https://<spring cloud service name>-spring-petclinic-api-gateway.azuremicroservices.io`
 
@@ -366,6 +362,12 @@ You can also navigate the Azure portal to find the URL.
 2. Select **Apps**
 3. Select **api-gateway** 
 4. Find the URL on the **api-gateway | Overview** page
+
+## Deploy extra apps
+Other microservices included in this sample can be deployed similarly. 
+    * admin-server
+    * vets-service
+    * visits-service
 
 ::: zone-end
 
