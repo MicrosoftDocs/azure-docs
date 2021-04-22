@@ -7,7 +7,7 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
 ---

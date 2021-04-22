@@ -9,8 +9,8 @@ ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
 ms.date: 11/16/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
+ms.topic: how-to
+ms.custom: devx-track-python, deploy
 ---
 
 # Deploy a model using a custom Docker base image
