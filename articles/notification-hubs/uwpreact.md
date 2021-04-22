@@ -329,6 +329,10 @@ To build the sample, follow these steps.
 
 Create a SQL Server database instance in the Azure portal. For example:
 
+:::image type="content" source="media/uwpreact/resources-sql.png" alt-text="SQL instance resources":::
+
+:::image type="content" source="media/uwpreact/template-screenshot.png" alt-text="Deployment template":::
+
 ### Create resource: notification hub
 
 Create a notification hub in the Azure portal as follows:
@@ -383,3 +387,7 @@ $ npx react-native run-ios
 
 ## Next steps
 
+- [Tutorial: Send push notifications to React Native apps using Azure Notification Hubs](/azure/developer/mobile-apps/notification-hubs-backend-service-react-native)
+- [Tutorial: Send push notifications to Android devices using Firebase SDK](android-sdk.md)
+- [Azure Notification Hubs](notification-hubs-push-notification-overview.md)
+- [React Native for Windows](https://microsoft.github.io/react-native-windows/)
