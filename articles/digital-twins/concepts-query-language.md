@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/19/2020
+ms.date: 4/22/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
@@ -34,23 +34,15 @@ You can use the Azure Digital Twins query language to retrieve digital twins acc
 
 To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) for Azure Digital Twins.
 
-### Considerations for querying
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
+
+## Considerations for querying
 
 When writing queries for Azure Digital Twins, keep the following considerations in mind:
 * **Remember case sensitivity**: All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
 * **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*:
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
-
-## Reference documentation
-
-The reference for the Azure Digital Twins query language can be found under **Reference** in the left table of contents for the service. You can also go directly to the reference sections using the links below:
-* [SELECT clause](reference-query-clause-select.md)
-* [FROM clause](reference-query-clause-from.md)
-* [JOIN clause](reference-query-clause-join.md)
-* [WHERE clause](reference-query-clause-where.md)
-* [Functions](reference-query-functions.md)
-* [Operators](reference-query-operators.md)
 
 ## Next steps
 
