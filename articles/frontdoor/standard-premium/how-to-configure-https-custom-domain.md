@@ -8,7 +8,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-# As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
+#Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
 # Configure HTTPS on a Front Door Standard/Premium SKU (Preview) custom domain using the Azure portal

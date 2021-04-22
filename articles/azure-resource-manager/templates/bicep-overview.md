@@ -2,7 +2,7 @@
 title: Bicep language for Azure Resource Manager templates
 description: Describes the Bicep language for deploying infrastructure to Azure through Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/23/2021
 ---
 
 # What is Bicep (Preview)?
@@ -11,19 +11,32 @@ Bicep is a language for declaratively deploying Azure resources. You can use Bic
 
 The JSON syntax for creating template can be verbose and require complicated expression. Bicep improves that experience without losing any of the capabilities of a JSON template. It's a transparent abstraction over the JSON for ARM templates. Each Bicep file compiles to a standard ARM template. Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file. There are a few [known limitations](#known-limitations) in the current release.
 
+Bicep is currently in preview. To track the status of the work, see the [Bicep project repository](https://github.com/Azure/bicep).
+
 To learn about Bicep, see the following video.
 
-> [!VIDEO https://mediusprodstatic.studios.ms/asset-cccfdaf2-cdbe-49dd-9c58-91a4fe5ff0fd/OD340_1920x1080_AACAudio_5429.mp4?sv=2018-03-28&sr=b&sig=N3DuBaTrK3nt5TGwIagTbCqjVrzgwiJ9at80MXQJFwg%3D&st=2021-03-02T01%3A22%3A57Z&se=2026-03-02T01%3A27%3A57Z&sp=r&rscd=filename%3DIGFY21Q3-OD340-Learn%2Beverything%2Babout%2Bthe%2Bnext%2Bgeneration%2Bof%2BARM.mp4]
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
 
 ## Get started
 
-To start with Bicep, [install the tools](https://github.com/Azure/bicep/blob/main/docs/installing.md).
+To start with Bicep, [install the tools](bicep-install.md).
 
 After installing the tools, try the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
 If you have an existing ARM template that you would like to convert to Bicep, see [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
+
+## Benefits of Bicep versus other tools
+
+Bicep provides the following advantages over other options:
+
+* **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resources types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
+* **Authoring experience**: When you use VS Code to create your Bicep files, you get a first-class authoring experience. The editor provides rich type-safety, intellisense, and syntax validation.
+* **Modularity**: You can break your Bicep code into manageable parts by using [modules](bicep-modules.md). The module deploys a set of related resources. Modules enable you to reuse code and simplify development. Add the module to a Bicep file anytime you need to deploy those resources.
+* **Integration with Azure services**: Bicep is integrated with Azure services such as Azure Policy, template specs, and Blueprints.
+* **No state or state files to manage**: All state is stored in Azure. Users can collaborate and have confidence their updates are handled as expected. Use the [what-if operation](template-deploy-what-if.md) to preview changes before deploying your template.
+* **No cost and open source**: Bicep is completely free. You don't have to pay for premium capabilities. It's also supported by Microsoft support.
 
 ## Bicep improvements
 
@@ -50,11 +63,7 @@ For a full comparison of the syntax, see [Comparing JSON and Bicep for templates
 
 Bicep automatically manages dependencies between resources. You can avoid setting `dependsOn` when the symbolic name of a resource is used in another resource declaration.
 
-With Bicep, you can break your project into multiple modules.
-
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
-
-The VS Code extension for Bicep offers rich validation and intellisense. For example, you can use the extension's intellisense for getting properties of a resource.
 
 ## Known limitations
 

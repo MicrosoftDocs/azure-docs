@@ -9,10 +9,9 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
-ms.topic: conceptual
-ms.custom: how-to, data4ml, contperf-fy21q2
-
-## Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
+ms.topic: how-to
+ms.custom: data4ml, contperf-fy21q2
+#Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 
 # Detect data drift (preview) on datasets
@@ -25,7 +24,7 @@ With Azure Machine Learning dataset monitors (preview), you can:
 * **Monitor new data** for differences between any baseline and target dataset.
 * **Profile features in data** to track how statistical properties change over time.
 * **Set up alerts on data drift** for early warnings to potential issues. 
-* **[Create a new dataset version](how-to-version-track-datasets** when you determine the data has drifted too much.
+* **[Create a new dataset version](how-to-version-track-datasets.md)** when you determine the data has drifted too much.
 
 An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 

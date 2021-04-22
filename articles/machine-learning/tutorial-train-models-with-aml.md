@@ -89,6 +89,9 @@ ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
+>[!NOTE]
+> You may be asked to authenticate to your workspace the first time you run the following code. Follow the on-screen instructions.
+
 ### Create an experiment
 
 Create an experiment to track the runs in your workspace. A workspace can have multiple experiments:
@@ -391,7 +394,7 @@ The widget will look like the following at the end of training:
 
 ![Notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
-If you need to cancel a run, you can follow [these instructions](./how-to-manage-runs.md).
+If you need to cancel a run, you can follow [these instructions](./how-to-track-monitor-analyze-runs.md).
 
 ### Get log results upon completion
 

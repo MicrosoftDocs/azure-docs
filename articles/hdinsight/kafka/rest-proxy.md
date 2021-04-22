@@ -17,7 +17,7 @@ For operations supported by the Kafka REST API, see [HDInsight Kafka REST Proxy 
 
 ## Background
 
-![Kafka REST proxy design](./media/rest-proxy/rest-proxy-architecture.png)
+:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Kafka REST proxy design" border="false":::
 
 For the full specification of operations supported by the API, see [Apache Kafka REST Proxy API](/rest/api/hdinsight-kafka-rest-proxy).
 
@@ -44,10 +44,10 @@ If you bring your own VNet and control network traffic with network security gro
 1. Create an Azure AD security group. Add the application that you've registered with Azure AD to the security group as a **member** of the group. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     Validate the group is of type **Security**.
-    ![Security Group](./media/rest-proxy/rest-proxy-group.png)
+    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Security Group" border="true":::
 
     Validate that application is member of Group.
-    ![Check Membership](./media/rest-proxy/rest-proxy-membergroup.png)
+    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Check Membership" border="true":::
 
 ## Create a Kafka cluster with REST proxy enabled
 
@@ -55,17 +55,17 @@ The steps below use the Azure portal. For an example using Azure CLI, see [Creat
 
 1. During the Kafka cluster creation workflow, in the **Security + networking** tab, check the **Enable Kafka REST proxy** option.
 
-     ![Screenshot shows the Create H D Insight cluster page with Security + networking selected.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="Screenshot shows the Create H D Insight cluster page with Security + networking selected." border="true":::
 
 1. Click **Select Security Group**. From the list of security groups, select the security group that you want to have access to the REST proxy. You can use the search box to find the appropriate security group. Click the **Select** button at the bottom.
 
-     ![Screenshot shows the Create H D Insight cluster page with the option to select a security group.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="Screenshot shows the Create H D Insight cluster page with the option to select a security group." border="true":::
 
 1. Complete the remaining steps to create your cluster as described in [Create Apache Kafka cluster in Azure HDInsight using Azure portal](./apache-kafka-get-started.md).
 
 1. Once the cluster is created, go to the cluster properties to record the Kafka REST proxy URL.
 
-     ![view REST proxy URL](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
+     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="view REST proxy URL" border="true":::
 
 ## Client application sample
 

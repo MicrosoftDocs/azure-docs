@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 01/13/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.date: 03/25/2021
+ms.topic: how-to
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
 adobe-target: true
 ---
 
@@ -107,7 +107,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
 To include multiple files in the model registration, set `-p` to the path of a folder that contains the files.
 
-For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ext/azure-cli-ml/ml/model).
+For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml/model).
 
 # [Python](#tab/python)
 
@@ -190,11 +190,50 @@ A minimal inference configuration can be written as:
 ```json
 {
     "entryScript": "score.py",
-    "sourceDirectory": "./working_dir"
+    "sourceDirectory": "./working_dir",
+    "environment": {
+    "docker": {
+        "arguments": [],
+        "baseDockerfile": null,
+        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "enabled": false,
+        "sharedVolumes": true,
+        "shmSize": null
+    },
+    "environmentVariables": {
+        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+    },
+    "name": "my-deploy-env",
+    "python": {
+        "baseCondaEnvironment": null,
+        "condaDependencies": {
+            "channels": [
+                "conda-forge",
+                "pytorch"
+            ],
+            "dependencies": [
+                "python=3.6.2",
+                "torchvision"
+                {
+                    "pip": [
+                        "azureml-defaults",
+                        "azureml-telemetry",
+                        "scikit-learn==0.22.1",
+                        "inference-schema[numpy-support]"
+                    ]
+                }
+            ],
+            "name": "project_environment"
+        },
+        "condaDependenciesFile": null,
+        "interpreterPath": "python",
+        "userManagedDependencies": false
+    },
+    "version": "1"
 }
 ```
 
-This specifies that the machine learning deployment will use the file `score.py` in the `./working_dir` directory to process incoming requests.
+This specifies that the machine learning deployment will use the file `score.py` in the `./working_dir` directory to process incoming requests and that it will use the Docker image with the Python packages specified in the `project_environment` environment.
 
 [See this article](./reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
 
@@ -277,7 +316,7 @@ You are now ready to deploy your model.
 If you registered your model in your Azure Machine Learning workspace, replace "mymodel:1" with the name of your model and its version number.
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+az ml model deploy -n tutorial -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 ### Using a local model
@@ -285,7 +324,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 If you would prefer not to register your model, you can pass the "sourceDirectory" parameter in your inferenceconfig.json to specify a local directory from which to serve your model.
 
 ```azurecli-interactive
-az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json
+az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json --name my_deploy
 ```
 
 # [Python](#tab/python)
@@ -346,7 +385,7 @@ To delete a deployed webservice, use `az ml service <name of webservice>`.
 
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-Read more about [deleting a webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) and [deleting a model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
+Read more about [deleting a webservice](/cli/azure/ml/service#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
 
 # [Python](#tab/python)
 

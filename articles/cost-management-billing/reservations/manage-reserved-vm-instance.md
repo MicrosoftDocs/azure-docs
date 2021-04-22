@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 04/21/2021
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -51,8 +51,8 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 By default, the following users can view and manage reservations:
 
-- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
-- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
+- The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
+-  Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
 
 To allow other people to manage reservations, you have two options:
 
@@ -171,23 +171,9 @@ If you have questions or need help,  [create a support request](https://go.micro
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
-
-- [What are reservations for Azure?](save-compute-costs-reservations.md)
-
-Buy a service plan:
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
-- [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-Buy a software plan:
-- [Prepay for Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prepay for SUSE software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Understand discount and usage:
-- [Understand how the VM reservation discount is applied](../manage/understand-vm-reservation-charges.md)
-- [Understand how the Red Hat Enterprise Linux software plan discount is applied](understand-rhel-reservation-charges.md)
-- [Understand how the SUSE Linux Enterprise software plan discount is applied](understand-suse-reservation-charges.md)
-- [Understand how other reservation discounts are applied](understand-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)
+ - [View reservation utilization](reservation-utilization.md)
+ - [Exchange and refund](exchange-and-refund-azure-reservations.md)
+ - [Renew reservations](reservation-renew.md)
+ - [Transfers between tenants](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Find a reservation purchaser from Azure logs](find-reservation-purchaser-from-logs.md)
+ - [Renew a reservation](reservation-renew.md)

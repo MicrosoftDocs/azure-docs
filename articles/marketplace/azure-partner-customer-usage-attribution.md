@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/09/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-terraform
 ---
 
 # Azure customer usage attribution
 
-Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-apps), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-apps), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs. Customer usage attribution isn’t applicable to [Azure virtual machine offers in the commercial marketplace](./azure-vm-create.md). There is nothing a marketplace publisher needs to do for virtual machine offers to ensure their Azure consumption is tracked in end-customer subscriptions.
 
 Customer usage attribution supports three deployment options:
 
@@ -25,16 +25,18 @@ There are secondary use cases for customer usage attribution outside of the comm
 >[!IMPORTANT]
 >- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed primarily to deploy and manage Azure resources.
 >- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
->- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues that cause under-reporting of usage.
+>- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS), VM Scale Sets, and Azure Batch have known issues that cause under-reporting of usage.
 
 ## Commercial marketplace Azure apps
 
-Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page. 
 
 > [!NOTE]
-> For existing Azure apps, a one-time migration was performed in March 2021 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
+> For existing Azure apps, a one-time migration began in March 2021 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
+>
+>As you update your offers, you no longer need to add the **Microsoft.Resources/deployments** resource type in your main template file.
 
 ## Other use cases 
 

@@ -14,7 +14,7 @@ ms.author: trbye
 | Java <sup>2</sup> | Android, Windows, Linux, macOS | [Java SDK](/java/api/com.microsoft.cognitiveservices.speech) |
 | JavaScript | Browser, Node.js | [JavaScript SDK](/javascript/api/microsoft-cognitiveservices-speech-sdk/) |
 | Objective-C / Swift | iOS, macOS | [Objective-C SDK](/objectivec/cognitive-services/speech/) |
-| Python | Windows, Linux, macOS | [Python SDK](https://aka.ms/csspeech/pythonref) |
+| Python | Windows, Linux, macOS | [Python SDK](/python/api/azure-cognitiveservices-speech/) |
 
 <sup>1 The .NET Speech SDK is based on .NET Standard 2.0, thus it supports many platforms. For more information, see <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">.NET implementation support <span class="docon docon-navigate-external x-hidden-focus"></span></a>.</sup>
 

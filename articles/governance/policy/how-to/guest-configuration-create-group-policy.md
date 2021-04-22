@@ -1,7 +1,7 @@
 ---
 title: How to create Guest Configuration policy definitions from Group Policy baseline for Windows
 description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition. 
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # How to create Guest Configuration policy definitions from Group Policy baseline for Windows
@@ -103,8 +103,8 @@ Guest Configuration and Baseline Management modules.
 
 ## Create Azure Policy Guest Configuration
 
-1. The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
-module.
+1. The next step is to publish the file to Azure Blob Storage. The command
+   `Publish-GuestConfigurationPackage` requires the `Az.Storage` module.
 
    ```azurepowershell-interactive
    Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
@@ -115,13 +115,13 @@ module.
    Guest Configuration.
 
    ```azurepowershell-interactive
-    $NewGuestConfigurationPolicySplat = @{
+   $NewGuestConfigurationPolicySplat = @{
         ContentUri = $Uri 
         DisplayName = 'Server 2019 Configuration Baseline' 
         Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
         Path = 'C:\git\policyfiles\policy'  
         Platform = Windows 
-        }
+   }
    New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
 	

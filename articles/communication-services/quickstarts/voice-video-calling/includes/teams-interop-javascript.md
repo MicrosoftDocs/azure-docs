@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Join a Teams meeting from a web app
-description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling client library for JavaScript
+description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling client library for JavaScript.
+In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Prerequisites
 
@@ -107,8 +107,8 @@ teamsMeetingJoinButton.addEventListener("click", () => {
 
 ## Get the Teams meeting link
 
-The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta)
+The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Run the code

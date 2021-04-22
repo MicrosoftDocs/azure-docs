@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 04/21/2021
 ms.custom: references_regions 
 ---
 
@@ -23,7 +23,7 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 **Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
 Direct backup of Azure VMs  | Back up the entire VM.  | No additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) that's running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
-Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
+Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.yml).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
 Back up Azure VM to backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
 
 Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs) and about [support requirements](backup-support-matrix-mabs-dpm.md).
@@ -64,7 +64,7 @@ Here's what's supported if you want to back up Linux machines.
 
 **Action** | **Support**
 --- | ---
-Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
+Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk, and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
 Back up Linux Azure VMs with DPM/MABS | Not supported.
 Backup Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
@@ -141,13 +141,14 @@ Back up VMs that are deployed from [Azure Marketplace](https://azuremarketplace.
 Back up VMs that are deployed from a custom image (third-party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup doesn't provide data and application consistency across multiple VMs.
-Backup with [Diagnostic Settings](../azure-monitor/essentials/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
+Backup with [Diagnostic Settings](../azure-monitor/essentials/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using the [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
 Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable due to an outage, the restore will fail.
 Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
 [Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
-[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Supported
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Supported<br></br>While restoring an Azure VM through the [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, though the restore gets successful, Azure VM can't be restored in the dedicated host. To achieve this, we recommend you to restore as disks. While [restoring as disks](backup-azure-arm-restore-vms.md#restore-disks) with the template, create a VM in dedicated host, and then attach the disks.<br></br>This is also applicable in secondary region, while performing [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore).
 Windows Storage Spaces configuration of standalone Azure VMs | Supported
+[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for both uniform and flexible orchestration models to back up and restore Single Azure VM.
 
 ## VM storage support
 

@@ -24,7 +24,7 @@ You can train the model by providing a model and a labeled image directory as in
 
 ### More about ResNet
 
-Refer to [this paper](https://pytorch.org/docs/stable/torchvision/models.html?highlight=resnext101_32x8d#torchvision.models.resnext101_32x8d) for more details about ResNet.
+Refer to [this paper](https://pytorch.org/vision/stable/models.html#torchvision.models.resnext101_32x8d) for more details about ResNet.
 
 ## How to configure ResNet
 

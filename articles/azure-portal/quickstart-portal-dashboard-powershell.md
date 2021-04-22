@@ -3,7 +3,7 @@ title: Create an Azure portal dashboard with PowerShell
 description: Learn how to create a dashboard in the Azure portal using Azure PowerShell.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 07/24/2020
+ms.date: 03/25/2021
 ---
 
 # Quickstart: Create an Azure portal dashboard with PowerShell
@@ -121,7 +121,7 @@ a JSON representation of a sample dashboard. For more information, see [The stru
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
 
-$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+$myPortalDashboardTemplatePath = "$HOME\portal-dashboard-template-testvm.json"
 
 Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
 ```
@@ -177,6 +177,7 @@ To remove the VM and associated dashboard, delete the resource group that contai
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 ```
 
 ## Next steps

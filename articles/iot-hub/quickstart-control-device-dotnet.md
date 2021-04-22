@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 03/04/2020
-# As a developer new to IoT Hub, I need to see how to use a service application to control a device connected to the hub.
+#Customer intent: As a developer new to IoT Hub, I need to see how to use a service application to control a device connected to the hub.
 ---
 
 # Quickstart: Control a device connected to an IoT hub (.NET)
@@ -31,7 +31,7 @@ The quickstart uses two pre-written .NET applications:
 
 * The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 3.1 or greater on your development machine.
 
-    You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
     You can verify the current version of C# on your development machine using the following command:
 

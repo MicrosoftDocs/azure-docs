@@ -17,11 +17,16 @@ ms.author: wellsi
 
 The following sections list changes in the most recent releases.
 
+## Speech Devices SDK 1.16.0:
+
+- Fixed [Github issue #22](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues/22).
+- Updated the [Speech SDK](./speech-sdk.md) component to version 1.16.0. For more information, see its [release notes](./releasenotes.md).
+
 ## Speech Devices SDK 1.15.0:
 
 - Upgraded to new Microsoft Audio Stack (MAS) with improved beamforming and noise reduction for speech.
 - Reduced the binary size by as much as 70% depending on target.
-- Support for [Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) with [binary release](https://aka.ms/sdsdk-download-APAudio).
+- Support for [Azure Percept Audio](../../azure-percept/overview-azure-percept-audio.md) with [binary release](https://aka.ms/sdsdk-download-APAudio).
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.15.0. For more information, see its [release notes](./releasenotes.md).
 
 ## Speech Devices SDK 1.11.0:
@@ -103,7 +108,7 @@ The following sections list changes in the most recent releases.
 **Breaking changes**
 
 - With this release a number of breaking changes are introduced. Please check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details relating to the APIs.
-- The KWS model files are not compatible with Speech Devices SDK 1.0.1. The existing keyword files will be deleted after the new keyword files are written to the device.
+- The keyword recognition model files are not compatible with Speech Devices SDK 1.0.1. The existing keyword files will be deleted after the new keyword files are written to the device.
 
 ## Speech Devices SDK 0.5.0: 2018-Aug release
 

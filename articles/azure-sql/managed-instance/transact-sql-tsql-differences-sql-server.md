@@ -134,7 +134,7 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
 ### Logins and users
 
 - SQL logins created by using `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported. These logins are created at the server level.
+- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax are supported. These logins are created at the server level.
 
     SQL Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
@@ -349,9 +349,9 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 ### Distributed transactions
 
-Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Supported scenarios are:
-* Transactions where participants are only Azure SQL Managed Instances that are part of [Server trust group](./server-trust-group-overview.md).
-* Transactions initiated from .NET (TransactionScope class) and Transact-SQL.
+Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Distributed transactions are supported under following conditions (all of them must be met):
+* all transaction participants are Azure SQL Managed Instances that are part of the [Server trust group](./server-trust-group-overview.md).
+* transactions are initiated either from .NET (TransactionScope class) or Transact-SQL.
 
 Azure SQL Managed Instance currently does not support other scenarios which are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
 
@@ -521,7 +521,7 @@ System databases are not replicated to the secondary instance in a failover grou
 ### TEMPDB
 - The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 - `Tempdb` is always split into 12 data files: 1 primary, also called master, data file and 11 non-primary data files. The file structure cannot be changed and new files cannot be added to `tempdb`. 
-- [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
+- [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
 - Objects created in the model database cannot be auto-created in `tempdb` after a restart or a failover because `tempdb` does not get its initial object list from the model database. You must create objects in `tempdb` manually after each restart or a failover.
 
 ### MSDB
@@ -530,13 +530,13 @@ The following MSDB schemas in SQL Managed Instance must be owned by their respec
 
 - General roles
   - TargetServersRole
-- [Fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail roles](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [DatabaseMail roles](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Integration services roles](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Integration services roles](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

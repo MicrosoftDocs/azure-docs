@@ -29,7 +29,7 @@ landingContent:
           - text: What's new? 
             url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
           - text: Feedback? Take the survey! 
-            url: https://aka.ms/AzureSQLSurvey 
+            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance

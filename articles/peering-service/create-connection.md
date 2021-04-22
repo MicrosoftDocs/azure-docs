@@ -7,7 +7,7 @@ ms.service: peering-service
 ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
-Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
+# Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
 ---
 # Tutorial: Create a Peering Service Connection
 

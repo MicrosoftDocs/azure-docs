@@ -5,57 +5,97 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/18/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # How to update Azure Percept DK over a USB connection
 
-Follow this guide to learn how to perform a USB update for the carrier board of your Azure Percept DK.
+Although using over-the-air (OTA) updates is the best method of keeping your dev kit's operating system and firmware up to date, there are scenarios where updating (or "flashing") the dev kit over a USB connection is necessary:
+
+- An OTA update is not possible due to connectivity or other technical issues
+- The device needs to be reset back to its factory state
+
+This guide will show you how to successfully update your dev kit's operating system and firmware over a USB connection.
+
+> [!WARNING]
+> Updating your dev kit over USB will delete all existing data on the device, including AI models and containers.
+>
+> Follow all instructions in order. Skipping steps could put your dev kit in an unusable state.
 
 ## Prerequisites
-- Host computer with an available USB-C or USB-A port.
-- Azure Percept DK (dev kit) carrier board and supplied USB-C to USB-C cable. If your host computer has a USB-A port but not a USB-C port, you may use a USB-C to USB-A cable (sold separately).
-- Install [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (admin access needed).
-- Install the NXP UUU tool. [Download the Latest Release](https://github.com/NXPmicro/mfgtools/releases) uuu.exe file (for Windows) or the uuu file (for Linux) under the Assets tab.
-- [Install 7-Zip](https://www.7-zip.org/). This software will be used for extracting the raw image file from its XZ compressed file. Download and install the appropriate .exe file.
 
-## Steps
-1.	Download the following [three USB Update files](https://go.microsoft.com/fwlink/?linkid=2155734):
-	- pe101-uefi-***&lt;version number&gt;***.raw.xz
-	- emmc_full.txt
-	- fast-hab-fw.raw
- 
-1. Extract to pe101-uefi-***&lt;version number&gt;***.raw  from the compressed pe101-uefi***&lt;version number&gt;***.raw.xz file. 
-Not sure how to extract? Download and Install 7-Zip, then right-click on the **.xz** image file and select 7-Zip &gt; Extract Here.
+- An Azure Percept DK
+- A Windows, Linux, or OS X based host computer with Wi-Fi capability and an available USB-C or USB-A port
+- A USB-C to USB-A cable (optional, sold separately)
+- An SSH login, created during the [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
 
-1. Copy the following three files to the folder that contains the UUU tool:
-	- Extracted  pe101-uefi-***&lt;version number&gt;***.raw file (from step 2).
-	- emmc_full.txt  (from step 1).
-	- fast-hab-fw.raw (from step 1).
- 
-1. Power on the dev kit.
-1. [Connect to the dev kit over SSH](./how-to-ssh-into-percept-dk.md)
-1. Open a Windows command prompt (Start &gt; cmd) or a Linux terminal and navigate to the folder where the update files are stored. Run the following command to initiate the update:
-	- Windows:
-	```uuu -b emmc_full.txt fast-hab-fw.raw pe101-uefi-<version number>.raw```
-	- Linux:
-	```sudo ./uuu -b emmc_full.txt fast-hab-fw.raw pe101-uefi-<version number>.raw```
-	
-After running these commands, you may see a message stating "Waiting for device..." in the command prompt. This is expected and you should proceed to the next step.
-	
-1. Connect the dev kit carrier board to the host computer via a USB cable. Always connect from the carrier boards USB-C port to either the host computer's USB-C or USB-A port (USB-C to USB-A cable sold separately), depending on which ports are available. 
- 
-1. In the SSH/PuTTY terminal, enter the following commands to set the dev kit into USB mode and then to reboot the dev kit.
-	- ```flagutil    -wBfRequestUsbFlash    -v1```
-	- ```reboot -f```
- 
-1. You may get an indication that the host computer recognizes the device and the update process will automatically start. Navigate back to the command prompt to see the status. The process will take up to ten minutes and when the update is successful, you will see a message stating “Success 1 Failure 0”
- 
-1. Once the update is complete, power off the carrier board. Unplug the USB cable from the PC.  Plug the Azure Percept Vision module back to the carrier board using the USB cable.
+## Download software tools and update files
 
-1. Power the carrier board back on.
+1. [NXP UUU tool](https://github.com/NXPmicro/mfgtools/releases). Download the **Latest Release** uuu.exe file (for Windows) or the uuu file (for Linux) under the **Assets** tab.
+
+1. [7-Zip](https://www.7-zip.org/). This software will be used for extracting the raw image file from its XZ compressed file. Download and install the appropriate .exe file.
+
+1. [Download the update files](https://go.microsoft.com/fwlink/?linkid=2155734).
+
+1. Ensure all three build artifacts are present:
+    - Azure-Percept-DK-*&lt;version number&gt;*.raw.xz
+    - fast-hab-fw.raw
+    - emmc_full.txt
+
+## Set up your environment
+
+1. Create a folder/directory on the host computer in a location that is easy to access via command line.
+
+1. Copy the UUU tool (**uuu.exe** or **uuu**) to the new folder.
+
+1. Extract the **Azure-Percept-DK-*&lt;version number&gt;*.raw** file from the compressed file by right clicking on **Azure-Percept-DK-*&lt;version number&gt;*.raw.xz** and selecting **7-Zip** &gt; **Extract Here**.
+
+1. Move the extracted **Azure-Percept-DK-*&lt;version number&gt;*.raw** file, **fast-hab-fw.raw**, and **emmc_full.txt** to the folder containing the UUU tool.
+
+## Update your device
+
+1. [SSH into your dev kit](./how-to-ssh-into-percept-dk.md).
+
+1. Next, open a Windows command prompt (**Start** > **cmd**) or a Linux terminal and navigate to the folder where the update files and UUU tool are stored. Enter the following command in the command prompt or terminal to prepare your computer to receive a flashable device:
+
+    - Windows:
+
+        ```console
+        uuu -b emmc_full.txt fast-hab-fw.raw Azure-Percept-DK-<version number>.raw 
+        ```
+
+    - Linux:
+
+        ```bash
+        sudo ./uuu -b emmc_full.txt fast-hab-fw.raw Azure-Percept-DK-<version number>.raw
+        ```
+
+1. Disconnect the Azure Percept Vision device from the carrier board's USB-C port.
+
+1. Connect the supplied USB-C cable to the carrier board's USB-C port and to the host computer's USB-C port. If your computer only has a USB-A port, connect a USB-C to USB-A cable (sold separately) to the carrier board and host computer.
+
+1. In the SSH client prompt, enter the following commands:
+
+    1. Set the device to USB update mode:
+
+        ```bash
+        sudo flagutil    -wBfRequestUsbFlash    -v1
+        ```
+
+    1. Reboot the device. The update installation will begin.
+
+        ```bash
+        sudo reboot -f
+        ```
+
+1. Navigate back to the other command prompt or terminal. When the update is finished, you will see a message with ```Success 1    Failure 0```:
+
+    > [!NOTE]
+    > After updating, your device will be reset to factory settings and you will lose your Wi-Fi connection and SSH login.
+
+1. Once the update is complete, power off the carrier board. Unplug the USB cable from the PC.  
 
 ## Next steps
 
-Your dev kit is now successfully updated. You may continue development and operation with your devkit.
+Work through the [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md) to reconfigure your device.

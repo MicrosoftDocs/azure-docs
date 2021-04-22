@@ -27,7 +27,7 @@ ms.author: akshanka
 |**API documentation**|[Python API reference documentation](/python/api/overview/azure/cosmosdb)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6](https://www.python.org/downloads/)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.6+](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.

@@ -4,7 +4,7 @@ description: Use Azure IoT Edge to create a transparent, opaque, or proxy gatewa
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -16,12 +16,7 @@ ms.custom:  [amqp, mqtt]
 
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 
-The IoT Edge hub module acts like IoT Hub, so can handle connections from any devices that have an identity with IoT Hub, including other IoT Edge devices. This type of gateway pattern is called *transparent* because messages can pass from downstream devices to IoT Hub as though there were not a gateway between them.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-Beginning with version 1.2 of IoT Edge, transparent gateways can handle downstream connections from other IoT Edge devices.
-::: moniker-end
+The IoT Edge hub module acts like IoT Hub, so can handle connections from other devices that have an identity with the same IoT hub. This type of gateway pattern is called *transparent* because messages can pass from downstream devices to IoT Hub as though there were not a gateway between them.
 
 For devices that don't or can't connect to IoT Hub on their own, IoT Edge gateways can provide that connection. This type of gateway pattern is called *translation* because the IoT Edge device has to perform processing on incoming downstream device messages before they can be forwarded to IoT Hub. These scenarios require additional modules on the IoT Edge gateway to handle the processing steps.
 
@@ -43,17 +38,19 @@ For more information about how the IoT Edge hub manages communication between do
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-IoT Edge devices cannot be downstream of an IoT Edge gateway.
-
 ![Diagram - Transparent gateway pattern](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>In IoT Edge version 1.1 and older, IoT Edge devices cannot be downstream of an IoT Edge gateway.
+>
+>Beginning with version 1.2 of IoT Edge, transparent gateways can handle connections from downstream IoT Edge devices. For more information, switch to the [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true) version of this article.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-Starting in version 1.2.0, IoT Edge devices can connect through transparent gateways.
+Beginning with version 1.2 of IoT Edge, transparent gateways can handle connections from downstream IoT Edge devices.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 

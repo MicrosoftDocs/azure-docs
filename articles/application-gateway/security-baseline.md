@@ -40,7 +40,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -64,11 +64,11 @@ For additional information, see the references below.
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [FAQ for diagnostic and Logging for Azure Application Gateway](/azure/application-gateway/application-gateway-faq#what-types-of-logs-does-application-gateway-provide)
+- [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -98,7 +98,7 @@ For additional information, see the references below.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -122,11 +122,11 @@ For additional information, see the references below.
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [FAQ for diagnostic and Logging for Azure Application Gateway](/azure/application-gateway/application-gateway-faq#what-types-of-logs-does-application-gateway-provide)
+- [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -144,7 +144,7 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 - [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-- [Understand Barracuda WAF Cloud Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Understand Barracuda WAF Cloud Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Responsibility**: Customer
 
@@ -214,9 +214,9 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Application Gateway deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -234,7 +234,7 @@ In addition to Activity Logs, you can configure diagnostic settings for your Azu
 
 Azure Application Gateway also offers built-in integration with Azure Application Insights. Application Insights collects log, performance, and error data. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your web apps are being used. You may enable continuous export to export telemetry from Application Insights into a centralized location to keep the data for longer than the standard retention period.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Application Gateway](application-gateway-diagnostics.md)
 
@@ -254,7 +254,7 @@ In addition to Activity Logs, you can configure diagnostic settings for your Azu
 
 Azure Application Gateway also offers built-in integration with Azure Application Insights. Application Insights collects log, performance, and error data. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your web apps are being used. You may enable continuous export to export telemetry from Application Insights into a centralized location to keep the data for longer than the standard retention period.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Application Gateway](application-gateway-diagnostics.md)
 
@@ -270,7 +270,7 @@ Azure Application Gateway also offers built-in integration with Azure Applicatio
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -284,7 +284,7 @@ Use Azure Monitor for Networks for a comprehensive view of health and metrics fo
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Application Gateway](application-gateway-diagnostics.md)
 
@@ -304,13 +304,13 @@ Use Azure Monitor for Networks for a comprehensive view of health and metrics fo
 
 - [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Application Gateway](application-gateway-diagnostics.md)
 
 - [How to use Azure Monitor for Networks](../azure-monitor/insights/network-insights-overview.md)
 
-- [How to create alerts within Azure](/azure/azure-monitor/learn/tutorial-response)
+- [How to create alerts within Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -338,9 +338,9 @@ Configure diagnostic settings for your Azure Application Gateway deployments. di
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Responsibility**: Customer
 
@@ -448,7 +448,7 @@ For additional information, see the references below.
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -462,7 +462,7 @@ For additional information, see the references below.
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -490,7 +490,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Tags to assist in tracking Azure resources that store or process sensitive information. 
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -550,7 +550,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production Azure Application Gateway instances as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -608,7 +608,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -671,7 +671,7 @@ For additional information, see the references below.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -713,7 +713,7 @@ For additional information, see the references below.
 
 **Guidance**: Define and implement standard security configurations for network settings related to your Azure Application Gateway deployments. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Application Gateways, Azure Virtual Networks, and network security groups. You may also make use of built-in policy definition.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -737,9 +737,9 @@ For additional information, see the references below.
 
 **Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -821,7 +821,7 @@ Configure diagnostic settings for your Azure Application Gateway deployments. di
 
 **Guidance**: When using Azure Web Application Firewall (WAF), you can configure WAF policies. A WAF policy consists of two types of security rules: custom rules that are authored by the customer, and managed rule sets that are a collection of Azure-managed pre-configured set of rules. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
 
-- [Understand Azure-managed WAF rule sets](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy-and-rules)
+- [Understand Azure-managed WAF rule sets](../web-application-firewall/ag/ag-overview.md#waf-policy-and-rules)
 
 **Responsibility**: Shared
 
@@ -837,11 +837,11 @@ Configure diagnostic settings for your Azure Application Gateway deployments. di
 
 Azure DevOps Services leverages many of the Azure storage features to ensure data availability in the case of hardware failure, service disruption, or region disaster. Additionally, the Azure DevOps team follows procedures to protect data from accidental or malicious deletion.
 
-- [Understand data availability in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Understand data availability in Azure DevOps](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -967,5 +967,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

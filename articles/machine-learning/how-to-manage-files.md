@@ -8,10 +8,9 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 02/05/2021
-# As a data scientist, I want to create and manage the files in my workspace in Azure Machine Learning studio
+#Customer intent: As a data scientist, I want to create and manage the files in my workspace in Azure Machine Learning studio.
 ---
 
 # How to create and manage files in your workspace

@@ -53,10 +53,14 @@ To add a device to your Azure IoT Central application:
 
 ## Import devices
 
-To connect large number of devices to your application, you can bulk import devices from a CSV file. The CSV file should have the following columns and headers:
+To connect large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). The CSV file should include the following column headers:
 
-* **IOTC_DeviceID** - the device ID can contain letters, numbers, and the `-` character.
-* **IOTC_DeviceName** - this column is optional.
+| Column | Description 
+| - | - | 
+| IOTC_DEVICEID | The device ID is a unique identified this device will use to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. |
+| IOTC_DEVICENAME | Optional. The device name is a friendly name that will be displayed throughout the application. If not specified, this will be the same as the device ID.   |
+
+
 
 To bulk-register devices in your application:
 
@@ -151,17 +155,17 @@ To delete either a real or simulated device from your Azure IoT Central applicat
 
 ## Change a property
 
-Cloud properties are the device metadata associated with the device, such as city and serial number. Cloud properties only exist in the IoT Central application and aren't synchronized to your devices. Writeable properties control the behavior of a device and let you set the state of a device remotely, for example by setting the target temperature of a thermostat device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
+Cloud properties are the device metadata associated with the device, such as city and serial number. Cloud properties only exist in the IoT Central application and aren't synchronized to your devices. Writable properties control the behavior of a device and let you set the state of a device remotely, for example by setting the target temperature of a thermostat device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
 
 1. Choose **Devices** on the left pane.
 
 1. Choose the device template of the device whose properties you want to change and select the target device.
 
-1. Choose the view that contains properties for your device, this view enables you to input values and select **Save** at the top of the page. Here you see the properties your device has and their current values. Cloud properties and writeable properties have editable fields, while device properties are read-only. For writeable properties, you can see their sync status at the bottom of the field. 
+1. Choose the view that contains properties for your device, this view enables you to input values and select **Save** at the top of the page. Here you see the properties your device has and their current values. Cloud properties and writable properties have editable fields, while device properties are read-only. For writable properties, you can see their sync status at the bottom of the field. 
 
 1. Modify the properties to the values you need. You can modify multiple properties at a time and update them all at the same time.
 
-1. Choose **Save**. If you saved writeable properties, the values are sent to your device. When the device confirms the change for the writeable property, the status returns back to **synced**. If you saved a cloud property, the value is updated.
+1. Choose **Save**. If you saved writable properties, the values are sent to your device. When the device confirms the change for the writable property, the status returns back to **synced**. If you saved a cloud property, the value is updated.
 
 ## Next steps
 

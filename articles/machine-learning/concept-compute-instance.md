@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-# As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
+#Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
 # What is an Azure Machine Learning compute instance?
@@ -30,7 +30,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 |Key benefits|Description|
 |----|----|
-|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace.<br/> You can also use [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) with compute instances.
+|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (preview)<br/>-  RStudio (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace.<br/> You can also use [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) with compute instances.
 |Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Autoprovisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Virtual network support](./how-to-secure-training-vnet.md#compute-instance)<br/>- SSH policy to enable/disable SSH access<br/>TLS 1.2 enabled |
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
@@ -175,6 +175,9 @@ A compute instance:
 * Supports single-node multi-GPU distributed training jobs
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
+
+> [!TIP]
+> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance.
 
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?

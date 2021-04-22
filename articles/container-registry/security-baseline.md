@@ -43,7 +43,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ContainerRegistry**:
 
@@ -68,9 +68,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 You may use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period.
  Also, use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit Ports and Source IPs based on actual traffic and threat intelligence.
 
-- [How to configure DDoS protection](/azure/virtual-network/manage-ddos-protection)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
-- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/security-center-alerts-service-layer.md)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 - [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 - [Azure Security Center Just In Time Network Access Control](../security-center/security-center-just-in-time.md)
 
@@ -110,7 +110,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: For resources that need access to your container registry, use virtual network service tags for the Azure Container Registry service to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureContainerRegistry" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [Allow access by service tag](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag)
+- [Allow access by service tag](./container-registry-firewall-access-rules.md#allow-access-by-service-tag)
 
 **Responsibility**: Customer
 
@@ -144,9 +144,9 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your container registries. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -190,7 +190,7 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -202,9 +202,9 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 - [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/get-started-portal)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -216,7 +216,7 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 - [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -256,11 +256,11 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 For each Azure container registry, track whether the built-in admin account is enabled or disabled. Disable the account when not in use.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-- [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry admin account](./container-registry-authentication.md#admin-account)
 
 **Responsibility**: Customer
 
@@ -272,7 +272,7 @@ For each Azure container registry, track whether the built-in admin account is e
 
 If the default admin account of an Azure container registry is enabled, complex passwords are automatically created and should be rotated. Disable the account when not in use.
 
-- [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry admin account](./container-registry-authentication.md#admin-account)
 
 **Responsibility**: Customer
 
@@ -286,7 +286,7 @@ Also, create procedures to enable the built-in admin account of a container regi
 
 - [Understand Azure Security Center Identity and Access](../security-center/security-center-identity-access.md)
 
-- [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry admin account](./container-registry-authentication.md#admin-account)
 
 **Responsibility**: Customer
 
@@ -300,7 +300,7 @@ For individual access to the container registry, use individual login integrated
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-- [Individual login to a container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Individual login to a container registry](./container-registry-authentication.md#admin-account)
 
 **Responsibility**: Customer
 
@@ -333,7 +333,7 @@ For individual access to the container registry, use individual login integrated
 
 **Guidance**: Use Azure Active Directory (Azure AD) security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -365,7 +365,7 @@ For individual access to the container registry, use individual login integrated
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure identity access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -380,7 +380,7 @@ For individual access to the container registry, use individual login integrated
 
 You can streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -390,7 +390,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Use Azure Active Directory (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. 
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -402,7 +402,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Not available; Customer Lockbox not currently supported for Azure Container Registry.
 
-- [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -418,7 +418,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 Tag and version container images or other artifacts in a registry, and lock images or repositories, to assist in tracking images that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 - [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md)
 
@@ -434,11 +434,11 @@ Tag and version container images or other artifacts in a registry, and lock imag
 
 Resources should be separated by virtual network or subnet, tagged appropriately, and secured by an network security group (NSG) or Azure Firewall.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](/azure/governance/management-groups/create)
+- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 - [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](container-registry-vnet.md)
 
@@ -470,7 +470,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsibility**: Shared
 
@@ -518,7 +518,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [Customer-managed keys in Azure Container Registry](https://aka.ms/acr/cmk)
+- [Customer-managed keys in Azure Container Registry](./container-registry-customer-managed-keys.md)
 
 **Responsibility**: Customer
 
@@ -544,9 +544,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your container images. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
-- [Azure Container Registry integration with Security Center (Preview)](/azure/security-center/azure-container-registry-integration)
+- [Azure Container Registry integration with Security Center (Preview)](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsibility**: Customer
 
@@ -578,7 +578,7 @@ Automate container image updates when updates to base images from operating syst
 
 **Guidance**: Integrate Azure Container Registry (ACR) with Azure Security Center to enable periodic scanning of container images for vulnerabilities. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans.
 
-- [Azure Container Registry integration with Security Center (Preview)](/azure/security-center/azure-container-registry-integration)
+- [Azure Container Registry integration with Security Center (Preview)](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsibility**: Customer
 
@@ -588,7 +588,7 @@ Automate container image updates when updates to base images from operating syst
 
 **Guidance**: Integrate Azure Container Registry (ACR) with Azure Security Center to enable periodic scanning of container images for vulnerabilities and to classify risks. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans and risk classification.
 
-- [Azure Container Registry integration with Security Center (Preview)](/azure/security-center/azure-container-registry-integration)
+- [Azure Container Registry integration with Security Center (Preview)](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsibility**: Customer
 
@@ -606,7 +606,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -669,9 +669,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/get-started-portal)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -703,7 +703,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -731,7 +731,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
-- [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [For example, how to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&view=powershell-7)
 
 **Responsibility**: Customer
 
@@ -803,9 +803,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: If using custom Azure Policy definitions, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -957,7 +957,7 @@ Back up customer-managed keys in Azure Key Vault using Azure command-line tools 
 
 - [Import container images to a container registry](container-registry-import-images.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -967,7 +967,7 @@ Back up customer-managed keys in Azure Key Vault using Azure command-line tools 
 
 **Guidance**: Test restoration of backed up customer-managed keys in Azure Key Vault using Azure command-line tools or SDKs.
 
-- [How to restore Azure Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore Azure Key Vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -977,7 +977,7 @@ Back up customer-managed keys in Azure Key Vault using Azure command-line tools 
 
 **Guidance**: You may enable Soft-Delete in Azure Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsibility**: Customer
 
@@ -1071,5 +1071,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

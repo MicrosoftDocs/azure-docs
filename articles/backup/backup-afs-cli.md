@@ -25,7 +25,7 @@ A Recovery Services vault is an entity that gives you a consolidated view and ma
 
 Follow these steps to create a Recovery Services vault:
 
-1. A vault is placed in a resource group. If you don’t have an existing resource group, create a new one with [az group create](/cli/azure/group#az-group-create) . In this tutorial, we create the new resource group *azurefiles* in the East US region.
+1. A vault is placed in a resource group. If you don’t have an existing resource group, create a new one with [az group create](/cli/azure/group#az_group_create) . In this tutorial, we create the new resource group *azurefiles* in the East US region.
 
     ```azurecli-interactive
     az group create --name AzureFiles --location eastus --output table
@@ -37,7 +37,7 @@ Follow these steps to create a Recovery Services vault:
     eastus      AzureFiles
     ```
 
-1. Use the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
+1. Use the [az backup vault create](/cli/azure/backup/vault#az_backup_vault_create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
 
     The following example creates a Recovery Services vault named *azurefilesvault* in the East US region.
 
@@ -53,11 +53,11 @@ Follow these steps to create a Recovery Services vault:
 
 ## Enable backup for Azure file shares
 
-This section assumes that you already have an Azure file share for which you want to configure backup. If you don't have one, create an Azure file share using the [az storage share create](/cli/azure/storage/share#az-storage-share-create) command.
+This section assumes that you already have an Azure file share for which you want to configure backup. If you don't have one, create an Azure file share using the [az storage share create](/cli/azure/storage/share#az_storage_share_create) command.
 
-To enable backup for file shares, you need to create a protection policy that defines when a backup job runs and how long recovery points are stored. You can create a backup policy using the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet.
+To enable backup for file shares, you need to create a protection policy that defines when a backup job runs and how long recovery points are stored. You can create a backup policy using the [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) cmdlet.
 
-The following example uses the [az backup protection enable-for-azurefileshare](/cli/azure/backup/protection#az-backup-protection-enable-for-azurefileshare) cmdlet to enable backup for the *azurefiles* file share in the *afsaccount* storage account using the *schedule 1* backup policy:
+The following example uses the [az backup protection enable-for-azurefileshare](/cli/azure/backup/protection#az_backup_protection_enable_for_azurefileshare) cmdlet to enable backup for the *azurefiles* file share in the *afsaccount* storage account using the *schedule 1* backup policy:
 
 ```azurecli-interactive
 az backup protection enable-for-azurefileshare --vault-name azurefilesvault --resource-group  azurefiles --policy-name schedule1 --storage-account afsaccount --azure-file-share azurefiles  --output table
@@ -69,16 +69,16 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ## Trigger an on-demand backup for file share
 
-If you want to trigger an on-demand backup for your file share instead of waiting for the backup policy to run the job at the scheduled time, use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet.
+If you want to trigger an on-demand backup for your file share instead of waiting for the backup policy to run the job at the scheduled time, use the [az backup protection backup-now](/cli/azure/backup/protection#az_backup_protection_backup_now) cmdlet.
 
 You need to define the following parameters to trigger an on-demand backup:
 
-* **--container-name** is the name of the storage account hosting the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command.
-* **--item-name** is the name of the file share for which you want to trigger an on-demand backup. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az-backup-item-list) command.
+* **--container-name** is the name of the storage account hosting the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az_backup_container_list) command.
+* **--item-name** is the name of the file share for which you want to trigger an on-demand backup. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az_backup_item_list) command.
 * **--retain-until** specifies the date until when you want to retain the recovery point. The value should be set in UTC time format (dd-mm-yyyy).
 
 The following example triggers an on-demand backup for the *azurefiles* fileshare in the *afsaccount* storage account with retention until *20-01-2020*.
@@ -93,7 +93,7 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ## Next steps
 

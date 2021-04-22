@@ -5,7 +5,7 @@ description: Learn how to connect to SQL Database, SQL Managed Instance, and Azu
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurecli
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
 author: GithubMirek
@@ -110,7 +110,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
-After provisioning an Azure AD admin for your SQL Managed Instance, you can begin to create Azure AD server principals (logins) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
+After provisioning an Azure AD admin for your SQL Managed Instance, you can begin to create Azure AD server principals (logins) with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax. For more information, see [SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
 > To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
@@ -215,10 +215,10 @@ You can also provision an Azure AD admin for the SQL Managed Instance by calling
 
 | Command | Description |
 | --- | --- |
-|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Provisions an Azure Active Directory administrator for the SQL Managed Instance (must be from the current subscription). |
-|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Removes an Azure Active Directory administrator for the SQL Managed Instance. |
-|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) | Returns information about an Azure Active Directory administrator currently configured for the SQL Managed Instance. |
-|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | Updates the Active Directory administrator for the SQL Managed Instance. |
+|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) | Provisions an Azure Active Directory administrator for the SQL Managed Instance (must be from the current subscription). |
+|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_delete) | Removes an Azure Active Directory administrator for the SQL Managed Instance. |
+|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_list) | Returns information about an Azure Active Directory administrator currently configured for the SQL Managed Instance. |
+|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_update) | Updates the Active Directory administrator for the SQL Managed Instance. |
 
 For more information about CLI commands, see [az sql mi](/cli/azure/sql/mi).
 
@@ -321,10 +321,10 @@ You can provision an Azure AD admin by calling the following CLI commands:
 
 | Command | Description |
 | --- | --- |
-|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Provisions an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. (Must be from the current subscription) |
-|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Removes an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
-|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Returns information about an Azure Active Directory administrator currently configured for the server hosting SQL Database or Azure Synapse. |
-|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Updates the Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) | Provisions an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. (Must be from the current subscription) |
+|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) | Removes an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) | Returns information about an Azure Active Directory administrator currently configured for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) | Updates the Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
 
 For more information about CLI commands, see [az sql server](/cli/azure/sql/server).
 
@@ -340,8 +340,8 @@ On all client machines, from which your applications or users connect to SQL Dat
 - .NET Framework 4.6 or later from [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers).
 - Azure Active Directory Authentication Library for SQL Server (*ADAL.DLL*). Below are the download links to install the latest SSMS, ODBC, and OLE DB driver that contains the *ADAL.DLL* library.
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
-  - [OLE DB Driver 18 for SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
+  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [OLE DB Driver 18 for SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 You can meet these requirements by:
 
@@ -352,7 +352,7 @@ You can meet these requirements by:
 
 ## Create contained users mapped to Azure AD identities
 
-Because SQL Managed Instance supports Azure AD server principals (logins), using contained database users is not required. Azure AD server principals (logins) enable you to create logins from Azure AD users, groups, or applications. This means that you can authenticate with your SQL Managed Instance by using the Azure AD server login rather than a contained database user. For more information, see [SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Because SQL Managed Instance supports Azure AD server principals (logins), using contained database users is not required. Azure AD server principals (logins) enable you to create logins from Azure AD users, groups, or applications. This means that you can authenticate with your SQL Managed Instance by using the Azure AD server login rather than a contained database user. For more information, see [SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 However, using Azure Active Directory authentication with SQL Database and Azure Synapse requires using contained database users based on an Azure AD identity. A contained database user does not have a login in the master database, and maps to an identity in Azure AD that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

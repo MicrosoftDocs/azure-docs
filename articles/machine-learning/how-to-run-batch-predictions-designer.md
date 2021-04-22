@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 02/05/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.date: 02/05/2021
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer
@@ -159,4 +159,5 @@ Then you can submit the inference pipeline with the updated model and transforma
 ## Next steps
 
 Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
-''
+
+For how to publish and run a published pipeline using SDK, see [this article](how-to-deploy-pipelines.md).

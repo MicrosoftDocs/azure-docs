@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Set up sign-up and sign-in with SAML identity provider using Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 identity providers. This article shows you how to enable sign-in with a SAML identity provider user account, allowing users to sign in with their existing social or enterprise identities, such as [ADFS](identity-provider-adfs2016-custom.md) and [Salesforce](identity-provider-salesforce-saml.md).
+Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 identity providers. This article shows you how to enable sign-in with a SAML identity provider user account, allowing users to sign in with their existing social or enterprise identities, such as [ADFS](./identity-provider-adfs.md) and [Salesforce](identity-provider-salesforce-saml.md).
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -224,7 +224,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Contoso** to sign in with Contoso account.
 
