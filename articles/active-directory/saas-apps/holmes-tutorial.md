@@ -70,16 +70,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Identifier** text box, type a URL using the following pattern:
+    In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<WorkspaceID>.holmescloud.com`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+    In the **Reply URL()** text box, type the URL:
+    `https://holmescloud.com/sso/acs`
 
-    In the **Sign-on URL** text box, type the URL:
-    `https://www.holmescloud.com/login`
-
+    In the **Logout URL** text box, type the URL:
+    `https://holmescloud.com/sso/logout`
+    
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Identifier. Contact [Holmes Client support team](mailto:team-dev@holmescloud.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -117,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Holmes SSO
 
-To configure single sign-on on **Holmes** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Holmes support team](mailto:team-dev@holmescloud.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Holmes** side, you need to register the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal at Holmes Admin page. 
 
 ### Create Holmes test user
 
