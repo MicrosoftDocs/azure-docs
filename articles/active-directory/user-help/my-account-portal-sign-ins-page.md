@@ -73,7 +73,7 @@ Sign-ins that are flagged as unusual activity can be confirmed in the tile for t
 
 ## View sign-in activity on Android
 
-Each time you sign in to view or change security information, you must sign in to your work or school account to continue.
+Each time you view or change security information, you must sign in to your work or school account to continue.
 
 1. Open the Microsoft Authenticator app, and select the home page for your work or school account.
 
@@ -81,7 +81,7 @@ Each time you sign in to view or change security information, you must sign in t
 
     ![Work or school account home page, showing highlighted recent sign-in activity link](media/my-account-portal-sign-ins-page/android-recent-activity.png)
 
-1. Review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
+1. If your sign-in is successful, review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
 
     ![Recent activity page with sign-in details](media/my-account-portal-sign-ins-page/android-activity-page.png)
 
