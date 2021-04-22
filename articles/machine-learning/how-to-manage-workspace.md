@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/30/2020
+ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit
 
@@ -182,16 +182,6 @@ The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/pyth
 > [!IMPORTANT]	
 > Using a private endpoint with Azure Machine Learning workspace is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 	
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-### Multiple workspaces with private endpoint
-
-When you create a private endpoint, a new Private DNS Zone named __privatelink.api.azureml.ms__ is created. This contains a link to the virtual network. If you create multiple workspaces with private endpoints in the same resource group, only the virtual network for the first private endpoint may be added to the DNS zone. To add entries for the virtual networks used by the additional workspaces/private endpoints, use the following steps:
-
-1. In the [Azure portal](https://portal.azure.com), select the resource group that contains the workspace. Then select the Private DNS Zone resource named __privatelink.api.azureml.ms__
-2. In the __Settings__, select __Virtual network links__.
-3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link.
-
-For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 ### Vulnerability scanning
 
