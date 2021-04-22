@@ -64,6 +64,8 @@ At the end of each execution of the automatic sync process, your transactional d
 
 *  Azure Synapse Analytics SQL Serverless pools can read all data, including the most recent updates, through views, which are updated automatically, or via `SELECT` together with the` OPENROWSET` commands, which always reads the latest status of the data.
 
+> [!NOTE]
+> Your transactional data will be synchronized to analytical store even if your transactional TTL is smaller than 2 minutes. 
 
 ## Scalability & elasticity
 
