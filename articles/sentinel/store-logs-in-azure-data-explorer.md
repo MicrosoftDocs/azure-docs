@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2021
+ms.date: 04/22/2021
 ms.author: bagol
 
 ---
@@ -103,6 +103,12 @@ The following image shows a sample flow of exported data into an event hub, from
 :::image type="content" source="media/store-logs-in-adx/ingest-data-to-adx-via-event-hub.png" alt-text="Export data into ADX via an ADX event hub.":::
 
 The architecture shown in the previous image provides the full Azure Sentinel SIEM experience, including incident management, visual investigations, threat hunting, advanced visualizations, UEBA, and more, for data that must be accessed frequently, every *X* months. At the same time, this architecture also enables you to query long-term data by accessing it directly in ADX, or via Azure Sentinel thanks to the ADX proxy feature. Queries to long-term data storage in ADX can be ported without any changes from Azure Sentinel to ADX.
+
+> [!NOTE]
+> When exporting multiple data tables into ADX via Event Hub, keep in mind that Log Analytics data export has limitations for the maximum number of event hubs per namespace. For more information about data export [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
+>
+> For most customers, we recommend using the Event Hub Standard tier. Depending on the amount of tables you need to export and the amount of traffic to those tables, you may need to use Event Hub Dedicated tier. For more information, see [event hub documentation](/azure/event-hubs/event-hubs-quotas).
+>
 
 > [!TIP]
 > For more information about this procedure, see [Tutorial: Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code).
