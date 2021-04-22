@@ -147,13 +147,13 @@ The Log Analytics workspace must exist in the following regions:
       UAE Central  
 	  UAE North  
 	  UK South  
-      UK West   
-      USGov Arizona  
-      USGov Virginia  
-      USNat East   
+      UK West      
    :::column-end:::
    :::column span="":::
-      USNat West   
+      USGov Arizona  
+      USGov Virginia  
+      USNat East  
+	  USNat West   
 	  USSec East  
       USSec West  
       West Central US  
@@ -162,6 +162,9 @@ The Log Analytics workspace must exist in the following regions:
       West US 2  
    :::column-end:::
 :::row-end:::
+
+> [!NOTE]
+> If NSGs support a region but the log analytics workspace does not support that region for traffic analytics as per above lists, then you can use log analytics workspace of any other supported region as a workaround.
 
 ## Prerequisites
 
