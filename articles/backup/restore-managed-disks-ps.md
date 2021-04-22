@@ -87,4 +87,4 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Next steps
 
-- [Azure Disk Backup FAQ](disk-backup-faq.md)
+- [Azure Disk Backup FAQ](disk-backup-faq.yml)

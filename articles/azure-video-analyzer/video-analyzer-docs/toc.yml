@@ -1,34 +1,89 @@
-- name: Azure Video Analyzer (preview) documentation 
+- name: Azure Video Analyzer (preview) documentation
   href: index.yml
 - name: Overview
   items:
   - name: About Azure Video Analyzer
     href: overview.md
-  - name: About Video Analyzer for Media 
-    href: ../video-analyzer-for-media-docs/video-indexer-overview.md    
+  - name: About Video Analyzer for Media
+    href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Video Analyzer terminology
     href: terminology.md
 - name: Quickstarts
   items:
-  - name: Get started - Azure Video Analytics
+  - name: Get started - Azure Video Analyzer
     href: get-started-detect-motion-emit-events.md
+  - name: Track objects in live videos
+    href: track-objects-live-video.md
+  - name: Detect motion and emit events
+    href: detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video on edge devices
+    href: detect-motion-record-video-edge-devices.md
   - name: Analyze live video
     items:
-    - name: with your own model - HTTP
+    - name: with your own gRPC model
+      href: analyze-live-video-use-your-model-grpc.md
+    - name: with your own HTTP model
       href: analyze-live-video-use-your-model-http.md
+- name: Tutorials
+  items:
+  - name: Analyze live video
+    items:
+    - name: With OVMS via HTTP extension
+      displayName: intel, OpenVINO 
+      href: use-intel-openvino-tutorial.md
 - name: Concepts
   items:
+  - name: Pipeline
+    href: pipeline.md
   - name: Pipeline extension
     href: pipeline-extension.md
   - name: Continuous video recording
     href: continuous-video-recording.md
   - name: Record video for playback
-    href: video-recording.md    
+    href: video-recording.md
+  - name: Video playback
+    href: video-playback-concept.md
+  - name: Analyze live videos without recording
+    href: analyze-live-video-without-recording.md
+  - name: AI composition overview
+    href: ai-composition-overview.md
+  - name: Scenarios 
+    items:
+    - name: Event based video recording
+      href: event-based-video-recording-concept.md 
+- name: How-to guides
+  items:
+  - name: Develop and deploy gRPC inference server
+    href: develop-deploy-grpc-inference-srv.md
+  - name: Manage retention policy
+    href: manage-retention-policy-how-to.md
+  - name: AI Composition
+    href: ai-composition.md
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
+  - name: Invoke direct methods with the portal
+    href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Playback of recordings
+    href: playback-recordings-how-to.md
+  - name: Troubleshoot
+    href: troubleshoot.md
+- name: Reference 
+  items:
+  - name: HTTP extension protocol 
+    href: http-extension-protocol.md
+  - name: gRPC extension protocol
+    href: grpc-extension-protocol.md
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md
+  - name: Direct methods
+    href: direct-methods.md
 - name: Resources
   items:
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
+  - name: FAQs
+    href: faq.md
   - name: Quotas and limitations
     href: quotas-limitations.md

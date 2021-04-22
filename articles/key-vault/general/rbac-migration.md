@@ -3,7 +3,6 @@ title: Migrate to Azure role-based access control | Microsoft Docs
 description: Learn how to migrate from vault access policies to Azure roles.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to

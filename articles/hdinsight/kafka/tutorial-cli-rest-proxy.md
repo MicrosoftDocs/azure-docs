@@ -77,7 +77,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     export componentVersion=kafka=2.1
     ```
 
-1. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
+1. [Create the resource group](/cli/azure/group#az_group_create) by entering the command below:
 
     ```azurecli
      az group create \
@@ -85,7 +85,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --name $resourceGroupName
     ```
 
-1. [Create an Azure Storage account](/cli/azure/storage/account#az-storage-account-create) by entering the command below:
+1. [Create an Azure Storage account](/cli/azure/storage/account#az_storage_account_create) by entering the command below:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -98,7 +98,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --sku Standard_LRS
     ```
 
-1. [Extract the primary key](/cli/azure/storage/account/keys#az-storage-account-keys-list) from the Azure Storage account and store it in a variable by entering the command below:
+1. [Extract the primary key](/cli/azure/storage/account/keys#az_storage_account_keys_list) from the Azure Storage account and store it in a variable by entering the command below:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -107,7 +107,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --query [0].value -o tsv)
     ```
 
-1. [Create an Azure Storage container](/cli/azure/storage/container#az-storage-container-create) by entering the command below:
+1. [Create an Azure Storage container](/cli/azure/storage/container#az_storage_container_create) by entering the command below:
 
     ```azurecli
     az storage container create \
@@ -116,7 +116,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --account-name $storageAccount
     ```
 
-1. [Create the HDInsight cluster](/cli/azure/hdinsight#az-hdinsight-create). Before entering the command, note the following parameters:
+1. [Create the HDInsight cluster](/cli/azure/hdinsight#az_hdinsight_create). Before entering the command, note the following parameters:
 
     1. Required parameters for Kafka clusters:
 
