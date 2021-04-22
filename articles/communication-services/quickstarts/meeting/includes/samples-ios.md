@@ -81,7 +81,7 @@ private func joinMeeting() {
 }
 ```
 
-Map each `userMri` with the corresponding avatar.
+Add and implement `avatarFor` and map each `userMri` with the corresponding avatar.
 
 ```swift
     func avatarFor(userIdentifier: String, completionHandler: @escaping (UIImage?) -> Void) {
@@ -104,4 +104,14 @@ Map each `userMri` with the corresponding avatar.
             completionHandler(nil)
         }
 }
+
+```
+
+Add other mandatory MeetingUIClientIdentityProviderDelegate protocol methods to the class and they may be left with empty implementation.
+```swift
+    func displayNameFor(userIdentifier: String, completionHandler: @escaping (String?) -> Void) {
+    }
+    
+    func subTitleFor(userIdentifier: String, completionHandler: @escaping (String?) -> Void) {
+    }
 ```

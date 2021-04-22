@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Add joining a teams meeting to an iOS app using Azure Communication Services
+title: Quickstart - Add joining a Microsoft Teams meeting to an iOS app using Azure Communication Services
 description: In this quickstart, you'll learn how to use the Azure Communication Services Teams Embed library for iOS.
 author: palatter
 ms.author: palatter
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Teams Embed library for iOS.
+In this quickstart, you'll learn how to join a Microsoft Teams meeting using the Azure Communication Services Teams Embed library for iOS.
 
 ## Prerequisites
 
@@ -82,9 +82,9 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 ### Add the Teams Embed framework
 
 1. Download the framework.
-2. Create a `Frameworks` folder in the the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
-3. Copy the downloaded `TeamsAppSDK.framework` and `MeetingUIClient.framework` frameworks to this folder.
-4. Add the `TeamsAppSDK.framework` and the `MeetingUIClient.framework` and other frameworks provided in the release bundle to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them.
+2. Create a `Frameworks` folder in the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
+3. Copy the downloaded `TeamsAppSDK.framework` and `MeetingUIClient.framework` and other frameworks provided in the release bundle to this folder.
+4. Add the frameworks to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them.
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Screenshot showing the added frameworks in Xcode.":::
 
@@ -94,7 +94,7 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 ### Turn off Bitcode
 
-Set `Enable Bitcode` option to `No` in the project build settings. To find the setting, you have change the filter from `basic` to `all`, you can also use the search bar on the right.
+Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the setting, you have to change the filter from `Basic` to `All`, you can also use the search bar on the right.
 
 :::image type="content" source="../media/ios/xcode-bitcode-option.png" alt-text="Screenshot showing the BitCode option in Xcode.":::
 
@@ -189,15 +189,15 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientMeetingJoinOptions | MeetingUIClientMeetingJoinOptions are used for configurable options such as display name. |
 | MeetingUIClientGroupCallJoinOptions | MeetingUIClientMeetingJoinOptions are used for configurable options such as display name. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
-| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group id to join. |
-| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
+| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
+| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
 | MeetingUIClientDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
 | MeetingUIClientIdentityProviderDelegate | The MeetingUIClientIdentityProviderDelegate is used to map user details to the users in a meeting. |
-| MeetingUIClientUserEventDelegate | The MeetingUIClientUserEventDelegate is used provide delegate calls in case user has click in the UI on specific elements. |
+| MeetingUIClientUserEventDelegate | The MeetingUIClientUserEventDelegate provides information about user actions in the UI. |
 
 ## Create and Authenticate the client
 
-Initialize a `MeetingUIClient` instance with a User Access Token which will enable us to join meetings. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
+Initialize a `MeetingUIClient` instance with a User Access Token, which will enable us to join meetings. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
 
 ```swift
 do {
@@ -245,12 +245,12 @@ private func joinMeeting() {
 }
 ```
 
-Replace `<MEETING URL>` with a teams meeting link.
+Replace `<MEETING URL>` with a Microsoft Teams meeting link.
 
-### Get a Teams meeting link
+### Get a Microsoft Teams meeting link
 
-A Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+A Microsoft Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+The Communication Services Calling SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Run the code
