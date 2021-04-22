@@ -16,17 +16,19 @@ This page provides latest news and updates regarding feature additions, engine v
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-## April 2021 Release-1
+## April-2021-Release-1.0
 
-* Support for [latest minors](./concepts-supported-versions.md) 12.6 and 11.11 with new server creates. Your existing servers will be automatically upgraded to the latest minor versions in May.
-* Support for Virtual Network (VNET) private DNS zone.
+* Support for [latest minors](./concepts-supported-versions.md) 12.6 and 11.11 with new server creates. Your existing servers will be automatically upgraded to the latest minor versions in your subsequent scheduled maintenance window.
+* Support for Virtual Network (VNET) [private DNS zone](./concepts-networking.md).
 * Support to choose the Availability zone during Point-in-time recovery operation.
 * Support for new [regions](./overview.md#azure-regions) including Australia East, Canada Central, and France Central.
 * Support for [built-in PgBouncer](./concepts-pgbouncer.md) connection pooler. 
 * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2.
+* [Intelligent performance](concepts-query-store.md) in public preview.
 * Several bug fixes, stability and performance improvements.
 
 ## Contacts
+
 For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address is not a technical support alias.
 
 In addition, consider the following points of contact as appropriate:

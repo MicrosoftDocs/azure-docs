@@ -63,7 +63,13 @@ Here are some concepts to be familiar with when using virtual networks with Post
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. Review the [network security group overview](../../virtual-network/network-security-groups-overview.md) for more information.
 
 * **Private DNS integration** - 
-   To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate the private endpoint of the database server with a private DNS zone. 
+  Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any regional peered VNET where the private DNS Zone is linked. See [private DNS zone documentation](https://docs.microsoft.com/azure/dns/private-dns-overview) for more details.
+
+### Private DNS zone and VNET peering
+
+Private DNS zone settings are independent of VNET peering. 
+* If you want to setup your own private DNS zone to use with the flexible server, please see this [documentation](https://docs.microsoft.com/azure/dns/private-dns-overview) for more details.
+* If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See this [documentation](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
 
 ### Unsupported virtual network scenarios
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint

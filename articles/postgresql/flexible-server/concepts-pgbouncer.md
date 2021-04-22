@@ -33,7 +33,8 @@ You can configure PgBouncer, settings with these parameters:
 | pgbouncer.default_pool_size | Set this to the number of connections per user/database pair      | 50       | 
 | pgBouncer.max_client_conn | Set this to the highest number of connections to PgBouncer you want to support (up to 10,000 connections)     | 5000     | 
 | pgBouncer.pool_mode | Set this to TRANSACTION for transaction pooling (which is the recommended setting for most workloads).      | TRANSACTION     |
-| pgBouncer.stats_users | : Optional, set this to the name of an existing user, to be able to login to the special PgBouncer statistics database (named “PgBouncer”)    |      |
+| pgBouncer.min_pool_size | Add more server connections to pool if below this number.    |   0 (Disabled)   |
+| pgBouncer.stats_users | Optional, set this to the name of an existing user, to be able to login to the special PgBouncer statistics database (named “PgBouncer”)    |      |
 
 > [!Note] 
 > Upgrading of PgBouncer will be managed by Azure.
@@ -42,7 +43,7 @@ You can configure PgBouncer, settings with these parameters:
 
 In order to start using PgBouncer, follow these steps:
 1. Connect to your database server, but use port 6432 instead of the regular port 5432 -- verify that this connection works
-```
+```azurecli-interactive
 psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=postgres user=myUser password=myPassword sslmode=require"
 ```
 2. Test your application in a QA environment against PgBouncer, to make sure you don’t have any compatibility problems. The PgBouncer project provides a compatibility matrix, and we recommend using **transaction pooling** for most users: https://www.PgBouncer.org/features.html#sql-feature-map-for-pooling-modes.
@@ -62,12 +63,11 @@ In some cases, you may already have an application side connection pool, or have
 Utilizing an application side pool together with PgBouncer on the database server can often make sense. In this situation the application side pool brings the benefit of reduced initial connection latency (as the initial roundtrip to initialize the connection is much faster), and the database-side PgBouncer provides idle connection scaling.
 
 ## Limitations
-
-* Each database server is configured with its own PgBouncer. Hence, you cannot use one PgBouncer to directly connect to other servers. 
-* PgBouncer is currently not supported on Burstable server compute tier. 
+ 
+* PgBouncer is currently not supported with Burstable server compute tier. 
 * If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you will lose the PgBouncer capability.
 * PgBouncer is currently limited to 10,000 max connections.
-* Whenever the serve undergoes a restart process such as scale operations, HA failover, or a restart, the PgBouncer is also restarted along with the server virtual machine. Hence the existing connections are to be re-established.
+* Whenever the server is restarted during scale operations, HA failover, or a restart, the PgBouncer is also restarted along with the server virtual machine. Hence the existing connections have to be re-established.
 * Due to a known issue, the portal does not show all PgBouncer parameters. Once you enable PgBouncer and save the parameter, you have to exit Parameter screen (for example, click Overview) and then get back to Parameters page. This will be addressed in future service update.
 
 ## Next steps
