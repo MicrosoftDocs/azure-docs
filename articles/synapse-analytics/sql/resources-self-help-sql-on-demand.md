@@ -106,6 +106,7 @@ FROM
     AS [result]
 ```
 causes:
+
 ```Error handling external file: ‘Max error count reached’. File/External table name: [filepath].```
 
 As soon as parser version is changed from version 2.0 to version 1.0, the error messages help to identify the problem. The new error message is now instead: 
