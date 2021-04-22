@@ -6,7 +6,7 @@ ms.subservice: migration-guide
 author: rahugup
 manager: bsiva
 ms.topic: how-to
-ms.date: 3/31/2021
+ms.date: 4/25/2021
 ms.author: rahugup
 ---
 # Migrate availability group to SQL Server on Azure VM
@@ -53,12 +53,9 @@ If you need to assign permissions, follow these steps:
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
 
-> [!NOTE]
-> When migrating physical machines, Azure Migrate: Server Migration uses the same replication architecture as the agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
-
 ## Prepare for migration
 
-To prepare for physical server migration, verify the physical server settings, and prepare to deploy a replication appliance.
+To prepare for server migration, verify the physical server settings, and prepare to deploy a replication appliance.
 
 ### Check machine requirements 
 
@@ -79,13 +76,13 @@ Azure Migrate:Server Migration uses a replication appliance to replicate machine
 
 Prepare for appliance deployment as follows:
 
-- Prepare a machine to host the replication appliance. [Review](../../../migrate/migrate-replication-appliance.md#appliance-requirements) the machine requirements.
+- Create a Windows Server 2016 machine to host the replication appliance. [Review](../../../migrate/migrate-replication-appliance.md#appliance-requirements) the machine requirements.
 - The replication appliance uses MySQL. Review the [options](../../../migrate/migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](../../../migrate/migrate-replication-appliance.md#url-access) and [government](../../../migrate/migrate-replication-appliance.md#azure-government-url-access) clouds.
 - Review [port](../../../migrate/migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
 
 > [!NOTE]
-> The replication appliance should be installed on a machine other than the source machine you are replicating or migrating, or on the Azure Migrate discovery and assessment appliance you may have installed before.
+> The replication appliance should be installed on a machine other than the source machine you are replicating or migrating, and not on any machine that has had the Azure Migrate discovery and assessment appliance installed before.
 
 ### Download replication appliance installer
 
@@ -109,9 +106,9 @@ To download the replication appliance installer, follow these steps:
     ![Download provider](../../../migrate/media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
-11. After the installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). Use the Manage Accounts tab of the wizard, create a dummy account with the following details - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will be using this dummy account in the Enable Replication stage. 
+11. After the installation completes, the Appliance configuration wizard will launch automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance machine). Use the **Manage Accounts** tab of the wizard, create a dummy account with the following details - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will use this dummy account in the Enable Replication stage. 
 
-12. After the appliance has restarted after setup, in **Discover machines**, select the new appliance in **Select Configuration Server**, and select **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
+12. After setup completes, and the appliance restarts, in **Discover machines**, select the new appliance in **Select Configuration Server**, and select **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
 
     ![Finalize registration](../../../migrate/media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -160,7 +157,7 @@ It may take some time after installation for discovered machines to appear in Az
 
 ## Prepare source machines
 
-To prepare source machines, run the `Get-ClusterInfo.ps1` script on a cluster node to retrieve information on the cluster resources. The script will output the role name, resource name, IP, and probe port in the `Cluster-Config.csv` file. Use this CSV file to create and assign resource in Azure later in this article.  
+To prepare source machines, run the `Get-ClusterInfo.ps1` script on a cluster node to retrieve information on the cluster resources. The script will output the role name, resource name, IP, and probe port in the `Cluster-Config.csv` file. 
 
 ```powershell
 ./Get-ClusterInfo.ps1
@@ -172,7 +169,7 @@ For the cluster and cluster roles to respond properly to requests, an Azure Load
 
 To create the load balancer, follow these steps: 
 
-1. Fill the columns in the `Cluster-Config.csv` file.
+1. Fill out the columns in the `Cluster-Config.csv` file:
 
 **Column Header** | **Description**
 --- | ---
@@ -180,22 +177,21 @@ NewIP | Specify the IP address in the Azure virtual network (or subnet) for each
 ServicePort | Specify the service port to be used by each resource in the CSV file. For the SQL clustered resource, use the same value for service port as the probe port in the CSV. For other cluster roles, the default values used are 1433 but you can continue to use the port numbers that are configured in your current setup. 
 
 
-2. Run the `Create-ClusterLoadBalancer.ps1` script to create the load balancer.
+2. Run the `Create-ClusterLoadBalancer.ps1` script to create the load balancer using the following mandatory parameters: 
 
 **Parameter** | **Type** | **Description**
 --- | --- | ---
-ConfigFilePath |  Mandatory | Specify the path for the `Cluster-Config.csv` file that you have filled out in the previous step.
-ResourceGroupName | Mandatory | Specify the name of the resource group in which the load balancer is to be created. 
-VNetName | Mandatory | Specify the name of the Azure virtual network that the load balancer will be associated to. 
-SubnetName | Mandatory | Specify the name of the subnet in the Azure virtual network that the load balancer will be associated to. 
-VNetResourceGroupName | Mandatory | Specify the name of the resource group for the Azure virtual network that the load balancer will be associated to. 
-Location | Mandatory | Specify the location in which the load balancer should be created. 
-LoadBalancerName | Mandatory | Specify the name of the load balancer to be created. 
+ConfigFilePath | Specify the path for the `Cluster-Config.csv` file that you have filled out in the previous step.
+ResourceGroupName |Specify the name of the resource group in which the load balancer is to be created. 
+VNetName |Specify the name of the Azure virtual network that the load balancer will be associated to. 
+SubnetName |Specify the name of the subnet in the Azure virtual network that the load balancer will be associated to. 
+VNetResourceGroupName |Specify the name of the resource group for the Azure virtual network that the load balancer will be associated to. 
+Location |Specify the location in which the load balancer should be created. 
+LoadBalancerName |Specify the name of the load balancer to be created. 
 
 
-``` powershell
+```powershell
 ./Create-ClusterLoadBalancer.ps1 -ConfigFilePath ./clsuterinfo.csv -ResourceGroupName $resoucegroupname -VNetName $vnetname -subnetName $subnetname -VnetResourceGroupName $vnetresourcegroupname -Location "eastus" -LoadBalancerName $loadbalancername
-
 ```
 
 ## Replicate machines
@@ -283,13 +279,13 @@ After machines are replicated, they are ready for migration. To migrate your ser
 
     ![Replicating servers](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. To ensure the migrated server is synchronized with the source server, stop the SQL Server resource (in **Failover Cluster Manager** > **Roles** > **Other resources**) while ensuring that the cluster disks are online.   
-3. In **Replicating machines** > select on server name > **Overview**, ensure that the last synchronized timestamp is after you have stopped SQL service resource on to the servers to be migrated before you move onto the next step. This should only take a couple of minutes. 
+2. To ensure the migrated server is synchronized with the source server, stop the SQL Server service on every replica in the availability group, starting with secondary replicas (in **SQL Server Configuration Manager** > **Services** ) while ensuring the disks hosting SQL data are online.   
+3. In **Replicating machines** > select server name > **Overview**, ensure that the last synchronized timestamp is after you have stopped the SQL Server service on the servers to be migrated before you move onto the next step. This should only take a few minutes. 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
    
-       > [!NOTE]
-       > For physical server migration, shut down of source machine is not supported automatically. The recommendation is to bring the application down as part of the migration window (don't let the applications accept any connections) and then initiate the migration (the server needs to be kept running, so remaining changes can be synchronized) before the migration is completed.
+    > [!NOTE]
+    > For physical server migration, shut down of source machine is not supported automatically. The recommendation is to bring the application down as part of the migration window (don't let the applications accept any connections) and then initiate the migration (the server needs to be kept running, so remaining changes can be synchronized) before the migration is completed.
 
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
@@ -299,16 +295,13 @@ After machines are replicated, they are ready for migration. To migrate your ser
 After your VMs have migrated, reconfigure the cluster. Follow these steps: 
 
 1. Shutdown the migrated servers in Azure.
-
-2.  Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select a backend pool > **add migrated machines**. 
-
-3. Start the migrated servers in Azure and login to any node. 
+2.  Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select backend pool > **add migrated machines**. 3. Start the migrated servers in Azure and login to any node. 
 
 4. Copy the `ClusterConfig.csv` file and run the `Update-ClusterConfig.ps1` script passing the CSV as a parameter. This ensures the cluster resources are updated with the new configuration for the cluster to work in Azure. 
 
-```powershell
-./Update-ClusterConfig.ps1 -ConfigFilePath $filepath
-```
+   ```powershell
+   ./Update-ClusterConfig.ps1 -ConfigFilePath $filepath
+   ```
 
 Your Always On availability group is ready. 
 
