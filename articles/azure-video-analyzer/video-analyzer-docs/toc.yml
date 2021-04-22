@@ -31,6 +31,8 @@
     - name: With OVMS via HTTP extension
       displayName: intel, OpenVINO 
       href: use-intel-openvino-tutorial.md
+  - name: Live Video with Computer Vision for Spatial Analysis
+    href: computer-vision-for-spatial-analysis.md
 - name: Concepts
   items:
   - name: Pipeline
