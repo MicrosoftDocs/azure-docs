@@ -76,7 +76,7 @@ If you use a firewall that limits traffic, and your logic app workflows need to 
 
 ## Recurrence behavior
 
-Recurring built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), run natively on the Logic Apps runtime and differ from recurring connection-based triggers, such as the Office 365 Outlook connector trigger where you need to create a connection first.
+Recurring built-in triggers, such as the [Recurrence trigger](connectors-native-recurrence.md), run natively on the Logic Apps runtime and differ from recurring connection-based triggers, such as the Office 365 Outlook connector trigger where you need to create a connection first.
 
 For both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
 
@@ -104,6 +104,8 @@ For more information, review the following documentation:
 
 * [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
 * [Troubleshooting recurrence issues](#recurrence-issues)
+
+<a name="recurrence-issues"></a>
 
 ### Troubleshooting recurrence issues
 
