@@ -16,8 +16,9 @@ This article demonstrates how to deploy [Azure Static Web Apps](./overview.md) u
 
 In this tutorial, you learn to:
 
-- Create an ARM Template for Azure Static Web Apps
-- Deploy the ARM Template to create an Azure Static Web App instance
+> [!div class="checklist"]
+> - Create an ARM Template for Azure Static Web Apps
+> - Deploy the ARM Template to create an Azure Static Web App instance
 
 ## Prerequisites
 
@@ -326,4 +327,3 @@ Clean up the resources you deployed by deleting the resource group.
 ## Next steps
 
 You learned how to deploy Static Web Apps using a local ARM template process. For other deployment methods, have a look at <URL to SWA Portal deployment> + <URL to SWA Azure DevOps deployment>
-
