@@ -321,6 +321,20 @@ public async Task<ActionResult> Get()
 }
 ```
 
+### Notification service
+
+The notification service located in **NotificationHub.Sample.API/NotificationHub.Sample.API/Services/Notifications/INotificationService.cs** has methods to create and delete the installation. There is also a method to send notifications to all registered users, and to get all registration information:
+
+```cs
+public interface INotificationService
+{
+   Task<bool> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation, CancellationToken cancellationToken);
+   Task<bool> DeleteInstallationByIdAsync(string installationId, CancellationToken cancellationToken);
+   Task<bool> RequestNotificationAsync(NotificationMessage notificationMessage, IList<string> tags, CancellationToken cancellationToken);
+   Task<List<DeviceTrend>> GetAllRegistrationInfoAsync();
+}
+```
+
 ## Build the solution
 
 To build the sample, follow these steps.
@@ -350,20 +364,6 @@ To configure the app backend, locate the **/NotificationHub.Sample.API/appsettin
 ```
 
 You can run the API solution locally or on any IIS server, or deploy it as an Azure Web App Service. Keep the URL of the API handy.
-
-### Create notification service
-
-The notification service located in **NotificationHub.Sample.API/NotificationHub.Sample.API/Services/Notifications/INotificationService.cs** has methods to create and delete the installation. There is also a method to send notifications to all registered users, and to get all registration information:
-
-```cs
-public interface INotificationService
-{
-   Task<bool> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation, CancellationToken cancellationToken);
-   Task<bool> DeleteInstallationByIdAsync(string installationId, CancellationToken cancellationToken);
-   Task<bool> RequestNotificationAsync(NotificationMessage notificationMessage, IList<string> tags, CancellationToken cancellationToken);
-   Task<List<DeviceTrend>> GetAllRegistrationInfoAsync();
-}
-```
 
 ## Run React native frontend application for Windows
 
