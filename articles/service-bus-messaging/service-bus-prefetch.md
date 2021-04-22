@@ -6,7 +6,7 @@ ms.date: 04/21/2021
 ---
 
 # Prefetch Azure Service Bus messages
-When you enable the *Prefetch* feature for any of the official Service Bus clients, the receiver acquires more messages than what the application initially asked for, up to the specified prefetch count.
+When you enable the *Prefetch* feature for any of the official Service Bus clients, the receiver acquires more messages than what the application initially asked for, up to the specified prefetch count. Please note that the JavaScript and TypeScript client does not support this feature yet.
 
 As messages are returned to the application, the client acquires further messages in the background, to fill the prefetch buffer.
 
