@@ -160,9 +160,14 @@ The query results are transformed into a number that is compared against the thr
 
 ### Frequency
 
-The interval in which the query is run. Can be set from 5 minutes to one day. Must be equal to or less than the [query time range](#query-time-range) to not miss log records.
+> [!NOTE]
+> There are currently no additional charges for 1-minute frequency log alerts. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using 1-minute frequency log alerts after the notice period, you will be billed at the applicable rate.
+
+The interval in which the query is run. Can be set from 1 minute to one day. Must be equal to or less than the [query time range](#query-time-range) to not miss log records.
 
 For example, if you set the time period to 30 minutes and frequency to 1 hour.  If the query is run at 00:00, it returns records between 23:30 and 00:00. The next time the query would run is 01:00 that would return records between 00:30 and 01:00. Any records created between 00:00 and 00:30 would never be evaluated.
+
+To use 1-minute frequency alerts you need to set a property via the API. When creating new or updating existing log alert rules in API Version `2020-05-01-preview` - in `properties` section, add `evaluationFrequency` with value `PT1M` of type `String`. When creating new or updating existing log alert rules in API Version `2018-04-16` - in `schedule` section, add `frequencyInMinutes` with value `1` of type `Int`. 
 
 ### Number of violations to trigger alert
 
@@ -172,9 +177,9 @@ For example, if your rule [**Aggregation granularity**](#aggregation-granularity
 
 ## State and resolving alerts
 
-Log alerts are stateless. Alerts fire each time the condition is met, even if fired previously. Fired alerts don't resolve. You can [mark the alert as closed](../alerts/alerts-managing-alert-states.md). You can also mute actions to prevent them from triggering for a period after an alert rule fired.
+Log alerts can either be stateless or stateful (currently in preview when using the API). 
 
-In workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
+Stateless alerts fire each time the condition is met, even if fired previously. You can [mark the alert as closed](../alerts/alerts-managing-alert-states.md) once the alert instance is resolved. You can also mute actions to prevent them from triggering for a period after an alert rule fired. In Log Analytics Workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
 
 See this alert evaluation example:
 
@@ -184,6 +189,8 @@ See this alert evaluation example:
 | 00:10 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
+
+Stateful alerts fire once per incident and resolve. When creating new or updating existing log alert rules, add the `autoMitigate` flag with value `true` of type `Boolean`, under the `properties` section. You can use this feature in these API versions: `2018-04-16` and `2020-05-01-preview`.
 
 ## Pricing and billing of log alerts
 
