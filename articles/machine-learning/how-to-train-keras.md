@@ -9,8 +9,7 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
