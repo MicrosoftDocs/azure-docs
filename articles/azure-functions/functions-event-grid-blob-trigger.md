@@ -76,6 +76,9 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 
 [!INCLUDE [functions-event-grid-local-dev](../../includes/functions-event-grid-local-dev.md)]
 
+## Debug the function
+Once the Blob Trigger recognizes a new file is uploaded to the storage container, the break point is hit in your local function.
+
 ## Deployment
 
 As you deploy the function app to Azure, update the webhook endpoint from your local endpoint to your deployed app endpoint. To update an endpoint, follow the steps in [Add a storage event](#add-a-storage-event) and use the below for the webhook URL in step 5. The `<BLOB-EXTENSION-KEY>` is the function key for your blob trigger function.

@@ -39,6 +39,12 @@ Next, **press F5** to start a debugging session.
 
 [!INCLUDE [functions-event-grid-local-dev](../../includes/functions-event-grid-local-dev.md)]
 
+## Debug the function
+
+Once the Event Grid recognizes a new file is uploaded to the storage container, the break point is hit in your local function.
+
+![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
+
 ## Clean up resources
 
 To clean up the resources created in this article, delete the **test** container in your storage account.
