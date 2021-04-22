@@ -45,10 +45,26 @@ Following locations highlight a few ways to inspect aspects of your application'
 
 | Type | Menu location | Description |
 |--- | --- | --- |
-| Failures | _Investigate > Failures_ | Review failed requests. |
-| Server requests | _Investigate > Performance_ | Review individual API requests.  |
-| Logs | _Monitoring > Logs_ | Interact with an editor to query transaction logs. |
-| Metrics | _Monitoring > Metrics_ | Interact with a designer to create custom charts using various metrics. |
+| [Failures](../azure-monitor/app/asp-net-exceptions.md) | _Investigate > Failures_ | Review failed requests. |
+| [Server requests](../azure-monitor/app/tutorial-performance.md) | _Investigate > Performance_ | Review individual API requests.  |
+| [Logs](../azure-monitor/app/diagnostic-search.md) | _Monitoring > Logs_ | Interact with an editor to query transaction logs. |
+| [Metrics](../azure-monitor/essentials/app-insights-metrics.md) | _Monitoring > Metrics_ | Interact with a designer to create custom charts using various metrics. |
+
+### Traces
+
+Using the following steps to to view traces in your application.
+
+1. Select **Logs** under _Monitoring_.
+
+1. Hover your mouse over any card in the _Queries_ window.
+
+1. Select the **Load Editor** button.
+
+1. Replace the generated query with the word `traces`.
+
+1. Select the **Run** button.
+
+:::image type="content" source="media/monitoring/azure-static-web-apps-application-insights-traces.png" alt-text="View Application Insights traces":::
 
 ## Next steps
 
