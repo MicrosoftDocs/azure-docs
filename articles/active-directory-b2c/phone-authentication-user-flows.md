@@ -26,7 +26,7 @@ Setting up phone sign-up and sign-in in a user flow involves the following steps
 
 - [Enable the recovery email prompt (preview)](#enable-the-recovery-email-prompt-preview) to let users specify an email that can be used to recover their account when they don't have their phone.
 
-- [Display and consent information]() to the user during the sign up or sign in flow. You can display the default consent information or customize the your own consent information.
+- [Display consent information](#enable-consent-information) to the user during the sign up or sign in flow. You can display the default consent information or customize the your own consent information.
 
 Multi-factor authentication (MFA) is disabled by default when you configure a user flow with phone sign-up. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
 
