@@ -38,7 +38,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * [Install and Setup](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-install)
 * Connection and Activation
 
-    1. [Connect](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-deploy-connect)
+    1. [Connect](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-connect)
     2. [Configure network](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy)
     3. [Configure device](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time)
     4. [Configure certificates](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-certificates)
