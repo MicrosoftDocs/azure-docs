@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# API support in Azure Static Web Apps Preview with Azure Functions
+# API support in Azure Static Web Apps with Azure Functions
 
 Azure Static Web Apps provides serverless API endpoints via [Azure Functions](../azure-functions/functions-overview.md). By leveraging Azure Functions, APIs dynamically scale based on demand, and include the following features:
 

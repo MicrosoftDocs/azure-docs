@@ -9,7 +9,7 @@ ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
-# Authentication and authorization for Azure Static Web Apps Preview
+# Authentication and authorization for Azure Static Web Apps
 
 Azure Static Web Apps streamlines the authentication experience by managing authentication with the following providers:
 

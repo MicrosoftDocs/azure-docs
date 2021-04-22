@@ -9,7 +9,7 @@ ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
-# Routes in Azure Static Web Apps Preview
+# Routes in Azure Static Web Apps
 
 > [!IMPORTANT]
 > Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).

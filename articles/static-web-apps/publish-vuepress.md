@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 ---
 
-# Tutorial: Publish a VuePress site to Azure Static Web Apps Preview
+# Tutorial: Publish a VuePress site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [VuePress](https://vuepress.vuejs.org/) web application to [Azure Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps application with the associated GitHub Actions that give you control over how the app is built and published.
 
@@ -108,10 +108,10 @@ The following steps show you how to create a new Static Web Apps application and
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Click **Create a Resource**
 1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
+1. Click **Static Web Apps**
 1. Click **Create**
 
-   :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Create a Static Web Apps (Preview) in the portal":::
+   :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Create a Static Web Apps in the portal":::
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
