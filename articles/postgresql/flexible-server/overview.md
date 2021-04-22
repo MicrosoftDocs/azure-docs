@@ -6,7 +6,7 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/05/2021
+ms.date: 04/22/2021
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server

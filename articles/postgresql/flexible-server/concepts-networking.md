@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/21/2021
+ms.date: 04/22/2021
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server
@@ -44,6 +44,8 @@ The following characteristics apply whether you choose to use the private access
 
 ## Private access (VNet integration)
 Private access with virtual network (vnet) integration provides private and secure communication for your PostgreSQL flexible server.
+
+:::image type="content" source="./media/how-to-manage-virtual-network-portal/flexible-pg-vnet-diagram.png" alt-text="Flexible server Postgres VNET":::
 
 ### Virtual network concepts
 Here are some concepts to be familiar with when using virtual networks with PostgreSQL flexible servers.
