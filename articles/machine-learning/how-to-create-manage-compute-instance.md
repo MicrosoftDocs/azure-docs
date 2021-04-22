@@ -148,7 +148,7 @@ The setup script is a shell script which runs as *azureuser*.  Create or upload 
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
 
-When the script runs, the current working directory is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/*. If you upload the script to **Users>admin**, reference the file at */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* when provisioning the compute instance named **ciname**.
+When the script runs, the current working directory is the directory where it was uploaded.  If you upload the script to **Users>admin**, the location of the the file is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* when provisioning the compute instance named **ciname**.
 
 Script arguments can be referred to in the script as $1, $2, etc. For example, if you execute `scriptname ciname` then in the script you can `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` to navigate to the directory where the script is stored.
 
@@ -160,49 +160,52 @@ SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=$(dirname "$SCRIPT") 
 ```
 
-### Reference the setup script
+### Use the script in the studio
 
-Once you store the script, refer to it during creation of your compute instance:
+Once you store the script, specify it during creation of your compute instance:
 
-* In the studio:
-    1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
-    1. On the left, select **Compute**.
-    1. Select **+New** to create a new compute instance.
-    1. [Fill out the form](how-to-create-attach-compute-studio.md#compute-instance).
-    1. On the second page of the form, open **Show advanced settings**
-    1. Turn on **Provision with setup script**
-    1. Browse to the shell script you saved.  Or upload a script from your computer.
-    1. Add command arguments as needed.
-    
-    :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
+1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
+1. On the left, select **Compute**.
+1. Select **+New** to create a new compute instance.
+1. [Fill out the form](how-to-create-attach-compute-studio.md#compute-instance).
+1. On the second page of the form, open **Show advanced settings**
+1. Turn on **Provision with setup script**
+1. Browse to the shell script you saved.  Or upload a script from your computer.
+1. Add command arguments as needed.
 
-* In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance), add `setupScripts`. For example:
+:::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
 
-  ```json
-  "setupScripts":{
-      "scripts":{
-         "creationScript":{
-            "scriptSource":"workspaceStorage",
-            "scriptData":"[parameters('creationScript.location')]",
-            "scriptArguments":"[parameters('creationScript.cmdArguments')]"
-         }
-      }
-   }
-   ```
+### Use script in a Resource Manager template
 
-  You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  For example, specify a base64 encoded command string for `scriptData`:
+In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance), add `setupScripts` to invoke the setup script when the compute instance is provisioned. For example:
 
-  ```json
-  "setupScripts":{
-      "scripts":{
-         "creationScript":{
-            "scriptSource":"inline",
-            "scriptData":"[base64(parameters('inlineCommand'))]",
-            "scriptArguments":"[parameters('creationScript.cmdArguments')]"
-         }
-      }
-   }
-  ```
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"workspaceStorage",
+        "scriptData":"[parameters('creationScript.location')]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
+
+You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  When you use an inline string, the working directory for the script is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
+
+For example, specify a base64 encoded command string for `scriptData`:
+
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"inline",
+        "scriptData":"[base64(parameters('inlineCommand'))]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
 
 ### Setup script logs
 
