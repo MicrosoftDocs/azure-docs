@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/03/2021
+ms.date: 04/21/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -148,6 +148,9 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 
 > [!NOTE]
 > In scenarios that involve Azure premium storage, we are implementing burst capabilities into the configuration. As you are using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](../../disk-bursting.md) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we are not expecting that all tests will pass the criteria since some of the tests will exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
+
+> [!NOTE]
+> Using M32ts and M32ls VMs we observed that disk throughput could be below the the HANA KPIs. In the cases we analyzed, we observed that the limit of 400MB/sec for the Azure Premium storage based data volumes is not reached. Even with disk bursting or with sufficiently provisioned I/O throughput. Root cause of the observed behavior was that the HCMT/HWCCT storage test files were completely cached in the read cache of the Premium storage data disks. This cahce is located on the compute host that hosts the virtual machine. Since the test files created by HCMT/HWCCT are small enough to fit completely in the read cache, the quotas listed in the column 'Max cached and temp storage throughput: IOPS/MBps (cache size in GiB)' in  the article [M-series](https://docs.microsoft.com/azure/virtual-machines/m-series) is relevant. Specifically for M32ts and M32ls, the throughput against the read cache is only 400MB/sec. As a result, it is possible that despite disk bursting or higher provisioned I/O throughput, the tests can fall slightly short of 400MB/sec maximum throughput. As an alternative, you can test without read cache enabled on the data disks.
 
 
 > [!NOTE]

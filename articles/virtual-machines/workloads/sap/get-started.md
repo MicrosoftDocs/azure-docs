@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/13/2021
+ms.date: 04/21/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -79,6 +79,8 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 
 ## Change Log
+- 04/21/2021: Add explanation why HCMT/HWCCT storage tests on M32ts and M32ls might fall short of HANA KPIs when enabling read cache for the Premium storage disks in article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage)
+- 04/20/2021: Clarify storage block sizes for IBM Db2 with different Azure blockstorage in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
 - 04/12/2021: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md), [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) and [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to add configuration instructions for SAP HANA system replication Python hook  
 - 04/12/2021: Replaced backup documentation for SAP HANA by documents of [SAP HANA backup/restore with Azure Backup service](../../../backup/sap-hana-db-about.md) 
 - 04/12/2021: Release of [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) configuration guide
@@ -162,7 +164,4 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - 03/11/2020: Change in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) to clarify multiple databases per DBMS instance support
 - March 11, 2020: Change in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) explaining Generation 1 and Generation 2 VMs
 - March 10, 2020: Change in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) to clarify real existing throughput limits of ANF
-- March 09, 2020: Change in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications](./high-availability-guide-suse.md), [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md), [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md), [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md), [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](./dbms-guide-ha-ibm.md), [High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md) and [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md) to update cluster resources with resource agent azure-lb 
-- March 05, 2020: Structure changes and content changes for Azure Regions and Azure Virtual machines in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
-- 03/03/2020: Change in [High availability for SAP NW on Azure VMs on SLES with ANF for SAP applications](./high-availability-guide-suse-netapp-files.md) to change to more efficient ANF volume layout
-- March 01, 2020: Reworked [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md) to include Azure Backup service. Reduced and condensed content in [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md) and deleted a third document dealing with backup through disk snapshot. Content gets handled in Backup guide for SAP HANA on Azure Virtual Machines 
+
