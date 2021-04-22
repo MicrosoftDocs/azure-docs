@@ -237,7 +237,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/offazure/offazure
+    href: /cli/azure/offazure
   - name: Azure PowerShell
     href: /powershell/module/az.migrate/
   - name: Azure Policy built-ins

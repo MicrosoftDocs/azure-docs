@@ -18,7 +18,7 @@ ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
 
 In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
 
-To view examples of automated machine learning experiments, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
+For an end to end example of an automated machine learning experiment, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md).
 
 Configuration options available in automated machine learning:
 
@@ -551,7 +551,7 @@ For general information on how model explanations and feature importance can be 
 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-+ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
++ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
 
 + Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 
