@@ -11,13 +11,13 @@ ms.date: 04/22/2021
 
 # Cloud feature availability for US Government customers
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds for Azure Sentinel. Stay tuned as we add data for additional Azure services.
+This article describes feature availability in the Microsoft Azure and Azure Government clouds for Azure Sentinel. Stay tuned as we add data for other Azure services.
 
 ## Azure Government
 
-Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data.
+Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have the same comprehensive security controls in place, and the same Microsoft commitment on the safeguarding of customer data.
 
-Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
+Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides another layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
 
 ## Microsoft 365 integration
 
@@ -59,7 +59,7 @@ For more information, see the [Azure Sentinel product documentation](/azure/sent
 | - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | Public Preview | Not Available |
 | - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | GA | Not Available |
 | - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | Not Available |
-|**Detection support** | | | | | |
+|**Detection support** | | |
 | - [Anomalous Windows File Share Access Detection](/azure/sentinel/fusion)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
@@ -76,7 +76,7 @@ For more information, see the [Azure Sentinel product documentation](/azure/sent
 | - [Azure Kubernetes Services (AKS)](/azure/sentinel/connect-azure-kubernetes-service)           |       Public Preview         |         Not Available                |
 | - [Azure SQL Databases](/azure/sentinel/connect-azure-sql-logs)                        |     GA         |         GA             |
 | - [Azure WAF](/azure/sentinel/connect-azure-waf)                                  |      GA        |      GA                |
-| **Windows connectors** | | | 
+| **Windows connectors** | | |
 | - [Windows Firewall](/azure/sentinel/connect-windows-firewall)                                 |     GA         |   GA           |
 | - [Windows Security Events](/azure/sentinel/connect-windows-security-events)                                  |      GA        |         GA     |
 | **External connectors**| | |
@@ -149,8 +149,8 @@ For more information, see the [Azure Sentinel product documentation](/azure/sent
 | - [Trend Micro Deep Security](/azure/sentinel/connect-trend-micro)                       | GA             | GA             |
 | - [Trend Micro TippingPoint](/azure/sentinel/connect-trend-micro-tippingpoint)                         | Public Preview | Public Preview |
 | - [Trend Micro XDR](/azure/sentinel/connect-data-sources)                                  | Public Preview | Not Available      |
-| - [Vmware Carbon Black Endpoint Standard](/azure/sentinel/connect-vmware-carbon-black)           | Public Preview | Public Preview |
-| - [Vmware ESXi](/azure/sentinel/connect-vmware-esxi)                                      | Public Preview | Public Preview |
+| - [VMware Carbon Black Endpoint Standard](/azure/sentinel/connect-vmware-carbon-black)           | Public Preview | Public Preview |
+| - [VMware ESXi](/azure/sentinel/connect-vmware-esxi)                                      | Public Preview | Public Preview |
 | - [WireX Network Forensics Platform](/azure/sentinel/connect-wirex-systems)                | Public Preview | Public Preview |
 | - [Zimperium Mobile Threat Defense](/azure/sentinel/connect-zimperium-mtd)                  | Public Preview | Not Available      |
 | - [Zscaler](/azure/sentinel/connect-zscaler)                                         | GA             | GA             |
@@ -202,9 +202,6 @@ Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, wh
 | - GCC High |- |GA |
 | - Office DoD |- |GA |
 | | |
-
-
----
 
 
 ## Next steps
