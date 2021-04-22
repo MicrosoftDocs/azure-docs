@@ -31,7 +31,7 @@ For an alternative connectivity option for SQL Server 2019 CU2 and later, consid
 
 Before you complete the steps in this article, you should already have:
 
-- Determined that Azure Load Balancer is the appropriate [connectivity option for your FCI](hadr-windows-server-failover-cluster-overview.md#connectivity).
+- Determined that Azure Load Balancer is the appropriate [connectivity option for your FCI](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn).
 - Configured your [failover cluster instances](failover-cluster-instance-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). 
 

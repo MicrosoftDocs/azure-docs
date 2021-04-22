@@ -265,7 +265,7 @@ This is an indication that the resource provider could not access the SQL Server
 
 ## Next steps
 
-Once the availability group is deployed, consider optimizing the [cluster settings for availability groups](availability-group-recommended-cluster-settings.md). 
+Once the availability group is deployed, consider optimizing the [cluster settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
 
 
 For more information about availability groups, see:
