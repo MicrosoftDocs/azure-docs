@@ -20,6 +20,8 @@ The Azure portal can be used to add or update an Azure Load Balancer associated 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create a virtual network
+> * Create a NAT gateway for outbound connectivity
 > * Create a virtual machine scale set without a load balancer
 > * Add a new load balancer to virtual machine scale set
 
@@ -33,7 +35,40 @@ In this section you'll create a virtual machine scale sets without a load balanc
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. 
+2. In the search box at the top of the portal, enter **Virtual machine scale**.
+
+3. In the search results, select **Virtual machine scale sets**.
+
+4. Select **+ Add**.
+
+5. In the **Basics** tab of **Create a virtual machine scale set**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **TutorLBVMSS-rg** in **Name**. </br> Select **OK**. |
+    | **Scale set details** |   |
+    | Virtual machine scale set name | Enter **myVMScaleSet**. |
+    | Region | Select **(US) West US 2**. |
+    | Availability zone | Leave the default of **None**. |
+    | **Orchestration** |   |
+    | Orchestration mode | Leave the default of **Uniform: optimized for large scale stateless workloads with identical instances**. |
+    | **Instance details** |   |
+    | Image | Select **Windows Server 2019 Datacenter - Gen1**. |
+    | Azure Spot Instance | Leave the default of the box unchecked. |
+    | Size | Select a size. |
+    | **Administrator account** |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Confirm password. |
+
+6. Select the **Networking** tab.
+
+
+
+
+
 
 ## [Section 2 heading]
 <!-- Introduction paragraph -->
