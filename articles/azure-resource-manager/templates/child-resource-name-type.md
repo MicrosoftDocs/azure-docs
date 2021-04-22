@@ -2,7 +2,7 @@
 title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 04/22/2021
 ---
 
 # Set name and type for child resources
@@ -11,7 +11,11 @@ Child resources are resources that exist only within the context of another reso
 
 Each parent resource accepts only certain resource types as child resources. The resource type for the child resource includes the resource type for the parent resource. For example, `Microsoft.Web/sites/config` and `Microsoft.Web/sites/extensions` are both child resources of the `Microsoft.Web/sites`. The accepted resource types are specified in the [template schema](https://github.com/Azure/azure-resource-manager-schemas) of the parent resource.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 In an Azure Resource Manager template (ARM template), you can specify the child resource either within the parent resource or outside of the parent resource. The following example shows the child resource included within the resources property of the parent resource.
+
+# [JSON](#tab/json)
 
 ```json
 "resources": [
@@ -26,7 +30,37 @@ In an Azure Resource Manager template (ARM template), you can specify the child 
 
 Child resources can only be defined five levels deep.
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
+  <parent-resource-properties>
+
+  resource <child-resource-symbolic-name> '<child-resource-type>' = {
+    <child-resource-properties>
+  }
+}
+```
+
+A nested resource declaration must appear at the top level of syntax of the containing resource. Declarations may be nested arbitrarily deep, as long as each level is a child type of its containing resource.
+
+A nested resource must specify a single type segment to declare its type. The full type of the nested resource is the containing resource's type with the additional segment appended to the list of types. In the previous example, *<resource-type>@<api-version>* is combined with *<child-resource-type>* resulting in *<resource-type>/<child-resource-type>@<api-version>*. The nested resource may optionally declare an API version using the syntax `<segment>@<version>`. If the nested resource omits the API version, the API version of the containing resource is used. If the nested resource specifies an API version, the API version specified is used.
+
+Nested resource declarations specify their name property with a single segment. It is in contrast to ARM JSON templates, where child resources must declare their name property as a `/`-separated string containing multiple segments like: *myParent/myChild*.
+
+To access the child resource symbolic name, you need to use the `::` operator. For example, if you need to output a property from the child you write the following:
+
+```bicep
+output childProp string = myParent::myChild.properties.displayName
+```
+
+A nested resource can access properties of its parent resource. Other resources declared inside the body of the same containing resource can reference each other and the typical rules about cyclic-dependencies apply. A containing resource may not access properties of the resources it contains, this would cause a cyclic-dependency.
+
+---
+
 The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource.
+
+# [JSON](#tab/json)
 
 ```json
 "resources": [
@@ -38,6 +72,20 @@ The next example shows the child resource outside of the parent resource. You mi
   }
 ]
 ```
+
+# [Bicep](#tab/bicep)
+
+```json
+resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
+  <parent-resource-properties>
+}
+
+resource <child-resource-symbolic-name> '<child-resource-type>@<api-version>' = {
+  <child-resource-properties>
+}
+```
+
+---
 
 The values you provide for the resource name and type vary based on whether the child resource is defined inside or outside of the parent resource.
 
