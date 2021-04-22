@@ -272,7 +272,11 @@ Recall from viewing the twin properties earlier that Room0 has a temperature of 
 
 You can use Azure Digital Twins Explorer to edit the properties of the twins represented in your graph. In this section, we'll raise the temperature of Room0 to 76.
 
-To start, select **Room0** to bring up its property list in the **PROPERTY EXPLORER** box.
+To start, rerun the following query to select all digital twins. This will display the full graph once more in the **GRAPH VIEW** box.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+
+Select **Room0** to bring up its property list in the **PROPERTY EXPLORER** box.
 
 The properties in this list are editable. Select the temperature value of **70** to enable entering a new value. Enter **76**, and select the **Save** icon to update the temperature to **76**.
 
