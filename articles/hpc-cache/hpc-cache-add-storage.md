@@ -121,7 +121,7 @@ Also check your storage account's firewall settings. If the firewall is set to r
 
 ### Add a blob storage target with Azure CLI
 
-Use the [az hpc-cache blob-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) interface to define an Azure Blob storage target.
+Use the [az hpc-cache blob-storage-target add](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add) interface to define an Azure Blob storage target.
 
 > [!NOTE]
 > The Azure CLI commands currently require you to create a namespace path when you add a storage target. This is different from the process used with the Azure portal interface.
@@ -225,7 +225,7 @@ When finished, click **OK** to add the storage target.
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) to create the storage target.
+Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_add) to create the storage target.
 
 > [!NOTE]
 > The Azure CLI commands currently require you to create a namespace path when you add a storage target. This is different from the process used with the Azure portal interface.
@@ -236,7 +236,7 @@ Supply these values in addition to the cache name and cache resource group:
 * ``--nfs3-target`` - The IP address of your NFS storage system. (You can use a fully qualified domain name here if your cache has access to a DNS server that can resolve the name.)
 * ``--nfs3-usage-model`` - One of the data caching profiles, described in [Choose a usage model](#choose-a-usage-model), above.
 
-  Verify the names of the usage models with the command [az hpc-cache usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
+  Verify the names of the usage models with the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage_model_list).
 
 * ``--junction`` - The junction parameter links the client-facing virtual file path with an export path on the storage system.
 
@@ -346,13 +346,13 @@ Read [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
+Use the [az hpc-cache storage-target list](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
 
 ```azurecli
 az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 ```
 
-Use [az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) to see details about a particular storage target. (Specify the storage target by name.)
+Use [az hpc-cache storage-target show](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) to see details about a particular storage target. (Specify the storage target by name.)
 
 Example:
 

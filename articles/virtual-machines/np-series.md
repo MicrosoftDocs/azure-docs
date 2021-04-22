@@ -131,6 +131,15 @@ To disable Host_Mem(SB): sudo xbutil host_mem --disable
 
 **A:** Need to run xbutil query and look at the lower portion. 
 
+**Q:** If I create my own VM and deploy XRT manually, what additional changes do I need to do? 
+
+**A:** In the  /opt/xilinx/xrt/setup.sh add an entry for XRT_INI_PATH  pointing to  /opt/xilinx/xrt/xrt.ini
+
+ 
+The content of /opt/xilinx/xrt/xrt.ini should contain: <br>
+[Runtime]<br>
+ert=false <br>
+
 ## Other sizes
 
 - [General purpose](sizes-general.md)
