@@ -33,7 +33,7 @@ Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is
 
 The workspace artifacts will show lineage of Dataflow -> Dataset -> Report -> Dashboard
 
-:::image type="content" source="./media/how-to-lineage-powerbi/powerbi-overview.png" alt-text="Screenshot showing how Overview tab is rendered for Power BI assets." lightbox="./media/how-to-lineage-powerbi/powerbi-overview-page.png":::
+:::image type="content" source="./media/how-to-lineage-powerbi/powerbi-overview.png" alt-text="Screenshot showing how Overview tab is rendered for Power BI assets." lightbox="./media/how-to-lineage-powerbi/powerbi-overview.png":::
 
 >[!Note]
 > * Column lineage and transformations inside of PowerBI Datasets is currently not supported
@@ -43,7 +43,7 @@ The workspace artifacts will show lineage of Dataflow -> Dataset -> Report -> Da
 
 Users can search for the Power BI artifact by name, description, or other details to see relevant results. Under the asset overview & properties tab the basic details such as description, classification and other information are shown. Under the lineage tab, asset relationships are shown with the upstream and downstream dependencies.
 
-:::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage.png" alt-text="Screenshot showing how lineage is rendered for Power BI." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage-page.png":::
+:::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage.png" alt-text="Screenshot showing how lineage is rendered for Power BI." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage.png":::
 
 ## Next steps
 
