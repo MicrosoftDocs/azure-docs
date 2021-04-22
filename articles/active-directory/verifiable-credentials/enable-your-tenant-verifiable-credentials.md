@@ -91,7 +91,8 @@ Take note of the two properties listed below:
 
 ## Create a modified rules and display file
 
-In this section, we use the rules and display files from the Sample issuer app and modify them slightly to create your tenant's first verifiable credential.
+In this section, we use the rules and display files from the [Sample issuer app](https://github.com/Azure-Samples/active-directory-verifiable-credentials/)
+ and modify them slightly to create your tenant's first verifiable credential.
 
 1. Copy both the rules and display json files to a temporary folder and rename them **MyFirstVC-display.json** and **MyFirstVC-rules.json** respectively. You can find both files under **issuer\issuer_config**
 
@@ -179,9 +180,11 @@ Lets make a few modifications so this verifiable credential looks visibly differ
         "issuedBy": "Your Issuer Name",
         "backgroundColor": "#ffffff",
         "textColor": "#000000",
+      }
 ```
 
 Save these changes.
+
 ## Create a storage account
 
 Before creating our first verifiable credential, we need to create a Blob Storage container that can hold our configuration and rules files.
@@ -295,7 +298,7 @@ Now we make modifications to the sample app's issuer code to update it with your
     node app.js
     ```
 
-6. Using a different command prompt run ngrok to set up a URL on 8081
+6. Using a different command prompt run ngrok to set up a URL on 8081. You can install ngrok globally using the [ngrok npm package](https://www.npmjs.com/package/ngrok/).
 
     ```terminal
     ngrok http 8081

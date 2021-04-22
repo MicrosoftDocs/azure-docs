@@ -4,7 +4,8 @@ description: This article tells how to work with certificates for access by runb
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage certificates in Azure Automation

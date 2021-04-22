@@ -107,7 +107,7 @@ To create an encryption scope with Azure CLI, first install Azure CLI version 2.
 
 ### Create an encryption scope protected by Microsoft-managed keys
 
-To create a new encryption scope that is protected by Microsoft-managed keys, call the [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) command, specifying the `--key-source` parameter as `Microsoft.Storage`. Remember to replace the placeholder values with your own values:
+To create a new encryption scope that is protected by Microsoft-managed keys, call the [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) command, specifying the `--key-source` parameter as `Microsoft.Storage`. Remember to replace the placeholder values with your own values:
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -119,7 +119,7 @@ az storage account encryption-scope create \
 
 ### Create an encryption scope protected by customer-managed keys
 
-To create a new encryption scope that is protected by Microsoft-managed keys, call the [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) command, specifying the `--key-source` parameter as `Microsoft.Storage`. Remember to replace the placeholder values with your own values:
+To create a new encryption scope that is protected by Microsoft-managed keys, call the [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) command, specifying the `--key-source` parameter as `Microsoft.Storage`. Remember to replace the placeholder values with your own values:
 
 To create a new encryption scope that is protected by customer-managed keys in a key vault or managed HSM, first configure customer-managed keys for the storage account. You must assign a managed identity to the storage account and then use the managed identity to configure the access policy for the key vault so that the storage account has permissions to access it. For more information, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
 
@@ -198,7 +198,7 @@ Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 
 # [Azure CLI](#tab/cli)
 
-To list the encryption scopes available for a storage account with Azure CLI, call the [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-list) command. Remember to replace the placeholder values in the example with your own values:
+To list the encryption scopes available for a storage account with Azure CLI, call the [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_list) command. Remember to replace the placeholder values in the example with your own values:
 
 ```azurecli-interactive
 az storage account encryption-scope list \
@@ -242,7 +242,7 @@ New-AzStorageContainer -Name $containerName1 `
 
 # [Azure CLI](#tab/cli)
 
-To create a container with a default encryption scope with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command, specifying the scope for the `--default-encryption-scope` parameter. To force all blobs in a container to use the container's default scope, set the `--prevent-encryption-scope-override` parameter to `true`.
+To create a container with a default encryption scope with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command, specifying the scope for the `--default-encryption-scope` parameter. To force all blobs in a container to use the container's default scope, set the `--prevent-encryption-scope-override` parameter to `true`.
 
 The following example uses your Azure AD account to authorize the operation to create the container. You can also use the account access key. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
@@ -299,7 +299,7 @@ Set-AzStorageBlobContent -Context $ctx `
 
 # [Azure CLI](#tab/cli)
 
-To upload a blob with an encryption scope via Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command and provide the encryption scope for the blob.
+To upload a blob with an encryption scope via Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command and provide the encryption scope for the blob.
 
 If you are using Azure Cloud Shell, follow the steps described in [Upload a blob](storage-quickstart-blobs-cli.md#upload-a-blob) to create a file in the root directory. You can then upload this file to a blob using the following sample.
 
@@ -350,7 +350,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/cli)
 
-To change the key that protects an encryption scope from a customer-managed key to a Microsoft-managed key with Azure CLI, call the [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) command and pass in the `--key-source` parameter with the value `Microsoft.Storage`:
+To change the key that protects an encryption scope from a customer-managed key to a Microsoft-managed key with Azure CLI, call the [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) command and pass in the `--key-source` parameter with the value `Microsoft.Storage`:
 
 ```azurecli-interactive
 az storage account encryption-scope update \
@@ -394,7 +394,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/cli)
 
-To disable an encryption scope with Azure CLI, call the [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) command and include the `--state` parameter with a value of `Disabled`, as shown in the following example. To re-enable an encryption scope, call the same command with the `--state` parameter set to `Enabled`. Remember to replace the placeholder values in the example with your own values:
+To disable an encryption scope with Azure CLI, call the [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) command and include the `--state` parameter with a value of `Disabled`, as shown in the following example. To re-enable an encryption scope, call the same command with the `--state` parameter set to `Enabled`. Remember to replace the placeholder values in the example with your own values:
 
 ```azurecli-interactive
 az storage account encryption-scope update \

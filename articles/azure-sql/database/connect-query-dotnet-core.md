@@ -16,7 +16,7 @@ ms.date: 05/29/2020
 # Quickstart: Use .NET Core (C#) to query a database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to a database. You'll then run a Transact-SQL statement to query data.
+In this quickstart, you'll use [.NET Core](https://dotnet.microsoft.com) and C# code to connect to a database. You'll then run a Transact-SQL statement to query data.
 
 > [!TIP]
 > The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries a database in Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/)
@@ -26,7 +26,7 @@ In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [.NET Core for your operating system](https://www.microsoft.com/net/core) installed.
+- [.NET Core SDK for your operating system](https://dotnet.microsoft.com/download) installed.
 - A database where you can run your query. 
 
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
