@@ -6,9 +6,9 @@ ms.date: 04/21/2021
 ---
 
 # Prefetch Azure Service Bus messages
-When you enable the *Prefetch* feature for any of the official Service Bus clients, the receiver acquires more messages than what the application initially asked for, up to the specified prefetch count.
+When you enable the *Prefetch* feature for any of the official Service Bus clients, the receiver acquires more messages than what the application initially asked for, up to the specified prefetch count. Please note that the JavaScript and TypeScript client does not support this feature yet.
 
-A single initial receive operation acquires a message for the immediate consumption that's returned as soon as it's available. The client then acquires more messages in the background, to fill the prefetch buffer.
+As messages are returned to the application, the client acquires further messages in the background, to fill the prefetch buffer.
 
 ## Enabling Prefetch
 To enable the Prefetch feature, set the prefetch count of the queue or subscription client to a number greater than zero. Setting the value to zero turns off prefetch.
@@ -45,4 +45,3 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 Find samples for the older .NET and Java client libraries below:
 - [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - See the **Prefetch** sample. 
 - [azure-servicebus samples for Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus) - See the **Prefetch** sample. 
-
