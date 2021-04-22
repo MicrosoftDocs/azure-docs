@@ -43,5 +43,5 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 
 ## Next steps
 
-* Review the [Key Vault security overview](../general/security-overview.md) to ensure security, durability and monitoring for your keys.
+* Review the [Key Vault security overview](../general/security-features.md) to ensure security, durability and monitoring for your keys.
 * Refer to [BYOK specification](./byok-specification.md) for a complete description of the new BYOK method

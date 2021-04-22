@@ -370,7 +370,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
+   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
    > which are deployed in Azure, and not triggers. Although you have the option to enable connectors in Azure for your stateless workflow, 
    > the designer doesn't show any managed connector triggers for you to select.
 
