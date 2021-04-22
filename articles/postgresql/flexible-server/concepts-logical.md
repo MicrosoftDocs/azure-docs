@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 04/22/2021
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
@@ -13,7 +13,7 @@ ms.date: 09/23/2020
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-PostgreSQL's logical replication and logical decoding features are supported in Azure Database for PostgreSQL - Flexible Server, for Postgres version 11.
+Azure Database for PostgreSQL - Flexible Server supports PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) and [pglogical](https://github.com/2ndQuadrant/pglogical) extension - which also provides logical streaming replication. In addition, flexible server also supports logical decoding.
 
 ## Comparing logical replication and logical decoding
 Logical replication and logical decoding have several similarities. They both
@@ -44,10 +44,9 @@ Logical decoding
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
 
-
 ## Using logical replication and logical decoding
 
-### Logical replication
+### Native logical replication
 Logical replication uses the terms 'publisher' and 'subscriber'. 
 * The publisher is the PostgreSQL database you are sending data **from**. 
 * The subscriber is the PostgreSQL database you are sending data **to**.
@@ -85,6 +84,31 @@ You can add more rows to the publisher's table and view the changes on the subsc
 
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
 
+
+### pglogical extension
+
+Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details.
+
+1. Install pglogical extension in both the provider and the subscriber database servers.
+    ```SQL
+   CREATE EXTENSION pglogical;
+   ```
+2. At the provider database server, create the provider node.
+   ```SQL
+   select pglogical.create_node( node_name := 'provider1', dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
+3. Add tables in testUser schema to the default replication set.
+    ```SQL
+   SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
+   ```
+4. At the subscriber server, create a subscriber node.
+   ```SQL
+   select pglogical.create_node( node_name := 'subscriber1', dsn := ' host=mySubscriberDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
+5. Create a subscription to start the synchronization and replication process.
+    ```SQL
+   select pglogical.create_subscription( subscription_name := 'subscription1', provider_dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
 ### Logical decoding
 Logical decoding can be consumed via the streaming protocol or SQL interface. 
 
@@ -171,7 +195,8 @@ SELECT * FROM pg_replication_slots;
 [Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
 
 ## Limitations
-* **Read replicas** - Azure Database for PostgreSQL read replicas are not currently supported for flexible servers.
+* **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
+* **Read replicas** - Azure Database for PostgreSQL read replicas are not currently supported with flexible servers.
 * **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
 
 ## Next steps
