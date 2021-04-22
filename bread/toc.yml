@@ -973,10 +973,10 @@
     tocHref: /azure/azure-video-analyzer/
     topicHref: /azure/azure-video-analyzer/
     items:
-    - name: Azure Video Analyzer 
+    - name: Video Analyzer Docs
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
-    - name: Azure Video Analyzer for Media
+    - name: Video Analyzer for Media Docs
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
     
