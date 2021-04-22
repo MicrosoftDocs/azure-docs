@@ -64,11 +64,11 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. Select **Azure** from the Activity Bar. 
 1. Right-click on your Static web app resource then select **Open in Portal**.
 
-    :::image type="content" source="media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Right-click on your Static web app resource then select Open in Portal.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Right-click on your JavaScript Static web app resource then select Open in Portal.":::
 
 1. Select **Configuration** then select **+ Add**.
 
-    :::image type="content" source="media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Right-click on your Static web app resource then select Open in Portal.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Configuration then select Add for your JavaScript app.":::
 
 1. Add each of the following settings:
 
@@ -81,12 +81,12 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
 1. Select **Save** to save the settings. 
 
-    :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings for your JavaScript app..":::
 
 1. Return to VS Code. 
 1. Refresh your Static web app to see the Static web app's application settings. 
 
-    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extention-fresh-resource.png" alt-text="Refresh your Static web app to see the Static web app's application settings.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extention-fresh-resource.png" alt-text="Refresh your JavaScript Static web app to see the Static web app's application settings.":::
 
 ## Use search in your Static web app
 
