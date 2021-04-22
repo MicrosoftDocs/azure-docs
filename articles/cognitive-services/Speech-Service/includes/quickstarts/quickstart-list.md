@@ -1,0 +1,7 @@
+- [Quickstart: Recognize speech from a microphone](../../get-started-speech-to-text.md)
+- [Quickstart: Recognize speech from a file](../../get-started-speech-to-text.md)
+- [Quickstart: Recognize speech from an Azure Blob](../../batch-transcription.md)
+- [Quickstart: Translate speech-to-text](~/articles/cognitive-services/speech-service/get-started-speech-translation.md)
+- [Quickstart: Synthesize text to an audio device](../../get-started-text-to-speech.md)
+- [Quickstart: Synthesize text to a file](../../get-started-text-to-speech.md)
+- [Quickstart: Recognize Intents](~/articles/cognitive-services/speech-service/get-started-intent-recognition.md)

@@ -1,32 +1,26 @@
 ---
-title: Configure Azure Application Insights smart detection rule settings with Azure Resource Manager templates | Microsoft Docs
+title: Smart detection rule settings - Azure Application Insights
 description: Automate management and configuration of Azure Application Insights smart detection rules with Azure Resource Manager Templates
-services: application-insights
-documentationcenter: ''
-author: harelbr
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.reviewer: mbullwin
+author: harelbr
 ms.author: harelbr
+ms.date: 02/14/2021
+
+ms.reviewer: mbullwin
 ---
 
 # Manage Application Insights smart detection rules using Azure Resource Manager templates
 
-Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
 This method can be used when deploying new Application Insights resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 ## Smart detection rule configuration
 
 You can configure the following settings for a smart detection rule:
 - If the rule is enabled (the default is **true**.)
-- If emails should be sent to the subscription owners, contributors and readers when a detection is found (the default is **true**.)
+- If emails should be sent to users associated to the subscription’s [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles when a detection is found (the default is **true**.)
 - Any additional email recipients who should get a notification when a detection is found.
-- * Email configuration is not available for Smart Detection rules marked as _Preview_.
+    -  Email configuration is not available for Smart Detection rules marked as _preview_.
 
 To allow configuring the rule settings via Azure Resource Manager, the smart detection rule configuration is now available as an inner resource within the Application Insights resource, named **ProactiveDetectionConfigs**.
 For maximal flexibility, each smart detection rule can be configured with unique notification settings.
@@ -46,7 +40,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -77,7 +71,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -108,7 +102,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -122,7 +116,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }
@@ -131,12 +125,13 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 ```
 
+
 ## Smart detection rule names
 
 Below is a table of smart detection rule names as they appear in the portal, along with their internal names, that should be used in the Azure Resource Manager template.
 
 > [!NOTE]
-> Smart detection rules marked as preview don’t support email notifications. Therefore, you can only set the enabled property for these rules. 
+> Smart detection rules marked as _preview_ don’t support email notifications. Therefore, you can only set the _enabled_ property for these rules. 
 
 | Azure portal rule name | Internal name
 |:---|:---|
@@ -149,23 +144,51 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 | Abnormal rise in exception volume (preview) | extension_exceptionchangeextension |
 | Potential memory leak detected (preview) | extension_memoryleakextension |
 | Potential security issue detected (preview) | extension_securityextensionspackage |
-| Resource utilization issue detected (preview) | extension_resourceutilizationextensionspackage |
+| Abnormal rise in daily data volume (preview) | extension_billingdatavolumedailyspikeextension |
 
-## Who receives the (classic) alert notifications?
+### Failure Anomalies alert rule
 
-This section only applies to smart detection classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). Currently smart detection alerts only support the classic alerts experience. The one exception to this is [smart detection alerts on Azure cloud services](./proactive-cloud-services.md). To control alert notification for smart detection alerts on Azure cloud services use [action groups](../platform/action-groups.md).
-
-* We recommend the use of specific recipients for smart detection/classic alert notifications.
-
-* For smart detection alerts, the **bulk/group** check-box option, if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2.
 
 > [!NOTE]
-> If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
+> Failure Anomalies is a global service therefore rule location is created on the global location.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "location": "global", 
+            "properties": {
+                  "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls.",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> This Azure Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic Smart Detection rules described in this article. If you want to manage Failure Anomalies manually this is done in Azure Monitor Alerts whereas all other Smart Detection rules are managed in the Smart Detection pane of the UI.
 
 ## Next Steps
 
 Learn more about automatically detecting:
 
-- [Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Memory Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Failure anomalies](./proactive-failure-diagnostics.md)
+- [Memory Leaks](./proactive-potential-memory-leak.md)
+- [Performance anomalies](./proactive-performance-diagnostics.md)
+

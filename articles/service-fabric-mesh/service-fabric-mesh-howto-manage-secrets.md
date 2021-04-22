@@ -1,18 +1,19 @@
 ---
-title: Manage Azure Service Fabric Mesh Application Secrets | Microsoft Docs
+title: Manage Azure Service Fabric Mesh Application Secrets 
 description: Manage application Secrets so you can securely create and deploy a Service Fabric Mesh application.
-services: service-fabric-mesh
-keywords: secrets
-author: aljo-microsoft
-ms.author: aljo
 ms.date: 4/2/2019
-ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chackdan
+ms.topic: conceptual 
+ms.custom: devx-track-azurecli
 #Customer intent: As a developer, I need to securely deploy Secrets to my Service Fabric Mesh application.
 ---
 
 # Manage Service Fabric Mesh Application Secrets
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Service Fabric Mesh supports Secrets as Azure resources. A Service Fabric Mesh secret can be any sensitive text information such as storage connection strings, passwords, or other values that should be stored and transmitted securely. This article shows how to use the Service Fabric Secure Store Service to deploy and maintain Secrets.
 
 A Mesh application Secret consists of:
@@ -204,7 +205,7 @@ Pass either **template-file** or **template-uri** (but not both).
 
 For example:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az mesh deployment create --https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az mesh deployment create --https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### Show a Secret
 Returns the description of the secret (but not the value).

@@ -3,25 +3,28 @@ title: How to perform live streaming using Azure Media Services to create multi-
 description: This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: juliako;anilmur
-
+ms.date: 03/10/2021
+ms.author: anilmur
+ms.reviewer: juliako
+ms.custom: devx-track-csharp
 ---
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](/rest/api/media/operations/channel)
 > 
 > [!NOTE]
 > To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -37,7 +40,7 @@ For more conceptual information related to Channels that are enabled for live en
 The following steps describe tasks involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@microsoft.com if you need to run a Channel for longer periods of time.
+> Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -92,7 +95,7 @@ The following are required to complete the tutorial.
 * A webcam and an encoder that can send a single bitrate live stream.
 
 ## Considerations
-* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@Microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 * There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 ## Download sample
@@ -503,5 +506,3 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-

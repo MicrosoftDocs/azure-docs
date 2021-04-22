@@ -1,0 +1,17 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Migrate
+    tocHref: /azure/
+    topicHref: /azure/migrate/index
+
+
+- name: Azure
+  tocHref: /sql/
+  topicHref: /azure/index
+  items:
+  - name: Migrate
+    tocHref: /sql/dma/
+    topicHref: /azure/migrate/index
+

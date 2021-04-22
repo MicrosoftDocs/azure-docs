@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal| Microsoft Docs
-description: Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
+title: Tutorial - Configure message routing for Azure IoT Hub using Azure CLI
+description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using PowerShell.
 ---
 
@@ -22,16 +22,18 @@ ms.custom: mvc
 
 This tutorial uses the Azure CLI to create the base resources, then uses the [Azure portal](https://portal.azure.com) to show how to configure message routing and set up the virtual device for testing.
 
-There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
-
 Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue.
 
-A note about debugging: this script uses the continuation symbol (the backslash `\`) to make the script more readable. If you have a problem running the script, make sure there are no spaces after any of the backslashes.
+There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
+
+> [!TIP]
+> A tip about debugging: this script uses the continuation symbol (the backslash `\`) to make the script more readable. If you have a problem running the script, make sure your Cloud Shell session is running `bash` and that there are no spaces after any of the backslashes.
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
 #   in which you're logged in.
-# This field is used to set up the routing rules.
+# This field is used to set up the routing queries.
 subscriptionID=$(az account show --query id)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -130,13 +132,13 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 2. Select the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
 
-3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
+3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add endpoint** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
-   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Select **Blob storage**. You see the **Add a storage endpoint** pane.
+4. Select **Storage**. You see the **Add a storage endpoint** pane.
 
-   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 

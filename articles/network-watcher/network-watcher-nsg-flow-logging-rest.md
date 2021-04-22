@@ -1,20 +1,17 @@
 ---
-title: Manage Network Security Group flow logs with Azure Network Watcher - REST API | Microsoft Docs
+title: Manage NSG flow logs - Azure REST API
+titleSuffix: Azure Network Watcher
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher with REST API
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: kumud
+ms.date: 01/07/2021
+ms.author: damendo
 
 ---
 
@@ -31,7 +28,7 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 ## Before you begin
 
-ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient). The detailed specifications of NSG flow logs REST API can be found [here](https://docs.microsoft.com/rest/api/network-watcher/flowlogs) 
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 

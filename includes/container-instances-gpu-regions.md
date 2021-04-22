@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 03/01/2019
+ms.date: 10/17/2019
 ms.author: danlep
 ---
-### Supported regions
+### Region availability
 
-* East US 
-* West US 2 
-* South Central US 
-* West Europe 
-* North Europe
-* Central India 
+| Regions | OS | Available GPU SKUs |
+| -------- | ---- | :-----------: |
+| East US, West Europe, West US 2 | Linux | K80, P100, V100 |
+| Southeast Asia | Linux | P100, V100|
+| Central India | Linux | V100 |
+| North Europe | Linux | K80 |

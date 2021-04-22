@@ -1,5 +1,5 @@
 - name: Azure Germany Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Germany?
@@ -82,7 +82,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: https://blogs.msdn.microsoft.com/azuregermany/
+    href: /archive/blogs/azuregermany/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/
   - name: Trial

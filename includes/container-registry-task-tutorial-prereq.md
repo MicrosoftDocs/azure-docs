@@ -15,7 +15,7 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 You must have an Azure container registry in your Azure subscription to complete this tutorial. If you need a registry, see the [previous tutorial](../articles/container-registry/container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
-## Create a GitHub personal access token
+### Create a GitHub personal access token
 
 To trigger a task on a commit to a Git repository, ACR Tasks need a personal access token (PAT) to access the repository. If you do not already have a PAT, follow these steps to generate one in GitHub:
 

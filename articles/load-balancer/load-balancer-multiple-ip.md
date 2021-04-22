@@ -1,18 +1,18 @@
 ---
 title: Load balancing on multiple IP configurations - Azure portal
-titlesuffix: Azure Load Balancer
-description: Load balancing across primary and secondary IP configurations.
+titleSuffix: Azure Load Balancer
+description: In this article, learn about load balancing across primary and secondary IP configurations using the Azure portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Load balancing on multiple IP configurations by using the Azure portal
@@ -21,7 +21,6 @@ ms.author: kumud
 > * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
-
 
 In this article, we're going to show you how to use Azure Load Balancer with multiple IP addresses on a secondary network interface controller (NIC). The following diagram illustrates our scenario:
 

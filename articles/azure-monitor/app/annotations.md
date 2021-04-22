@@ -1,109 +1,262 @@
 ---
 title: Release annotations for Application Insights | Microsoft Docs
 description: Add deployment or build markers to your metrics explorer charts in Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mbullwin
+ms.date: 08/14/2020
 
 ---
+
 # Annotations on metric charts in Application Insights
 
-Annotations on [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure DevOps Services build system](https://docs.microsoft.com/azure/devops/pipelines/tasks/). You can also create annotations to flag any event you like by creating them from PowerShell.
+Annotations show where you deployed a new build, or other significant events. Annotations make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure Pipelines](/azure/devops/pipelines/tasks/) build system. You can also create annotations to flag any event you like by creating them from PowerShell.
 
-> [!NOTE]
-> This article reflects the deprecated **classic metrics experience**. Annotations are only currently available in the classic experience and in **[workbooks](../../azure-monitor/app/usage-workbooks.md)**. To learn more about the current metrics experience, you can consult [this article](../../azure-monitor/platform/metrics-charts.md).
+## Release annotations with Azure Pipelines build
 
-![Example of annotations](./media/annotations/0-example.png)
-
-## Release annotations with Azure DevOps Services build
-
-Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps Services.
+Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
 ### Install the Annotations extension (one time)
-To be able to create release annotations, you'll need to install one of the many Azure DevOps Services extensions available in the Visual Studio Marketplace.
 
-1. Sign in to your [Azure DevOps Services](https://azure.microsoft.com/services/devops/) project.
-2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Azure DevOps Services organization.
+To be able to create release annotations, you'll need to install one of the many Azure DevOps extensions available in the Visual Studio Marketplace.
 
-![Select an Azure DevOps organization and then install.](./media/annotations/1-install.png)
-
-You only need to do this once for your Azure DevOps Services organization. Release annotations can now be configured for any project in your organization.
+1. Sign in to your [Azure DevOps](https://azure.microsoft.com/services/devops/) project.
+   
+1. On the Visual Studio Marketplace [Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) page, select your Azure DevOps organization, and then select **Install** to add the extension to your Azure DevOps organization.
+   
+   ![Select an Azure DevOps organization and then select Install.](./media/annotations/1-install.png)
+   
+You only need to install the extension once for your Azure DevOps organization. You can now configure release annotations for any project in your organization.
 
 ### Configure release annotations
 
-You need to get a separate API key for each Azure DevOps Services release template.
+Create a separate API key for each of your Azure Pipelines release templates.
 
-1. Sign in to the [Microsoft Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](../../azure-monitor/app/app-insights-overview.md), if you haven't done so yet.)
-2. Open the **API Access** tab and copy the **Application Insights ID**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](./app-insights-overview.md).
    
-    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/annotations/2-app-id.png)
-
-4. In a separate browser window, open (or create) the release template that manages your deployments from Azure DevOps Services.
+1. Open the **API Access** tab and copy the **Application Insights ID**.
    
-    Add a task, and select the Application Insights Release Annotation task from the menu.
+   ![Under API Access, copy the Application ID.](./media/annotations/2-app-id.png)
 
-   ![Click the plus sign to Add Task and select Application Insights Release Annotation. Paste the Application Insights ID.](./media/annotations/3-add-task.png)
-
-    Paste the **Application ID** that you copied from the API Access tab.
+1. In a separate browser window, open or create the release template that manages your Azure Pipelines deployments.
    
-    ![Paste the Application Insights ID](./media/annotations/4-paste-app-id.png)
-
-5. Back in the Azure window, create a new API Key and take a copy of it.
+1. Select **Add task**, and then select the **Application Insights Release Annotation** task from the menu.
    
-    ![In the API Access tab in the Azure window, click Create API Key.](./media/annotations/5-create-api-key.png)
+   ![Select Add Task and select Application Insights Release Annotation.](./media/annotations/3-add-task.png)
 
-    ![In the create API key tab provide a comment, check Write annotations, and click Generate Key. Copy the new key.](./media/annotations/6-create-api-key.png)
+   > [!NOTE]
+   > The Release Annotation task currently supports only Windows-based agents; it won't run on Linux, macOS, or other types of agents.
+   
+1. Under **Application ID**, paste the Application Insights ID you copied from the **API Access** tab.
+   
+   ![Paste the Application Insights ID](./media/annotations/4-paste-app-id.png)
+   
+1. Back in the Application Insights **API Access** window, select **Create API Key**. 
+   
+   ![In the API Access tab, select Create API Key.](./media/annotations/5-create-api-key.png)
+   
+1. In the **Create API key** window, type a description, select **Write annotations**, and then select **Generate key**. Copy the new key.
+   
+   ![In the Create API key window, type a description, select Write annotations, and then select Generate key.](./media/annotations/6-create-api-key.png)
+   
+1. In the release template window, on the **Variables** tab, select **Add** to create a variable definition for the new API key.
 
-6. Open the Configuration tab of the release template.
+1. Under **Name**, enter `ApiKey`, and under **Value**, paste the API key you copied from the **API Access** tab.
    
-    Create a variable definition for `ApiKey`.
+   ![In the Azure DevOps Variables tab, select Add, name the variable ApiKey, and paste the API key under Value.](./media/annotations/7-paste-api-key.png)
    
-    Paste your API key to the ApiKey variable definition.
-   
-    ![In the Azure DevOps Services window, select the Variable tab and click add. Set the name to ApiKey and into the Value, paste the key you generated, and click the lock icon.](./media/annotations/7-paste-api-key.png)
-1. Finally, **Save** the release pipeline.
+1. Select **Save** in the main release template window to save the template.
 
+
+   > [!NOTE]
+   > Limits for API keys are described in the [REST API rate limits documentation](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
 
 ## View annotations
-Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
 
-Click on any annotation marker (light grey arrow) to open details about the release, including requestor, source control branch, release pipeline, environment, and more.
 
-![Click any release annotation marker.](./media/annotations/8-release.png)
+   > [!NOTE]
+   > Release annotations are not currently available in the Metrics pane of Application Insights
+
+Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. The annotations can be viewed in the following locations:
+
+The **Usage** pane where you also have the ability to manually create release annotations:
+
+![Screenshot of bar chart with number of user visits displayed over a period of hours. Release annotations appear as green checkmarks above the chart indicating the moment in time that a release occurred](./media/annotations/usage-pane.png)
+
+In any log-based workbook query where the visualization displays time along the x-axis.
+
+![Screenshot of workbooks pane with time series log-based query with annotations displayed](./media/annotations/workbooks-annotations.png)
+
+To enable annotations in your workbook go to **Advanced Settings** and select **Show annotations**.
+
+![Screenshot of Advanced Settings menu with the words show annotations highlighted with a checkmark next to the setting to enable it.](./media/annotations/workbook-show-annotations.png)
+
+Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
 ## Create custom annotations from PowerShell
-You can also create annotations from any process you like (without using Azure DevOps Services). 
+You can use the CreateReleaseAnnotation PowerShell script to create annotations from any process you like, without using Azure DevOps.
 
+> [!IMPORTANT]
+> If you are using PowerShell 7.1, add `-SkipHttpErrorCheck` at the end of line 26. For example: `$request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore -SkipHttpErrorCheck`.
 
-1. Make a local copy of the [Powershell script from GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Make a local copy of CreateReleaseAnnotation.ps1:
 
-2. Get the Application ID and create an API key from the API Access tab.
+    ```powershell
+    
+    # Copyright (c) Microsoft Corporation. All rights reserved. 
+    # Licensed under the MIT License. See License.txt in the project root for license information. 
+    
+    # Sample usage .\CreateReleaseAnnotation.ps1 -applicationId "<appId>" -apiKey "<apiKey>" -releaseFilePath "<path to .exe with file version>" -releaseProperties @{"ReleaseDescription"="Release with annotation";"TriggerBy"="John Doe"}
+    param(
+        [parameter(Mandatory = $true)][string]$applicationId,
+        [parameter(Mandatory = $true)][string]$apiKey,
+        [parameter(Mandatory = $true)][string]$releaseFilePath,
+        [parameter(Mandatory = $false)]$releaseProperties
+    )
+    
+    $releaseName = (Get-Item $releaseFilePath).VersionInfo.FileVersion
+    Write-Host "Creating release annotation $releaseName in ApplicationInsights" -ForegroundColor Cyan
+    
+    # background info on how fwlink works: After you submit a web request, many sites redirect through a series of intermediate pages before you finally land on the destination page.
+    # So when calling Invoke-WebRequest, the result it returns comes from the final page in any redirect sequence. Hence, I set MaximumRedirection to 0, as this prevents the call to 
+    # be redirected. By doing this, we get a response with status code 302, which indicates that there is a redirection link from the response body. We grab this redirection link and 
+    # construct the url to make a release annotation.
+    # Here's how this logic is going to works
+    # 1. Client send http request, such as:  http://go.microsoft.com/fwlink/?LinkId=625115
+    # 2. FWLink get the request and find out the destination URL for it, such as:  http://www.bing.com
+    # 3. FWLink generate a new http response with status code “302” and with destination URL “http://www.bing.com”. Send it back to Client.
+    # 4. Client, such as a powershell script, knows that status code “302” means redirection to new a location, and the target location is “http://www.bing.com”
+    function GetRequestUrlFromFwLink($fwLink)
+    {
+        $request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore
+        if ($request.StatusCode -eq "302") {
+            return $request.Headers.Location
+        }
+        
+        return $null
+    }
+    
+    function CreateAnnotation($grpEnv)
+    {
+        $retries = 1
+        $success = $false
+        while (!$success -and $retries -lt 6) {
+            $location = "$grpEnv/applications/$applicationId/Annotations?api-version=2015-11"
+                
+            Write-Host "Invoke a web request for $location to create a new release annotation. Attempting $retries"
+            set-variable -Name createResultStatus -Force -Scope Local -Value $null
+            set-variable -Name createResultStatusDescription -Force -Scope Local -Value $null
+            set-variable -Name result -Force -Scope Local
+    
+            try {
+                $result = Invoke-WebRequest -Uri $location -Method Put -Body $bodyJson -Headers $headers -ContentType "application/json; charset=utf-8" -UseBasicParsing
+            } catch {
+                if ($_.Exception){
+                    if($_.Exception.Response) {
+                        $createResultStatus = $_.Exception.Response.StatusCode.value__
+                        $createResultStatusDescription = $_.Exception.Response.StatusDescription
+                    }
+                    else {
+                        $createResultStatus = "Exception"
+                        $createResultStatusDescription = $_.Exception.Message
+                    }
+                }
+            }
+    
+            if ($result -eq $null) {
+                if ($createResultStatus -eq $null) {
+                    $createResultStatus = "Unknown"
+                }
+                if ($createResultStatusDescription -eq $null) {
+                    $createResultStatusDescription = "Unknown"
+                }
+            }
+            else {
+                    $success = $true			         
+            }
+    
+            if ($createResultStatus -eq 409 -or $createResultStatus -eq 404 -or $createResultStatus -eq 401) # no retry when conflict or unauthorized or not found
+            {
+                break
+            }
+    
+            $retries = $retries + 1
+            sleep 1
+        }
+    
+        $createResultStatus
+        $createResultStatusDescription
+        return
+    }
+    
+    # Need powershell version 3 or greater for script to run
+    $minimumPowershellMajorVersion = 3
+    if ($PSVersionTable.PSVersion.Major -lt $minimumPowershellMajorVersion) {
+       Write-Host "Need powershell version $minimumPowershellMajorVersion or greater to create release annotation"
+       return
+    }
+    
+    $currentTime = (Get-Date).ToUniversalTime()
+    $annotationDate = $currentTime.ToString("MMddyyyy_HHmmss")
+    set-variable -Name requestBody -Force -Scope Script
+    $requestBody = @{}
+    $requestBody.Id = [GUID]::NewGuid()
+    $requestBody.AnnotationName = $releaseName
+    $requestBody.EventTime = $currentTime.GetDateTimeFormats("s")[0] # GetDateTimeFormats returns an array
+    $requestBody.Category = "Deployment"
+    
+    if ($releaseProperties -eq $null) {
+        $properties = @{}
+    } else {
+        $properties = $releaseProperties    
+    }
+    $properties.Add("ReleaseName", $releaseName)
+    
+    $requestBody.Properties = ConvertTo-Json($properties) -Compress
+    
+    $bodyJson = [System.Text.Encoding]::UTF8.GetBytes(($requestBody | ConvertTo-Json))
+    $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+    $headers.Add("X-AIAPIKEY", $apiKey)
+    
+    set-variable -Name createAnnotationResult1 -Force -Scope Local -Value $null
+    set-variable -Name createAnnotationResultDescription -Force -Scope Local -Value ""
+    
+    # get redirect link from fwlink
+    $requestUrl = GetRequestUrlFromFwLink("http://go.microsoft.com/fwlink/?prd=11901&pver=1.0&sbp=Application%20Insights&plcid=0x409&clcid=0x409&ar=Annotations&sar=Create%20Annotation")
+    if ($requestUrl -eq $null) {
+        $output = "Failed to find the redirect link to create a release annotation"
+        throw $output
+    }
+    
+    $createAnnotationResult1, $createAnnotationResultDescription = CreateAnnotation($requestUrl)
+    if ($createAnnotationResult1) 
+    {
+         $output = "Failed to create an annotation with Id: {0}. Error {1}, Description: {2}." -f $requestBody.Id, $createAnnotationResult1, $createAnnotationResultDescription
+         throw $output
+    }
+    
+    $str = "Release annotation created. Id: {0}." -f $requestBody.Id
+    Write-Host $str -ForegroundColor Green
+    
+    ```
+   
+1. Use the steps in the preceding procedure to get your Application Insights ID and create an API key from your Application Insights **API Access** tab.
+   
+1. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. The `-releaseProperties` are optional. 
+   
+   ```powershell
+   
+        .\CreateReleaseAnnotation.ps1 `
+         -applicationId "<applicationId>" `
+         -apiKey "<apiKey>" `
+         -releaseName "<releaseName>" `
+         -releaseProperties @{
+             "ReleaseDescription"="<a description>";
+             "TriggerBy"="<Your name>" }
+   ```
 
-3. Call the script like this:
+You can modify the script, for example to create annotations for the past.
 
-```PS
-
-     .\CreateReleaseAnnotation.ps1 `
-      -applicationId "<applicationId>" `
-      -apiKey "<apiKey>" `
-      -releaseName "<myReleaseName>" `
-      -releaseProperties @{
-          "ReleaseDescription"="a description";
-          "TriggerBy"="My Name" }
-```
-
-It's easy to modify the script, for example to create annotations for the past.
 
 ## Next steps
 
-* [Create work items](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automation with PowerShell](../../azure-monitor/app/powershell.md)
+* [Create work items](./diagnostic-search.md#create-work-item)
+* [Automation with PowerShell](./powershell.md)

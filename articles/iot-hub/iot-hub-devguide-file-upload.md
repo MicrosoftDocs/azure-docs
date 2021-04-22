@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
+ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Upload files with IoT Hub
@@ -19,6 +20,8 @@ Instead of brokering messages through IoT Hub itself, IoT Hub instead acts as a 
 Before you upload a file to IoT Hub from a device, you must configure your hub by [associating an Azure Storage](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) account to it.
 
 Your device can then [initialize an upload](iot-hub-devguide-file-upload.md#initialize-a-file-upload) and then [notify IoT hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) when the upload completes. Optionally, when a device notifies IoT Hub that the upload is complete, the service can generate a [notification message](iot-hub-devguide-file-upload.md#file-upload-notifications).
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### When to use
 
@@ -33,7 +36,13 @@ To use the file upload functionality, you must first link an Azure Storage accou
 The [Upload files from your device to the cloud with IoT Hub](iot-hub-csharp-csharp-file-upload.md) how-to guides provide a complete walkthrough of the file upload process. These how-to guides show you how to use the Azure portal to associate a storage account with an IoT hub.
 
 > [!NOTE]
-> The [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
+> The [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically handle retrieving the shared access signature URI, uploading the file, and notifying IoT Hub of a completed upload. If a firewall blocks access to the Blob Storage endpoint but allows access to the IoT Hub endpoint, the file upload process fails and shows the following error for the IoT C# device SDK:
+>
+> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
+>
+> For the file upload feature to work, access to both the IoT Hub endpoint and the Blob Storage endpoint must be available to the device.
+> 
+
 
 ## Initialize a file upload
 IoT Hub has an endpoint specifically for devices to request a SAS URI for storage to upload a file. To start the file upload process, the device sends a POST request to `{iot hub}.azure-devices.net/devices/{deviceId}/files` with the following JSON body:
@@ -124,6 +133,8 @@ Each IoT hub has the following configuration options for file upload notificatio
 | **fileNotifications.ttlAsIso8601** |Default TTL for file upload notifications. |ISO_8601 interval up to 48H (minimum 1 minute). Default: 1 hour. |
 | **fileNotifications.lockDuration** |Lock duration for the file upload notifications queue. |5 to 300 seconds (minimum 5 seconds). Default: 60 seconds. |
 | **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
+
+You can set these properties on your IoT hub using the Azure portal, Azure CLI, or PowerShell. To learn how, see the topics under [Configure file upload](iot-hub-configure-file-upload.md).
 
 ## Additional reference material
 

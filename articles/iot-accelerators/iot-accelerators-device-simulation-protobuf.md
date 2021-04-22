@@ -6,11 +6,11 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom:  "mvc, amqp, devx-track-csharp"
 ms.date: 11/06/2018
 ms.author: dobett
 
-# As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
+#Customer intent: As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
 ---
 
 # Serialize telemetry using Protocol Buffers
@@ -34,11 +34,11 @@ The steps in this how-to-guide show you how to:
 To follow the steps in this how-to guide, you need:
 
 * Visual Studio Code. You can download [Visual Studio Code for Mac, Linux, and Windows](https://code.visualstudio.com/download).
-* .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://www.microsoft.com/net/download).
+* .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://dotnet.microsoft.com/download).
 * Postman. You can download [Postman for Mac, windows, or Linux](https://www.getpostman.com/apps).
 * An [IoT hub deployed to your Azure subscription](../iot-hub/iot-hub-create-through-portal.md). You need the IoT hub's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
-* A [Cosmos DB database deployed to your Azure subscription](../cosmos-db/create-sql-api-dotnet.md#create-account) that uses the SQL API and that's configured for [strong consistency](../cosmos-db/manage-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
-* An [Azure storage account deployed to your Azure subscription](../storage/common/storage-quickstart-create-account.md). You need the storage account's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
+* A [Cosmos DB database deployed to your Azure subscription](../cosmos-db/create-sql-api-dotnet.md#create-account) that uses the SQL API and that's configured for [strong consistency](../cosmos-db/how-to-manage-database-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
+* An [Azure storage account deployed to your Azure subscription](../storage/common/storage-account-create.md). You need the storage account's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 
 ## Prepare your development environment
 
@@ -54,7 +54,7 @@ The instructions in this article assume you're using Windows. If you're using an
 
 Download and unzip the [Remote Monitoring Microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine. This repository includes the storage adapter microservice you need for this how-to.
 
-Download and unzip the [device simulation microservice](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine.
+Download and unzip the [device simulation microservice](https://github.com/Azure/azure-iot-pcs-device-simulation/archive/master.zip) from GitHub to a suitable location on your local machine.
 
 ### Run the storage adapter microservice
 
@@ -204,7 +204,7 @@ Open the **WebService\appsettings.ini** file and modify the settings as follows:
 
 #### Configure the solution to include your new device model files
 
-By default, your new device model JSON and JS files won’t be copied into the built solution. You need to explicitly include them.
+By default, your new device model JSON and JS files won't be copied into the built solution. You need to explicitly include them.
 
 Add an entry to the **services\services.csproj** file for each file you want included. For example:
 
@@ -232,7 +232,7 @@ The following script assumes that the name of your IoT hub is
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test
@@ -279,4 +279,4 @@ route based on message headers.
 
 ## Next steps
 
-Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is to learn now to [Deploy a custom image to the cloud](iot-accelerators-device-simulation-deploy-image.md).
+Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is visit the GitHub repository to learn more [Device simulation](https://github.com/Azure/azure-iot-pcs-device-simulation).

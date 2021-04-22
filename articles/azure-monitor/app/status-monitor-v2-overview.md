@@ -1,33 +1,30 @@
 ---
-title: Azure Status Monitor v2 overview | Microsoft Docs
-description: An overview of Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-services: application-insights
-documentationcenter: .net
-author: MS-TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Agent overview | Microsoft Docs
+description: An overview of Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
----
-# Status Monitor v2
+ms.date: 09/16/2019
 
-Status Monitor v2 is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-It replaces [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-The module provides codeless instrumentation of .NET web apps hosted with IIS.
-Telemetry is sent to the Azure portal, where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your app.
+---
+
+# Deploy Azure Monitor Application Insights Agent for on-premises servers
 
 > [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This guidance is recommended for On-Premises and non-Azure cloud deployments of Application Insights Agent. Here's the recommended approach for [Azure virtual machine and virtual machine scale set deployments](./azure-vm-vmss-apps.md).
+
+Application Insights Agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+It replaces [Status Monitor](./monitor-performance-live-website-now.md).
+Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
+
+> [!NOTE]
+> The module only currently supports codeless instrumentation of .NET web apps hosted with IIS. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications.
 
 ## PowerShell Gallery
 
-The PowerShell Gallery is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights Agent is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+
+![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## Instructions
@@ -35,13 +32,14 @@ The PowerShell Gallery is located here: https://www.powershellgallery.com/packag
 - See the [detailed instructions](status-monitor-v2-detailed-instructions.md) for a deep dive on how to get started.
 
 ## PowerShell API reference
-- [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Enable-InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [Disable-ApplicationInsightsMonitoring](./status-monitor-v2-api-reference.md#disable-applicationinsightsmonitoring)
+- [Disable-InstrumentationEngine](./status-monitor-v2-api-reference.md#disable-instrumentationengine)
+- [Enable-ApplicationInsightsMonitoring](./status-monitor-v2-api-reference.md#enable-applicationinsightsmonitoring)
+- [Enable-InstrumentationEngine](./status-monitor-v2-api-reference.md#enable-instrumentationengine)
+- [Get-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringconfig)
+- [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
+- [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
 ## Troubleshooting
 - [Troubleshooting](status-monitor-v2-troubleshoot.md)
@@ -50,35 +48,38 @@ The PowerShell Gallery is located here: https://www.powershellgallery.com/packag
 
 ## FAQ
 
-- Does Status Monitor v2 support proxy installations?
+- Does Application Insights Agent support proxy installations?
 
-  *Yes*. There are multiple ways to download Status Monitor v2. 
+  *Yes*. There are multiple ways to download Application Insights Agent. 
 If your computer has internet access, you can onboard to the PowerShell Gallery by using `-Proxy` parameters.
 You can also manually download the module and either install it on your computer or use it directly.
 Each of these options is described in the [detailed instructions](status-monitor-v2-detailed-instructions.md).
-  
+
+- Does Status Monitor v2 support ASP.NET Core applications?
+
+  *No*. For instructions to enable monitoring of ASP.NET Core applications, see [Application Insights for ASP.NET Core applications](./asp-net-core.md). There's no need to install StatusMonitor for an ASP.NET Core application. This is true even if ASP.NET Core application is hosted in IIS.
+
 - How do I verify that the enablement succeeded?
 
-   There's no cmdlet to verify enablement succeeded.
-We recommend you use [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly determine if your app is sending telemetry.
+  - The [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet can be used to verify that enablement succeeded.
+  - We recommend you use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
 
-   You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## Next steps
 
 View your telemetry:
 
-* [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
-* [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
-* [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
-* [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
+* [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
+* [Search events and logs](./diagnostic-search.md) to diagnose problems.
+* [Use Analytics](../logs/log-query-overview.md) for more advanced queries.
+* [Create dashboards](./overview-dashboard.md).
 
 Add more telemetry:
 
 * [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-* [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
-* [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
-
+* [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
+* [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.

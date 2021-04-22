@@ -1,53 +1,55 @@
 ---
-title: Troubleshooting Azure Application Gateway with App Service – Redirection to App Service’s URL
+title: Troubleshoot redirection to App Service URL
+titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot the redirection issue when Azure Application Gateway is used with Azure App Service
 services: application-gateway
-author: abshamsft
+author: jaesoni
 ms.service: application-gateway
-ms.topic: article
-ms.date: 02/22/2019
-ms.author: absha
+ms.topic: troubleshooting
+ms.date: 04/15/2021
+ms.author: jaysoni
 ---
 
-# Troubleshoot Application Gateway with App Service
+# Troubleshoot App Service issues in Application Gateway
 
-Learn how to diagnose and resolve issues encountered with Application Gateway and App Service as the backend server.
+Learn how to diagnose and resolve issues you might encounter when Azure App Service is used as a back-end target with Azure Application Gateway.
 
 ## Overview
 
-In this article, you will learn how to troubleshoot the following issues:
+In this article, you'll learn how to troubleshoot the following issues:
 
-> [!div class="checklist"]
-> * App Service's URL getting exposed in the browser when there is a redirection
-> * App Service's ARRAffinity Cookie domain set to App Service hostname (example.azurewebsites.net) instead of original host
+* The app service URL is exposed in the browser when there's a redirection.
+* The app service ARRAffinity cookie domain is set to the app service host name, example.azurewebsites.net, instead of the original host.
 
-When you configure a public facing App Service in the backend pool of Application Gateway and if you have a redirection configured in your Application code, you might see that when you access Application Gateway, you will be redirected by the browser directly to the App Service URL.
+When a back-end application sends a redirection response, you might want to redirect the client to a different URL than the one specified by the back-end application. You might want to do this when an app service is hosted behind an application gateway and requires the client to do a redirection to its relative path. An example is a redirect from contoso.azurewebsites.net/path1 to contoso.azurewebsites.net/path2. 
 
-This issue may happen due to the following main reasons:
+When the app service sends a redirection response, it uses the same host name in the location header of its response as the one in the request it receives from the application gateway. For example, the client makes the request directly to contoso.azurewebsites.net/path2 instead of going through the application gateway contoso.com/path2. You don't want to bypass the application gateway.
 
-- You have redirection configured on your App Service. Redirection can be as simple as adding a trailing slash to the request.
-- You have Azure AD authentication which causes the redirection.
-- You have enabled “Pick Host Name from Backend Address” switch in the HTTP settings of Application Gateway.
-- You don’t have your custom domain registered with your App Service.
+This issue might happen for the following main reasons:
 
-Also, when you are using App Services behind Application Gateway and you are using a custom domain to access Application Gateway, you may see the domain value for the ARRAffinity cookie set by the App Service will carry the "example.azurewebsites.net" domain name. If you want your original hostname to be the cookie domain as well, follow the solution in this article.
+- You have redirection configured on your app service. Redirection can be as simple as adding a trailing slash to the request.
+- You have Azure Active Directory authentication, which causes the redirection.
+
+Also, when you use app services behind an application gateway, the domain name associated with the application gateway (example.com) is different from the domain name of the app service (say, example.azurewebsites.net). The domain value for the ARRAffinity cookie set by the app service carries the example.azurewebsites.net domain name, which isn't desirable. The original host name, example.com, should be the domain name value in the cookie.
 
 ## Sample configuration
 
-- HTTP Listener: Basic or Multi-site
-- Backend Address Pool: App Service
-- HTTP Settings: “Pick Hostname from Backend Address” Enabled
-- Probe: “Pick Hostname from HTTP Settings” Enabled
+- HTTP listener: Basic or multi-site
+- Back-end address pool: App Service
+- HTTP settings: **Pick Hostname from Backend Address** enabled
+- Probe: **Pick Hostname from HTTP Settings** enabled
 
 ## Cause
 
-An App Service can only be accessed with the configured hostnames in the custom domain settings, by default, it is “example.azurewebsites.net” and if you want to access your App Service using Application Gateway with a hostname not registered in App Service or with Application Gateway’s FQDN, you have to override the hostname in the original request to the App Service’s hostname.
+App Service is a multitenant service, so it uses the host header in the request to route the request to the correct endpoint. The default domain name of App Services, *.azurewebsites.net (say, contoso.azurewebsites.net), is different from the application gateway's domain name (say, contoso.com). 
 
-To achieve this with Application Gateway, we use the switch “Pick Hostname from Backend Address” in the HTTP Settings and for the probe to work, we use “Pick Hostname from Backend HTTP Settings” in the probe configuration.
+The original request from the client has the application gateway's domain name, contoso.com, as the host name. You need to configure the application gateway to change the host name in the original request to the app service's host name when it routes the request to the app service back end. Use the switch **Pick Hostname from Backend Address** in the application gateway's HTTP setting configuration. Use the switch **Pick Hostname from Backend HTTP Settings** in the health probe configuration.
 
-![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
-Due to this, when the App Service does a redirection, it uses the hostname “example.azurewebsites.net” in the Location header, instead of the original hostname unless configured otherwise. You can check the example request and response headers below.
+
+![Application gateway changes host name](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
+
+When the app service does a redirection, it uses the overridden host name contoso.azurewebsites.net in the location header instead of the original host name contoso.com, unless configured otherwise. Check the following example request and response headers.
 ```
 ## Request headers to Application Gateway:
 
@@ -61,44 +63,49 @@ Host: www.contoso.com
 
 Status Code: 301 Moved Permanently
 
-Location: http://example.azurewebsites.net/path/
+Location: http://contoso.azurewebsites.net/path/
 
 Server: Microsoft-IIS/10.0
 
-Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
+Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=contoso.azurewebsites.net
 
 X-Powered-By: ASP.NET
 ```
-In the above example, you can notice that the response header has a status code of 301 for redirection and the location header has the App Service’s hostname instead of the original hostname “www.contoso.com”.
+In the previous example, notice that the response header has a status code of 301 for redirection. The location header has the app service's host name instead of the original host name `www.contoso.com`.
 
-## Solution
+## Solution: Rewrite the location header
 
-This issue can be resolved by not having a redirection on the Application side, however, if that’s not possible, we must pass the same host header that Application Gateway receives to the App Service as well instead of doing a host override.
+Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers.md#modify-a-redirection-url).
 
-Once we do that, App Service will do the redirection (if any) on the same original host header which points to Application Gateway and not its own.
+> [!NOTE]
+> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
 
-To achieve this, you must own a custom domain and follow the process mentioned below.
+## Alternate solution: Use a custom domain name
 
-- Register the domain to the custom domain list of the App Service. For this, you must have a CNAME in your custom domain pointing to App Service’s FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+Using App Service's Custom Domain feature is another solution to always redirect the traffic to Application Gateway's domain name (`www.contoso.com` in our example). This configuration also serves as a solution for the ARR Affinity cookie problem. By default, the ARRAffinity cookie domain is set to the App Service's default host name (example.azurewebsites.net) instead of the Application Gateway's domain name. Therefore, the browser in such cases will reject the cookie due to the difference in the domain names of the request and the cookie.
 
-![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+You can follow the given method for both the Redirection and ARRAffinity's cookie domain mismatch issues. This method will need you to have your custom domain's DNS zone access.
 
-- Once that is done, your App Service is ready to accept the hostname “www.contoso.com”. Now change your CNAME entry in DNS to point it back to Application Gateway’s FQDN. For example, “appgw.eastus.cloudapp.azure.com”.
+**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+The records would look similar to
+-  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
+-  `asuid.www.contoso.com` IN TXT "`<verification id string>`"
 
-- Make sure that your domain “www.contoso.com” resolves to Application Gateway’s FQDN when you do a DNS query.
 
-- Set your custom probe to disable “Pick Hostname from Backend HTTP Settings”. This can be done from the portal by unchecking the checkbox in the probe settings and in PowerShell by not using the -PickHostNameFromBackendHttpSettings switch in the Set-AzApplicationGatewayProbeConfig command. In the hostname field of the probe, enter your App Service's FQDN "example.azurewebsites.net" as the probe requests sent from Application Gateway will carry this in the host header.
+**Step2**: The CNAME record in the previous step was only needed for the domain verification. Ultimately, we need the traffic to route via Application Gateway. You can thus modify `www.contoso.com`'s CNAME now to point to Application Gateway's FQDN. To set a FQDN for your Application Gateway, navigate to its Public IP address resource and assign a "DNS Name label" for it. The updated CNAME record should now look as 
+-  `www.contoso.com` IN CNAME `contoso.eastus.cloudapp.azure.com`
 
-  > [!NOTE]
-  > While doing the next step, please make sure that your custom probe is not associated to your backend HTTP settings because your HTTP settings still has the "Pick Hostname from Backend Address" switch enabled at this point.
 
-- Set your Application Gateway’s HTTP settings to disable “Pick Hostname from Backend Address”. This can be done from the portal by unchecking the checkbox and in PowerShell by not using the -PickHostNameFromBackendAddress switch in the Set-AzApplicationGatewayBackendHttpSettings command.
+**Step3**: Disable "Pick Hostname from Backend Address" for the associated HTTP Setting.
 
-- Associate the custom probe back to the backend HTTP settings and verify the backend health if it is healthy.
+In PowerShell, don't use the `-PickHostNameFromBackendAddress` switch in the `Set-AzApplicationGatewayBackendHttpSettings` command.
 
-- Once this is done, Application Gateway should now forward the same hostname “www.contoso.com” to the App Service and the redirection will happen on the same hostname. You can check the example request and response headers below.
 
-To implement the steps mentioned above using PowerShell for an existing setup, follow the sample PowerShell script below. Note how we have not used the -PickHostname switches in the Probe and HTTP Settings configuration.
+**Step4**: For the probes to determine the backend as healthy and an operational traffic, set a custom Health Probe with Host field as custom or default domain of the App Service.
+
+In PowerShell, don't use the `-PickHostNameFromBackendHttpSettings` switch in the `Set-AzApplicationGatewayProbeConfig` command and use either the custom or default domain of the App Service in the -HostName switch of the probe.
+
+To implement the previous steps using PowerShell for an existing setup, use the sample PowerShell script that follows. Note how we haven't used the **-PickHostname** switches in the probe and HTTP settings configuration.
 
 ```azurepowershell-interactive
 $gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
@@ -130,4 +137,4 @@ Set-AzApplicationGateway -ApplicationGateway $gw
   ```
   ## Next steps
 
-If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
+If the preceding steps didn't resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).

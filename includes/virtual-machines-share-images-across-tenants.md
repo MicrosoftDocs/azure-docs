@@ -10,7 +10,8 @@
  ms.custom: include file
 ---
 
-Shared Image Galleries let you share images using RBAC. You can use RBAC to share images within your tenant, and even to individuals outside of your tenant. But, if you want to share images outside of your Azure tenant, at scale, you should create an app registration to facilitate sharing.  Using an app registration can enable more complex sharing scenarios, like: 
+
+But, if you want to share images outside of your Azure tenant, at scale, you should create an app registration to facilitate sharing.  Using an app registration can enable more complex sharing scenarios, like: 
 
 * Managing shared images when one company acquires another, and the Azure infrastructure is spread across separate tenants. 
 * Azure Partners manage Azure infrastructure on behalf of their customers. Customization of images is done within the partners tenant, but the infrastructure deployments will happen in the customer's tenant. 
@@ -41,7 +42,7 @@ Give the app registration permission to use the shared image gallery.
 
 ## Give Tenant 2 access
 
-Give Tenant 2 access to the application by requesting a sign-in using a browser. Replace *<Tenant2 ID>* with the tenant ID for the tenant that you would like to share your image gallery with. Replace *<Application (client) ID>* with the application ID of the app registration you created. When done making the replacements, paste the URL into a browser and follow the sign-in prompts to sign into Tenant 2.
+Give Tenant 2 access to the application by requesting a sign-in using a browser. Replace *\<Tenant2 ID>* with the tenant ID for the tenant that you would like to share your image gallery with. Replace *\<Application (client) ID>* with the application ID of the app registration you created. When done making the replacements, paste the URL into a browser and follow the sign-in prompts to sign into Tenant 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

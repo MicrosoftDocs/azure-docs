@@ -1,12 +1,12 @@
 ---
-title: 'Connect an Azure virtual network to another VNet using a VNet-to-VNet connection: PowerShell | Microsoft Docs'
+title: 'Connect a VNet to another VNet using an Azure VPN Gateway VNet-to-VNet connection: PowerShell'
 description: Connect virtual networks together using a VNet-to-VNet connection and PowerShell.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 02/15/2019
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -63,7 +63,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * [VNets that reside in the same subscription](#samesub): The steps for this configuration use TestVNet1 and TestVNet4.
 
-  ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+  ![Diagram that shows V Net-to-V Net steps for V Nets that reside in the same subscription.](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 * [VNets that reside in different subscriptions](#difsub): The steps for this configuration use TestVNet1 and TestVNet5.
 
@@ -77,7 +77,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * Because it takes up to 45 minutes to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.
 
-* If you would rather install latest version of the Azure PowerShell module locally, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* If you would rather install latest version of the Azure PowerShell module locally, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
@@ -146,7 +146,6 @@ We use the following values in the examples:
    $VNetName1 = "TestVNet1"
    $FESubName1 = "FrontEnd"
    $BESubName1 = "Backend"
-   $GWSubName1 = "GatewaySubnet"
    $VNetPrefix11 = "10.11.0.0/16"
    $VNetPrefix12 = "10.12.0.0/16"
    $FESubPrefix1 = "10.11.0.0/24"
@@ -163,14 +162,14 @@ We use the following values in the examples:
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. Create the subnet configurations for TestVNet1. This example creates a virtual network named TestVNet1 and three subnets, one called GatewaySubnet, one called FrontEnd, and one called Backend. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails.
+4. Create the subnet configurations for TestVNet1. This example creates a virtual network named TestVNet1 and three subnets, one called GatewaySubnet, one called FrontEnd, and one called Backend. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails. For this reason, it is not assigned via variable below.
 
    The following example uses the variables that you set earlier. In this example, the gateway subnet is using a /27. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. This will allow for enough addresses to accommodate possible additional configurations that you may want in the future.
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
    $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix1
    ```
 5. Create TestVNet1.
 
@@ -200,7 +199,7 @@ We use the following values in the examples:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your CloudShell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
+After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
 
 ### Step 3 - Create and configure TestVNet4
 
@@ -214,7 +213,6 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
    $VnetName4 = "TestVNet4"
    $FESubName4 = "FrontEnd"
    $BESubName4 = "Backend"
-   $GWSubName4 = "GatewaySubnet"
    $VnetPrefix41 = "10.41.0.0/16"
    $VnetPrefix42 = "10.42.0.0/16"
    $FESubPrefix4 = "10.41.0.0/24"
@@ -235,7 +233,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
    ```azurepowershell-interactive
    $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
    $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix4
    ```
 4. Create TestVNet4.
 
@@ -446,7 +444,7 @@ In this example, because the gateways are in the different subscriptions, we've 
    PS C:\> $vnet5gw.Id
    /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
-3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw cannot be obtained directly because it is in a different subscription. You will need to create a new PowerShell object with the values communicated from Subscription 1 in the steps above. Use the example below. Replace the Name, Id, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
+3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw cannot be obtained directly because it is in a different subscription. You will need to create a new PowerShell object with the values communicated from Subscription 1 in the steps above. Use the example below. Replace the Name, ID, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
 
    Connect to Subscription 1 before running the following example:
 
@@ -473,7 +471,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [verify connections PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="faq"></a>VNet-to-VNet FAQ
 
@@ -481,5 +479,5 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://docs.microsoft.com/azure/) for more information.
+* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../index.yml) for more information.
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).

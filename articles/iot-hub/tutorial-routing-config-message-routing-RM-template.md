@@ -1,7 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using
- an Azure Resource Manager template| Microsoft Docs
-description: Configure message routing for Azure IoT Hub using an Azure Resource Manager template
+title: Tutorial - Configure message routing for Azure IoT Hub using an Azure Resource Manager template
+description: Tutorial - Configure message routing for Azure IoT Hub using an Azure Resource Manager template
 author: robinsh
 manager: philmeagit st
 ms.service: iot-hub
@@ -85,7 +84,7 @@ These values are used in the template, and are mostly derived from parameters.
 
 **service_bus_queue**: This field is the Service Bus queue name after having randomValue concatenated.
 
-**sbVersion**: THe version of the Service Bus API to use. In this case, it is "2017-04-01".
+**sbVersion**: The version of the Service Bus API to use. In this case, it is "2017-04-01".
 
 ### Resources: Storage account and container
 
@@ -355,19 +354,19 @@ To deploy the template to Azure, upload the template and the parameters file to 
 
 To upload the files, select the **Upload/Download files** icon in the menu bar, then choose Upload.
 
-![Cloud Shell menu bar with Upload/Download files highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Screenshot that highlights the Upload/Download files icon.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
 Use the File Explorer that pops up to find the files on your local disk and select them, then choose **Open**.
 
 After the files are uploaded, a results dialog shows something like the following image.
 
-![Cloud Shell menu bar with Upload/Download files highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Cloud Shell menu bar with Upload/Download results highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
 The files are uploaded to the share used by your Cloud Shell instance. 
 
 Run the script to perform the deployment. The last line of this script retrieves the variable that was set up to be returned -- the Service Bus queue connection string.
 
-These variables are set in this script.
+The script sets and uses these variables:
 
 **$RGName** is the resource group name to which to deploy the template. This field is created before deploying the template.
 

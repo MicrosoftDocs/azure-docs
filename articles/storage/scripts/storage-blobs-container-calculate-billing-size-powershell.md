@@ -2,25 +2,22 @@
 title: Azure PowerShell script sample - Calculate the total billing size of a blob container | Microsoft Docs
 description: Calculate the total size of a container in Azure Blob storage for billing purposes.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: tysonn
 
-ms.assetid:
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
 ---
 
 # Calculate the total billing size of a blob container
 
 This script calculates the size of a container in Azure Blob storage for the purpose of estimating billing costs. The script totals the size of the blobs in the container.
+
+> [!IMPORTANT]
+> The sample script provided in this article may not accurately calculate the billing size for blob snapshots.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -46,6 +43,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 Following is the breakdown:
+
 * 48 bytes of overhead for each container includes the Last Modified Time, Permissions, Public Settings, and some system metadata.
 
 * The container name is stored as Unicode, so take the number of characters and multiply by two.
@@ -122,6 +120,6 @@ Following is the breakdown:
 
 - For more information about Azure Storage billing, see [Understanding Windows Azure Storage Billing](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 - You can find additional Storage PowerShell script samples in [PowerShell samples for Azure Storage](../blobs/storage-samples-blobs-powershell.md).

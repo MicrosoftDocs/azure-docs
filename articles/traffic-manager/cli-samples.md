@@ -1,9 +1,9 @@
 ---
 title: Azure CLI Samples for Traffic Manager| Microsoft Docs
-description: Azure CLI Samples
+description: Learn about an Azure CLI script you can use to direct traffic across multiple regions for high application availability.
 services: virtual-network
 documentationcenter: virtual-network
-author: asudbring
+author: duongau
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 10/23/2018
-ms.author: allensu
+ms.author: duau 
+ms.custom: devx-track-azurecli
 
 ---
 # Azure CLI samples for Traffic Manager

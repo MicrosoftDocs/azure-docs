@@ -1,51 +1,44 @@
 ---
-title: Introduction to Data Science Virtual Machine-based team environments - Azure | Microsoft Docs
+title:  Team analytics and AI environment
+titleSuffix: Azure Data Science Virtual Machine 
 description: Patterns for deploying the Data Science VM in an enterprise team environment.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
-documentationcenter: ''
-author: gopitk
-manager: cgronlun
-ms.custom: seodec18
+ms.service: data-science-vm
 
-ms.assetid: 
-ms.service: machine-learning
-ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: vijetajo
+ms.author: vijetaj
+ms.topic: overview
 ms.date: 05/08/2018
-ms.author: gokuma
 ---
 
 # Data Science Virtual Machine-based team analytics and AI environment 
-The [Data Science Virtual Machine](overview.md) (DSVM) provides a rich environment in the Azure platform with prebuilt software for artificial intelligence (AI) and data analytics. 
+The [Data Science Virtual Machine](overview.md) (DSVM) provides a rich environment on the Azure platform, with prebuilt software for artificial intelligence (AI) and data analytics.
 
-Traditionally, the DSVM has been used as an individual analytics desktop. Individual data scientists gain productivity with this shared notion of their prebuilt analytics environment. As large analytics teams plan their analytics environments for their data scientists and AI developers, one of the recurring themes is a shared analytics infrastructure for development and experimentation. This infrastructure is managed in line with enterprise IT policies that also facilitate collaboration and consistency across the data science/analytics teams. 
+Traditionally, the DSVM has been used as an individual analytics desktop. Individual data scientists gain productivity with this shared, prebuilt analytics environment. As large analytics teams plan environments for their data scientists and AI developers, one of the recurring themes is a shared analytics infrastructure for development and experimentation. This infrastructure is managed in line with enterprise IT policies that also facilitate collaboration and consistency across the data science and analytics teams.
 
-A shared infrastructure also enables IT to better utilize the analytics environment. Some organizations call the team-based data science/analytics infrastructure an "analytics sandbox." It enables data scientists to access various data assets to rapidly understand data, run experiments, validate hypotheses, and build predictive models without affecting the production environment. 
+A shared infrastructure enables better IT utilization of the analytics environment. Some organizations call the team-based data science/analytics infrastructure an *analytics sandbox*. It enables data scientists to access various data assets to rapidly understand data. This sandbox environment also helps data scientists run experiments, validate hypotheses, and build predictive models without affecting the production environment.
 
-Because the DSVM operates at the Azure infrastructure level, IT administrators can readily configure the DSVM to operate in compliance with the IT policies of the enterprise. The DSVM offers full flexibility in implementing various sharing architectures with access to corporate data assets in a controlled way. 
+Because the DSVM operates at the Azure infrastructure level, IT administrators can readily configure the DSVM to operate in compliance with the IT policies of the enterprise. The DSVM offers full flexibility in implementing various sharing architectures while also offering access to corporate data assets in a controlled way.
 
-This section discusses some patterns and guidelines that you can use to deploy the DSVM as a team-based data science infrastructure. The building blocks for these patterns come from Azure infrastructure as a service (IaaS), so they apply to any Azure VMs. The focus of this series of articles is on applying these standard Azure infrastructure capabilities to the Data Science VM. 
+This section discusses some patterns and guidelines that you can use to deploy the DSVM as a team-based data science infrastructure. Because the building blocks for these patterns come from Azure infrastructure as a service (IaaS), they apply to any Azure VMs. This series of articles focuses on applying these standard Azure infrastructure capabilities to the DSVM.
 
-Some of the key building blocks of an enterprise team analytics environment are:
+Key building blocks of an enterprise team analytics environment include:
 
-* [Autoscaled pool of Data Science Virtual Machines](dsvm-pools.md)
+* [An autoscaled pool of DSVMs](dsvm-pools.md)
 * [Common identity and access to a workspace from any of the DSVMs in the pool](dsvm-common-identity.md)
 * [Secure access to data sources](dsvm-secure-access-keys.md)
 
 
-This series of articles provides guidance and pointers for each of the preceding items. It doesn't cover all the considerations and needs in deploying DSVM in large enterprise configurations. Here's other Azure documentation that you can use while implementing DSVM instances in your enterprise: 
+This series provides guidance and pointers for each of the preceding topics. It doesn't cover all the considerations and requirements for deploying DSVMs in large enterprise configurations. Here are some other Azure resources that you can use while implementing DSVM instances in your enterprise:
 
-* [Network security](https://docs.microsoft.com/azure/security/azure-network-security)
-* [Monitoring](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) and [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Logging and auditing](https://docs.microsoft.com/azure/security/azure-log-audit)
-* [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Network security](../../security/fundamentals/network-overview.md)
+* [Monitoring](../../azure-monitor/vm/monitor-vm-azure.md) and [management](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Logging and auditing](../../security/fundamentals/log-audit.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Policy setting and enforcement](../../governance/policy/overview.md)
-* [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
-* [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
-* [Data discovery and governance](https://docs.microsoft.com/azure/data-catalog/)
+* [Antimalware](../../security/fundamentals/antimalware.md)
+* [Encryption](../../virtual-machines/windows/disk-encryption-overview.md)
+* [Data discovery and governance](../../data-catalog/index.yml)
 
-The [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) provides a detailed end-to-end architecture and patterns for building and managing your cloud-based analytics infrastructure. 
+Finally, the [Azure Architecture Center](/azure/architecture/) provides a detailed end-to-end architecture and models for building and managing your cloud-based analytics infrastructure.

@@ -1,12 +1,8 @@
 ---
-title: Sample - ISO 27001 ASE/SQL workload blueprint - Deploy steps
-description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+title: Deploy ISO 27001 ASE/SQL workload blueprint sample
+description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample including blueprint artifact parameter details.
+ms.date: 02/05/2021
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 
@@ -38,8 +34,7 @@ this blueprint sample will be missing infrastructure dependencies and fail durin
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
@@ -68,8 +63,7 @@ Your copy of the blueprint sample has now been created in your environment. It's
 blueprint sample can be customized to your environment and needs, but that modification may move it
 away from the ISO 27001 standard.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -85,8 +79,7 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 subscription within the management group it was saved to. This step is where parameters are
 provided to make each deployment of the copy of the blueprint sample unique.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -175,7 +168,7 @@ The following table provides a list of the blueprint artifact parameters:
 |Azure SQL Database resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-workload-azsql-rg` to make the resource group unique.|
 |Azure SQL Database resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
 |Azure SQL Database template|Resource Manager template|Azure SQL Server admin username|Username for the Azure SQL Server. Must match same property value in **Key Vault template**. Default value is _sql-admin-user_.|
-|Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Resource ID)|The Resource ID of the Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" and replace `{subscriptionId}` with your Subscription ID and `{orgName}` with the **Organization name** blueprint parameter.|
+|Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Resource ID)|The Resource ID of the Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" and replace `{subscriptionId}` with your Subscription ID and `{orgName}` with the **Organization name** blueprint parameter.|
 |Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Secret Name)|Username of the SQL Server admin. Must match value in **Key Vault template** property **Azure SQL Server admin username**.|
 |Azure SQL Database template|Resource Manager template|Log retention in days|Data retention in days. Default value is _365_.|
 |Azure SQL Database template|Resource Manager template|AAD admin object ID|AAD object ID of the user that will get assigned as an Active Directory admin. No default value and can't be left blank. To locate this value from the Azure portal, search for and select "Users" under _Services_. Use the _Name_ box to filter for the account name and select that account. On the _User profile_ page, select the "Click to copy" icon next to the _Object ID_.|
@@ -196,9 +189,9 @@ control mapping:
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Overview](./index.md)
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

@@ -1,7 +1,7 @@
 ---
-title: "Example: Add faces to a PersonGroup - Face API"
+title: "Example: Add faces to a PersonGroup - Face"
 titleSuffix: Azure Cognitive Services
-description: Use the Face API to add faces in images.
+description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face service.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -11,11 +11,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Add faces to a PersonGroup
 
-This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure Cognitive Services Face API .NET client library.
+This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure Cognitive Services Face .NET client library.
 
 ## Step 1: Initialization
 
@@ -56,10 +57,12 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## Step 2: Authorize the API call
 
-When you use a client library, you must pass your subscription key to the constructor of the FaceServiceClient class. For example:
+When you use a client library, you must pass your subscription key to the constructor of the **FaceClient** class. For example:
 
 ```csharp
-FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
+private readonly IFaceClient faceClient = new FaceClient(
+    new ApiKeyServiceClientCredentials("<SubscriptionKey>"),
+    new System.Net.Http.DelegatingHandler[] { });
 ```
 
 To get the subscription key, go to the Azure Marketplace from the Azure portal. For more information, see [Subscriptions](https://www.microsoft.com/cognitive-services/sign-up).
@@ -73,7 +76,7 @@ The request time is enqueued to `_timeStampQueue` to ensure the overall validati
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
+await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 ```
 
 ## Step 4: Create the persons for the PersonGroup
@@ -81,13 +84,13 @@ await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 Persons are created concurrently, and `await WaitCallLimitPerSecondAsync()` is also applied to avoid exceeding the call limit.
 
 ```csharp
-CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
+Person[] persons = new Person[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
     await WaitCallLimitPerSecondAsync();
 
     string personName = $"PersonName#{i}";
-    persons[i] = await faceServiceClient.CreatePersonAsync(personGroupId, personName);
+    persons[i] = await faceClient.PersonGroupPerson.CreateAsync(personGroupId, personName);
 });
 ```
 
@@ -108,7 +111,7 @@ Parallel.For(0, PersonCount, async i =>
 
         using (Stream stream = File.OpenRead(imagePath))
         {
-            await faceServiceClient.AddPersonFaceAsync(personGroupId, personId, stream);
+            await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(personGroupId, personId, stream);
         }
     }
 });
@@ -131,6 +134,5 @@ The following features were explained and demonstrated:
 
 ## Related topics
 
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)
 - [Detect faces in an image](HowtoDetectFacesinImage.md)
 - [Use the large-scale feature](how-to-use-large-scale.md)

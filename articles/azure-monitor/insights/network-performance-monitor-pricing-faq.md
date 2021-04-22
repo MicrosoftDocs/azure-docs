@@ -1,30 +1,25 @@
 ---
 title: Pricing FAQ for Azure Network Performance Monitor | Microsoft Docs
 description: Frequently asked questions - Azure Network Performance Monitor
-services: monitoring-and-diagnostics
-documentationcenter: na
-author: agummadi
-manager: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 
-ms.service: log-analytics
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: agummadi
+ms.author: agummadi
 ms.date: 04/02/2018
-ms.author: ajaycode
+
 ---
 
 # Pricing changes for Azure Network Performance Monitor
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
+
 We have listened to your feedback and recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) for various monitoring services across Azure. 
-This article captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) in an easy-to-read question and answer format.
+This article captures the pricing changes related to Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (NPM) in an easy-to-read question and answer format.
 
 Network Performance Monitor consists of three components:
-* [Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Performance Monitor](../../networking/network-monitoring-overview.md#performance-monitor)
+* [Service Endpoint Monitor](../../networking/network-monitoring-overview.md)
+* [ExpressRoute Monitor](../../networking/network-monitoring-overview.md#expressroute-monitor)
 
 The following sections explain the pricing changes for the NPM components.
 
@@ -116,4 +111,3 @@ Refer to the [Connection Monitoring](https://azure.microsoft.com/pricing/details
 ## References
 
 [Log Analytics Pricing FAQ](https://azure.microsoft.com/pricing/details/log-analytics/): The FAQ section has information on free tier, per node pricing and other pricing details.
-

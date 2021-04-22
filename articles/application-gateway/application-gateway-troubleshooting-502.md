@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot Azure Application Gateway Bad Gateway (502) errors
-description: Learn how to troubleshoot Application Gateway 502 errors
+title: Troubleshoot Bad Gateway errors - Azure Application Gateway
+description: 'Learn how to troubleshoot Application Gateway Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/25/2019
+ms.topic: troubleshooting
+ms.date: 11/16/2019
 ms.author: amsriva
 ---
 
@@ -90,8 +90,8 @@ The following table lists the values associated with the default health probe:
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
 * The call to `http://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30-second timeout period.
 * Ensure that the port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
-* If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
-* If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/security-overview.md) must be configured to allow access on the desired port.
+* If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
+* If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/network-security-groups-overview.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe
 
@@ -190,4 +190,3 @@ Ensure that the instances are healthy and the application is properly configured
 ## Next steps
 
 If the preceding steps don't resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
-

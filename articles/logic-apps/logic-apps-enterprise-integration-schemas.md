@@ -1,14 +1,12 @@
 ---
-title: Validate XML with schemas - Azure Logic Apps | Microsoft Docs
+title: Validate XML with schemas
 description: Add schemas to validate XML documents in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
 ---
 
@@ -44,7 +42,7 @@ integration and business-to-business (B2B) solutions.
 
   * [Azure storage account](../storage/common/storage-account-overview.md) 
   where you create a blob container for your schema. Learn how to 
-  [create a storage account](../storage/common/storage-quickstart-create-account.md). 
+  [create a storage account](../storage/common/storage-account-create.md). 
 
   * Blob container for storing your schema. Learn how to 
   [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). 

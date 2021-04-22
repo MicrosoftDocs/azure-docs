@@ -1,6 +1,6 @@
 ---
 title: Use the Connected Factory dashboard - Azure | Microsoft Docs
-description: Understand how to use features of the Connected Factory dashboard.
+description: This article describes how to use features of the Connected Factory dashboard to monitor and manage your industrial IoT devices.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,6 +10,9 @@ ms.date: 07/10/2018
 ms.author: dobett
 ---
 # Use features in the Connected Factory solution accelerator dashboard
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 The [Deploy a cloud-based solution to manage my industrial IoT devices](quickstart-connected-factory-deploy.md) quickstart showed you how to navigate the dashboard and respond to alarms. This how-to guide shows you some additional dashboard features you can use to monitor and manage your industrial IoT devices.
 

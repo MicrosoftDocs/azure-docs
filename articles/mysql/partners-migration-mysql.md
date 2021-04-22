@@ -22,7 +22,7 @@ To broadly support your Azure Database for MySQL solution, you can choose from a
 | ![Pactera][6] |**Pactera**<br>Pactera is a global company offering consulting, digital, technology, and operations services to the world’s leading enterprises. From their roots in engineering to the latest in digital transformation, they give customers a competitive edge. Their proven methodologies and tools ensure your data is secure, authentic, and accurate.|[Website][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contact][pactera_contact] | |
 
 ## Next steps
-To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/en-US/).
+To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-mysql/SNP_Logo.png
@@ -38,7 +38,7 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
 [credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
-[pactera_website]:https://en.pactera.com/service/azure-data-platform-services/
+[pactera_website]:https://en.pactera.com/
 
 <!--Get Started Links-->
 <!--Datasheet Links-->

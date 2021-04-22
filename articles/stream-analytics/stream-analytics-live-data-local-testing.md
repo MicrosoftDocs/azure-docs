@@ -1,12 +1,10 @@
 ---
 title: Test live data with Azure Stream Analytics for Visual Studio
 description: Learn how to test your Azure Stream Analytics job locally using live streaming data.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ---
@@ -35,7 +33,6 @@ The following local testing options are supported:
 
    ![Azure Stream Analytics Visual Studio live cloud input](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
 
-
 3. Set the **Start Time** to define when the job will start processing input data. The job might need to read input data ahead of time to ensure accurate results. The default time is set to 30 minutes ahead of the current time.
 
    ![Azure Stream Analytics Visual Studio live data start time](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
@@ -56,11 +53,10 @@ The following local testing options are supported:
 
 * Power BI and Azure Data Lake Storage are not supported output sinks due to authentication model limitations.
 
-* Only cloud input options have [time policies](stream-analytics-out-of-order-and-late-events.md) support, while local input options do not.
+* Only cloud input options have [time policies](./stream-analytics-time-handling.md) support, while local input options do not.
 
 ## Next steps
 
 * [Create a Stream Analytics job by using the Azure Stream Analytics tools for Visual Studio](stream-analytics-quick-create-vs.md)
-* [Install Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md)
 * [Test Stream Analytics queries locally with Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)

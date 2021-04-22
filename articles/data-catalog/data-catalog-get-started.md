@@ -1,16 +1,17 @@
 ---
-title: Create an Azure Data Catalog
-description: A quickstart on how to create an Azure Data Catalog.
+title: 'Quickstart: Create an Azure Data Catalog'
+description: This quickstart describes how to create an Azure Data Catalog using the Azure portal. 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/26/2020
 
 # Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
-
 # Quickstart: Create an Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](overview.md).
 
@@ -19,6 +20,9 @@ This quickstart helps you get started with creating an Azure Data Catalog.
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
+> [!Note]
+> Due to Azure security requirements, Azure Data Catalog has enfored Transport Layer Security (TLS) 1.2. TLS 1.0 and TLS 1.1 have been disabled. You may encounter errors running the registration tool if your machine is not updated for TLS 1.2. See [Enable Transport Layer Security (1.2)](/mem/configmgr/core/plan-design/security/enable-tls-1-2) to update your machine for TLS 1.2.
 
 To get started, you need to have:
 
@@ -33,7 +37,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
 1. Go to the [Azure portal](https://portal.azure.com) > **Create a resource** and select **Data Catalog**.
 
-    ![Create Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
+    ![Azure Data Catalog create button](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Specify a **name** for the data catalog, the **subscription** you want to use, the **location** for the catalog, and the **pricing tier**. Then select **Create**.
 

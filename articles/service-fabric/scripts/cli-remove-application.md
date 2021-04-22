@@ -3,7 +3,7 @@ title: Azure Service Fabric CLI (sfctl) Script Remove Sample
 description: Remove an application from an Azure Service Fabric cluster using the Azure Service Fabric CLI
 services: service-fabric
 documentationcenter: 
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: 
 tags: azure-service-management
@@ -11,14 +11,13 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
 ---
 
-# Remove an application from a Service Fabric cluster
+# Remove an application from a Service Fabric cluster using the Service Fabric CLI
 
 This sample script deletes a running Service Fabric application instance, then unregisters an application type and version from the cluster.  Deleting the application instance also deletes all the running service instances associated with that application. Next, the application files are deleted from the image store. 
 

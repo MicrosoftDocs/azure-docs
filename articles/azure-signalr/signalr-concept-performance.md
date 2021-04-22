@@ -1,10 +1,10 @@
 ---
 title: Performance guide for Azure SignalR Service
-description: An overview of the performance of Azure SignalR Service.
+description: An overview of the performance and benchmark of Azure SignalR Service. Key metrics to consider when planning the capacity.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Performance guide for Azure SignalR Service
@@ -425,7 +425,7 @@ For all use cases listed earlier, we conducted the performance tests in an Azure
 
 ## Performance tools
 
-You can find performance tools for Azure SignalR Service on [GitHub](https://github.com/Azure/azure-signalr-bench/tree/master/SignalRServiceBenchmarkPlugin).
+You can find performance tools for Azure SignalR Service on [GitHub](https://github.com/Azure/azure-signalr-bench/).
 
 ## Next steps
 

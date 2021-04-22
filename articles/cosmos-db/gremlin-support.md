@@ -1,67 +1,37 @@
 ---
-title: Azure Cosmos DB Gremlin support
-description: Learn about the Gremlin language from Apache TinkerPop. Learn which features and steps are available in Azure Cosmos DB 
-author: LuisBosquez
+title: Azure Cosmos DB Gremlin support and compatibility with TinkerPop features
+description: Learn about the Gremlin language from Apache TinkerPop. Learn which features and steps are available in Azure Cosmos DB and the TinkerPop Graph engine compatibility differences.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/21/2019
-ms.author: lbosq
+ms.date: 11/11/2020
+ms.author: sngun
 ---
 
-# Azure Cosmos DB Gremlin graph support
-Azure Cosmos DB supports [Apache Tinkerpop's](https://tinkerpop.apache.org) graph traversal language, known as [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
+# Azure Cosmos DB Gremlin graph support and compatibility with TinkerPop features
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
-Azure Cosmos DB brings enterprise-ready features to graph databases. These features include global distribution, independent scaling of storage and throughput, predictable single-digit millisecond latencies, automatic indexing, SLAs, read availability for database accounts spanning two or more Azure regions. Because Azure Cosmos DB supports TinkerPop/Gremlin, you can easily migrate applications written using another compatible graph database. Additionally, by virtue of Gremlin support, Azure Cosmos DB seamlessly integrates with TinkerPop-enabled analytics frameworks like [Apache Spark GraphX](https://spark.apache.org/graphx/). 
+Azure Cosmos DB supports [Apache Tinkerpop's](https://tinkerpop.apache.org) graph traversal language, known as [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities.
 
-In this article, we provide a quick walkthrough of Gremlin and enumerate the Gremlin features that are supported by the Gremlin API.
+Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) traversal steps specification but there are differences in the implementation that are specific for Azure Cosmos DB. In this article, we provide a quick walkthrough of Gremlin and enumerate the Gremlin features that are supported by the Gremlin API.
 
-## Gremlin by example
-Let's use a sample graph to understand how queries can be expressed in Gremlin. The following figure shows a business application that manages data about users, interests, and devices in the form of a graph.  
+## Compatible client libraries
 
-![Sample database showing persons, devices, and interests](./media/gremlin-support/sample-graph.png) 
+The following table shows popular Gremlin drivers that you can use against Azure Cosmos DB:
 
-This graph has the following vertex types (called "label" in Gremlin):
+| Download | Source | Getting Started | Supported connector version |
+| --- | --- | --- | --- |
+| [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) | 3.4.6 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](create-graph-java.md) | 3.2.0+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 3.3.4+ |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](create-graph-php.md) | 3.1.0 |
+| [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | This library is built by external contributors. The Azure Cosmos DB team doesn't offer any support or maintain the library. |
+| [Gremlin console](https://tinkerpop.apache.org/downloads.html) | [TinkerPop docs](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](create-graph-gremlin-console.md) | 3.2.0 + |
 
-- People: The graph has three people, Robin, Thomas, and Ben
-- Interests: Their interests, in this example, the game of Football
-- Devices: The devices that people use
-- Operating Systems: The operating systems that the devices run on
+## Supported Graph Objects
 
-We represent the relationships between these entities via the following edge types/labels:
-
-- Knows: For example, "Thomas knows Robin"
-- Interested: To represent the interests of the people in our graph, for example, "Ben is interested in Football"
-- RunsOS: Laptop runs the Windows OS
-- Uses: To represent which device a person uses. For example, Robin uses a Motorola phone with serial number 77
-
-Let's run some operations against this graph using the [Gremlin Console](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). You can also perform these operations using Gremlin drivers in the platform of your choice (Java, Node.js, Python, or .NET).  Before we look at what's supported in Azure Cosmos DB, let's look at a few examples to get familiar with the syntax.
-
-First let's look at CRUD. The following Gremlin statement inserts the "Thomas" vertex into the graph:
-
-```java
-:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
-```
-
-Next, the following Gremlin statement inserts a "knows" edge between Thomas and Robin.
-
-```java
-:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
-```
-
-The following query returns the "person" vertices in descending order of their first names:
-```java
-:> g.V().hasLabel('person').order().by('firstName', decr)
-```
-
-Where graphs shine is when you need to answer questions like "What operating systems do friends of Thomas use?". You can run this Gremlin traversal to get that information from the graph:
-
-```java
-:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
-```
-Now let's look at what Azure Cosmos DB provides for Gremlin developers.
-
-## Gremlin features
 TinkerPop is a standard that covers a wide range of graph technologies. Therefore, it has standard terminology to describe what features are provided by a graph provider. Azure Cosmos DB provides a persistent, high concurrency, writeable graph database that can be partitioned across multiple servers or clusters. 
 
 The following table lists the TinkerPop features that are implemented by Azure Cosmos DB: 
@@ -75,11 +45,9 @@ The following table lists the TinkerPop features that are implemented by Azure C
 | Edge features | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Supports creating, modifying, and deleting edges |
 | Edge property features | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Supports creating, modifying, and deleting edge properties |
 
-## Gremlin wire format: GraphSON
+## Gremlin wire format
 
-Azure Cosmos DB uses the [GraphSON format](https://tinkerpop.apache.org/docs/3.3.2/reference/#graphson-reader-writer) when returning results from Gremlin operations. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON. 
-
-For example, the following snippet shows a GraphSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
+Azure Cosmos DB uses the JSON format when returning results from Gremlin operations. Azure Cosmos DB currently supports the JSON format. For example, the following snippet shows a JSON representation of a vertex *returned to the client* from Azure Cosmos DB:
 
 ```json
   {
@@ -118,12 +86,12 @@ For example, the following snippet shows a GraphSON representation of a vertex *
   }
 ```
 
-The properties used by GraphSON for vertices are described below:
+The properties used by the JSON format for vertices are described below:
 
 | Property | Description | 
 | --- | --- | --- |
 | `id` | The ID for the vertex. Must be unique (in combination with the value of `_partition` if applicable). If no value is provided, it will be automatically supplied with a GUID | 
-| `label` | The label of the vertex. This is used to describe the entity type. |
+| `label` | The label of the vertex. This property is used to describe the entity type. |
 | `type` | Used to distinguish vertices from non-graph documents |
 | `properties` | Bag of user-defined properties associated with the vertex. Each property can have multiple values. |
 | `_partition` | The partition key of the vertex. Used for [graph partitioning](graph-partitioning.md). |
@@ -145,6 +113,7 @@ Each property can store multiple values within an array.
 | `value` | The value of the property
 
 ## Gremlin steps
+
 Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete reference on Gremlin, see [TinkerPop reference](https://tinkerpop.apache.org/docs/3.3.2/reference).
 
 | step | Description | TinkerPop 3.2 Documentation |
@@ -179,12 +148,12 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | `sample` | Used to sample results from the traversal | [sample step](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Used to project results from the traversal |  [select step](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Used for non-blocking aggregates from the traversal | [store step](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property with the beginning of a given string | [TextP predicates](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  String filtering function. This function is used as a predicate for the `has()` step to match a property with the ending of a given string | [TextP predicates](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property with the contents of a given string | [TextP predicates](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property that doesn't start with a given string | [TextP predicates](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property that doesn't end with a given string | [TextP predicates](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property that doesn't contain a given string | [TextP predicates](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property with the beginning of a given string | [TextP predicates](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  String filtering function. This function is used as a predicate for the `has()` step to match a property with the ending of a given string | [TextP predicates](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property with the contents of a given string | [TextP predicates](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property that doesn't start with a given string | [TextP predicates](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property that doesn't end with a given string | [TextP predicates](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | String filtering function. This function is used as a predicate for the `has()` step to match a property that doesn't contain a given string | [TextP predicates](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Aggregate paths from a vertex into a tree | [tree step](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Unroll an iterator as a step| [unfold step](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Merge results from multiple traversals| [union step](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |
@@ -193,6 +162,61 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 
 The write-optimized engine provided by Azure Cosmos DB supports automatic indexing of all properties within vertices and edges by default. Therefore, queries with filters, range queries, sorting, or aggregates on any property are processed from the index, and served efficiently. For more information on how indexing works in Azure Cosmos DB, see our paper on [schema-agnostic indexing](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
+## Behavior differences
+
+* Azure Cosmos DB Graph engine runs ***breadth-first*** traversal while TinkerPop Gremlin is depth-first. This behavior achieves better performance in horizontally scalable system like Cosmos DB.
+
+## Unsupported features
+
+* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Cosmos DB Graph doesn't support it yet. Use `GremlinClient.SubmitAsync()` and pass traversal as a text string.
+
+* ***`property(set, 'xyz', 1)`*** set cardinality isn't supported today. Use `property(list, 'xyz', 1)` instead. To learn more, see [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
+
+* The ***`match()` step*** isn't currently available. This step provides declarative querying capabilities.
+
+* ***Objects as properties*** on vertices or edges aren't supported. Properties can only be primitive types or arrays.
+
+* ***Sorting by array properties*** `order().by(<array property>)` isn't supported. Sorting is supported only by primitive types.
+
+* ***Non-primitive JSON types*** aren't supported. Use `string`, `number`, or `true`/`false` types. `null` values aren't supported. 
+
+* ***GraphSONv3*** serializer isn't currently supported. Use `GraphSONv2` Serializer, Reader, and Writer classes in the connection configuration. The results returned by the Azure Cosmos DB Gremlin API don't have the same format as the GraphSON format. 
+
+* **Lambda expressions and functions** aren't currently supported. This includes the `.map{<expression>}`, the `.by{<expression>}`, and the `.filter{<expression>}` functions. To learn more, and to learn how to rewrite them using Gremlin steps, see [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
+
+* ***Transactions*** aren't supported because of distributed nature of the system.  Configure appropriate consistency model on Gremlin account to "read your own writes" and use optimistic concurrency to resolve conflicting writes.
+
+## Known limitations
+
+* **Index utilization for Gremlin queries with mid-traversal `.V()` steps**: Currently, only the first `.V()` call of a traversal will make use of the index to resolve any filters or predicates attached to it. Subsequent calls will not consult the index, which might increase the latency and cost of the query.
+    
+Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
+
+```java
+g.V().has('category', 'A')
+```
+
+However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
+
+```java
+g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+```
+
+This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
+
+A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
+
+```java
+// Query workaround using .map()
+g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+
+// Query workaround using .union()
+g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
+```
+
+You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
+
 ## Next steps
+
 * Get started building a graph application [using our SDKs](create-graph-dotnet.md) 
 * Learn more about [graph support](graph-introduction.md) in Azure Cosmos DB

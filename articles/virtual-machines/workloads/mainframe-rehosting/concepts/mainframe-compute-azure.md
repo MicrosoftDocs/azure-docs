@@ -5,7 +5,9 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+
 ---
 # Move mainframe compute to Azure
 
@@ -94,13 +96,13 @@ The approach is to migrate LPARs to individual VMs. Then Azure easily scales up 
 
 One of the advantages of an Azure–based solution is the ability to scale out. Scaling makes nearly limitless compute capacity available to an application. Azure supports multiple methods to scale out compute power:
 
-- **Load balancing across a cluster.** In this scenario, an application can use a [load balancer](/azure/load-balancer/load-balancer-overview) or resource manager to spread out the workload among multiple VMs in a cluster. If more compute capacity is needed, additional VMs are added to the cluster.
+- **Load balancing across a cluster.** In this scenario, an application can use a [load balancer](../../../../load-balancer/load-balancer-overview.md) or resource manager to spread out the workload among multiple VMs in a cluster. If more compute capacity is needed, additional VMs are added to the cluster.
 
-- **Virtual machine scale sets.** In this burst scenario, an application can scale to additional [compute resources](/azure/virtual-machine-scale-sets/overview) based on VM usage. When demand falls, the number of VMs in a scale set can also go down, ensuring efficient use of compute power.
+- **Virtual machine scale sets.** In this burst scenario, an application can scale to additional [compute resources](../../../../virtual-machine-scale-sets/overview.md) based on VM usage. When demand falls, the number of VMs in a scale set can also go down, ensuring efficient use of compute power.
 
-- **PaaS scaling.** Azure PaaS offerings scale compute resources. For example, [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) allocates compute resources to meet increases in the volume of requests.
+- **PaaS scaling.** Azure PaaS offerings scale compute resources. For example, [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) allocates compute resources to meet increases in the volume of requests.
 
-- **Kubernetes clusters.** Applications on Azure can use [Kubernetes clusters](/azure/aks/concepts-clusters-workloads) for compute services for specified resources. Azure Kubernetes Service (AKS) is a managed service that orchestrates Kubernetes nodes, pools, and clusters on Azure.
+- **Kubernetes clusters.** Applications on Azure can use [Kubernetes clusters](../../../../aks/concepts-clusters-workloads.md) for compute services for specified resources. Azure Kubernetes Service (AKS) is a managed service that orchestrates Kubernetes nodes, pools, and clusters on Azure.
 
 To choose the right method for scaling out compute resources, it’s important to understand how Azure and mainframes differ. The key is how—or if—data is shared by compute resources. In Azure, data (by default) is not typically shared by multiple VMs. If data sharing is required by multiple VMs in a scale-out compute cluster, the shared data must reside in a resource that supports this functionality. On Azure, data sharing involves storage as the following section discusses.
 
@@ -115,7 +117,7 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 ## Next steps
 
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Mainframe rehosting on Azure Virtual Machines](../overview.md)
 - [Move mainframe storage to Azure](mainframe-storage-Azure.md)
 
 ### IBM resources
@@ -134,6 +136,5 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 
 ### More migration resources
 
-- [Platform Modernization Alliance: IBM Db2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [GlusterFS iSCSI](https://glusterdocs.readthedocs.io/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

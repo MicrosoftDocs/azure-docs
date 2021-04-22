@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Peakon | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Peakon.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a944c397-ed3f-4d45-b9b2-6d4bcb6b0a09
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Peakon
 
@@ -27,7 +21,7 @@ Integrating Peakon with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Peakon (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -36,6 +30,9 @@ To configure Azure AD integration with Peakon, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Peakon single sign-on enabled subscription
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -109,7 +106,7 @@ To configure Azure AD single sign-on with Peakon, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Peakon Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot that shows the "Set additional U R Ls" selected with the "Sing on U R L" text box highlighted.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://app.peakon.com/login`
@@ -229,29 +226,28 @@ In the case of Peakon, provisioning is a manual task.
 
 3. On the top right side of the page, click **Add employee**.
 
-	  ![The add employee](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
+    ![The add employee](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
 3. On the **New employee** dialog page, perform the following steps:
 
-	 ![The new employee](./media/peakon-tutorial/tutorial_peakon_create.png)
+    ![The new employee](./media/peakon-tutorial/tutorial_peakon_create.png)
 
-	a. In the **Name** textbox, type first name as **Britta** and last name as **simon**.
+    1. In the **Name** textbox, type first name as **Britta** and last name as **simon**.
 
-	b. In the **Email** textbox, type the email address like **Brittasimon\@contoso.com**.
+    1. In the **Email** textbox, type the email address like **Brittasimon\@contoso.com**.
 
-	c. Click **Create employee**.
+    1. Click **Create employee**.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Peakon tile in the Access Panel, you should be automatically signed in to the Peakon for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Peakon tile in the Access Panel, you should be automatically signed in to the Peakon for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

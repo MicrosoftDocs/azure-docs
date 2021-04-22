@@ -1,23 +1,18 @@
 ---
 title: Azure Germany storage services | Microsoft Docs
-description: Provides a comparison of storage services for Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: This topic provides a comparison of storage services for Azure Germany. You will also find other relevant information.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Azure Germany storage services
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## Storage
 For details on Azure Storage and how to use it, see the [Storage global documentation](../storage/index.yml).
 
@@ -72,4 +67,4 @@ The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

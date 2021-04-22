@@ -1,27 +1,27 @@
 ---
-title: Dead letter and retry policies for Azure Event Grid subscriptions
+title: Dead letter and retry policies - Azure Event Grid
 description: Describes how to customize event delivery options for Event Grid. Set a dead-letter destination, and specify how long to retry delivery.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/06/2019
-ms.author: spelluru
+ms.date: 07/20/2020
 ---
 
-# Dead letter and retry policies
+# Set dead-letter location and retry policy
 
 When creating an event subscription, you can customize the settings for event delivery. This article shows you how to set up a dead letter location and customize the retry settings. For information about these features, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> To learn about message delivery, retries, and dead-lettering, see the conceptual article: [Event Grid message delivery and retry](delivery-and-retry.md).
 
 ## Set dead-letter location
 
 To set a dead letter location, you need a storage account for holding events that can't be delivered to an endpoint. The examples get the resource ID of an existing storage account. They create an event subscription that uses a container in that storage account for the dead-letter endpoint.
 
 > [!NOTE]
-> Create a storage account and a blob container in the storage before running commands in this article.
+> - Create a storage account and a blob container in the storage before running commands in this article.
+> - The Event Grid service creates blobs in this container. The names of blobs will have the name of the Event Grid subscription with all the letters in upper case. For example, if the name of the subscription is My-Blob-Subscription, names of the dead letter blobs will have MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). This behavior is to protect against differences in case handling between Azure services.
+
 
 ### Azure CLI
 
@@ -93,7 +93,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery.
+> [!NOTE]
+> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
 
 ### PowerShell
 
@@ -121,7 +122,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-If you set both `EventTtl` and `MaxDeliveryAttempt`, Event Grid uses the first to expire to determine when to stop event delivery.
+> [!NOTE]
+> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
 
 ## Next steps
 

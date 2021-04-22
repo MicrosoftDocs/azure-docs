@@ -1,23 +1,19 @@
 ---
-title: Introduction to Azure Service Fabric Resource Model | Microsoft Docs
+title: Introduction to Azure Service Fabric Resource Model 
 description: Learn about the Service Fabric Resource Model, a simplified approach to defining Service Fabric Mesh applications.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: 
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter 
 
 ---
 # Introduction to Service Fabric Resource Model
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 The Service Fabric Resource Model describes a simple approach to define resources that comprise a Service Fabric Mesh application. Individual resources can be deployed to any Service Fabric environment.  The Service Fabric Resource Model is also compatible with the Azure Resource Manager Model. The following types of resources are currently supported in this model:
 
@@ -70,7 +66,7 @@ Secrets resources are deployable independent of an application or service resour
 
 Containers often make temporary disks available. Temporary disks are ephemeral, however, so you get a new temporary disk and lose the information when a container crashes. It is also difficult to share information on temporary disks with other containers. Volumes are directories that get mounted inside your container instances that you can use to persist state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it (either Azure Files Volume or Service Fabric Reliable Volume).  For more information, read [storing state](service-fabric-mesh-storing-state.md#volumes).
 
-![Volumes][Image3]
+![Diagram shows a Service flowing to a disk volume, which flows to both Service Fabric Reliable Volume, then to a replicated local disk, and to Azure Files Volume, then to network storage.][Image3]
 
 ## Programming models
 Service resource only requires a container image to run, which is referenced in the code package(s) associated with the resource. You can run any code, written in any language, using any framework inside the container without requiring to know, or use, Service Fabric Mesh specific APIs. 

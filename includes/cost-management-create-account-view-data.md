@@ -1,14 +1,9 @@
 ---
- title: include file
- description: include file
- services: cost-management
- author: bandersmsft
- ms.service: cost-management
- ms.topic: include
- ms.date: 09/17/2018
- ms.author: banders
- manager: dougeby
- ms.custom: include file
+author: bandersmsft
+ms.author: banders
+ms.service: cost-management-billing
+ms.topic: include
+ms.date: 09/17/2018
 ---
 
 ## View cost data

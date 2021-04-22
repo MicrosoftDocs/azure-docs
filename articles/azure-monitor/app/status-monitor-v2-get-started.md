@@ -1,19 +1,15 @@
 ---
-title: Azure Status Monitor v2 - getting started | Microsoft Docs
-description: A quickstart guide for Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-services: application-insights
-documentationcenter: .net
-author: MS-TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Agent - getting started | Microsoft Docs
+description: A quickstart guide for Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
+ms.date: 01/22/2021 
+ms.custom: devx-track-azurepowershell
+
 ---
-# Get started with Status Monitor v2
+
+# Get started with Azure Monitor Application Insights Agent for on-premises servers
 
 This article contains the quickstart commands expected to work for most environments.
 The instructions depend on the PowerShell Gallery to distribute updates.
@@ -23,14 +19,18 @@ For an explanation of these commands, customization instructions, and informatio
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Download and install via PowerShell Gallery
 
 ### Install prerequisites
+
+- To enable monitoring you will require a connection string. A connection string is displayed on the Overview blade of your Application Insights resource. For more information, see page [Connection Strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#finding-my-connection-string).
+
+> [!NOTE]
+> As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
+>
+> For additionnal prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
+
 Run PowerShell as Admin.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -40,7 +40,7 @@ Install-Module -Name PowerShellGet -Force
 ```	
 Close PowerShell.
 
-### Install Status Monitor v2
+### Install Application Insights Agent
 Run PowerShell as Admin.
 ```powershell	
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -48,9 +48,10 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ```	
 
 ### Enable monitoring
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 	
 		
@@ -58,7 +59,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ### Download the module
 Manually download the latest version of the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### Unzip and install Status Monitor v2
+### Unzip and install Application Insights Agent
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -67,9 +68,11 @@ $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.Applicati
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
 ### Enable monitoring
+
 ```powershell
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
+
 
 
 
@@ -77,18 +80,19 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  View your telemetry:
 
-- [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
-- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
-- [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
-- [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
+- [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
+- [Search events and logs](./diagnostic-search.md) to diagnose problems.
+- [Use Analytics](../logs/log-query-overview.md) for more advanced queries.
+- [Create dashboards](./overview-dashboard.md).
 
  Add more telemetry:
 
 - [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
-- [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
+- [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
+- [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
 
-Do more with Status Monitor v2:
+Do more with Application Insights Agent:
 
 - Review the [detailed instructions](status-monitor-v2-detailed-instructions.md) for an explanation of the commands found here.
-- Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+- Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
+

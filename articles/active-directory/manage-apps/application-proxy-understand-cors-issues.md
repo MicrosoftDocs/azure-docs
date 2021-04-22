@@ -1,21 +1,21 @@
----
+﻿---
 title: Understand and solve Azure AD Application Proxy CORS issues
 description: Provides an understanding of CORS in Azure AD Application Proxy, and how to identify and solve CORS issues. 
 services: active-directory
-author: jeevanbisht
-manager: mtillman
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: celested
+ms.author: kenwith
 ms.reviewer: japere
 ---
 
 # Understand and solve Azure Active Directory Application Proxy CORS issues
 
-[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) can sometimes present challenges for the apps and APIs you publish through the Azure Active Directory Application Proxy. This article discusses Azure AD Application Proxy CORS issues and solutions.
+[Cross-origin resource sharing (CORS)](https://www.w3.org/TR/cors/) can sometimes present challenges for the apps and APIs you publish through the Azure Active Directory Application Proxy. This article discusses Azure AD Application Proxy CORS issues and solutions.
 
 Browser security usually prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. CORS is a W3C standard that lets a server relax the same-origin policy and allow some cross-origin requests while rejecting others.
 
@@ -47,7 +47,7 @@ In the following screenshot, selecting the **Try It** button caused a CORS error
 
 ## CORS challenges with Application Proxy
 
-The following example shows a typical Azure AD Application Proxy CORS scenario. The internal server hosts a **CORSWebService** web API controller, and a **CORSWebClient** that calls **CORSWebService**. There's an AJAX request from **CORSWebClient** to **CORSWebService**.
+The following example shows a typical Azure AD Application Proxy CORS scenario. The internal server hosts a **CORSWebService** web API controller, and a **CORSWebClient** that calls **CORSWebService**. There's an AJAX request from **CORSWebClient** to **CORSWebService**.
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
@@ -61,7 +61,7 @@ You can resolve the preceding CORS issue in any one of several ways.
 
 ### Option 1: Set up a custom domain
 
-Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
+Use an Azure AD Application Proxy [custom domain](./application-proxy-configure-custom-domain.md) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
 
 ### Option 2: Publish the parent directory
 
@@ -96,7 +96,7 @@ Content-Type: text/plain; charset=utf-8\
 Expires: -1\
 Vary: Accept-Encoding\
 Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
-**Access-Control-Allow-Origin: https://corswebclient-contoso.msappproxy.net**\
+**Access-Control-Allow-Origin: https\://corswebclient-contoso.msappproxy.net**\
 X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17
@@ -112,4 +112,4 @@ Some CORS issues can't be resolved, such as when your app redirects to *login.mi
 ## See also
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
-- [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md) 
+- [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md)

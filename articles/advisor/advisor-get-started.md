@@ -1,14 +1,9 @@
 ---
-title: Get started with Azure Advisor | Microsoft Docs
+title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
+
 ---
 
 # Get started with Azure Advisor
@@ -28,7 +23,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 1. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be displayed for using the subscription filter dropdown.
 
-1. To get recommendations for a specific category, click one of the tabs: **High Availability**, **Security**, **Performance**, or **Cost**. 
+1. To get recommendations for a specific category, click one of the tabs: **Reliability**, **Security**, **Performance**, or **Cost**. 
 
    ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
 
@@ -89,9 +84,9 @@ You may have resource groups or subscriptions for which you do not want to recei
 
 This procedure configures the average CPU utilization rule for the low usage virtual machine recommendation.
 
-Advisor monitors your virtual machine usage for 14 days and then identifies low-utilization virtual machines. Virtual machines whose average CPU utilization is 5 percent or less and network usage is 7 MB or less for four or more days are considered low-utilization virtual machines.
+Advisor monitors your virtual machine usage for 7 days and then identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size.
 
-If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule on a per subscription basis.  The average CPU utilization rule can be set to 5%, 10%, 15%, or 20%.
+If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule on a per subscription basis.  The CPU utilization rule can be set to 5%, 10%, 15%, or 20%.
 
 > [!NOTE]
 > To adjust the average CPU utilization rule for identifying low usage virtual machines, you must be a subscription *Owner*.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it will be disabled in the user interface. 
@@ -125,7 +120,8 @@ The download option respects any filters you have applied to the Advisor dashboa
 To learn more about Advisor, see:
 
 - [Introduction to Azure Advisor](advisor-overview.md)
-- [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+- [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
 - [Advisor Security recommendations](advisor-security-recommendations.md)
 - [Advisor Performance recommendations](advisor-performance-recommendations.md)
-- [Advisor Cost recommendations](advisor-performance-recommendations.md)
+- [Advisor Cost recommendations](advisor-cost-recommendations.md)
+- [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

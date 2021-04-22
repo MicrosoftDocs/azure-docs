@@ -1,85 +1,97 @@
 ---
-title: Router configuration samples - NAT - Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: Router configuration samples - NAT'
 description: This page provides router configuration samples for Cisco and Juniper routers.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
-ms.author: cherylmc
-ms.custom: seodec18
+ms.date: 01/07/2021
+ms.author: duau
 
 ---
 # Router configuration samples to set up and manage NAT
 
-This page provides NAT configuration samples for Cisco ASA and Juniper SRX series routers when working with ExpressRoute. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network.
+This article provides NAT configuration samples for Cisco ASA and Juniper SRX series routers when working with ExpressRoute. These router configurations are intended to be samples for guidance only and must not be used as is. You'll need to work with your vendor to come up with appropriate configurations for your network.
 
 > [!IMPORTANT]
 > Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 > 
 > 
 
-* Router configuration samples below apply to Azure Public and Microsoft peerings. You must not configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
+* Router configuration samples below apply to Azure Public and Microsoft peerings. You don't configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
 
 * You MUST use separate NAT IP pools for connectivity to the internet and ExpressRoute. Using the same NAT IP pool across the internet and ExpressRoute will result in asymmetric routing and loss of connectivity.
 
 
 ## Cisco ASA firewalls
 ### PAT configuration for traffic from customer network to Microsoft
-    object network MSFT-PAT
-      range <SNAT-START-IP> <SNAT-END-IP>
+
+```console
+object network MSFT-PAT
+  range <SNAT-START-IP> <SNAT-END-IP>
 
 
-    object-group network MSFT-Range
-      network-object <IP> <Subnet_Mask>
+object-group network MSFT-Range
+  network-object <IP> <Subnet_Mask>
 
-    object-group network on-prem-range-1
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-1
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem-range-2
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-2
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem
-      network-object object on-prem-range-1
-      network-object object on-prem-range-2
+object-group network on-prem
+  network-object object on-prem-range-1
+  network-object object on-prem-range-2
 
-    nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+```
 
 ### PAT configuration for traffic from Microsoft to customer network
 
 **Interfaces and Direction:**
 
-    Source Interface (where the traffic enters the ASA): inside
-    Destination Interface (where the traffic exits the ASA): outside
+Source Interface (where the traffic enters the ASA): inside
+Destination Interface (where the traffic exits the ASA): outside
 
 **Configuration:**
 
 NAT Pool:
 
-    object network outbound-PAT
-        host <NAT-IP>
+```console
+object network outbound-PAT
+    host <NAT-IP>
+```
 
 Target Server:
 
-    object network Customer-Network
-        network-object <IP> <Subnet-Mask>
+```console
+object network Customer-Network
+    network-object <IP> <Subnet-Mask>
+```
 
-Object Group for Customer IP Addresses
+Object Group for Customer IP Addresses:
 
-    object-group network MSFT-Network-1
-        network-object <MSFT-IP> <Subnet-Mask>
+```console
+object-group network MSFT-Network-1
+    network-object <MSFT-IP> <Subnet-Mask>
 
-    object-group network MSFT-PAT-Networks
-        network-object object MSFT-Network-1
+object-group network MSFT-PAT-Networks
+    network-object object MSFT-Network-1
+```
 
 NAT Commands:
 
-    nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```console
+nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```
 
 
 ## Juniper SRX series routers
 ### 1. Create redundant Ethernet interfaces for the cluster
+
+```console
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -109,13 +121,14 @@ NAT Commands:
             }
         }
     }
-
+```
 
 ### 2. Create two security zones
 * Trust Zone for internal network and Untrust Zone for external network facing Edge Routers
 * Assign appropriate interfaces to the zones
 * Allow services on the interfaces
 
+```console
     security {
         zones {
             security-zone Trust {
@@ -146,9 +159,12 @@ NAT Commands:
             }
         }
     }
+```
 
 
 ### 3. Create security policies between zones
+
+```console
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -177,12 +193,13 @@ NAT Commands:
             }
         }
     }
-
+```
 
 ### 4. Configure NAT policies
 * Create two NAT pools. One will be used to NAT traffic outbound to Microsoft and other from Microsoft to the customer.
 * Create rules to NAT the respective traffic
-  
+
+```console
        security {
            nat {
                source {
@@ -237,11 +254,14 @@ NAT Commands:
                }
            }
        }
+```
 
 ### 5. Configure BGP to advertise selective prefixes in each direction
 Refer to samples in [Routing configuration samples](expressroute-config-samples-routing.md) page.
 
 ### 6. Create policies
+
+```console
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -335,7 +355,8 @@ Refer to samples in [Routing configuration samples](expressroute-config-samples-
             }
         }
     }
+```
 
 ## Next steps
-See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
+For more information, see [ExpressRoute FAQ](expressroute-faqs.md).
 

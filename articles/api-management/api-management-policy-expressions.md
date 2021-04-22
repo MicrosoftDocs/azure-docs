@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy expressions | Microsoft Docs
-description: Learn about policy expressions in Azure API Management.
+description: Learn about policy expressions in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,19 +11,18 @@ ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ---
 # API Management policy expressions
-This article discusses policy expressions syntax is C# 7. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.
+This article discusses policy expressions syntax in C# 7. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.
 
 For more information:
 
 - See how to supply context information to your backend service. Use the [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) and [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) policies to supply this information.
 - See how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize access to operations based on token claims.
-- See how to use an [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace to see how policies are evaluated and the results of those evaluations.
+- See how to use an [API Inspector](./api-management-howto-api-inspector.md) trace to see how policies are evaluated and the results of those evaluations.
 - See how to use expressions with the [Get from cache](api-management-caching-policies.md#GetFromCache) and [Store to cache](api-management-caching-policies.md#StoreToCache) policies to configure API Management response caching. Set a duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.
 - See how to perform content filtering. Remove data elements from the response received from the backend using the [Control flow](api-management-advanced-policies.md#choose) and [Set body](api-management-transformation-policies.md#SetBody) policies.
 - To download the policy statements, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub repo.
@@ -48,15 +47,16 @@ Multi-statement expressions are enclosed in `@{expression}`. All code paths with
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)
 
 @{
-  string value;
+  string[] value;
   if (context.Request.Headers.TryGetValue("Authorization", out value))
   {
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));
+      if(value != null && value.Length > 0)
+      {
+          return Encoding.UTF8.GetString(Convert.FromBase64String(value[0]));
+      }
   }
-  else
-  {
-    return null;
-  }
+  return null;
+
 }
 ```
 
@@ -89,19 +89,19 @@ The following table lists the .NET Framework types and their members that are al
 |System.Byte|All|
 |System.Char|All|
 |System.Collections.Generic.Dictionary<TKey, TValue>|All|
-|System.Collections.Generic.HashSet<T>|All|
-|System.Collections.Generic.ICollection<T>|All|
+|System.Collections.Generic.HashSet\<T>|All|
+|System.Collections.Generic.ICollection\<T>|All|
 |System.Collections.Generic.IDictionary<TKey, TValue>|All|
-|System.Collections.Generic.IEnumerable<T>|All|
-|System.Collections.Generic.IEnumerator<T>|All|
-|System.Collections.Generic.IList<T>|All|
-|System.Collections.Generic.IReadOnlyCollection<T>|All|
+|System.Collections.Generic.IEnumerable\<T>|All|
+|System.Collections.Generic.IEnumerator\<T>|All|
+|System.Collections.Generic.IList\<T>|All|
+|System.Collections.Generic.IReadOnlyCollection\<T>|All|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|All|
-|System.Collections.Generic.ISet<T>|All|
+|System.Collections.Generic.ISet\<T>|All|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|All|
-|System.Collections.Generic.List<T>|All|
-|System.Collections.Generic.Queue<T>|All|
-|System.Collections.Generic.Stack<T>|All|
+|System.Collections.Generic.List\<T>|All|
+|System.Collections.Generic.Queue\<T>|All|
+|System.Collections.Generic.Stack\<T>|All|
 |System.Convert|All|
 |System.DateTime|(Constructor), Add, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, MaxValue, Millisecond, Minute, MinValue, Month, Now, Parse, Second, Subtract, Ticks, TimeOfDay, Today, ToString, UtcNow, Year|
 |System.DateTimeKind|Utc|
@@ -211,15 +211,15 @@ A variable named `context` is implicitly available in every policy [expression](
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> For more information about context.LastError, see [Error handling](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
 |<a id="ref-context-product"></a>context.Product|Apis: IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody)<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Headers](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
+|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody) or `null` if request does not have a body.<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Headers](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Returns comma-separated request header values or `defaultValue` if the header is not found.|
 |<a id="ref-context-response"></a>context.Response|Body: [IMessageBody](#ref-imessagebody)<br /><br /> [Headers](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Returns comma-separated response header values or `defaultValue` if the header is not found.|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedDate: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
 |<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
-|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> The `context.Request.Body.As<T>` and `context.Response.Body.As<T>` methods are used to read a request and response message bodies in a specified type `T`. By default the method uses the original message body stream and renders it unavailable after it returns. To avoid that by having the method operate on a copy of the body stream, set the `preserveContent` parameter to `true`. Go [here](api-management-transformation-policies.md#SetBody) to see an example.|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> The `context.Request.Body.As<T>` and `context.Response.Body.As<T>` methods are used to read a request and response message bodies in a specified type `T`. By default the method uses the original message body stream and renders it unavailable after it returns. To avoid that by having the method operate on a copy of the body stream, set the `preserveContent` parameter to `true`. Go [here](api-management-transformation-policies.md#SetBody) to see an example.|
 |<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [Query](#ref-iurl-query): IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
@@ -230,7 +230,7 @@ A variable named `context` is implicitly available in every policy [expression](
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|
 |Jwt AsJwt(input: this string)|input: string<br /><br /> If the input parameter contains a valid JWT token value, the method returns an object of type `Jwt`; otherwise the method returns `null`.|
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> If the input parameter contains a valid JWT token value, the method returns `true` and the result parameter contains a value of type `Jwt`; otherwise the method returns `false`.|
-|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
+|Jwt|Algorithm: string<br /><br /> Audiences: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Returns comma-separated claim values or `defaultValue` if the header is not found.|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - plaintext to be encrypted<br /><br />alg - name of a symmetric encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns encrypted plaintext.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - plaintext to be encrypted<br /><br />alg - encryption algorithm<br /><br />Returns encrypted plaintext.|
@@ -247,5 +247,5 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy samples](./policy-reference.md)

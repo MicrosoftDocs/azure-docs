@@ -4,9 +4,9 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 08/29/2019
 ms.author: victorh
-ms.topic: article
+ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
@@ -16,12 +16,12 @@ Controlling outbound network access is an important part of an overall network s
 
 One way you can control outbound network access from an Azure subnet is with Azure Firewall. With Azure Firewall, you can configure:
 
-* Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
+* Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet. The FQDN can also [include SQL instances](sql-fqdn-filtering.md).
 * Network rules that define source address, protocol, destination port, and destination address.
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this article, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended. The firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
+For this article, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended. The firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -31,25 +31,20 @@ For this article, you create a simplified single VNet with three subnets for eas
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up a test network environment
-> * Deploy a firewall
-> * Create a default route
-> * Configure an application rule to allow access to www.google.com
-> * Configure a network rule to allow access to external DNS servers
-> * Test the firewall
+* Set up a test network environment
+* Deploy a firewall
+* Create a default route
+* Configure an application rule to allow access to www.google.com
+* Configure a network rule to allow access to external DNS servers
+* Test the firewall
 
 If you prefer, you can complete this procedure using the [Azure portal](tutorial-firewall-deploy-portal.md) or [Azure PowerShell](deploy-ps.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
-
-### Azure CLI
-
-If you choose to install and use the CLI locally, run Azure CLI version 2.0.4 or later. To find the version, run **az --version**. For information about installing or upgrading, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Set up the network
 
@@ -68,7 +63,7 @@ az group create --name Test-FW-RG --location eastus
 This virtual network has three subnets.
 
 > [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /26.
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -77,7 +72,7 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.0.0.0/16 \
   --subnet-name AzureFirewallSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.0.1.0/26
 az network vnet subnet create \
   --name Workload-SN \
   --resource-group Test-FW-RG \
@@ -135,6 +130,8 @@ az vm create \
     --nics Srv-Work-NIC \
     --admin-username azureadmin
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 
@@ -273,7 +270,7 @@ Now, test the firewall to confirm that it works as expected.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   The www.google.com requests should succeed, and the www.microsoft.com requests should fail. This demonstrates that your firewall rules are operating as expected.
+   The `www.google.com` requests should succeed, and the `www.microsoft.com` requests should fail. This demonstrates that your firewall rules are operating as expected.
 
 So now you've verified that the firewall rules are working:
 
@@ -291,4 +288,4 @@ az group delete \
 
 ## Next steps
 
-* [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+* [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

@@ -1,14 +1,12 @@
 ---
-title: High-frequency trading simulation using Azure Stream Analytics
-description: How to perform linear regression model training and scoring in an Azure Stream Analytics job.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-ms.reviewer: jasonh
+title: High-frequency trading using Azure Stream Analytics
+description: How to perform linear regression model training and scoring in an Azure Stream Analytics job. 
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/07/2018
-ms.custom: seodec18
+ms.topic: how-to
+ms.date: 03/16/2021
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # High-frequency trading simulation with Stream Analytics
@@ -60,7 +58,7 @@ Here are some generated sample events:
 >The time stamp of the event is **lastUpdated**, in epoch time.
 
 ### Predictive model for high-frequency trading
-For the purpose of demonstration, we use a linear model described by Darryl Shen in [his paper](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
+For the purpose of demonstration, we use a linear model described by Darryl Shen in [his paper](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
 
 Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price and volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past 5 VOI values and the price change in the next 10 ticks. The model is trained by using previous day's data with linear regression. 
 
@@ -346,7 +344,7 @@ The JavaScript UDA initializes all accumulators in the `init` function, computes
 - Sell stock when a sell signal is received and there is stock holding.
 - Short if there is no stock holding. 
 
-If there's a short position, and a buy signal is received, we buy to cover. We never hold or short 10 shares of a stock in this simulation. The transaction cost is a flat $8.
+If there's a short position, and a buy signal is received, we buy to cover. We hold or short 10 shares of a stock in this simulation. The transaction cost is a flat $8.
 
 ```javascript
 function main() {

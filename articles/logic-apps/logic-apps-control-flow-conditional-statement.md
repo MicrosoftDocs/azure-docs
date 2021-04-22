@@ -1,12 +1,9 @@
 ---
-title: Add conditional statements to workflows - Azure Logic Apps | Microsoft Docs
+title: Add conditional statements to workflows
 description: How to create conditions that control actions in workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ---
@@ -37,7 +34,7 @@ when the new item includes a specific string.
 
 * To follow the example in this article, 
 [create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com or Office 365 Outlook account.
+with an Outlook.com account or a work or school account.
 
 ## Add condition
 
@@ -128,7 +125,7 @@ Here's the high-level code definition behind a conditional statement:
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, visit the 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

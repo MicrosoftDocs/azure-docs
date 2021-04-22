@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple Data Manager overview | Microsoft Docs
-description: Provides an overview of the StorSimple Data Manager service
+description: Learn about the StorSimple Data Manager solution and how you can use this service to write applications that use StorSimple data and other Azure services.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
-ms.author: vidarmsft
+ms.author: alkohli
 ---
 
 # StorSimple Data Manager solution overview

@@ -1,19 +1,10 @@
 ---
-title: Convert a Linux virtual machine in Azure from unmanaged disks to managed disks - Azure Managed Disks  | Microsoft Docs
-description: How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI in the Resource Manager deployment model
-services: virtual-machines-linux
-documentationcenter: ''
+title: Convert a Linux VM from unmanaged disks to managed disks
+description: How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
@@ -21,12 +12,12 @@ ms.subservice: disks
 
 # Convert a Linux virtual machine from unmanaged disks to managed disks
 
-If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use [Azure Managed Disks](../linux/managed-disks-overview.md). This process converts both the OS disk and any attached data disks.
+If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use [Azure Managed Disks](../managed-disks-overview.md). This process converts both the OS disk and any attached data disks.
 
 This article shows you how to convert VMs by using the Azure CLI. If you need to install or upgrade it, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Before you begin
-* Review [the FAQ about migration to Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
+* Review [the FAQ about migration to Managed Disks](../faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
@@ -109,4 +100,4 @@ The VM will be stopped and restarted after migration is complete.
 
 ## Next steps
 
-For more information about storage options, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).
+For more information about storage options, see [Azure Managed Disks overview](../managed-disks-overview.md).

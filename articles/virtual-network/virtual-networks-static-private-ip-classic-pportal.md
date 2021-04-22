@@ -4,14 +4,15 @@ description: Learn how to configure private IP addresses for virtual machines (C
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
+manager: dcscontentpm
+
 tags: azure-service-management
 
 ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
@@ -31,7 +32,7 @@ This article covers the classic deployment model. You can also [manage a static 
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-The sample steps that follow expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-pportal.md).
+The sample steps that follow expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal).
 
 ## How to specify a static private IP address when creating a VM
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, complete the following steps:
@@ -39,20 +40,20 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 1. From a browser, navigate to https://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Select **NEW** > **Compute** > **Windows Server 2012 R2 Datacenter**, notice that the **Select a deployment model** list already shows **Classic**, and then select **Create**.
    
-    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
+    ![Screenshot that shows the Azure portal with the New > Compute > Windows Server 2012 R2 Datacenter tile highlighted.](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
 3. Under **Create VM**, enter the name of the VM to be created (*DNS01* in the scenario), the local administrator account, and password.
    
-    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
+    ![Screenshot that shows how to create a VM by entering the name of the VM, local administrator user name, and password.](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
 4. Select **Optional Configuration** > **Network** > **Virtual Network**, and then select **TestVNet**. If **TestVNet** is not available, make sure you are using the *Central US* location and have created the test environment described at the beginning of this article.
    
-    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
+    ![Screenshot that shows the Optional Configuration > Network > Virtual Network > TestVNet option highlighted.](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. Under **Network**, make sure the subnet currently selected is *FrontEnd*, then select **IP addresses**, under **IP address assignment** select **Static**, and then enter *192.168.1.101* for **IP Address** as seen below.
    
-    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
+    ![Screenshot that highlights the IP Adresses field where you type the static IP address.](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
 6. Select **OK** under **IP addresses**, select **OK** under **Network**, and then select **OK** under **Optional config**.
 7. Under **Create VM**, select **Create**. Notice the tile below displayed in your dashboard:
    
-    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
+    ![Screenshot that shows the Creating Windows Server 2012 R2 Datacenter tile.](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
 
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the steps above, execute the steps below.
@@ -65,7 +66,7 @@ To view the static private IP address information for the VM created with the st
 
 Under **IP addresses**, select **Dynamic** to the right of **IP address assignment**, select **Save**, and then select **Yes**, as shown in the following picture:
    
-    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
+![Screenshot that shows how to remove the static private IP address from a VM by selecting Dynamic to the right of the IP address assignment label.](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
 ## How to add a static private IP address to an existing VM
 
@@ -77,7 +78,6 @@ Under **IP addresses**, select **Dynamic** to the right of **IP address assignme
 It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary. If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure VM, or you can lose connectivity to the virtual machine. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
 
 ## Next steps
-* Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
-* Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
-* Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
+* Learn about [reserved public IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) addresses.
+* Learn about [instance-level public IP (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) addresses.
+* Consult the [Reserved IP REST APIs](/previous-versions/azure/reference/dn722420(v=azure.100)).

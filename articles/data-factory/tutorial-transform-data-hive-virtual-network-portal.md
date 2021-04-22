@@ -1,18 +1,18 @@
 ---
-title: 'Transform data using Hive in Azure Virtual Network | Microsoft Docs'
-description: 'This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
+title: Transform data using Hive in Azure Virtual Network using Azure portal
+description: This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: tutorial
-ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+ms.topic: tutorial
+ms.custom: seo-dt-2019
+ms.date: 01/04/2018
 ---
-# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
+
+# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use Azure portal to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet). You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/quick-create-portal.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
 	![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
-- **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Here is a sample configuration of HDInsight in a virtual network. 
+- **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md). Here is a sample configuration of HDInsight in a virtual network. 
 
 	![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
@@ -75,14 +75,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+    *Data factory name “MyAzureSsisDataFactory” is not available*
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
    - Select **Use existing**, and select an existing resource group from the drop-down list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
 6. Select **Pin to dashboard**.     
@@ -195,7 +195,7 @@ In this step, you create a new pipeline with a Hive activity. The activity execu
 Note the following points:
 
 - **scriptPath** points to path to Hive script on the Azure Storage Account you used for MyStorageLinkedService. The path is case-sensitive.
-- **Output** is an argument used in the Hive script. Use the format of `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. The path is case-sensitive. 
+- **Output** is an argument used in the Hive script. Use the format of `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. The path is case-sensitive. 
 
 1. In the Data Factory UI, click **+ (plus)** in the left pane, and click **Pipeline**. 
 
@@ -220,12 +220,12 @@ Note the following points:
         ![Script settings](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. In the **Script tab**, expand **Advanced** section. 
     6. Click **Auto-fill from script** for **Parameters**. 
-    7. Enter the value for the **Output** parameter in the following format: `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. For example: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Enter the value for the **Output** parameter in the following format: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. For example: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Script arguments](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. To publish artifacts to Data Factory, click **Publish**.
 
-    ![Publish](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![Screenshot shows the option to publish to a Data Factory.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## Trigger a pipeline run
 
@@ -268,6 +268,3 @@ Advance to the following tutorial to learn about transforming data by using a Sp
 
 > [!div class="nextstepaction"]
 >[Branching and chaining Data Factory control flow](tutorial-control-flow-portal.md)
-
-
-

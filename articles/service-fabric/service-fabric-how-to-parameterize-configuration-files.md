@@ -1,21 +1,8 @@
 ---
-title: Parameterize config files in Azure Service Fabric | Microsoft Docs
-description: Learn how to parameterize configuration files in Service Fabric.
-documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
-editor: ''
-
-ms.service: service-fabric
-
-ms.devlang: dotNet
+title: Parameterize config files in Azure Service Fabric 
+description: Learn how to parameterize configuration files in Service Fabric, a useful technique when managing multiple environments.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-
-ms.workload: NA
 ms.date: 10/09/2018
-ms.author: mikhegn
-
 ---
 # How to parameterize configuration files in Service Fabric
 
@@ -43,7 +30,7 @@ In this example, you override a configuration value using parameters in your app
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. In the `ServiceManifestImport` section of the ApplicationManifest.xml file, add a `ConfigOverride` element, referencing the configuration package, the section, and the parameter.
+1. In the `ServiceManifestImport` section of the ApplicationManifest.xml file, add a `ConfigOverrides` and `ConfigOverride` element, referencing the configuration package, the section, and the parameter.
 
    ```xml
     <ConfigOverrides>

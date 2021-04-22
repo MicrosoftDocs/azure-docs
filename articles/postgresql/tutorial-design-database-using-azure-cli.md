@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure CLI'
+title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL - Single Server using Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 5/6/2019
+ms.date: 06/25/2019
 ---
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure CLI 
@@ -23,6 +23,9 @@ In this tutorial, you use Azure CLI (command-line interface) and other utilities
 
 You may use the Azure Cloud Shell in the browser, or [install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the commands in this tutorial.
 
+## Prerequisites
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
@@ -33,7 +36,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## Create a resource group
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -116,15 +119,21 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), or the Azure Cloud Console to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure Database for PostgreSQL server.
 
 1. Run the following psql command to connect to an Azure Database for PostgreSQL database:
-   ```azurecli-interactive
+   ```
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
    For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
-   ```azurecli-interactive
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example the connection string for psql would be,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
 2. Once you are connected to the server, create a blank database at the prompt:
    ```sql
@@ -199,16 +208,21 @@ Restoring a server to a point-in-time creates a new server, copied as the origin
 
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+
 
 ## Next steps
 In this tutorial, you learned how to use Azure CLI (command-line interface) and other utilities to:
 > [!div class="checklist"]
 > * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
-> * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
+> * Use the **psql** utility to create a database
 > * Load sample data
 > * Query data
 > * Update data
 > * Restore data
 
-Next, learn how to use the Azure portal to do similar tasks, review this tutorial: [Design your first Azure Database for PostgreSQL using the Azure portal](tutorial-design-database-using-azure-portal.md)
+> [!div class="nextstepaction"]
+> [Design your first Azure Database for PostgreSQL using the Azure portal](tutorial-design-database-using-azure-portal.md)

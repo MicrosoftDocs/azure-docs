@@ -1,19 +1,21 @@
 ---
-title: Client-Side Encryption with Python for Microsoft Azure Storage | Microsoft Docs
+title: Client-side encryption with Python
+titleSuffix: Azure Storage
 description: The Azure Storage Client Library for Python supports client-side encryption for maximum security for your Azure Storage applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.devlang: python
-ms.topic: article
-ms.date: 05/11/2017
+ms.topic: how-to
+ms.date: 02/18/2021
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
-# Client-Side Encryption with Python for Microsoft Azure Storage
+# Client-side encryption with Python
+
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview
@@ -144,10 +146,16 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 ### Blob service encryption
 Set the encryption policy fields on the blockblobservice object. Everything else will be handled by the client library internally.
 
+# [Python v12](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -159,19 +167,27 @@ my_block_blob_service.key_encryption_key = kek
 my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
 
 # Upload the encrypted contents to the blob.
-my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
+my_block_blob_service.create_blob_from_stream(
+    container_name, blob_name, stream)
 
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ```
+---
 
 ### Queue service encryption
 Set the encryption policy fields on the queueservice object. Everything else will be handled by the client library internally.
 
+# [Python v12](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -188,16 +204,23 @@ my_queue_service.put_message(queue_name, content)
 # Retrieve message
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
+---
 
 ### Table service encryption
 In addition to creating an encryption policy and setting it on request options, you must either specify an **encryption_resolver_function** on the **tableservice**, or set the encrypt attribute on the EntityProperty.
 
 ### Using the resolver
 
+# [Python v12](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -205,10 +228,13 @@ key_resolver = KeyResolver()
 key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
+
+
 def my_encryption_resolver(pk, rk, property_name):
     if property_name == 'foo':
         return True
     return False
+
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek
@@ -220,15 +246,24 @@ my_table_service.insert_entity(table_name, entity)
 
 # Retrieve Entity
 # Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
-my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
+my_table_service.get_entity(
+    table_name, entity['PartitionKey'], entity['RowKey'])
 ```
+---
 
 ### Using attributes
 As mentioned above, a property may be marked for encryption by storing it in an EntityProperty object and setting the encrypt field.
 
+# [Python v12](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
+---
 
 ## Encryption and performance
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional metadata must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.

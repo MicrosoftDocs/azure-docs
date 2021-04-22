@@ -1,21 +1,14 @@
 ---
-title: Azure CLI Script Sample - Delete an Azure Cache for Redis | Microsoft Docs
-description: Azure CLI Script Sample - Delete an Azure Cache for Redis
-services: cache
-documentationcenter: ''
+title: Delete an Azure Cache for Redis - Azure CLI 
+description: This Azure CLI code sample shows how to delete an Azure Cache for Redis instance using the command az redis delete.
 author: yegu-ms
-manager: jhubbard
-editor: 
+ms.author: yegu
 tags: azure-service-management
-
-ms.assetid: 7beded7a-d2c9-43a6-b3b4-b8079c11de4a
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 08/30/2017
-ms.author: yegu
+ms.topic: sample
+ms.date: 08/30/2017 
+ms.custom: devx-track-azurecli
 ---
 
 # Delete an Azure Cache for Redis
@@ -36,11 +29,11 @@ This script uses the following commands to delete an Azure Cache for Redis insta
 
 | Command | Notes |
 |---|---|
-| [az redis delete](https://docs.microsoft.com/cli/azure/redis) | Delete Azure Cache for Redis instance. |
+| [az redis delete](/cli/azure/redis) | Delete Azure Cache for Redis instance. |
 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional Azure Cache for Redis CLI script samples can be found in the [Azure Cache for Redis documentation](../cli-samples.md).

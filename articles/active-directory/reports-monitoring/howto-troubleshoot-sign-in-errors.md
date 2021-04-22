@@ -1,6 +1,6 @@
 ---
 
-title: How to troubleshoot sign-in errors using Azure Active Directory reports | Microsoft Docs
+title: How to troubleshoot sign-in errors reports | Microsoft Docs
 description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
