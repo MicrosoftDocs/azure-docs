@@ -129,6 +129,8 @@ output childProp string = myParent::myChild.properties.displayName
 
 A nested resource can access properties of its parent resource. Other resources declared inside the body of the same containing resource can reference each other and the typical rules about cyclic-dependencies apply. A containing resource may not access properties of the resources it contains, this would cause a cyclic-dependency.
 
+---
+
 ## Outside parent resource
 
 The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource.
