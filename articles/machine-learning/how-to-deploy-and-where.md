@@ -9,8 +9,8 @@ ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 03/25/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
+ms.topic: how-to
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
 adobe-target: true
 ---
 

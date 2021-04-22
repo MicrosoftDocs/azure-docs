@@ -9,8 +9,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
+ms.topic: how-to
+ms.custom: devx-track-python,contperf-fy21q1, automl
 ---
 
 # Configure automated ML experiments in Python

@@ -11,6 +11,9 @@ ms.author: yelevin
 ---
 # Connect Azure Storage account diagnostics logs
 
+> [!IMPORTANT]
+> The Azure Storage account connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 Azure Storage account is a cloud solution for modern data storage scenarios. It contains all your data objects: blobs, files, queues, tables, and disks.
 
 This connector lets you stream your Azure Storage accounts’ diagnostics logs into Azure Sentinel, allowing you to continuously monitor activity and detect security threats in all your Azure storage resources throughout your organization.
