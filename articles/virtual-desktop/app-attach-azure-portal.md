@@ -42,9 +42,6 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 
 ```
 
->[!NOTE]
->We recommend that you restart the virtual machine after enabling Hyper-V.
-
 ## Configure the MSIX app attach management interface
 
 Next, you'll need to download and configure the the MSIX app attach management interface for the Azure portal.
