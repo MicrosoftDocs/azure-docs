@@ -61,7 +61,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 5. Copy the **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BrowserStack Single Sign-on application in the Azure portal. Click **Done**.
 
-    ![Token](media/browserstack-single-sign-on-provisioning-tutorial/credential.png)
+    ![Authorization](media/browserstack-single-sign-on-provisioning-tutorial/credential.png)
 
 6. Your provisioning configuration has been saved on BrowserStack. **Enable** user provisioning in BrowserStack once **the provisioning setup on Azure AD** is completed, to prevent blocking of inviting new users from BrowserStack [Account](https://www.browserstack.com/accounts/manage-users). 
 
