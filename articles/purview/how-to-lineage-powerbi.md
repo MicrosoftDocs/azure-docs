@@ -33,7 +33,7 @@ Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is
 
 The workspace artifacts will show lineage of Dataflow -> Dataset -> Report -> Dashboard
 
-:::image type="content" source="./media/how-to-lineage-powerbi/powerbi-overview-page.png" alt-text="Screenshot showing how lineage is rendered for Power BI" lightbox="./media/how-to-lineage-powerbi/powerbi-overview-page.png":::
+:::image type="content" source="./media/how-to-lineage-powerbi/powerbi-overview-page.png" alt-text="Screenshot showing how Overview tab is rendered for Power BI assets" lightbox="./media/how-to-lineage-powerbi/powerbi-overview-page.png":::
 
 >[!Note]
 > * Column lineage and transformations inside of PowerBI Datasets is currently not supported
