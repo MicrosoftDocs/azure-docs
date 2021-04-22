@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure Real-time-operating-system | Microsoft Docs
 description: Get started with Device Update for Azure Real-time-operating-system
-author: valls
-ms.author: valls
+author: ValOlson
+ms.author: ValOlson
 ms.date: 3/18/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
