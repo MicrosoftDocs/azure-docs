@@ -19,9 +19,9 @@ ms.author: depadia
 
 # SAP BusinessObjects BI platform deployment guide for Windows on Azure
 
-This article describes the strategy to deploy SAP BusinessObjects BI Platform on Azure for Windows. In this example, two virtual machines with Premium SSD-managed disks as its install directory are configured. Azure SQL database (PaaS offering) is used for CMS and audit database, and Azure Premium Files (SMB protocol) as file store that is shared across both virtual machines. The default Tomcat Java web application and BI platform application are installed together on both virtual machines. To load balance the user request, Azure Application Gateway is used, which has native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy SAP BusinessObjects BI Platform on Azure for Windows. In this example, two virtual machines with Premium SSD-managed disks as their install directory are configured. Azure SQL database (PaaS offering) is used for Central management service (CMS) and audit database, and Azure Premium Files (SMB protocol) as file store that is shared across both virtual machines. The default Tomcat Java web application and BI platform application are installed together on both virtual machines. To load balance the user requests, Azure Application Gateway is used, which has native TLS/SSL offloading capabilities.
 
-This type of architecture is effective for small deployment or non-production environment. For Production or large-scale deployment, you can have separate hosts for Web Application and can have multiple BOBI applications hosts allowing server to process more information.
+This type of architecture is effective for small deployment or non-production environment. For Production or large-scale deployment, you should separate hosts for Web Application and can have multiple BOBI applications hosts allowing server to process more information.
 
 ![SAP BOBI Deployment on Azure for Windows](media/businessobjects-deployment-guide/businessobjects-deployment-windows.png)
 
@@ -111,9 +111,9 @@ If you need to access the storage account from different virtual network, then y
    - Select your **private DNS zone** from the drop-down.
    - Select **OK**, to go back to the Networking tab in create storage account.
 
-4. On **Data protection** tab, configure the soft-delete policy for Azure file shares in your storage account. By default, soft-delete functionality is turned off. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](../../../storage/files/storage-files-prevent-file-share-deletion.md).
+4. On the **Data protection** tab, configure the soft-delete policy for Azure file shares in your storage account. By default, soft-delete functionality is turned off. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](../../../storage/files/storage-files-prevent-file-share-deletion.md).
 
-5. On **Advanced** tab, check different security options.
+5. On the **Advanced** tab, check different security options.
 
    - **Secure transfer required** filed indicates whether the storage account requires encryption in transit for communication to the storage account. If you require SMB 2.1 support, you must disable this field. For SAP BusinessObjects BI platform, keep it **default (enabled)**.
 
@@ -123,7 +123,7 @@ For details on how to create storage account, see [Create FileStorage Storage Ac
 
 #### Create Azure File Shares
 
-Next step is to create Azure Files in the storage account. Azure files use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the storage requirement to Azure files services rather than being billed based on what you use. To understand more on this model, see [Provisioned model](../../../storage/files/understanding-billing.md#provisioned-model). In this example, we create two Azure Files - frsinput (256 GB) and frsoutput (256 GB) for SAP BOBI file store.
+Next step is to create Azure Files in the storage account. Azure files use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. To understand more on this model, see [Provisioned model](../../../storage/files/understanding-billing.md#provisioned-model). In this example, we create two Azure Files - frsinput (256 GB) and frsoutput (256 GB) for SAP BOBI file store.
 
 Navigate to storage account **azusbobi** > **File shares**
 
@@ -143,7 +143,7 @@ The steps in this section use the following prefixes:
 
 SAP BusinessObjects BI application requires a partition on which its binaries can be installed. You can install SAP BOBI application on the operating system partition (C: ), but ensure to have enough space for the deployment and the operating system. It's recommended that you have at least 2 GB available for temporary files and web applications. With all this consideration, it's advisable to separate SAP BOBI installation binaries in separate partition.
 
-In this example, SAP BOBI application will be installed on separate partition (F: ). Initialize the premium SSD disk that you've attached during virtual machine provisioning.
+In this example, SAP BOBI application will be installed on a separate partition (F: ). Initialize the premium SSD disk that you've attached during virtual machine provisioning.
 
 1. **[A]** In case, no data disk is attached to virtual machine (azuswinboap1 and azuswinboap2), follow the steps mentioned in [Add a disk disk](../../windows/attach-managed-disk-portal.md#add-a-data-disk) to attach a new managed data disk.
 2. **[A]** After managed disk is attached to virtual machine, initialize the disk by following the steps mentioned in [Initialize a new data disk](../../windows/attach-managed-disk-portal.md#initialize-a-new-data-disk) document.
@@ -154,17 +154,17 @@ To use Azure files as file store you must mount it, which means assigning it a d
 
 1. **[A]** To mount Azure file share, follow the steps described in [Mount the Azure file share](../../../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) document.
 
-To mount Azure file share on windows server, ensure port 445 is open. The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if the firewall is blocking port 445 with the `Test-NetConnection` cmdlet mentioned in [troubleshooting](../../../storage/files/storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) guide.
+To mount Azure file share on windows server, ensure port 445 is open. The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if the firewall is blocking port 445 with the `Test-NetConnection` cmdlet mentioned in the [troubleshooting](../../../storage/files/storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) guide.
 
 ## Configure CMS database - Azure SQL
 
-This section provides details on how to provision Azure SQL using Azure portal. It also provides instructions on how to create CMS and Audit databases for SAP BOBI platform and a user account to access the database.
+This section provides details on how to provision Azure SQL using Azure portal. It also provides instructions on how to create the CMS and the Audit database for SAP BOBI platform and a user account to access the database.
 
 The guidelines are applicable only if you’re using Azure SQL (DBaaS offering on Azure). For other database(s), refer to SAP or database-specific documentation for instructions.
 
 ### Create SQL database server
 
-Azure SQL database offers different deployment options - single database, elastic pool, and database server. For SAP BOBI, we need two databases (CMS and audit). So, instead of creating two single databases, you can create a SQL database server that can manage the group of single databases and elastic pools.  Following are the steps to create SQL database server -
+Azure SQL database offers different deployment options - single database, elastic pool, and database server. For SAP BOBI, we need two databases (CMS and Audit). So, instead of creating two single databases, you can create a SQL database server that can manage the group of single databases and elastic pools.  Following are the steps to create SQL database server -
 
 1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 2. Under **SQL databases**, change **Resource type** to **Database server**, and select **Create**.
@@ -173,13 +173,13 @@ Azure SQL database offers different deployment options - single database, elasti
    - Enter **Server name** (for example, azussqlbodb). The server name must be globally unique, but otherwise can provide any name you want.
    - Select the **Location**.
    - Enter **Server admin login** (for example, boadmin) and **Password**.
-4. On **Networking** tab, change **Allow Azure services and resources to access this server** to **No** under **Firewall rules**.
+4. On the **Networking** tab, change **Allow Azure services and resources to access this server** to **No** under **Firewall rules**.
 5. On **Additional settings**, keep the default settings.
 6. Continue and create **SQL Database Server**.
 
-In next step, create CMS and audit databases in the SQL database server (azussqlbodb.database.windows.net).
+In the next step, create the CMS and the audit databases in the SQL database server (azussqlbodb.database.windows.net).
 
-### Create CMS and audit database
+### Create the CMS and the audit database
 
 After provisioning SQL database server, browse to the resource **azussqlbodb** and then follow below steps to create CMS and audit databases.
 
@@ -187,7 +187,7 @@ After provisioning SQL database server, browse to the resource **azussqlbodb** a
 2. On **Basics** tab, complete all required fields -
    - Enter **Database name** (for example, bocms or boaudit).
    - On **Compute + storage** option, select **Configure database** and choose the appropriate model based on your sizing result. Refer [Sizing models for Azure SQL database](businessobjects-deployment-guide.md#sizing-models-for-azure-sql-database) to get insight on the options. 
-3. On **Networking** tab, select [private endpoint](../../../private-link/tutorial-private-endpoint-sql-portal.md) for connectivity method. The private endpoint will be used to access Azure SQL database within the configured virtual network. 
+3. On the **Networking** tab, select [private endpoint](../../../private-link/tutorial-private-endpoint-sql-portal.md) for connectivity method. The private endpoint will be used to access Azure SQL database within the configured virtual network. 
    - Select **Add private endpoint**.
    - Select **Subscription**, **Resource group**, and **Location**.
    - Enter the **Name** of private endpoint (for example, azusbodb-pe).
@@ -240,7 +240,7 @@ Follow [SAP Business Intelligence Platform Installation Guide for Windows](https
 
 - On **Configure Destination Folder** screen, provide the destination folder where you would like to install BI platform. (for example, F:\SAP BusinessObjects\). 
 
-- On **Configure Product Registration** screen, you can either use temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121), or can generate license key in SAP Service Marketplace.
+- On **Configure Product Registration** screen, you can either use a temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121), or can generate license key in SAP Service Marketplace.
 
 - On **Select Install Type** screen, select **Full** installation on first server (azuswinboap1), and for other server (azuswinboap2) select **Custom / Expand**, which will expand the existing BOBI setup.
 
@@ -451,7 +451,7 @@ In case availability zones are not available in your selected region, you can de
 
 The instruction in this section explains the strategy to provide disaster recovery protection for SAP BOBI Platform. It complements the [Disaster Recovery for SAP](../../../site-recovery/site-recovery-sap.md) document, which represents the primary resources for overall SAP disaster recovery approach. For SAP BusinessObjects BI platform refer to SAP Note [2056228](https://launchpad.support.sap.com/#/notes/2056228), which describe below methods to implement DR environment safely.
 
- 1. Fully or selectively using LCM or federation to promote/distribute the content from primary system.
+ 1. Fully or selectively using Lifecycle Management (LCM) or federation to promote/distribute the content from primary system.
  2. Periodically copying over the CMS and FRS contents.
 
 In this guide, we'll talk about second option to implement DR environment. It won't cover an exhaustive list of all possible configuration options for disaster recovery, but covers solution that feature native Azure services in combination with SAP BOBI Platform configuration.
@@ -467,7 +467,7 @@ This reference architecture is running multi-instance deployment of SAP BOBI Pla
 
 ### Load balancer
 
-Load Balancer is used to distribute traffic across Web Application Servers of SAP BOBI Platform. On Azure, you can either use Azure Load Balancer or Azure Application Gateway to load balance the traffic across web servers. To achieve DR for the load balancer services, you need to implement another Azure Load Balancer or Azure Application Gateway on secondary region. To keep same URL after DR failover you need to change the entry in DNS, pointing to the load-balancing service running on the secondary region. \
+Load Balancer is used to distribute traffic across Web Application Servers of SAP BOBI Platform. On Azure, you can either use Azure Load Balancer or Azure Application Gateway to load balance the traffic across web servers. To achieve DR for the load balancer services, you need to implement another Azure Load Balancer or Azure Application Gateway on secondary region. To keep same URL after DR failover you need to change the entry in DNS, pointing to the load-balancing service running on the secondary region.
 
 ### Virtual machines running web and BI application servers
 
