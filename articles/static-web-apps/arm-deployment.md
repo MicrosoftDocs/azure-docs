@@ -299,7 +299,7 @@ New-AzResourceGroupDeployment `
   -verbose
 ```
 
-To learn more about deploying template by using Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md).
+To learn more about deploying templates using Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 # [Azure CLI](#tab/azure-cli)
 
