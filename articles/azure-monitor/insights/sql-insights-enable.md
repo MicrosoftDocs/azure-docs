@@ -19,6 +19,8 @@ SQL insights stores its data in one or more [Log Analytics workspaces](../logs/d
 ## Create monitoring user 
 You need a user on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
 
+The instructions below cover the process per type of SQL that you can monitor.  To accomplish this with a script on several SQL resouces at once, please refer to the following [README file](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) and [example script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1).
+
 
 ### Azure SQL database
 Open Azure SQL Database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal.

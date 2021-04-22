@@ -299,7 +299,7 @@
       - name: Hyperscale
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
-        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
     - name: Plan and manage costs 
       href: database/cost-management.md
 

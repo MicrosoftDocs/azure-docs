@@ -18,7 +18,7 @@ ms.custom: designer
 
 In this article, you learn how to add logging code to designer pipelines. You also learn how to view those logs using the Azure Machine Learning studio web portal.
 
-For more information on logging metrics using the SDK authoring experience, see [Monitor Azure ML experiment runs and metrics](how-to-track-experiments.md).
+For more information on logging metrics using the SDK authoring experience, see [Monitor Azure ML experiment runs and metrics](how-to-log-view-metrics.md).
 
 ## Enable logging with Execute Python Script
 
@@ -28,7 +28,7 @@ The following example shows you how to log the mean squared error of two trained
 
 1. Connect an __Execute Python Script__ module to the output of the __Evaluate Model__ module.
 
-    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/designer-logging-pipeline.png)
+    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-log-view-metrics/designer-logging-pipeline.png)
 
 1. Paste the following code into the __Execute Python Script__ code editor to log the mean absolute error for your trained model. You can use a similar pattern to log any other value in the designer:
 
@@ -56,7 +56,7 @@ The following example shows you how to log the mean squared error of two trained
     
 This code uses the Azure Machine Learning Python SDK to log values. It uses Run.get_context() to get the context of the current run. It then logs values to that context with the run.parent.log() method. It uses `parent` to log values to the parent pipeline run rather than the module run.
 
-For more information on how to use the Python SDK to log values, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+For more information on how to use the Python SDK to log values, see [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
 
 ## View logs
 
@@ -67,7 +67,7 @@ After the pipeline run completes, you can see the *Mean_Absolute_Error* in the E
 1. Select the run in your experiment you want to view.
 1. Select **Metrics**.
 
-    ![View run metrics in the studio](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
+    ![View run metrics in the studio](./media/how-to-log-view-metrics/experiment-page-metrics-across-runs.png)
 
 ## Next steps
 
@@ -75,5 +75,5 @@ In this article, you learned how to use logs in the designer. For next steps, se
 
 
 * Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#azure-machine-learning-designer).
-* Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+* Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
 * Learn how to use [Execute Python Script](./algorithm-module-reference/execute-python-script.md) in the designer.
