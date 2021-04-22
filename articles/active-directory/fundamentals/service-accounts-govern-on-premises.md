@@ -46,11 +46,11 @@ When you create a service account, understand the considerations listed in the f
 | Monitor and audit use| Monitor sign-in data and ensure that it matches the intended usage. Set alerts for anomalous usage. |
 | | |
 
-### Enforce least permission for user accounts, and limit account overuse
+### Set restrictions for user accounts
 
 For user accounts that are used as service accounts, apply the following settings:
 
-* [**Account Expiration**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): Set the service account to automatically expire a set time after its review period, unless it is determined that the account should continue.
+* [**Account expiration**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): Set the service account to automatically expire at a set time after its review period, unless it is determined that the account should continue.
 
 *  **LogonWorkstations**: Restrict permissions where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from signing in anywhere else.
 
@@ -72,7 +72,7 @@ For lifecycle management of service accounts, use the following process:
 
 ### Collect usage information for the service account
 
-Collect the relevant business information for each service account. The following table shows the minimum amount of information to be collected, but you should collect everything that's necessary to make the business case for the accounts' existence.
+Collect relevant business information for each service account. The following table lists the minimum amount of information to collect, but you should collect everything that's necessary to make the business case for the accounts' existence.
 
 | Data| Description |
 | - | - |
@@ -131,11 +131,11 @@ Create a service account only after you've completed the risk assessment and doc
 
 * [Account expiration](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true). For all user accounts that you use as service accounts, define a realistic, definite end date. Set the date by using the "Account Expires" flag. For more information, see [Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
-* Signing in to the [LogonWorkstation](/powershell/module/addsadministration/set-aduser).
+* Sign-in to the [LogonWorkstation](/powershell/module/addsadministration/set-aduser).
 
 * [Password Policy](../../active-directory-domain-services/password-policy.md) requirements.
 
-* Account creation in an [OU location](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) that ensures management only for allowed users.
+* Account creation in an [organizational unit location](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) that ensures management only for allowed users.
 
 * Setting up and collecting auditing [that detects changes](/windows/security/threat-protection/auditing/audit-directory-service-changes) to the service account, and [service account use](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
