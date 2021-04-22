@@ -63,7 +63,7 @@ In this section, we'll create two virtual machines (VMs) with Windows operating 
 5. Create Virtual Machine 2 **(azuswinboap2).**
 6. Add one Premium SSD disk. It will be used as SAP BOBI Installation directory.
 
-## Provision Azure Premium Files
+## Provision Azure premium files
 
 Before you continue with the setup for Azure Files, familiarize yourself with the [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) documentation.
 
@@ -71,7 +71,7 @@ Azure Files offers standard file shares hosted on hard disk-based (HDD-based) ha
 
 Azure premium file shares are available with local and zone redundancy in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=/azure/storage/files/toc.json).
 
-### Deploy Azure Files storage account and NFS shares
+### Deploy Azure files storage account and NFS shares
 
 Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. Azure supports multiple types of storage accounts for different storage scenarios customers may have, but for SAP BusinessObjects file store you need to create **FileStorage** storage account. It allows you to deploy Azure file shares on premium solid-state disk-based (SSD-based) hardware.
 
@@ -82,56 +82,63 @@ The storage account will be accessed via [private end point](../../../storage/fi
 
 If you need to access the storage account from different virtual network, then you can use [Azure VNET peering](../../../virtual-network/virtual-network-peering-overview.md).
 
-#### Azure Files storage account
+#### Azure files storage account
 
 1. To create storage account via Azure portal, **Create a resource** > **Storage** > **Storage account**.
 
 2. On **Basics** tab, complete all required fields to create a storage account.
 
-   - Select **Subscription**, **Resource group**, and **Region**.
+   a. Select **Subscription**, **Resource group**, and **Region**.
 
-   - Enter the **Storage account name** (for example, **azusbobi**). This name must be globally unique, but otherwise can provide any name you want.
+   b. Enter the **Storage account name** (for example, **azusbobi**). This name must be globally unique, but otherwise can provide any name you want.
 
-   - Select **Premium** as performance tier, and **FileStorage** as account kind.
+   c. Select **Premium** as performance tier, and **FileStorage** as account kind.
 
-   - For Replication label, choose redundancy level. Select **Locally redundant storage (LRS)**.
+   d. For Replication label, choose redundancy level. Select **Locally redundant storage (LRS)**.
 
-     For Premium FileStorage, local-redundant storage (LRS) and zone-redundant storage (ZRS) are the only options available. So based on your deployment strategy (availability set or availability zone), choose the appropriate redundancy level. For more information, See [Azure storage redundancy](../../../storage/common/storage-redundancy.md).
+   For Premium FileStorage, local-redundant storage (LRS) and zone-redundant storage (ZRS) are the only options available. So based on your deployment strategy (availability set or availability zone), choose the appropriate redundancy level. For more information, See [Azure storage redundancy](../../../storage/common/storage-redundancy.md).
 
-   - Select Next.
+   e. Select Next.
 
 3. On **Networking** tab, select [private endpoint](../../../storage/files/storage-files-networking-endpoints.md) as connectivity method. Refer [Azure Files networking considerations](../../../storage/files/storage-files-networking-overview.md) for detailed information.
 
-   - Select **Add** in the private endpoint section.
-   - Select **Subscription**, **Resource group**, and **Location**.
-   - Enter the **Name** of private endpoint (for example, azusbobi-pe).
-   - Select **file** in **storage sub-resource**.
-   - In **Networking** section, select the **Virtual network** and **Subnet** on which SAP BusinessObjects BI application is deployed.
-   - Accept the **default (yes)** for **Integrate with private DNS zone**.
-   - Select your **private DNS zone** from the drop-down.
-   - Select **OK**, to go back to the Networking tab in create storage account.
+   a. Select **Add** in the private endpoint section.
+
+   b. Select **Subscription**, **Resource group**, and **Location**.
+
+   c. Enter the **Name** of private endpoint (for example, azusbobi-pe).
+
+   d. Select **file** in **storage sub-resource**.
+
+   e. In **Networking** section, select the **Virtual network** and **Subnet** on which SAP BusinessObjects BI application is deployed.
+
+   f. Accept the **default (yes)** for **Integrate with private DNS zone**.
+
+   g. Select your **private DNS zone** from the drop-down.
+
+   h. Select **OK**, to go back to the Networking tab in create storage account.
 
 4. On the **Data protection** tab, configure the soft-delete policy for Azure file shares in your storage account. By default, soft-delete functionality is turned off. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](../../../storage/files/storage-files-prevent-file-share-deletion.md).
 
 5. On the **Advanced** tab, check different security options.
 
-   - **Secure transfer required** filed indicates whether the storage account requires encryption in transit for communication to the storage account. If you require SMB 2.1 support, you must disable this field. For SAP BusinessObjects BI platform, keep it **default (enabled)**.
+   **Secure transfer required** filed indicates whether the storage account requires encryption in transit for communication to the storage account. If you require SMB 2.1 support, you must disable this field. For SAP BusinessObjects BI platform, keep it **default (enabled)**.
 
 6. Continue and create the storage account.
 
 For details on how to create storage account, see [Create FileStorage Storage Account](../../../storage/files/storage-how-to-create-file-share.md).
 
-#### Create Azure File Shares
+#### Create Azure file Shares
 
 Next step is to create Azure Files in the storage account. Azure files use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. To understand more on this model, see [Provisioned model](../../../storage/files/understanding-billing.md#provisioned-model). In this example, we create two Azure Files - frsinput (256 GB) and frsoutput (256 GB) for SAP BOBI file store.
 
 Navigate to storage account **azusbobi** > **File shares**
 
-- Select **New File share**.
-- Enter the **Name** of the file share (for example, frsinput, frsouput)
-- Insert the required file share size in **Provisioned capacity** (for example, 256 GB)
-- Choose **SMB** as **Protocol**.
-- Select **Create**.
+1. Select **New File share**.
+2. Enter the **Name** of the file share (for example, frsinput, frsouput)
+3. Insert the required file share size in **Provisioned capacity** (for example, 256 GB)
+4. Choose **SMB** as **Protocol**.
+5. Select **Create**.
 
 ## Configure data disk on Windows virtual machine
 
@@ -168,11 +175,16 @@ Azure SQL database offers different deployment options - single database, elasti
 
 1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 2. Under **SQL databases**, change **Resource type** to **Database server**, and select **Create**.
-3. On **Basics** tab, complete all required fields to **Create SQL Database Server**
-   - Select the **Subscription** and **Resource group** under **Project details**.
-   - Enter **Server name** (for example, azussqlbodb). The server name must be globally unique, but otherwise can provide any name you want.
-   - Select the **Location**.
-   - Enter **Server admin login** (for example, boadmin) and **Password**.
+3. On **Basics** tab, complete all required fields to **Create SQL Database Server**.
+
+   a. Select the **Subscription** and **Resource group** under **Project details**.
+
+   b. Enter **Server name** (for example, azussqlbodb). The server name must be globally unique, but otherwise can provide any name you want.
+
+   c. Select the **Location**.
+
+   d. Enter **Server admin login** (for example, boadmin) and **Password**.
+
 4. On the **Networking** tab, change **Allow Azure services and resources to access this server** to **No** under **Firewall rules**.
 5. On **Additional settings**, keep the default settings.
 6. Continue and create **SQL Database Server**.
@@ -185,17 +197,27 @@ After provisioning SQL database server, browse to the resource **azussqlbodb** a
 
 1. On azussqlbodb **Overview** page, select **Create database**.
 2. On **Basics** tab, complete all required fields -
-   - Enter **Database name** (for example, bocms or boaudit).
-   - On **Compute + storage** option, select **Configure database** and choose the appropriate model based on your sizing result. Refer [Sizing models for Azure SQL database](businessobjects-deployment-guide.md#sizing-models-for-azure-sql-database) to get insight on the options. 
-3. On the **Networking** tab, select [private endpoint](../../../private-link/tutorial-private-endpoint-sql-portal.md) for connectivity method. The private endpoint will be used to access Azure SQL database within the configured virtual network. 
-   - Select **Add private endpoint**.
-   - Select **Subscription**, **Resource group**, and **Location**.
-   - Enter the **Name** of private endpoint (for example, azusbodb-pe).
-   - Select **SqlServer** in **Target sub-resource**.
-   - In **Networking** section, select the **Virtual network** and **Subnet** on which SAP BusinessObjects BI application is deployed.
-   - Accept the **default (yes)** for **Integrate with private DNS zone**.
-   - Select your **private DNS zone** from the drop-down.
-   - Select **OK**, to go back to the Networking tab in create SQL database.
+
+   a. Enter **Database name** (for example, bocms or boaudit).
+
+   b. On **Compute + storage** option, select **Configure database** and choose the appropriate model based on your sizing result. Refer [Sizing models for Azure SQL database](businessobjects-deployment-guide.md#sizing-models-for-azure-sql-database) to get insight on the options.
+3. On the **Networking** tab, select [private endpoint](../../../private-link/tutorial-private-endpoint-sql-portal.md) for connectivity method. The private endpoint will be used to access Azure SQL database within the configured virtual network.
+
+   a. Select **Add private endpoint**.
+
+   b. Select **Subscription**, **Resource group**, and **Location**.
+
+   c. Enter the **Name** of private endpoint (for example, azusbodb-pe).
+
+   e. Select **SqlServer** in **Target sub-resource**.
+
+   f. In **Networking** section, select the **Virtual network** and **Subnet** on which SAP BusinessObjects BI application is deployed.
+
+   g. Accept the **default (yes)** for **Integrate with private DNS zone**.
+
+   h. Select your **private DNS zone** from the drop-down.
+
+   i. Select **OK**, to go back to the Networking tab in create SQL database.
 4. On **Additional settings** tab, change the **Collation** to **SQL_Latin1_General_CP850_BIN2**.
 5. Continue and create CMS database.
 
@@ -226,7 +248,7 @@ For SAP BOBI application servers to access CMS or audit database, it requires da
 
 Repeat the same above steps to create connection for audit database on server azuswinboap1. Similarly install and configure both ODBC data sources (bocms and boaudit) on all BI application servers (azuswinboap2). 
 
-## Server Preparation
+## Server preparation
 
 Follow the latest guide by SAP to prepare servers for the installation of BI platform. For most up-to-date information, refer to Preparation section in [Business Intelligence Platform Installation Guide for Windows](https://help.sap.com/viewer/df8899896b364f6c880112f52e4d06c8/4.3.1/en-US/46b0d1a26e041014910aba7db0e91070.html).
 
@@ -301,7 +323,7 @@ In multi-instance deployment of SAP BOBI Platform, you want to run several CMS s
 
 To configure the cluster name on windows, follow the instruction mentioned in [SAP Business Intelligence Platform Administrator Guide](https://help.sap.com/viewer/2e167338c1b24da9b2a94e68efd79c42/4.3.1/en-US). After configuring the cluster name, follow SAP Note [1660440](https://launchpad.support.sap.com/#/notes/1660440) to set default system entry on the CMC or BI Launchpad sign in page. 
 
-### Configure Input and Output Filestore location to Azure Premium Files
+### Configure input and output filestore location to Azure Premium Files
 
 Filestore refers to the disk directories where the actual SAP BusinessObjects files are. The default location of file repository server for SAP BOBI platform is located in the local installation directory. In multi-instance deployment, it's important to set up filestore on a shared storage like Azure Premium Files or Azure NetApp Files so it can be accessed from all storage tier servers.
 
@@ -342,7 +364,7 @@ In SAP BOBI multi-instance deployment, Java Web Application servers (web tier) a
    > [!NOTE]
    > We recommend to use Azure Application Gateway to load balance the traffic to web server as it provide feature likes like SSL offloading, Centralize SSL management to reduce encryption and decryption overhead on server, Round-Robin algorithm to distribute traffic, Web Application Firewall (WAF) capabilities, high-availability and so on.
 
-## SAP BusinessObjects BI Platform Reliability on Azure
+## SAP BusinessObjects BI Platform reliability on Azure
 
 SAP BusinessObjects BI Platform includes different tiers, which are optimized for specific tasks and operations. When a component from any one tier becomes unavailable, SAP BOBI application will either become inaccessible or certain functionality of the application won’t work. So one need to make sure that each tier is designed to be reliable to keep application operational without any business disruption.
 
@@ -355,7 +377,7 @@ This guide will explore how features native to Azure in combination with SAP BOB
 
 Implementation of this solution varies based on the nature of the system setup in Azure. So customer needs to tailor their backup/restore, high availability and disaster recovery solution based on their business requirement.
 
-## Back-up and Restore
+## Back-up and restore
 
 Backup and Restore is a process of creating periodic copies of data and applications to separate location. So it can be restored or recovered to previous state if the original data or applications are lost or damaged. It's also an essential component of any business disaster recovery strategy. These backups enable application and database restore to a point-in-time within the configured retention period.
 
@@ -373,7 +395,7 @@ In Azure, the simplest way to back up virtual machines including all the attache
 
 As part of backup process snapshot is taken, and the data is transferred to the Recovery Service vault with no effect on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. Azure backup also offers side-by-side support for backup of managed disks using [Azure Disk backup](https://docs.microsoft.com/azure/backup/disk-backup-overview) in addition to [Azure VM backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) solution. It is useful when you need consistent backups of virtual machines once a day and more frequent backups of OS disks, or a specific data disk that are crash consistent. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md), [Azure Disk backup](../../../backup/disk-backup-overview.md), and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
 
-### Backup & restore for Filestore
+### Backup & restore for filestore
 
 Based on your deployment, filestore of SAP BOBI platform can be on Azure NetApp Files or Azure Files. Choose from the following options for backup and restore based on the storage you use for filestore.
 
@@ -418,7 +440,7 @@ If you're using Azure Database as a Service (DBaaS) service for CMS and audit da
 
 For other DBMS deployment for CMS database refer to [DBMS deployment guides for SAP Workload](dbms_guide_general.md) that provides insight on different DBMS deployment and its approach to achieve high availability.
 
-### High availability for Filestore
+### High availability for filestore
 
 Filestore refers to the disk directories where contents like reports, universes, and connections are stored. It's being shared across all application servers of that system. So you must make sure that it's highly available, alongside with other SAP BOBI platform components.
 
