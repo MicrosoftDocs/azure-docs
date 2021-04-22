@@ -250,9 +250,9 @@ Some points to consider:
 
 How to enable analytical store on a container:
 
-* From the Azure portal, the analytical TTL option is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
+* From the Azure portal, the analytical TTL option, when turned on, is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
  
-* From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or CLI, the analytical TTL option can be enabled by setting it to either -1 or 'n'. 
+* From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or CLI, the analytical TTL option can be enabled by setting it to either -1 or 'n' seconds. 
 
 To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
