@@ -132,8 +132,8 @@ resource, but it doesn't stop the request.
 Audit is the last effect checked by Azure Policy during the creation or update of a resource. For a
 Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. Audit works
 the same for a resource request and an evaluation cycle. For new and updated resources, Azure Policy
-adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the
-resource as non-compliant.
+marks the resource as non-compliant. On a new resource, Azure Policy also adds a
+`Microsoft.Authorization/policies/audit/action` operation to the activity log.
 
 ### Audit properties
 
