@@ -11,7 +11,25 @@ When you enable the *Prefetch* feature for any of the official Service Bus clien
 As messages are returned to the application, the client acquires further messages in the background, to fill the prefetch buffer.
 
 ## Enabling Prefetch
-To enable the Prefetch feature, set the prefetch count of the queue or subscription client to a number greater than zero. Setting the value to zero turns off prefetch.
+To enable the Prefetch feature, set the prefetch count of the queue or subscription client to a number greater than zero. Setting the value to zero turns off prefetch. 
+
+If you are using the older .NET or Java client libraries for Service Bus, you can set the prefetch count property on the [MessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount), [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) or the [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount).
+
+# [.NET](#tab/dotnet)
+If you are using the latest Azure.Messaging.ServiceBus library, you can set the prefetch count property on the [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusReceiver_PrefetchCount) and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusProcessor_PrefetchCount) objects. 
+
+If you are using the older .NET client library for Service Bus (Microsoft.Azure.ServiceBus), you can set the prefetch count property on the [MessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount), [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) or the [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount).
+ 
+# [Java](#tab/java)
+If you are using the latest azure-messaging-servicebus library, you can set the prefetch count property on the [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusReceiver_PrefetchCount) and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusProcessor_PrefetchCount) objects. 
+
+If you are using the older Java client library for Service Bus (azure-servicebus), you can set the prefetch count property on the [MessageReceiver](/java/api/com.microsoft.azure.servicebus.imessagereceiver.setprefetchcount#com_microsoft_azure_servicebus_IMessageReceiver_setPrefetchCount_int_), [QueueClient](/java/api/com.microsoft.azure.servicebus.queueclient.setprefetchcount#com_microsoft_azure_servicebus_QueueClient_setPrefetchCount_int_) or the [SubscriptionClient](/java/api/com.microsoft.azure.servicebus.subscriptionclient.setprefetchcount#com_microsoft_azure_servicebus_SubscriptionClient_setPrefetchCount_int_).
+ 
+# [JavaScript](#tab/javascript)
+ 
+# [Python](#tab/python)
+ 
+---
 
 While messages are available in the prefetch buffer, any subsequent receive calls are immediately fulfilled from the buffer. The buffer is replenished in the background as space becomes available. If there are no messages available for delivery, the receive operation empties the buffer and then waits or blocks, as expected.
 
