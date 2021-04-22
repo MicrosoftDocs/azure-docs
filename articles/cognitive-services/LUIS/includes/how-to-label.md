@@ -32,4 +32,4 @@ When you click on the **@** icon on top right, the entity palette opens in the r
 1. Highlight the text you want to label.
 2. Select the entity you want to label the text with from the menu that pops up.
 
-  :::image type="content" source="../media/how-to-label-inline.png" alt-text="how-to-label-inline" lightbox="../media/how-to-label-inline.png":::
+  :::image type="content" source="../media/how-to-label-inline.png" alt-text="menu for label the text" lightbox="../media/how-to-label-inline.png":::
