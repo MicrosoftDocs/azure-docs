@@ -35,7 +35,7 @@ Azure VMware Solution clusters are based on hyper-converged, bare-metal infrastr
 
 | Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| AVS36          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
+| AV36          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
 
 Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted. 
 
@@ -61,9 +61,9 @@ Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.
 
 Now that you've covered Azure VMware Solution private cloud concepts, you may want to learn about: 
 
-- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md).
-- [Azure VMware Solution storage concepts](concepts-storage.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
+- [Azure VMware Solution storage concepts](concepts-storage.md)
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

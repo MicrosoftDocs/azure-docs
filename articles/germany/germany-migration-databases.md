@@ -173,7 +173,7 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
     -TargetDatabaseName $targetDatabaseName 
     -TargetSubscriptionId $targetSubscriptionId
     -TargetResourceGroupName $targetRGName
-    - TargetServerFullyQualifiedDomainName $targetServerFQDN 
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN 
 ```
 
 2. **Copy LTR backup using backup resourceID**
@@ -199,7 +199,7 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
     -TargetDatabaseName $targetDatabaseName 
     -TargetSubscriptionId $targetSubscriptionId
     -TargetResourceGroupName $targetRGName
-    - TargetServerFullyQualifiedDomainName $targetServerFQDN
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN
 ```
 
 

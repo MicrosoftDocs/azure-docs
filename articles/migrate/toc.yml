@@ -16,6 +16,10 @@
       href: common-questions-discovery-assessment.md
     - name: Server Migration tool
       href: common-questions-server-migration.md
+- name: Quickstarts
+  items:
+  - name: Create a project - ARM template
+    href: quickstart-create-migrate-project.md
 - name: Tutorials
   items:
   - name: Discover
