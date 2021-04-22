@@ -96,7 +96,7 @@ The logic behind this approach is to create an empty database in Azure Database 
 
 1. On the **Comparison** menu, select **New Schema Comparison**. The **New Schema Comparison** wizard appears.
 
-1. Choose your source and targe, and then specify the schema comparison options. Select **Compare**.
+1. Choose your source and target, and then specify the schema comparison options. Select **Compare**.
 
 1. In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the **Schema Synchronization** wizard.
 
