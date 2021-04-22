@@ -37,7 +37,7 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
 
-If you have multiple Azure subscriptions, ensure that you are registering for the intended subscription by using the [`Select-AzureSubscription`](powershell/module/servicemanagement/azure.service/select-azuresubscription) command. <!-- GitHub #74191 --> 
+If you have multiple Azure subscriptions, ensure that you are registering for the intended subscription by using the ['Set-AzContext'](/powershell/module/az.accounts/set-azcontext) command. <!-- GitHub #74191 --> 
 
 1. Register the feature: 
 
