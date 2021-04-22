@@ -19,8 +19,6 @@ az ml service get-logs -n myservice
 
 # [Python](#tab/python)
 
-The example below demonstrates a local deployment. The syntax will vary depending on the compute target you chose in the previous step.
-
 ```python
 
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
@@ -28,6 +26,6 @@ service.wait_for_deployment(show_output = True)
 print(service.get_logs())
 ```
 
-For more information, see the documentation for [LocalWebservice](/python/api/azureml-core/azureml.core.webservice.local.localwebservice), [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-), and [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice).
+For more information, see the documentation for [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) and [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice).
 
 ---
