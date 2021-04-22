@@ -26,4 +26,4 @@ In addition to the resources mentioned above, following items are also created f
 * ***deploy-and-configure-modules*** - This file contains the environment variables that you will need when running the code in Visual Studio Code.  
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, please view our [troubleshooting guide](troubleshoot-how-to.md) to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our [troubleshooting guide](../../troubleshoot-how-to.md) to resolve some commonly encountered issues.
