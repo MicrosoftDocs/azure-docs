@@ -51,7 +51,14 @@ Before you continue, make sure that:
 * You've activated your Azure Stack Edge resource.
 * You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge resource.
 * To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
+
+    * Connect and configure:
     
+        1. [Connect](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-connect)
+        2. [Configure network](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy)
+        3. [Configure device](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time)
+        4. [Configure certificates](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-certificates)
+        5. [Activate](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-activate)
     * To enable the compute, in the local web UI of your device, go to the Compute page.
     
         * Select a network interface that you want to enable for compute. Select Enable. Enabling compute results in the creation of a virtual switch on your device on that network interface.
