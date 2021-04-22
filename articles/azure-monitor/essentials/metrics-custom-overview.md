@@ -232,7 +232,7 @@ If you have a variable in the name or a high cardinality dimension, the followin
 - Metrics become unreliable due to throttling
 - Metrics Explorer doesn’t work
 - Alerting and notifications become unpredictable
-- Costs can increase unexpectedably -  Microsoft is not charging while the custom metrics with dimensions are in public preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.  
+- Costs can increase unexpectedly -  Microsoft is not charging while the custom metrics with dimensions are in public preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.  
 
 ## Next steps
 Use custom metrics from different services: 
