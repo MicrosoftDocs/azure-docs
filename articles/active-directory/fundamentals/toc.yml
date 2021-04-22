@@ -167,7 +167,7 @@
           href: resilience-client-app.md  
         - name: Daemon applications
           href: resilience-daemon-app.md
-        - name: OIDC metadata refresh
+        - name: OpenID Connect metadata refresh
           href: ../develop/howto-build-services-resilent-to-metadata-refresh.md
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
