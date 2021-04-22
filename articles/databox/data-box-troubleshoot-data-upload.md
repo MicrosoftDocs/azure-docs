@@ -17,13 +17,15 @@ This article describes how to troubleshoot errors that pause a data upload to th
 
 ## Upload pause notification
 
-When data is uploaded from an Azure Data Box or Azure Data Box device to the cloud, some data configuration errors will cause the data copy to pause. You'll see the following notification in the Azure portal.
+When data is uploaded to Azure from your device, if non-retryable errors cause any file uploads to fail, the upload is paused to give you a chance to review the errors. You'll see the following notification in the Azure portal.
 
 ![Copy errors notification](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
 
-To complete the data copy, you must confirm that you have reviewed the errors in the data copy log and you want to proceed. Or you can cancel the data copy. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+You should review the errors in the data copy log. Then confirm that you've reviewed the errors and want to proceed with the upload.  For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
 
-You can't fix these errors for the current data copy. However, you can evaluate whether it's useful to proceed with the data copy, with the errors unresolved, or cancel the data copy and start a new import order. If only a few files failed to upload, you may be able to transfer the missing files over the network after your order completes with errors.
+You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+
+After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
 
 ## Non-retryable upload errors
 
