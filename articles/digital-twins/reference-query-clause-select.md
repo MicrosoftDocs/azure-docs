@@ -70,7 +70,9 @@ SELECT <twin-or-relationship-collection>.<property-name>
 
 ### Returns
 
-A collection of twins, properties, or relationships.
+A collection of twins, properties, or relationships specified in the projection.
+
+If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set. For an example of this behavior, see [Project property example: Property not present for a data row](project-property-example-property-not-present-for-a-data-row).
 
 ### Examples
 
@@ -221,6 +223,40 @@ Here is the JSON payload that's returned from this query:
         {
           "managedBy": "Jeff",
           "name": "Contoso"
+        }
+      ]
+    }
+  ],
+  "continuationToken": "null"
+}
+```
+
+#### Project property example: Property not present for a data row
+
+If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set.
+
+Consider for this example a set of twins that represent people. Some of the twins have ages associated with them, but others do not.
+
+Here is a query that projects the `name` and `age` properties:
+
+```sql
+SELECT name, age 
+FROM DIGITALTWINS
+```
+
+The result might look something like this, with the `age` property missing from some twins in the result where the twins do not have this property.
+
+```json
+{
+  "value": [
+    {
+      "result": [
+        {
+          "name": "John",
+          "age": 27
+        },
+        {
+          "name": "Keanu"
         }
       ]
     }
