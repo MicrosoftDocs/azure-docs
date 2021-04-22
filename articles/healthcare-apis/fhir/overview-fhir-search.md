@@ -16,7 +16,7 @@ FHIR searches can be against a specific resource type, a specified [compartment]
 
 `GET {{FHIR URL}}/Patient`
 
-You can also search using `POST`. This is useful if the query string is too long. To search using `POST`, put the search into a Parameters resource in the body of the `POST` request.
+You can also search using `POST`. This is useful if the query string is too long. To search using `POST`, put the search content into a Parameters resource in the body of the `POST` request.
 
 If the search request is successful, you’ll receive a FHIR bundle response with the type `searchset`. If the search fails, you’ll find these details in the `OperationOutcome` to help you understand why the search failed.
 
@@ -24,7 +24,7 @@ In the following sections, we’ll cover the various aspects involved in searchi
 
 ## Search Parameters
 
-When you perform a search, consider searching based on various attributes of the resource.  These attributes are called search parameter. Each resource has a set of defined search parameters. The search parameter must be defined and indexed in the database for you to successfully search against it.
+When you perform a search, consider searching based on various attributes of the resource.  These attributes are called search parameters. Each resource has a set of defined search parameters. The search parameter must be defined and indexed in the database for you to successfully search against it.
 
 Each search parameter has a defined data type. The Azure API for FHIR supports all [data types](https://www.hl7.org/fhir/search.html#ptypes) except the type **special**:
 
@@ -70,6 +70,8 @@ With the Azure API for FHIR, we support almost all resource specific search para
 
 You can also see the current support for search parameters in the [FHIR Capability Statement](https://www.hl7.org/fhir/capabilitystatement.html) with the following query:
 
+`GET {{FHIR URL}}/metadata`
+
 > [!NOTE]
 > The Azure API for FHIR does not automatically create or index any support search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own search parameters.
 
@@ -83,6 +85,8 @@ With the Azure API for FHIR, we support the following search parameter type pair
 * Token, Quantity
 * Token, String
 * Token, Token
+
+For more information, refer to the HL7 [Composite Search Parameters](https://www.hl7.org/fhir/search.html#composite). 
 
 > [!NOTE]
 > Composite search parameters do not support modifiers per the FHIR specification.
@@ -117,7 +121,7 @@ To help manage the returned resources, there are additional search result parame
 | **Search result parameters**  | **Supported - PaaS** | **Supported - OSS (SQL)** | **Supported - OSS (Cosmos DB)** | **Comments**                 |
 | ----------------------------  | -------------------- | ------------------------- | ------------------------------- | -----------------------------|
 | _elements                     | Yes                  | Yes                       | Yes                             |  Issue [1256](https://github.com/microsoft/fhir-server/issues/1256)                              |
-| _count                        | Yes                  | Yes                       | Yes                             | _count is limited to 1000 characters. If it is set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
+| _count                        | Yes                  | Yes                       | Yes                             | _count is limited to 1000 resources. If it is set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
 | _include                      | Yes                  | Yes                       | Yes                             | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB does not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).                               |
 | _revinclude                   | Yes                  | Yes                       | Yes                             |  Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB does not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).  Issue [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Partial              | Partial                   | Partial                         | _summary=count is supported                              |
@@ -138,8 +142,7 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 
 Similarly, you can do a reverse chained search which allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chaining, refer to the **Samples** page. 
 
-> [!NOTE]
-> In the Azure API for FHIR and the open source backed by Cosmos DB, there is a limitation where each sub-query required for the chained and reverse chained searches will only return 100 items. If there are more than 100 items found, you’ll receive the following error message:
+**Note**: In the Azure API for FHIR and the open source backed by Cosmos DB, there is a limitation where each sub-query required for the chained and reverse chained searches will only return 100 items. If there are more than 100 items found, you’ll receive the following error message:
 
 “Sub-queries in a chained expression cannot return more than 100 results, please use a more selective criteria.” 
 
@@ -147,7 +150,7 @@ To get a successful query, you’ll need to be more specific in what you are loo
 
 ## Pagination
 
-As mentioned above, the results from a search will be a paged bundle. By default, the results will return 10 results per page, but this can be increased (or decreased) by specifying _count. Within the bundle, there is a self link that has a URL. The self link contains the results on the current page, and a next link will allow you to get the next set of results. You can continue to use the next link to get the subsequent pages of results. Once there are no results remaining, only the self link will get returned.
+As mentioned above, the results from a search will be a paged bundle. By default, the results will return 10 results per page, but this can be increased (or decreased) by specifying `_count`. Within the bundle, there is a self link that has a URL. The self link contains the results on the current page, and a next link which contain a URL. You can continue to use the next link to get the subsequent pages of results. Once there are no results remaining, only the self link will get returned.
 
 Currently, the Azure API for FHIR only supports the next link in bundles, and it doesn’t support first, last, or previous links.
 
