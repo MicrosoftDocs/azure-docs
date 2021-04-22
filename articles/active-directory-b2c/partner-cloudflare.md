@@ -86,6 +86,9 @@ Add, update, or remove firewall rules using the firewall option available in the
 
 - [Troubleshoot Cloudflare custom page issues](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-#5QWV2KVjLnaAQ8L4tjiguw)
 
-- [Configure a custom domain in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)
-
 - [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+
+## Next steps 
+ 
+ - [Configure a custom domain in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)
+   
