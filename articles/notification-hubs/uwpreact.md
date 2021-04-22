@@ -58,7 +58,7 @@ The following sections provide an overview of the components that comprise the s
 
 #### Authentication
 
-The following methods in AuthenticateController.cs authenticatesubs a logged-in user:
+The following methods in AuthenticateController.cs are used to authenticate a logged-in user:
 
 ```css
 [HttpPost]
