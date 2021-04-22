@@ -329,4 +329,5 @@ Clean up the resources you deployed by deleting the resource group.
 
 ## Next steps
 
-You learned how to deploy Static Web Apps using a local ARM template process. For other deployment methods, have a look at <URL to SWA Portal deployment> + <URL to SWA Azure DevOps deployment>
+> [!div class="nextstepaction"]
+> [Configure your static web app](./configuration.md)
