@@ -308,8 +308,8 @@ To learn more about deploying template by using Azure PowerShell, see [Deploy re
 az deployment group create \
   --name DeployLocalTemplate \
   --resource-group $resourceGroupName \
-  --template-file <path to azuredeploy.json> \
-  --parameters <path to azuredeploy.parameters.json> \
+  --template-file <PATH-TO-AZUREDEPLOY.JSON> \
+  --parameters <PATH-TO-AZUREDEPLOY.PARAMETERS.JSON> \
   --verbose
 ```
 
