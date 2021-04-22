@@ -273,7 +273,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ### Azure CLI
 
-You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az-lock-create) command.
+You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az_lock_create) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
@@ -287,7 +287,7 @@ To lock a resource group, provide the name of the resource group.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-To get information about a lock, use [az lock list](/cli/azure/lock#az-lock-list). To get all the locks in your subscription, use:
+To get information about a lock, use [az lock list](/cli/azure/lock#az_lock_list). To get all the locks in your subscription, use:
 
 ```azurecli
 az lock list

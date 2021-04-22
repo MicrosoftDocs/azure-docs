@@ -168,5 +168,5 @@ run.wait_for_completion(show_output=True)
 
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:
-* [Track run metrics](how-to-track-experiments.md) during training.
+* [Track run metrics](how-to-log-view-metrics.md) during training.
 * [Deploy a model](how-to-deploy-custom-docker-image.md) by using a custom Docker image.
