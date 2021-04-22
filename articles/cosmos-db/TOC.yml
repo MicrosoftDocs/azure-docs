@@ -1470,7 +1470,7 @@
     - name: SQL playground
       href: https://www.documentdb.com/sql/demo
     - name: FAQ
-      href: faq.md
+      href: faq.yml
     - name: Whitepapers
       href: whitepapers.md
     - name: Partners

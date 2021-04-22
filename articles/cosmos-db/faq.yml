@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions on different APIs in Azure Cosmos DB
-  description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
+  title: "Frequently asked questions on different APIs in Azure Cosmos DB"
+  description: "Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling."
   author: SnehaGunda
   ms.service: cosmos-db
   ms.topic: conceptual
@@ -13,7 +13,6 @@ title: Frequently asked questions about different APIs in Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
   
-
 sections:
   - name: General
     questions:
@@ -107,7 +106,6 @@ sections:
           * Maximum throughput of 20 K RU/s when provisioned at the database level.
           * Subscriptions expire after 30 days, and can be extended to a maximum of 31 days total. After expiration, the information contained is deleted.
           * Azure support tickets can't be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans.
-		  
   - name: Set up Azure Cosmos DB
     questions:
       - question: |
