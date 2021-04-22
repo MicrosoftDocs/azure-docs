@@ -33,19 +33,11 @@ A condition can be a [function](reference-query-functions.md) that evaluates to 
 
 With properties and operators:
 
-```sql
---SELECT ...
---FROM ...
-WHERE <twin-or-relationship-collection>.<property> <operator> <value-to-compare>
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereSyntax":::
 
 With a function:
 
-```sql
---SELECT ...
---FROM ...
-WHERE <function-with-Boolean-result>
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereFunctionSyntax":::
 
 ### Arguments
 
@@ -55,16 +47,8 @@ A condition evaluating to a `Boolean` value.
 
 Here is an example using properties and operators. The following query specifies in the WHERE clause to only return the twin with a `$dtId` value of *Room1*.
 
-```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE T.$dtId = 'Room1'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereExample":::
 
 Here is an example using a function. The following query uses the `IS_OF_MODEL` function to specify in the WHERE clause to only return the twins with a model of `dtmi:sample:Room;1`. For more about the `IS_OF_MODEL` function, see [Azure Digital Twins query language reference: Functions](reference-query-functions.md#is_of_model).
 
-```sql
-SELECT *
-FROM DIGITALTWINS
-WHERE IS_OF_MODEL('dtmi:sample:Room;1')
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereFunctionExample":::

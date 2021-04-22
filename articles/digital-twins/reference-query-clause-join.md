@@ -30,23 +30,13 @@ The query must then use the `WHERE` clause to specify which specific twin or twi
 
 ### Syntax
 
-```sql
---SELECT ...
-FROM DIGITALTWINS <twin-collection-name>
-JOIN <target-twin-collection-name> RELATED <twin-collection-name>.<relationship-name> <OPTIONAL: relationship-collection-name>
-WHERE <twin-collection-name-OR-target-twin-collection-name>.$dtId = '<twin-id>'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="JoinSyntax":::
 
 ### Example
 
 The following query selects all digital twins that are related to the twin with an ID of *ABC* through a *contains* relationship.
 
-```sql
-SELECT T, CT
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="JoinExample":::
 
 ## Multiple JOINs
 
@@ -54,24 +44,13 @@ Up to five `JOIN`s are supported in a single query, which allows for the travers
 
 ### Syntax
 
-```sql
---SELECT ...
-FROM DIGITALTWINS <twin-collection-name>
-JOIN <relationship-collection-name-1> RELATED <twin-collection-name>.<relationship-type-1>
-JOIN <relationship-collection-name-2> RELATED <twin-or-relationship-collection-name>.<relationship-type-2>
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MultiJoinSyntax":::
 
 ### Example
 
 The following query is based on Rooms that contain LightPanels, and each LightPanel contains several LightBulbs. The query gets all the LightBulbs contained in the LightPanels of rooms 1 and 2.
 
-```sql
-SELECT LightBulb
-FROM DIGITALTWINS Room
-JOIN LightPanel RELATED Room.contains
-JOIN LightBulb RELATED LightPanel.contains
-WHERE Room.$dtId IN ['room1', 'room2']
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MultiJoinExample":::
 
 ## Limitations
 
@@ -90,16 +69,7 @@ Graph traversal depth is restricted to five `JOIN` levels per query.
 
 The following query illustrates the maximum number of `JOINs` that are possible in an Azure Digital Twins query. It gets all the LightBulbs in Buliding1.
 
-```sql
-SELECT LightBulb
-FROM DIGITALTWINS Building
-JOIN Floor RELATED Building.contains
-JOIN Room RELATED Floor.contains
-JOIN LightPanel RELATED Room.contains
-JOIN LightBulbRow RELATED LightPanel.contains
-JOIN LightBulb RELATED LightBulbRow.contains
-WHERE Buliding.$dtId = 'Building1'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MaxJoinExample":::
 
 ### No OUTER JOIN semantics
 
@@ -109,12 +79,7 @@ WHERE Buliding.$dtId = 'Building1'
 
 Consider the following query illustrating a building traversal.
 
-```sql
-SELECT Building, Floor
-FROM DIGITALTWINS Building
-JOIN Floor RELATED Building.contains
-WHERE Building.$dtId = 'Building1'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="NoOuterJoinExample":::
 
 If `Building1` contains no floors, then this query will return an empty result set (instead of returning one row with a value for Building and `undefined` for Floor).
 

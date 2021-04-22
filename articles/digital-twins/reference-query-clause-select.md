@@ -32,10 +32,7 @@ Use the `*` character in a select statement to project the digital twin document
 
 ### Syntax
 
-```sql
-SELECT *
---FROM ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectSyntax":::
 
 ### Returns
 
@@ -45,10 +42,7 @@ The set of properties which are returned from the query.
 
 The following query returns all digital twins in the instance. 
 
-```sql
-SELECT *
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectExample":::
 
 ## SELECT columns with projections
 
@@ -59,14 +53,12 @@ Projection is now supported for both primitive properties and complex properties
 ### Syntax
 
 To project a collection:
-```sql
-SELECT <twin-or-relationship-collection>
-```
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectCollectionSyntax":::
 
 To project a property:
-```sql
-SELECT <twin-or-relationship-collection>.<property-name>
-```
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertySyntax":::
 
 ### Returns
 
@@ -100,10 +92,7 @@ Here's a diagram illustrating this scenario:
 
 Below is an example query that projects a collection from this graph. The following query returns all digital twins in the instance, by naming the entire twin collection `T` and projecting `T` as the collection to return. 
 
-```sql
-SELECT T
-FROM DIGITALTWINS T
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectCollectionExample":::
 
 Here is the JSON payload that's returned from this query:
 
@@ -149,12 +138,7 @@ Here is the JSON payload that's returned from this query:
 
 Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
-```sql
-SELECT Consumer, Factory, Relationship
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.consumerRelationship Relationship
-WHERE Factory.$dtId = 'FactoryA'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectJoinExample":::
 
 Here is the JSON payload that's returned from this query:
 
@@ -206,12 +190,7 @@ Here is the JSON payload that's returned from this query:
 
 Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship.
 
-```sql
-SELECT Consumer.name, Relationship.managedBy
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.consumerRelationship Relationship
-WHERE Factory.$dtId = 'FactoryA'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyExample":::
 
 Here is the JSON payload that's returned from this query:
 
@@ -239,10 +218,7 @@ Consider for this example a set of twins that represent people. Some of the twin
 
 Here is a query that projects the `name` and `age` properties:
 
-```sql
-SELECT name, age 
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyNotPresentExample":::
 
 The result might look something like this, with the `age` property missing from some twins in the result where the twins do not have this property.
 
@@ -271,9 +247,7 @@ Use this method to count the number of items in the result set and return that n
 
 ### Syntax
 
-```sql
-SELECT COUNT()
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectCountSyntax":::
 
 ### Arguments
 
@@ -287,17 +261,11 @@ An `int` value.
 
 The following query returns the count of all digital twins in the instance.
 
-```sql
-SELECT COUNT()
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectCountExample":::
 
 The following query returns the count of all relationships in the instance.
 
-```sql
-SELECT COUNT()
-FROM RELATIONSHIPS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectCountRelationshipsExample":::
 
 ## SELECT TOP
 
@@ -305,9 +273,7 @@ Use this method to return only a certain number of top items that meet the query
 
 ### Syntax
 
-```sql
-SELECT TOP(<number-of-return-items>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectTopSyntax":::
 
 ### Arguments
 
@@ -321,7 +287,4 @@ A collection of twins.
 
 The following query returns only the first five digital twins in the instance.
 
-```sql
-SELECT TOP(5)
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectTopExample":::

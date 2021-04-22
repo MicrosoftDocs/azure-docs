@@ -33,33 +33,21 @@ You can optionally add a name to the collection of digital twins by adding the n
 
 Basic:
 
-```sql
---SELECT ...
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromDigitalTwinsSyntax":::
 
 To name the collection:
 
-```sql
---SELECT ...
-FROM DIGITALTWINS <collection-name>
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromDigitalTwinsNamedSyntax":::
 
 ### Examples
 
 Here is a basic query. The following query returns all digital twins in the instance. 
 
-```sql
-SELECT *
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromDigitalTwinsExample":::
 
 Here is a query with a named collection. The following query assigns a name `T` to the collection, and still returns all digital twins in the instance.
 
-```sql
-SELECT *
-FROM DIGITALTWINS T
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromDigitalTwinsNamedExample":::
 
 ## SELECT ... FROM RELATIONSHIPS
 
@@ -74,34 +62,21 @@ You can optionally add a name to the collection of relationships by adding the n
 
 Basic:
 
-```sql
---SELECT ...
-FROM RELATIONSHIPS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsSyntax":::
 
 To name the collection:
 
-```sql
---SELECT ...
-FROM RELATIONSHIPS <collection-name>
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsNamedSyntax":::
 
 ### Examples
 
 Here is a query that returns all relationships in the instance. 
 
-```sql
-SELECT *
-FROM RELATIONSHIPS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsExample":::
 
 Here is a query that returns all relationships coming from twins `A`, `B`, `C`, or `D`.
 
-```sql
-SELECT *
-FROM RELATIONSHIPS
-WHERE $sourceId IN  ['A', 'B', 'C', 'D']
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsFilteredExample":::
 
 ## Using FROM and JOIN together
 
@@ -125,10 +100,7 @@ No subqueries are supported within the `FROM` statement.
 
 The following query shows an example of what **cannot** be done as per this limitation.
 
-```sql
-SELECT * 
-FROM (SELECT * FROM DIGITALTWINS T WHERE ...)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromNegativeExample":::
 
 ### Choose FROM RELATIONSHIPS or JOIN
 

@@ -25,9 +25,7 @@ A string function used to determine whether a given string ends in a certain oth
 
 ### Syntax
 
-```sql
-ENDSWITH(<string-to-check>,<ending-string>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="EndsWithSyntax":::
 
 ### Arguments
 
@@ -42,11 +40,7 @@ A Boolean value indicating whether the first string expression ends with the sec
 
 The following query returns all digital twins whose IDs end in `-small`.
 
-```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE ENDSWITH(T.$dtId, '-small')
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="EndsWithExample":::
 
 ## IS_DEFINED
 
@@ -56,9 +50,7 @@ This is supported only when the property value is a primitive type. Primitive ty
 
 ### Syntax
 
-```sql
-IS_DEFINED(<property>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsDefinedSyntax":::
 
 ### Arguments
 
@@ -72,11 +64,7 @@ A Boolean value indicating if the property has been assigned a value.
 
 The following query returns all digital twins who have a defined *Location* property.
 
-```sql
-SELECT *
-FROM DIGITALTWINS
-WHERE IS_DEFINED(Location)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsDefinedExample":::
 
 ## IS_OF_MODEL
 
@@ -84,9 +72,7 @@ A type checking and casting function to determine whether a twin is of a particu
 
 ### Syntax
 
-```sql
-IS_OF_MODEL(<twin-collection>,'<model-ID>', exact)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsOfModelSyntax":::
 
 ### Arguments
 
@@ -105,9 +91,7 @@ A Boolean value indicating if the specified twin matches the specified model typ
 
 The following query returns twins from the DT collection that are exactly of the model type `dtmi:example:room;1`.
 
-```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:room;1', exact)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsOfModelExample":::
 
 ## IS_BOOL
 
@@ -117,9 +101,7 @@ This function is usually combined with other predicates if the program processin
 
 ### Syntax
 
-```sql
-IS_BOOL(<expression>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsBoolSyntax":::
 
 ### Arguments
 
@@ -133,19 +115,11 @@ A Boolean value indicating if the type of the specified expression is a Boolean.
 
 The following query selects the digital twins that have a boolean `HasTemperature` property.
 
-```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE IS_BOOL( HasTemperature )
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsBoolExample":::
 
 The following query builds on the above example to select the digital twins that have a boolean `HasTemperature` property, and the value of that property is not `false`.
 
-```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE IS_BOOL( HasTemperature ) AND HasTemperature != false
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsBoolNotFalseExample":::
 
 ## IS_NUMBER
 
@@ -155,9 +129,7 @@ This function is usually combined with other predicates if the program processin
 
 ### Syntax
 
-```sql
-IS_NUMBER(<expression>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsNumberSyntax":::
 
 ### Arguments
 
@@ -171,11 +143,7 @@ A Boolean value indicating if the type of the specified expression is a number.
 
 The following query selects the digital twins that have a numeric `Capacity` property and its value is not equal to 0.
 
-```sql
-SELECT * 
-FROM DIGITALTWINS 
-WHERE IS_NUMBER( Capacity ) AND Capacity != 0
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsNumberExample":::
 
 ## IS_STRING
 
@@ -185,9 +153,7 @@ This function is usually combined with other predicates if the program processin
 
 ### Syntax
 
-```sql
-IS_STRING(<expression>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsStringSyntax":::
 
 ### Arguments
 
@@ -201,11 +167,7 @@ A Boolean value indicating if the type of the specified expression is a string.
 
 The following query selects the digital twins that have a string property `Status` property and its value is not equal to `Completed`.
 
-```sql
-SELECT * 
-FROM DIGITIALTWINS 
-WHERE IS_STRING( Status ) AND Status != 'Completed'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsStringExample":::
 
 ## IS_NULL
 
@@ -213,9 +175,7 @@ A type checking and casting function for determining whether an expression's val
 
 ### Syntax
 
-```sql
-IS_NULL(<expression>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsNullSyntax":::
 
 ### Arguments
 
@@ -229,11 +189,7 @@ A Boolean value indicating if the type of the specified expression is `null`.
 
 The following query returns twins who do not have a null value for Temperature. For more about the `NOT` operator used in this query, see [Azure Digital Twins query language reference: Operators](reference-query-operators.md#logical-operators).
 
-```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE NOT IS_NULL(T.Temperature)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsNullExample":::
 
 ## IS_PRIMITIVE
 
@@ -243,9 +199,7 @@ This function is usually combined with other predicates if the program processin
 
 ### Syntax
 
-```sql
-IS_PRIMITIVE(<expression>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsPrimitiveSyntax":::
 
 ### Arguments
 
@@ -259,12 +213,7 @@ A Boolean value indicating if the type of the specified expression is one of the
 
 The following query returns the `area` property of the Factory with the ID of 'ABC,' only if the `area` property is a primitive type. For more about projecting certain columns in the query result like this query does with `area`, see [Azure Digital Twins query language reference: SELECT clause](reference-query-clause-select.md#select-columns-with-projections).
 
-```sql
-SELECT Factory.area
-FROM DIGITALTWINS Factory
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsPrimitiveExample":::
 
 ## IS_OBJECT
 
@@ -274,9 +223,7 @@ This function is usually combined with other predicates if the program processin
 
 ### Syntax
 
-```sql
-IS_OBJECT<expression>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsObjectSyntax":::
 
 ### Arguments
 
@@ -290,11 +237,7 @@ A Boolean value indicating if the type of the specified expression is a JSON obj
 
 The following query selects all of the digital twins where this is an object called `MapObject` which does not have a child property `TemperatureReading`.
 
-```sql
-SELECT * 
-FROM DIGITALTWINS 
-WHERE IS_OBJECT( MapObject ) AND NOT IS_DEFINED ( MapObject.TemperatureReading )
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="IsObjectExample":::
 
 ## STARTSWITH
 
@@ -302,9 +245,7 @@ A string function used to determine whether a given string begins with a certain
 
 ### Syntax
 
-```sql
-STARTSWITH(<string-to-check>,<beginning-string>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="StartsWithSyntax":::
 
 ### Arguments
 
@@ -319,8 +260,4 @@ A Boolean value indicating whether the first string expression starts with the s
 
 The following query returns all digital twins whose IDs begin with `area1-`.
 
-```sql
-SELECT *
-FROM DIGITALTWINS T
-WHERE STARTSWITH(T.$dtId, 'area1-')
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="StartsWithExample":::
