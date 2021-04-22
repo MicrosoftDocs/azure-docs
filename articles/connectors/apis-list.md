@@ -59,62 +59,73 @@ In Logic Apps, most triggers and actions are available in either a *built-in* ve
 
 Most connectors require that you first create a *connection* to the target service or system before you can use its triggers or actions in your workflow. To create a connection, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account.
 
+### Connection security and encryption
+
 For connectors that use Azure Active Directory (Azure AD) OAuth, such as Office 365, Salesforce, or GitHub, you must sign into the service where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also [encrypted and securely stored in Azure](../security/fundamentals/encryption-overview.md).
 
-Established connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long the Logic Apps service can use a token without refreshing. Generally, some actions such as changing your password, invalidate all access tokens.
+Established connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, the Logic Apps service refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
 
 Although you create connections from within a workflow, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md). This method is the easiest way to create a valid, parameterized logic app template that's mostly ready for deployment.
 
 > [!TIP]
 > If your organization doesn't permit you to access specific resources through Logic Apps connectors, you can [block the capability to create such connections](../logic-apps/block-connections-connectors.md) using [Azure Policy](../governance/policy/overview.md).
 
+### Firewall restrictions on connections
+
+If you use a firewall that limits traffic, and your logic app workflows need to communicate through that firewall, you have to set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app workflows exist. If your workflows also use managed connectors, such as the Office 365 Outlook connector or SQL connector, or use custom connectors, your firewall also needs to allow access for *all* the [managed connector outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound) in your logic app's Azure region. For more information, review [Firewall configuration](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
+
 ## Recurrence behavior
 
-Recurring built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), run natively in Azure Logic Apps and differ from recurring connection-based triggers, such as the Office 365 Outlook connector trigger, where you need to create a connection first.
+Recurring built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), run natively on the Logic Apps runtime and differ from recurring connection-based triggers, such as the Office 365 Outlook connector trigger where you need to create a connection first.
 
 For both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
 
 ### Recurrence for built-in triggers
 
-Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. For troubleshooting help, review the [recurrence issues](#recurrence-issues) section.
+Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls.
+
+For more information, review the following documentation:
+
+* [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
+* [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence)
+* [Troubleshooting recurrence issues](#recurrence-issues)
 
 ### Recurrence for connection-based triggers
 
 In recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
 
-- Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
-- Any failures or retries that the trigger incurs.
-- Latency during storage calls.
-- Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
-- Other factors that can affect when the next run time happens.
+* Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
+* Any failures or retries that the trigger incurs.
+* Latency during storage calls.
+* Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
+* Other factors that can affect when the next run time happens.
 
-For troubleshooting help, review the [Recurrence issues](#recurrence-issues) section. 
+For more information, review the following documentation:
 
-### Recurrence issues
+* [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
+* [Troubleshooting recurrence issues](#recurrence-issues)
 
-To make sure that your workflow runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try the following solutions.
+### Troubleshooting recurrence issues
 
-When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+To make sure that your workflow runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try the following solutions:
 
-If you're using a **Recurrence** trigger, specify a time zone, a start date and time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts. 
+* When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, review [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
-Consider using a [**Sliding Window** trigger](../connectors/connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
+* If you're using a **Recurrence** trigger, specify a time zone, a start date and time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
+
+* Consider using a [**Sliding Window** trigger](../connectors/connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
 ## Custom APIs and connectors
 
-To call APIs that run custom code or aren't available as connectors, you can extend the Logic Apps platform by [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). 
-
-You can also [create custom connectors](../logic-apps/custom-connector-overview.md) for any REST or SOAP-based APIs, which make those APIs available to any logic app in your Azure subscription. 
-
-To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
+To call APIs that run custom code or aren't available as connectors, you can extend the Logic Apps platform by [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). You can also [create custom connectors](../logic-apps/custom-connector-overview.md) for any REST or SOAP-based APIs, which make those APIs available to any logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
 
 ## ISE and connectors
 
-For workflows that need direct access to resources in an Azure virtual network, you can create a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your workflows on dedicated resources. For more information about creating ISEs, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+For workflows that need direct access to resources in an Azure virtual network, you can create a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your workflows on dedicated resources. For more information about creating ISEs, review [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic apps in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, logic apps in an ISE can use those connectors.
 
-In the Logic Apps Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on some connectors.
+In the Logic Apps Designer, when you browse the built-in triggers and actions or managed connectors that you want to use for logic apps in an ISE, the **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on managed connectors that are specifically designed to work with an ISE.
 
 :::row:::
     :::column:::
@@ -133,16 +144,22 @@ In the Logic Apps Designer, when you browse the connectors that you want to use 
         **ISE**
         \
         \
-        Managed connectors with this label run in the same ISE as your logic apps. If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your logic apps directly access that system without the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](connectors-overview.md#custom-apis-and-connectors). For on-premises systems that don't have **ISE** connectors, use on-premises data gateway. To review available ISE connectors, see [ISE connectors](#ise-and-connectors).
+        Managed connectors with this label run in the same ISE as your logic apps. 
+        \
+        \
+        If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your workflows directly access that system without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](connectors-overview.md#custom-apis-and-connectors).
+        \
+        \
+        For on-premises systems that don't have **ISE** connectors, use the on-premises data gateway. To find available ISE connectors, review [ISE connectors](#ise-and-connectors).
     :::column-end:::
     :::column:::
-        ![Example multi-tenant connector](./media/apis-list/example-multi-tenant-connector.png)
+        ![Example non-ISE connector](./media/apis-list/example-multi-tenant-connector.png)
         \
         \
         No label
         \
         \
-        All other connectors without the **CORE** or **ISE** label, which you can continue to use, run in the global, multi-tenant Logic Apps service.
+        All other connectors without a label, which you can continue to use, run in the global, multi-tenant Logic Apps service.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -150,11 +167,12 @@ In the Logic Apps Designer, when you browse the connectors that you want to use 
 
 ## Known issues
 
-The following are known issues for Logic Apps connectors.
+The following table includes known issues for Logic Apps connectors.
 
-#### Error: BadGateway. Client request id: '{GUID}'
-
-This error results from updating the tags on a logic app where one or more connections don't support Azure Active Directory (Azure AD) OAuth authentication, such as SFTP ad SQL, breaking those connections. To prevent this behavior, avoid updating those tags.
+| Error message| Description | Resolution |
+|--------------|-------------|------------|
+| `Error: BadGateway. Client request id: '{GUID}'` | This error results from updating the tags on a logic app where one or more connections don't support Azure Active Directory (Azure AD) OAuth authentication, such as SFTP ad SQL, breaking those connections. | To prevent this behavior, avoid updating those tags. |
+||||
 
 ## Next steps
 
