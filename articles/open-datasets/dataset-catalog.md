@@ -16,10 +16,10 @@ Improve the accuracy of your machine learning models with publicly available dat
 
 | Dataset | Description |
 |--|--|
-| TartanAir: AirSim Simulation Dataset | AirSim Autonomous vehicle data generated to solve Simultaneous Localization and Mapping (SLAM). |
-| NYC Taxi & Limousine Commission - yellow taxi trip records | The yellow taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
-| NYC Taxi & Limousine Commission - green taxi trip records | The green taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
-| NYC Taxi & Limousine Commission - For-Hire Vehicle (FHV) trip records | The For-Hire Vehicle trip records include the dispatching base license number and the pick-up date, time, and taxi zone location ID. |
+| [TartanAir: AirSim Simulation Dataset](dataset-tartanair-simulation.md) | AirSim Autonomous vehicle data generated to solve Simultaneous Localization and Mapping (SLAM). |
+| [NYC Taxi & Limousine Commission - yellow taxi trip records](dataset-taxi-yellow.md) | The yellow taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
+| [NYC Taxi & Limousine Commission - green taxi trip records](dataset-taxi-green.md) | The green taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
+| [NYC Taxi & Limousine Commission - For-Hire Vehicle (FHV) trip records](dataset-taxi-for-hire-vehicle.md) - For-Hire Vehicle (FHV) trip records | The For-Hire Vehicle trip records include the dispatching base license number and the pick-up date, time, and taxi zone location ID. |
 
 ## Weather
 

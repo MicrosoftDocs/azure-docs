@@ -22,6 +22,14 @@
     href: dataset-catalog.md
   - name: Diabetes
     href: dataset-diabetes.md
+  - name: Tartanair AirSim
+    href: dataset-diabetes.md
+  - name: NYC Taxi - yellow
+    href: dataset-taxi-yellow.md
+  - name: NYC Taxi - green
+    href: dataset-taxi-green.md
+  - name: NYC Taxi - for-hire vehicle
+    href: dataset-taxi-for-hire-vehicle.md
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples.md
