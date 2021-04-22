@@ -78,7 +78,7 @@ The TWIN GRAPH panel also provides several abilities to customize your graph vie
 
 ### View twins and relationships
 
-Run a query using the [QUERY EXPLORER](#query) to see the twins and relationships in the query result displayed in the **TWIN GRAPH** panel.
+Run a query using the [QUERY EXPLORER](#query-your-digital-twin-graph) to see the twins and relationships in the query result displayed in the **TWIN GRAPH** panel.
 
 >[!TIP]
 >The query to display all twins and relationships is `SELECT * FROM digitaltwins`.
@@ -153,7 +153,7 @@ This section describes how to perform the following management activities:
 * [Edit twins and relationships](#edit-twins-and-relationships)
 * [Delete twins and relationships](#delete-twins-and-relationships)
 
-For information about the viewing experience for twins and relationships, see [Explore twins and the TWIN GRAPH](#explore-twins-and-the-twin-graph).
+For information about the viewing experience for twins and relationships, see [Explore twins and the TWIN GRAPH](#explore-the-twin-graph).
 
 ### Create twins
 
@@ -268,7 +268,7 @@ You can highlight the models and connections that appear in the graph by text, b
 
 ### Upload model images
 
-You can upload custom images to represent different models in the MODEL GRAPH and [TWIN GRAPH](#explore-twins-and-the-twin-graph) views. You can upload images for individual models, or for several models at once.
+You can upload custom images to represent different models in the MODEL GRAPH and [TWIN GRAPH](#explore-the-twin-graph) views. You can upload images for individual models, or for several models at once.
 
 >[!NOTE]
 >These images are stored in local browser storage. This means that the images will not be available in other browsers apart from the one where you saved them, and they will remain in the browser storage indefinitely until the local storage is cleared.
@@ -442,7 +442,7 @@ If import is successful, a modal window will display the number of models, twins
 
 You can use the export feature to export partial or complete graphs, including models, twins, and relationships. Export serializes the twins and relationships from the most recent query results, as well as all models in the instance, to a JSON-based format that you can download to your machine.
 
-To begin, use the [**QUERY EXPLORER**](#query) panel to run a query that selects the twins and relationships that you want to download. This will populate them in the TWIN GRAPH panel.
+To begin, use the [**QUERY EXPLORER**](#query-your-digital-twin-graph) panel to run a query that selects the twins and relationships that you want to download. This will populate them in the TWIN GRAPH panel.
 
 >[!TIP]
 >The query to display all twins and relationships is `SELECT * FROM digitaltwins`.
