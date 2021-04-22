@@ -160,7 +160,7 @@ There are many scenarios for ingress, including the following how-to guides:
 
 > **Best practice guidance**
 > 
-> To scan incoming traffic for potential attacks, use a web application firewall (WAF) such as [Barracuda WAF for Azure][barracuda-waf] or Azure Application Gateway. These more advanced network resources can also route traffic beyond just HTTP and HTTPS connections or basic TLS termination.
+> To scan incoming traffic for potential attacks, use a web application firewall (WAF) such as [Barracuda WAF for Azure][barracuda-waf], [Citrix Web Application Firewall][citrix-waf] or Azure Application Gateway. These more advanced network resources can also route traffic beyond just HTTP and HTTPS connections or basic TLS termination.
 
 Typically, an ingress controller is a Kubernetes resource in your AKS cluster that distributes traffic to services and applications. The controller runs as a daemon on an AKS node, and consumes some of the node's resources, like CPU, memory, and network bandwidth. In larger environments, you'll want to:
 * Offload some of this traffic routing or TLS termination to a network resource outside of the AKS cluster.
@@ -234,6 +234,7 @@ This article focused on network connectivity and security. For more information 
 [haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
 [barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/5
+[citrix-waf]: https://www.citrix.com/products/citrix-web-app-firewall/
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-network]: concepts-network.md
