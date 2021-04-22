@@ -9,8 +9,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 
 ---
 
