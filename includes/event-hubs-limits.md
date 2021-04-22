@@ -18,7 +18,7 @@ The following limits are common across all tiers.
 
 | Limit |  Notes | Value |
 | --- |  --- | --- |
-| Number of Event Hubs namespaces per subscription |- |100 |
+| Number of Event Hubs namespaces per subscription | Service Bus namespaces are included in this limit. |100 |
 | Number of event hubs per namespace | Subsequent requests for creation of a new event hub are rejected. |10 |
 | Size of an event hub name |- | 256 characters |
 | Size of a consumer group name | Kafka protocol doesn't require the creation of a consumer group. | <p>Kafka: 256 characters</p><p>AMQP: 50 characters |
