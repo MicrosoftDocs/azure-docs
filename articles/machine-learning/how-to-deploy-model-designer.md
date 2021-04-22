@@ -28,7 +28,7 @@ Deployment in the studio consists of the following steps:
 
 You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](tutorial-designer-automobile-price-deploy.md).
 
-Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
