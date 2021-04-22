@@ -463,7 +463,7 @@ Below reference architecture describe the setup of SAP BOBI Platform across avai
 
 In below figure, the incoming traffic (HTTPS - TCP/443) is load balanced using Azure Application Gateway v2 SKU, which spans across multiple Availability Zones. The application gateway distributes the user request across web servers, which are distributed across availability zones. The web server forward the request to management and processing server instances that are deployed in separate virtual machines across availability zones. Azure Premium Files with zone redundant storage are attached via private link to management and storage tier virtual machines to access the contents like reports, universe, and connections. The application access CMS and audit database running on zone redundant Azure SQL database (DBaaS) which replicate databases across multiple physical locations within Azure region.
 
-![High availability architecture for SAP BOBI Platform on Windows](media/businessobjects-deployment-guide/businessobjects-deployment-windows-highavailability-availablilityzone.png)
+![High availability architecture for SAP BOBI Platform on Windows](media/businessobjects-deployment-guide/businessobjects-deployment-windows-high-availability-availability-zone.png)
 
 The above architecture provides insight on how SAP BOBI deployment on Azure can be done. But it doesn't cover all possible configuration options for SAP BOBI Platform on Azure. Customer can tailor their deployment based on the business requirement, by choosing different products/services for components like Load Balancer, File Repository Server, and DBMS.
 
@@ -528,7 +528,7 @@ For [Azure SQL Database](../../../azure-sql/database/business-continuity-high-av
 
    In figure below, auto failover group for Azure SQL server (azussqlbodb) running on East US 2 region is replicated to East US secondary region (DR site). The read/write listener endpoint is maintained as a listener in ODBC connection for BI application server running on Windows. After failover, the endpoint will remain same and no manual intervention is required to connect BI application to Azure SQL database on secondary region.
 
-   ![Azure SQL database auto failover groups](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failovergroup.png)
+   ![Azure SQL database auto failover groups](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failover-group.png)
 
    This option provides a lower RTO and RPO than option 1. For more information about this option, see [Use auto failover groups to enable transparent and coordinated failover of multiple databases](../../../azure-sql/database/auto-failover-group-overview.md)
 
