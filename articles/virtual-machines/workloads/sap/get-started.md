@@ -80,7 +80,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 - 04/21/2021: Add explanation why HCMT/HWCCT storage tests on M32ts and M32ls might fall short of HANA KPIs when enabling read cache for the Premium storage disks in article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
-- 04/20/2021: Clarify storage block sizes for IBM Db2 with different Azure blockstorage in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
+- 04/20/2021: Clarify storage block sizes for IBM Db2 with different Azure block storage in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
 - 04/12/2021: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md), [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) and [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to add configuration instructions for SAP HANA system replication Python hook  
 - 04/12/2021: Replaced backup documentation for SAP HANA by documents of [SAP HANA backup/restore with Azure Backup service](../../../backup/sap-hana-db-about.md) 
 - 04/12/2021: Release of [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) configuration guide
@@ -164,4 +164,3 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - 03/11/2020: Change in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) to clarify multiple databases per DBMS instance support
 - March 11, 2020: Change in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) explaining Generation 1 and Generation 2 VMs
 - March 10, 2020: Change in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) to clarify real existing throughput limits of ANF
-
