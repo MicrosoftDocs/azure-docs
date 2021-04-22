@@ -88,31 +88,35 @@ This creates a migrate project and attaches a private endpoint to it.
 
 4. After the key is successfully generated, copy the key details to configure and register the appliance.   
 
-#### Download the appliance installer file
+#### Download the appliance installer file  
 
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
-To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance.
+To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance. After downloading the zipped file, verify the file security and run the installer script to deploy the appliance. 
+
+Here are the download links for each of the scenario with their hash values:
+
+Scenario | Download link | Hash value
+--- | --- | ---
+Hyper-V | [AzureMigrateInstaller-HyperV-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160557) | 17EFA01E3A7683F1CE2A08E3A9197A27D8BD2CC03C3AB5C6E00E4261A822BDB3
+Physical | [AzureMigrateInstaller-Physical-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160558) | 01028F92C2095452F2DDCB89986CDC1F177AAC58E150A5B219A69CF1B7DA3BE0
+VMware | [AzureMigrateInstaller-VMware-public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160648) | 66D3217AEC1DE51D84EC608B22BDDA605EC9C4FBAB06FC69FEC985886627C224
+VMware scale-out | [AzureMigrateInstaller-VMware-Public-Scaleout-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160811) | 42C1E8D5CF428E35E5B98E4E7465DD08439F0FD5C319340CE3E3ADC3DC1717A6
+
+#### Verify security
+
+Check that the zipped file is secure, before you deploy it.
+
+1. Open an administrator command window on the server to which you downloaded the file.
+2. Run the following command to generate the hash for the zipped file
+
+    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink.zip SHA256 ```
+
+3.  Verify the latest version of the appliance by comparing the hash values from the table above.
 
 Make sure the server meets the [hardware requirements](https://docs.microsoft.com/azure/migrate/migrate-appliance) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the required Azure URLs - [public](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) and [government](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity) clouds.
 
-After downloading the zipped file, verify the file security and run the installer script to deploy the appliance.
-
-#### Verify file security
-
-Check that the zipped file is secure before you deploy it.
-
-1. Open an administrator command window on the server to which you downloaded the file. 
-2. Run the following command to generate the hash for the zipped file
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-PrivateEndPoint.zip SHA256```
-3. Verify the latest appliance version and script for Azure public cloud:
-
-    **Algorithm** | **Download** | **SHA256**
-    --- | --- | ---
-    VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
-    Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
-    Physical or other (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
 
 #### Run the script
 
@@ -121,7 +125,7 @@ Check that the zipped file is secure before you deploy it.
 3. Change the PowerShell directory to the folder containing the contents extracted from the downloaded zipped file.
 4. Run the script **AzureMigrateInstaller.ps1**, as follows:
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink> .\AzureMigrateInstaller.ps1```
    
 5. After the script runs successfully, it launches the appliance configuration manager so that you can configure the appliance. If you encounter any issues, review the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 

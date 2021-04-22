@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 04/21/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -46,23 +46,23 @@ The following table maps the regions where you data is stored to the region wher
 | Storage region | Scanning region |
 | ------------------------------- | ------------------------------------- |
 | US East (Ohio)                  | US East (Ohio)                        |
-| US East (N. Virginia)           | US East (Ohio) or US East (N. Virginia)                       |
+| US East (N. Virginia)           | US East (N. Virginia)                       |
 | US West (N. California)         | US East (Ohio)                        |
 | US West (Oregon)                | US East (Ohio)                        |
 | Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Mumbai)           | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Osaka-Local)      | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Seoul)            | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Singapore)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Sydney)           | Europe (Frankfurt)  or Asia Pacific (Sydney)                  |
-| Asia Pacific (Tokyo)            | Europe (Frankfurt) or Asia Pacific (Sydney)                 |
+| Asia Pacific (Hong Kong)        | Asia Pacific (Sydney)                   |
+| Asia Pacific (Mumbai)           | Asia Pacific (Sydney)                   |
+| Asia Pacific (Osaka-Local)      | Asia Pacific (Sydney)                   |
+| Asia Pacific (Seoul)            | Asia Pacific (Sydney)                   |
+| Asia Pacific (Singapore)        | Asia Pacific (Sydney)                   |
+| Asia Pacific (Sydney)           | Asia Pacific (Sydney)                  |
+| Asia Pacific (Tokyo)            | Asia Pacific (Sydney)                 |
 | Canada (Central)                | US East (Ohio)                        |
 | China (Beijing)                 | Not supported                    |
 | China (Ningxia)                 | Not supported                   |
 | Europe (Frankfurt)              | Europe (Frankfurt)                    |
-| Europe (Ireland)                | Europe (Frankfurt) or Europe (Ireland)                   |
-| Europe (London)                 | Europe (Frankfurt) or Europe (Ireland)                   |
+| Europe (Ireland)                | Europe (Ireland)                   |
+| Europe (London)                 | Europe (Ireland)                   |
 | Europe (Milan)                  | Europe (Frankfurt)                    |
 | Europe (Paris)                  | Europe (Frankfurt)                    |
 | Europe (Stockholm)              | Europe (Frankfurt)                    |

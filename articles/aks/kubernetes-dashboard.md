@@ -204,8 +204,8 @@ For more information about the Kubernetes dashboard, see the [Kubernetes Web UI 
 [aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
-[az-account-get-access-token]: /cli/azure/account#az-account-get-access-token
-[az-aks-browse]: /cli/azure/aks#az-aks-browse
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-account-get-access-token]: /cli/azure/account#az_account_get-access-token
+[az-aks-browse]: /cli/azure/aks#az_aks_browse
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubernetes-portal]: ./kubernetes-portal.md

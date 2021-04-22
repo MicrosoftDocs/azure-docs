@@ -8205,7 +8205,7 @@ Perform any action on the certificates of a key vault, except manage permissions
 
 ### Key Vault Contributor
 
-Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. [Learn more](../key-vault/general/security-overview.md)
+Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. [Learn more](../key-vault/general/security-features.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
