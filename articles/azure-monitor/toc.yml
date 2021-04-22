@@ -1395,7 +1395,7 @@
       href: /cli/azure/azure-cli-reference-for-monitor
       displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: /cli/azure/ext/application-insights/monitor/app-insights
+      href: /cli/azure/monitor/app-insights
     - name: Activity Logs
       href: /cli/azure/monitor/activity-log
     - name: Log Analytics

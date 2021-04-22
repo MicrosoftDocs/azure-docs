@@ -1195,7 +1195,7 @@ items:
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/synapse/
+    href: /cli/azure/
   - name: Database collation types
     href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Go
