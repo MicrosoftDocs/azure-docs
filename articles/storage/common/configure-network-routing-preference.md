@@ -78,7 +78,7 @@ To change your routing preference to Internet routing:
 
    - To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-   - To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+   - To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az_login) command:
 
      ```azurecli
      az login
@@ -142,7 +142,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To configure a route-specific endpoint, use the [az storage account update](/azure/storage/account#az-storage-account-update) command. 
+1. To configure a route-specific endpoint, use the [az storage account update](/azure/storage/account#az_storage_account_update) command. 
 
    - To create a route-specific endpoint that uses the Microsoft network routing preference, set the `--publish-microsoft-endpoints` parameter to `true`. 
 

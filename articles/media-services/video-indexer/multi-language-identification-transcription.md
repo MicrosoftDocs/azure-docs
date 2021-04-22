@@ -35,7 +35,7 @@ You can choose **multi-language detection** when uploading and indexing your vid
 
 ## Choosing multilingual identification on indexing with API
 
-When indexing or [reindexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
+When indexing or [reindexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
 
 ### Model output
 

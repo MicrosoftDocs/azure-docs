@@ -17,6 +17,11 @@ ms.author: wellsi
 
 The following sections list changes in the most recent releases.
 
+## Speech Devices SDK 1.16.0:
+
+- Fixed [Github issue #22](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues/22).
+- Updated the [Speech SDK](./speech-sdk.md) component to version 1.16.0. For more information, see its [release notes](./releasenotes.md).
+
 ## Speech Devices SDK 1.15.0:
 
 - Upgraded to new Microsoft Audio Stack (MAS) with improved beamforming and noise reduction for speech.

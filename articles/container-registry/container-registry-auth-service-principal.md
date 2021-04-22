@@ -50,7 +50,7 @@ Once you have a service principal that you've granted access to your container r
 Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.
+> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
 >
 
 ### Use credentials with Azure services
@@ -101,6 +101,6 @@ The CLI uses the token created when you ran `az login` to authenticate your sess
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-login]: /cli/azure/reference-index#az_login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

@@ -138,11 +138,9 @@ For integers passed as inline parameters, the range of values may be limited by 
 
 Objects start with a left brace (`{`) and end with a right brace (`}`). Each property in an object consists of key and value. The key and value are separated by a colon (`:`).
 
-In JSON, the key is enclosed in double quotes. Each property is separated by a comma.
-
-In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
-
 # [JSON](#tab/json)
+
+In JSON, the key is enclosed in double quotes. Each property is separated by a comma.
 
 ```json
 "parameters": {
@@ -160,6 +158,8 @@ In Bicep, the key isn't enclosed by quotes. Don't use commas to between properti
 
 # [Bicep](#tab/bicep)
 
+In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
+
 ```bicep
 param exampleObject object = {
   name: 'test name'
@@ -168,6 +168,22 @@ param exampleObject object = {
   tier: 1
 }
 ```
+
+Property accessors are used to access properties of an object. They are constructed using the `.` operator. For example:
+
+```bicep
+var x = {
+  y: {
+    z: 'Hello`
+    a: true
+  }
+  q: 42
+}
+```
+
+Given the previous declaration, the expression x.y.z evaluates to the literal string 'Hello'. Similarly, the expression x.q evaluates to the integer literal 42.
+
+Property accessors can be used with any object. This includes parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
 
 ---
 

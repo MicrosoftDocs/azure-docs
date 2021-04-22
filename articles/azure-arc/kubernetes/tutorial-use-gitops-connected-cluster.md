@@ -6,7 +6,7 @@ ms.author: shasb
 ms.service: azure-arc
 ms.topic: tutorial 
 ms.date: 03/02/2021
-ms.custom: template-tutorial 
+ms.custom: template-tutorial , devx-track-azurecli
 ---
 
 # Tutorial: Deploy configurations using GitOps on an Azure Arc enabled Kubernetes cluster 

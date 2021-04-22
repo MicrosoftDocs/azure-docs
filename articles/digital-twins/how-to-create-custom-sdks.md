@@ -65,12 +65,12 @@ Here are the steps:
 
 1. Create a new Visual Studio solution for a class library
 2. Use *DigitalTwinsApi* as the project name
-3. In Solutions Explorer, right-select the *DigitalTwinsApi* project of the generated solution and choose *Add > Existing Item...*
+3. In Solution Explorer, right-select the *DigitalTwinsApi* project of the generated solution and choose *Add > Existing Item...*
 4. Find the folder where you generated the SDK, and select the files at the root level
 5. Press "Ok"
 6. Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)
 7. Name the folder *Models*
-8. Right-select the *Models* folder in Solutions Explorer and select *Add > Existing Item...*
+8. Right-select the *Models* folder in Solution Explorer and select *Add > Existing Item...*
 9. Select the files in the *Models* folder of the generated SDK and press "Ok"
 
 To build the SDK successfully, your project will need these references:
