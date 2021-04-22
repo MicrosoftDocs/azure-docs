@@ -31,7 +31,7 @@ After completing the steps in this guide, you'll be able to run a simulated live
 > [!TIP]
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 >
-> If you run into issues with Azure resources that get created, please view our [troubleshooting guide](troubleshoot-how-to.md#common-error-resolutions) to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our [troubleshooting guide](troubleshoot.md#common-error-resolutions) to resolve some commonly encountered issues.
 
 ## Review the video sample
 

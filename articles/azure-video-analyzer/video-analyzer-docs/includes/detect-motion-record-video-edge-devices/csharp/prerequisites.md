@@ -26,5 +26,5 @@ ms.author: juliako
     * [Prepare to monitor events]()<!--add a link-->
         
     > [!TIP]
-    > If you run into issues with Azure resources that get created, please view our [troubleshooting guide](../../../troubleshoot-how-to.md) to resolve some commonly encountered issues.
+    > If you run into issues with Azure resources that get created, please view our [troubleshooting guide](../../../troubleshoot.md) to resolve some commonly encountered issues.
     
