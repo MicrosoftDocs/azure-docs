@@ -238,7 +238,7 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
    > [!NOTE]
    > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
-   ![custom domain option](./media/storage-custom-domain-name/custom-domain-button.png "custom domain")
+   ![networking option](./media/storage-custom-domain-name/networking-button.png "networking")
 
    The **Custom domain** pane opens.
 
