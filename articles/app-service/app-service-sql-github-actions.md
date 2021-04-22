@@ -1,9 +1,10 @@
 ---
 title: 'Tutorial: Use GitHub Actions to deploy to App Service for Containers and connect to a database'
-description: Learn how to deploy a C# ASP.NET app to Azure and to Azure SQL Database
+description: Learn how to deploy an ASP.NET core app to Azure and to Azure SQL Database with GitHub Actions
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/22/2021
+ms.author: juliakm
 ms.custom: github-actions-azure
 ---
 
@@ -24,14 +25,19 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
-If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
+    - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+
 
 ## Download the sample
 
-1. [Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+1. [Download the sample project](https://github.com/Azure-Samples/dotnetcore-containerized-sqldb-ghactions/archive/refs/heads/main.zip).
 
-1. Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
+1. Extract (unzip) the  *dotnetcore-containerized-sqldb-ghactions.zip* file.
 
-The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) create-read-update-delete (CRUD) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+[!INCLUDE [deployment credentials](includes/github-actions-deployment-creds.md)]
+
+## Add resources
+
