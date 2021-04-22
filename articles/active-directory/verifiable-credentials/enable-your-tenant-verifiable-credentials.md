@@ -180,9 +180,11 @@ Lets make a few modifications so this verifiable credential looks visibly differ
         "issuedBy": "Your Issuer Name",
         "backgroundColor": "#ffffff",
         "textColor": "#000000",
+      }
 ```
 
 Save these changes.
+
 ## Create a storage account
 
 Before creating our first verifiable credential, we need to create a Blob Storage container that can hold our configuration and rules files.
