@@ -11,7 +11,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 This quickstart shows you how to use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 
-This article is based on sample code written in C#. It builds on the [Detect motion and emit events]()<!--add link--> quickstart.
+This article is based on sample code written in C#. It builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Complete the following steps to use Azure Video Analyzer on IoT Edge to detect t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/detect-motion-record-video-edge-devices/overview.png" alt-text="Publish associated inference events to IoT Edge Hub":::
 
-The preceding diagram shows how the signals flow in this quickstart. An [edge module]()<!--add a link--> simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]()<!--add a link--> node pulls the video feed from this server and sends video frames to the [motion detection]()<!--add a link--> processor node. The RTSP source sends the same video frames to a [signal gate processor]()<!--add a link--> node, which remains closed until it's triggered by an event.
+The preceding diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]()<!--add a link--> node pulls the video feed from this server and sends video frames to the [motion detection]()<!--add a link--> processor node. The RTSP source sends the same video frames to a [signal gate processor]()<!--add a link--> node, which remains closed until it's triggered by an event.
 
 When the motion detection processor detects motion in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink]()<!--add a link--> node. This sink node records the video as an MP4 file on the local file system of your edge device. The file is saved in the configured location.
 
