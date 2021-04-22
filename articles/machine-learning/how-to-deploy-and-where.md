@@ -81,11 +81,14 @@ A registered model is a directory (folder) that is uploaded to your workspace's 
 
 The following examples demonstrate how to register a model.
 
+[!INCLUDE [trusted models](../../includes/machine-learning-service-trusted-model.md)]
+
 # [Azure CLI](#tab/azcli)
 
 ### Register a model from a local file
 
 ```azurecli-interactive
+wget https://aka.ms/bidaf-9-model -o model.onnx
 az ml model register -n bidaf_onnx -p ./model.onnx
 ```
 
@@ -111,8 +114,6 @@ For more information on `az ml model register`, consult the [reference documenta
 
 You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file on your local machine.
 
-[!INCLUDE [trusted models](../../includes/machine-learning-service-trusted-model.md)]
-
 + **Using the SDK and ONNX**
 
     ```python
@@ -126,7 +127,7 @@ You can register a model by providing the local path of the model. You can provi
     model = Model.register(ws, model_name='bidaf_onnx', model_path='./model.onnx')
     ```
 
-  To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files.
+To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files.
 
 For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model).
 
@@ -216,6 +217,8 @@ A minimal inference configuration can be written as:
     }
 }
 ```
+
+Save this file with the name `inferenceconfig.json`.
 
 This specifies that the machine learning deployment will use the file `echo_score.py` in the `./source_dir` directory to process incoming requests and that it will use the Docker image with the Python packages specified in the `project_environment` environment.
 
@@ -338,6 +341,7 @@ def preprocess(word):
     chars = np.asarray(chars).reshape(-1, 1, 1, 16)
     return words, chars
 ```
+Save this file as `score.py` inside of `source_dir`.
 
 Notice the use of the `AZUREML_MODEL_DIR` environment variable to locate your registered model. Now that you've added some pip packages, you also need to update your inference configuration to add in those additional packages:
 
@@ -438,9 +442,7 @@ Refer to the below diagram when choosing a compute target.
 
 [![How to choose a compute target](./media/how-to-deploy-and-where/how-to-choose-target.png)](././media/how-to-deploy-and-where/how-to-choose-target.png#lightbox)
 
-
-In summary, use Azure Container Instances for dev/test deployments or Azure Kubernetes Service for high-availability production workloads.
-
+[!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
 ## Re-deploy to cloud
 
@@ -466,6 +468,8 @@ The options available for a deployment configuration differ depending on the com
 }
 
 ```
+Save this file as `deploymentconfig.json`.
+
 For more information, see [this reference](./reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
 # [Python](#tab/python)
@@ -485,31 +489,32 @@ Deploy your service again:
 
 ## Call your remote webservice
 
-```python
+When you deploy remotely, you may have key authentication enabled. The example below shows how to get your service key with Python in order to make an inference request.
 
+```python
 import requests
 import json
 from azureml.core import Webservice
 
 service = Webservice(workspace=ws, name='myservice')
-# URL for the web service
 scoring_uri = service.scoring_uri
+
 # If the service is authenticated, set the key or token
 primary_key, _ = service.get_keys()
 
-data = {"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}
-data = json.dumps(data)
-
-# Set the content type
+# Set the appropriate headers
 headers = {'Content-Type': 'application/json'}
-# If authentication is enabled, set the authorization header
 headers['Authorization'] = f'Bearer {key}'
 
-# Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers=headers)
+# Make the request and display the response and logs
+data = {"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}
+data = json.dumps(data)
+resp = requests.post(scoring_uri, data=data, headers=headers)
 print(resp.text)
 print(service.get_logs())
 ```
+
+See the article on [client applications to consume web services](how-to-consume-web-service.md) for more example clients in other languages.
 
 ### Understanding service state
 
@@ -536,11 +541,6 @@ The following table describes the different service states:
 >
 > If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 
-### <a id="azuremlcompute"></a> Batch inference
-Azure Machine Learning Compute targets are created and managed by Azure Machine Learning. They can be used for batch prediction from Azure Machine Learning pipelines.
-
-For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](tutorial-pipeline-batch-scoring-classification.md).
-
 ## Delete resources
 
 # [Azure CLI](#tab/azcli)
@@ -563,12 +563,8 @@ For more information, see the documentation for [WebService.delete()](/python/ap
 ## Next steps
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
-* [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [One click deployment for automated ML runs in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)

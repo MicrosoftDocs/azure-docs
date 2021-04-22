@@ -14,7 +14,7 @@ Replace "bidaf_onnx:1" with the name of your model and its version number.
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m bidaf_onnx:1 --ic inferenceconfig.json --dc deploymentconfig.json
-
+az ml service get-logs -n myservice
 ```
 
 # [Python](#tab/python)

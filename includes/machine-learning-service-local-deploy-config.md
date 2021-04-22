@@ -21,3 +21,5 @@ This JSON is an example deployment configuration for use with the CLI:
     "port": 32267
 }
 ```
+
+Save this JSON as a file called `deploymentconfig.json`.
