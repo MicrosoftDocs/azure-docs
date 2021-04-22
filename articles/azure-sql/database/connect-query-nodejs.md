@@ -110,6 +110,7 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
     };
     
     /* 
+        //Use Azure VM Managed Identity to coonect to the SQL database
         const connection = new Connection({
         server: process.env["db_server"],
         authentication: {
@@ -121,7 +122,7 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
             port: 1433
         }
     });
-
+        //Use Azure App Service Managed Identity to coonect to the SQL database
         const connection = new Connection({
         server: process.env["db_server"],
         authentication: {
