@@ -11,9 +11,10 @@ ms.author: copeters
 ms.date: 05/24/2021
 ---
 
-# Train models (create jobs) with the Azure Machine Learning CLI
+# Train models (create jobs) with the new Azure Machine Learning CLI
 
 Training a machine learning model is generally an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated.
+
 
 The Azure CLI extension for Machine Learning enables you to accelerate the iterative model training process while easily scaling up and out on Azure compute.
 
@@ -34,19 +35,19 @@ The Azure CLI extension for Machine Learning enables you to accelerate the itera
 
 For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggregates:
 
-- what to run
-- how to run it
-- where to run it
+- What to run
+- How to run it
+- Where to run it
 
-The simples "hello world" job has all three:
+The simple "hello world" job has all three:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
 
-But it is not a useful job. It does not produce anything other than a line in the log file. While jobs which only print out information to logs can be useful, typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to logs.
+But it's not a useful job since it doesn't produce anything other than a line in the log file. While jobs which only print out information to logs can be useful, typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to logs.
 
 Artifacts produced by an Azure Machine Learning job which should be retained should be written to the special `./outputs` directory from the job.
 
-Additionally, you can use mlflow logging, including `mlflow.autolog()` for a number of common machine learning frameworks. This will generally log model parameters, performance metrics, model artifacts in the mlfow model format, and sometimes even feature importance graphs. Additional metrics, parameters, or artifacts logged through mlflow are kept with the job.
+Additionally, you can use MLflow logging, including `mlflow.autolog()` for a number of common machine learning frameworks. This will generally log model parameters, performance metrics, model artifacts, and even feature importance graphs. Additional metrics, parameters, or artifacts logged through `mlflow.log*` are kept with the job.
 
 Often, a job involves running some source code which is edited and controlled locally. You can specify `code` to include in the job - the `command` then runs with that as the source directory.
 
@@ -82,9 +83,7 @@ Use `az ml compute create -h` or refer to the reference documentation for more d
 
 ## Basic Python job
 
-With `cpu-cluster` created, you can run the basic LightGBM on Iris job. Let's review the job YAML file again:
-
-YAML file:
+With `cpu-cluster` created, you can run the basic LightGBM on Iris job. Let's review the job YAML file in detail:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
@@ -94,15 +93,15 @@ YAML file:
 
 `command:` specifies the command to execute. The `>- ` convention allows for easily authoring multiline commands. Inputs can be written into the command or inferred from other sections, specifically `inputs` or `search_space`.
 
-`inputs:` specifies the data inputs. This can be an existing Azure Machine Learning data assets by using the `azureml:` prefix, for instance `azureml:iris-url:1` would point to version 1 of a dataset named "iris-url". Data can be uploaded from the local filesystem or point to existing cloud resources.
+`inputs:` specifies the data inputs. This can be existing Azure Machine Learning data assets by using the `azureml:` prefix, for instance `azureml:iris-url:1` would point to version 1 of a dataset named "iris-url". Data can be uploaded from the local file system or point to existing cloud resources. An input can be referred to in the command by its name like `{inputs.my_input_name}`.
 
-`environment:` specifies the environment to execute the command on the compute target with. It generally consists of a docker context. You can also refer to an existing register environment, or one of Azure ML's curated environments, using the `azureml:` prefix, for instance `azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1` would refer to version 1 of a curated environment for tensorflow on GPUs.
+`environment:` specifies the environment to execute the command on the compute target with. It generally consists of a docker context. You can also refer to an existing registered environment, or one of Azure ML's curated environments, using the `azureml:` prefix. For instance `azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1` would refer to version 1 of a curated environment for tensorflow on GPUs.
 
-![IMPORTANT] Python must be installed in the environment.
+[!IMPORTANT] Python must be installed in the environment. Run `apt-get update -y && apt-get install python3 -y` in your dockerfile to install if needed.
 
 `compute:/target:` specifies the compute target. It can be `local` for local execution, or use the `azureml:` prefix. For instance, `azureml:cpu-cluster` would point to a compute target named "cpu-cluster".
 
-`experiment_name:` tags the job for better organization in the studio - it will default to the name of the working directory when the job is created.
+`experiment_name:` tags the job for better organization in the Azure Machine Learning studio - it will default to the name of the working directory when the job is created.
 
 Creating this job uploads any specified local assets, like the source code directory, validates the YAML file, and if this succeeds submits the run. If needed, the environment is built, then the compute is scaled up and configured for running the job.
 
@@ -130,6 +129,12 @@ This will download the logs and any captured artifacts locally in a directory na
 
 ## Sweeping hyperparameters
 
+Often after training...
+
+Let's see how we can modify the `job.yml` from before to now sweep over hyperparameters:
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
+
 `$schema:` notice this has changed and now points to a sweep job schema, which refers to the command job schema under `trial:`.
 
 `type:` specifies the job type.
@@ -150,10 +155,6 @@ This will download the logs and any captured artifacts locally in a directory na
 
 A sweep job can be specified for searching hyperparameters used in the command.
 
-YAML file:
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
-
 Create job:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
@@ -164,7 +165,7 @@ Show in studio:
 
 ## Distributed training
 
-You can specify the `distributed:` section in a command job, which currently supports: PyTorch, Tensorflow, and MPI.
+You can specify the `distributed:` section in a command job, which currently supports: PyTorch, TensorFlow, and MPI.
 
 PyTorch and Tensorflow respectively enable native distributed training from the frameworks, for instance using `tf.distributed.Strategy` APIs.
 
@@ -196,9 +197,9 @@ Create the job:
 
 ### MPI
 
-Azure ML supports launching an MPI job across multiple nodes and multiple processes per node. It launches the job via mpirun. If your training code uses the Horovod framework for distributed training, for example, you can leverage this job type to train on Azure ML.
+Azure ML supports launching an MPI job across multiple nodes and multiple processes per node. It launches the job via `mpirun`. If your training code uses the Horovod framework for distributed training, for example, you can leverage this job type to train on Azure ML.
 
-To launch an MPI job, specify type: mpi and the number of processes per node to launch (process_count_per_instance) in the distribution section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the node_count field in the compute section.
+To launch an MPI job, specify type: mpi and the number of processes per node to launch (`process_count_per_instance`) in the `distribution:` section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the `node_count` field in the `compute:` section.
 
 An example YAML specification, which runs a tensorflow job using horovod:
 
