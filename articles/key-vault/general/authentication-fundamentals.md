@@ -1,9 +1,9 @@
 ---
 title: Azure Key Vault authentication fundamentals
 description: Learn about how key vault's authentication model works
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 09/25/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 04/15/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -99,7 +99,7 @@ However, classic access policies do not allow per-object level permissions, and 
 > [!IMPORTANT]
 > Classic key vault access policies and Azure Active Directory role assignments are independent of each other. Assigning a security principal a ‘Contributor’ role at a subscription level will not automatically allow the security principal the ability to perform data-plane operations on every key vault within the scope of the subscription. The security principal must still must be granted, or grant themselves access policy permissions to perform data plane operations.
 
-### Data Plane Access Option 2:  Azure RBAC for Key Vault (Preview)
+### Data Plane Access Option 2:  Azure RBAC for Key Vault
 
 A new way to grant access to the key vault data plane is through Azure role-based access control (Azure RBAC) for key vault.
 
@@ -114,7 +114,7 @@ Key Vault role assignments are a set of Azure built-in role assignments that enc
 
 To learn more about Azure RBAC for Key Vault, see the following documents:
 
-* Azure RBAC for Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Azure RBAC for Key Vault [link](rbac-guide.md)
 * Azure RBAC for Key Vault roles [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator)
 
 ## Configure Key Vault Firewall
