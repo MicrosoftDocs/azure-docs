@@ -28507,12 +28507,22 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-azure-container-offer.md",
-      "redirect_url": "/azure/marketplace/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-azure-container-offer.md",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-azure-container-technical-assets.md",
-      "redirect_url": "/azure/marketplace/create-azure-container-technical-assets",
+      "redirect_url": "/azure/marketplace/azure-container-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-azure-container-technical-assets.md",
+      "redirect_url": "/azure/marketplace/azure-container-technical-assets",
       "redirect_document_id": false
     },
     {
@@ -29102,52 +29112,52 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-containers-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/containers/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_url": "/azure/marketplace/azure-container-offer-setup",
       "redirect_document_id": false
     },
     {
