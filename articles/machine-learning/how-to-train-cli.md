@@ -199,7 +199,7 @@ Create the job:
 
 Azure ML supports launching an MPI job across multiple nodes and multiple processes per node. It launches the job via `mpirun`. If your training code uses the Horovod framework for distributed training, for example, you can leverage this job type to train on Azure ML.
 
-To launch an MPI job, specify type: mpi and the number of processes per node to launch (`process_count_per_instance`) in the `distribution:` section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the `node_count` field in the `compute:` section.
+To launch an MPI job, specify `mpi` as the type and the number of processes per node to launch (`process_count_per_instance`) in the `distribution:` section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the `node_count` field in the `compute:` section.
 
 An example YAML specification, which runs a TensorFlow job on MNIST using Horovod:
 
