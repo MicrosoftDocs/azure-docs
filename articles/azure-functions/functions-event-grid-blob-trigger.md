@@ -20,7 +20,7 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 - Create or use an existing function app
 - Create or use an existing storage account
 - Have version 5.0+ of the [Microsoft.Azure.WebJobs.Extensions.Storage extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2) installed
-- Have a version of the [Event Grid extension](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid) installed
+- Have version 2.1.0+ of the [Event Grid extension](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid) installed
 - Download [ngrok](https://ngrok.com/) to allow Azure to call your local function
 
 ## Create a new function
@@ -29,13 +29,13 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 
 1. **Press F1** to create a new blob trigger function. Make sure to use the connection string for your storage account.
 
-1. The default url for your event grid based blob trigger is:
+1. The default url for your event grid blob trigger is:
 
     ```http
     http://localhost:7071/runtime/webhooks/blobs?functionName={functionname}
     ```
 
-    Please note your function app's name and that the trigger type is a blob trigger which is indicated by `blobs` in the url. This will be needed when setting up endpoints later in the how to guide.
+    Note your function app's name and that the trigger type is a blob trigger, which is indicated by `blobs` in the url. This will be needed when setting up endpoints later in the how to guide.
 
 1. Once the function is created, add the Event Grid source parameter.
 
