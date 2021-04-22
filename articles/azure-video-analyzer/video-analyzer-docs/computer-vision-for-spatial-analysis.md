@@ -21,6 +21,7 @@ In this tutorial you will:
 
   > [!NOTE]
   > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions. 
+
 ## Suggested pre-reading
 
 Read these articles before you begin:
@@ -28,7 +29,7 @@ Read these articles before you begin:
 * [Video Analyzer overview](overview.md)
 * [Video Analyzer on IoT Edge terminology](terminology.md)
 * [Pipeline concepts](pipeline.md)
-* [Event-based video recording](event-based-video-recording-concept.md)
+* [Event-based video recording](event-based-video-recording-tutorial.md)
 * [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
 * [Deploy Azure Video Analyzer on Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
@@ -39,7 +40,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 	* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 * [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration.  
-    We recommend that you use Azure Stack Edge with GPU acceleration, however the container runs on any other device with an [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). 
+    We recommend that you use Azure Stack Edge with GPU acceleration, however the container runs on any other device with an [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/). 
 * [Azure Cognitive Service Computer Vision container](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for spatial analysis.  
     In order to use this container, you must have a Computer Vision resource to get the associated **API key** and an **endpoint URI**. The API key is available on the Azure portal's Computer Vision Overview and Keys pages. The key and endpoint are required to start the container.
 
@@ -47,15 +48,15 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/overview.png" alt-text="Spatial Analysis overview":::
->
-> ![Spatial Analysis overview](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/overview.png)
->
-> This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
+
+<!--JK > ![Spatial Analysis overview](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/overview.png)-->
+
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
 
 The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The `CognitiveServicesVisionProcessor` node does two things:
 
-* It gathers the results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
-* It also captures a 30 second video clip from the RTSP source using a [signal gate processor](media-graph-concept.md#signal-gate-processor) and stores it as a Video file.
+* It gathers the results and publishes events to the [IoT Hub sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
+* It also captures a 30 second video clip from the RTSP source using a [signal gate processor](pipeline.md#signal-gate-processor) and stores it as a Video file.
 
 ## Create the Computer Vision resource
 
@@ -65,14 +66,14 @@ You need to create an Azure resource of type Computer Vision either on [Azure po
 
 There are three primary parameters for all Cognitive Services' containers that are required, including the spatialanalysis container. The end-user license agreement (EULA) must be present with a value of accept. Additionally, both an Endpoint URI and API Key are needed.
 
-### Keys and Endpoint URI
+### Keys and endpoint URI
 
 A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
 >
-> ![Endpoint URI](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png)
+<!--JK > ![Endpoint URI](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png) -->
 
 ## Set up Azure Stack Edge
 
@@ -81,19 +82,15 @@ Follow [these steps](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) t
 ## Set up your development environment
 
 1. Clone the repo from this location: [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
-
 1. In Visual Studio Code, open the folder where the repo has been downloaded.
-
 1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder. There, create a file and name it *appsettings.json*. This file will contain the settings needed to run the program.
-
 1. Get the `IotHubConnectionString` from the Azure Stack Edge by following these steps:
 
     * go to your IoT Hub in Azure portal and click on `Shared access policies` in the left navigation pane.
     * Click on `iothubowner` get the shared access keys.
     * Copy the  `Connection String – primary key` and paste it in the input box on the VSCode.
     
-        The connection string will look like: <br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
-    
+        The connection string will look like: <br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`   
 1. Copy the below contents into the file. Make sure you replace the variables.
    
     ```json
@@ -102,10 +99,8 @@ Follow [these steps](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) t
         "deviceId" : "<your Azure Stack Edge name>",
         "moduleId" : "avaEdge"
     } 
-    ```
-    
+    ``` 
 1. Go to the src/edge folder and create a file named .env.
-
 1. Copy the contents of the .env file from Azure portal. The text should look like the following code.
 
     ```env
@@ -142,7 +137,7 @@ There are a few things you need to pay attention to in the deployment template f
 
     1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample bulldozer video file](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) to the Local share.  
        
-        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
+        > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Mesi]  
     1. See that the rtspsim module has the following configuration:
         ```
         "createOptions": {
@@ -178,23 +173,23 @@ Follow these steps to generate the manifest from the template file and then depl
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Spatial Analysis: connection string":::
     >
-    > ![Spatial Analysis: connection string](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/connection-string.png)
+    <!-- > ![Spatial Analysis: connection string](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/connection-string.png)-->
 1. Right-click `src/edge/deployment.spatialAnalysis.template.json` and select Generate IoT Edge Deployment Manifest.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Spatial Analysis: deployment amd64 json":::
-    >
-    > ![Spatial Analysis: deployment amd64 json](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-template-json.png)
     
-    This action should create a manifest file named `deployment.spatialAnalysis.amd64.json` in the src/edge/config folder.
+  <!--JK  > ![Spatial Analysis: deployment amd64 json](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-template-json.png)-->
+  
+   This action should create a manifest file named `deployment.spatialAnalysis.amd64.json` in the src/edge/config folder.
 1. Right-click `src/edge/config/deployment.spatialAnalysis.amd64.json`, select **Create Deployment for Single Device**, and then select the name of your edge device.
    
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Spatial Analysis: deployment template json":::   
     >
-    > ![Spatial Analysis: deployment template json](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-amd64-json.png)
+   <!--JK > ![Spatial Analysis: deployment template json](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-amd64-json.png) -->
 1. At the top of the page,  you will be prompted to select an IoT Hub device, choose your Azure Stack Edge name from the drop-down menu.
-1. After about 30 seconds, in the lower-left corner of the window, refresh **Azure IoT Hub**. The edge device now shows the following deployed modules:
+1. After about 30-seconds, in the lower-left corner of the window, refresh **Azure IoT Hub**. The edge device now shows the following deployed modules:
    
     * Azure Video Analyzer (module name **avaedge**).
     * Real-Time Streaming Protocol (RTSP) simulator (module name rtspsim).
@@ -220,13 +215,13 @@ To see these events, follow these steps:
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
     >
-    > ![Extension Settings](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png)
+  <!--JK  > ![Extension Settings](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png)-->
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
     >
-    > ![Show Verbose Message](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png)
+  <!--JK  > ![Show Verbose Message](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png) -->
 1. Open the Explorer pane and look for Azure IoT Hub in the lower-left corner.
 1. Expand the Devices node.
 1. Right-click on your Azure Stack Edge and select Start Monitoring Built-in Event Endpoint.
@@ -234,7 +229,7 @@ To see these events, follow these steps:
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Spatial Analysis: start monitoring":::
     >
-    > ![Spatial Analysis: start monitoring](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/start-monitoring.png)
+ <!--JK   > ![Spatial Analysis: start monitoring](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/start-monitoring.png) -->
     
 ## Run the program
 
@@ -282,8 +277,8 @@ In operations.json:
 },
 ```
 
->[!Note]
->Check out the use of `CognitiveServicesVisionExtension` to connect with spatialanalysis module. Set the ${grpcUrl} to **tcp://spatialAnalysis:<PORT_NUMBER>**, e.g. tcp://spatialAnalysis:50051
+> [!Note]
+> Check out the use of `CognitiveServicesVisionExtension` to connect with spatialanalysis module. Set the ${grpcUrl} to **tcp://spatialAnalysis:<PORT_NUMBER>**, for example, tcp://spatialAnalysis:50051
 
 ```json
 {
@@ -385,10 +380,13 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 ```
 
 ## Operations:
+
 ### Person Zone Crossing
+
 #### Parameters:
+
 | Name    | Type   | Description   |   |   |
-|---------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+|---------|--------|---------------|---|---|
 | zones   | list   | List of zones.|   |   |
 | name    | string | Friendly name for this zone.|   |   |
 | polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |   |   |
@@ -399,6 +397,7 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 | detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|   |   |
 
 #### Output:
+
 ```json
 {
   "timestamp": 145666725597833,
@@ -444,16 +443,18 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
   ]
 }
 ```
+
 ### More operations:
+
 <details>
   <summary>Click to expand</summary>
 
-
-
 ### Person Line Crossing
+
 #### Parameters:
+
 | Name    | Type   | Description   |   |   |
-|---------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+|---------|--------|---------------|---|---|
 | lines   | list   | List of lines.|   |   |
 | name    | string | Friendly name for this line.|   |   |
 | line | string | Each value pair represents the starting and ending point of the line. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |   |   |
@@ -512,9 +513,11 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 
 ### Person Distance
+
 #### Parameters:
+
 | Name    | Type   | Description    |   |   |
-|---------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+|---------|--------|----------------|---|---|
 | zones   | list   | List of zones.|   |   |
 | name    | string | Friendly name for this zone.|   |   |
 | polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |   |   |
@@ -555,9 +558,11 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 
 ### Person Count
+
 #### Parameters:
+
 | Name    | Type   | Description  |   |   |
-|---------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+|---------|--------|--------------|---|---|
 | zones   | list   | List of zones.|   |   |
 | name    | string | Friendly name for this zone.|   |   |
 | polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |   |   |
@@ -615,9 +620,11 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 
 ### Custom
+
 #### Parameters:
+
 | Name    | Type   | Description   |   |   |
-|---------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+|---------|--------|---------------|---|---|
 | extensionConfiguration   | string   | JSON representation of the operation.|   |   |
 
 #### Output:
@@ -669,6 +676,7 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 ## Shaka Viewer
 You can use the Shaka viewer to view the generated video including the inferences (bounding boxes) as shown below:
+
 ![Image](./assets/inference.png)
 
 ## Troubleshooting
@@ -759,17 +767,17 @@ The spatialanalysis is a large container and its startup time can take up to 60 
 }
 ```
 
-**Note:** The team is currently working on reducing the startup time.
-
 ## Next steps
 
 Try different operations that the `spatialAnalysis` module offers, please refer to the following pipelineTopologies: 
 
+<!--JK
 1. [personCount](PersonCountOperation.json)
 2. [personDistance](PersonDistanceOperation.json)
 3. [personCrossingLine](PersonCrossingLineOperation.json)
 4. [customOperation](CustomOperation.json)
 5. [personZoneCrossing](PersonZoneCrossing.json)
+-->
 
->[!Tip]
->Use a [sample video file](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv) that has more than one person in the frame.
+> [!Tip]
+> Use a [sample video file](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv) that has more than one person in the frame.
