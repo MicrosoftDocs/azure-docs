@@ -272,7 +272,7 @@ If the **session timeout** is too aggressive for your availability group environ
 | 35201 | A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance. |
 | 35206 | A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. 
 
-If the **Maximum Failures in the Specified Period**
+If the **Maximum Failures in the Specified Period** value is too low and you're experiencing intermittent failures due to transient issues, your availability group could end in a failed state. Increase this value to tolerate more transient failures. 
 
 | Message ID | Description |
 |-|-|
