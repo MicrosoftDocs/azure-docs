@@ -73,14 +73,14 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 + **Track experiments**
 
-  Learn how to [track and visualize data science experiments](tutorial-first-experiment-automated-ml.md) in the studio. 
+  Learn how to [track and visualize data science experiments](how-to-track-monitor-analyze-runs.md) in the studio. 
 
-    ![Run details in Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-history.png" alt-text="Run details in Azure Machine Learning studio":::
 
 
 + **And much more...**
 
-  Visit Azure Machine Learning studio at [ml.azure.com](https://studio.azureml.net). 
+  Visit Azure Machine Learning studio at [ml.azure.com](https://studio.azureml.net).
 
 
 ## MLOps: Deploy & lifecycle management

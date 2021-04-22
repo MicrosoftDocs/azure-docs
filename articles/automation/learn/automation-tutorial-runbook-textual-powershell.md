@@ -5,7 +5,8 @@ keywords: azure powershell, powershell script tutorial, powershell automation
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
-ms.topic: tutorial
+ms.topic: tutorial 
+ms.custom: devx-track-azurepowershell
 ---
 # Tutorial: Create a PowerShell runbook
 

@@ -1,8 +1,8 @@
 ---
 title: Use IoT Plug and Play on constrained devices | Microsoft Docs
 description: Learn how you can implement IoT Plug and Play on constrained devices using either the SDK for Embedded C or Azure RTOS.
-author: elhorton
-ms.author: elhorton
+author: EliotSeattle
+ms.author: eliotgra
 ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp

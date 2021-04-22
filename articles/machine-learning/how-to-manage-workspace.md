@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/30/2020
-ms.topic: conceptual
-ms.custom: how-to, fasttrack-edit
+ms.topic: how-to
+ms.custom: fasttrack-edit
 
 ---
 

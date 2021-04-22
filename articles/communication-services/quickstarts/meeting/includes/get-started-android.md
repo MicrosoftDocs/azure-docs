@@ -36,7 +36,7 @@ Name the project `TeamsEmbedAndroidGettingStarted`, set language to java and sel
 
 ### Install the Azure package
 
-In your app level build.gradle add the following lines to the dependencies and android sections
+In your app level (**app folder**) `build.gradle` add the following lines to the dependencies and android sections
 
 ```groovy
 android {
@@ -57,9 +57,9 @@ dependencies {
 
 ### Install the Teams Embed package
 
-Download the `MicrosoftTeamsSDK` package.
+Download the [`MicrosoftTeamsSDK` package.](https://github.com/Azure/communication-teams-embed/releases)
 
-Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
+Then unzip the `MicrosoftTeamsSDK` folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
 ### Add Teams Embed package to your build.gradle
 

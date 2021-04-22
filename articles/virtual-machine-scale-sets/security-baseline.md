@@ -305,7 +305,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/logs/get-started-portal)
+- [Understand Log Analytics Workspace](/azure/azure-monitor/logs/get-started-queries)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
@@ -507,7 +507,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-- [How to monitor virtual machines in Azure](/azure/azure-monitor/vm/monitor-vm-azur)
+- [How to monitor virtual machines in Azure](/azure/azure-monitor/vm/monitor-vm-azure)
 
 **Responsibility**: Customer
 
