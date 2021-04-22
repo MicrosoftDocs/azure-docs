@@ -77,7 +77,7 @@
         - name: Synapse Link use cases
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
-          href: synapse-link-frequently-asked-questions.md
+          href: synapse-link-frequently-asked-questions.yml
     - name: Backup and restore
       items:
         - name: Backup and restore introduction

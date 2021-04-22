@@ -18,7 +18,7 @@ The following limits are common across all tiers.
 
 | Limit |  Notes | Value |
 | --- |  --- | --- |
-| Number of Event Hubs namespaces per subscription |- |100 |
+| Number of Event Hubs namespaces per subscription | Service Bus namespaces are included in this limit. |100 |
 | Number of event hubs per namespace | Subsequent requests for creation of a new event hub are rejected. |10 |
 | Size of an event hub name |- | 256 characters |
 | Size of a consumer group name | Kafka protocol doesn't require the creation of a consumer group. | <p>Kafka: 256 characters</p><p>AMQP: 50 characters |
@@ -53,7 +53,7 @@ Refer to this [document](../articles/event-hubs/event-hubs-dedicated-cluster-cre
 | Feature | Standard | Dedicated |
 | --- |:---|:---|
 | Bandwidth | 20 TUs (up to 40 TUs)	| 20 CUs |
-| Namespaces |  1 | 50 per CU |
+| Namespaces |  100 per subscription | 50 per CU (100 per subscription) |
 | Event Hubs |  10 per namespace | 1000 per namespace |
 | Ingress events | Pay per million events | Included |
 | Message Size | 1 Million Bytes | 1 Million Bytes |

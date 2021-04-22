@@ -677,7 +677,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.streamanalytics/allversions
   - name: Azure CLI
-    href: /cli/azure/ext/stream-analytics/stream-analytics
+    href: /cli/azure/stream-analytics
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

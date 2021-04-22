@@ -51,12 +51,12 @@ You can deploy the Azure Defender extension using a range of methods. For detail
 
 ### [**Azure portal**](#tab/k8s-deploy-asc)
 
-### Use the "Quick fix" option from the Security Center recommendation
+### Use the fix button from the Security Center recommendation
 
 A dedicated recommendation in Azure Security Center provides:
 
 - **Visibility** about which of your clusters has the Defender for Kubernetes extension deployed
-- **A "Quick fix" option** to deploy it to those clusters without the extension
+- **Fix** button to deploy it to those clusters without the extension
 
 1. From Azure Security Center's recommendations page, open the **Enable Azure Defender** security control.
 
@@ -65,7 +65,7 @@ A dedicated recommendation in Azure Security Center provides:
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
-    > Notice the Quick Fix icon in the actions column
+    > Notice the **Fix** icon in the actions column
 
 1. Select the extension to see the details of the healthy and unhealthy resources - clusters with and without the extension.
 
@@ -73,7 +73,7 @@ A dedicated recommendation in Azure Security Center provides:
 
 1. Select the relevant Log Analytics workspace and select **Remediate x resource**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Azure Defender extension for Azure Arc with Security Center's quick fix option.":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Azure Defender extension for Azure Arc with Security Center's fix option.":::
 
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
