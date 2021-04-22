@@ -39,7 +39,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 - To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
-    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account associated with the Azure subscription in which you'd like to create resources.
+    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account associated with the Azure subscription in which you'd like to create resources.
 
 ## Create a Cosmos DB account 
 

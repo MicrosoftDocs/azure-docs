@@ -8,7 +8,7 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 # Open an SSH session to a Linux container in Azure App Service

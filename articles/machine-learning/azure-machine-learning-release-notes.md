@@ -19,6 +19,30 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
 
+## 2021-04-19
+
+### Azure Machine Learning SDK for Python v1.27.0
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Added the ability to override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable.
+    + Fixed a bug where docker settings in Environment object on ScriptRunConfig are not respected.
+    + Allow partitioning a dataset when copying it to a destination.
+    + Added a custom mode to the OutputDatasetConfig to enable passing created Datasets in pipelines through a link function. These support enhancements made to enable Tabular Partitioning for PRS.
+    + Added a new KubernetesCompute compute type to azureml-core.
+  + **azureml-pipeline-core**
+    + Adding a custom mode to the OutputDatasetConfig and enabling a user to pass through created Datasets in pipelines through a link function. File path destinations support placeholders. These support the enhancements made to enable Tabular Partitioning for PRS.
+    + Addition of new KubernetesCompute compute type to azureml-core.
+  + **azureml-pipeline-steps**
+    + Addition of new KubernetesCompute compute type to azureml-core.
+  + **azureml-synapse**
+    + Update spark UI url in widget of azureml synapse
+  + **azureml-train-automl-client**
+    + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
+  + **azureml-train-core**
+    + Fixed bug where docker settings in Environment object are not respected.
+    + Addition of new KubernetesCompute compute type to azureml-core.
+
+
 ## 2021-04-05
 
 ### Azure Machine Learning SDK for Python v1.26.0
@@ -141,7 +165,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning Studio Notebooks Experience (February Update)
 + **New features**
   + [Native Terminal (GA)](./how-to-access-terminal.md). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
-  + [Notebook Snippets (preview)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
+  + Notebook Snippets (preview). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
   + [Keyboard Shortcuts](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Full parity with keyboard shortcuts available in Jupyter. 
   + Indicate Cell parameters. Shows users which cells in a notebook are parameter cells and can run parameterized notebooks via [Papermill](https://github.com/nteract/papermill) on the Compute Instance.
   + Terminal and Kernel session manager: Users will be able to manage all kernels and terminal sessions running on their compute.

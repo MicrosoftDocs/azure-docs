@@ -100,7 +100,7 @@ We offer quickstarts in most popular programming languages, each designed to tea
 * [Speech-to-text quickstart](get-started-speech-to-text.md)
 * [Text-to-speech quickstart](get-started-text-to-speech.md)
 * [Speech translation quickstart](./get-started-speech-translation.md)
-* [Intent recognition quickstart](quickstarts/intent-recognition.md)
+* [Intent recognition quickstart](./get-started-intent-recognition.md)
 * [Speaker recognition quickstart](./get-started-speaker-recognition.md)
 
 After you've had a chance to get started with the Speech service, try our tutorials that show you how to solve various scenarios.
