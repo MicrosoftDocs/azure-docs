@@ -8,7 +8,14 @@ ms.date: 04/21/2021
 ms.author: gopalv
 ---
 
-For your initial deployment, we will use a dummy entry script that prints the data it receives. When we start your webservice, we actually start a Flask server. This server runs the `init()` method when it starts up and the `run()` method every time it receives a request.
+The entry script receives data submitted to a deployed web service and passes it to the model. It then takes the response returned by the model and returns that to the client. *The script is specific to your model*. It must understand the data that the model expects and returns.
+
+The two things you need to accomplish in your entry script are:
+
+1. Loading your model (using a function called `init()`)
+1. Running your model on input data (using a function called `run()`)
+
+For your initial deployment, we will use a dummy entry script that prints the data it receives.
 
 ```python
 import json

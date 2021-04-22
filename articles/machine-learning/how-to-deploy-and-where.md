@@ -77,7 +77,14 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 
 ## <a id="registermodel"></a> Register your model
 
-A registered model is a directory (folder) that is uploaded to your workspace's default storage account and accessible by your scoring script when your webservice is running.
+A typical situation for a deployed machine learning service is that you need the following components:
+	
+ + resources representing the specific model that you want deployed (for example: a pytorch model file)
+ + code that you will be running in th service, that executes the model on a given input
+
+Azure Machine Learnings allows you to separate the deployment into two separate components, so that you can keep the same code, but merely update the model. We define the mechanism by which you upload a model _separately_ from your code as "registering the model".
+
+When you register a model, we upload the model to the cloud (in your workspace's default storage account) and then mount it to the same compute where your webservice is running.
 
 The following examples demonstrate how to register a model.
 
@@ -165,14 +172,18 @@ For more information, see the documentation for the [Model class](/python/api/az
 
 ---
 
-## Define an entry script
+## Define a dummy entry script
 
 [!INCLUDE [write entry script](../../includes/machine-learning-dummy-entry-script.md)]
 
 
 ## Define an inference configuration
 
-An inference configuration describes the Docker container and source files to use when initializing your web service.
+An inference configuration describes the Docker container and files to use when initializing your web service. All of the files within your source directory, including subdirectories, will be zipped up and uploaded to the cloud when you deploy your web service.
+
+The inference configuration below specifies that the machine learning deployment will use the file `echo_score.py` in the `./source_dir` directory to process incoming requests and that it will use the Docker image with the Python packages specified in the `project_environment` environment.
+
+You can use any [Azure Machine Learning curated environment](./resource-curated-environments.md) as the base Docker image when creating your project environment. We will install the required dependencies on top and store the resulting Docker image into the repository that is associated with your workspace.
 
 # [Azure CLI](#tab/azcli)
 
@@ -220,7 +231,6 @@ A minimal inference configuration can be written as:
 
 Save this file with the name `inferenceconfig.json`.
 
-This specifies that the machine learning deployment will use the file `echo_score.py` in the `./source_dir` directory to process incoming requests and that it will use the Docker image with the Python packages specified in the `project_environment` environment.
 
 [See this article](./reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
 
@@ -232,7 +242,7 @@ The following example demonstrates how to create a minimal environment with no p
 from azureml.core import Environment
 from azureml.core.model import InferenceConfig
 
-env = Environment(name='myenv')
+env = Environment(name='project_environment')
 inf_config = InferenceConfig(environment=env, source_directory='./source_dir', entry_script='./echo_score.py')
 ```
 
@@ -245,17 +255,17 @@ For more information on inference configuration, see the [InferenceConfig](/pyth
 
 ## Define a deployment configuration
 
-# [Azure CLI](#tab/azcli)
+A deployment configuration specifies the amount of memory and cores to reserve for your webservice will require in order to run, as well as configuration details of the underlying webservice. For example, a deployment configuration lets you specify that your service needs 2 gigabytes of memory, 2 CPU cores, 1 GPU core, and that you want to enable autoscaling.
 
-The options available for a deployment configuration differ depending on the compute target you choose.
+The options available for a deployment configuration differ depending on the compute target you choose. In a local deployment, all you can specify is which port your webservice will be served on.
+
+# [Azure CLI](#tab/azcli)
 
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 For more information, see [this reference](./reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
 # [Python](#tab/python)
-
-Before deploying your model, you must define the deployment configuration. *The deployment configuration is specific to the compute target that will host the web service.* For example, when you deploy a model locally, you must specify the port where the service accepts requests. The deployment configuration isn't part of your entry script. It's used to define the characteristics of the compute target that will host the model and entry script.
 
 To create a local deployment configuration, do the following:
 
@@ -301,7 +311,7 @@ print(response.json())
 
 ---
 
-## Add in pip packages and load your model
+## Define an entry script
 
 Now it's time to actually load your model. First, modify your entry script:
 
@@ -324,6 +334,7 @@ def run(request):
     qw, qc = preprocess(text['query'])
     cw, cc = preprocess(text['context'])
 
+    # Run inference
     test = sess.run(None, {'query_word': qw, 'query_char': qc, 'context_word': cw, 'context_char': cc})
     start = np.asscalar(test[0])
     end = np.asscalar(test[1])
@@ -333,8 +344,10 @@ def run(request):
 
 def preprocess(word):
     tokens = word_tokenize(word)
+
     # split into lower-case word tokens, in numpy array with shape of (seq, 1)
     words = np.asarray([w.lower() for w in tokens]).reshape(-1, 1)
+    
     # split words into chars, in numpy array with shape of (seq, 1, 1, 16)
     chars = [[c for c in t][:16] for t in tokens]
     chars = [cs+['']*(16-len(cs)) for cs in chars]

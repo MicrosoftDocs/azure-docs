@@ -22,7 +22,7 @@ az ml service get-logs -n myservice
 ```python
 
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
-service.wait_for_deployment(show_output = True)
+service.wait_for_deployment(show_output=True)
 print(service.get_logs())
 ```
 
