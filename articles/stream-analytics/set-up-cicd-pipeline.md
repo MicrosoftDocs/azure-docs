@@ -16,7 +16,7 @@ In this article, you learn how to create Azure DevOps [build](/azure/devops/pipe
 
 ## Commit your Stream Analytics project
 
-Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](/azure/devops/user-guide/source-control) repository. You can reference this [sample repository](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/ASA-CICD-sample/_git/azure-streamanalytics-cicd-demo) in Azure Pipelines.
+Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](/azure/devops/user-guide/source-control) repository. You can reference this [sample repository](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://github.com/SatyKrish/AzureStreamAnalytics-CICD) in Azure Pipelines.
 
 The steps in this article use a Stream Analytics Visual Studio Code project. If you're using a Visual Studio project, follow the steps in [Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md).
 
