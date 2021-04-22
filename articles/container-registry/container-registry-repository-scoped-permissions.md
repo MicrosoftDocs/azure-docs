@@ -72,6 +72,7 @@ The following example creates a token in the registry *myregistry* with the foll
 az acr token create --name MyToken --registry myregistry \
   --repository samples/hello-world \
   content/write content/read
+  --output json
 ```
 
 The output shows details about the token. By default, two passwords are generated that don't expire, but you can optionally set an expiration date. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
