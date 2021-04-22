@@ -221,7 +221,7 @@ The analytical store is optimized to provide scalability, elasticity, and perfor
 By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and serverless SQL pool with Azure Cosmos DB analytical store.
 
 > [!NOTE]
-> You can only read from analytical store using Azure Synapse Analytics runtimes. And Azure Synapse Analytics runtimes can read from analytical store, that is read-only from the customer's perspective. You can write the data back to Cosmos DB transactional store using Azure Synapse Analytics Spark pool.
+> You can only read from analytical store using Azure Synapse Analytics runtimes. And the opposite is also true, Azure Synapse Analytics runtimes can only read from analytical store. Only the auto-sync process can change data in analytical store. You can write data back to Cosmos DB transactional store using Azure Synapse Analytics Spark pool, using the built-in Azure Cosmos DB OLTP SDK.
 
 ## <a id="analytical-store-pricing"></a> Pricing
 
