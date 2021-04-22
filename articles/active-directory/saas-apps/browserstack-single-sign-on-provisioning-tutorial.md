@@ -23,7 +23,7 @@ ms.author: Zhchia
 This tutorial describes the steps you need to perform in both BrowserStack Single Sign-on and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [BrowserStack Single Sign-on](https://www.browserstack.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in BrowserStack Single Sign-on
 > * Remove users in BrowserStack Single Sign-on when they do not require access anymore
@@ -145,16 +145,16 @@ This operation starts the initial synchronization cycle of all users defined in 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+- Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
+- Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+- If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Connector limitations
 
 * BrowserStack Single Sign-on does not support group provisioning.
 * BrowserStack Single Sign-on requires **emails[type eq "work"].value** and **userName** to have the same source value.
 
-## Troubleshooting Tips
+## Troubleshooting tips
 
 * Refer to troubleshooting tips [here](https://www.browserstack.com/docs/enterprise/auto-user-provisioning/azure-ad#troubleshooting).
 
