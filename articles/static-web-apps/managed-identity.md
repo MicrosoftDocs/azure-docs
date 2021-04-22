@@ -16,4 +16,4 @@ ms.date: 1/29/2021
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure private link](private-link.md)
+> [Configure your application](configuration.md)

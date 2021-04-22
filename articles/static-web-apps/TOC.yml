@@ -27,12 +27,10 @@
       href: routes.md
     - name: Security
       items:
-      - name: Authentication and authorization
-        href: authentication-authorization.md
-      - name: Access user information
-        href: user-information.md
-      - name: Custom authorization
-        href: authorization-custom.md
+        - name: Authentication and authorization
+          href: authentication-authorization.md
+        - name: Access user information
+          href: user-information.md
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
     - name: Custom domain
@@ -40,29 +38,21 @@
     - name: Build and workflow configuration
       href: github-actions-workflow.md
     - name: Enterprise features
-      items: 
+      items:
         - name: Managed identity
           href: managed-identity.md
-        - name: Networking options
-          href: networking-options.md
-        - name: Token rotation
-          href: token-rotation.md
 - name: How-to guides
   items:
     - name: Setup local development
       href: local-development.md
     - name: Add an API
       href: add-api.md
-    - name: Add custom Functions app
-      href: functions-custom.md
     - name: Configure app settings
       href: application-settings.md
     - name: Publish with Azure DevOps
       href: publish-devops.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
-    - name: Create private endpoint access
-      href: private-link.md
     - name: Reset deployment tokens
       href: deployment-token-management.md
 - name: Tutorials
