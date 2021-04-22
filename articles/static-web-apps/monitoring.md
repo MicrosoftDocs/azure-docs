@@ -1,6 +1,6 @@
 ---
 title: Monitoring Azure Static Web Apps Preview
-description: Monitor requests, failures and tracing information in Azure Static Web Apps Preview
+description: Monitor requests, failures, and tracing information in Azure Static Web Apps Preview
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -11,16 +11,14 @@ ms.author: cshoe
 
 # Monitor Azure Static Web Apps
 
-Enable [Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor requests, failures and tracing information.
+Enable [Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor API  requests, failures, and tracing information.
 
-## Requirements
-
-- Requires an application with an [API](./add-api.md).
-- Requires the same region as the associated Static Web Apps instance.
+> [!NOTE]
+> Using Application Insights with Azure Static Web Apps requires an application with an [API](./add-api.md).
 
 ## Add monitoring
 
-Use the following steps to add Application Insights monitoring to you static web app.
+Use the following steps to add Application Insights monitoring to your static web app.
 
 1. Open the Static Web Apps instance in the Azure portal.
 
@@ -38,7 +36,7 @@ Use the following steps to add Application Insights monitoring to you static web
 
 1. From the list, select the Application Insights instance prefixed with the same name as your static web app.
 
-Following locations highlight a few ways to inspect aspects of your application's API endpoints.
+The following highlights a few locations in the portal used to inspect aspects of your application's API endpoints.
 
 > [!NOTE]
 > For more detail on Application Insights usage, refer to [Where do I see my telemetry?](../azure-monitor/app/app-insights-overview.md#where-do-i-see-my-telemetry).
@@ -52,7 +50,7 @@ Following locations highlight a few ways to inspect aspects of your application'
 
 ### Traces
 
-Using the following steps to to view traces in your application.
+Using the following steps to view traces in your application.
 
 1. Select **Logs** under _Monitoring_.
 
