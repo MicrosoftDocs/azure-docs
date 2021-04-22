@@ -6,9 +6,8 @@
  ms.author: sngun
 ---
 
-## How to estimate throughput and cost with Azure Cosmos DB capacity planner
+## Capacity planner modes
 
-The capacity planner can be used in two modes.
 
 |**Mode**  |**Description**  |
 |---------|---------|
