@@ -147,6 +147,10 @@ Make sure the corresponding provider used by your OLE DB connectors in your pack
 
 One potential cause is your Self-Hosted integration runtime is not installed or upgraded properly. Suggest to download and reinstall the latest Self-hosted integration runtime. More detail can be found at [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md#installation-best-practices)
 
+### Error message: "Staging task failed. TaskStatus: Failed, ErrorCode: 2906, ErrorMessage: Package execution failed. For more details, select the output of your activity run on the same row., Output: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Failed to start Named pipe proxy..."
+
+Check if user rights are assigned correctly to the account running Self-hosted IR service. If windows authentication is used on acitivity or execution credential is set in SSIS catalog, same user rights are required for the account used. More detail can be found at [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md#enable-windows-authentication-for-on-premises-staging-tasks)
+
 ### Error message: "A connection is required when requesting metadata. If you are working offline, uncheck Work Offline on the SSIS menu to enable the connection"
 
 * Potential cause & recommended action:
