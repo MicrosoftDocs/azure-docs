@@ -5,7 +5,7 @@ description: Learn how to access to an Azure Machine Learning workspace using Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
