@@ -229,6 +229,174 @@ five,Eva
 It looks like the data has unexpected values for ID in the fifth row. 
 In such circumstances it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention is not possible at application level and dealing with all kinds of data types for ID needs to be done, reasonable sized VARCHAR might be the only option here.
 
+## The result table does not look like expected. Result columns are empty or unexpected loaded. 
+
+If your query does not fail but you find that your result table is not loaded as expected, it is likely that row delimiter or field terminator have been chosen wrong. 
+To resolve this, it is needed to have another look at the data and change those settings. As a result table is shown, debugging this query is easy like in upcoming example. 
+
+### Example
+If you would like to query the file ‘names.csv’ with this Query 1, Synapse SQL Serverless will return with result table that looks odd. 
+
+names.csv
+```csv
+Id,first name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+5,Eva
+```
+
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =';',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] VARCHAR(100), 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
+causes this result table
+
+| ID            |   firstname   | 
+| ------------- |-------------  | 
+| 1,Adam        | NULL | 
+| 2,Bob         | NULL | 
+| 3,Charles     | NULL | 
+| 4,David       | NULL | 
+| 5,Eva         | NULL | 
+
+There seems to be no value in our column “firstname”. Instead, all values did end up being in column “ID”. Those values are separated by comma. 
+The problem was caused by this line of code as it is necessary to choose the comma instead of the semicolon symbol as field terminator:
+
+```FIELDTERMINATOR =';',```
+
+Changing this single character solves the problem:
+
+```FIELDTERMINATOR =',',```
+
+The result table created by query 2 looks now as expected. 
+
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =',',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] VARCHAR(100), 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+``` 
+
+returns
+
+| ID            |   firstname   | 
+| ------------- |-------------  | 
+| 1        | Adam | 
+| 2         | Bob | 
+| 3     | Charles | 
+| 4       | David | 
+| 5         | Eva | 
+
+
+## Query fails with error: Column [column name] of type [type name] is  not compatible with external data type [external data type name] 
+
+If your query fails with the error message ```Column [column name] of type [type name] is not compatible with external data type […]```, it is likely that tried to map a PARQUET data type to the wrong SQL data type. 
+For instance, if you your parquet file has a column price with float numbers (like 12,89) and you tried to map it to INT, this is the error message you will get. 
+
+To resolve this, inspect the file and the according data types you did choose. This [mapping table](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-openrowset#type-mapping-for-parquet) helps to choose a SQL data type. 
+Best practice hint: Specify mapping only for columns that would otherwise resolve into VARCHAR data type. 
+Avoiding VARCHAR when possible, leads to better performance in queries. 
+
+### Example
+If you would like to query the file ```taxi-data.parquet``` with this Query 1, Synapse SQL Serverless will return with such error.
+
+taxi-data.parquet:
+| PassengerCount        | SumTripDistance           | AvgTripDistance  |
+| ------------- |:-------------:| -----:|
+| 1 | 2635668.66000064  | 6.72731710678951 |
+| 2 | 172174.330000005  | 2.97915543404919 |
+| 3 | 296384.390000011  | 2.8991352022851  |
+| 4 | 12544348.58999806 | 6.30581582240281 |
+| 5 | 13091570.2799993  | 111.065989028627 |
+
+Query 1:
+```sql
+SELECT
+    *
+FROM
+    OPENROWSET(
+        BULK '<filepath>taxi-data.parquet',
+        FORMAT='PARQUET'
+    )  WITh
+        (
+        PassengerCount INT, 
+        SumTripDistance INT, 
+        AVGTripDistance FLOAT
+        )
+
+    AS [result]
+```
+causes this error: ```Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.```
+
+This error messages tells us that data types are not compatible and already comes with the suggestion to use the FLOAT instead of INT. 
+The error is hence caused by this line of code: 
+
+```sql
+SumTripDistance INT, 
+```
+
+Using this slightly changed Query 2, the data can now be processed and shows all three columns. 
+
+Query 2: 
+
+```sql
+SELECT
+    *
+FROM
+    OPENROWSET(
+        BULK '<filepath>taxi-data.parquet',
+        FORMAT='PARQUET'
+    )  WITh
+        (
+        PassengerCount INT, 
+        SumTripDistance FLOAT, 
+        AVGTripDistance FLOAT
+        )
+
+    AS [result]
+```
+
+
+## Query fails with: Please create a master key in the database or open the master key in the session before performing this operation.
+
+If your query fails with the error message ```Please create a master key in the database or open the master key in the session before performing this operation.```, it means that your user database has no access to a master key in the moment. 
+
+Most likely, you just created a new user database and did not create a master key yet. 
+
+To resolve this, create a master key with the following query:
+
+```sql
+CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
+```
 
 ## Next steps
 
