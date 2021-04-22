@@ -9,8 +9,8 @@ ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 02/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl
+ms.topic: how-to
+ms.custom: devx-track-python, automl
 
 ---
 

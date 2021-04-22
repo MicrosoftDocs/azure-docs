@@ -135,7 +135,7 @@ Before you can deploy to AKS, you'll need to set target Kubernetes namespace and
       container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
       secret-name: ${{ env.SECRET }}
       namespace: ${{ env.NAMESPACE }}
-      force: true
+      arguments: --force true
 ```
 
 
