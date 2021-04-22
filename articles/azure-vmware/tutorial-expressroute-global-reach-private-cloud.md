@@ -37,7 +37,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
 ## Peer private cloud to on-premises with authorization key
-Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the perspective of the on-premises ExpressRoute circuit in either the **Azure portal** or using the **Azure CLI in a Cloud Shell**. With both methods, you use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
+Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the perspective of the on-premises ExpressRoute circuit in either the **Azure portal** or using the **Azure CLI**. With both methods, you use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
 
 ### [Portal](#tab/azure-portal)
  
@@ -89,6 +89,15 @@ You can connect from on-premises environments to your private cloud over the Exp
 
 
 ---
+
+
+
+## Verify on-premises network connectivity
+
+You should now see in your **on-premises edge router** where the ExpressRoute connects the NSX-T network segments and the Azure VMware Solution management segments.
+
+>[!IMPORTANT]
+>Everyone has a different environment, and some will need to allow these routes to propagate back into the on-premises network.  
 
 ## Next steps
 
