@@ -40,7 +40,7 @@ Azure Sentinel provides full SIEM and SOAR capabilities, quick deployment and co
 
 If you only need to access specific tables occasionally, such as for periodic investigations or audits, you may consider that retaining your data in Azure Sentinel is no longer cost-effective. At this point, we recommend storing data in ADX, which costs less, but still enables you to explore using the same KQL queries that you run in Azure Sentinel.
 
-You can access the data in ADX directly from Azure Sentinel using the [Log Analytics ADX proxy feature](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). To do so, use cross cluster queries in your log search or workbooks. 
+You can access the data in ADX directly from Azure Sentinel using the [Log Analytics ADX proxy feature](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). To do so, use cross cluster queries in your log search or workbooks.
 
 > [!IMPORTANT]
 > Core SIEM capabilities, including Analytic rules, UEBA, and the investigation graph, do not support data stored in ADX.
@@ -48,7 +48,7 @@ You can access the data in ADX directly from Azure Sentinel using the [Log Analy
 
 > [!NOTE]
 > Integrating with ADX can also enable you to have control and granularity in your data. For more information, see [Design considerations](#design-considerations).
-> 
+>
 ## Send data directly to Azure Sentinel and ADX in parallel
 
 You may want to retain any data *with security value* in Azure Sentinel to use in detections, incident investigations, threat hunting, UEBA, and so on. Keeping this data in Azure Sentinel mainly benefits Security Operations Center (SOC) users, where typically, 3-12 months of storage are enough.
