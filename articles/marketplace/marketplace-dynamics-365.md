@@ -13,7 +13,7 @@ ms.date: 04/16/2021
 
 This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, PowerApps, and Power BI. AppSource allows paid (*Get It Now*), list (*Contact Me*), and trial (*Try It Now*) offers.
 
-Before you start, create a commercial marketplace account in [Partner Center](./partner-center-portal/create-account.md) and ensure it is enrolled in the commercial marketplace program. Also, review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).
+Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program. Also, review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).
 
 ## Licensing options
 
@@ -71,7 +71,7 @@ To help create your offer more easily, prepare these items ahead of time. All ar
 
 ## Additional sales opportunities
 
-You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two a tab toward the end of the process for **Co-sell with Microsoft**. This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
+You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two a tab toward the end of the process for **Co-sell with Microsoft**. This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./co-sell-configure.md) for detailed information on how to prepare your offer for evaluation.
 
 ## Next steps
 

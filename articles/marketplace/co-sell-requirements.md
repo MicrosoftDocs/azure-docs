@@ -45,12 +45,12 @@ For an offer to achieve co-sell ready status, you must meet the following requir
 
 ### Complete the Co-sell with Microsoft tab
 
-When publishing or updating your offer, provide all the required information on the **Co-sell with Microsoft** tab as detailed in [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md). This includes providing the following documents:
+When publishing or updating your offer, provide all the required information on the **Co-sell with Microsoft** tab as detailed in [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md). This includes providing the following documents:
 
 - Solution/offer one-pager
 - Solution/offer pitch deck
 
-We provide templates to help you create these documents. For more information about the required and optional information for the Co-sell with Microsoft tab, see [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md).
+We provide templates to help you create these documents. For more information about the required and optional information for the Co-sell with Microsoft tab, see [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md).
 
 ### Publish your offer live
 
@@ -76,7 +76,7 @@ Requirement 2 - Pass the Microsoft technical validation for an Azure-based solut
 - The technical validation must confirm that more than 50% of your offer’s infrastructure uses repeatable IP code on Azure. Note that transactable Azure VMs and Azure Application solutions on the commercial marketplace will meet this requirement by default.
 
 Requirement 3 – Provide a reference architecture diagram:
-- Upload a reference architecture diagram with your Co-sell documents in Partner Center for review. For guidance on creating this diagram, see [Reference architecture diagram](reference-architecture-diagram.md). For information about uploading the diagram, see [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md).
+- Upload a reference architecture diagram with your Co-sell documents in Partner Center for review. For guidance on creating this diagram, see [Reference architecture diagram](reference-architecture-diagram.md). For information about uploading the diagram, see [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md).
 
 ## Requirements for Business Applications Co-sell incentivized status
 
@@ -84,4 +84,4 @@ This status applies to IP-based solutions built on Dynamics 365 or Power Apps (e
 
 ## Next steps
 
-- [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md)
+- [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md)

@@ -31,7 +31,7 @@ Ensure you have an active Microsoft Partner Network membership and are enrolled 
 
 ## Publishing updates for attaining co-sell-ready status
 
-For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](marketplace-co-sell.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](marketplace-co-sell.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#cosell-tab) later in this article).
+For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#cosell-tab) later in this article).
 
 > [!NOTE]
 > In commercial marketplace, your solutions are referred to as “offers” throughout the publishing experience.
@@ -133,7 +133,7 @@ For detailed instructions on the information you need to provide before your off
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="The offer overview setup tabs in Partner Center.":::
 
-3. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to make your offer co-sell ready. When complete, select **Review and publish**. For more information, see [Configure co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md).
+3. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to make your offer co-sell ready. When complete, select **Review and publish**. For more information, see [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="The offer co-sell tab in Partner Center.":::
 
@@ -151,5 +151,5 @@ For detailed instructions on the information you need to provide before your off
 ## Next steps
 
 - [Resell through CSP Partners](cloud-solution-providers.md)
-- [Configure co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md)
+- [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md)
 - View these [FAQs](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

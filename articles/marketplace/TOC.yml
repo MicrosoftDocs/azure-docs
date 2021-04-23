@@ -68,9 +68,9 @@
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
     - name: Co-sell partner engagement
-      href: marketplace-co-sell.md 
+      href: ./co-sell-overview.md
     - name: Co-sell option in Partner Center
-      href: commercial-marketplace-co-sell.md 
+      href: ./co-sell-configure.md
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
