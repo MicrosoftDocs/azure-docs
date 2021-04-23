@@ -375,8 +375,8 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set
-(and `-Dhttp.nonProxyHosts` if needed).
+Application Insights Java 3.0 also respects the global `https.proxyHost` and `https.proxyPort` system properties
+if those are set (and `http.nonProxyHosts` if needed).
 
 ## Metric interval
 
