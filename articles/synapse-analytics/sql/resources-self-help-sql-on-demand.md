@@ -24,13 +24,13 @@ If Synapse Studio can't establish connection to serverless SQL pool, you'll noti
 
 ## Query fails because file cannot be opened
 
-If your query fails with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ### Alternative to Storage Blog Data Contributer 
 
-If you want to give permission only for a this or a subset of files, this is how it can be done: 
+Instead of granting Storage Blob Data Contributer, you can also grant more granular permissions on a subset of files. 
 
 * All users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
 Learn more about this [here](../../storage/blobs/data-lake-storage-explorer-acl.md). 
@@ -47,13 +47,13 @@ If you would like to query data2.csv in this example, the following permissions 
 
 ![permission structure on data lake](./media/resources-self-help-sql-on-demand/folder_structure_dataLake.png)
 
-* Log into Synapse with a admin user that has full permissions on the data you want to access.
+* Log into Synapse with an admin user that has full permissions on the data you want to access.
 
-* In the data pane, right click on the file and select MANAGE ACCESS.
+* In the data pane, right-click on the file and select MANAGE ACCESS.
 
 ![Manage Access UI](./media/resources-self-help-sql-on-demand/manage_access.png)
 
-* Choose at least “read” permission, type in the users UPN or Object ID, e.g. user@contoso.com and click Add
+* Choose at least “read” permission, type in the users UPN or Object ID, for example user@contoso.com and click Add
 
 * Grant read permission for this user.
 ![Grant read permissions UI](./media/resources-self-help-sql-on-demand/grant_permission.png)
@@ -148,13 +148,13 @@ As soon as parser version is changed from version 2.0 to version 1.0, the error 
 
 ```Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]```
 
-Truncation tells us that our column type is too small to fit our data. The longest first name in this ‘names.csv’ file has 7 characters. Therefore, the according data type to be used should be at least VARCHAR(7). 
+Truncation tells us that our column type is too small to fit our data. The longest first name in this ‘names.csv’ file has seven characters. Therefore, the according data type to be used should be at least VARCHAR(7). 
 The error is caused by this line of code: 
 
 ```sql 
     [Text] VARCHAR (1) COLLATE Latin1_General_BIN2
 ```
-Changing the query accordingly resolves the error: After debugging, change the parser version to 2.0 again to achieve maximum performance. Read more about when to use which parser version [here](develop-openrowset). 
+Changing the query accordingly resolves the error: After debugging, change the parser version to 2.0 again to achieve maximum performance. Read more about when to use which parser version [here](develop-openrowset.md). 
 
 ```sql 
 SELECT
@@ -179,16 +179,16 @@ FROM
 
 If your query fails with the error message: 'Websocket connection was closed unexpectedly', it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
 
-To resolve this, rerun this query. If this message occurs often in your environment, advise help from your network administrator, check firewall settings and [visit this troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md). 
+To resolve this issue, rerun this query. If this message occurs often in your environment, advise help from your network administrator, check firewall settings, and [visit this troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md). 
 
-If the issue still continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure Portal and try [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) for the same queries instead of Synapse Studio for further investigation.
+If the issue still continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal and try [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 
 ## Query fails with conversion error
 If your query fails with the error message 
 'bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]', it means that your data types did not match the actual data for row number n and column m. 
 
 For instance, if you expect only integers in your data but in row n there might be a string, this is the error message you will get. 
-To resolve this, inspect the file and the according data types you did choose. Also check if your row delimiter and field terminator settings are correct. The following example shows how inspecting can be done using VARCHAR as column type. 
+To resolve this problem, inspect the file and the according data types you did choose. Also check if your row delimiter and field terminator settings are correct. The following example shows how inspecting can be done using VARCHAR as column type. 
 Read more on field terminators, row delimiters and escape quoting characters [here](query-single-csv-file.md). 
 
 ### Example 
@@ -227,7 +227,7 @@ FROM
 causes this error: 
 ```Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]```
 
-It is necessary to browse the data and make an informed decision to handle this. 
+It is necessary to browse the data and make an informed decision to handle this problem. 
 To look at the data that causes this problem, the data type needs to be changed first. Instead of querying column “ID” with the data type “SMALLINT”, VARCHAR(100) is now used to analyze this issue. 
 Using this slightly changed Query 2, the data can now be processed and shows the list of names. 
 
@@ -262,7 +262,7 @@ five,Eva
 ```
 
 It looks like the data has unexpected values for ID in the fifth row. 
-In such circumstances it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention is not possible at application level and dealing with all kinds of data types for ID needs to be done, reasonable sized VARCHAR might be the only option here.
+In such circumstances, it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention is not possible at application level and dealing with all kinds of data types for ID needs to be done, reasonable sized VARCHAR might be the only option here.
 
 > [!Tip]
 > Try to make VARCHAR() as short as possible. Avoid VARCHAR(MAX) if possible as this can impair performance. 
@@ -270,7 +270,7 @@ In such circumstances it is important to align with the business owner of the da
 ## The result table does not look like expected. Result columns are empty or unexpected loaded. 
 
 If your query does not fail but you find that your result table is not loaded as expected, it is likely that row delimiter or field terminator have been chosen wrong. 
-To resolve this, it is needed to have another look at the data and change those settings. As a result table is shown, debugging this query is easy like in upcoming example. 
+To resolve this problem, it is needed to have another look at the data and change those settings. As a result table is shown, debugging this query is easy like in upcoming example. 
 
 ### Example
 If you would like to query the file ‘names.csv’ with this Query 1, Synapse SQL Serverless will return with result table that looks odd. 
@@ -360,10 +360,10 @@ returns
 | 5         | Eva | 
 
 
-## Query fails with error: Column [column name] of type [type name] is  not compatible with external data type [external data type name] 
+## Query fails with error: Column [column-name] of type [type-name] is  not compatible with external data type [external-data-type-name] 
 
-If your query fails with the error message 'Column [column name] of type [type name] is not compatible with external data type […]', it is likely that tried to map a PARQUET data type to the wrong SQL data type. 
-For instance, if you your parquet file has a column price with float numbers (like 12,89) and you tried to map it to INT, this is the error message you will get. 
+If your query fails with the error message 'Column [column-name] of type [type-name] is not compatible with external data type […]', it is likely that tried to map a PARQUET data type to the wrong SQL data type. 
+For instance, if your parquet file has a column price with float numbers (like 12.89) and you tried to map it to INT, this is the error message you will get. 
 
 To resolve this, inspect the file and the according data types you did choose. This [mapping table](develop-openrowset.md#type-mapping-for-parquet) helps to choose a SQL data type. 
 Best practice hint: Specify mapping only for columns that would otherwise resolve into VARCHAR data type. 
@@ -402,7 +402,7 @@ causes this error:
 
 ```Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.```
 
-This error messages tells us that data types are not compatible and already comes with the suggestion to use the FLOAT instead of INT. 
+This error message tells us that data types are not compatible and already comes with the suggestion to use the FLOAT instead of INT. 
 The error is hence caused by this line of code: 
 
 ```sql
