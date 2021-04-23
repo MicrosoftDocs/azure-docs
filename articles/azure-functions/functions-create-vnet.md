@@ -213,7 +213,10 @@ Create the private endpoint to lock down your Service Bus:
 
 1. On the **Configuration** tab, for the **Subnet** setting, choose **default**.
 
+1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults the private DNS zone subscription and Private DNS zone name (e.g., privatelink.servicebus.windows.net).
+
 1. Select **Review + create**. After validation finishes, select **Create**. 
+1. After the private endpoint is created, return to the **Firewalls and virtual networks** section and add your virtual network and subnet. 
 
 Resources in the virtual network can now communicate with the Service Bus.
 
