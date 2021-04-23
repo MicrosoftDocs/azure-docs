@@ -1,5 +1,5 @@
 ---
-title: Deploy ml models to Azure App Service (preview)
+title: Deploy ML models to Azure App Service (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning to deploy a trained ML model to a Web App using Azure App Service.
 services: machine-learning
@@ -9,8 +9,8 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-python, deploy, devx-track-azurecli
 
 ---
 

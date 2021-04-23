@@ -100,6 +100,8 @@
     items: 
     - name: Message sessions
       href: message-sessions.md
+    - name: Duplicate message detection
+      href: duplicate-detection.md
     - name: Topic filters and actions
       href: topic-filters.md
     - name: Message browsing
@@ -108,8 +110,8 @@
       href: message-transfers-locks-settlement.md
     - name: Dead-letter queues
       href: service-bus-dead-letter-queues.md
-    - name: Message counters
-      href: message-counters.md
+    - name: Message deferral
+      href: message-deferral.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
     - name: Geo-disaster recovery and geo-replication
@@ -139,7 +141,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
@@ -206,10 +208,6 @@
       items:
       - name: Prefetch messages
         href: service-bus-prefetch.md
-      - name: Duplicate message detection
-        href: duplicate-detection.md
-      - name: Message deferral
-        href: message-deferral.md
       - name: Chain entities with auto-forwarding
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
@@ -236,6 +234,18 @@
       href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
+    - name: Enable sessions for a queue or subscription
+      href: enable-message-sessions.md
+    - name: Enable duplicate detection for a queue or topic
+      href: enable-duplicate-detection.md
+    - name: Enable partitions for a queue or topic
+      href: enable-partitions.md
+    - name: Enable auto forwarding for a queue or subscription
+      href: enable-auto-forward.md      
+    - name: Enable dead lettering for a queue or subscription
+      href: enable-dead-letter.md      
+    - name: Get message counters
+      href: message-counters.md
     - name: Move across regions
       href: move-across-regions.md
     - name: Automatically update messaging units 
@@ -337,7 +347,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: service-bus-faq.md
+    href: service-bus-faq.yml
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-service-bus
   - name: Azure Roadmap
