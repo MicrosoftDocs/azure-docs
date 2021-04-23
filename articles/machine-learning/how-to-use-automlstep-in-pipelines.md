@@ -256,7 +256,7 @@ Comparing the two techniques:
 The outputs of the `AutoMLStep` are the final metric scores of the higher-performing model and that model itself. To use these outputs in further pipeline steps, prepare `OutputFileDatasetConfig` objects to receive them.
 
 ```python
-from azureml.pipeline.core import TrainingOutput
+from azureml.pipeline.core import TrainingOutput, PipelineData
 
 metrics_data = PipelineData(name='metrics_data',
                             datastore=datastore,

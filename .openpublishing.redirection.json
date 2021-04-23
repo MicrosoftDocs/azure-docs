@@ -2131,6 +2131,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/application-gateway/rewrite-http-headers.md",
+      "redirect_url": "/azure/application-gateway/rewrite-http-headers-url",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-gateway/application-gateway-ilb.md",
       "redirect_url": "/azure/application-gateway/application-gateway-ilb-arm",
       "redirect_document_id": false
