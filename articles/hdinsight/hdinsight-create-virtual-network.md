@@ -375,7 +375,7 @@ Before deploying your cluster, you can check that your many of your network conf
 
 1. Under **Instance details**, enter a unique **Virtual machine name**, select the same **Region** as your VNet, choose *No infrastructure redundancy required* for **Availability options**, choose *Ubuntu 18.04 LTS* for your **Image**, leave **Azure Spot instance** blank, and choose Standard_B1s (or larger) for the **Size**.
 
-	![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/hdinsight-create-virtual-network/instance-details.png)
+    :::image type="content" source="./media/hdinsight-create-virtual-network/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
 
 1. Under **Administrator account**, select **Password** and enter a username and password for the administrator account. 
 
