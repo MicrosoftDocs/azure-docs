@@ -32,8 +32,8 @@ The Unix permissions setting is set to `0770` by default. This default setting g
 
 The change ownership mode (**Chown Mode**) functionality enables you to set the ownership management capabilities of files and directories.  You can specify or modify the setting under a volume's export policy. Two options for **Chown Mode** are available:   
 
-* `restricted` (default) - Only the root user can change the ownership of files and directories.
-* `unrestricted` - Non-root users can change the ownership for files and directories that they own.
+* `Restricted` (default) - Only the root user can change the ownership of files and directories.
+* `Unrestricted` - Non-root users can change the ownership for files and directories that they own.
 
 ## Considerations  
 

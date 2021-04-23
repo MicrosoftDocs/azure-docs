@@ -44,8 +44,8 @@ You can create up to five export policy rules.
 
     * **Chown Mode**:	Modify the change ownership mode as needed to set the ownership management capabilities of files and directories.  Two options are available:   
 
-      * `restricted` (default) - Only the root user can change the ownership of files and directories.
-      * `unrestricted` - Non-root users can change the ownership for files and directories that they own.  
+      * `Restricted` (default) - Only the root user can change the ownership of files and directories.
+      * `Unrestricted` - Non-root users can change the ownership for files and directories that they own.  
 
         Registration requirement and considerations apply for setting **Chown Mode**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
 
