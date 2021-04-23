@@ -27,17 +27,17 @@ For the bot on surface products, you can take the following steps to create a bo
    
    [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98)<br>[Surface Earbuds FAQ](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9)
 
-1. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
+2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
->[!div class="mx-imgBorder"]
->[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
+  >[!div class="mx-imgBorder"]
+  >[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
 
-1. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
+3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
->[!div class="mx-imgBorder"]
->[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-1.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-1.png#lightbox)
+  >[!div class="mx-imgBorder"]
+  >[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-1.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-1.png#lightbox)
 
-1. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
+4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
 
     You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
     ```
@@ -66,15 +66,18 @@ For the bot on surface products, you can take the following steps to create a bo
 
     * Explicitly take the domain as input from the user through the bot client. For instance as shown below, you can take product category as input from the user when the conversation is initiated.
     
-      ![Screenshot of explicit metdata input](../media/qnamaker-tutorial-updates/explicit-metadata-input.png)
-    
+  >[!div class="mx-imgBorder"]
+  >[![Take metadata input]( ../media/qnamaker-tutorial-updates/explicit-metadata-input.png) ]( ../media/qnamaker-tutorial-updates/expand/explicit-metadata-input.png#lightbox)
+
     * Implicitly Identify domain based on bot context. For instance, in case the previous question was on a particular Surface product, it can be saved as context client side. If the user doesn't specify the product in the next query, you could pass on the bot context as metadata to the Generate Answer API.
 
-      ![Screenshot of extract metadata from context](../media/qnamaker-tutorial-updates/extract-metadata-from-context.png)
+  >[!div class="mx-imgBorder"]
+  >[![Pass context]( ../media/qnamaker-tutorial-updates/extract-metadata-from-context.png) ]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-context.png#lightbox)
 
     * Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
 
-      ![Screenshot of extract metadata from query](../media/qnamaker-tutorial-updates/extract-metadata-from-query.png)
+  >[!div class="mx-imgBorder"]
+  >[![Extract metadata from query]( ../media/qnamaker-tutorial-updates/extract-metadata-from-query.png) ]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-query.png#lightbox)
 
 #### How large can our knowledgebases be? 
 
