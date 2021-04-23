@@ -25,7 +25,7 @@ summary: |
   - [What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the--windows-azure-tools-encryption-certificate-for-extensions--)
   - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request--csr--without--rdp-ing--in-to-the-instance-)
   - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring--how-to-renew-it-)
-  - [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tls-ssl-certificate--pfx--and-intermediate-certificate--p-3b--)
+  - [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tls-ssl-certificate--pfx--and-intermediate-certificate--p7b--)
   - [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the--microsoft-azure-service-management-for-machinekey--certificate-)
   
   **Monitoring and logging**
