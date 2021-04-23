@@ -221,7 +221,7 @@ If you want to use any of the parameters above, you can pass them into the Param
 
 ## Next Steps
 
-In this article, you’ve learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see [Overview of FHIR Search](overview-fhir-search). 
+In this article, you’ve learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see [Overview of FHIR Search](overview-fhir-search.md). 
 
          
      
