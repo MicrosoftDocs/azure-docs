@@ -15,64 +15,18 @@ See [Monitoring App Service](monitor-app-service.md) for details on collecting a
 
 ## Metrics
 
-<!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
-<!-- Please keep headings in this order -->
-
-<!-- 2 options here depending on the level of extra content you have. -->
-
-------------**OPTION 1 EXAMPLE** ---------------------
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
 This section lists all the automatically collected platform metrics collected for App Service.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Virtual Machine | [Microsoft.Compute/virtualMachine](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines) |
-| Virtual machine scale set | [Microsoft.Compute/virtualMachinescaleset](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachinescaleset) 
+| App Service Plans | [Microsoft.Web/serverfarms](/azure/azure-monitor/essentials/metrics-supported#microsoftwebserverfarms)
+| Web apps | [Microsoft.Web/sites](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsites) |
+| Staging slots | [Microsoft.Web/sites/slots](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsitesslots) 
 
-
-
---------------**OPTION 2 EXAMPLE** -------------
-
-<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db-reference#metrics). They even regroup the metrics into usage type vs. resource provider and type.
--->
-
-<!-- Example format. Mimic the setup of metrics supported, but add extra information -->
-
-### Virtual Machine metrics
-
-Resource Provider and Type: [Microsoft.Compute/virtualMachines](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines)
-
-| Metric | Unit | Description | *TODO replace this label with other information*  |
-|:-------|:-----|:------------|:------------------|
-|        |      |             | Use this metric for <!-- put your specific information in here -->  |
-|        |      |             |  |
-
-### Virtual machine scale set metrics
-
-Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachinescalesets) 
-
-| Metric | Unit | Description | *TODO replace this label with other information*  |
-|:-------|:-----|:------------|:------------------|
-|        |      |             | Use this metric for <!-- put your specific information in here -->  |
-|        |      |             |  |
-
-
-<!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor [servicename] article as appropriate. -->
-
-<!-- Keep this text as-is -->
 For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 
-
 ## Metric Dimensions
-
-<!-- REQUIRED. Please  keep headings in this order -->
-<!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
