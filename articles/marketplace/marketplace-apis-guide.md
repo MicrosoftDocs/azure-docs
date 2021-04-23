@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/20/2020
+ms.date: 04/23/2021
 ---
 
 # Aligning your Business with our eCommerce Platform

@@ -319,6 +319,8 @@
     items:
     - name: CPP API overview
       href: cloud-partner-portal-api-overview.md
+    - name: Guide to Marketplace APIs
+      href: marketplace-apis-guide.md
     - name: API prerequisites
       href: cloud-partner-portal-api-prerequisites.md
     - name: API considerations
