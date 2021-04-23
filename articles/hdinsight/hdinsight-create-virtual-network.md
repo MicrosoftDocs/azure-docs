@@ -389,7 +389,7 @@ Before deploying your cluster, you can check that your many of your network conf
 
 1. On the **Networking** page, under **Network interface**, select the **Virtual Network** and the **Subnet** in which you plan to add the HDInsight cluster to, and then select the **Review + create** button at the bottom of the page.
 
-    ![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/hdinsight-create-virtual-network/vnet.png)
+    ![Screenshot of the network interface section where you select the VNet and subnet in which to add the virtual machine](./media/hdinsight-create-virtual-network/vnet.png)
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
