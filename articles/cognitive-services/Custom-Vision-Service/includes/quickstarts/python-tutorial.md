@@ -56,7 +56,7 @@ Create variables for your resource's Azure endpoint and subscription keys.
 > [!IMPORTANT]
 > Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages. You'll need to get the keys for both your training and prediction resources, along with the API endpoint for your training resource.
 >
-> You can find the prediction resource ID value on the resource's **Properties** tab, listed as **Subscription ID**.
+> You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
 >
 > Remember to remove the keys from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
 
