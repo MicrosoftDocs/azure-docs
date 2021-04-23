@@ -18,15 +18,15 @@ Azure Active Directory (Azure AD) must contain all the data (attributes) require
 
 For users only in Azure AD, you can [create schema extensions using PowerShell or Microsoft Graph](#create-an-extension-attribute-on-a-cloud-only-user).
 
-For users in [Active Directory Federation Services (AD FS)](/windows-server/identity/active-directory-federation-services.md), you must sync the users to Azure AD. You can sync users and attributes using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Azure AD Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect). That way, the attribute will be visible to the Azure AD Graph API and the Azure AD provisioning service.
+For users in on-premises Active Directory, you must sync the users to Azure AD. You can sync users and attributes using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Azure AD Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect). That way, the attribute will be visible to the Azure AD Graph API and the Azure AD provisioning service.
 
 ## Create an extension attribute on a cloud only user
 You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD. These extension attributes are automatically discovered in most cases.
 
-When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### Create an extension attribute on a cloud only user using Microsoft Graph
-You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview.md). 
+You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview). 
 
 First, list the apps in your tenant to get the ID of the app you're working on. To learn more, see [List extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
 
@@ -49,7 +49,7 @@ Content-type: application/json
 }
 ```
 
-The previous request created an extension attribute with the format `extension_appID_extensionName`. You can now update a user with this extension attribute. To learn more, see [Update user](/graph/api/user-update.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+The previous request created an extension attribute with the format `extension_appID_extensionName`. You can now update a user with this extension attribute. To learn more, see [Update user](/graph/api/user-update?view=graph-rest-1.0&tabs=http&preserve-view=true).
 ```json
 PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-type: application/json
@@ -58,7 +58,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get.md?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true).
+Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true).
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName

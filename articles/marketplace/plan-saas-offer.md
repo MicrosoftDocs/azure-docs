@@ -12,7 +12,7 @@ ms.date: 03/26/2021
 
 # How to plan a SaaS offer for the commercial marketplace
 
-This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers to let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
 ## Listing options
 
@@ -130,6 +130,29 @@ If you choose to use the standard contract, you have the option to add universal
 > [!NOTE]
 > After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
 
+
+## Microsoft 365 integration
+
+Integration with Microsoft 365 allows your SaaS offer to provide connected experience across multiple Microsoft 365 App surfaces through related free add-ins like Teams apps, Office add-ins, and SharePoint Framework solutions. You can help your customers easily discover all facets of your E2E solution (web service + related add-ins) and deploy them within one process by providing the following information. 
+  - If your SaaS offer integrates with Microsoft Graph, then provide the Azure Active Directory (AAD) App ID used by your SaaS offer for the integration. Administrators can review access permissions required for the proper functioning of your SaaS offer as set on the AAD App ID and grant access if advanced admin permission is needed at deployment time. 
+    
+     If you choose to sell your offer through Microsoft, then this is the same AAD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
+	
+   -	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
+    
+        To link related add-ins, you need to provide the AppSource link of the add-in, this means the add-in must be first published to AppSource. Supported add-in types you can link are: Teams apps, Office add-ins, and SharePoint Framework (SPFx) solutions. Each linked add-in must be unique for a SaaS offer. 
+
+For linked products, search on AppSource will return with one result that includes both SaaS and all linked add-ins. Customer can navigate between the product detail pages of the SaaS offer and linked add-ins. 
+IT admins can review and deploy both the SaaS and linked add-ins within the same process through an integrated and connected experience within the Microsoft 365 admin center. To learn more, see [Test and deploy Microsoft 365 Apps - Microsoft 365 admin](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
+
+### Microsoft 365 integration support limitations
+Discovery as a single E2E solution is supported on AppSource for all cases, however, simplified deployment of the E2E solution as described above via the Microsoft 365 admin center is not supported for the following scenarios:
+
+   - The same add-in is linked to more than one SaaS offer.
+   - The SaaS offer is linked to add-ins, but it does not integrate with Microsoft Graph and no AAD App ID is provided.
+  - The SaaS offer is linked to add-ins, but AAD App ID provided for Microsoft Graph integration is shared across multiple SaaS offers.
+
+ 
 ## Offer listing details
 
 When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace, as shown in the following example.

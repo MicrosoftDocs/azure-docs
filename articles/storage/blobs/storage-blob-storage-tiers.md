@@ -1,9 +1,9 @@
 ---
 title: Access tiers for Azure Blob Storage - hot, cool, and archive
 description: Read about hot, cool, and archive access tiers for Azure Blob Storage. Review storage accounts that support tiering.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs

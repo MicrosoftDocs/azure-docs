@@ -25,7 +25,7 @@ Follow this guide to learn how to update the OS and firmware of the carrier boar
 > [!NOTE]
 > If you have already imported the update, you can skip directly to **Create a device update group**.
 
-1. [Download the appropriate manifest file (.json) and update file (.swu) for your Azure Percept device](https://go.microsoft.com/fwlink/?linkid=2155625).
+1. [Download the latest manifest file (.json)](https://go.microsoft.com/fwlink/?linkid=2155625) and [update file (.swu)](https://go.microsoft.com/fwlink/?linkid=2161538) for your Azure Percept device.
 
 1. Navigate to the Azure IoT Hub that you are using for your Azure Percept device. On the left-hand menu panel, select **Device Updates** under **Automatic Device Management**.
 

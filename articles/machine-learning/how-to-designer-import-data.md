@@ -8,8 +8,8 @@ ms.subservice: core
 author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Import data into Azure Machine Learning designer

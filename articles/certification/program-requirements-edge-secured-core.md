@@ -41,7 +41,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test to validate that sensitive data can be encrypted on non-volitile storage.|
+|Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
