@@ -97,7 +97,8 @@ With `cpu-cluster` created, you can run the basic LightGBM on Iris job. Let's re
 
 `environment:` specifies the environment to execute the command on the compute target with. It generally consists of a docker context. You can also refer to an existing registered environment, or one of Azure ML's curated environments, using the `azureml:` prefix. For instance `azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1` would refer to version 1 of a curated environment for tensorflow on GPUs.
 
-[!IMPORTANT] Python must be installed in the environment. Run `apt-get update -y && apt-get install python3 -y` in your dockerfile to install if needed.
+> [!IMPORTANT]
+> Python must be installed in the environment. Run `apt-get update -y && apt-get install python3 -y` in your dockerfile to install if needed.
 
 `compute:/target:` specifies the compute target. It can be `local` for local execution, or use the `azureml:` prefix. For instance, `azureml:cpu-cluster` would point to a compute target named "cpu-cluster".
 
