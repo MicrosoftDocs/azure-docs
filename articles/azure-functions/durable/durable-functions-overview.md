@@ -395,7 +395,37 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell)
 
-Monitor is currently not supported in PowerShell.
+```powershell
+using namespace System.Net
+
+param($Context)
+
+Write-Host 'MonitorOrchestrator: started.'
+
+$output = @()
+
+$jobId = $Context.Input.JobId
+$machineId = $Context.Input.MachineId
+$pollingInterval = New-TimeSpan -Seconds $Context.Input.PollingInterval
+$expiryTime = $Context.Input.ExpiryTime
+
+while ($Context.CurrentUtcDateTime -lt $expiryTime) {
+    $jobStatus = Invoke-DurableActivity -FunctionName 'GetJobStatus' -Input $jobId
+    if ($jobStatus -eq "Completed") {
+        # Perform an action when a condition is met.
+        $output += Invoke-DurableActivity -FunctionName 'SendAlert' -Input $machineId
+        break
+    }
+
+    # Orchestration sleeps until this time.
+    Start-DurableTimer -Duration $pollingInterval
+}
+
+# Perform more work here, or let the orchestration end.
+Write-Host 'MonitorOrchestrator: finished.'
+
+$output
+```
 
 ---
 
@@ -497,7 +527,39 @@ To create the durable timer, call `context.create_timer`. The notification is re
 
 # [PowerShell](#tab/powershell)
 
-Human interaction is currently not supported in PowerShell.
+```powershell
+using namespace System.Net
+
+param($Context)
+
+Write-Host 'HumanInteractionOrchestrator: started.'
+
+$output = @()
+
+$duration = New-TimeSpan -Seconds $Context.Input.Duration
+$managerId = $Context.Input.ManagerId
+$skipManagerId = $Context.Input.SkipManagerId
+
+$output += Invoke-DurableActivity -FunctionName "RequestApproval" -Input $managerId
+
+$durableTimeoutEvent = Start-DurableTimer -Duration $duration -NoWait
+$approvalEvent = Start-DurableExternalEventListener -EventName "ApprovalEvent" -NoWait
+
+$firstEvent = Wait-DurableTask -Task @($approvalEvent, $durableTimeoutEvent) -Any
+
+if ($approvalEvent -eq $firstEvent) {
+    Stop-DurableTimerTask -Task $durableTimeoutEvent
+    $output += Invoke-DurableActivity -FunctionName "ProcessApproval" -Input $approvalEvent
+}
+else {
+    $output += Invoke-DurableActivity -FunctionName "EscalateApproval" -Input $skipManagerId
+}
+
+Write-Host 'HumanInteractionOrchestrator: finished.'
+
+$output
+```
+To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
 ---
 
