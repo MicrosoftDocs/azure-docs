@@ -497,8 +497,8 @@ To start rendering remote participant streams, use the following code.
 
 ```swift
 
-let renderer: Renderer? = Renderer(remoteVideoStream: remoteParticipantVideoStream)
-let targetRemoteParticipantView: RendererView? = renderer?.createView(withOptions: CreateViewOptions(scalingMode: ScalingMode.crop))
+let renderer = VideoStreamRenderer(remoteVideoStream: remoteParticipantVideoStream)
+let targetRemoteParticipantView = renderer?.createView(withOptions: CreateViewOptions(scalingMode: ScalingMode.crop))
 // To update the scaling mode later
 targetRemoteParticipantView.update(scalingMode: ScalingMode.fit)
 
@@ -563,7 +563,7 @@ let remoteRenderer = VideoStreamRenderer(remoteVideoStream:remoteVideoStream)
 // [StreamSize] size of the rendering view
 localRenderer.size
 
-// [RendererDelegate] an object you provide to receive events from this Renderer instance
+// [VideoStreamRendererDelegate] an object you provide to receive events from this Renderer instance
 localRenderer.delegate
 
 // [Synchronous] create view
