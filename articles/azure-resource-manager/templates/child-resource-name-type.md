@@ -2,7 +2,7 @@
 title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 04/23/2021
 ---
 
 # Set name and type for child resources
@@ -121,13 +121,13 @@ The full resource type is still `Microsoft.Network/virtualNetworks/subnets`. You
 
 The child resource name is set to **Subnet1** but the full name includes the parent name. You don't provide VNet1 because it's assumed from the parent resource.
 
-To access the child resource symbolic name, you need to use the `::` operator. For example, if you need to output a property from the child you write the following:
+To access the child resource symbolic name, you need to use the `::` operator. For example, to output a property from a child resource:
 
 ```bicep
 output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 ```
 
-A nested resource can access properties of its parent resource. Other resources declared inside the body of the same parent resource can reference each other and the typical rules about cyclic-dependencies apply. A containing resource may not access properties of the resources it contains, this would cause a cyclic-dependency.
+A nested resource can access properties of its parent resource. Other resources declared inside the body of the same parent resource can reference each other and the typical rules about cyclic-dependencies apply. A parent resource may not access properties of the resources it contains, this would cause a cyclic-dependency.
 
 ---
 
