@@ -36,15 +36,15 @@
   - name: Use the Face container
     items:
     - name: Cognitive Services containers documentation
-      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
+      href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
     - name: Containers overview
-      href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
+      href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
     - name: Install and run containers
       href: face-how-to-install-containers.md
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
-      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+      href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
@@ -90,7 +90,7 @@
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Learn modules
-    href: https://docs.microsoft.com/learn/modules/detect-analyze-faces/
+    href: /learn/modules/detect-analyze-faces/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
   - name: Azure updates
