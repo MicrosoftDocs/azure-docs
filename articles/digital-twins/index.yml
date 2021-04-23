@@ -83,7 +83,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create custom SDKs with AutoRest
-            url: how-to-create-custom-sdks.md
+            url: ./how-to-use-apis-sdks.md
 
   - title: Explore code samples
     linkLists:

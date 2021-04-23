@@ -74,4 +74,4 @@ For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pri
 
 * Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
-* Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

@@ -126,7 +126,7 @@
     - name: Services and tools available for data migration scenarios
       href: dms-tools-matrix.md
     - name: Azure Database Migration Guide
-      href: https://aka.ms/datamigration
+      href: /data-migration/
     - name: Data Migration Assistant
       href: /sql/dma/dma-overview
     - name: SQL Server Migration Assistant

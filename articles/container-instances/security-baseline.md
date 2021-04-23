@@ -28,7 +28,7 @@ To see how Container Instances completely maps to the Azure Security Benchmark, 
 
 Control outbound network access from a subnet delegated to Azure Container Instances by using Azure Firewall. 
 
-- [Deploy container instances into an Azure virtual network](/azure/container-instances/container-instances-vnet)
+- [Deploy container instances into an Azure virtual network](./container-instances-vnet.md)
 
 - [How to deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -64,7 +64,7 @@ Control outbound network access from a subnet delegated to Azure Container Insta
 
 You may use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period. Also , use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit Ports and Source IPs based on actual traffic and threat intelligence.
 
-- [How to configure DDoS protection](/azure/virtual-network/manage-ddos-protection)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -120,7 +120,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, for resources that need access to your container registry, use virtual network service tags for the Azure Container Registry service to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureContainerRegistry" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [Allow access by service tag](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag)
+- [Allow access by service tag](../container-registry/container-registry-firewall-access-rules.md#allow-access-by-service-tag)
 
 **Responsibility**: Customer
 
@@ -156,9 +156,9 @@ You can use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your container registries. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -192,7 +192,7 @@ You can use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 **Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -202,9 +202,9 @@ You can use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 **Guidance**: Analyze and monitor Azure Container Instances logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics workspace to review logs and perform queries on log data.
 
-- [Understand Log Analytics workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Understand Log Analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [How to create a log-enabled container group and query logs](container-instances-log-analytics.md)
 
@@ -218,7 +218,7 @@ You can use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 - [Azure Container Registry logs for diagnostic evaluation and auditing](../container-registry/container-registry-diagnostics-audit-logs.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -254,7 +254,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 - [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-- [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry admin account](../container-registry/container-registry-authentication.md#admin-account)
 
 **Responsibility**: Customer
 
@@ -266,7 +266,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 If using a cloud-based private registry like Azure container registry with Azure Container Instances, if the default admin account of an Azure container registry is enabled, complex passwords are automatically created and should be rotated. Disable the account when not in use.
 
-- [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry admin account](../container-registry/container-registry-authentication.md#admin-account)
 
 **Responsibility**: Customer
 
@@ -280,7 +280,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 - [Understand Azure Security Center Identity and Access](../security-center/security-center-identity-access.md)
 
-- [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry admin account](../container-registry/container-registry-authentication.md#admin-account)
 
 **Responsibility**: Customer
 
@@ -294,7 +294,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-- [Individual sign in to a container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad)
+- [Individual sign in to a container registry](../container-registry/container-registry-authentication.md#individual-login-with-azure-ad)
 
 **Responsibility**: Customer
 
@@ -360,7 +360,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure identity access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -374,7 +374,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 You can streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -396,7 +396,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Not available; Customer Lockbox not currently supported for Azure Container Instances.
 
-- [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -464,7 +464,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsibility**: Shared
 
@@ -514,7 +514,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [Customer-managed keys in Azure Container Registry](https://aka.ms/acr/cmk)
+- [Customer-managed keys in Azure Container Registry](../container-registry/container-registry-customer-managed-keys.md)
 
 **Responsibility**: Customer
 
@@ -540,7 +540,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Container monitoring and scanning security recommendations for Azure Container Instances](container-instances-image-security.md)
 
-- [Azure Container Registry integration with Security Center](/azure/security-center/azure-container-registry-integration)
+- [Azure Container Registry integration with Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsibility**: Customer
 
@@ -662,9 +662,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [Azure Container Registry logs for diagnostic evaluation and auditing](../container-registry/container-registry-diagnostics-audit-logs.md)
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -696,7 +696,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -1016,7 +1016,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
