@@ -43,7 +43,7 @@ The **Read** call takes images and documents as its input. They have the followi
 ## Supported languages
 The Read API supports a total of 73 languages for print style text. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). Handwritten-style OCR is supported exclusively for English.
 
-### Key features
+## Key features
 
 The Read API includes the following features. 
 
