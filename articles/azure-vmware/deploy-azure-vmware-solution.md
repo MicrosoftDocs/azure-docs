@@ -43,7 +43,7 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 
 ### Use an existing virtual network gateway
 
-[!INCLUDE [request-authorization-key](request-authorization-key.md)]
+[!INCLUDE [request-authorization-key](request-authorization-key.md)]   
 
 
 
