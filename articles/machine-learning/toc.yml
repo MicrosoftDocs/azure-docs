@@ -462,10 +462,7 @@
         href: how-to-deploy-and-where.md
       - name: Deployment targets
         items:
-        - name: Use existing models
-          displayName: publish existing model
-          href: how-to-deploy-existing-model.md
-        - name: Azure ML compute instances
+        - name: Local
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Kubernetes Service
           displayName: aks, aad, authentication, azure active directory

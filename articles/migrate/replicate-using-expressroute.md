@@ -29,8 +29,9 @@ In this article, you'll learn how to replicate data by using an ExpressRoute cir
 
 ## Replicate data by using an ExpressRoute circuit with private peering
 
-> [!NOTE]
-> Replicating over a private peering circuit is currently supported only for [agentless migration of VMware virtual machines to Azure](./tutorial-migrate-vmware.md). Private endpoint support for other [replication methods](./migrate-services-overview.md#azure-migrate-server-migration-tool) will be available soon.
+> [!Note]
+> This article illustrates how to replicate over a private peering circuit for [**agentless migration of VMware virtual machines to Azure**](./tutorial-migrate-vmware.md). To use private endpoint support for [**other replication methods**](./migrate-services-overview.md#azure-migrate-server-migration-tool), review [**this article**](./how-to-use-azure-migrate-with-private-endpoints.md).  
+ 
 
 In the agentless method of migrating VMware virtual machines to Azure, the Azure Migrate appliance first uploads replication data to a cache storage account in your subscription. Azure Migrate then moves the replicated data from the cache storage account to replica-managed disks in your subscription.
 
