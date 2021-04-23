@@ -133,7 +133,7 @@
     - name: Accessing protected content
       href: search-indexer-securing-resources.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/cognitive-search-security-baseline
 - name: How-to guides
   items:
   - name: Management

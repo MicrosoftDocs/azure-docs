@@ -233,7 +233,7 @@
           href: security-concepts.md
           displayName: secure, ssl
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/functions-security-baseline
     - name: Monitoring
       href: functions-monitoring.md
       displayName: App Insights, Application Insights, logs, logging
