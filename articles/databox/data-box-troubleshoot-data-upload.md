@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot paused uploads from Azure Data Box, Azure Data Box Heavy devices
-description: Describes how to troubleshoot data configuration issues that pause a data copy when data is uploaded to the cloud from an Azure Data Box or Azure Data Box Heavy device.
+description: Describes how to troubleshoot non-retryable errors that pause a data upload to Azure from an Azure Data Box or Azure Data Box Heavy device.
 services: databox
 author: v-dalc
 
@@ -11,21 +11,25 @@ ms.date: 04/23/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices
+# Troubleshoot paused uploads from Azure Data Box and Azure Data Box Heavy devices
 
 This article describes how to troubleshoot errors that pause a data upload to the cloud from an Azure Data Box or Azure Data Box Heavy device. The information applies to import orders only.
 
 ## Upload pause notification
 
-When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, the upload will be paused to give you a chance to review the errors. You'll see the following notification in the Azure portal.
+When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, the upload will be paused to give you a chance to review the errors and make sure you have backup copies of the files that failed to upload.
 
-![Copy errors notification](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
+You'll see the following notification in the Azure portal.
 
-You should review the errors in the data copy log. You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+![Notification for a paused upload](media/data-box-troubleshoot-data-upload/upload-paused-01.png)<!--Remove personal info from screen.-->
 
-To resume the upload, you should confirm that you've reviewed the errors and want to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+You should review the errors in the data copy log and make sure you have backup copies of the files that failed to upload. 
 
-After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
+You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+
+To resume the upload, you'll need to confirm that you've reviewed the errors and are ready to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+
+If you don't respond, the upload is completed automatically in 14 days. By acting on the notification, you can move things along more quickly.
 
 ## Non-retryable upload errors
 
@@ -67,7 +71,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** Data import will fail if the upload of file properties fails for Azure Files.  
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, GET TROUBLESHOOTING.
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, *GET TROUBLESHOOTING*.
 
 
 ### The value for one of the HTTP headers is not in the correct format

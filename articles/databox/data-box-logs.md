@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/22/2021
+ms.date: 04/23/2021
 ms.author: alkohli
 ---
 
@@ -267,7 +267,7 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
 
 When non-retryable errors cause the upload of some files to fail, the upload is paused and you're notified to review the errors before proceeding. You'll see the following notification in the Azure portal.
 
-![Copy errors notification in the Azure portal when an upload is paused because of errors](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
+![Notification for a paused upload in the Azure portal](media/data-box-troubleshoot-data-upload/upload-paused-01.png)
 
 You should review the errors in the data copy log. You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
