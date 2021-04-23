@@ -65,6 +65,9 @@ Planned downtime events include activities scheduled by Azure such as periodic s
 ### Failover process - unplanned events
 Unplanned service downtimes include software bugs that or infrastructure faults such as compute, network, storage failures, or power outages impacts the availability of the database. In the event of the database unavailability, the replication to the standby replica is severed and the standby replica is activated to be the primary database. DNS is updated, and clients then reconnect to the database server and resume their operations. The overall failover time is expected to take 60-120 s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
 
+### Forced Failover
+Azure Database for MySQL forced failover enables you to manually force a failover, allowing you to test the functionality with your application scenarios, and helps you to be ready in case of any outages. Forced failover switches the standby server to become the primary server by triggering a failover which activates the standby replica to become the primary server with the same database server name by updating the DNS record. The original primary server will be restarted and switched to standby replica. Client connections are disconnected and have to be reconnected to resume their operations. Depending on the current workload and the last checkpoint the overall failover time will be measured. In general, it is expected to be between 60-120s.
+
 ## Schedule maintenance window 
 
 Flexible servers offer maintenance scheduling capability wherein you can choose a 30-minute window in a day of your preference during which the Azure maintenance works such as patching or minor version upgrades would happen. For your flexible servers configured with high availability, these maintenance activities are performed on the standby replica first. 
