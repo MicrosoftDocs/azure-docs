@@ -5,7 +5,7 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 04/13/2021
+  ms.date: 04/16/2021
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -58,7 +58,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: "Portal: Create a new LUIS app"
-            url: get-started-portal-build-app.md
+            url: luis-get-started-create-app.md
           - text: Using C# SDK
             url: ./client-libraries-rest-api.md?pivots=rest-api
           - text: Using Python SDK
@@ -88,8 +88,6 @@ landingContent:
 
       - linkListType: quickstart
         links:
-          - text: "Portal: Deploy app to prediction endpoint"
-            url: get-started-portal-deploy-app.md
           - text: Using SDK
             url: ./client-libraries-rest-api.md?pivots=rest-api
 

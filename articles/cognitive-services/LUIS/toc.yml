@@ -16,16 +16,8 @@
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
   items:
-  - name: Build prebuilt domain app
+  - name: Use the LUIS portal
     href: luis-get-started-create-app.md
-  - name: Use LUIS portal
-    items:
-    - name: Create an app
-      href: get-started-portal-build-app.md
-      displayName: intent, entity, create app, test, example utterance
-    - name: Deploy an app
-      href: get-started-portal-deploy-app.md
-      displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
   - name: Use the client libraries and REST API
