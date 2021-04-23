@@ -39,8 +39,6 @@
       href: detect-motion-emit-events-quickstart.md
 - name: Tutorials
   items:
-  - name: Live Video with Computer Vision for Spatial Analysis
-    href: computer-vision-for-spatial-analysis.md
   - name: Playback multi-day recordings	
     href: playback-multi-day-recordings.md #404
   - name: Use continuous video recording
@@ -51,6 +49,8 @@
     href: use-line-crossing.md #404
   - name: Analyze live video
     items:
+    - name: Live Video with Computer Vision for Spatial Analysis
+      href: computer-vision-for-spatial-analysis.md    
     - name: With OVMS via HTTP extension
       displayName: analyze live video, intel, OpenVINO 
       href: use-intel-openvino-tutorial.md
