@@ -35,7 +35,7 @@ You'll also have to configure an access policy so that the storage account has a
 
 To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md). 
 
-### Enable purge protection for a new key vault
+#### Enable purge protection for a new key vault
 
 When you create the key vault, enable purge protection.
 
@@ -43,7 +43,7 @@ When you create the key vault, enable purge protection.
 
    :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault":::
 
-### Enable purge protection on an existing key vault
+#### Enable purge protection on an existing key vault
 
 You can also enable purge protection on an existing key vault.
 
@@ -53,7 +53,7 @@ You can also enable purge protection on an existing key vault.
 
 3. In the **Purge protection** section, choose **Enable purge protection**.
 
-### Configure a key vault access policy
+#### Configure a key vault access policy
 
 Configure an access policy so that the storage account has access to the key in your key vault.
 
@@ -87,7 +87,15 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
 
 To learn how to enable purge protection on an existing key vault with PowerShell, see [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
 
-Next, assign a system-assigned managed identity to your storage account. You'll use this managed identity to grant the storage account permissions to access the key vault. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+#### Configure a key vault access policy
+
+You'll need to configure an access policy so that the storage account has access to the key in your key vault.
+
+First, decide whether to use a system-assigned or a user-defined managed identity. To learn more, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md##managed-identity-types). Then, use the managed identity to grant the storage account permissions to access the key vault.  
+
+#### Option 1: Use a system-assigned managed identity
+
+If you want to use a system-wide managed identity, you'll have to assign one to your storage account. 
 
 To assign a managed identity using PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount):
 
@@ -97,11 +105,29 @@ $storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -AssignIdentity
 ```
 
-Finally, configure the access policy for the key vault so that the storage account has permissions to access it. In this step, you'll use the managed identity that you previously assigned to the storage account.
+To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy):
+
+```powershell
+Set-AzKeyVaultAccessPolicy `
+    -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+    -PermissionsToKeys wrapkey,unwrapkey,get
+```
+
+#### Option 2: Use a user-assigned managed identity
+
+First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following PowerShell script to find the object ID. To use this script, you'll need the resource ID of the user-assigned managed identity.
+
+    ```powershell
+    $userManagedIdentityResourceId = '/subscriptions/{my subscription ID}/resourceGroups/{my resource group name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{my managed identity name}'
+    (Get-AzResource -ResourceId $userManagedIdentityResourceId).Properties.PrincipalId
+    ```
 
 To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy):
 
 ```powershell
+$userManagedIdentityObjectID = '<your object ID>'
+
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
     -ObjectId $storageAccount.Identity.PrincipalId `
@@ -122,7 +148,15 @@ az keyvault create \
 
 To learn how to enable purge protection on an existing key vault with Azure CLI, see [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md).
 
-Next, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the key vault. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+#### Configure a key vault access policy
+
+You'll need to configure an access policy so that the storage account has access to the key in your key vault.
+
+First, decide whether to use a system-assigned or a user-defined managed identity. To learn more, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md##managed-identity-types). Then, use the managed identity to grant the storage account permissions to access the key vault.  
+
+#### Use a system-assigned managed identity
+
+If you want to use a system-wide managed identity, you'll have to assign one to your storage account. 
 
 To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az_storage_account_update):
 
@@ -132,8 +166,6 @@ az storage account update \
     --resource-group <resource_group> \
     --assign-identity
 ```
-
-Finally, configure the access policy for the key vault so that the storage account has permissions to access it. In this step, you'll use the managed identity that you previously assigned to the storage account.
 
 To set the access policy for the key vault, call [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy):
 
@@ -147,6 +179,28 @@ az keyvault set-policy \
     --name <key-vault> \
     --resource-group <resource_group>
     --object-id $storage_account_principal \
+    --key-permissions get unwrapKey wrapKey
+```
+
+#### Use a system-assigned managed identity
+
+First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following CLI script to find the object ID. To use this script, you'll need the name of the user-assigned managed identity and the name of the resource group.
+
+```azurecli-interactive
+az identity show \
+    --name <name-of-user-assigned-managed-identity> \
+    --resource-group <resource-group>
+```
+
+The response contains details for the user-assigned managed identity. You'll use the `principalId` value from that response the next step.
+
+To set the access policy for the key vault, call [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy):
+
+```azurecli-interactive
+az keyvault set-policy \
+    --name <key-vault> \
+    --resource-group <resource_group>
+    --object-id <object id> \
     --key-permissions get unwrapKey wrapKey
 ```
 
