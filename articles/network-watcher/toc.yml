@@ -51,7 +51,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/network-watcher-security-baseline
   - name: Data residency
     href: data-residency.md
 - name: How-to guides

@@ -7,7 +7,9 @@ ms.date: 03/24/2021
 
 # Platform updates for Azure VMware Solution
 
-Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Azure VMware Solution private cloud updates and upgrades](concepts-upgrades.md).
+Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+
 
 ## March 24, 2021
 All new Azure VMware Solution private clouds are deployed with VMware vCenter version 6.7U3l and NSX-T version 3.1.1. Any existing private clouds will be updated and upgraded **through June 2021** to the above-mentioned releases.
