@@ -33,9 +33,9 @@ You're not going to create unit tests or UI tests during this quickstart. Feel f
    platform :ios, '13.0'
    use_frameworks!
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
-     pod 'AzureCommunication', '~> 1.0.0-beta.8'
-     pod 'AzureCore', '~> 1.0.0-beta.8'
+     pod 'AzureCommunicationCalling', '~> 1.0.0'
+     pod 'AzureCommunication', '~> 1.0.0'
+     pod 'AzureCore', '~> 1.0.0'
    end
    ```
 
@@ -92,13 +92,13 @@ import AzureCommunication
 
 let tokenString = "token_string"
 var userCredential: CommunicationTokenCredential?
-var userCredential: CommunicationTokenCredential?
-   do {
-       userCredential = try CommunicationTokenCredential(with: CommunicationTokenRefreshOptions(initialToken: token, 
-                                                                     refreshProactively: true,
-                                                                     tokenRefresher: self.fetchTokenSync))
-   } catch {
-       return
+do {
+    let options = CommunicationTokenRefreshOptions(initialToken: token, refreshProactively: true, tokenRefresher: self.fetchTokenSync)
+    userCredential = try CommunicationTokenCredential(withOptions: options)
+} catch {
+    updates("Couldn't created Credential object", false)
+    initializationDispatchGroup!.leave()
+    return
 }
 
 // tokenProvider needs to be implemented by Contoso, which fetches a new token
@@ -112,11 +112,11 @@ Pass the `CommunicationTokenCredential` object that you created to `CallClient`,
 
 ```swift
 
-callClient = CallClient()
-let callAgentOptions:CallAgentOptions = CallAgentOptions()!
-options.displayName = " iOS User"
+self.callClient = CallClient()
+let callAgentOptions = CallAgentOptions()
+options.displayName = " iOS ACS User"
 
-callClient?.createCallAgent(userCredential: userCredential!,
+self.callClient!.createCallAgent(userCredential: userCredential!,
     options: callAgentOptions) { (callAgent, error) in
         if error == nil {
             print("Create agent succeeded")
@@ -139,9 +139,17 @@ Call creation and start are synchronous. You'll receive a call instance that all
 ```swift
 
 let callees = [CommunicationUser(identifier: 'UserId')]
-let oneToOneCall = self.callAgent.call(participants: callees, options: StartCallOptions())
+self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+     if error == nil {
+         print("Successfully started outgoing call")
+         self.call = call
+     } else {
+         print("Failed to start outgoing call")
+     }
+}
 
 ```
+======= BREAKPOINT ========
 
 ### Place a 1:n call with users and PSTN
 To place the call to PSTN, you have to specify a phone number acquired with Communication Services.
