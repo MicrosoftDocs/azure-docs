@@ -182,7 +182,9 @@ Lets make a few modifications so this verifiable credential looks visibly differ
         "textColor": "#000000",
       }
 ```
-
+ 
+ >[!NOTE]
+   > To ensure your credential is readable and accessible, we strongly recommend selecting text and background colors with a [contrast ratio](https://www.w3.org/WAI/WCAG21/Techniques/general/G18) of at least 4.5:1.  
 Save these changes.
 
 ## Create a storage account
