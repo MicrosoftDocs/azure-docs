@@ -189,6 +189,8 @@ If the `properties.provisioningState` of the resource is `Succeeded` and `proper
 - If you've created the indexer without setting the `executionEnvironment` property and it runs successfully, it means that Azure Cognitive Search has decided that its execution environment is the search service-specific *private* environment. This can change, depending on resources consumed by the indexer, the load on the search service, and other factors, and it can fail later. To remedy the issue:
   * We highly recommend that you set the `executionEnvironment` property to `private` to ensure that it won't fail in the future.
 
+- If you're viewing your data source networking configuration page in the Azure portal and you select a private endpoint that you created for your Azure Cognitive Search service to access this data source, you may receive a *No Access* error. This is expected. You can change the status of the connection request via the target service's portal page but to further manage the shared private link resource you need to view your search service network settings in the Azure Portal.
+
 [Quotas and limits](search-limits-quotas-capacity.md) determine how many shared private link resources can be created and depend on the SKU of the search service.
 
 ## Next steps
