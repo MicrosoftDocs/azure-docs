@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 1. In the resource group, select **+ Add** then search and select **Microsoft Windows 10**, and then select **Create**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Add a new Windows 10 VM for a jump box." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box." border="true":::
 
 1. Enter the required information in the fields, and then select **Review + create**. 
 

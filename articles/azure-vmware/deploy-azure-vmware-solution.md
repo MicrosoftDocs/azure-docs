@@ -60,7 +60,7 @@ You should have connectivity between the Azure Virtual Network where the Express
 
    You can identify the vCenter and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **Identity**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshots of the private cloud vCenter and NSX Manager URLs and credentials." border="true":::
 
 
 ## Next steps

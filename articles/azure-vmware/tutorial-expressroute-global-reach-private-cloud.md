@@ -19,7 +19,7 @@ The ExpressRoute circuit you use when you [configure networking for your VMware 
 
 This tutorial results in a connection as shown in the diagram.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach on-premises network connectivity diagram." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="Diagram showing ExpressRoute Global Reach on-premises network connectivity." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 In this tutorial, you learn how to:
 
