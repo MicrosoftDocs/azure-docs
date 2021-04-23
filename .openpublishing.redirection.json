@@ -27228,7 +27228,7 @@
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-existing-model.md",
       "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/how-to-deploy-existing-model.md",
