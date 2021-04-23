@@ -30,9 +30,9 @@ highlightedContent:
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: What is Azure Orbital?
+    - title: Azure Networking blogs
       itemType: concept
-      url: azure-orbital-overview.md
+      url: https://azure.microsoft.com/blog/topics/networking/
     - title: Working remotely using Azure services
       itemType: concept
       url: working-remotely-support.md
@@ -229,15 +229,18 @@ additionalContent:
               url: ../azure-monitor/insights/network-insights-overview.md
             - text: See more
               url: ../azure-monitor/index.yml
-additionalContent:
-  sections:
-    - items:
-      - title: Azure PowerShell commands for Azure networking
-        summary: Learn about the Azure network Cmdlets. 
-        url: /powershell/module/az.network/#networking
-      - title: Azure CLI commands for Azure networking
-        summary: Find the Azure network commands in the CLI reference.
-        url: /cli/azure/network
-      - title: Azure networking blogs
-        summary: View the latest blogs in Azure networking.
-        url: https://azure.microsoft.com/blog/topics/networking/
+    - title: References and Resources # < 60 chars (optional)
+      summary:  # < 160 chars (optional)
+      items:
+        # Card
+        - title: Azure networking reference
+          links:
+            - text: Learn about the Azure networking Cmdlets 
+              url: /powershell/module/az.network/#networking
+            - text: Azure CLI commands for Azure networking
+              url: /cli/azure/network
+
+        - title: Azure Networking blogs
+          links:
+            - text: View the latest blogs in Azure networking
+              url: https://azure.microsoft.com/blog/topics/networking/
