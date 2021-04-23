@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/21/2021
+ms.date: 04/22/2021
 ms.author: alkohli
 ---
 
@@ -220,55 +220,6 @@ The following sample describes the general format of a copy log for a Data Box u
 </CopyLog>
 ```
 
-### Copy errors
-
-When some types of data configuration errors cause a file upload to fail, the upload is paused and the order is placed in a **Copy error** state. To proceed with the upload, you must confirm that you've reviewed the errors and want the copy to proceed. These errors can't be fixed in the current order, but you can evaluate whether it's more useful to complete the copy or to cancel it and start a new order. If only a few files failed to upload, you may be able to do a network transfer after the order completes.
-
-![Copy errors notification in Azure portal when data configuration errors pause an upload](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
-
-For a summary of the errors that place an order in a **Copy errors** state, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For the steps to proceed or cancel the data copy, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
-
-Here is an example of a copy log where upload of a 5 TiB Azure File failed because of a data configuration error:<!--This is identical, except for detail, to the "Upload completed with errors" example. That's not wrong. Should we try to distinguish between the two?-->
-
-```xml
-<ErroredEntity Path="lfs5tbfile032521\lfs5tbfile"> 
-  <Category>UploadErrorCloudHttp</Category> 
-  <ErrorCode>400</ErrorCode> 
-    <ErrorMessage>The file size exceeds the maximum permissible limit.</ErrorMessage> 
-  <Type>File</Type> 
-</ErroredEntity><CopyLog Summary="Summary">
-  <Status>Failed</Status> 
-  <TotalFiles_Blobs>8</TotalFiles_Blobs> 
-  <FilesErrored>1</FilesErrored> 
-</CopyLog>
-```
-
-### Upload completed with errors
-
-Upload to Azure may also complete with errors.
-
-![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
-
-Here is an example of a copy log where the upload completed with errors:
-
-```xml
-<ErroredEntity Path="iso\samsungssd.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><CopyLog Summary="Summary">
-  <Status>Failed</Status>
-  <TotalFiles_Blobs>72</TotalFiles_Blobs>
-  <FilesErrored>2</FilesErrored>
-</CopyLog>
-```
-
 ### Upload completed with warnings
 
 Upload to Azure completes with warnings if your data had container, blob, or file names that didn't conform to Azure naming conventions and the names were modified in order to upload the data to Azure.
@@ -310,6 +261,106 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
   <Type>File</Type>
 </ErroredEntity>
 ```
+
+
+### Upload paused
+
+When non-retryable errors cause the upload of some files to fail, the upload is paused and you're notified to review the errors before proceeding. You'll see the following notification in the Azure portal.
+
+![Copy errors notification in the Azure portal when an upload is paused because of errors](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
+
+You should review the errors in the data copy log. You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+
+To resume the upload, you should confirm that you've reviewed the errors and want to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+
+After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
+
+For troubleshooting information for these errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For the steps to confirm your error review and continue the upload, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
+
+Here is an example of a non-retryable error that causes an upload to pause:<!--Veda to send a new example. This error is not in the set that pause an upload.-->
+
+```xml
+<ErroredEntity Path="lfs5tbfile032521\lfs5tbfile"> 
+  <Category>UploadErrorCloudHttp</Category> 
+  <ErrorCode>400</ErrorCode> 
+    <ErrorMessage>The file size exceeds the maximum permissible limit.</ErrorMessage> 
+  <Type>File</Type> 
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status> 
+  <TotalFiles_Blobs>8</TotalFiles_Blobs> 
+  <FilesErrored>1</FilesErrored> 
+</CopyLog>
+```
+
+### Upload completed with errors
+
+Upload to Azure may also complete with errors.
+
+![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
+
+Here is an example of a copy log where the upload completed with errors:
+
+<!--```xml
+<ErroredEntity Path="iso\samsungssd.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status>
+  <TotalFiles_Blobs>72</TotalFiles_Blobs>
+  <FilesErrored>2</FilesErrored>
+</CopyLog>
+```
+-->
+```xml
+<ErroredEntity Path="iso\samsungssd.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>400</ErrorCode>
+  <ErrorMessage>Bad Request</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>400</ErrorCode>
+  <ErrorMessage>The value for one of the HTTP headers is not in the correct format.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>This operation is not permitted as the blob is immutable due to a policy.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The total provisioned capacity of the shares cannot exceed the account maximum size limit.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>There is currently a lease on the blob and no lease ID was specified in the request.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorManagedConversionError</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status>
+  <TotalFiles_Blobs>72</TotalFiles_Blobs>
+  <FilesErrored>2</FilesErrored>
+</CopyLog>
+```
+<!--Updates needed to the new error log examples: 1) Appropriate paths. 2) Update summary tallies to something fairly realistic. Current summary is based on one error.-->
 
 ## Get chain of custody logs after data erasure
 
