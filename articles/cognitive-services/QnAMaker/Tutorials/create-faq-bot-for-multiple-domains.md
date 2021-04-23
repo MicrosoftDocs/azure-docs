@@ -27,7 +27,7 @@ For the bot on surface products, you can take the following steps to create a bo
    
    [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98)<br>[Surface Earbuds FAQ](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9)
 
-   ![Screenshot of create KB](../media/create-sample-kb.png)
+   
 
 
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
@@ -70,6 +70,10 @@ For the bot on surface products, you can take the following steps to create a bo
     You can obtain metadata value based on user input in the following ways: 
 
     * Explicitly take the domain as input from the user through the bot client. For instance as shown below, you can take product category as input from the user when the conversation is initiated.
+    
+    ![Screenshot of explicit metdata input](../media/qnamaker-tutorial-updates/explicit-metadata-input.png)
+    
+    
     * Implicitly Identify domain based on bot context. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
     * Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
 
