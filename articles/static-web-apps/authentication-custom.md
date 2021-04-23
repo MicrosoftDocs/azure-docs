@@ -7,6 +7,7 @@ ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 3/24/2021
+ms.custom: devx-track-aad
 ---
 
 # Custom authentication in Azure Static Web Apps
