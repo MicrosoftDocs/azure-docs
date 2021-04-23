@@ -1,5 +1,5 @@
 ---
-title: Help secure computer accounts | Azure Active Directory
+title: Secure computer accounts | Azure Active Directory
 description: A guide to helping secure on-premises computer accounts.
 services: active-directory
 author: BarbaraSelden
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Help secure on-premises computer accounts
+# Secure on-premises computer accounts
 
 A computer account, or LocalSystem account, is a built-in, highly privileged account with access to virtually all resources on the local computer. The account is not associated with any signed-on user account. Services run as LocalSystem access network resources by presenting the computer's credentials to remote servers. The account presents credentials in the format <domain_name>\\<computer_name>$. Its predefined name is NT AUTHORITY\SYSTEM. You can use it to start a service and provide security context for that service.
 
@@ -83,10 +83,10 @@ Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "c
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
-* [Help secure group managed service accounts](service-accounts-group-managed.md)
-* [Help secure standalone managed service accounts](service-accounts-standalone-managed.md)
-* [Help secure computer accounts](service-accounts-computer.md)  
-* [Help secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure group managed service accounts](service-accounts-group-managed.md)
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)
+* [Secure computer accounts](service-accounts-computer.md)  
+* [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
 
  
