@@ -895,6 +895,9 @@
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction
+      - name: File Sync
+        tocHref: /azure/storage/file-sync/
+        topicHref: /azure/storage/file-sync/file-sync-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -976,10 +979,13 @@
     tocHref: /azure/purview/
     topicHref: /azure/purview/
   - name: Azure Video Analyzer 
-    tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
-    topicHref: /azure/azure-video-analyzer/video-analyzer-docs/
+    tocHref: /azure/azure-video-analyzer/
+    topicHref: /azure/azure-video-analyzer/
     items:
-    - name: Azure Video Analyzer for Media
+    - name: Analyze videos with Video Analyzer
+      tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
+      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
+    - name: Extract insights with Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
     

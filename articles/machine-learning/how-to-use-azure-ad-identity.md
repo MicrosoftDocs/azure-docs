@@ -9,8 +9,8 @@ ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/16/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 ---
 
 # Use Azure AD identity with your machine learning web service in Azure Kubernetes Service

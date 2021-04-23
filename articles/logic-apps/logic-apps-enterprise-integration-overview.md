@@ -7,12 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 03/24/2021
 ---
 
 # B2B enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack
 
-For business-to-business (B2B) solutions and seamless communication between organizations, you can build automated scalable enterprise integration workflows by using the Enterprise Integration Pack (EIP) with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Although organizations use different protocols and formats, they can exchange messages electronically. The EIP transforms different formats into a format that your organizations' systems can process and supports industry-standard protocols, including [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). You can also improve security for messages by using both encryption and digital signatures. The EIP supports these [enterprise integration connectors](../connectors/apis-list.md#integration-account-connectors) and these industry standards:
+For business-to-business (B2B) solutions and seamless communication between organizations, you can build automated scalable enterprise integration workflows by using the Enterprise Integration Pack (EIP) with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Although organizations use different protocols and formats, they can exchange messages electronically. The EIP transforms different formats into a format that your organizations' systems can process and supports industry-standard protocols, including [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). You can also improve security for messages by using both encryption and digital signatures. The EIP supports these [enterprise integration connectors](../connectors/managed.md#enterprise-connectors) and these industry standards:
 
 * Electronic Data Interchange (EDI)
 * Enterprise Application Integration (EAI)

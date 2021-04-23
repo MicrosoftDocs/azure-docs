@@ -11,7 +11,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 This quickstart shows you how to use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 
-This article is based on sample code written in C#. It builds on the [Detect motion and emit events]()<!--add link--> quickstart.
+This article is based on sample code written in C#. It builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
 
 ## Prerequisites
 
@@ -33,12 +33,19 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
 Complete the following steps to use Azure Video Analyzer on IoT Edge to detect the motion of the car and record a video clip starting around the 5-second mark.
 
+## Setup Azure Resources
+
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](includes/common-includes/azure-resources.md)]
+
 ## Overview
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/detect-motion-record-video-edge-devices/overview.png" alt-text="Publish associated inference events to IoT Edge Hub":::
 
-The preceding diagram shows how the signals flow in this quickstart. An [edge module]()<!--add a link--> simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]()<!--add a link--> node pulls the video feed from this server and sends video frames to the [motion detection]()<!--add a link--> processor node. The RTSP source sends the same video frames to a [signal gate processor]()<!--add a link--> node, which remains closed until it's triggered by an event.
+The preceding diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]()<!--add a link--> node pulls the video feed from this server and sends video frames to the [motion detection]()<!--add a link--> processor node. The RTSP source sends the same video frames to a [signal gate processor]()<!--add a link--> node, which remains closed until it's triggered by an event.
 
 When the motion detection processor detects motion in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink]()<!--add a link--> node. This sink node records the video as an MP4 file on the local file system of your edge device. The file is saved in the configured location.
 
@@ -60,7 +67,7 @@ In this quickstart, you will:
 
 ## Review - Check the modules' status
 
-In the [Generate and deploy the IoT Edge deployment manifest]()<!--add a link--> step, in Visual Studio Code, expand the **ava-sample-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
+In the [Generate and deploy the IoT Edge deployment manifest]()<!--add a link--> step, in Visual Studio Code, expand the **avasample-iot-edge-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
 
 * The Azure Video Analyzer module, named avaedge.
 * The rtspsim module, which simulates an RTSP server that acts as the source of a live video feed.
@@ -76,7 +83,7 @@ Make sure you've completed the steps to Prepare to monitor events.
 > :::image type="content" source="./media/detect-motion-record-video-edge-devices/monitor-event-endpoint.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
 
 > [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for Built-in endpoints option in the left navigation pane. Click there and look for the Event Hub-compatible endpoint under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for ***Built-in endpoints*** option in the left navigation pane. Click there and look for the ***Event Hub-compatible endpoint*** under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:
 Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
 
 ## Run the sample program
@@ -125,7 +132,7 @@ Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubow
             "parameters": [
               {
                 "name": "rtspUrl",
-                "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+                "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
               },
               {
                 "name": "rtspUserName",
@@ -163,7 +170,7 @@ In the following messages, the Azure Video Analyzer module defines the applicati
 When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, the following event is printed.
 
 ```
-[IoTHubMonitor] [05:37:21 AM] Message received from [ava-sample-device/avaedge]:
+[IoTHubMonitor] [05:37:21 AM] Message received from [ava-sample-iot-device/avaedge]:
 {  
 "body": {
 "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 xxx.xxx.xxx.xxx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"  
@@ -193,7 +200,7 @@ When motion is detected, the signal gate processor node is activated, and the fi
 Here's an example of this message:
 
 ```
-[IoTHubMonitor] [05:37:27 AM] Message received from [lva-sample-device/lvaEdge]:
+[IoTHubMonitor] [05:37:27 AM] Message received from [avasample-iot-edge-device/avaedge]:
 {
   "body": {
     "outputType": "filePath",

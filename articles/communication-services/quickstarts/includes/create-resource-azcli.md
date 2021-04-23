@@ -46,4 +46,4 @@ az communication show --name "<communicationName>" --resource-group "<resourceGr
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
 ```
 
-For information on additional commands, see [az communication](/cli/azure/ext/communication/communication).
+For information on additional commands, see [az communication](/cli/azure/communication).

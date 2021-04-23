@@ -76,7 +76,7 @@ Each dimension corresponds to different components of the [Service Fabric Applic
 
 ### Azure Monitor CLI
 
-A full list of commands is available in the [Azure Monitor CLI docs](/cli/azure/monitor/metrics#az-monitor-metrics-list) but we have included a few helpful examples below 
+A full list of commands is available in the [Azure Monitor CLI docs](/cli/azure/monitor/metrics#az_monitor_metrics_list) but we have included a few helpful examples below 
 
 In each example, the Resource ID follows this pattern
 
@@ -120,4 +120,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## Next steps
 * To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
-* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](/cli/azure/monitor/metrics#az-monitor-metrics-list).
+* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](/cli/azure/monitor/metrics#az_monitor_metrics_list).

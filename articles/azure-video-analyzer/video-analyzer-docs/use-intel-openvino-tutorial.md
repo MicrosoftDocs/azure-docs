@@ -45,7 +45,7 @@ In this quickstart, you'll use Azure Video Analyzer on IoT Edge along with the O
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Overview":::
 
-This diagram shows how the signals flow in this quickstart. An [edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]() node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline-extension.md) node. 
+This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]() node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline-extension.md) node. 
 
 The HTTP extension node plays the role of a proxy. It  It samples the incoming video frames set by you `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs AI models behind an HTTP endpoint. In this example, that edge module is the OpenVINO™ Model Server – AI Extension from Intel. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink]() node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 

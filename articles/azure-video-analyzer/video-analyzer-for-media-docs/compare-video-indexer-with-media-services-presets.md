@@ -18,7 +18,7 @@ ms.author: juliako
 
 # Compare Azure Media Services v3 presets and Video Analyzer for Media 
 
-This article compares the capabilities of **Video Analyzer for Media APIs** and **Media Services v3 APIs**. 
+This article compares the capabilities of **Video Analyzer for Media (formerly Video Indexer) APIs** and **Media Services v3 APIs**. 
 
 Currently, there is an overlap between features offered by the [Video Analyzer for Media APIs](https://api-portal.videoindexer.ai/) and the [Media Services v3 APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). The following table offers the current guideline for understanding the differences and similarities. 
 

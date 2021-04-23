@@ -110,7 +110,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/ext/virtual-wan/network
+            url: /cli/azure/
           - text: Azure PowerShell
             url: /powershell/module/az.network#networking
           - text: REST

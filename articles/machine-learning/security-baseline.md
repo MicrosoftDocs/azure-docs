@@ -199,7 +199,7 @@ You can also correlate Machine Learning service operation logs for security and 
 
 - [Understand logging and different log types in Azure](/azure/azure-monitor/platform/platform-logs-overview)
 
-- [Enable logging in Azure Machine Learning](how-to-track-experiments.md)
+- [Enable logging in Azure Machine Learning](how-to-log-view-metrics.md)
 
 - [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md)
 
@@ -239,7 +239,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to perform queries for Azure Machine Learning in Log Analytics Workspaces](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#analyzing-log-data)
 
-- [Enable logging in Azure Machine Learning](how-to-track-experiments.md)
+- [Enable logging in Azure Machine Learning](how-to-log-view-metrics.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
