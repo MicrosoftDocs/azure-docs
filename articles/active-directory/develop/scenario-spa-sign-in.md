@@ -145,6 +145,9 @@ For a pop-up window experience, set the `interactionType` configuration to `Inte
 
 ```javascript
 // In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalModule } from '@azure/msal-angular';
+
 @NgModule({
     imports: [
         MsalModule.forRoot( new PublicClientApplication({
@@ -355,10 +358,13 @@ myMsal.loginRedirect(loginRequest);
 
 # [Angular (MSAL.js v2)](#tab/angular2)
 
-The code here is the same as described earlier in the section about sign-in with a pop-up window, except that the `interactionType` is set to `InteractionType.Redirect` for the Msal Guard Configuration.
+The code here is the same as described earlier in the section about sign-in with a pop-up window, except that the `interactionType` is set to `InteractionType.Redirect` for the MsalGuard Configuration, and the `MsalRedirectComponent` is bootstrapped to handle redirects.
 
 ```javascript
 // In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
+
 @NgModule({
     imports: [
         MsalModule.forRoot( new PublicClientApplication({
@@ -375,7 +381,8 @@ The code here is the same as described earlier in the section about sign-in with
                 scopes: ['user.read']
             }
         }, null)
-    ]
+    ],
+    bootstrap: [AppComponent, MsalRedirectComponent]
 })
 export class AppModule { }
 ```
@@ -486,7 +493,30 @@ await myMsal.logoutPopup(logoutRequest);
 
 Signing out with a popup window is not supported in MSAL.js v1
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
+
+```javascript
+// In app.module.ts
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'your_app_id',
+                postLogoutRedirectUri: 'your_app_logout_redirect_uri'
+            }
+        }), null, null)
+    ]
+})
+
+// In app.component.ts
+logout() {
+    this.authService.logoutPopup({
+        mainWindowRedirectUri: "/"
+    });
+}
+```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
 
 Signing out with a popup window is not supported in MSAL Angular v1
 
@@ -581,8 +611,8 @@ myMsal.logout();
     imports: [
         MsalModule.forRoot( new PublicClientApplication({
             auth: {
-            clientId: 'your_app_id',
-            postLogoutRedirectUri: 'your_app_logout_redirect_uri'
+                clientId: 'your_app_id',
+                postLogoutRedirectUri: 'your_app_logout_redirect_uri'
             }
         }), null, null)
     ]
@@ -610,6 +640,7 @@ logout() {
 })
 // In app.component.ts
 this.authService.logout();
+```
 
 # [React](#tab/react)
 

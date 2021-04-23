@@ -107,6 +107,9 @@ You can specify the scopes for APIs in the `protectedResourceMap` configuration 
 
 ```javascript
 // In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalInterceptor, MsalModule } from '@azure/msal-angular';
+
 @NgModule({
 	declarations: [
 		// ...
@@ -148,6 +151,9 @@ export class AppModule { }
 For success and failure of the silent token acquisition, MSAL Angular provides events that you can subscribe to. It's also important to remember to unsubscribe.
 
 ```javascript
+import { MsalBroadcastService } from '@azure/msal-angular';
+import { EventMessage, EventType } from '@azure/msal-browser';
+
 // In app.component.ts
 export class AppComponent implements OnInit {
 	private readonly _destroying$ = new Subject<void>();
@@ -413,6 +419,9 @@ This code is the same as described earlier, except we recommend bootstrapping th
 
 ```javascript
 // In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalInterceptor, MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
+
 @NgModule({
     declarations: [
       // ...
