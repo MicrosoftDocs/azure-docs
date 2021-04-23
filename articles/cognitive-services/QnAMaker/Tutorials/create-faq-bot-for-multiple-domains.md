@@ -30,12 +30,12 @@ For the bot on surface products, you can take the following steps to create a bo
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
 >[!div class="mx-imgBorder"]
->   [ ![alt-text]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
+>[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
 
 3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
 >[!div class="mx-imgBorder"]
->   [ ![alt-text]( ../media/qnamaker-tutorial-updates/metadata-example-1.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-1.png#lightbox)
+>[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-1.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-1.png#lightbox)
 
 4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
 
