@@ -9,8 +9,6 @@ ms.date: 03/22/2021
 
 Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
-For more information, see [private cloud upgrades concepts article][concepts-upgrades].
-
 ## vCenter access and identity
 
 In Azure VMware Solution, vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). In general, the CloudAdmin role creates and manages workloads in your private cloud. But in Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions.     
@@ -99,7 +97,6 @@ Use the *administrator* account to access NSX-T Manager. It has full privileges 
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:
 
-- [Private cloud upgrade concepts](concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management)
 - [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 - [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
 - [How Azure VMware Solution monitors and repairs private clouds](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
