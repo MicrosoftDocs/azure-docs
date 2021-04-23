@@ -390,7 +390,7 @@ Before deploying your cluster, you can check that your many of your network conf
 
 1. On the **Networking** page, under **Network interface**, select the **Virtual Network** and the **Subnet** in which you plan to add the HDInsight cluster to, and then select the **Review + create** button at the bottom of the page.
 
-    :::image type="content" source="./media/hdinsight-create-virtual-network/vnet.png" alt-text="Screenshot of the network interface section where you select the VNet and subnet in which to add the virtual machine."::
+    :::image type="content" source="./media/hdinsight-create-virtual-network/vnet.png" alt-text="Screenshot of the network interface section where you select the VNet and subnet in which to add the virtual machine.":::
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
@@ -398,7 +398,7 @@ Before deploying your cluster, you can check that your many of your network conf
 
 1. On the page for your new VM, select the public IP address and copy it to your clipboard.
 
-    :::image type="content" source="./media/hdinsight-create-virtual-network/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine."::
+    :::image type="content" source="./media/hdinsight-create-virtual-network/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine.":::
 
 **Run the /networkValidator.sh script**
 
