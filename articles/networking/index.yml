@@ -44,7 +44,6 @@ additionalContent:
   # Supports up to 4 sections
   sections:
     - title: Connectivity services  # < 60 chars (optional)
-      summary:
       items:
         # Card
         - title: Virtual Network
@@ -94,7 +93,6 @@ additionalContent:
             - text: See more
               url: ../dns/index.yml
     - title: Application delivery services  # < 60 chars (optional)
-      summary:
       items:
         # Card
         - title: Network load balancer
@@ -146,7 +144,6 @@ additionalContent:
             - text: See more
               url: ../cdn/index.yml 
     - title: Security services  # < 60 chars (optional)
-      summary: # < 160 chars (optional)
       items:
         # Card
         - title: Network firewall
@@ -210,7 +207,6 @@ additionalContent:
             - text: See more
               url: ../firewall-manager/index.yml
     - title: Monitoring services # < 60 chars (optional)
-      summary:  # < 160 chars (optional)
       items:
         # Card
         - title: Monitor and repair network health
