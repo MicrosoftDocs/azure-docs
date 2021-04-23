@@ -15,12 +15,16 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
 ## Prerequisites
 
 * [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md). 
-* [Create a custom location](../azure-arc/kubernetes/custom-locations.md) on your connected cluster.
 * [Create an Azure API Management instance](./get-started-create-service-instance.md).
 * [Provision a gateway resource in your Azure API Management instance](./api-management-howto-provision-self-hosted-gateway.md).
 
+> [!NOTE]
+> To deploy the API management gateway extension while taking advantage of Lima features, [create a custom location](../azure-arc/kubernetes/custom-locations.md) on your connected cluster before deploying.
 
 ## Deploy the API management gateway extension
+1. In the Azure portal, navigate to your API Management instance.
+1. Select **Gateways** from the side navigation menu.
+1. Select and open your provisioned gateway resource from the list.
 1. In your provisioned gateway resource, click **Deployment** from the side navigation menu.
 1. Make note of the **Token** and **Configuration URL** values for the next step.
 1. In Azure CLI, deploy the gateway extension using the following command. Fill in the `token` and `configuration URL` values.
@@ -31,8 +35,9 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
     ```azurecli
     az k8s-extension show --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <rg-name> --name <extension-name>
     ```
-1. In the Azure portal, verify the gateway status shows a green check mark with a node count. 
-    * This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat".
+1. Navigate back to the **Gateways** list to verify the gateway status shows a green check mark with a node count. This status means the deployed self-hosted gateway pods:
+    * Are successfully communicating with the API Management service.
+    * Have a regular "heartbeat".
 
 ## Next Steps
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
