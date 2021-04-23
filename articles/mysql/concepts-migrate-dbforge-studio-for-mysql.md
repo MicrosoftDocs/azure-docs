@@ -7,7 +7,7 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/03/2021
 ---
-# Migrate a MySQL database to Azure with dbForge Studio for MySQL
+# Migrate data to Azure Database for MySQL with dbForge Studio for MySQL
 
 Looking to move your MySQL databases to Azure Database for MySQL? Consider using the migration tools in dbForge Studio for MySQL. With it, database transfer can be configured, saved, edited, automated, and scheduled.
 
@@ -31,9 +31,9 @@ In this example, we migrate the *sakila* database from MySQL server to Azure Dat
 
 ### Back up the database
 
-1. In dbForge Studio for MySQL, select **Backup Database** from the **Backup and Restore** menu. The **Database Backup** wizard appears.
+1. In dbForge Studio for MySQL, select **Backup Database** from the **Backup and Restore** menu. The **Database Backup Wizard** appears.
 
-1. On the **Backup content** tab of the **Database Backup** wizard, select database objects you want to back up.
+1. On the **Backup content** tab of the **Database Backup Wizard**, select database objects you want to back up.
 
 1. On the **Options** tab, configure the backup process to fit your requirements.
 
@@ -47,9 +47,9 @@ In this example, we migrate the *sakila* database from MySQL server to Azure Dat
 
 1.  In dbForge Studio for MySQL, connect to Azure Database for MySQL. [Refer to the instructions](#connect-to-azure-database-for-mysql).
 
-1. Select **Restore Database** from the **Backup and Restore** menu. The **Database Restore** wizard appears.
+1. Select **Restore Database** from the **Backup and Restore** menu. The **Database Restore Wizard** appears.
 
-1. In the **Database Restore** wizard, select a file with a database backup.
+1. In the **Database Restore Wizard**, select a file with a database backup.
 
     :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/restore-step-1.png" alt-text="Screenshot showing the Restore step of the Database Restore wizard." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/restore-step-1.png":::
 
@@ -94,11 +94,11 @@ The logic behind this approach is to create an empty database in Azure Database 
 
    ### Schema synchronization
 
-1. On the **Comparison** menu, select **New Schema Comparison**. The **New Schema Comparison** wizard appears.
+1. On the **Comparison** menu, select **New Schema Comparison**. The **New Schema Comparison Wizard** appears.
 
 1. Choose your source and target, and then specify the schema comparison options. Select **Compare**.
 
-1. In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the **Schema Synchronization** wizard.
+1. In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the **Schema Synchronization Wizard**.
 
 1. Walk through the steps of the wizard to configure synchronization. Select **Synchronize** to deploy the changes.
 
@@ -106,11 +106,11 @@ The logic behind this approach is to create an empty database in Azure Database 
 
    ### Data Comparison
 
-1. On the **Comparison** menu, select **New Data Comparison**. The **New Data Comparison** wizard appears.
+1. On the **Comparison** menu, select **New Data Comparison**. The **New Data Comparison Wizard** appears.
 
 1. Choose your source and target, and then specify the data comparison options. Change mappings if necessary, and then select **Compare**.
 
-1. In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the **Data Synchronization** wizard.
+1. In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the **Data Synchronization Wizard**.
 
     :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png" alt-text="Screenshot showing the results of the data comparison." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png":::
 
