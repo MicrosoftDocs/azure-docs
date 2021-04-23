@@ -17,7 +17,7 @@ To complete the examples in this article, you'll need to download and install [d
 
 1. In dbForge Studio for MySQL, select **New Connection** from the **Database** menu.
 
-1. Provide a host name and sign in credentials.
+1. Provide a host name and sign-in credentials.
 
 1. Select **Test Connection** to check the configuration.
 
@@ -39,7 +39,7 @@ In this example, we migrate the *sakila* database from MySQL server to Azure Dat
 
     :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/back-up-wizard-options.png" alt-text="Screenshot showing the options pane of the Backup wizard." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/back-up-wizard-options.png":::
 
-1. Select **Next**, then specify error processing behavior and logging options.
+1. Select **Next**, and then specify error processing behavior and logging options.
 
 1. Select **Backup**.
 
@@ -70,7 +70,7 @@ To migrate a database using the Copy Databases functionality:
 
 1. In dbForge Studio for MySQL, select **Copy Databases** from the **Database** menu. 
 
-1. In the **Copy Databases** tab, specify the source and target connection. Also select the database(s) to be migrated. 
+1. On the **Copy Databases** tab, specify the source and target connection. Also select the databases to be migrated. 
 
    We enter the Azure MySQL connection and select the *world_x* database. Select the green arrow to start the process.
 
@@ -82,17 +82,17 @@ You'll see that the *world_x* database has successfully appeared in Azure MySQL.
 
 ## Migrate a database with schema and data comparison
 
-You can choose from many options when using dbForge Studio for MySQL to migrate databases, schemas, and\or data to Azure. If you need to move selective  tables from a MySQL database to Azure, it's best to use the **Schema Comparison** and the **Data Comparison** functionality.
+You can choose from many options when using dbForge Studio for MySQL to migrate databases, schemas, and/or data to Azure. If you need to move selective tables from a MySQL database to Azure, it's best to use the **Schema Comparison** and the **Data Comparison** functionality.
 
 In this example, we migrate the *world* database from MySQL server to Azure Database for MySQL. 
 
 The logic behind using the **Backup and Restore** functionality is to create a backup of the MySQL database and then restore it in Azure Database for MySQL.
 
-The logic behind this approach is to create an empty database in Azure Database for MySQL and synchronize it with the source MySQL database. We first use the **Schema Comparison** tool and next we use the **Data Comparison** functionality. These steps ensure that the MySQL schemas and data are accurately moved to Azure.
+The logic behind this approach is to create an empty database in Azure Database for MySQL and synchronize it with the source MySQL database. We first use the **Schema Comparison** tool, and next we use the **Data Comparison** functionality. These steps ensure that the MySQL schemas and data are accurately moved to Azure.
 
-1. To complete this exercise, you'll first need to [connect to Azure Database for MySQL](#connect-to-azure-database-for-mysql) and create an empty database.
+To complete this exercise, you'll first need to [connect to Azure Database for MySQL](#connect-to-azure-database-for-mysql) and create an empty database.
 
-   ### Schema synchronization
+### Schema synchronization
 
 1. On the **Comparison** menu, select **New Schema Comparison**. The **New Schema Comparison Wizard** appears.
 
@@ -104,7 +104,7 @@ The logic behind this approach is to create an empty database in Azure Database 
 
     :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/schema-sync-wizard.png" alt-text="Screenshot showing the schema synchronization wizard." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/schema-sync-wizard.png":::
 
-   ### Data Comparison
+### Data Comparison
 
 1. On the **Comparison** menu, select **New Data Comparison**. The **New Data Comparison Wizard** appears.
 
