@@ -25,8 +25,8 @@
   items:
   - name: Security
     items:
-    - name: Security baseline
-      href: security-baseline.md
+    - name: /security/benchmark/azure/baselines/api-management-security-baseline
+      href: /security/benchmark/azure/baselines/devtest-labs-security-baseline
     - name: Protect Microsoft 365 from on-premises attacks 
       href: protect-m365-from-on-premises-attacks.md    
     - name: Secure external collaboration
