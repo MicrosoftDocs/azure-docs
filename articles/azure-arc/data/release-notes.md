@@ -56,6 +56,7 @@ You will delete the previous CRDs as you cleanup past installations. See [Cleanu
 - Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
 - Deployment of Azure Arc enabled PostgeSQL Hyperscale in direct mode is currently not available.
 - Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
+- Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
 
 ## February 2021
 
