@@ -50,7 +50,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure DDoS Protection plans according to your organization's compliance regulations.
 
-- [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -60,7 +60,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log data that may have been collected for Recovery Services vaults.
 
-- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](/azure/ddos-protection/telemetry-monitoring-alerting#configure-alerts-for-ddos-protection-metrics)
+- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../ddos-protection/telemetry.md#configure-alerts-for-ddos-protection-metrics)
 
 - [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/essentials/activity-log.md)
 
@@ -212,7 +212,7 @@ In addition, use Azure AD risk detection to view alerts and reports on risky use
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help you discover stale accounts. In addition, use Azure AD access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the right users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md)
 
@@ -228,7 +228,7 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [How to on-board Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -268,7 +268,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: To work with Azure DDoS Protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned specific actions.
 
-- [Manage Azure RBAC in Azure DDoS Protection](/azure/virtual-network/manage-ddos-protection)
+- [Manage Azure RBAC in Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md)
 
 **Responsibility**: Customer
 

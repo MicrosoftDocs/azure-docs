@@ -56,7 +56,7 @@ You may want to retain any data *with security value* in Azure Sentinel to use i
 You can also configure all of your data, *regardless of its security value,* to be sent to ADX at the same time, where you can store it for longer. While sending data to both Azure Sentinel and ADX at the same time results in some duplication, the cost savings can be significant as you reduce the retention costs in Azure Sentinel.
 
 > [!TIP]
-> This option also enables you to correlate data spread across data stores, such as to enrich the security data stored in Azure Sentinel with operational or long-term data stored in ADX. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy).
+> This option also enables you to correlate data spread across data stores, such as to enrich the security data stored in Azure Sentinel with operational or long-term data stored in ADX. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 >
 
 The following image shows how you can retain all of your data in ADX, while sending only your security data to Azure Sentinel for daily use.
@@ -83,7 +83,7 @@ When configuring data for export, note the following considerations:
 |---------|---------|
 |**Scope of data exported**     |  Once export is configured for a specific table, all data sent to that table is exported, with no exception. Exported a filtered subset of your data, or limiting the export to specific events, is not supported.       |
 |**Location requirements**     |   Both the Azure Monitor / Azure Sentinel workspace, and the destination location (an Azure Storage Account or event hub) must be located in the same geographical region.      |
-|**Supported tables**     | Not all tables are supported for export, such as custom log tables, which are not supported. <br><br>For more information, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export) and the [list of supported tables](/azure/azure-monitor/logs/logs-data-export#supported-tables).         |
+|**Supported tables**     | Not all tables are supported for export, such as custom log tables, which are not supported. <br><br>For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md) and the [list of supported tables](../azure-monitor/logs/logs-data-export.md#supported-tables).         |
 |     |         |
 
 ### Data export methods and procedures
@@ -110,7 +110,7 @@ The architecture shown in the previous image provides the full Azure Sentinel SI
 
 **To export data into ADX via an event hub**:
 
-1. **Configure the Log Analytics data export to an event hub**. For more information, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/platform/logs-data-export).
+1. **Configure the Log Analytics data export to an event hub**. For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md).
 
 1. **Create an ADX cluster and database**. For more information, see:
 
@@ -166,7 +166,7 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
 **To export data into ADX via an Azure Storage and Azure Data Factory**:
 
-1. **Configure the Log Analytics data export to an event hub**. For more information, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal#enable-data-export).
+1. **Configure the Log Analytics data export to an event hub**. For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export).
 
 1. **Create an ADX cluster and database**. For more information, see:
 
@@ -203,14 +203,14 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
     - Create linked services for Azure Storage and Azure Data Explorer. For more information, see:
 
-        - [Copy and transform data in Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
-        - [Copy data to or from Azure Data Explorer by using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+        - [Copy and transform data in Azure Blob storage by using Azure Data Factory](../data-factory/connector-azure-blob-storage.md)
+        - [Copy data to or from Azure Data Explorer by using Azure Data Factory](../data-factory/connector-azure-data-explorer.md).
 
-    - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](/azure/data-factory/concepts-datasets-linked-services).
+    - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](../data-factory/concepts-datasets-linked-services.md).
 
     - Create a data pipeline with a copy operation, based on the **LastModifiedDate** properties.
 
-        For more information, see [Copy new and changed files by **LastModifiedDate** with Azure Data Factory](/azure/data-factory/solution-template-copy-new-files-lastmodifieddate).
+        For more information, see [Copy new and changed files by **LastModifiedDate** with Azure Data Factory](../data-factory/solution-template-copy-new-files-lastmodifieddate.md).
 
 ---
 

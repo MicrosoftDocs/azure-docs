@@ -36,7 +36,7 @@ To see how SiteRecovery completely maps to the Azure Security Benchmark, see the
 
 **Guidance**: Site Recovery service supports service tags, which allow customers to open traffic only to specific services and ports. Customers have to allow "AzureSiteRecovery" service tag on their firewall or network security group to allow outbound access to Site Recovery service.
 
-- [Outbound connectivity using Service Tags](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-using-service-tags)
+- [Outbound connectivity using Service Tags](./azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
 **Responsibility**: Customer
 
@@ -64,7 +64,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Monitor any changes to network resource configurations related to the Site Recovery service using Azure Activity Logs. Create alerts in Azure Monitor to notify you when critical Site Recovery network resources are changed.
 
-- [View and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [View and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -116,7 +116,7 @@ Ingest Site Recovery logs with Azure Monitor to aggregate generated security dat
 
 **Guidance**: Set log retention period for Log Analytics workspaces associated with your Azure Recovery Services vaults using Azure Monitor according to your organization's compliance regulations. 
 
-- [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -270,7 +270,7 @@ Efficiently manage group memberships, access to enterprise applications and role
 
 Create a process to review user access on a regular basis to ensure only users with completed access reviews have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -286,7 +286,7 @@ You have access to Azure AD sign-in activity, audit, and risk event log sources,
 
 Further streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit and sign-in logs to a Log Analytics workspace. You can configure desired alerts within a Log Analytics workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -505,7 +505,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Responsibility**: Customer
 
@@ -608,9 +608,9 @@ Use managed identities to provide Azure services with an automatically managed i
 
 Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-- [How to integrate with Azure Managed Identities](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+- [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md?tabs=core2x)
 
-- [How to enable System-Managed Identity on Recovery Services Vault](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#enable-the-managed-identity-for-the-vault)
+- [How to enable System-Managed Identity on Recovery Services Vault](./azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
 
 **Responsibility**: Customer
 
@@ -660,7 +660,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.RecoveryServices**:
 
@@ -680,7 +680,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 
 **Guidance**: Data is encrypted-at-rest using Storage Service Encryption (SSE) with Azure's Infrastructure as a Service (IaaS) based Virtual Machines. Enable soft-delete in Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable soft-delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsibility**: Customer
 

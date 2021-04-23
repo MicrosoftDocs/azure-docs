@@ -104,4 +104,4 @@ It is possible to deploy directly to Azure without a separate build step.
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)

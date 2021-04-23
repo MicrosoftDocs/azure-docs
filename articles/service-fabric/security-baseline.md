@@ -29,7 +29,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 - [Deploy Azure Firewall using a template](../firewall/deploy-template.md)
 
-- [Create perimeter networks by using Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices#use-network-isolation-and-security-with-azure-service-fabric)
+- [Create perimeter networks by using Azure Network Security Groups (NSGs)](../security/fundamentals/service-fabric-best-practices.md#use-network-isolation-and-security-with-azure-service-fabric)
 
 - [How to integrate your Azure Service Fabric cluster with an existing virtual network](service-fabric-patterns-networking.md)
 
@@ -141,7 +141,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -173,9 +173,9 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Service Fabric deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -209,7 +209,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 - [How to deploy the Log Analytics agent onto your nodes](service-fabric-diagnostics-oms-agent.md)
 
-- [Log Analytics Log Searches](/azure/azure-monitor/log-query/log-query-overview)
+- [Log Analytics Log Searches](../azure-monitor/logs/log-query-overview.md)
 
 **Responsibility**: Customer
 
@@ -225,7 +225,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 - [How to deploy the Log Analytics agent onto your nodes](service-fabric-diagnostics-oms-agent.md) 
 
-- [How to configure Log Analytics Workspace Retention Period](/azure/azure-monitor/platform/manage-cost-storage)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsibility**: Customer
 
@@ -241,7 +241,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 - [How to deploy the Log Analytics agent onto your nodes](service-fabric-diagnostics-oms-agent.md)
 
-- [How to configure Log Analytics Workspace Retention Period](/azure/azure-monitor/platform/manage-cost-storage)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsibility**: Customer
 
@@ -251,7 +251,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 **Guidance**: Use Azure Log Analytics workspace queries to query Azure Service Fabric logs.
 
-- [Log Analytics Log Searches](/azure/azure-monitor/log-query/log-query-overview)
+- [Log Analytics Log Searches](../azure-monitor/logs/log-query-overview.md)
 
 **Responsibility**: Customer
 
@@ -263,7 +263,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -305,9 +305,9 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 In addition, you may use Azure Security Center Identity and Access Management recommendations.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -331,7 +331,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 In addition, you may use Security Center Identity and Access Management recommendations.
 
-- [Set up Azure AD client authentication](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster#set-up-azure-active-directory-client-authentication)
+- [Set up Azure AD client authentication](./service-fabric-tutorial-create-vnet-and-windows-cluster.md#set-up-azure-active-directory-client-authentication)
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -405,7 +405,7 @@ In addition, you may use Security Center Identity and Access Management recommen
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ServiceFabric**:
 
@@ -502,7 +502,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 For Service Fabric client-to-node mutual authentication, use a X.509 certificate for server identity and TLS encryption of http communication. Any number of additional certificates can be installed on a cluster for application security purposes, including encryption and decryption of application configuration values and data across nodes during replication.
 Follow Security Center recommendations for encryption at rest and encryption in transit, where applicable. 
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 - [Service Fabric cluster security scenarios](service-fabric-cluster-security.md)
 
@@ -550,7 +550,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ServiceFabric**:
 
@@ -560,7 +560,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources. 
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -595,13 +595,13 @@ Use a third-party solution for performing vulnerability assessments on network d
 Alternately, to test OS patches first before going to
 production, use the manual trigger for OS image upgrades of your scale set. Note that the manual trigger option doesn't provide  built-in rollback. Monitor OS patches using Update Management from Azure Automation. 
 
-- [Patch management for Service Fabric cluster nodes](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
+- [Patch management for Service Fabric cluster nodes](./service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
 
 - [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)
 
-- [How to bring VMs up-to-date with the latest scale set model](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
+- [How to bring VMs up-to-date with the latest scale set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-- [Azure Automation Update Management overview](/azure/automation/update-management/update-mgmt-overview)
+- [Azure Automation Update Management overview](../automation/update-management/overview.md)
 
 **Responsibility**: Customer
 
@@ -611,7 +611,7 @@ production, use the manual trigger for OS image upgrades of your scale set. Note
 
 **Guidance**: Enable automatic OS image upgrades on the virtual machine scale sets of your Azure Service Fabric cluster. Patch Orchestration Application (POA) is an alternative solution that is intended for Service Fabric clusters hosted outside of Azure. POA can be used with Azure clusters, with some additional hosting overhead.
 
-- [Patch management for Service Fabric cluster nodes](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
+- [Patch management for Service Fabric cluster nodes](./service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
 
 - [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)
 
@@ -649,7 +649,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -739,7 +739,7 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -767,7 +767,7 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 **Guidance**: Use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
-- [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [For example, how to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?amp;preserve-view=true&view=powershell-7)
 
 **Responsibility**: Customer
 
@@ -793,7 +793,7 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.ServiceFabric" namespace to create custom policies to audit or enforce the network configuration of your Service Fabric cluster.
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -833,9 +833,9 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -869,7 +869,7 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.ServiceFabric" namespace to create custom policies to audit or enforce the configuration of your Service Fabric cluster.
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -921,7 +921,7 @@ Use Azure Key Vault to rotate Service Fabric cluster certificates automatically.
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-- [Certificate management in Service Fabric clusters](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#certificate-rotation)
+- [Certificate management in Service Fabric clusters](./cluster-security-certificate-management.md#certificate-rotation)
 
 **Responsibility**: Customer
 
@@ -965,7 +965,7 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 - [Understanding periodic backup configuration in Azure Service Fabric](service-fabric-backuprestoreservice-configure-periodic-backup.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -979,7 +979,7 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 - [Restoring backup in Azure Service Fabric](service-fabric-backup-restore-service-trigger-restore.md)
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
