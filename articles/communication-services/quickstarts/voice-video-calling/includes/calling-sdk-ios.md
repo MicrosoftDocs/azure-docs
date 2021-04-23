@@ -359,7 +359,6 @@ call!.unmute { (error) in
     }
 }
 ```
-=== BREAKPOINT ===
 
 ### Start and stop sending local video
 
@@ -367,8 +366,8 @@ To start sending local video to other participants in a call, use the `startVide
 
 ```swift
 
-let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras!.first
-let localVideoStream = LocalVideoStream(camera: firstCamera)
+let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras.first
+let localVideoStream = LocalVideoStream(camera: firstCamera!)
 
 call!.startVideo(stream: localVideoStream) { (error) in
     if (error == nil) {
@@ -384,7 +383,7 @@ After you start sending video, the `LocalVideoStream` instance is added the `loc
 
 ```swift
 
-call.localVideoStreams[0]
+call.localVideoStreams
 
 ```
 
@@ -422,7 +421,7 @@ call.remoteParticipants
 var remoteParticipantDelegate = remoteParticipant.delegate
 
 // [CommunicationIdentifier] identity - same as the one used to provision a token for another user
-var identity = remoteParticipant.identity
+var identity = remoteParticipant.identifier
 
 // ParticipantStateIdle = 0, ParticipantStateEarlyMedia = 1, ParticipantStateConnecting = 2, ParticipantStateConnected = 3, ParticipantStateOnHold = 4, ParticipantStateInLobby = 5, ParticipantStateDisconnected = 6
 var state = remoteParticipant.state
@@ -499,7 +498,7 @@ To start rendering remote participant streams, use the following code.
 ```swift
 
 let renderer: Renderer? = Renderer(remoteVideoStream: remoteParticipantVideoStream)
-let targetRemoteParticipantView: RendererView? = renderer?.createView(with: RenderingOptions(scalingMode: ScalingMode.crop))
+let targetRemoteParticipantView: RendererView? = renderer?.createView(withOptions: CreateViewOptions(scalingMode: ScalingMode.crop))
 // To update the scaling mode later
 targetRemoteParticipantView.update(scalingMode: ScalingMode.fit)
 
@@ -534,27 +533,9 @@ To access local devices, you can use enumeration methods on the device manager. 
 
 ```swift
 // enumerate local cameras
-var localCameras = deviceManager.cameras! // [VideoDeviceInfo, VideoDeviceInfo...]
-// enumerate local cameras
-var localMicrophones = deviceManager.microphones! // [AudioDeviceInfo, AudioDeviceInfo...]
-// enumerate local cameras
-var localSpeakers = deviceManager.speakers! // [AudioDeviceInfo, AudioDeviceInfo...]
+var localCameras = deviceManager.cameras // [VideoDeviceInfo, VideoDeviceInfo...]
+
 ``` 
-
-### Set the default microphone or speaker
-
-You can use the device manager to set a default device that will be used when a call is started. If stack defaults aren't set, Communication Services will fall back to OS defaults.
-
-```swift
-// get first microphone
-var firstMicrophone = self.deviceManager!.cameras!.first
-// [Synchronous] set microphone
-deviceManager.setMicrophone(microphoneDevice: firstMicrophone)
-// get first speaker
-var firstSpeaker = self.deviceManager!.speakers!
-// [Synchronous] set speaker
-deviceManager.setSpeaker(speakerDevice: firstSpeaker)
-```
 
 ### Get a local camera preview
 
@@ -562,10 +543,10 @@ You can use `Renderer` to begin rendering a stream from your local camera. This 
 
 ```swift
 
-let camera: VideoDeviceInfo = self.deviceManager!.getCameraList()![0]
-let localVideoStream: LocalVideoStream = LocalVideoStream(camera: camera)
-let renderer: Renderer = Renderer(localVideoStream: localVideoStream)
-self.view = try renderer!.createView()
+let camera: VideoDeviceInfo = self.deviceManager!.cameras.first!
+let localVideoStream = LocalVideoStream(camera: camera)
+let localRenderer = try! VideoStreamRenderer(localVideoStream: localVideoStream)
+self.view = try! localRenderer.createView()
 
 ```
 
@@ -576,8 +557,8 @@ The renderer has set of properties and methods that allow you to control the ren
 ```swift
 
 // Constructor can take in LocalVideoStream or RemoteVideoStream
-let localRenderer = Renderer(localVideoStream:localVideoStream)
-let remoteRenderer = Renderer(remoteVideoStream:remoteVideoStream)
+let localRenderer = VideoStreamRenderer(localVideoStream:localVideoStream)
+let remoteRenderer = VideoStreamRenderer(remoteVideoStream:remoteVideoStream)
 
 // [StreamSize] size of the rendering view
 localRenderer.size
@@ -589,7 +570,7 @@ localRenderer.delegate
 try! localRenderer.createView()
 
 // [Synchronous] create view with rendering options
-try! localRenderer.createView(with: RenderingOptions(scalingMode: ScalingMode.fit))
+try! localRenderer!.createView(withOptions: CreateViewOptions(scalingMode: ScalingMode.fit))
 
 // [Synchronous] dispose rendering view
 localRenderer.dispose()
@@ -606,8 +587,7 @@ To subscribe to `property changed` events, use the following code.
 ```swift
 call.delegate = self
 // Get the property of the call state by getting on the call's state member
-public func onCallStateChanged(_ call: Call!,
-                               args: PropertyChangedEventArgs!)
+public func call(_ call: Call, didChangeState args: PropertyChangedEventArgs) {
 {
     print("Callback from SDK when the call state changes, current state: " + call.state.rawValue)
 }
@@ -623,8 +603,7 @@ To subscribe to `collection updated` events, use the following code.
 ```swift
 call.delegate = self
 // Collection contains the streams that were added or removed only
-public func onLocalVideoStreamsChanged(_ call: Call!,
-                                       args: LocalVideoStreamsUpdatedEventArgs!)
+public func call(_ call: Call, didUpdateLocalVideoStreams args: LocalVideoStreamsUpdatedEventArgs) {
 {
     print(args.addedStreams.count)
     print(args.removedStreams.count)
