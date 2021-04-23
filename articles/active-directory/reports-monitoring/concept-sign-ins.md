@@ -1,6 +1,6 @@
 ---
-title: Sign-in activity reports in the Azure Active Directory portal | Microsoft Docs
-description: Introduction to sign-in activity reports in the Azure Active Directory portal 
+title: Sign-in activity logs in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to sign-in activity logs in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/22/2021
+ms.date: 04/23/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
-# Sign-in activity reports in the Azure Active Directory portal
+# Sign-in activity logs in the Azure Active Directory portal
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
@@ -89,9 +89,6 @@ Select an item in the list view to get more detailed information.
 
 ![Screenshot shows a detailed information view.](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
 
-> [!NOTE]
-> Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
-> For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
 
 
 ## Sign-in error code
@@ -248,7 +245,7 @@ By clicking an item, you get more details about the sign-in operation:
 
 > [!NOTE]
 > IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
-> Currently in Azure AD reports, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
 
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
