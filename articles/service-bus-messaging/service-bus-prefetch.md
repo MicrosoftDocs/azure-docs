@@ -2,7 +2,7 @@
 title: Azure Service Bus prefetch messages | Microsoft Docs
 description: Improve performance by prefetching Azure Service Bus messages. Messages are readily available for local retrieval before the application requests for them.
 ms.topic: article
-ms.date: 04/21/2021
+ms.date: 04/23/2021
 ---
 
 # Prefetch Azure Service Bus messages
@@ -28,6 +28,9 @@ If you are using the older Java client library for Service Bus (azure-servicebus
 You can set **prefetch_count** on the [azure.servicebus.ServiceBusReceiver](/python/api/azure-servicebus/azure.servicebus.servicebusreceiver) or [azure.servicebus.aio.ServiceBusReceiver](/python/api/azure-servicebus/azure.servicebus.aio.servicebusreceiver).
 
 ---
+
+> [!NOTE]
+> Java Script SDK doesn't support the **Prefetch** feature. 
 
 While messages are available in the prefetch buffer, any subsequent receive calls are immediately fulfilled from the buffer. The buffer is replenished in the background as space becomes available. If there are no messages available for delivery, the receive operation empties the buffer and then waits or blocks, as expected.
 
