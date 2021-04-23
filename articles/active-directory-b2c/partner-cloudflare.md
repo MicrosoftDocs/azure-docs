@@ -54,8 +54,9 @@ After custom domain for Azure AD B2C is successfully configured using Azure Fron
 
    ![Image shows how to select proxy settings](./media/partner-cloudflare/select-proxy-settings.png)
 
-2. Toggle the **Proxy status** option available under the DNS pane.
-3. After you switch it to **Proxied**, it would turn orange. The final setting should look like:
+1. Toggle the **Proxy status** option available under the DNS pane.
+
+1. After you switch it to **Proxied**, it would turn orange. The final setting should look like:
 
    ![Image shows how to select proxied](./media/partner-cloudflare/select-proxied.png)
 
@@ -73,14 +74,15 @@ Add, update, or remove firewall rules using the firewall option available in the
 
 1. After saving the rule, it's required to complete CAPTCHA every time access to custom domain is requested.
 
-![Image shows cloudflare waf enforce CAPTCHA](./media/partner-cloudflare/enforce-captcha.png)
+   ![Image shows cloudflare waf enforce CAPTCHA](./media/partner-cloudflare/enforce-captcha.png)
 
->[!NOTE]
->Cloudflare also provides various [**other options**](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-) to create customized  block pages.  
+   > [!NOTE]
+   > Cloudflare also provides various [**other options**](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-) to create customized  block pages.  
 
 2. User is taken to Azure AD B2C policy after successfully completing CAPTCHA.
 
-![Image shows Azure AD B2C policy login](./media/partner-cloudflare/azure-ad-b2c-policy.png)
+   ![Image shows Azure AD B2C policy login](./media/partner-cloudflare/azure-ad-b2c-policy.png)
+
 
 ## Additional resources
 
@@ -90,5 +92,5 @@ Add, update, or remove firewall rules using the firewall option available in the
 
 ## Next steps 
  
- - [Configure a custom domain in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)
+- [Configure a custom domain in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)
    
