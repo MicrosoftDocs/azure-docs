@@ -4,13 +4,12 @@ description: Learn how to reroute Azure metric alerts to other, non-Azure system
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 04/03/2017
-ms.subservice: alerts
+ms.date: 02/14/2021
 ---
 # Call a webhook with a classic metric alert in Azure Monitor
 
 > [!WARNING]
-> This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../platform/alerts-overview.md). Classic alerts are [retired](../platform/monitoring-classic-retirement.md) for public cloud users, though still in limited use for resources that do not yet support the new alerts.
+> This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
 You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions. 
@@ -24,7 +23,7 @@ To add or update the webhook URI, in the [Azure portal](https://portal.azure.com
 
 ![Add an alert rule pane](./media/alerts-webhooks/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](../samples/powershell-samples.md#create-metric-alerts), a [cross-platform CLI](../samples/cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](/rest/api/monitor/alertrules).
+You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](../powershell-samples.md#create-metric-alerts), a [cross-platform CLI](../cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](/rest/api/monitor/alertrules).
 
 ## Authenticate the webhook
 The webhook can authenticate by using token-based authorization. The webhook URI is saved with a token ID. For example: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

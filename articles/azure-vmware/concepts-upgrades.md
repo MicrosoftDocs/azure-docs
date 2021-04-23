@@ -2,7 +2,7 @@
 title: Concepts - Private cloud updates and upgrades
 description: Learn about the key upgrade processes and features in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/17/2021
 ---
 
 # Azure VMware Solution private cloud updates and upgrades
@@ -48,14 +48,16 @@ Azure VMware Solution also takes a configuration backup of the following VMware 
 
 At times of failure, Azure VMware Solution can restore these components from the configuration backup. 
 
-For more information on VMware software versions, see the [private clouds and clusters concept article](concepts-private-clouds-clusters.md) and the [FAQ](faq.yml).
+## VMware software versions
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 ## Next steps
 
 Now that you've covered the key upgrade processes and features in Azure VMware Solution, you may want to learn about:
 
-- [How to create a private cloud](tutorial-create-private-cloud.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [How to create a private cloud](tutorial-create-private-cloud.md)
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 

@@ -5,6 +5,8 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
+author: lzchen
+ms.author: lechen
 ---
 
 # Set up Azure Monitor for your Python application
@@ -216,6 +218,15 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
 
 ### Metrics
 
+OpenCensus.stats supports 4 aggregation methods but provides partial support for Azure Monitor:
+
+- **Count:** The count of the number of measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **Sum:** A sum up of the measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **LastValue:** Keeps the last recorded value, drops everything else.
+- **Distribution:** Histogram distribution of the measurement points. This method is **NOT supported by the Azure Exporter**.
+
+### Count Aggregation example
+
 1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user selects the **Enter** key.
 
     ```python
@@ -315,7 +326,55 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. You can find the data under `customMetrics`.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
+
+### Setting custom dimensions in metrics
+
+Opencensus Python SDK allows adding custom dimensions to your metrics telemetry by the way of `tags`, which are essentially a dictionary of key/value pairs. 
+
+1. Insert the tags that you want to use into the tag map. The tag map acts like a sort of "pool" of all available tags you can use.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+...
+```
+
+1. For a specific `View`, specify the tags you want to use when recording metrics with that view via the tag key.
+
+```python
+...
+prompt_view = view_module.View("prompt view",
+                               "number of prompts",
+                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                               prompt_measure,
+                               aggregation_module.CountAggregation())
+...
+```
+
+1. Be sure to use the tag map when recording in the measurement map. The tag keys that are specified in the `View` must be found in the tag map used to record.
+
+```python
+...
+mmap = stats_recorder.new_measurement_map()
+mmap.measure_int_put(prompt_measure, 1)
+mmap.record(tmap) # <-- pass the tag map in here
+...
+```
+
+1. Under the `customMetrics` table, all metrics records emitted using the `prompt_view` will have custom dimensions `{"url":"http://example.com"}`.
+
+1. To produce tags with different values using the same keys, create new tag maps for them.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap2 = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+...
+```
 
 #### Performance counters
 

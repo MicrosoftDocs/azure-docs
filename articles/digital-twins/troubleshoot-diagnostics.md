@@ -111,7 +111,7 @@ Here are the field and property descriptions for API logs.
 | Field name | Data type | Description |
 |-----|------|-------------|
 | `Time` | DateTime | The date and time that this event occurred, in UTC |
-| `ResourceID` | String | The Azure Resource Manager Resource ID for the resource where the event took place |
+| `ResourceId` | String | The Azure Resource Manager Resource ID for the resource where the event took place |
 | `OperationName` | String  | The type of action being performed during the event |
 | `OperationVersion` | String | The API Version utilized during the event |
 | `Category` | String | The type of resource being emitted |

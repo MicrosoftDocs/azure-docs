@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.subservice: metrics
 ---
 # Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API
 

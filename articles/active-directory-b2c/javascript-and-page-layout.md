@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/22/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
@@ -151,7 +151,7 @@ Follow these guidelines when you customize the interface of your application usi
     - Don't use JavaScript directly to call Azure AD B2C endpoints.
 - You can embed your JavaScript or you can link to external JavaScript files. When using an external JavaScript file, make sure to use the absolute URL and not a relative URL.
 - JavaScript frameworks:
-    - Azure AD B2C uses a specific version of jQuery. Don’t include another version of jQuery. Using more than one version on the same page causes issues.
+    - Azure AD B2C uses a [specific version of jQuery](page-layout.md#jquery-version). Don’t include another version of jQuery. Using more than one version on the same page causes issues.
     - Using RequireJS isn't supported.
     - Most JavaScript frameworks are not supported by Azure AD B2C.
 - Azure AD B2C settings can be read by calling `window.SETTINGS`, `window.CONTENT` objects, such as the current UI language. Don’t change the value of these objects.

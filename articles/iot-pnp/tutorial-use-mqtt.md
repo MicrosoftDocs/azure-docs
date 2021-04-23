@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device builder, I want to see how I can use the MQTT protocol to create an IoT Plug and Play device client without using the Azure IoT Device SDKs.
+#Customer intent: As a device builder, I want to see how I can use the MQTT protocol to create an IoT Plug and Play device client without using the Azure IoT Device SDKs.
 ---
 
 # Tutorial - Use MQTT to develop an IoT Plug and Play device client
@@ -16,6 +16,13 @@ services: iot-pnp
 You should use one of the Azure IoT Device SDKs to build your IoT Plug and Play device clients if at all possible. However, in scenarios such as using a memory constrained device, you may need to use an MQTT library to communicate with your IoT hub.
 
 The sample in this tutorial uses the [Eclipse Mosquitto](http://mosquitto.org/) MQTT library and Visual Studio. The steps in this tutorial assume you're using Windows on your development machine.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Download and build the Eclipse Mosquitto library.
+> * Modify the C-based MQTT sample code to make the device an IoT Plug and Play device.
+> * Identify the MQTT topics that an IoT Plug and Play device uses.
 
 ## Prerequisites
 

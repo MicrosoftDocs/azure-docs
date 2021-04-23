@@ -1,17 +1,17 @@
 ---
-title: Deployment & HPA metrics with Azure Monitor for containers | Microsoft Docs
-description: This article describes what deployment & HPA (Horizontal pod autoscaler) metrics are collected with Azure Monitor for containers.
+title: Deployment & HPA metrics with Container insights | Microsoft Docs
+description: This article describes what deployment & HPA (Horizontal pod autoscaler) metrics are collected with Container insights.
 ms.topic: conceptual
 ms.date: 08/09/2020
 ---
 
-# Deployment & HPA metrics with Azure Monitor for containers
+# Deployment & HPA metrics with Container insights
 
-Starting with agent version *ciprod08072020*, Azure monitor for containers-integrated agent now collects metrics for Deployments & HPAs.
+Starting with agent version *ciprod08072020*, Container insights-integrated agent now collects metrics for Deployments & HPAs.
 
 ## Deployment metrics
 
-Azure Monitor for containers automatically starts monitoring Deployments, by collecting the following metrics at 60 sec intervals and storing them in the **InsightMetrics** table:
+Container insights automatically starts monitoring Deployments, by collecting the following metrics at 60 sec intervals and storing them in the **InsightMetrics** table:
 
 |Metric name |Metric dimension (tags) |Description |
 |------------|------------------------|------------|
@@ -19,7 +19,7 @@ Azure Monitor for containers automatically starts monitoring Deployments, by col
 
 ## HPA metrics
 
-Azure Monitor for containers automatically starts monitoring HPAs, by collecting the following metrics at 60 sec intervals and storing them in the **InsightMetrics** table:
+Container insights automatically starts monitoring HPAs, by collecting the following metrics at 60 sec intervals and storing them in the **InsightMetrics** table:
 
 |Metric name |Metric dimension (tags) |Description |
 |------------|------------------------|------------|
@@ -27,7 +27,7 @@ Azure Monitor for containers automatically starts monitoring HPAs, by collecting
 
 ## Deployment & HPA charts 
 
-Azure Monitor for containers includes pre-configured charts for the metrics listed earlier in the table as a workbook for every cluster. You can find the deployments & HPA workbook **Deployments & HPA** directly from an AKS cluster by selecting **Workbooks** from the left-hand pane, and from the **View Workbooks** drop-down list in the Insight.
+Container insights includes pre-configured charts for the metrics listed earlier in the table as a workbook for every cluster. You can find the deployments & HPA workbook **Deployments & HPA** directly from an AKS cluster by selecting **Workbooks** from the left-hand pane, and from the **View Workbooks** drop-down list in the Insight.
 
 ## Next steps
 

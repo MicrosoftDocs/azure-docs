@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 01/28/2021
+ms.date: 02/22/2021
 ---
 
 # Private offers in the Microsoft commercial marketplace
@@ -17,11 +17,11 @@ Private offers, also called private plans enable publishers to create plans that
 
 By creating private offers, publishers can privately offer customized solutions to targeted customers with capabilities that enterprises require:
 
-- _Negotiated pricing_ lets publishers extend discounts and off-list pricing from publicly available offerings.
-- _Private terms and conditions_ enable publishers to tailor terms and conditions to a specific customer.
-- _Specialized configurations_ let publishers tailor their Virtual Machines, Azure Applications, and software as a service (SaaS) to an individual customer's needs. This option also enables publishers to provide preview access to new product features, before launching them to all customers.
+- *Negotiated pricing* lets publishers extend discounts and off-list pricing from publicly available offerings.
+- *Private terms and conditions* enable publishers to tailor terms and conditions to a specific customer.
+- *Specialized configurations* let publishers tailor their Virtual Machines, Azure Applications, and software as a service (SaaS) to an individual customer's needs. This option also enables publishers to provide preview access to new product features, before launching them to all customers.
 
-Private offers let publishers take advantage of the scale and global availability of a public marketplace, with the flexibility and control needed to negotiate and deliver custom deals and configurations. Enterprises can now buy and sell in ways they expect 
+Private offers let publishers take advantage of the scale and global availability of a public marketplace, with the flexibility and control needed to negotiate and deliver custom deals and configurations. Enterprises can now buy and sell in ways they expect.
 
 ## Create private offers using plans
 
@@ -36,7 +36,7 @@ Private plans are available for the following offer types:
 - Managed Service
 - SaaS offers
 
-Private plans are components of an offer and are only visible and purchasable by the targeted customers. Private plans are only visible and purchasable by the targeted customers.  Private plans can be made available to customers in both Azure Global and Azure Government.
+Private plans are components of an offer and are only visible and purchasable by the targeted customers. Private plans are only visible and purchasable by the targeted customers. Private plans can be made available to customers in both Azure Global and Azure Government.
 
 Private plans can reuse the base images and/or offer metadata already published for a public plan. This option lets publishers create multiple private variations of a public offer without having to publish multiple versions of the same base image and offer metadata. For Azure Virtual Machine and Azure application offers only, when a private plan shares a base image with a public plan, any changes to the offer's base image will propagate across all public and private plans using that base image.
 
@@ -65,13 +65,12 @@ Once signed into the Azure portal, customers can follow these steps to select yo
 
 Private offers will also appear in search results and can be deployed via command line and Azure Resource Manager templates, like any other offers.
 
-![[Private offers]](./media/marketplace-publishers-guide/private-offer.png)
+[![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
 
 Private offers will also appear in search results. Just look for the **Private** badge.
 
 >[!Note]
 >Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
-
 
 <!---
 ## Next steps

@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 
-#intent: this file is used for both virtual wan and vpn gateway articles
+#Customer intent: this file is used for both virtual wan and vpn gateway articles.
 ---
 ## <a name="windows"></a>Windows clients
 

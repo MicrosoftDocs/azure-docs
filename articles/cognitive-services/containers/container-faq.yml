@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: conceptual
-  ms.date: 02/04/2021
+  ms.date: 03/02/2021
   ms.author: aahi
     
 title: Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -102,7 +102,23 @@ sections:
           * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)
 
           > [!IMPORTANT]
-          > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
+          > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information only with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
+
+          Here’s an example of the information a container communicates for metering:
+          
+          
+          ```json 
+          "usageRequestBody": {
+            "id": "customer_subscriptionID",
+            "apiType": "textanalytics",
+            "containerType": "keyphrase",
+            "containerVersion": "1.1.00864.0001",
+            "containerId": "dep--keyphrase-",
+            "meter": {
+              "name": "CognitiveServices.TextAnalytics.Container.BatchScoring",
+              "quantity": 10.0
+            }
+            ```
 
       - question: What is the current support warranty for containers?
         answer: | 

@@ -1,21 +1,21 @@
 ---
-title: Kubernetes monitoring with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Azure Monitor for containers.
+title: Kubernetes monitoring with Container insights | Microsoft Docs
+description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Container insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
 ---
 
-# Monitor your Kubernetes cluster performance with Azure Monitor for containers
+# Monitor your Kubernetes cluster performance with Container insights
 
-With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment from two perspectives. You can monitor directly from the cluster, or you can view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when monitoring a specific AKS cluster.
+With Container insights, you can use the performance charts and health status to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment from two perspectives. You can monitor directly from the cluster, or you can view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when monitoring a specific AKS cluster.
 
 This article helps you understand the two perspectives, and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
 
-For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
+For information about how to enable Container insights, see [Onboard Container insights](container-insights-onboard.md).
 
 Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time.
 
-The main differences in monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are described [here](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) in the overview article.
+The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described [here](container-insights-overview.md#what-does-container-insights-provide) in the overview article.
 
 ## Sign in to the Azure portal
 
@@ -32,7 +32,7 @@ You can scope the results presented in the grid to show clusters that are:
 * **Azure** - AKS and AKS-Engine clusters hosted in Azure Kubernetes Service
 * **Azure Stack (Preview)** - AKS-Engine clusters hosted on Azure Stack
 * **Non-Azure (Preview)** - Kubernetes clusters hosted on-premises
-* **All** - View all the Kubernetes clusters hosted in Azure, Azure Stack, and on-premises environments that are onboarded to Azure Monitor for containers
+* **All** - View all the Kubernetes clusters hosted in Azure, Azure Stack, and on-premises environments that are onboarded to Container insights
 
 To view clusters from a specific environment, select it from the **Environments** pill on the top-left corner of the page.
 
@@ -54,7 +54,7 @@ The health statuses included are:
 * **Not found**: Either the workspace, the resource group, or subscription that contains the workspace for this solution was deleted.
 * **Unauthorized**: User doesn't have required permissions to read the data in the workspace.
 * **Error**: An error occurred while attempting to read data from the workspace.
-* **Misconfigured**: Azure Monitor for containers wasn't configured correctly in the specified workspace.
+* **Misconfigured**: Container insights wasn't configured correctly in the specified workspace.
 * **No data**: Data hasn't reported to the workspace for the last 30 minutes.
 
 Health state calculates overall cluster status as the *worst of* the three states with one exception. If any of the three states is Unknown, the overall cluster state shows **Unknown**.
@@ -83,7 +83,7 @@ From the list of clusters, you can drill down to the **Cluster** page by selecti
 
 ## View performance directly from a cluster
 
-Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** > **Cluster** from the left pane, or when you selected a cluster from the multi-cluster view. Information about your cluster is organized into four perspectives:
+Access to Container insights is available directly from an AKS cluster by selecting **Insights** > **Cluster** from the left pane, or when you selected a cluster from the multi-cluster view. Information about your cluster is organized into four perspectives:
 
 - Cluster
 - Nodes
@@ -104,13 +104,13 @@ The performance charts display four performance metrics:
 - **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are Total, Ready, and Not Ready. They can be filtered individually or combined in the selector above the chart.
 - **Active pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are Total, Pending, Running, Unknown, Succeeded, or Failed. They can be filtered individually or combined in the selector above the chart.
 
-Use the Left and Right arrow keys to cycle through each data point on the chart. Use the Up and Down arrow keys to cycle through the percentile lines. Select the pin icon in the upper-right corner of any one of the charts to pin the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for containers and loads the correct scope and view.
+Use the Left and Right arrow keys to cycle through each data point on the chart. Use the Up and Down arrow keys to cycle through the percentile lines. Select the pin icon in the upper-right corner of any one of the charts to pin the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Container insights and loads the correct scope and view.
 
-Azure Monitor for containers also supports Azure Monitor [metrics explorer](../essentials/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../alerts/alerts-metric.md).
+Container insights also supports Azure Monitor [metrics explorer](../essentials/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../alerts/alerts-metric.md).
 
 ## View container metrics in metrics explorer
 
-In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
+In metrics explorer, you can view aggregated node and pod utilization metrics from Container insights. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
 |Namespace | Metric | Description |
 |----------|--------|-------------|
@@ -292,12 +292,12 @@ Azure Network Policy Manager includes informative Prometheus metrics that allow 
 
 ## Workbooks
 
-Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that allow you to analyze cluster performance. See [Workbooks in Azure Monitor for containers](../insights/container-insights-reports.md) for a description of the workbooks available for Azure Monitor for containers.
+Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that allow you to analyze cluster performance. See [Workbooks in Container insights](../insights/container-insights-reports.md) for a description of the workbooks available for Container insights.
 
 
 ## Next steps
 
-- Review [Create performance alerts with Azure Monitor for containers](./container-insights-log-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+- Review [Create performance alerts with Container insights](./container-insights-log-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
 

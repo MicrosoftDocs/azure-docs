@@ -1,7 +1,7 @@
 ---
 title: Create automated ML classification models
 titleSuffix: Azure Machine Learning
-description: Learn how to train & deploy classification models with Azure Machine Learning's automated machine learning (automated ML)  interface.
+description: Train & deploy classification models without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,20 +16,22 @@ ms.custom: automl
 
 # Tutorial: Create a classification model with automated ML in Azure Machine Learning
 
-
-In this tutorial, you learn how to create a simple classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+Learn how to create a [simple classification model](concept-automated-ml.md#classification) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
-For a time-series forecasting example, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-
-In this tutorial, you learn how to do the following tasks:
+You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning workspace.
 > * Run an automated machine learning experiment.
 > * View experiment details.
 > * Deploy the model.
+
+Also try automated machine learning for these other model types:
+
+* For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
+* For a code first example of a regression model, see the [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
 
 ## Prerequisites
 
@@ -48,7 +50,7 @@ There are many [ways to create a workspace](how-to-manage-workspace.md). In this
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
-## Get started in Azure Machine Learning studio
+## Sign in to the studio
 
 You complete the following experiment set-up and run steps  via the Azure Machine Learning studio at https://ml.azure.com, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
@@ -183,6 +185,30 @@ The following navigates through the **Details** and the **Metrics** tabs to view
 
 ![Run iteration detail](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
+## Model explanations
+
+While you wait for the models to complete, you can also take a look at model explanations and see which data features (raw or engineered) influenced a particular model's predictions. 
+
+These model explanations can be generated on demand, and are summarized in the model explanations dashboard  that's part of the **Explanations (preview)** tab.
+
+To generate model explanations, 
+ 
+1. Select **Run 1** at the top to navigate back to the **Models** screen. 
+1. Select the **Models** tab.
+1. For this tutorial, select the first **MaxAbsScaler, LightGBM** model.
+1. Select the **Explain model** button at the top. On the right, the **Explain model** pane appears. 
+1. Select the **automl-compute** that you created previously. This compute cluster initiates a child run to generate the model explanations.
+1. Select **Create** at the bottom. A green success message appears towards the top of your screen. 
+    >[!NOTE]
+    > The explainability run takes about 2-5 minutes to complete.
+1. Select the **Explanations (preview)** button. This tab populates once the explainability run completes.
+1. On the left hand side, expand the pane and select the row that says **raw** under **Features**. 
+1. Select the **Aggregate feature importance** tab on the right. This chart shows which data features influenced the predictions of the selected model. 
+
+    In this example, the *duration* appears to have the most influence on the predictions of this model.
+    
+    ![Model explanation dashboard](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
+
 ## Deploy the best model
 
 The automated machine learning interface allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
@@ -207,7 +233,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
     Deployment description| My first automated machine learning experiment deployment
     Compute type | Select Azure Compute Instance (ACI)
     Enable authentication| Disable. 
-    Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be autogenerated. 
+    Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be auto-generated. 
     
     For this example, we use the defaults provided in the *Advanced* menu. 
 

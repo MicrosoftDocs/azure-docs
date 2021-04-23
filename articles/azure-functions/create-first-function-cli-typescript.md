@@ -3,7 +3,7 @@ title: Create a TypeScript function from the command line - Azure Functions
 description: Learn how to create a TypeScript function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a TypeScript function in Azure from the command line

@@ -28,10 +28,10 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
     1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
     1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
-    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](../../../../../virtual-network/virtual-networks-overview.md)
     1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
     1. **Media service account** - This helps with managing and streaming media content in Azure.
-    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](../../../../latest/storage-account-concept.md).
     1. **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
 
 1. After the script finishes, select the curly brackets to expose the folder structure. You'll see a few files in the *~/clouddrive/lva-sample* directory. Of interest in this quickstart are:

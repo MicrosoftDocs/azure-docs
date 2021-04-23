@@ -139,10 +139,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to [SamsungKnox.com](https://samsungknox.com/) directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Samsung Knox and Business Services tile in the My Apps, this will redirect to [SamsungKnox.com](https://samsungknox.com/). For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Samsung Knox and Business Services tile in the My Apps, this will redirect to [SamsungKnox.com](https://samsungknox.com/). For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Samsung Knox and Business Services you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Samsung Knox and Business Services you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

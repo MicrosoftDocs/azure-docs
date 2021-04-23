@@ -99,12 +99,14 @@
       href: firewall-workbook.md
     - name: Deploy and configure Firewall Premium
       href: premium-deploy.md
+    - name: Deploy Enterprise CA Certificates for Premium
+      href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrate to Azure Firewall Premium
       href: premium-migrate.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/azure-firewall/network/firewall
+    href: /cli/azure/network/firewall
   - name: Azure PowerShell
     href: /powershell/module/az.network/new-azfirewall
   - name: .NET

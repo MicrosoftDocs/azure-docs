@@ -5,29 +5,28 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 
 # Log alerts in Azure Monitor
 
 ## Overview
 
-Log alerts are one of the alert types that are supported in [Azure Alerts](../platform/alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](../platform/action-groups.md).
+Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md).
 
 > [!NOTE]
-> Log data from a [Log Analytics workspace](../log-query/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
+> Log data from a [Log Analytics workspace](../logs/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
 > [!NOTE]
 > There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
 
 ## Prerequisites
 
-Log alerts run queries on Log Analytics data. First you should start [collecting log data](../platform/resource-logs.md) and query the log data for issues. You can use the [alert query examples topic](../log-query/example-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../log-query/log-analytics-tutorial.md).
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples topic](../logs/example-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
 
-[Azure Monitoring Contributor](../platform/roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
+[Azure Monitoring Contributor](../roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](../platform/api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](../alerts/alerts-log-api-switch.md).
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](./api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](../alerts/alerts-log-api-switch.md).
 
 ## Query evaluation definition
 
@@ -39,17 +38,17 @@ Log search rules condition definition starts from:
 The following sections describe the different parameters you can use to set the above logic.
 
 ### Log query
-The [Log Analytics](../log-query/log-analytics-tutorial.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
+The [Log Analytics](../logs/log-analytics-tutorial.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
 
 - A specific resource, such as a virtual machine.
 - An at scale resource, such as a subscription or resource group.
-- Multiple resources using [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+- Multiple resources using [cross-resource query](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
 > Alert queries have constraints to ensure optimal performance and the relevance of the results. [Learn more here](./alerts-log-query.md).
 
 > [!IMPORTANT]
-> Resource centric and [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) are only supported using the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](../platform/api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md)
+> Resource centric and [cross-resource query](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) are only supported using the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md)
 
 #### Query time Range
 
@@ -149,7 +148,7 @@ For example, you want to monitor errors for multiple virtual machines running yo
 This rule monitors if any virtual machine had error events in the last 15 minutes. Each virtual machine is monitored separately and will trigger actions individually.
 
 > [!NOTE]
-> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](../platform/api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-05-01-preview` and above.
+> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-05-01-preview` and above.
 
 ## Alert logic definition
 
@@ -192,17 +191,17 @@ Pricing information is located in the [Azure Monitor pricing page](https://azure
 
 - Log Alerts on Application Insights shown with exact resource name along with resource group and alert properties.
 - Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules).
-- Log alerts created from [legacy Log Analytics API](../platform/api-alerts.md) aren't tracked [Azure Resources](../../azure-resource-manager/management/overview.md) and don't have enforced unique resource names. These alerts are still created on `microsoft.insights/scheduledqueryrules` as hidden resources, which have this resource naming structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Log Alerts on legacy API are shown with above hidden resource name along with resource group and alert properties.
+- Log alerts created from [legacy Log Analytics API](./api-alerts.md) aren't tracked [Azure Resources](../../azure-resource-manager/management/overview.md) and don't have enforced unique resource names. These alerts are still created on `microsoft.insights/scheduledqueryrules` as hidden resources, which have this resource naming structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Log Alerts on legacy API are shown with above hidden resource name along with resource group and alert properties.
 
 > [!NOTE]
 > Unsupported resource characters such as `<, >, %, &, \, ?, /` are replaced with `_` in the hidden resource names and this will also reflect in the billing information.
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](../platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](../alerts/alerts-log-api-switch.md). Any alert rule management should be done using [legacy Log Analytics API](../platform/api-alerts.md) until you decide to switch and you can't use the hidden resources.
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](./api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](../alerts/alerts-log-api-switch.md). Any alert rule management should be done using [legacy Log Analytics API](./api-alerts.md) until you decide to switch and you can't use the hidden resources.
 
 ## Next steps
 
 * Learn about [creating in log alerts in Azure](./alerts-log.md).
 * Understand [webhooks in log alerts in Azure](../alerts/alerts-log-webhook.md).
-* Learn about [Azure Alerts](../platform/alerts-overview.md).
-* Learn more about [Log Analytics](../log-query/log-query-overview.md).
+* Learn about [Azure Alerts](./alerts-overview.md).
+* Learn more about [Log Analytics](../logs/log-query-overview.md).

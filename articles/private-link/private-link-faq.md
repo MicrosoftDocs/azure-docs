@@ -51,6 +51,11 @@ Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
 ### Can I modify my Private Endpoint Network Interface (NIC) ?
 When a private endpoint is created, a read-only NIC is assigned. This cannot be modified and will remain for the life cycle of the Private endpoint.
 
+### How do I achieve availability while using private endpoints in case of regional failures ?
+
+Private Endpoints are highly available resources with 99.99% SLA [[SLA for Azure Private Link]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). However, since they are regional resources, any Azure region outage can impact the availability. To achieve availability in case of regional failures, multiple PEs connected to same destination resource could be deployed in different regions. This way if one region goes down, you can still route the traffic for your recovery scenarios through PE in different region to access the destination resource. For info on how the regional failures are handled on destination service side, please review the service documentation on failover and recovery. Private Link traffic follows the Azure DNS resolution for destination endpoint. 
+
+
 ## Private Link Service
  
 ### What are the pre-requisites for creating a Private Link service? 
@@ -61,6 +66,12 @@ You can scale your Private Link service in a few different ways:
 - Add Backend VMs to the pool behind your Standard Load Balancer 
 - Add an IP to the Private Link service. We allow up to 8 IPs per Private Link service.  
 - Add new Private Link service to Standard Load Balancer. We allow up to eight Private Link services per load balancer.   
+
+### What is NAT(Network Address Translation) IP Configuration used in Private Link Service? How can I scale in terms of available ports and connections? 
+
+The NAT IP configuration ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space by providing source NAT on the Private Link traffic on the  destination side (service provider side). The NAT IP address will show up as Source IP for all packets received by your service and destination IP for all packets sent by your service.  NAT IP can be chosen from any subnet in a service provider's virtual network. 
+
+Each NAT IP provides 64k TCP connections (64k ports) per VM behind the Standard Load Balancer. In order to scale and add more connections, you can either add new NAT IPs or add more VMs behind the Standard Load Balancer. Doing so will scale the port availability and allow for more connections. Connections will be distributed across NAT IPs and VMs behind the Standard Load Balancer.
 
 ### Can I connect my service to multiple Private Endpoints?
 Yes. One Private Link service can receive connections from multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  

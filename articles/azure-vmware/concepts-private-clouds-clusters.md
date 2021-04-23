@@ -2,7 +2,7 @@
 title: Concepts - Private clouds and clusters
 description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and vSphere clusters. 
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 03/13/2021
 ---
 
 #  Azure VMware Solution private cloud and cluster concepts
@@ -15,8 +15,6 @@ This article describes all of these concepts.
 
 ![Image of two private clouds in a customer subscription](./media/hosts-clusters-private-clouds-final.png)
 
->[!NOTE]
->Because of the lower potential needs of a development environment, use smaller clusters with lower capacity hosts. 
 
 ## Private clouds
 
@@ -24,36 +22,30 @@ Private clouds contain vSAN clusters built with dedicated, bare-metal Azure host
 
 As with other resources, private clouds are installed and managed from within an Azure subscription. The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription.
 
-## Clusters
-For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters using the Azure portal or through the API.  All clusters have a default size of three hosts and can scale up to 16 hosts.  The hosts used in a cluster must be the same host type.
-
-Trial clusters are available for evaluation and limited to three hosts. There's a single trial cluster per private cloud. You can scale a trial cluster by a single host during the evaluation period.
-
-You use vSphere and NSX-T Manager to manage most other aspects of cluster configuration or operation. All local storage of each host in a cluster is under the control of vSAN.
-
 ## Hosts
 
-Azure VMware Solution private cloud clusters use hyper-converged, bare-metal infrastructure hosts. The following table shows the RAM, CPU, and disk capacities of the host. 
+[!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
-| Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
-| :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| High-End (HE)          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
+## Clusters
 
-Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted. 
+
+[!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
+
+
 
 ## VMware software versions
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
+## Update frequency
+
+[!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
 ## Host maintenance and lifecycle management
 
 Host maintenance and lifecycle management have no impact on the private cloud clusters' capacity or performance.  Examples of automated host maintenance include firmware upgrades and hardware repair or replacement.
 
-Microsoft is responsible for the lifecycle management of NSX-T appliances, such as NSX-T Manager and NSX-T Edge. They are also responsible for bootstrapping network configuration, such as creating the Tier-0 gateway and enabling North-South routing. You're responsible for NSX-T SDN configuration. For example, network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
-
-> [!IMPORTANT]
-> Do not modify the configuration of NSX-T Edge or Tier-0 Gateway, as this may result in a loss of service.
+Microsoft is responsible for the lifecycle management of NSX-T appliances, such as NSX-T Manager and NSX-T Edge. Microsoft is responsible for bootstrapping network configuration, such as creating the Tier-0 gateway and enabling North-South routing. You're responsible for NSX-T SDN configuration. For example, network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
 
 ## Backup and restoration
 
@@ -63,9 +55,9 @@ Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.
 
 Now that you've covered Azure VMware Solution private cloud concepts, you may want to learn about: 
 
-- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md).
-- [Azure VMware Solution storage concepts](concepts-storage.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
+- [Azure VMware Solution storage concepts](concepts-storage.md)
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md
