@@ -104,11 +104,12 @@ The provisioning code will contact the DPS resource using these parameters in or
      
 4. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your symmetric key device. Review the code in this file.  No changes are needed.
  
-5. Build and run the sample code using the following command.
-
+5. Build and run the sample code using the following command after replacing the three example parameters. Use your correct values for ID Scope, enrollment registration ID, and enrollment primary key.
+    
     ```console
     dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
-    ```
+    ```    
+
 
 6. The expected output should look similar to the following output that shows the linked IoT hub that the device was assigned to based on the individual enrollment settings. An example "TestMessage" string is sent to the hub as a test:
 
