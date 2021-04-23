@@ -2,7 +2,7 @@
 title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 04/23/2021
 ---
 
 # Move guidance for virtual machines
@@ -68,7 +68,7 @@ If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for
    6. After the delete operation is complete, you can move your virtual machine.
 
 3. Move the VM to the target resource group.
-4. Resume the backup.
+4. Reconfigure the backup.
 
 ### PowerShell
 
