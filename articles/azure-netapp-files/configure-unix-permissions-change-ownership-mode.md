@@ -22,15 +22,15 @@ For Azure NetApp Files NFS volumes or dual-protocol volumes with the `Unix` secu
 
 ## Unix permissions   
 
-The Azure NetApp Files **Unix Permissions** capability enables you to specify change permissions for the mount path. The setting does not apply to the files under the mount path.   
+The Azure NetApp Files **Unix Permissions** functionality enables you to specify change permissions for the mount path. The setting does not apply to the files under the mount path.   
 
-Unix permissions for NFS or dual protocol volumes is set to `0770` by default. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users. 
+The Unix permissions setting is set to `0770` by default. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users. 
 
- You can specify a custom value (for example, `0755`) for Unix permissions to give the desired permission to the owner, group, or other users.  
+ You can specify a custom Unix permissions value (for example, `0755`) to give the desired permission to the owner, group, or other users.  
 
 ## Change ownership mode   
 
-The change ownership mode (**Chown Mode**) capability enables you to set the ownership management capabilities of files and directories.  You can set or modify the setting under a volume's export policy. Two options are available:   
+The change ownership mode (**Chown Mode**) functionality enables you to set the ownership management capabilities of files and directories.  You can specify or modify the setting under a volume's export policy. Two options for **Chown Mode** are available:   
 
 * `restricted` (default) - Only the root user can change the ownership of files and directories.
 * `unrestricted` - Non-root users can change the ownership for files and directories that they own.
@@ -76,7 +76,7 @@ The change ownership mode (**Chown Mode**) capability enables you to set the own
 
 3. For existing NFS or dual-protocol volumes, you can set or modify **Unix permissions** and **change ownership mode** as follows:  
 
-    1. To modify Unix permissions, right-click the volume, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.  
+    1. To modify Unix permissions, right-click the **volume**, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.  
         ![Screenshots that shows the Edit screen for Unix permissions.](../media/azure-netapp-files/unix-permissions-edit.png)
 
     2. To modify the change ownership mode, click the **volume**, click **Export policy**, then modify the **Chown Mode** setting.  

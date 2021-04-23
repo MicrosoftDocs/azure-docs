@@ -128,8 +128,8 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
-    *  Customize **Unix Permissions** if needed. The default setting is `0770`.   
-        Registration and considerations apply for this feature. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
+    *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
+        Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
 
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 

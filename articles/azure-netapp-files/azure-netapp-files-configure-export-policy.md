@@ -42,12 +42,12 @@ You can create up to five export policy rules.
 
       ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
-    * **Chown Mode**:	Modify the change ownership mode as needed.  
-        Registration and considerations apply for using this feature. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
+    * **Chown Mode**:	Modify the change ownership mode as needed to set the ownership management capabilities of files and directories.   
+    Registration requirement and considerations apply for this functionality. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
 
       ![Screenshot that shows the Chown Mode option.](../media/azure-netapp-files/chown-mode-export-policy.png) 
 
 ## Next steps 
 * [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
+* [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md) 
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)
