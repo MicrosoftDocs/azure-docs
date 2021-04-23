@@ -19,7 +19,7 @@ You can configure Azure DNS to resolve host names in your public domain. For exa
 
 In this quickstart, you will create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*.
 
-:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure portal.":::
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure portal." border="false":::
 
 >[!IMPORTANT]
 >All the names and IP addresses in this quickstart are examples that do not represent real-world scenarios.
