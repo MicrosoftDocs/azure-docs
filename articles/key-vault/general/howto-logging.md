@@ -160,7 +160,7 @@ To configure diagnostic settings in the Azure portal, follow these steps:
 
     :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Screenshot of diagnostic settings options.":::
 
-    Otherwise, select the options that pertain to the logs that you wish to select.
+    Otherwise, select the options that pertain to the logs that you want to select.
 
 1. When you have selected your desired options, select **Save**.
 
