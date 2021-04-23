@@ -5,7 +5,7 @@ author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/04/2020
+ms.date: 04/23/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -118,7 +118,7 @@ Complete previous steps:
 
 There are two ways to see logs on Azure Spring Cloud: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability.
 
-### Log streaming
+## Log streaming
 
 #### [CLI](#tab/Azure-CLI)
 
@@ -134,6 +134,84 @@ You will see logs like this:
 
 > [!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+
+#### [Portal](#tab/Azure-portal)
+
+You can use log streaming in the Azure CLI with the following command.
+
+```azurecli
+az spring-cloud app logs -s <service instance name> -g <resource group name> -n api-gateway -f
+```
+
+You will see logs like this:
+
+[ ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-streaming-cli.png) ](media/logs-metrics-tracing/logs-streaming-cli.png#lightbox)
+
+> [!TIP]
+> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+
+## Log Analytics
+
+1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud.
+
+   [ ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png#lightbox)
+
+1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
+
+   [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png) ](media/logs-metrics-tracing/logs-query.png#lightbox)
+
+
+## Metrics
+
+Navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, 
+Spring Cloud modules, and dependencies. 
+The chart below shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections`
+ (JDBC Connections) and `http_client_requests`.
+ 
+![Metrics blade](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-metrics.jpg)
+
+Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback... 
+The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.
+All those three REST controllers `OwnerResource`, `PetResource` and `VisitResource` have been instrumented by the `@Timed` Micrometer annotation at class level.
+
+* `customers-service` application has the following custom metrics enabled:
+  * @Timed: `petclinic.owner`
+  * @Timed: `petclinic.pet`
+* `visits-service` application has the following custom metrics enabled:
+  * @Timed: `petclinic.visit`
+
+You can see these custom metrics in the `Metrics` blade:
+![Custom metrics](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg)
+
+You can use the Availability Test feature in Application Insights and monitor 
+the availability of applications:
+![Availability test](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-availability.jpg)
+
+Navigate to the `Live Metrics` blade - you can see live metrics on screen with low latencies < 1 second:
+![Live metrics](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-live-metrics.jpg)
+
+## Tracing
+
+Open the Application Insights created by Azure Spring Cloud and start monitoring microservice applications.
+
+Navigate to the `Application Map` blade:
+![Application map](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg)
+
+Navigate to the `Performance` blade:
+![Performance blade](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-performance.jpg)
+
+Navigate to the `Performance/Dependenices` blade - you can see the performance number for dependencies, 
+particularly SQL calls:
+![Performance/Dependencies blade](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg)
+
+Click on a SQL call to see the end-to-end transaction in context:
+![SQL end-to-end transaction](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg)
+
+Navigate to the `Failures/Exceptions` blade - you can see a collection of exceptions:
+![Failures/Exceptions](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg)
+
+Click on an exception to see the end-to-end transaction and stacktrace in context:
+![Stacktrace end-to-end](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg)
 
 #### [IntelliJ](#tab/IntelliJ)
 
