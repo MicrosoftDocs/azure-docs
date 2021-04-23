@@ -129,7 +129,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/cost-management-security-baseline
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing

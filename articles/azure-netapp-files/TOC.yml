@@ -97,13 +97,13 @@
       href: configure-ldap-extended-groups.md
     - name: Configure an NFS client for Azure NetApp Files
       href: configure-nfs-clients.md
-    - name: Configure export policy for an NFS volume
+    - name: Configure export policy for NFS or dual protocol
       href: azure-netapp-files-configure-export-policy.md
   - name: Create an SMB volume
     href: azure-netapp-files-create-volumes-smb.md
   - name: Create a dual-protocol volume 
     href: create-volumes-dual-protocol.md
-  - name: Mount or unmount a volume for Windows or Linux virtual machines
+  - name: Mount or unmount a volume
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
