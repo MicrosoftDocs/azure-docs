@@ -142,15 +142,15 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chaining, refer to the **Samples** page. 
 
-**Note**: In the Azure API for FHIR and the open source backed by Cosmos DB, there's a limitation where each sub-query required for the chained and reverse chained searches will only return 100 items. If there are more than 100 items found, you’ll receive the following error message:
+**Note**: In the Azure API for FHIR and the open source backed by Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 100 items. If there are more than 100 items found, you’ll receive the following error message:
 
-“Sub-queries in a chained expression can't return more than 100 results, please use a more selective criteria.” 
+“Subqueries in a chained expression can't return more than 100 results, please use a more selective criteria.” 
 
 To get a successful query, you’ll need to be more specific in what you are looking for.
 
 ## Pagination
 
-As mentioned above, the results from a search will be a paged bundle. By default, the results will return 10 results per page, but this can be increased (or decreased) by specifying `_count`. Within the bundle, there's a self link that has a URL. The self link contains the results on the current page, and a next link which contains a URL. You can continue to use the next link to get the subsequent pages of results. Once there are no results remaining, only the self link will get returned.
+As mentioned above, the results from a search will be a paged bundle. By default, the search will return 10 results per page, but this can be increased (or decreased) by specifying `_count`. Within the bundle, there will be a self link that contains the current result of the search. If there are additional matches, the bundle will contain a next link. You can continue to use the next link to get the subsequent pages of results. 
 
 Currently, the Azure API for FHIR only supports the next link in bundles, and it doesn’t support first, last, or previous links.
 
