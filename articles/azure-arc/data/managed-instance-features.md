@@ -35,7 +35,7 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |Basic availability groups <sup>2</sup>|HA capabilities are planned.|
 |Minimum replica commit availability group <sup>2</sup>|HA capabilities are planned.|
 |Clusterless availability group|Yes|
-|Backup database | Yes - `COPY_ONLY` See [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql/)|
+|Backup database | Yes - `COPY_ONLY` See [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
 |Backup compression|Yes|
 |Backup mirror |Yes|
 |Backup encryption|Yes|
