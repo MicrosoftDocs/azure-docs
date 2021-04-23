@@ -25,7 +25,7 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Power BI app**.
 
-    :::image type="content" source="media/dynamics-365/new-offer-power-bi-app.png" alt-text="The left pane menu options and the 'New offer' button.":::
+    :::image type="content" source="media/power-bi/new-offer-power-bi-app.png" alt-text="The left pane menu options and the 'New offer' button.":::
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
@@ -75,7 +75,7 @@ To enable a test drive, select the **Enable a test drive** check box and select 
 -->
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 

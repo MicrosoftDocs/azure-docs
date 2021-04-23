@@ -20,7 +20,7 @@ Define marketplace details for each language/market here, such as offer name, de
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
-:::image type="content" source="media/dynamics-365/example-power-bi-app.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/power-bi/example-power-bi-app.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 ##### Call-out descriptions
 
@@ -48,11 +48,7 @@ Provide a short description of your offer for the **Search results summary** (up
 
 [!INCLUDE [Long description-2](includes/long-description-2.md)]
 
-[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
-
-You can optionally enter up to three **Search keywords** to help customers find your offer in the marketplace. For best results, also use these keywords in your description.
-
-If you want to let customers know what **Products your app works with**, enter up to three product names.
+Use HTML tags to format your description so it's more engaging. For a list of allowed tags, see [Supported HTML tags](supported-html-tags.md).
 
 #### Help/Privacy URLs
 

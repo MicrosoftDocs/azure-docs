@@ -263,10 +263,24 @@
       href: create-managed-service-offer-plans.md
   - name: Power BI app offers
     items:
-    - name: Plan a Power BI app offer
+    - name: Plan the offer
       href: partner-center-portal/create-power-bi-app-overview.md
-    - name: Create a Power BI app offer
-      href: partner-center-portal/create-power-bi-app-offer.md
+    - name: Create the offer
+      items:
+      - name: Offer setup
+        href: power-bi-app-offer-setup.md
+      - name: Properties
+        href: power-bi-app-properties.md
+      - name: Offer listing
+        href: power-bi-app-offer-listing.md
+      - name: Availability
+        href: power-bi-app-availability.md
+      - name: Technical configuration
+        href: power-bi-app-technical-configuration.md
+      - name: Supplemental content
+        href: power-bi-app-supplemental-content.md
+    - name: Validate the offer
+      href: power-bi-app-validation.md
   - name: SaaS offers
     items:
     - name: Plan a SaaS offer

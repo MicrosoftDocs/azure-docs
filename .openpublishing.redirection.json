@@ -29521,13 +29521,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-offer.md",
-      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-overview.md",
+      "redirect_url": "/azure/marketplace/marketplace-power-bi",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-overview.md",
-      "redirect_url": "/azure/marketplace/marketplace-power-bi",
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-offer.md",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
