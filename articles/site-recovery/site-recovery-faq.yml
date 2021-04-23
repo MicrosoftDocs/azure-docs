@@ -16,11 +16,8 @@ summary: |
    
 
 sections:
-  - name: Ignored
+  - name: General
     questions:
-      - question: |
-         General
-        answer: |
       - question: |
          What does Site Recovery do?
         answer: |
@@ -36,9 +33,8 @@ sections:
         answer: |
              There are various measures taken by Site Recovery to ensure data integrity. A secure connection is established between all services by using the HTTPS protocol. This makes sure that any malware or outside entities can't tamper the data. Another measure taken is using checksums. The data transfer between source and target is executed by computing checksums of data between them. This ensures that the transferred data is consistent.
 
-      - question: |
-         Service providers
-        answer: |
+  - name: Service providers
+    questions:
       - question: |
          I'm a service provider. Does Site Recovery work for dedicated and shared infrastructure models?
         answer: |
@@ -81,9 +77,8 @@ sections:
         answer: |
              Yes, you can replicate Hyper-V virtual machines to Azure, or between service provider sites.  Note that if you replicate between service provider sites, Azure runbook integration isn't available.
 
-      - question: |
-         Pricing
-        answer: |
+  - name: Pricing
+    questions:
       - question: |
          Where can I find pricing information?
         answer: |
@@ -117,9 +112,8 @@ sections:
               There is no separate cost for DR drill. There will be compute charges after the VM is created after the test failover.
           
           
-      - question: |
-         Security
-        answer: |
+  - name: Security
+    questions:
       - question: |
          Is replication data sent to the Site Recovery service?
         answer: |
@@ -168,9 +162,8 @@ sections:
                 - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
                 - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
           
-      - question: |
-         Disaster recovery
-        answer: |
+  - name: Disaster recovery
+    questions:
       - question: |
          What can Site Recovery protect?
         answer: |
@@ -211,9 +204,8 @@ sections:
               Note that physical servers will run as VMs in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine.
           
           
-      - question: |
-         Replication
-        answer: |
+  - name: Replication
+    questions:
       - question: |
          Can I replicate over a site-to-site VPN to Azure?
         answer: |
@@ -317,9 +309,8 @@ sections:
               >[!Note]
               >The Site Recovery agent version should be 9.24 or above to support custom scripts.
           
-      - question: |
-         Replication policy
-        answer: |
+  - name: Replication policy
+    questions:
       - question: |
          What is a replication policy?
         answer: |
@@ -399,9 +390,8 @@ sections:
         answer: |
              Yes, if you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 48 per month.
 
-      - question: |
-         Failover
-        answer: |
+  - name: Failover
+    questions:
       - question: |
          If I'm failing over to Azure, how do I access the Azure VMs after failover?
         answer: |
@@ -445,9 +435,8 @@ sections:
               2.	**Commit** means that this is not the end of your replication process. The replication item along with all the configuration will remain, and you can hit **Re-protect** at a later point in time to enable the replication of your machines back to the source region. 
               3.	**Disable Replication** will disable the replication and remove all the related configuration. It won’t affect the already existing machine in the target region.
           
-      - question: |
-         Automation
-        answer: |
+  - name: Automation
+    questions:
       - question: |
          Can I automate Site Recovery scenarios with an SDK?
         answer: |
@@ -457,9 +446,8 @@ sections:
               * [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
               * [Replicate VMware to Azure with PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
           
-      - question: |
-         Component/provider upgrade
-        answer: |
+  - name: Component/provider upgrade
+    questions:
       - question: |
          Where can I find the release notes/update rollups of Site Recovery upgrades
         answer: |
