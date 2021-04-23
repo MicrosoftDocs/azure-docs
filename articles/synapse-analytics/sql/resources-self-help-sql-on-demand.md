@@ -32,8 +32,8 @@ If your query fails with the error saying 'File cannot be opened because it does
 
 If you want to give permission only for a this or a subset of files, this is how it can be done: 
 
-* First of all, all users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
-Learn more about this [here](../../storage/blobs/data-lake-storage-explorer-acl.md)
+* All users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
+Learn more about this [here](../../storage/blobs/data-lake-storage-explorer-acl.md). 
 
 > [!NOTE]
 > Execute permission on the container level needs to be set within the Azure Data Lake Gen2.
