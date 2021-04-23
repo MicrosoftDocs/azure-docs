@@ -7,7 +7,6 @@ ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 3/24/2021
-ms.custom: devx-track-aad
 ---
 
 # Custom authentication in Azure Static Web Apps
@@ -120,7 +119,7 @@ To allow users to login using a custom OIDC provider, have them navigate to `/.a
 
 The following tables contain the different configuration options for each default provider.
 
-# [Azure Active Directory](#tabs/aad)
+# [Azure Active Directory](#tab/aad)
 
 | Field Path                             | Description                                                                                                              |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -148,7 +147,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-# [Apple](#tabs/apple)
+# [Apple](#tab/apple)
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -174,7 +173,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-# [Facebook](#tabs/facebook)
+# [Facebook](#tab/facebook)
 
 | Field Path                          | Description                                                                                          |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -200,7 +199,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-# [GitHub](#tabs/github)
+# [GitHub](#tab/github)
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -226,7 +225,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-# [Google](#tabs/google)
+# [Google](#tab/google)
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -252,7 +251,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-# [Twitter](#tabs/twitter)
+# [Twitter](#tab/twitter)
 
 | Field Path                               | Description                                                                                           |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -280,5 +279,4 @@ The following tables contain the different configuration options for each defaul
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Access user authentication and authorization data](user-information.md)
+> [!div class="nextstepaction"] > [Access user authentication and authorization data](user-information.md)
