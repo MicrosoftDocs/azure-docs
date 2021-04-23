@@ -20,7 +20,7 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 - Create or use an existing function app
 - Create or use an existing storage account
 - Have version 5.0+ of the [Microsoft.Azure.WebJobs.Extensions.Storage extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2) installed
-- Have version 2.1.0+ of the [Event Grid extension](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid) installed
+- Have version 2.1.0+ of the [Event Grid extension](./functions-bindings-event-grid.md) installed
 - Download [ngrok](https://ngrok.com/) to allow Azure to call your local function
 
 ## Create a new function

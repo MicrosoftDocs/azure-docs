@@ -36,7 +36,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
 
-* [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 * Install the `connectedk8s` Azure CLI extension of version >= 1.0.0:
   
   ```azurecli

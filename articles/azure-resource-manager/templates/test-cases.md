@@ -693,7 +693,7 @@ Test name: **CommandToExecute Must Use ProtectedSettings For Secrets**
 In a Custom Script Extension, use the encrypted property `protectedSettings` when `commandToExecute` includes secret data such as a password. Examples of secret data types are `secureString`, `secureObject`, `list()` functions, or scripts.
 
 For more information about Custom Script Extension for virtual machines, see [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux), and the schema [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](../../virtual-machines/extensions/custom-script-linux.md), and the schema [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
 
 In this example, a template with a parameter named `adminPassword` and type `secureString` **passes** the test because the encrypted property `protectedSettings` includes `commandToExecute`.
 

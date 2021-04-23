@@ -32,9 +32,9 @@ Virtual network rules enable Azure Monitor to only accept communications that ar
 
 Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet preventing need of computers to be connected to internet. 
 
-- [How to set up Private Link for Azure Monitor](/azure/azure-monitor/platform/private-link-security)
+- [How to set up Private Link for Azure Monitor](./logs/private-link-security.md)
 
-- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/platform/gateway)
+- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](./agents/gateway.md)
 
 **Responsibility**: Customer
 
@@ -46,9 +46,9 @@ Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Mon
 
 When using Azure Monitor with Private Link, you get access to network logging such as 'Data processed by the Private Endpoint (IN/OUT)'.
 
-- [Network requirements for Azure Monitor agents](/azure/azure-monitor/platform/log-analytics-agent#network-requirements)
+- [Network requirements for Azure Monitor agents](./agents/log-analytics-agent.md#network-requirements)
 
-- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/platform/gateway)
+- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](./agents/gateway.md)
 
 - [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -74,11 +74,11 @@ When using Azure Monitor with Private Link, you get access to network logging su
 
 **Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately. Azure Monitor components, including the Azure Monitor Agent, and Application Insights SDK may be deployed with your resources, and this may impact the security posture of those resources.
 
-- [Network requirements for Azure Monitor agents](/azure/azure-monitor/platform/log-analytics-agent#network-requirements)
+- [Network requirements for Azure Monitor agents](./agents/log-analytics-agent.md#network-requirements)
 
-- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/platform/gateway) 
+- [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](./agents/gateway.md) 
 
-- [See getting started with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
+- [See getting started with Application Insights](./app/app-insights-overview.md#get-started)
 
 - [How to set up availability web tests](app/monitor-web-app-availability.md)
 
@@ -90,9 +90,9 @@ When using Azure Monitor with Private Link, you get access to network logging su
 
 **Guidance**: Use the Azure Activity Log to monitor resource configurations and detect changes to your network resources related to Azure Monitor. Create alerts within Azure Monitor that will trigger when changes to those critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](./essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](./alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -108,9 +108,9 @@ When using Azure Monitor with Private Link, you get access to network logging su
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](./essentials/diagnostic-settings.md)
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](./vm/quick-collect-azurevm.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -118,7 +118,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - microsoft.insights**:
 
@@ -128,13 +128,13 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Azure Monitor uses Activity logs, the Activity Log is automatically enabled and logs operations taken on Azure Monitor resources, such as: who started the operation, when the operation occurred, the status of the operation and other useful audit information. 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](./essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand logging and different log types in Azure](./essentials/platform-logs-overview.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - microsoft.insights**:
 
@@ -144,9 +144,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for any long-term/archival storage of your logs.
 
-- [Change the data retention period in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](./logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsibility**: Customer
 
@@ -160,9 +160,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Getting started with Log Analytics queries](./logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](./logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -176,7 +176,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](./alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -280,7 +280,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -292,7 +292,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Guidance**: You have access to Azure Active Directory (Azure AD) Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool. You can streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -322,7 +322,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Manage access to log data and workspaces in Azure Monitor](/azure/azure-monitor/platform/manage-access)
+- [Manage access to log data and workspaces in Azure Monitor](./logs/manage-access.md)
 
 **Responsibility**: Customer
 
@@ -348,7 +348,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 Application Insights and Log Analytics both continue to allow TLS 1.1 and TLS 1.0 data to be ingested. Data may be restricted to TLS 1.2 by configuring on the client side.
 
-- [How to send data securely using TLS 1.2](/azure/azure-monitor/platform/data-security#sending-data-securely-using-tls-12)
+- [How to send data securely using TLS 1.2](./logs/data-security.md#sending-data-securely-using-tls-12)
 
 **Responsibility**: Shared
 
@@ -369,7 +369,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure Monitor.
 
-- [Roles, permissions, and security in Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security)
+- [Roles, permissions, and security in Azure Monitor](./roles-permissions-security.md)
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
@@ -381,9 +381,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your Azure Key Vault and accessed by storage using system-assigned managed identity authentication. This customer-managed key (CMK) can be either software or hardware-HSM protected.
 
-- [Azure Monitor customer-managed keys](/azure/azure-monitor/platform/customer-managed-keys)
+- [Azure Monitor customer-managed keys](./logs/customer-managed-keys.md)
 
-- [Log Analytics data security](/azure/azure-monitor/platform/data-security)
+- [Log Analytics data security](./logs/data-security.md)
 
 - [Data collection, retention, and storage in Application Insights](app/data-retention-privacy.md)
 
@@ -397,11 +397,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place in Azure Monitor and related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](./alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - microsoft.insights**:
 
@@ -427,13 +427,13 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure CLI to query and discover Azure Monitor resources within your subscriptions. Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-- [Azure Monitor CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest&amp;preserve-view=true)
+- [Azure Monitor CLI](/cli/azure/monitor?amp;preserve-view=true&view=azure-cli-latest)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-- [Roles, permissions, and security in Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security)
+- [Roles, permissions, and security in Azure Monitor](./roles-permissions-security.md)
 
 **Responsibility**: Customer
 
@@ -489,7 +489,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Reconcile inventory on a regular basis and ensure unauthorized Azure Monitor related resources are deleted from the subscription in a timely manner.  
 
-- [Delete Azure Log Analytics workspace](/azure/azure-monitor/platform/delete-workspace)
+- [Delete Azure Log Analytics workspace](./logs/delete-workspace.md)
 
 **Responsibility**: Customer
 
@@ -501,7 +501,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -531,9 +531,9 @@ You may also use recommendations from Azure Security Center as a secure configur
 
 If using live streaming APM capabilities, make the channel secure with a secret API key in addition to the instrumentation key.
 
-- [Secure APM Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel)
+- [Secure APM Live Metrics Stream](./app/live-stream.md#secure-the-control-channel)
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
@@ -577,7 +577,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Azure Policy aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsibility**: Customer
 
@@ -603,7 +603,7 @@ If using live streaming APM capabilities, make the channel secure with a secret 
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad)
+- [How to provide Key Vault authentication with a managed identity](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md)
 
 **Responsibility**: Customer
 
@@ -657,7 +657,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations.  Use Azure Automation to run the backup scripts automatically. 
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/samples/resource-manager-workspace)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./logs/resource-manager-workspace.md)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -671,7 +671,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations. Backup customer-managed keys within Azure Key Vault if Azure Monitor related resources are using customer-managed keys,
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/platform/template-workspace-configuration)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./logs/resource-manager-workspace.md)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -685,7 +685,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files. Test restoration of backed up customer-managed keys.
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/samples/resource-manager-workspace)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](./logs/resource-manager-workspace.md)
 
 - [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 

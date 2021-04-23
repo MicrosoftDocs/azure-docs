@@ -76,7 +76,7 @@ The following are not supported:
 - CIS
 - SELINUX
 
-CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview). Further hardening and customization methods are not supported nor planned for OMS Agent.  
+CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent.  
 
 ## Agent prerequisites
 
