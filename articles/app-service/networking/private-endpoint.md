@@ -121,6 +121,8 @@ Remote Debugging functionality is not available when Private Endpoint is enabled
 
 FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
 
+There is a known limitation affecting Private Endpoints and traffic routing with slots. As of April 2021, automatic and manual request routing between slots will result in a "403 Access Denied". This limitation will be removed in a future release.
+
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
 ## Next steps
