@@ -111,9 +111,9 @@
     href: configure-signal-gate.md #404
   - name: Use widgets
     href: use-widgets.md #404
-  - name: Monitoring and logging - Cloud
+  - name: Monitor and log - Cloud
     href: monitor-configure-logs-cloud.md #404
-  - name: Monitoring and logging - Edge
+  - name: Monitor and log - Edge
     href: monitor-logging-edge.md #404
   - name: Troubleshoot
     href: troubleshoot.md
