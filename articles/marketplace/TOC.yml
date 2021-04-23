@@ -264,7 +264,7 @@
   - name: Power BI app offers
     items:
     - name: Plan the offer
-      href: partner-center-portal/create-power-bi-app-overview.md
+      href: marketplace-power-bi.md
     - name: Create the offer
       items:
       - name: Offer setup
