@@ -169,10 +169,10 @@ sections:
         answer: Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
 
       - question: What is the storage capacity of each host?
-        answer: Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2-TB NVMe cache tier (1.6 TB in each diskgroup).      
+        answer: Each ESXi host has two vSAN disk groups with a capacity tier of 15.2TB and a 3.2-TB NVMe cache tier (1.6 TB in each disk group).      
 
       - question: Is data stored on the vSAN datastores encrypted at rest?
-        answer: Yes, all vSAN data is encrypted by default using keys stored in Azure Key Vault. For more information, see [Azure VMware Solutions storage concepts](concepts-storage.md#data-at-rest-encryption)
+        answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter operations for key management.  When a host is removed from a cluster, data on SSDs is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
         answer: No, you can't change the name of datastores or clusters.
@@ -198,8 +198,8 @@ sections:
       - question: What kind of alerts can I expect to see for vSAN? 
         answer: Microsoft provides alerts when capacity consumption exceeds 75%. Alternatively, you can also monitor capacity consumption metrics that are integrated into Azure Monitor.
 
-      - question: How many 1.6-TB NVMe drives make up the disk groups to provide the 15.4 TB of raw SSD storage per host? 
-        answer: The [AVS36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes 2 1.6 TB NVMe Cache and 8 1.9TB raw storage capacity. These are then split into two disk groups. 
+      - question: How many 1.6 TB NVMe drives make up the disk groups to provide the 15.4 TB of raw SSD storage per host? 
+        answer: The [AVS36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes two 1.6-TB NVMe cache and eight 1.9-TB raw storage capacity. These are then split into two disk groups. 
 
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups are not RAID configured. Instead, they are just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).

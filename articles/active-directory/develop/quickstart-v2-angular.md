@@ -23,33 +23,35 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 
 ## Prerequisites
 
-* Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/).
 * [Visual Studio Code](https://code.visualstudio.com/download) to edit project files, or [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) to run the project.
 
 > [!div renderon="docs"]
+>
 > ## Register and download the quickstart app
+>
 > To start the quickstart app, use either of the following options.
 >
 > ### Option 1 (express): Register and automatically configure the app, and then download the code sample
 >
 > 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
-> 1. Go to the quickstart pane and view the Angular quickstart. Follow the instructions to download and automatically configure your new application.
+> 1. On the quickstart pane, find the Angular quickstart. Follow the instructions to download and automatically configure your new application.
 >
 > ### Option 2 (manual): Register and manually configure the application and code sample
 >
 > #### Step 1: Register the application
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.
-> 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs in users and calls an API.
+> 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs users in and calls an API.
 
 > [!div class="sxs-lookup" renderon="portal"]
+>
 > #### Step 1: Configure the application in the Azure portal
-> For the code sample in this quickstart to work, you need to add a redirect URI as **http://localhost:4200/** and enable **Implicit grant**.
+>
+> For the code sample in this quickstart to work, you need to add a redirect URI to `http://localhost:4200/` and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -58,7 +60,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 
 #### Step 2: Download the code sample
 >[!div renderon="docs"]
->To run the project with a web server by using Node.js, [clone the sample repository](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) or [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Open the files by using an editor such as Visual Studio Code.
+>To run the project with a web server by using Node.js, clone the [sample repository](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) or [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Open the files in an editor such as Visual Studio Code.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
@@ -87,19 +89,18 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > > [!NOTE]
 > > Enter_the_Supported_Account_Info_Here
 
-
 > [!div renderon="docs"]
 >
 > Replace these values:
 >
 >|Value name|Description|
 >|---------|---------|
->|Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application(client) ID** value. |
->|Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
->|Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
->|Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
->|cacheLocation  | (Optional) Set the browser storage for the authentication state. The default is **sessionStorage**.   |
->|storeAuthStateInCookie  | (Optional) Identify the library that stores the authentication request state. This state is required to validate the authentication flows in the browser cookies. This cookie is set for Internet Explorer and Edge to accommodate those two browsers. For more details, see the [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
+>|Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
+>|Enter_the_Cloud_Instance_Id_Here|This is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
+>|Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, `contoso.microsoft.com`). If your application supports *accounts in any organizational directory*, replace this value with `organizations`. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`. |
+>|Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`.|
+>|cacheLocation  | (Optional) Set the browser storage for the authentication state. The default is `sessionStorage`.   |
+>|storeAuthStateInCookie  | (Optional) Identify the library that stores the authentication request state. This state is required to validate the authentication flows in the browser cookies. This cookie is set for Internet Explorer and Microsoft Edge to accommodate those two browsers. For more details, see the [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 >
 > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
@@ -138,20 +139,17 @@ If you're using Node.js:
    npm start
    ```
 
-1. Browse to **http://localhost:4200/**.
-1. Select **Login**.
-1. Select **Profile** to call Microsoft Graph.
-
-After the browser loads the application, select **Login**. The first time you start to sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, select **Profile**, and your user profile information will be displayed on the page.
+1. Go to `http://localhost:4200/`.
+1. Select **Login**. The first time you sign in, you're prompted to allow the application to access your profile and sign you in automatically.
+1. Select **Profile** to call Microsoft Graph. Your user profile information is displayed on the page.
 
 ## How the sample works
 
-![Diagram that shows how the sample app in this quickstart works](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
-
+![Diagram that shows how the sample app in this quickstart works.](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ## Next steps
 
-Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
+Learn how to sign in a user and acquire tokens in the Angular tutorial:
 
 > [!div class="nextstepaction"]
 > [Angular tutorial](./tutorial-v2-angular.md)

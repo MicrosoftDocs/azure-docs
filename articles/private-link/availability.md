@@ -91,7 +91,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure Blob storage (including Data Lake Storage Gen2)       |  All public regions<br/> All Government regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn how to create a private endpoint for blob storage.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Files | All public regions<br/> All Government regions      | |   GA <br/> [Learn how to create Azure Files network endpoints.](../storage/files/storage-files-networking-endpoints.md)   |
-| Azure File Sync | All public regions      | |   GA <br/> [Learn how to create Azure Files network endpoints.](../storage/files/storage-sync-files-networking-endpoints.md)   |
+| Azure File Sync | All public regions      | |   GA <br/> [Learn how to create Azure Files network endpoints.](../storage/file-sync/file-sync-networking-endpoints.md)   |
 | Azure Queue storage       |  All public regions<br/> All Government regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn how to create a private endpoint for queue storage.](tutorial-private-endpoint-storage-portal.md) |
 | Azure Table storage       |  All public regions<br/> All Government regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn how to create a private endpoint for table storage.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Batch | All public regions except: Germany CENTRAL, Germany NORTHEAST <br/> All Government regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |

@@ -83,7 +83,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 # [Azure CLI](#tab/azure-cli)
 
-To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
+To register with Azure CLI, call the [az feature register](/cli/azure/feature#az_feature_register) command.
 
 ```azurecli
 az feature register --namespace Microsoft.Storage --name ContainerSoftDelete
@@ -106,7 +106,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName Containe
 
 # [Azure CLI](#tab/azure-cli)
 
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
+To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az_feature_show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name ContainerSoftDelete

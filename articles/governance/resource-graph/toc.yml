@@ -93,7 +93,7 @@
   - name: CLI and SDK
     items:
     - name: Azure CLI
-      href: /cli/azure/ext/resource-graph/graph
+      href: /cli/azure/graph
     - name: Azure PowerShell
       href: /powershell/module/az.resourcegraph/#resourcegraph
     - name: Azure SDK for .NET

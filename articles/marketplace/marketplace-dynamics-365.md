@@ -4,8 +4,8 @@ description: Plan Dynamics 365 offers for Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: navits
-ms.author: navits
+author: vamahtan
+ms.author: vamahtan
 ms.date: 04/16/2021
 ---
 
@@ -44,7 +44,7 @@ Create your **Terms and conditions**. Customers will need to accept these before
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and do not reflect actual costs):
 
-:::image type="content" source="media/dynamics-365/example-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/dynamics-365/example-dynamics-365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 > [!NOTE]
 > Offer listing content is not required to be in English if the offer description begins with the phrase "This application is available only in [non-English language]".
@@ -75,12 +75,12 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Next steps
 
-After you've considered the planning items described above, select one of the following (also available in the table of contents on the left) to begin creating your offer. <font color="red">[ I think the 2nd column should be deleted and the first column should link to the appropriate Create topic like Ops, Biz Central, and CE are ]</font>
+After you've considered the planning items described above, select one of the following (also available in the table of contents on the left) to begin creating your offer.
 
 | Publishing guide    | Notes  |
 | :------------------- | :-------------------|
 | [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | When you're building for Enterprise Edition, first review these additional [publishing processes and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
 | [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
-| [Dynamics 365 for Customer Engagement & Power Apps](partner-center-portal/create-new-customer-engagement-offer.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
+| [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
 | [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | First review these additional [publishing processes and guidelines](/power-bi/developer/office-store). |
 |
