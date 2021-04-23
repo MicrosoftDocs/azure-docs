@@ -12,6 +12,10 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub uses [IoT Plug and Play](../iot-pnp/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
+Concepts: 
+1. Understand the IoT Plug and Play device client following this [documentation](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+2. See how Device Update agent is implemented [here](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
+
 ## ADU Core Interface
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
@@ -30,6 +34,29 @@ information and status to Device Update services.
 |state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |Idle|
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be null for a device that has never taken an update through Device Update.|Null|
 |`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
+
+Example JSON:
+
+
+{
+  azureDeviceUpdateAgent: {
+    "__t": "c", 
+    "client": {
+      "state": 0, 
+      "resultCode": 200, 
+      "extendedResultCode": 0, 
+      "deviceProperties": {
+       "manufacturer": "Contoso", 
+       "model": "Camera"
+      }
+    }
+  }
+}
+
+Note: 
+The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component.
+<https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property> ![image](https://user-images.githubusercontent.com/60334494/115900626-03cd8080-a415-11eb-98ea-be0a8e5f606c.png)
+
 
 #### State
 
