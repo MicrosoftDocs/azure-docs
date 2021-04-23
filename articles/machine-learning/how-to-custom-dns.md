@@ -38,6 +38,34 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 There are two predominant architectures Azure Machine Learning customers should use when accessing their Machine Learning workspace via a Private Endpoint when using a custom DNS solution. While some customers will find final architectures that deviate from those described here, the two architectures discussed here can serve as a reference point to ensure the custom DNS solution is implemented properly – and, if something with the implemented solution is not working, this document can walk through troubleshooting steps that can identify the components in the architecture that may be misconfigured.
 
+### Workspace DNS resolution path
+
+Access to a given Azure Machine Learning workspace via Private Link is done by communicating with the following Fully Qualified Domains (called the workspace FQDNs) listed below:
+###### Azure Public Cloud:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.azure.net```
+###### Azure China Cloud:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.chinacloudapi.cn```
+###### Azure US Government:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
+
+The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) called the workspace Private Link FQDNs:
+
+###### Azure Public Cloud:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.azureml.ms```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.azure.net```
+###### Azure China Cloud:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.cn```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.chinacloudapi.cn```
+###### Azure US Government:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.us```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.usgovcloudapi.net```
+
+
+Those Fully Qualified Domains resolve to the IP addresses of Azure Machine Learning in the region the workspace was created in. However, resolution of the workspace Private Link FQDNs will be overridden when resolving with the Azure DNS Virtual Server IP address in a Virtual Network linked to the Private DNS Zones created as described above.
+
 ### Custom DNS Server hosted in Azure Virtual Network
 
 One architecture uses the common Hub and Spoke virtual network topology, with one Virtual Network hosting the DNS Server, and one Virtual Network containing the Private Endpoint to the Azure Machine Learning workspace and associated compute resources. There must be a valid route between both of those Virtual Networks through a series of peered Virtual Networks. 
@@ -62,6 +90,7 @@ Following creation of the Private DNS Zone, it needs to be linked to the DNS Ser
 A Private DNS Zone overrides domain name resolution for all domain names in the scope of the root of the zone, for all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at privatelink.api.azureml.ms is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve bar.workspace.westus2.privatelink.api.azureml.ms will receive any record that is listed in the privatelink.api.azureml.ms zone.
 
 However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. So while the custom DNS Server will resolve domains for devices spread throughout your network topology, the custom DNS Server will need to resolve Azure Machine Learning-related domains against the Azure DNS Virtual Server IP address.
+
 
 ## Manual custom DNS server integration
 
