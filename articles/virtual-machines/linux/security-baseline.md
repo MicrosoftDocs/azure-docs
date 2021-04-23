@@ -39,7 +39,7 @@ Alternatively, if you have a specific use case for a centralized firewall, Azure
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -95,7 +95,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -157,7 +157,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -185,17 +185,17 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 Use Azure Policy to validate (and/or remediate) configurations for network resource related to Linux Virtual Machines.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -221,11 +221,11 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 - [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-- [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](https://docs.microsoft.com/azure/azure-monitor/vm/quick-collect-azurevm#enable-the-log-analytics-vm-extension)
+- [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -247,13 +247,13 @@ Additionally, enable Azure Monitor for access to your audit and activity logs wh
 
 - [Log analytics virtual machine extension for Linux](../extensions/oms-linux.md)
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view)
+- [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-logview-the-activity-log)
 
 - [Application Insights overview](../../azure-monitor/app/app-insights-overview.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -267,11 +267,11 @@ If your organization would like to retain the security event log data from the v
 
 - [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-- [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](https://docs.microsoft.com/azure/azure-monitor/vm/quick-collect-azurevm#enable-the-log-analytics-vm-extension)
+- [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -297,7 +297,7 @@ Analyze and monitor logs for anomalous behavior and regularly review results. Us
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM to monitor and review your logs. 
 
-- [Log analytics agent overview](/azure/azure-monitor/platform/log-analytics-agent)
+- [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 
 - [Log analytics virtual machine extension for Linux](../extensions/oms-linux.md)
 
@@ -333,11 +333,11 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quickstart-onboard-machines.md)
 
-- [Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected](/azure/virtual-machines/linux/security-recommendations)
+- [Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected](../security-recommendations.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -375,7 +375,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: While Azure Active Directory (Azure AD) is the recommended method to administrate user access, Azure Virtual Machines may have local accounts. Both local and domain accounts should be reviewed and managed, normally with a minimum footprint. In addition, leverage Azure Privileged Identity Management for administrative accounts used to access the virtual machines resources.
 
-- [Information for Local Accounts](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+- [Information for Local Accounts](../../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
 - [Information on Privileged Identity Manager](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -401,7 +401,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -585,7 +585,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Microsoft uses the Transport Layer Security (TLS) protocol to protect data when it's traveling between the cloud services and customers.
 
-- [In-transit encryption in VMs](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#in-transit-encryption-in-vms)
+- [In-transit encryption in VMs](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms)
 
 **Responsibility**: Shared
 
@@ -605,7 +605,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 - [Azure RBAC](../../role-based-access-control/overview.md)
 
-- [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
+- [Azure built-in roles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Responsibility**: Customer
 
@@ -629,7 +629,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -661,11 +661,11 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 - [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quickstart-onboard-machines.md)
 
-- [Microsoft recommended security guidelines](/azure/virtual-machines/linux/security-recommendations)
+- [Microsoft recommended security guidelines](../security-recommendations.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -685,7 +685,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -723,7 +723,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -810,7 +810,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 In addition to using Change Tracking for monitoring of software applications, adaptive application controls in Azure Security Center use machine learning to analyze the applications running on your machines and create an allowlist from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allowlist policies, enabling you to Avoid unwanted software to be used in your environment. You can configure audit mode or enforce mode. Audit mode only audits the activity on the protected VMs. Enforce mode does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
 
-- [Diagnostic extension for Linux virtual machines](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux?toc=/azure/azure-monitor/toc.json)
+- [Diagnostic extension for Linux virtual machines](../extensions/diagnostics-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 - [An introduction to Azure Automation](../../automation/automation-intro.md)
 
@@ -842,7 +842,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -862,11 +862,11 @@ For more information, see the following references:
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples)
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -884,7 +884,7 @@ For more information, see the following references:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -998,7 +998,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -1072,7 +1072,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -1126,11 +1126,11 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Guidance**: You will need a third-party tool for anti-malware protection in Azure Linux Virtual machine. 
 
-- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](/azure/virtual-machines/linux/security-recommendations)
+- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../security-recommendations.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicCompute**:
 
@@ -1144,11 +1144,11 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Guidance**: You will need a third-party tool for anti-malware protection in Azure Linux Virtual machine.
 
-- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](/azure/virtual-machines/linux/security-recommendations)
+- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../security-recommendations.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -1168,7 +1168,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
@@ -1190,7 +1190,7 @@ Enable Azure Backup and target Azure Virtual Machines (VM), as well as the desir
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Compute**:
 
