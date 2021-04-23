@@ -322,6 +322,8 @@
         href: cognitive-search-custom-skill-form.md
       - name: Example - Azure Machine Learning
         href: cognitive-search-tutorial-aml-custom-skill.md
+      - name: Example - Azure Machine Learning Designer
+        href: cognitive-search-tutorial-aml-designer-custom-skill.md
     - name: Design tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Knowledge store

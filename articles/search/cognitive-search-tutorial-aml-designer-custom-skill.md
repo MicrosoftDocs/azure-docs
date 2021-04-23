@@ -28,8 +28,8 @@ Once you have a model trained, [register the trained model](https://docs.microso
 
 Cognitive Search enrichment pipelines work on a single document and generate a request that contains the inputs for a single prediction. The downloaded `score.py` accepts a list of records and returns a list of predictions as a serialized JSON string. You will be making two changes to the `score.py`
 
-1. Edit the script to work with a single input record, not a list
-2. Edit the script to return a JSON object with a single property, the predicted price.
+* Edit the script to work with a single input record, not a list
+* Edit the script to return a JSON object with a single property, the predicted price.
 
 Open the downloaded `score.py` and edit the `run(data)` function. The function is currently setup to expect the following input as described in the model's `_samples.json` file.
 
@@ -366,5 +366,7 @@ You can now run your indexer and validate that the `predicted_price` property is
 
 > [!div class="nextstepaction"]
 > [Review the custom skill web api](./cognitive-search-custom-skill-web-api.md)
+
 > [Learn more about adding custom skills to the enrichment pipeline](./cognitive-search-custom-skill-interface.md)
+
 > [Learn more about the AML skill](./cognitive-search-tutorial-aml-custom-skill.md)
