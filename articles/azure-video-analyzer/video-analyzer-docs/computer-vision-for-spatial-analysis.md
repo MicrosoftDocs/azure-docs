@@ -22,9 +22,6 @@ In this tutorial you will:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-  > [!NOTE]
-  > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions. 
-
 ## Suggested pre-reading
 
 Read these articles before you begin:
@@ -96,7 +93,7 @@ Follow [these steps](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) t
     {
         "IoThubConnectionString" : "HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>",
         "deviceId" : "<your Azure Stack Edge name>",
-        "moduleId" : "avaEdge"
+        "moduleId" : "avaedge"
     } 
     ``` 
 1. Go to the src/edge folder and create a file named .env.
@@ -106,12 +103,9 @@ Follow [these steps](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) t
     SUBSCRIPTION_ID="<Subscription ID>"  
     RESOURCE_GROUP="<Resource Group>"  
     AVA_PROVISIONING_TOKEN="<The provisioning token>"  
-    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/avaedgeuser/samples/input"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"  
     VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
-    APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
-    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
-    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"   
+    APPDATA_FOLDER_ON_DEVICE="/var/lib/VideoAnalyzer" 
     ```
     
 ## Set up deployment template  
@@ -184,21 +178,21 @@ Follow these steps to generate the manifest from the template file and then depl
     > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Spatial Analysis: deployment template json":::   
     
 1. At the top of the page,  you will be prompted to select an IoT Hub device, choose your Azure Stack Edge name from the drop-down menu.
-1. After about 30-seconds, in the lower-left corner of the window, refresh **Azure IoT Hub**. The edge device now shows the following deployed modules:
+1. After about 30-seconds, in the lower-left corner of the window, refresh **AZURE IOT HUB** pane. The edge device now shows the following deployed modules:
    
     * Azure Video Analyzer (module name **avaedge**).
     * Real-Time Streaming Protocol (RTSP) simulator (module name rtspsim).
     * Spatial Analysis (module name **spatialanalysis**).
     
 
-If you deploy successfully, there will be a message in OUTPUT like this:
+Upon successful deployment, there will be a message in OUTPUT window like this:
 
 ```
 [Edge] Start deployment to device [<Azure Stack Edge name>]
 [Edge] Deployment succeeded.
 ```
 
-Then you can find `avaedge`, `rtspsim`, `spatialanalysis` and `rtspsim` modules under Devices/Modules, and their status should be "**running**".
+Then you can find `avaedge`, `spatialanalysis` and `rtspsim` modules under Devices/Modules, and their status should be "**running**".
 
 ## Prepare to monitor events
 
@@ -296,7 +290,7 @@ In operations.json:
         },
         "samplingOptions": {
           "skipSamplesWithoutAnnotation": "false",
-          "maximumSamplesPerSecond": "30"
+          "maximumSamplesPerSecond": "15"
           },
         "inputs": [
           {
@@ -317,11 +311,11 @@ Run a debug session and follow **TERMINAL** instructions, it will set pipelineTo
 
 ## Interpret results
 
-When a media graph is instantiated, you should see "MediaSessionEstablished" event, here a [sample MediaSessionEstablished event](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
+When a pipelineTopology is instantiated, you should see "MediaSessionEstablished" event, here a [sample MediaSessionEstablished event](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
-The spatialanalysis module will also send out AI Insight events to Azure Video Analyzer and then to IoTHub, it will also show in **OUTPUT**. The ENTITY is detection objects, and EVENT is spaceanalytics events. This output will be passed into Azure Video Analyzer.
+The spatialanalysis module will also send out AI Insight events to Azure Video Analyzer and then to IoTHub, it will also show in **OUTPUT** window. The ENTITY is detection objects, and EVENT is spaceanalytics events. This output will be passed into Azure Video Analyzer.
 
-Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperation`  operation):
+Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperation` operation):
 
 ```
 {
@@ -664,8 +658,8 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 ```
 </details>
 
-## Shaka Viewer
-You can use the Shaka viewer to view the generated video including the inferences (bounding boxes) as shown below:
+## Video Player
+You can use a video player to view the generated video including the inferences (bounding boxes) as shown below:
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Spatial Analysis: connection string":::
@@ -757,6 +751,9 @@ The spatialanalysis is a large container and its startup time can take up to 60 
   ]
 }
 ```
+
+> [!NOTE]
+> You might see the **"media_stream_descriptor_not_received"** messages. These messages show up while the SpatailAnalysis module is starting up and can take upto 30 seconds to get to a running state. Please be patient and you should see the inference event flow through.
 
 ## Next steps
 
