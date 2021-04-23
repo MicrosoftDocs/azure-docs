@@ -89,7 +89,7 @@ To learn how to enable purge protection on an existing key vault with PowerShell
 
 #### Configure a key vault access policy
 
-You can use a system-wide managed identity or a user-defined managed identity to grant the storage account permissions to access the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).   
+You can use a system-wide managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).   
 
 #### Option 1: Use a system-assigned managed identity
 
@@ -148,7 +148,7 @@ To learn how to enable purge protection on an existing key vault with Azure CLI,
 
 #### Configure a key vault access policy
 
-You can use a system-wide managed identity or a user-defined managed identity to grant the storage account permissions to access the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).  
+You can use a system-wide managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).  
 
 #### Use a system-assigned managed identity
 
@@ -178,7 +178,7 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-#### Use a system-assigned managed identity
+#### Use a user-assigned managed identity
 
 First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following CLI script to find the object ID. To use this script, you'll need the name of the user-assigned managed identity and the name of the resource group.
 
