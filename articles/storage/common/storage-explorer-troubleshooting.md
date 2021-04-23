@@ -134,7 +134,7 @@ If you have conditional access policies that need to be satisfied for your accou
 
 ### Browser complains about HTTP redirect during sign in
 
-When Storage Explorer performs sign in in your web browser, a redirect to `localhost` is done at the end of the sign in process. Browsers sometimes raise a warning or error that the redirect is being peformed with HTTP instead of HTTPS. Some browsers may also try to force the redirect to be peformed with HTTPS. If either of these happen, then depending on your browser, you have a variety of options:
+When Storage Explorer performs sign in in your web browser, a redirect to `localhost` is done at the end of the sign in process. Browsers sometimes raise a warning or error that the redirect is being performed with HTTP instead of HTTPS. Some browsers may also try to force the redirect to be performed with HTTPS. If either of these happen, then depending on your browser, you have a variety of options:
 - Ignore the warning.
 - Add an exception for `localhost`.
 - Disable force HTTPS, either globally or just for `localhost`.
