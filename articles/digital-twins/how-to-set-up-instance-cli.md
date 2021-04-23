@@ -73,9 +73,6 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 To give a user permissions to manage an Azure Digital Twins instance, you must assign them the _**Azure Digital Twins Data Owner**_ role within the instance.
 
-> [!NOTE]
-> Note that this role is different from the Azure AD *Owner* role, which can also be assigned at the scope of the Azure Digital Twins instance. These are two distinct management roles, and Azure AD *Owner* does not grant access to data plane features that are granted with *Azure Digital Twins Data Owner*.
-
 Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this will match the user's email on the Azure AD account.
 
 ```azurecli-interactive
