@@ -1,18 +1,18 @@
 ---
-title:  "JavaScript tutorial: Deploy search-enabled website"
+title:  ".NET tutorial: Deploy search-enabled website"
 titleSuffix: Azure Cognitive Search
-description: Deploy search-enabled website to Azure Static web app.
+description: Deploy search-enabled website with .NET apis to Azure Static web app.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
-ms.custom: devx-track-js
-ms.devlang: javascript
+ms.date: 04/23/2021
+ms.custom: devx-track-csharp
+ms.devlang: .NET
 ---
 
-# 3 - Deploy the search-enabled website
+# 3 - Deploy the search-enabled .NET website
 
 Deploy the search-enabled website as an Azure Static web app. This deployment includes both the React app and the Function app.  
 
@@ -31,9 +31,9 @@ The Static Web app pulls the information and files for deployment from GitHub us
     |--|--|
     |How do you want to create a Static Web App?|Use existing GitHub repository|
     |Choose organization|Select your _own_ GitHub alias as the organization.|
-    |Choose repository|Select **azure-search-javascript-samples** from the list. |
+    |Choose repository|Select **azure-search-dotnet-samples** from the list. |
     |Choose branch of repository|Select **master** from the list. |
-    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
+    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-dotnet-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
     |Select the location of your application code|`search-website`|
@@ -83,12 +83,12 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
 1. Select **Save** to save the settings. 
 
-    :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings for your JavaScript app..":::
 
 1. Return to VS Code. 
 1. Refresh your Static web app to see the Static web app's application settings. 
 
-    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Refresh your Static web app to see the Static web app's application settings.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Refresh your JavaScript Static web app to see the Static web app's application settings.":::
 
 ## Use search in your Static web app
 
@@ -116,4 +116,4 @@ To clean up the resources created in this tutorial, delete the resource group.
 
 ## Next steps
 
-* [Understand Search integration for the search-enabled website](tutorial-javascript-search-query-integration.md)
+* [Understand Search integration for the search-enabled website](tutorial-csharp-search-query-integration.md)

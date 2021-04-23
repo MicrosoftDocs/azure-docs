@@ -1,22 +1,22 @@
 ---
-title: "JavaScript tutorial: Add search to web apps" 
+title: ".NET tutorial: Add search to web apps" 
 titleSuffix: Azure Cognitive Search
-description: Create index and import CSV data into Search index with JavaScript using the npm SDK @azure/search-documents.
+description: Create index and import CSV data into Search index with .NET.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
-ms.custom: devx-track-js
-ms.devlang: javascript
+ms.date: 04/23/2021
+ms.custom: devx-track-csharp
+ms.devlang: dotnet
 ---
 
-# 2 - Create and load Search Index with JavaScript
+# 2 - Create and load Search Index with .NET
 
 Continue to build your Search-enabled website by:
 * Creating a Search resource with the VS Code extension
-* Creating a new index and importing data with JavaScript using the sample script and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
+* Creating a new index and importing data with .NET using the sample script and Azure SDK [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/).
 
 ## Create an Azure Search resource 
 
@@ -53,32 +53,32 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
 The script uses the Azure SDK for Cognitive Search:
 
-* [npm package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
-* [Reference Documentation](/javascript/api/overview/azure/search-documents-readme)
+* [NuGet package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
+* [Reference Documentation](/dotnet/api/overview/azure/search)
 
-1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-website/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
+1. In Visual Studio Code, open the `Program.cs` file in the subdirectory,  `search-website/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
+    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website/bulk-insert/Program.cs" highlight="16-19" :::
 
-1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, and run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `search-website/bulk-insert`, then run the following command to install the dependencies. 
 
     ```bash
-    npm install 
+    dotnet restore
     ```
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `bulk_insert_books.js` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `Program.cs` script:
 
-    ```javascript
-    npm start
+    ```bash
+    dotnet run
     ```
 
 1. As the code runs, the console displays progress. 
-1. When the upload is complete, the last statement printed to the console is "done".
+1. When the upload is complete, the last statement printed to the console is "Finished bulk inserting book data".
 
 ## Review the new Search Index
 
@@ -101,4 +101,4 @@ Note your **Search resource name**. You will need this to connect the Azure Func
 
 ## Next steps
 
-[Deploy your Static Web App](tutorial-javascript-deploy-static-web-app.md)
+[Deploy your Static Web App](tutorial-csharp-deploy-static-web-app.md)
