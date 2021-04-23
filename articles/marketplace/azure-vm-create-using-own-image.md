@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 04/22/2021
+ms.date: 04/23/2021
 ---
 
 # How to create a virtual machine using your own image
@@ -45,7 +45,7 @@ All images in the Azure Marketplace must be reusable in a generic fashion. To ac
 ## Bring your image into Azure
 
 > [!NOTE]
-> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing SIG.
+> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing the SIG.
 
 There are three ways to bring your image into Azure:
 
