@@ -13,10 +13,10 @@ ms.author: cavoeg
 The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource. However, there are scenarios where you might want to search against a field in a resource that isn’t defined by the specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the database.
 
 > [!NOTE]
-> Each time you create, update, or delete a search parameter you’ll need to run a `reindex job` to enable the change in your database.
+> Each time you create, update, or delete a search parameter you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the change in your database.
 
 > [!Warning]
-> If you update or delete a search parameter ensure that you immediately run a `reindex job`. There is the potential for your database to be in a abnormal state with updated or delete search parameters that still appear active due to needing to be indexed for the changes. 
+> If you update or delete a search parameter ensure that you immediately run a [reindex job](how-to-run-a-reindex.md). There is the potential for your database to be in a abnormal state with updated or delete search parameters that still appear active due to needing to be indexed for the changes. 
 
 ## Create new search parameter
 
@@ -66,7 +66,7 @@ POST {fhirurl}/SearchParameter
 ``` 
 
 > [!NOTE]
-> The new search parameter will appear in your capability statement after you POST it to the database. It won’t be useable until you run a `reindex job`. It isn’t possible to tell if you have indexed a search parameter, so a best practice is to run the reindex job as soon as you complete your work to create the search parameter(s).
+> The new search parameter will appear in your capability statement after you POST it to the database. It won’t be useable until you run a [reindex job](how-to-run-a-reindex.md). It isn’t possible to tell if you have indexed a search parameter, so a best practice is to run the reindex job as soon as you complete your work to create the search parameter(s).
 
 Required field descriptions:
 
