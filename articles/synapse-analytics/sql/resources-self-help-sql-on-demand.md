@@ -33,7 +33,7 @@ If your query fails with the error saying 'File cannot be opened because it does
 If you want to give permission only for a this or a subset of files, this is how it can be done: 
 
 * First of all, all users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). Execute permission on the container level needs to be set within the Azure Data Lake Gen2.  Permissions on the folder can be set within Synapse. 
-Learn more about this [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-explorer-acl)
+Learn more about this [here](../../storage/blobs/data-lake-storage-explorer-acl.md)
 
 If you would like to query data2.csv in this example, the following permissions are needed: 
     * execute permission on container
@@ -149,7 +149,7 @@ The error is caused by this line of code:
 ```sql 
     [Text] VARCHAR (1) COLLATE Latin1_General_BIN2
 ```
-Changing the query accordingly resolves the error: After debugging, change the parser version to 2.0 again to achieve maximum performance. Read more about when to use which parser version [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-openrowset). 
+Changing the query accordingly resolves the error: After debugging, change the parser version to 2.0 again to achieve maximum performance. Read more about when to use which parser version [here](develop-openrowset). 
 
 ```sql 
 SELECT
@@ -174,9 +174,9 @@ FROM
 
 If your query fails with the error message: 'Websocket connection was closed unexpectedly', it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
 
-To resolve this, rerun this query. If this message occurs often in your environment, advise help from your network administrator, check firewall settings and [visit this troubleshooting guide for more information](https://docs.microsoft.com/en-us/azure/synapse-analytics/troubleshoot/troubleshoot-synapse-studio). 
+To resolve this, rerun this query. If this message occurs often in your environment, advise help from your network administrator, check firewall settings and [visit this troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md). 
 
-If the issue still continues, create a [support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure Portal and try [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) for the same queries instead of Synapse Studio for further investigation.
+If the issue still continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure Portal and try [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) for the same queries instead of Synapse Studio for further investigation.
 
 ## Query fails with conversion error
 If your query fails with the error message 
@@ -360,7 +360,7 @@ returns
 If your query fails with the error message 'Column [column name] of type [type name] is not compatible with external data type […]', it is likely that tried to map a PARQUET data type to the wrong SQL data type. 
 For instance, if you your parquet file has a column price with float numbers (like 12,89) and you tried to map it to INT, this is the error message you will get. 
 
-To resolve this, inspect the file and the according data types you did choose. This [mapping table](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-openrowset#type-mapping-for-parquet) helps to choose a SQL data type. 
+To resolve this, inspect the file and the according data types you did choose. This [mapping table](develop-openrowset.md#type-mapping-for-parquet) helps to choose a SQL data type. 
 Best practice hint: Specify mapping only for columns that would otherwise resolve into VARCHAR data type. 
 Avoiding VARCHAR when possible, leads to better performance in queries. 
 
