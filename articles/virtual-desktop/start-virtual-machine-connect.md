@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/23/2021
 ms.author: helohr
 manager: femila
 ---
@@ -23,10 +23,12 @@ The Start Virtual Machine (VM) on Connect (preview) feature lets you save costs 
 
 You can only enable the Start VM on Connect feature for personal host pools. To learn more about personal host pools, see [Windows Virtual Desktop environment](environment-setup.md#host-pools).
 
-The following remote desktop clients support the Start VM on Connect feature:
+The following Remote Desktop clients support the Start VM on Connect feature:
 
 - [The web client](connect-web.md)
 - [The Windows client (version 1.2748 or later)](connect-windows-7-10.md)
+- [The Android client (version 10.0.10 or later)](connect-android.md)
+- [The macOS client (version 10.6.4 or later)](connect-macos.md)
 
 You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
 
