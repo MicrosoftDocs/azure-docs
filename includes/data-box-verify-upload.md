@@ -25,7 +25,7 @@ To review errors for a paused upload, do the following:
 
    When an upload is paused, you'll see the following notification. The order status will be **Copy errors.** You'll find a link to the copy log in the **DATA COPY DETAILS**.
 
-   ![Notification for a paused upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)
+   ![Notification for a paused upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)<!--Generalize screen.-->
 
 2. Select **Review** to open a panel for managing your review.
 
@@ -43,9 +43,9 @@ To review errors for a paused upload, do the following:
 
 6. When you're ready to complete the upload, select **Proceed**.
 
-   ![Confirm you've reviewed the errors and are ready to proceed with the upload](media/data-box-verify-upload/upload-paused-03.png)<!--Reshoot after getting the scale right.-->
+   ![Confirm you've reviewed the errors and are ready to proceed with the upload](media/data-box-verify-upload/upload-paused-03.png)<!--Scaling down the screen made it fuzzy. It's huge if it's not scaled. Maybe repeat the full screen?-->
 
-   The upload will be completed automatically after 14 days.
+   If you don't take any action, the upload will be completed automatically after 14 days.
 
 #### Verify completed data upload
 
