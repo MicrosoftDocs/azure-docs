@@ -44,7 +44,7 @@ ms.author: aahi
 
 ## Next steps
 
-Are you looking for information about a feature or use-case that we don't cover? Consider requesting or voting for it on UserVoice. 
+Are you looking for information about a feature or use-case that we don't cover? Consider requesting or voting for it using the [feedback tool](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749). 
 
 ## See also
 
