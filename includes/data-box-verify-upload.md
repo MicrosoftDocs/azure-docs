@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 04/21/2021
+ms.date: 04/23/2021
 ms.author: alkohli
 ---
 
@@ -11,46 +11,46 @@ When the Data Box device is connected to the Azure datacenter network, the data 
 
 #### Upload completed with errors
 
-When files fail to upload because of data configuration errors, the data copy is placed in a XXX state, and you're notified to review the errors and choose whether to proceed with the upload or cancel the order.
+When files fail to upload because of an un-retryable error, the upload is paused, and you're notified to review the errors. To resume the upload, you'll need to confirm that you've reviewed the errors and want to proceed.
 
-You can't fix these errors during this phase of the order process, but you need to review the log and decide whether it's better to proceed with this order or start a new order. 
+You can't fix the errors. The upload will complete with errors. The notification is to make sure you know about any files that failed to upload so you can fix the issues for a future upload or network transfer.
 
-The order will be automatically completed after 14 days if you don't respond to the notification.
+It also gives you a chance to make sure you have backup copies of the files that didn't upload before the data is secure erased from the Data Box.
 
-To review data copy errors during an upload, do the following:
+After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
 
-1. Open the Data Box import order in the Azure portal.
+To review errors for a paused upload, do the following:
 
-1. If you see the following notification, carefully review these errors in the copy log, and decide how to proceed. 
+1. Open your order in the Azure portal.
 
-   ![Copy completed with errors notification in local web UI](media/data-box-verify-upload/copy-completed-with-errors-01.png)
+   When an upload is paused, you'll see the following notification. The order status will be **Copy errors.** You'll find a link to the copy log in the **DATA COPY DETAILS**.
 
-   You can't fix these errors during this phase of order processing, but you need to review the log and decide whether it's better to proceed with this order or start a new order.
+   ![Notification for a paused upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)
 
-   For example, if two or three files failed to upload, you could proceed with the order and later transfer the missing files over the network.
+2. Select **Review** to open a panel for managing your review.
 
-   On the other hand, if a large set of files failed to upload for unknown reasons, you'll need to cancel the upload, investigate, and start a new import order after resolving the issues.
+   ![Review panel for a paused upload in the Azure portal](media/data-box-verify-upload/upload-paused-02.png)
 
-   For detailed troubleshooting for this type of errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
+3. Review the errors in the copy log using the path in **DATA COPY DETAILS**. For troubleshooting information, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
 
-   For more information about the copy log, see [Review copy log during upload to Azure](../articles/databox/data-box-logs.md#review-copy-log-during-upload-to-azure).
+   You can't fix the errors. The upload will complete with errors. After the upload completes, the data will be secure erased from the device.
 
-1. Select the check box to confirm that you've reviewed the errors in the copy log.
+   The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-1. Choose what to do with the order:
+4. Make sure you have backup copies of the files that failed to upload. After the upload completes, the data will be secure erased from the Data Box.
 
-   - Select **Proceed** to complete data copy and complete the order.
+5. Select the check box to acknowledge that you've reviewed the errors, understand that the data will be erased from the Data Box after the upload, and are ready to proceed.
 
-     The data will be secure erased from the Data Box after the upload is completed.
-   
-   - Select **Cancel** to cancel the data copy. Then [start a new import order](../articles/databox/data-box-deploy-ordered.md?tabs=portal). after resolving the issues. 
+6. When you're ready to complete the upload, select **Proceed**.
+
+   ![Confirm you've reviewed the errors and are ready to proceed with the upload](media/data-box-verify-upload/upload-paused-03.png)<!--Reshoot after getting the scale right.-->
+
+   The upload will be completed automatically after 14 days.
 
 #### Verify completed data upload
 
 After the copy completes, the Azure Data Box service notifies you that the data copy is complete via the Azure portal.
 
-ADD ART: Import order in Completed state
-
-1. Check the error logs for any failures, and take appropriate actions.<!--Log name and location. Can they get there from the portal?-->
+1. Check the error logs for any failures, and take appropriate actions. For more information, see [Review copy log during upload to Azure](../articles/databox/data-box-logs.md#review-copy-log-during-upload-to-azure).
 
 2. In the Azure portal, verify that your data is in the storage account(s) before you delete the data from the source.
