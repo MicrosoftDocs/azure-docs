@@ -98,7 +98,7 @@ See [configuration options](./java-standalone-config.md) for full details.
 
 ## Auto-collected dependencies
 
-Dependencies with distributed trace propagation:
+Auto-collected dependencies plus downstream distributed trace propagation:
 
 * Apache HttpClient and HttpAsyncClient
 * gRPC
@@ -108,7 +108,7 @@ Dependencies with distributed trace propagation:
 * Netty client
 * OkHttp
 
-Other dependencies:
+Auto-collected dependencies (without downstream distributed trace propagation):
 
 * Cassandra
 * JDBC
