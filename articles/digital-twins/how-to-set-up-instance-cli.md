@@ -26,7 +26,6 @@ This version of this article goes through these steps manually, one by one, usin
 * To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -66,6 +65,16 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 ## Set up user access permissions
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+
+### Prerequisites: Permission requirements
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
+### Assign the role
+
+To give a user permissions to manage an Azure Digital Twins instance, you must assign them the _**Azure Digital Twins Data Owner**_ role within the instance.
+
+> [!NOTE]
+> Note that this role is different from the Azure AD *Owner* role, which can also be assigned at the scope of the Azure Digital Twins instance. These are two distinct management roles, and Azure AD *Owner* does not grant access to data plane features that are granted with *Azure Digital Twins Data Owner*.
 
 Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this will match the user's email on the Azure AD account.
 
