@@ -118,4 +118,4 @@ With the Azure AD Application Proxy integrated with Azure AD DS, publish applica
 [create-join-windows-vm]: join-windows-vm.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
-[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
+[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer
