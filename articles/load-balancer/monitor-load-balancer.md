@@ -59,31 +59,23 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 When you create a diagnostic setting, you specify which categories of logs to collect. The category for *Load Balancer* is **AllMetrics**
 
-<!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
-
 ### Portal
 
 ### PowerShell
 
 ### Azure CLI
 
-
-
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-<!-- REQUIRED. Please keep headings in this order 
-If you don't support metrics, say so. Some services may be only onboarded to logs -->
 
 You can analyze metrics for *Load Balancer* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
 
 <!-- Point to the list of metrics available in your monitor-service-reference article. -->
-For a list of the platform metrics collected for Load Balancer, see [Monitoring *[service-name]* data reference metrics](monitor-service-reference.md#metrics)  
+For a list of the platform metrics collected for Load Balancer, see [Monitoring *Load Balancer* data reference metrics](monitor-service-reference.md#metrics)  
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
-
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about how to use metrics explorer specifically for your service. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
 ## Analyzing logs
 
@@ -96,9 +88,9 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Load Balancer, see [Monitoring Load Balancer data reference](monitor-service-reference.md#resource-logs)  
+For a list of the types of resource logs collected for Load Balancer, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md#resource-logs)  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-service-reference.md##azure-monitor-logs-tables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md##azure-monitor-logs-tables)  
 
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
@@ -108,11 +100,11 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 <!-- Add sample Log Analytics Kusto queries for your service. -->
 
 > [!IMPORTANT]
-> When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current [Service resource]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the Load Balancer menu, Log Analytics is opened with the query scope set to the current [Service resource]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 <!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
 
-Following are queries that you can use to help you monitor your [Service] resource. 
+Following are queries that you can use to help you monitor your Load Balancer resource. 
 
 <!-- Put in a code section here. -->  
 ```Kusto
@@ -127,10 +119,10 @@ This information is the BIGGEST request we get in Azure Monitor so do not avoid 
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
 
-<!-- only include next line if applications run on your service and work with App Insights. --> If you are creating or running an application which run on <*service*> [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
-<!-- end -->
+If you are creating or running an application which run on Load Balancer [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
 
-The following table lists common and recommended alert rules for [service-name].
+
+The following table lists common and recommended alert rules for Load Balancer.
 
 <!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 | Alert type | Condition | Description  |
@@ -140,8 +132,6 @@ The following table lists common and recommended alert rules for [service-name].
 
 ## Next steps
 
-<!-- Add additional links. You can change the wording of these and add more if useful.   -->
-
-- See [Monitoring [service-name] data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
+- See [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
 *>.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
