@@ -13,11 +13,12 @@ ms.custom: ['Role: Cloud Development']
 
 # Control access to IoT Hub using Azure Active Directory
 
-Azure IoT Hub supports using Azure Active Directory (AAD) to authenticate requests to its service APIs. Also, IoT Hub supports authorization of the same service APIs with Azure role-based access control (Azure RBAC). Together, you can grant permissions to access IoT Hub's service APIs to an AAD security principal, which could be a user, group, or application service principal.
+Azure IoT Hub supports using Azure Active Directory (AAD) to authenticate requests to its service APIs like create device identity or invoke direct method. Also, IoT Hub supports authorization of the same service APIs with Azure role-based access control (Azure RBAC). Together, you can grant permissions to access IoT Hub's service APIs to an AAD security principal, which could be a user, group, or application service principal.
 
 Authenticating access with Azure AD and controlling permissions with Azure RBAC provides superior security and ease of use over [security tokens](iot-hub-devguide-token-based-access.md). To minimize potential security vulnerabilities inherent in security tokens, Microsoft recommends using Azure AD with your IoT hub whenever possible.
 
-Authenticating with Azure AD isn't supported for IoT Hub's *device APIs* (like device-to-cloud messages and update reported properties). Use symmetric keys or X.509 to authenticate devices to IoT hub.
+> [!NOTE]
+> Authenticating with Azure AD isn't supported for IoT Hub's *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](iot-hub-devguide-sas.md#use-a-symmetric-key-in-the-identity-registry) or [X.509](iot-hub-x509ca-overview.md) to authenticate devices to IoT hub.
 
 ## Authentication and authorization
 
@@ -34,12 +35,12 @@ With Azure AD and RBAC, IoT Hub requires the principal requesting the API to hav
 
 To ensure least privilege, always assign appropriate role at the lowest possible [resource scope](#resource-scope), which is likely the IoT Hub scope.
 
-To help you use the appropriate role, IoT Hub provides the following Azure built-in roles for authorizing access to IoT Hub service API using Azure AD and RBAC:
+IoT Hub provides the following Azure built-in roles for authorizing access to IoT Hub service API using Azure AD and RBAC:
 
 | Role | Description | 
 | ---- | ----------- | 
 | [Azure IoT Hubs Data Contributor](../role-based-access-control/built-in-roles.md#azure-iot-hubs-data-contributor) | Allows for full access to Azure IoT Hubs data plane operations. |
-| [Azure IoT Hubs Data Reader](../role-based-access-control/built-in-roles.md#azure-iot-hubs-data-reader) | Allows for full read access to Azure Iot Hubs data-plane properties. |
+| [Azure IoT Hubs Data Reader](../role-based-access-control/built-in-roles.md#azure-iot-hubs-data-reader) | Allows for full read access to Azure Iot Hubs data plane properties. |
 | [Azure IoT Hubs Registry Contributor](../role-based-access-control/built-in-roles.md#azure-iot-hubs-registry-contributor) | Allows for full access to Azure IoT Hubs device registry. |
 | [Azure IoT Hubs Twin Contributor](../role-based-access-control/built-in-roles.md#azure-iot-hubs-twin-contributor) | Allows for read and write access to all Azure IoT Hubs device and module twins. |
 
@@ -91,6 +92,11 @@ The following tables describe the permissions available for IoT Hub service API 
 ## Built-in Event Hub compatible endpoint doesn't support Azure AD authentication
 
 The [the built-in endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support Azure AD integration. Accessing it with a security principal or managed identity isn't possible. To access the built-in endpoint, use the connection string (shared access key) method as before.
+
+## SDK samples
+
+- [.NET Microsoft.Azure.Devices SDK sample](https://aka.ms/iothubaadcsharpsample)
+- [Java SDK sample](https://aka.ms/iothubaadjavasample)
 
 ## Next steps
 
