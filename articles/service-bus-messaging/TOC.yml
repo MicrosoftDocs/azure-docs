@@ -110,6 +110,8 @@
       href: message-transfers-locks-settlement.md
     - name: Dead-letter queues
       href: service-bus-dead-letter-queues.md
+    - name: Message deferral
+      href: message-deferral.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
     - name: Geo-disaster recovery and geo-replication
@@ -139,7 +141,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
@@ -206,8 +208,6 @@
       items:
       - name: Prefetch messages
         href: service-bus-prefetch.md
-      - name: Message deferral
-        href: message-deferral.md
       - name: Chain entities with auto-forwarding
         href: service-bus-auto-forwarding.md
       - name: Transaction processing

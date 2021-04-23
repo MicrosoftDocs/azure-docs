@@ -1,19 +1,14 @@
 ---
-title: Work Item Integration (preview) - Application Insights
+title: Work Item Integration - Application Insights
 description: Learn how to create work items in GitHub or Azure DevOps with Application Insights data embedded in them.
 ms.topic: conceptual
-ms.date: 02/9/2021
+ms.date: 04/22/2021
 
 ---
 
-# Work Item Integration (preview)
+# Work Item Integration 
 
 Work item integration functionality allows you to easily create work items in GitHub or Azure DevOps that have relevant Application Insights data embedded in them.
-
-> [!IMPORTANT]
-> Work Item integration is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create and configure a work item template
 
@@ -28,6 +23,8 @@ Work item integration functionality allows you to easily create work items in Gi
 2. After you select **create a new template**, you can choose your tracking systems, name your workbook, link to your selected tracking system, and choose a region to storage the template (the default is the region your Application Insights resource is located in). The URL parameters are the default URL for your repository, for example, `https://github.com/myusername/reponame` or `https://mydevops.visualstudio.com/myproject`.
 
     :::image type="content" source="./media/work-item-integration/create-workbook.png" alt-text=" Screenshot of create a new work item workbook template.":::
+
+    You can set specific work item properties directly from the template itself. This includes the assignee, iteration path, projects, & more depending on your version control provider.
 
 ## Create a work item
 
