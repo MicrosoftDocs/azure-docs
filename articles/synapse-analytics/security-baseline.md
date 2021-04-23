@@ -47,7 +47,7 @@ Alternatively, when connecting to your Synapse SQL pool, narrow down the scope o
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -119,7 +119,7 @@ Enable DDoS Protection Standard on the Virtual Networks associated with Azure Sy
 
 When using a service endpoint for your dedicated SQL pool, outbound to Azure SQL database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
 
-- [Understand service tags with service endpoints for Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/vnet-service-endpoint-rule-overview#limitations)
+- [Understand service tags with service endpoints for Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#limitations)
 
 - [Understand and using service tags](../virtual-network/service-tags-overview.md)
 
@@ -159,7 +159,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your dedicated SQL pool. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -181,7 +181,7 @@ When you enable auditing, you can write them to an audit log in your Azure Stora
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [How to setup auditing for your Azure SQL resources](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
+- [How to setup auditing for your Azure SQL resources](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -197,13 +197,13 @@ Auditing can be enabled both on the database or server level, and is suggested t
 
 - [How to enable auditing for Azure SQL Database](../azure-sql/database/auditing-overview.md)
 
-- [How to enable auditing for your server](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#setup-auditing)
+- [How to enable auditing for your server](../azure-sql/database/auditing-overview.md#setup-auditing)
 
-- [Differences in server-level vs. database-level auditing policies](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
+- [Differences in server-level vs. database-level auditing policies](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -215,13 +215,13 @@ Auditing can be enabled both on the database or server level, and is suggested t
 
 - [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md)
 
-- [How to set log retention parameters in a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters in a Log Analytics workspace](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Capture streaming events in Event Hubs](../event-hubs/event-hubs-capture-overview.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -261,7 +261,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -279,17 +279,17 @@ When you first deploy Azure SQL, you specify an admin login and an associated pa
 
 For management operations, use the Azure built-in roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
-- [Authentication for SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
+- [Authentication for SQL Database](../azure-sql/database/security-overview.md#authentication)
 
-- [Create accounts for non-administrative users](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-accounts-for-non-administrator-users)
+- [Create accounts for non-administrative users](../azure-sql/database/logins-create-manage.md#create-accounts-for-non-administrator-users)
 
-- [Use an Azure AD account for authentication](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
+- [Use an Azure AD account for authentication](../azure-sql/database/logins-create-manage.md#create-additional-logins-and-users-having-administrative-permissions)
 
 - [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
 - [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-- [How to manage existing logins and admin accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+- [How to manage existing logins and admin accounts in Azure SQL](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 - [Azure built-in roles](../role-based-access-control/built-in-roles.md)
 
@@ -303,7 +303,7 @@ For management operations, use the Azure built-in roles which must be explicitly
 
 - [How to configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
 
-- [Understand authentication in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+- [Understand authentication in Azure SQL](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Responsibility**: Customer
 
@@ -317,7 +317,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 - [Understand Azure Security Center Identity and Access](../security-center/security-center-identity-access.md)
 
-- [How to manage existing logins and admin accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+- [How to manage existing logins and admin accounts in Azure SQL](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Responsibility**: Customer
 
@@ -375,7 +375,7 @@ SQL Server audit lets you create server audits, which can contain server audit s
 
 - [How to monitor users identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
-- [Review Advanced Threat Protection and potential alerts](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview#alerts)
+- [Review Advanced Threat Protection and potential alerts](../azure-sql/database/threat-detection-overview.md#alerts)
 
 - [Understand logins and user accounts in Azure SQL](../azure-sql/database/logins-create-manage.md)
 
@@ -405,7 +405,7 @@ SQL Server audit lets you create server audits, which can contain server audit s
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -487,7 +487,7 @@ Data Discovery &amp; Classification is built into Azure Synapse SQL. It provides
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -541,7 +541,7 @@ Additionally, you can set up a dynamic data masking (DDM) policy in the Azure po
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -569,13 +569,13 @@ Authorization is controlled by your user account's database role memberships and
 
 - [Understand service-managed transparent data encryption](../azure-sql/database/transparent-data-encryption-tde-overview.md)
 
-- [Understand customer-managed transparent data encryption](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview#customer-managed-transparent-data-encryption---bring-your-own-key)
+- [Understand customer-managed transparent data encryption](../azure-sql/database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key)
 
 - [How to turn on TDE by using your own key](../azure-sql/database/transparent-data-encryption-byok-configure.md)
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -611,7 +611,7 @@ Additionally, you can set up alerts for databases in your SQL Synapse pool using
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -639,7 +639,7 @@ Data Discovery &amp; Classification is built into Azure Synapse SQL. It provides
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -725,7 +725,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -864,7 +864,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 
@@ -882,7 +882,7 @@ If you are using a customer-managed key to encrypt your Database Encryption Key,
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Sql**:
 

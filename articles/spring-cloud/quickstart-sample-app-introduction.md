@@ -88,4 +88,4 @@ For full implementation details, see [PiggyMetrics](https://github.com/Azure-Sam
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance](spring-cloud-quickstart-provision-service-instance.md)
+> [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md)

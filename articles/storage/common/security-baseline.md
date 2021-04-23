@@ -36,13 +36,13 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 Note: Classic storage accounts do not support firewalls and virtual networks.
 
-- [How to configure the Azure Storage Firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
+- [How to configure the Azure Storage Firewall](./storage-network-security.md#change-the-default-network-access-rule)
 
 - [How to configure Private Endpoints for Azure Storage](storage-private-endpoints.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Storage**:
 
@@ -69,7 +69,7 @@ Note that if you have Private Endpoints attached to your storage account, you ca
  
 
  
-- [Understanding Private Endpoints for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints#known-issues)
+- [Understanding Private Endpoints for Azure Storage](./storage-private-endpoints.md#known-issues)
 
 **Responsibility**: Customer
 
@@ -109,7 +109,7 @@ Note that if you have Private Endpoints attached to your storage account, you ca
 
 **Guidance**: Azure Defender for Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
 
-- [Configure Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center)
+- [Configure Azure Defender for Storage](./azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsibility**: Customer
 
@@ -145,9 +145,9 @@ You may also make use of built-in policy definitions related to Storage account,
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
 
-- [Azure Policy samples for Storage](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#storage) 
+- [Azure Policy samples for Storage](../../governance/policy/samples/built-in-policies.md#storage) 
 
-- [Azure Policy samples for Network](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network) 
+- [Azure Policy samples for Network](../../governance/policy/samples/built-in-policies.md#network) 
 
 - [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -216,10 +216,10 @@ Network security groups support tags, but individual security rules do not. Secu
 **Guidance**: When storing Security event logs in the Azure Storage account or Log Analytics workspace, you may set the retention policy according to your organization's requirements.  
 
  
-- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging) 
+- [How to configure retention policy for Azure Storage account logs](./manage-storage-analytics-logs.md#configure-logging) 
 
  
-- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -234,11 +234,11 @@ Also, Enable Azure Defender for Storage for your storage account. Azure Defender
  
 
  
-- [Log and review data](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#how-logs-are-stored) 
+- [Log and review data](./storage-analytics-logging.md#how-logs-are-stored) 
  
 
  
-- [Configure Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal)
+- [Configure Azure Defender for Storage](./azure-defender-storage-configure.md?tabs=azure-portal)
 
 **Responsibility**: Customer
 
@@ -321,7 +321,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 - [Understand Azure Security Center Identity and Access](../../security-center/security-center-identity-access.md)
 
-- [Privileged Identity Management Overview](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management Overview](../../active-directory/privileged-identity-management/index.yml)
 
 **Responsibility**: Customer
 
@@ -435,7 +435,7 @@ One effective way to reduce the risk of unsuspected user account access is to li
  
 
  
-- [Understand Azure AD Reporting](/azure/active-directory/reports-monitoring/) 
+- [Understand Azure AD Reporting](../../active-directory/reports-monitoring/index.yml) 
  
 
  
@@ -473,7 +473,7 @@ To monitor authentication failures against Azure Storage Accounts, you can creat
 - [Azure Storage analytics logging](storage-analytics-logging.md)
  
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
  
 
 - [How to configure metrics alerts for Azure Storage Accounts](manage-storage-analytics-logs.md)
@@ -566,7 +566,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Storage**:
 
@@ -586,7 +586,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through Azure role-based access control (Azure RBAC). Azure Storage defines a set of Azure built-in RBAC roles that encompass common sets of permissions used to access blob or queue data.
 
-- [How to assign Azure RBAC roles for Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
+- [How to assign Azure RBAC roles for Azure Storage account](./storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal)
 
 - [Use the Azure Storage resource provider to access management resources](authorization-resource-provider.md)
 
@@ -653,7 +653,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 **Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center. 
 
-- [Understand Azure Security Center Secure Score](/azure/security-center/security-center-secure-score)
+- [Understand Azure Security Center Secure Score](../../security-center/secure-score-security-controls.md)
 
 **Responsibility**: Customer
 
@@ -759,11 +759,11 @@ Additional information is available at the referenced links.
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ClassicStorage**:
 

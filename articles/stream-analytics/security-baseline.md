@@ -111,7 +111,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes for your Stream Analytics resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -141,7 +141,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.StreamAnalytics**:
 
@@ -161,9 +161,9 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 - [Azure Stream Analytics provides diagnostic logs and activity data for review](stream-analytics-job-diagnostic-logs.md)
 
-- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging) 
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging) 
 
-- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -253,7 +253,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 **Guidance**: Create an identity management and role security plan, following best practices including the principle of least privileged access for administrator roles. Use Azure Privileged Identity Management (PIM) to provide just-in-time privileged access to Azure Active Directory (Azure AD) and Azure resources. Use Azure PIM alerts and audit history to monitor the activity of administrative accounts. Use Azure AD security reports to help identify administrative accounts that might have been compromised.
 
-- [Learn more](/azure/active-directory/privileged-identity-management/)
+- [Learn more](../active-directory/privileged-identity-management/index.yml)
 
 **Responsibility**: Customer
 
@@ -329,7 +329,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 **Guidance**: Review the Azure Active Directory (Azure AD) logs to help discover stale accounts which can include those with Storage account administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -341,7 +341,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 **Guidance**: Enable diagnostic settings for Azure Stream Analytics and Azure Active Directory (Azure AD), sending all logs to a Log Analytics workspace. Configure desired alerts (such as attempts to access disabled secrets) within Log Analytics.
 
-- [Integrate Azure AD logs with Azure Monitor logs](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integrate Azure AD logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -365,7 +365,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 **Guidance**: Not applicable; Customer Lockbox not supported for Azure Stream Analytics.
 
-- [Supported services and scenarios in general availability](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Supported services and scenarios in general availability](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -623,7 +623,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -845,13 +845,13 @@ The data in your Microsoft Azure storage account is always automatically replica
 
 You can also use lifecycle management feature to back up data to the Archive tier.  Additionally, enable soft delete for your backups stored in Storage account.
 
-- [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
+- [Data protection in Azure Stream Analytics](./data-protection.md#private-data-assets-that-are-stored)
 
 - [Understanding Azure Storage redundancy and Service-Level Agreements](../storage/common/storage-redundancy.md)
 
 - [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md)
 
-- [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Soft delete for Azure Storage blobs](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsibility**: Customer
 
@@ -863,7 +863,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 In order to back up data from Storage account supported services, there are multiple methods available including using azcopy or third-party tools. Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval.
 
-- [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
+- [Data protection in Azure Stream Analytics](./data-protection.md#private-data-assets-that-are-stored)
 
 - [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md)
 
@@ -889,7 +889,7 @@ Customer-managed / provided keys can be backed within Azure Key Vault using Azur
 
 **Guidance**: Stream Analytics backups stored within Azure Storage support encryption by default and cannot be turned off.  You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.  
 
-- [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
+- [Data protection in Azure Stream Analytics](./data-protection.md#private-data-assets-that-are-stored)
 
 - [Authorizing access to data in Azure Storage](../storage/common/storage-auth.md)
 
