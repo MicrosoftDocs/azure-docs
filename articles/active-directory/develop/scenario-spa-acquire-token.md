@@ -27,17 +27,52 @@ The silent token requests to Azure AD might fail for reasons like an expired Azu
 
 ## Choose between a pop-up or redirect experience
 
- You can't use both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow:
+The choice between a pop-up or redirect experience depends on your application flow:
 
-* If you don't want users to move away from your main application page during authentication, we recommended the pop-up method. Because the authentication redirect happens in a pop-up window, the state of the main application is preserved.
+* If you don't want users to move away from your main application page during authentication, we recommend the pop-up method. Because the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-* If users have browser constraints or policies where pop-ups windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
+* If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
 
 You can set the API scopes that you want the access token to include when it's building the access token request. Note that all requested scopes might not be granted in the access token. That depends on the user's consent.
 
 ## Acquire a token with a pop-up window
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
+
+The following code combines the previously described pattern with the methods for a pop-up experience:
+
+```javascript
+// MSAL.js v2 exposes several account APIs, logic to determine which account to use is the responsibility of the developer
+const account = publicClientApplication.getAllAccounts()[0];
+
+const accessTokenRequest = {
+    scopes: ["user.read"],
+    account: account
+}
+
+publicClientApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
+    // Acquire token silent success
+    let accessToken = accessTokenResponse.accessToken;
+    // Call your API with token
+    callApi(accessToken);
+}).catch(function (error) {
+    //Acquire token silent failure, and send an interactive request
+    if (error instanceof InteractionRequiredAuthError) {
+        publicClientApplication.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
+            // Acquire token interactive success
+            let accessToken = accessTokenResponse.accessToken;
+            // Call your API with token
+            callApi(accessToken);
+        }).catch(function(error) {
+            // Acquire token interactive failure
+            console.log(error);
+        });
+    }
+    console.log(error);
+});
+```
+
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 The following code combines the previously described pattern with the methods for a pop-up experience:
 
@@ -198,11 +233,123 @@ ngOnDestroy() {
 
 Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
 
+# [React](#tab/react)
+
+The following code combines the previously described pattern with the methods for a pop-up experience:
+
+```javascript
+import { InteractionRequiredAuthError, InteractionStatus } from "@azure/msal-browser";
+import { AuthenticatedTemplate, useMsal } from "@azure/msal-react";
+
+function ProtectedComponent() {
+    const { instance, inProgress, accounts } = useMsal();
+    const [apiData, setApiData] = useState(null);
+
+
+    useEffect(() => {
+        if (!apiData && inProgress === InteractionStatus.None) {
+            const accessTokenRequest = {
+                scopes: ["user.read"],
+                account: accounts[0]
+            }
+            instance.acquireTokenSilent(accessTokenRequest).then((accessTokenResponse) => {
+                // Acquire token silent success
+                let accessToken = accessTokenResponse.accessToken;
+                // Call your API with token
+                callApi(accessToken).then((response) => { setApiData(response) });
+            }).catch((error) => {
+                if (error instanceof InteractionRequiredAuthError) {
+                    instance.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
+                        // Acquire token interactive success
+                        let accessToken = accessTokenResponse.accessToken;
+                        // Call your API with token
+                        callApi(accessToken).then((response) => { setApiData(response) });
+                    }).catch(function(error) {
+                        // Acquire token interactive failure
+                        console.log(error);
+                    });
+                }
+                console.log(error);
+            })
+        }
+    }, [instance, accounts, inProgress, apiData]);
+
+    return <p>Return your protected content here: {apiData}</p>
+}
+
+function App() {
+    return (
+        <AuthenticatedTemplate>
+            <ProtectedComponent />
+        </ AuthenticatedTemplate>
+    )
+}
+```
+
+Alternatively, if you need to acquire a token outside of a React component you can call `acquireTokenSilent` but should not fallback to interaction if it fails. All interaction should take place underneath the `MsalProvider` component in your component tree.
+
+```javascript
+// MSAL.js v2 exposes several account APIs, logic to determine which account to use is the responsibility of the developer
+const account = publicClientApplication.getAllAccounts()[0];
+
+const accessTokenRequest = {
+    scopes: ["user.read"],
+    account: account
+}
+
+// Use the same publicClientApplication instance provided to MsalProvider
+publicClientApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
+    // Acquire token silent success
+    let accessToken = accessTokenResponse.accessToken;
+    // Call your API with token
+    callApi(accessToken);
+}).catch(function (error) {
+    //Acquire token silent failure
+    console.log(error);
+});
+```
+
 ---
 
 ## Acquire a token with a redirect
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
+
+The following pattern is as described earlier but shown with a redirect method to acquire tokens interactively. You'll need to call and await `handleRedirectPromise` on page load.
+
+```javascript
+const redirectResponse = await publicClientApplication.handleRedirectPromise();
+if (redirectResponse !== null) {
+    // Acquire token silent success
+    let accessToken = redirectResponse.accessToken;
+    // Call your API with token
+    callApi(accessToken);
+} else {
+    // MSAL.js v2 exposes several account APIs, logic to determine which account to use is the responsibility of the developer
+    const account = publicClientApplication.getAllAccounts()[0];
+    
+    const accessTokenRequest = {
+        scopes: ["user.read"],
+        account: account
+    }
+    
+    publicClientApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
+        // Acquire token silent success
+        // Call API with token
+        let accessToken = accessTokenResponse.accessToken;
+        // Call your API with token
+        callApi(accessToken);
+    }).catch(function (error) {
+        //Acquire token silent failure, and send an interactive request
+        console.log(error);
+        if (error instanceof InteractionRequiredAuthError) {
+            publicClientApplication.acquireTokenRedirect(accessTokenRequest);
+        }
+    });
+}
+```
+
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 The following pattern is as described earlier but shown with a redirect method to acquire tokens interactively. You'll need to register the redirect callback as mentioned earlier.
 
@@ -306,6 +453,74 @@ export class AppModule { }
 
 # [Angular (MSAL.js v1)](#tab/angular1)
 This code is the same as described earlier.
+
+# [React](#tab/react)
+
+If `acquireTokenSilent` fails, fallback to `acquireTokenRedirect`. This method will initiate a full-frame redirect and the response will be handled when returning to the application. When this component is rendered after returning from the redirect, `acquireTokenSilent` should now succeed as the tokens will be pulled from the cache.
+
+```javascript
+import { InteractionRequiredAuthError, InteractionStatus } from "@azure/msal-browser";
+import { AuthenticatedTemplate, useMsal } from "@azure/msal-react";
+
+function ProtectedComponent() {
+    const { instance, inProgress, accounts } = useMsal();
+    const [apiData, setApiData] = useState(null);
+
+
+    useEffect(() => {
+        const accessTokenRequest = {
+            scopes: ["user.read"],
+            account: accounts[0]
+        }
+        if (!apiData && inProgress === InteractionStatus.None) {
+            instance.acquireTokenSilent(accessTokenRequest).then((accessTokenResponse) => {
+                // Acquire token silent success
+                let accessToken = accessTokenResponse.accessToken;
+                // Call your API with token
+                callApi(accessToken).then((response) => { setApiData(response) });
+            }).catch((error) => {
+                if (error instanceof InteractionRequiredAuthError) {
+                    instance.acquireTokenRedirect(accessTokenRequest);
+                }
+                console.log(error);
+            })
+        }
+    }, [instance, accounts, inProgress, apiData]);
+
+    return <p>Return your protected content here: {apiData}</p>
+}
+
+function App() {
+    return (
+        <AuthenticatedTemplate>
+            <ProtectedComponent />
+        </ AuthenticatedTemplate>
+    )
+}
+```
+
+Alternatively, if you need to acquire a token outside of a React component you can call `acquireTokenSilent` but should not fallback to interaction if it fails. All interaction should take place underneath the `MsalProvider` component in your component tree.
+
+```javascript
+// MSAL.js v2 exposes several account APIs, logic to determine which account to use is the responsibility of the developer
+const account = publicClientApplication.getAllAccounts()[0];
+
+const accessTokenRequest = {
+    scopes: ["user.read"],
+    account: account
+}
+
+// Use the same publicClientApplication instance provided to MsalProvider
+publicClientApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
+    // Acquire token silent success
+    let accessToken = accessTokenResponse.accessToken;
+    // Call your API with token
+    callApi(accessToken);
+}).catch(function (error) {
+    //Acquire token silent failure
+    console.log(error);
+});
+```
 
 ---
 

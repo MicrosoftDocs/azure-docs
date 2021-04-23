@@ -8,13 +8,13 @@
     href: azure-vmware-solution-platform-updates.md
 - name: Quick start
   items:
-    - name: 0 - Plan the deployment
+    - name: 1 - Plan the deployment
       href: production-ready-deployment-steps.md
-    - name: 1 - Deploy Azure VMware Solution
+    - name: 2 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
-    - name: 2 - Connect to on-premises
-      href: azure-vmware-solution-on-premises.md
-    - name: 3 - Deploy and configure VMware HCX
+    - name: 3 - Connect to on-premises
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 4 - Deploy and configure VMware HCX
       href: tutorial-deploy-vmware-hcx.md
 - name: Tutorials
   items:
