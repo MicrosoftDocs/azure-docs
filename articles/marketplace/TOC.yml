@@ -243,7 +243,7 @@
         href: dynamics-365-customer-engage-review-publish.md
     - name: Create an Operations offer
       items: 
-      - name: Create the offer
+      - name: Create the offer 
         href: dynamics-365-operations-offer-setup.md
       - name: Properties
         href: dynamics-365-operations-properties.md
