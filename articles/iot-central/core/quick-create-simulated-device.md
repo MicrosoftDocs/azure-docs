@@ -121,7 +121,7 @@ After you publish a device template, it's visible on the **Devices** page. In a 
 
 ## Add a simulated device
 
-To add a simulated device to your application, you use the **ESP32** device template you created.
+To add a simulated device to your application, use the **ESP32** device template you created.
 
 1. To add a new device choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **Sensor Controller** device template for the ESP32 device. Select **Sensor Controller**.
 
@@ -129,7 +129,7 @@ To add a simulated device to your application, you use the **ESP32** device temp
 
     :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Screenshot that shows the simulated Sensor Controller device":::
 
-Now you can interact with the views that created earlier using simulated data:
+Now you can interact with the views that you created earlier using simulated data:
 
 1. Select your simulated device on the **Devices** page
 
