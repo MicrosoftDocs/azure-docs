@@ -31,13 +31,13 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 - [Filter network traffic with a network security group](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Firewall requirements for using the Log Analytics agent](/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Understand Azure Private Link](../private-link/private-link-overview.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -51,11 +51,11 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
-- [Firewall requirements for using the Log Analytics agent](/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -75,7 +75,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
-- [Firewall requirements for using the Log Analytics agent](/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md) 
 
@@ -91,9 +91,9 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity log to monitor resource configurations and detect changes for network resources related to Azure Security Center. Create alerts in Azure Monitor to notify you when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -117,15 +117,15 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -135,11 +135,11 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 **Guidance**: Azure Monitor Activity logs are automatically available, these logs contain all write operations for your resource like Azure Security Center including what operations were made, who started the operation, and when they occurred. Send your Azure Activity logs to a Log Analytics workspace for log consolidation and increased retention.
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Send Activity logs to a Log Analytics workspace](/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)
+- [Send Activity logs to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 **Responsibility**: Customer
 
@@ -149,9 +149,9 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 **Guidance**: In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term and archival storage. 
 
-- [Change the data retention period in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsibility**: Customer
 
@@ -165,9 +165,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -183,11 +183,11 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 
 - [How to manage alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-- [Log alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-unified-log)
+- [Log alerts in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)
 
 **Responsibility**: Customer
 
@@ -203,13 +203,13 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 
 - [Permissions in Azure Security Center](security-center-permissions.md)
 
-- [How to get a directory role in Azure Active Directory (Azure AD) with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure Active Directory (Azure AD) with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -232,7 +232,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -258,7 +258,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -314,13 +314,13 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access related to Azure Security Center can be reviewed on a regular basis to make sure only the right users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -332,7 +332,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -364,7 +364,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -396,9 +396,9 @@ By default Azure Security Center data is stored in the Security Center backend s
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable. 
 
-- [Sending data securely to Log Analytics](/azure/azure-monitor/platform/data-security#sending-data-securely-using-tls-12)
+- [Sending data securely to Log Analytics](../azure-monitor/logs/data-security.md#sending-data-securely-using-tls-12)
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsibility**: Shared
 
@@ -408,7 +408,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to Azure Security Center related data and resources. Azure Security Center has built-in roles for 'Security Reader' or 'Security Admin' which allows users to read or update security policies and dismiss alerts and recommendations. The Log Analytics workspace that stores the data collected by Security Center also has built-in roles you can assign like 'Log Analytics Reader', 'Log Analytics Contributor', and others. Assign the least permissive role needed for users to complete their required tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.
 
-- [Permissions for Azure Log Analytics workspace](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)
+- [Permissions for Azure Log Analytics workspace](../role-based-access-control/built-in-roles.md#log-analytics-reader)
 
 - [Permissions in Azure Security Center](security-center-permissions.md)
 
@@ -422,11 +422,11 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Azure Security Center uses a configured Log Analytics workspace to store the data, alerts, and recommendations it generates. Configure a customer-managed key (CMK) for the workspace that you have configured for Security Center data collection. CMK enables all data saved or sent to the workspace to be encrypted with an Azure Key Vault key created and owned by you. 
 
-- [Azure Monitor customer-managed key](/azure/azure-monitor/platform/customer-managed-keys)
+- [Azure Monitor customer-managed key](../azure-monitor/logs/customer-managed-keys.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -436,7 +436,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use Azure Monitor to create alerts when changes take place to critical Azure resources related to Azure Security Center. These changes may include any actions that modify configurations related to security center like the disabling of alerts or recommendations, or the update or deletion of data stores.
 
-- [How to create alerts for Azure Activity log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -454,7 +454,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 
@@ -470,7 +470,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -547,7 +547,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -571,7 +571,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Define and implement standard security configurations for Azure Security Center and its connected workspace via Azure Policy. Use Azure Policy aliases in the "Microsoft.OperationalInsights" and "Microsoft.Security" namespaces to create custom Azure Policy definitions to audit or enforce the configuration of Security Center and its Log Analytics workspace.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -611,7 +611,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsibility**: Customer
 
@@ -631,7 +631,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Azure Security Center uses a configured Log Analytics workspace to store the data, alerts, and recommendations it generates. Configure a customer-managed key (CMK) for the workspace that you have configured for Security Center data collection. CMK enables all data saved or sent to the workspace to be encrypted with an Azure Key Vault key created and owned by you. 
 
-- [Azure Monitor customer-managed key](/azure/azure-monitor/platform/customer-managed-keys)
+- [Azure Monitor customer-managed key](../azure-monitor/logs/customer-managed-keys.md)
 
 **Responsibility**: Customer
 
@@ -691,7 +691,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files. Test restoration of backed up customer-managed keys.
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/samples/resource-manager-workspace)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](../azure-monitor/logs/resource-manager-workspace.md)
 
 - [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
@@ -709,9 +709,9 @@ Additionally, Enable Soft-Delete and purge protection in Key Vault to protect ke
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [How to enable Soft-Delete and Purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [How to enable Soft-Delete and Purge protection in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Soft delete for Azure Storage blobs](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsibility**: Customer
 
@@ -767,7 +767,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](./security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](./azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Security**:
 

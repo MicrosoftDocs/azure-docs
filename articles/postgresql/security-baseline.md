@@ -39,7 +39,7 @@ You may also secure your Azure Database for PostgreSQL server with firewall rule
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.DBforPostgreSQL**:
 
@@ -103,7 +103,7 @@ Note: Azure Database for PostgreSQL uses the "Microsoft.Sql" service tag.
 
 - [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
-- [Understand service tag usage for Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet#terminology-and-description)
+- [Understand service tag usage for Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md#terminology-and-description)
 
 **Responsibility**: Customer
 
@@ -119,7 +119,7 @@ Note: Azure Database for PostgreSQL uses the "Microsoft.Sql" service tag.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](/azure/governance/policy/samples)
+- [Azure Policy samples for networking](../governance/policy/samples/index.md)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -145,7 +145,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Database for PostgreSQL instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -189,9 +189,9 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Within Azure Monitor, for the Log Analytics Workspace being used to hold your Azure Database for PostgreSQL logs, set the retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics Workspaces](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Storing resource logs in an Azure Storage Account](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Responsibility**: Customer
 
@@ -243,9 +243,9 @@ Azure Database for PostgreSQL does not support built-in role-based access contro
 
 - [Understand custom roles for Azure subscription](../role-based-access-control/custom-roles.md) 
 
-- [Understand Azure Database for PostgreSQL resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql) 
+- [Understand Azure Database for PostgreSQL resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdbforpostgresql) 
 
-- [Understand access management for Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-security#access-management)
+- [Understand access management for Azure Database for PostgreSQL](./concepts-security.md#access-management)
 
 **Responsibility**: Customer
 
@@ -259,7 +259,7 @@ Upon creation of the Azure Database for PostgreSQL resource itself, Azure forces
 
 - [How to create additional accounts for Azure Database for PostgreSQL](howto-create-users.md)
 
-- [How to update admin password](https://docs.microsoft.com/azure/postgresql/howto-create-manage-server-portal#update-admin-password)
+- [How to update admin password](./howto-create-manage-server-portal.md#update-admin-password)
 
 **Responsibility**: Customer
 
@@ -271,7 +271,7 @@ Upon creation of the Azure Database for PostgreSQL resource itself, Azure forces
 
 - [Understand Azure Security Center Identity and Access](../security-center/security-center-identity-access.md) 
 
-- [Understand how to create admin users in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account)
+- [Understand how to create admin users in Azure Database for PostgreSQL](./howto-create-users.md#the-server-admin-account)
 
 **Responsibility**: Customer
 
@@ -365,7 +365,7 @@ Azure AD credentials may also be used for administration at the management plane
 
 **Guidance**: Review the Azure Active Directory (Azure AD) logs to help discover stale accounts which can include those with Azure Database for PostgreSQL administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Database for PostgreSQL, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right Users have continued access.
 
-- [Understand Azure AD Reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD Reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -383,7 +383,7 @@ Azure AD credentials may also be used for administration at the management plane
 
 - [How to configure and access audit logs for Azure Database for PostgreSQL](concepts-audit.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -413,7 +413,7 @@ You can also ingest logs into Azure Sentinel for further investigation.
 
 **Guidance**: Currently not available; Customer Lockbox is not yet supported for Azure Database for PostgreSQL.
 
-- [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -475,7 +475,7 @@ Currently the TLS versions supported for Azure Database for PostgreSQL are TLS 1
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.DBforPostgreSQL**:
 
@@ -609,7 +609,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -757,7 +757,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.DBforPostgreSQL**:
 
@@ -775,7 +775,7 @@ If using Azure Key Vault to store credentials for your Azure Database for Postgr
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.DBforPostgreSQL**:
 

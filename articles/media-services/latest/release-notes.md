@@ -81,7 +81,7 @@ Version 3 provides:
  
 - 24x7 live event support
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
-- Customer managed keys, trusted storage integration, private link support, and [more](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Customer managed keys, trusted storage integration, private link support, and [more](./migrate-v-2-v-3-migration-benefits.md)
 
 #### Action Required
 

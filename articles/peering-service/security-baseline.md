@@ -158,11 +158,11 @@ There may be other critical roles that need to be governed if you use custom rol
 
 Enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
-- [Administrator role permissions in Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Administrator role permissions in Azure AD](../active-directory/roles/permissions-reference.md)
 
 - [Use Azure Privileged Identity Management security alerts](../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../active-directory/roles/security-planning.md)
 
 **Responsibility**: Customer
 
@@ -180,7 +180,7 @@ Ensure to assign separate privileged accounts that are distinct from the standar
 
 - [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Management Group Access](https://docs.microsoft.com/azure/governance/management-groups/overview#management-group-access)
+- [Management Group Access](../governance/management-groups/overview.md#management-group-access)
 
 - [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
@@ -204,7 +204,7 @@ Ensure to assign separate privileged accounts that are distinct from the standar
 
 Ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them in emergent situations.
 
-- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access accounts in Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Responsibility**: Customer
 
@@ -266,7 +266,7 @@ Security Reader permissions can be applied broadly to an entire tenant (Root Man
 
 Additional permissions might be required to get visibility into workloads and services. 
 
-- [Overview of Security Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)
+- [Overview of Security Reader Role](../role-based-access-control/built-in-roles.md#security-reader)
 
 - [Overview of Azure Management Groups](../governance/management-groups/overview.md)
 
@@ -286,7 +286,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [For more information about tagging assets, see the resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Responsibility**: Customer
 
@@ -298,7 +298,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
@@ -328,7 +328,7 @@ Use the Azure Security Center built-in threat detection capability, which is bas
 
 In addition, use Azure Sentinel to build analytics rules, which hunt threats that match  specific criteria across your environment. The rules generate incidents when the criteria are matched, so that you can investigate each incident. Azure Sentinel can also import third-party threat intelligence to enhance its threat detection capability. 
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](../security-center/azure-defender.md)
 
 - [Azure Security Center security alerts reference guide](../security-center/alerts-reference.md)
 
@@ -358,7 +358,7 @@ Azure Security Center can also alert on certain suspicious activities such as an
 
 - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](../security-center/azure-defender.md)
 
 **Responsibility**: Customer
 
@@ -382,7 +382,7 @@ Microsoft network via Microsoft Azure Peering Service.
 
 Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your  resources.
 
-- [Azure Activity log](/azure/azure-monitor/platform/activity-log)
+- [Azure Activity log](../azure-monitor/essentials/activity-log.md)
 
 **Responsibility**: Customer
 
@@ -410,7 +410,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure resources according to your organization's compliance regulations.
 
-- [How to set log retention parameters](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -500,7 +500,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -513,7 +513,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 - [Configure workflow automation in Security Center](../security-center/workflow-automation.md)
 
-- [Set up automated threat responses in Azure Security Center](https://docs.microsoft.com/azure/security-center/tutorial-security-incident#triage-security-alerts)
+- [Set up automated threat responses in Azure Security Center](../security-center/tutorial-security-incident.md#triage-security-alerts)
 
 - [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
@@ -597,11 +597,11 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 

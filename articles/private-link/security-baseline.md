@@ -36,7 +36,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -60,7 +60,7 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Logging and monitoring for Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+- [Logging and monitoring for Private Link](./private-link-overview.md#logging-and-monitoring)
 
 - [Diagnostic logging for a network security group](../virtual-network/virtual-network-nsg-manage-log.md)
 
@@ -76,9 +76,9 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Logging and Monitoring for Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+- [Logging and Monitoring for Private Link](./private-link-overview.md#logging-and-monitoring)
 
 **Responsibility**: Customer
 
@@ -88,9 +88,9 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 **Guidance**: For logs related to Private Link, set your Log Analytics workspace retention period according to your organization's compliance regulations within Azure Monitor. Use Azure Storage Accounts for any long-term/archival storage of logs.
 
-- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsibility**: Customer
 
@@ -136,9 +136,9 @@ Enable and on-board data to Azure Sentinel or a third-party SIEM based on your o
 
 **Guidance**: Use Azure Active Directory (Azure AD) built-in administrator roles, which can be explicitly assigned and queried. Run the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Responsibility**: Customer
 
@@ -150,7 +150,7 @@ Enable and on-board data to Azure Sentinel or a third-party SIEM based on your o
 
 Also, enable Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Responsibility**: Customer
 
@@ -232,7 +232,7 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. Also, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -296,7 +296,7 @@ Control access to Azure resources via Azure role-based access control (Azure AD)
 
 Follow Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsibility**: Shared
 
@@ -326,7 +326,7 @@ Make your service private for consumption from your other Virtual Networks (Azur
 
 **Guidance**: Use Azure Monitor activity log alerts to create alerts for when changes take place to critical Azure resources like Private Link services and endpoints. 
 
-- [Diagnostic logging for a network security group](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+- [Diagnostic logging for a network security group](./private-link-overview.md#logging-and-monitoring)
 
 - [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -346,7 +346,7 @@ Ensure you have appropriate (read) permissions in your tenant and are able to en
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -426,7 +426,7 @@ Also use the Azure Resource Graph to query/discover resources within the subscri
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 - [Azure policy sample built-ins for private link](../governance/policy/samples/built-in-policies.md)
 
@@ -456,7 +456,7 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 Implement recommendations from Security Center as a secure configuration baseline for your Azure resources.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
@@ -498,7 +498,7 @@ Use Azure policy [deny] and [deploy if not exist] to enforce secure settings acr
 
 Grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps for their access, or Active Directory if integrated with Team Foundation Server.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -516,7 +516,7 @@ Also utilize the built-in policy definitions related to any specific resources m
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use Aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 - [Azure policy sample built-ins for private link](../governance/policy/samples/built-in-policies.md)
 
@@ -578,7 +578,7 @@ Back up customer-managed keys within Azure Key Vault.
 
 - [Introduction to Azure Automation](../automation/automation-intro.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -592,7 +592,7 @@ Also, validate restores of backed up customer-managed keys.
 
 - [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -604,7 +604,7 @@ Also, validate restores of backed up customer-managed keys.
 
 Grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps for access to these resources, or in Active Directory if integrated with Team Foundation Server.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
