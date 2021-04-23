@@ -57,7 +57,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 1. Keep this query key, you will need to use it in the next section. The query key is able to query your Index. 
 
-## Add configuration settings in Azure Portal
+## Add configuration settings in Azure portal
 
 The Azure Function app won't return Search data until the Search secrets are in settings. 
 
@@ -88,7 +88,7 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. Return to VS Code. 
 1. Refresh your Static web app to see the Static web app's application settings. 
 
-    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extention-fresh-resource.png" alt-text="Refresh your Static web app to see the Static web app's application settings.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Refresh your Static web app to see the Static web app's application settings.":::
 
 ## Use search in your Static web app
 
