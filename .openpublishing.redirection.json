@@ -60296,12 +60296,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-get-started-portal-build-app.md",
+      "source_path_from_root": "/articles/cognitive-services/LUIS/get-started-portal-build-app.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-create-app",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-get-started-portal-deploy-app.md",
+      "source_path_from_root": "/articles/cognitive-services/LUIS/get-started-portal-deploy-app.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-create-app",
       "redirect_document_id": false
     },

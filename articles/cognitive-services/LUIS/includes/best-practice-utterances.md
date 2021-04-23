@@ -1,7 +1,18 @@
+---
+title: Add a prediction resource
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include 
+ms.date: 04/23/2021
+ms.author: aahi
+---
+
 For best results make sure that example utterances vary in the following ways:
 
-* utterance length
+* Utterance length
 * [punctuation](../luis-reference-application-settings.md#punctuation-normalization)
-* word choice
-* verb tense (is, was, will be)
-* word order
+* Word choice
+* Verb tense (is, was, will be)
+* Word order

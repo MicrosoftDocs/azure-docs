@@ -137,7 +137,7 @@ At this point, you have completed authoring your application. You need to create
 
 To create a Prediction resource from the LUIS portal
 
-[!INCLUDE [add-pred-resource-portal](./includes/add-pred-resource-portal.md)]
+[!INCLUDE [add-pred-resource-portal](./includes/add-prediction-resource-portal.md)]
 
 
 ## Publish the app to get the endpoint URL
@@ -152,8 +152,8 @@ To create a Prediction resource from the LUIS portal
 
 2. In the browser address bar, for the query string, make sure the following values are in the URL. If they are not in the query string, add them:
 
-* `verbose=true`
-* `show-all-intents=true`
+    * `verbose=true`
+    * `show-all-intents=true`
 
 3. In the browser address bar, go to the end of the URL and enter *turn off the living room light* for the query string, then press Enter.
 

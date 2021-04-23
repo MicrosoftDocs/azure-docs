@@ -2,12 +2,11 @@
 title: include file
 description: include file
 services: cognitive-services
-
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 07/04/2021
+ms.date: 04/23/2021
 ms.topic: include
 
 ---
