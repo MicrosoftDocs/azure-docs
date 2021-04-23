@@ -13,8 +13,8 @@ ms.service: iot-hub-device-update
 Device Update for IoT Hub uses [IoT Plug and Play](../iot-pnp/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
 Concepts: 
-1. Understand the IoT Plug and Play device client following this [documentation](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
-2. See how Device Update agent is implemented [here](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
+1. Understand the IoT Plug and Play device client by following this [documentation](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+2. See how the Device Update agent is implemented from [here](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## ADU Core Interface
 
@@ -35,7 +35,7 @@ information and status to Device Update services.
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be null for a device that has never taken an update through Device Update.|Null|
 |`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
 
-Sample json in IoT Hub Device Twin
+IoT Hub Device Twin sample
 ```json
  "azureDeviceUpdateAgent": {
                            "__t": "c",
