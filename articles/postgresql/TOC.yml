@@ -164,7 +164,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/postgresql-security-baseline
     - name: Networking
       items:
       - name: Firewall rules
@@ -622,7 +622,7 @@
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
       - name: Security baseline
-        href: postgresql-hyperscale-security-baseline.md
+        href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline
     - name: Scheduled maintenance
       href: concepts-hyperscale-maintenance.md
     - name: Business continuity

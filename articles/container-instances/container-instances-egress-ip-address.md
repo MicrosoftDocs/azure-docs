@@ -285,15 +285,15 @@ For more information about managing traffic and protecting Azure resources, see 
 [az-container-create]: /cli/azure/container#az_container_create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [az-extension-add]: /cli/azure/extension#az_extension_add
-[az-network-firewall-update]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-update
+[az-network-firewall-update]: /cli/azure/network/firewall#az_network_firewall_update
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
 [az-network-route-table-create]:/cli/azure/network/route-table/#az_network_route_table_create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az_network_route_table_route_create
-[az-network-firewall-ip-config-list]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-list
+[az-network-firewall-ip-config-list]: /cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_list
 [az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_update
 [az-container-exec]: /cli/azure/container#az_container_exec
 [az-vm-create]: /cli/azure/vm#az_vm_create
 [az-vm-open-port]: /cli/azure/vm#az_vm_open_port
 [az-vm-list-ip-addresses]: /cli/azure/vm#az_vm_list_ip_addresses
-[az-network-firewall-application-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/application-rule#ext-azure-firewall-az-network-firewall-application-rule-create
-[az-network-firewall-nat-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/nat-rule#ext-azure-firewall-az-network-firewall-nat-rule-create
+[az-network-firewall-application-rule-create]: /cli/azure/network/firewall/application-rule#az_network_firewall_application_rule_create
+[az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat-rule#az_network_firewall_nat_rule_create

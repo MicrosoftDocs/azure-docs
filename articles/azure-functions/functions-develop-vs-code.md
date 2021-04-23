@@ -81,7 +81,7 @@ These prerequisites are only required to [run and debug your functions locally](
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-+ Both [.NET Core 3.1 runtime](https://www.microsoft.com/net/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
++ Both [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet/2.1)  
 
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 
