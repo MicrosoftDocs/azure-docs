@@ -150,6 +150,12 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
+Also, you need to add the following extension, for `az cli`
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
+
 To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
 
 ```azurecli-interactive
