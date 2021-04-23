@@ -196,7 +196,7 @@
         - name: Azure Files - Static
           href: azure-files-volume.md
         - name: NFS Server - Static
-          href: azure-nfs-volume.md
+          href: azure-nfs-volume.yml
         - name: Azure NetApp Files
           href: azure-netapp-files.md
         - name: Use Azure Ultra Disks (preview)

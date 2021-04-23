@@ -263,7 +263,7 @@ For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf
 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-nfs]: azure-nfs-volume.md
+[aks-nfs]: azure-nfs-volume.yml
 [anf]: ../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-delegate-subnet]: ../azure-netapp-files/azure-netapp-files-delegate-subnet.md
 [anf-quickstart]: ../azure-netapp-files/
