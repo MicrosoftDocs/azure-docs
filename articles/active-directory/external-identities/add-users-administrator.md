@@ -86,9 +86,10 @@ To add B2B collaboration users to an application, follow these steps:
    - If the guest user already exists in the directory, search for the B2B user. Select the user, choose **Select**, and then select **Assign** to add the user to the app.
    - If the guest user does not already exist in the directory, under **Select member or invite an external user**, type the user's email address. In the message box, type an optional personal message. Under the message box, select **Invite**.
                ![Screenshot that highlights where to add the user's email address, the personalized message, and also highlights the Invite button.](./media/add-users-administrator/app-invite-users.png)
-         Choose **Select**, and then select **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
+         
+9. Choose **Select**, and then select **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
 
-9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If you want to change the role, do the following:
+10. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If you want to change the role, do the following:
    - Select the guest user, and then select **Edit**. 
    - Under **Edit Assignment**, choose **Select Role**, and select the role you want to assign to the selected user.
    - Choose **Select**.
