@@ -481,12 +481,12 @@ For issues related to sign-in or Storage Explorer's authentication library, you 
 
 Generally, you can follow these steps to gather the logs:
 
-1. Go to Settings > Sign-in > check Verbose Authentication Logging. If Storage Explorer is failing to launch due to an issue with its authentication library, this will be done for you.
+1. Go to **Settings (gear icon on the left)** > **Application** > **Sign-in** > check **Verbose Authentication Logging**. If Storage Explorer is failing to launch due to an issue with its authentication library, this will be done for you.
 2. Close Storage Explorer.
 1. Optional/recommended: clear out existing logs from the `logs` folder. Doing this will reduce the amount of information you have to send us.
 4. Open Storage Explorer and reproduce your issue
 5. Close Storage Explorer
-6. Zip the contents of the `log` folder.
+6. Zip the contents of the `logs` folder.
 
 ### AzCopy logs
 
