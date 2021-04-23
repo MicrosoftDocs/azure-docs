@@ -176,48 +176,74 @@
               href: api-management-howto-manage-protocols-ciphers.md
       - name: Customize developer experience
         items:
-            - name: Understand the developer portal
-              href: api-management-howto-developer-portal.md
-            - name: Migrate from deprecated to new developer portal
-              href: developer-portal-deprecated-migration.md
-            - name: Authenticate with Azure AD
-              href: api-management-howto-aad.md
-            - name: Authenticate with Azure AD B2C
-              href: api-management-howto-aad-b2c.md
-            - name: Delegated authentication
-              href: api-management-howto-setup-delegation.md
-            - name: E-mail notifications and templates
-              href: api-management-howto-configure-notifications.md
-            - name: Enable console OAuth support
-              href: api-management-howto-oauth2.md
-            - name: Deprecated portal - customize the portal
-              href: api-management-customize-styles.md
-            - name: Deprecated portal - modify pages and layouts
-              href: api-management-modify-content-layout.md
-            - name: Deprecated portal - customize with templates
-              href: api-management-developer-portal-templates.md
-      - name: Deprecated portal templates
-        items:
-            - name: Data model reference
-              href: api-management-template-data-model-reference.md
-            - name: Page controls
-              href: api-management-page-controls.md
-            - name: Templates
-              href: api-management-developer-portal-templates-reference.md
-            - name: APIs
-              href: api-management-api-templates.md
-            - name: Products
-              href: api-management-product-templates.md
-            - name: Applications
-              href: api-management-application-templates.md
-            - name: Issues
-              href: api-management-issue-templates.md
-            - name: User profile
-              href: api-management-user-profile-templates.md
-            - name: Pages
-              href: api-management-page-templates.md
-            - name: Template resources
-              href: api-management-template-resources.md
+            - name: Use the developer portal
+              items:
+                  - name: Understand the developer portal
+                    href: api-management-howto-developer-portal.md
+                  - name: Frequently asked questions
+                    href: developer-portal-faq.md
+                  - name: Automate portal deployments
+                    href: automate-portal-deployments.md
+                  - name: Migrate from deprecated to new developer portal
+                    href: developer-portal-deprecated-migration.md
+                  - name: Authenticate with Azure AD
+                    href: api-management-howto-aad.md
+                  - name: Authenticate with Azure AD B2C
+                    href: api-management-howto-aad-b2c.md
+                  - name: Delegate authentication
+                    href: api-management-howto-setup-delegation.md
+                  - name: Enable console OAuth support
+                    href: api-management-howto-oauth2.md
+                  - name: E-mail notifications and templates
+                    href: api-management-howto-configure-notifications.md
+                  - name: Integrate Application Insights
+                    href: developer-portal-integrate-application-insights.md
+                  - name: Integrate Google Tag Manager
+                    href: developer-portal-integrate-google-tag-manager.md
+            - name: Self-host developer portal 
+              items:  
+                - name: Create self-hosted portal
+                  href: developer-portal-self-host.md
+                - name: Alternative approaches to self-hosting
+                  href: developer-portal-alternative-processes-self-host.md
+                - name: Implement widgets
+                  href: developer-portal-implement-widgets.md
+                - name: Contribute widgets
+                  href: developer-portal-widget-contribution-guidelines.md
+                - name: Use community widgets
+                  href: developer-portal-use-community-widgets.md
+                - name: Test self-hosted portal
+                  href: developer-portal-testing.md
+            - name: Deprecated portal
+              items:
+                - name: Deprecated portal - customize the portal
+                  href: api-management-customize-styles.md
+                - name: Deprecated portal - modify pages and layouts
+                  href: api-management-modify-content-layout.md
+                - name: Deprecated portal - customize with templates
+                  href: api-management-developer-portal-templates.md
+            - name: Deprecated portal templates
+              items:
+                - name: Data model reference
+                  href: api-management-template-data-model-reference.md
+                - name: Page controls
+                  href: api-management-page-controls.md
+                - name: Templates
+                  href: api-management-developer-portal-templates-reference.md
+                - name: APIs
+                  href: api-management-api-templates.md
+                - name: Products
+                  href: api-management-product-templates.md
+                - name: Applications
+                  href: api-management-application-templates.md
+                - name: Issues
+                  href: api-management-issue-templates.md
+                - name: User profile
+                  href: api-management-user-profile-templates.md
+                - name: Pages
+                  href: api-management-page-templates.md
+                - name: Template resources
+                  href: api-management-template-resources.md
       - name: Define policies
         items:
             - name: Set or edit policies

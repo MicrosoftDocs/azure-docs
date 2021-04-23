@@ -34,7 +34,7 @@ You can enable disk encryption on new IaaS Windows VM from the Marketplace in Az
 2. Select the subscription, resource group, resource group location, parameters, legal terms, and agreement. Click **Purchase** to deploy a new IaaS VM where encryption is enabled.
 
 3. After you deploy the template, verify the VM encryption status using your preferred method:
-     - Verify with the Azure CLI by using the [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) command. 
+     - Verify with the Azure CLI by using the [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) command. 
 
          ```azurecli-interactive 
          az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
@@ -125,7 +125,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Enable encryption on existing or running VMs with  Azure CLI
-Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) command to enable encryption on a running IaaS virtual machine in Azure.
+Use the [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) command to enable encryption on a running IaaS virtual machine in Azure.
 
 - **Encrypt a running VM using a client secret:**
 
@@ -145,13 +145,13 @@ Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enab
      > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
   https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verify the disks are encrypted:** To check on the encryption status of an IaaS VM, use the [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) command. 
+- **Verify the disks are encrypted:** To check on the encryption status of an IaaS VM, use the [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) command. 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Disable encryption:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
+- **Disable encryption:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) command. 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
@@ -326,7 +326,7 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
+- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) command. 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
