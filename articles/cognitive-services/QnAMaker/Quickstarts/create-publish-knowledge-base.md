@@ -81,8 +81,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select and option|
     |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' 
-    |**Unstructured**| When adding a file, if you check the unstructured box, the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs
-     are extracted from the file.|
+    |**Unstructured**| When adding a file, if you check the unstructured box, the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs      are extracted from the file.|
     |**Chit-chat**|Select **Professional**|
 
 8. In **Step 5**, Select **Create your KB**.
