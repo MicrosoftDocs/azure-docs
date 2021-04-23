@@ -32,13 +32,20 @@ There are a few different types of DNS configurations available for an applicati
 
 ## Configure a root domain
 
-Root domains are your domain minus any subdomain, including `www`. For example, the root domain for `www.example.com` is `example.com`.
+Root domains are the domain minus any subdomain, including `www`. For example, the root domain for `www.example.com` is `example.com`. 
 
-The process for creating a root domain involves creating a TXT record to prove that you own the domain, and then creating an ALIAS record which will direct traffic to your app. Both steps must be completed in order for the root domain to function.
+When configuring domain names, "A" records map root domains to an IP address. Root domains must be mapped directly to an IP address, because the DNS specification does not allow mapping of one domain to another.
+
+The process for creating a root domain requires you to complete the following actions:
+
+- [Create a TXT](#create-a-txt-record) record to prove that you own the domain.
+- [Create an ALIAS](#create-an-alias-record) record to direct traffic to your application.
+
+Both of these steps are required for the root domain to function.
 
 ### Create a TXT record
 
-The TXT record creation requires you to first add the domain that you want to use, and then generate a unique code that Azure will use to verify that you own the domain.
+A TXT record associates a human-readable domain name with a network location. While creating a TXT record, Azure generates a unique code associated with your custom domain name to verify ownership of the domain.
 
 #### Enter your domain
 
@@ -50,11 +57,11 @@ The TXT record creation requires you to first add the domain that you want to us
 
 1. Click on **Custom domains** in the menu.
 
-1. In the "Domain name" field, enter your domain. Make sure that you enter just the root domain, without any subdomains or protocols (i.e. example.com).
+1. In the *Domain name* field, **enter your root domain**. Make sure that you enter only the root domain, without any subdomains or protocols. For example, `mydomain.com`.
 
    :::image type="content" source="../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Add domain screen showing the custom domain in the input box":::
 
-1. Click on the "Next" button to move to the _Validate + configure_ step.
+1. Click on the **Next** button to move to the _Validate + configure_ step.
 
 #### Create the TXT record
 
@@ -62,19 +69,19 @@ The TXT record creation requires you to first add the domain that you want to us
 
 #### Validate TXT record
 
-1. Return to the "Validate + configure" screen in the Azure Portal.
+1. Return to the *Validate + configure* screen in the Azure Portal.
 
-Azure will now verify the TXT record. This process happens automatically as soon as you create the TXT record with your DNS provider. The "Custom domains" screen will show any domains you have configured and their validation status. Once the validation process is complete, you will see a green indicator next to the domain that you added.
+During this step, Azure automatically verifies the TXT record with your DNS provider. The *Custom domains* screen show any configured domains and their validation status. Once the validation process is complete, a green indicator appears next to the added domain.
 
 :::image type="content" source="../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Green indicator showing TXT record has been validated":::
 
-When the green indicator appears next to your domain in the "Custom domains" screen, you can complete the second step, which is to add an ALIAS record.
+When the green indicator appears next to your domain in the *Custom domains* screen, you can complete the second step, which is to add an ALIAS record.
 
 ### Create an ALIAS record
 
-1. Click on the "Overview" in the menu.
+1. Select **Overview** in the menu.
 
-1. Copy the URL of your static web app from the overview screen by hovering over it and clicking on the "copy" icon.
+1. Copy the URL of your static web app from the overview screen by hovering over it and selecting the **copy** icon.
 
    :::image type="content" source="../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Overview page of a static web app with the URL field highlighted":::
 
@@ -84,7 +91,9 @@ When the green indicator appears next to your domain in the "Custom domains" scr
 
 ### Validating root domain setup
 
-Your root domain setup is now complete, but it may take some time for the DNS changes to propagate. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain, select A from the drop-down, and select **Start**.
+The root domain setup is now complete, but it may take some time for the DNS changes to propagate.
+
+You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain, select **A** from the drop-down, and select **Start**.
 
 ## Map a CNAME record
 
@@ -100,23 +109,25 @@ A CNAME record maps one domain to another. You can use a CNAME record to map `ww
 
 1. Click on **Custom domains** in the menu.
 
-1. In the "Domain name" field, enter your subdomain. Make sure that you enter it without any protocols (i.e. www.example.com).
+1. In the *Domain name* field, enter your subdomain. Make sure that you enter it without any protocols. For example, `www.mydomain.com`.
 
    :::image type="content" source="../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Add domain screen showing the custom subdomain in the input box":::
 
-1. Click on the "Next" button to move to the "Validate + configure" step.
+1. Select the **Next** button to move to the *Validate + configure* step.
 
-#### OPTIONAL: Create a TXT record
+#### Optional: Create a TXT record
 
-If you have an active subdomain pointing at another URL, you should consider using a TXT record to validate domain ownership. This will ensure ownership of the domain as well as generate the proper certificate without actually redirecting your traffic. This way, you can wait until the entire validation process is complete before redirecting traffic to your static web app saving down time.
+If you have an active subdomain pointing at another URL, consider using a TXT record to validate domain ownership. This action verifies ownership of the domain and generates the proper certificate without redirecting traffic.
+
+This way, you can wait until the entire validation process is complete before redirecting traffic to your static web app and avoiding down time.
 
 [!INCLUDE [static-web-apps-txt-record](../../includes/static-web-apps-txt-record.md)]
 
 #### Validate and add
 
-1. Make sure "CNAME" is selected from the "Hostname record type" dropdown list.
+1. Make sure **CNAME** is selected from the *Hostname record type* dropdown list.
 
-1. Copy the value in the "Require Value" field to you clipboard by clicking on the "copy" icon.
+1. Copy the value in the *Require Value* field to you clipboard by selecting the **copy** icon.
 
    :::image type="content" source="../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Validate + add screen showing CNAME selected and the copy icon outlined":::
 
@@ -130,7 +141,7 @@ If you have an active subdomain pointing at another URL, you should consider usi
 
    :::image type="content" source="media/custom-domain/example-record-ui.png" alt-text="Sample DNS provider configuration":::
 
-1. Create a new **CNAME** record with the following values...
+1. Create a new **CNAME** record with the following values.
 
    | Setting             | Value                     |
    | ------------------- | ------------------------- |
@@ -145,13 +156,13 @@ If you have an active subdomain pointing at another URL, you should consider usi
 
 1. Return to the _Validate + add_ window in the Azure portal.
 
-1. Click the **Validate** button.
+1. Select the **Validate** button.
 
-1. When the validation process finished, click the **Add** button.
+1. When the validation process is finished, select the **Add** button.
 
-Now that the custom domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain including the `www`, select CNAME from the drop-down, and select **Start**.
+Now that the custom domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain including the `www`, select **CNAME** from the drop-down, and select **Start**.
 
-If your DNS changes have populated, the website returns the auto-generated URL of your Static Web App (for instance, _random-name-123456789c.azurestaticapps.net_).
+If your DNS changes have populated, the website returns the auto-generated URL of your static web app (for instance, _random-name-123456789c.azurestaticapps.net_).
 
 ## Map a wildcard domain
 
@@ -165,7 +176,7 @@ Sometimes you want all traffic sent to a subdomain to route to another domain. A
 
 3. Often, you can find the DNS records page by viewing your account information, and then looking for a link such as **My domains**. Go to that page and then look for a link named similar to **Zone file**, **DNS Records**, or **Advanced configuration**.
 
-   The following screenshot is an example of a DNS records page:
+   The following screenshot is an example of a DNS records page.
 
    :::image type="content" source="media/custom-domain/example-record-ui.png" alt-text="Sample DNS provider configuration":::
 
@@ -186,4 +197,5 @@ If your DNS changes have populated, the website returns your custom domain confi
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"]
+> [Configure app settings](application-settings.md)
