@@ -23,7 +23,7 @@ To complete the examples in this article, you'll need to download and install [d
 
 :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/azure-connection-1.png" alt-text="Screenshot showing a successful connection test to Azure Database for MySQL." lightbox="media/concepts-migrate-dbforge-studio-for-mysql/azure-connection-1.png":::
 
-## Migrate a database using the Backup and Restore functionality
+## Migrate with the Backup and Restore functionality
 
 You can choose from many options when using dbForge Studio for MySQL to migrate databases to Azure. If you need to move the entire database, it's best to use the **Backup and Restore** functionality.
 
@@ -57,7 +57,7 @@ In this example, we migrate the *sakila* database from MySQL server to Azure Dat
 
 1. Check the result.
 
-## Migrate a database using the Copy Databases functionality
+## Migrate with the Copy Databases functionality
 
 The **Copy Databases** functionality in dbForge Studio for MySQL is similar to  **Backup and Restore**, except that it doesn't require two steps to migrate a database. It also lets you transfer two or more databases at once.
 
