@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 ## Use the PersonDirectory structure
 
-In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional additional user metadata strings for each **Person** identity added to the directory.
+To perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory.
 
 Currently, the Face API offers the **LargePersonGroup** structure, which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities.
 
@@ -24,8 +24,8 @@ Another major difference between **PersonDirectory** and previous data structure
 
 ## Prerequisites
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* Once you have your Azure subscription, [create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click Go to resource.
-  * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below.
+* Once you have your Azure subscription, [create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below.
   * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Add Persons to the PersonDirectory
@@ -66,7 +66,7 @@ using (var content = new ByteArrayContent(byteData))
 }
 ```
 
-The CreatePerson call will return a generated ID for the **Person** as well as an operation location. The **Person** data will be processed asynchronously, so you use the operation location to fetch the results. 
+The CreatePerson call will return a generated ID for the **Person** and an operation location. The **Person** data will be processed asynchronously, so you use the operation location to fetch the results. 
 
 ### Wait for asynchronous operation completion
 You'll need to query the async operation status using the returned operation location string to check the progress. 
@@ -128,14 +128,14 @@ Once the status returns as "succeeded", the **Person** object is considered adde
 
 ### Add faces to Persons
 
-Once you have the **Person** ID from the Create Person call, you can add up to 248 face images to a **Person** per recognition model. You need to specify the recognition model (and optionally the detection model) to use in the call, as data under each recognition model will be processed separately inside the **PersonDirectory**.
+Once you have the **Person** ID from the Create Person call, you can add up to 248 face images to a **Person** per recognition model. Specify the recognition model (and optionally the detection model) to use in the call, as data under each recognition model will be processed separately inside the **PersonDirectory**.
 
 The currently supported recognition models are:
-* Recognition_02
-* Recognition_03
-* Recognition_04
+* `Recognition_02`
+* `Recognition_03`
+* `Recognition_04`
 
-Additionally, if the image contains multiple faces, you will need to specify the rectangle bounding box for the face that is the intended target. The following code adds faces to a **Person** object.
+Additionally, if the image contains multiple faces, you'll need to specify the rectangle bounding box for the face that is the intended target. The following code adds faces to a **Person** object.
 
 ```csharp
 var client = new HttpClient();
@@ -167,9 +167,9 @@ When the operation for the face addition finishes, the data will be ready for in
 
 ## Create and update a **DynamicPersonGroup**
 
-**DynamicPersonGroups** are collections of references to **Person** objects within a **PersonDirectory**; they are used to create subsets of the directory. A common scenario for this is when you want to get fewer false positives and increased accuracy in an Identify operation by limiting the scope to just the **Person** objects you expect to match. Practical use cases include directories for specific building access among a larger campus or organization. The organization directory may contain 5 million individuals, but you only need to search a specific 800 people for a particular building, so you would create a **DynamicPersonGroup** containing those specific individuals. 
+**DynamicPersonGroups** are collections of references to **Person** objects within a **PersonDirectory**; they're used to create subsets of the directory. A common use is when you want to get fewer false positives and increased accuracy in an Identify operation by limiting the scope to just the **Person** objects you expect to match. Practical use cases include directories for specific building access among a larger campus or organization. The organization directory may contain 5 million individuals, but you only need to search a specific 800 people for a particular building, so you would create a **DynamicPersonGroup** containing those specific individuals. 
 
-If you have used a **PersonGroup** before, take note of two major differences: 
+If you've used a **PersonGroup** before, take note of two major differences: 
 * Each **Person** inside a **DynamicPersonGroup** is a reference to the actual **Person** in the **PersonDirectory**, meaning that it's not necessary to recreate a **Person** in each group.
 * As mentioned in previous sections, there is no need to make Train calls, as the face data is processed at the Directory level automatically.
 
@@ -202,7 +202,7 @@ using (var content = new ByteArrayContent(byteData))
 }
 ```
 
-This is immediate and there is no need to wait for any asynchronous operations to succeed.
+This process is immediate and there is no need to wait for any asynchronous operations to succeed.
 
 Alternatively, you can create it with a set of **Person** IDs to contain those references from the beginning by providing the set in the _AddPersonIds_ argument:
 
@@ -268,11 +268,11 @@ using (var content = new ByteArrayContent(byteData))
 }
 ```
 
-Once the call returns, the updates to the collection will be reflected when the group is queried. As with the creation API, the returned operation indicates the update status of person-to-group relationship for any **Person** involved in the update. You do not need to wait for the completion of the operation before making further Update calls to the group.
+Once the call returns, the updates to the collection will be reflected when the group is queried. As with the creation API, the returned operation indicates the update status of person-to-group relationship for any **Person** that's involved in the update. You don't need to wait for the completion of the operation before making further Update calls to the group.
 
 ## Identify faces in a PersonDirectory
 
-The most common way to utilize face data in a **PersonDirectory** is to compare the enrolled **Person** objects against a given face and identify the most likely candidate it belongs to. Multiple faces can be provided in the request, and each will receive its own set of comparison results in the response.
+The most common way to use face data in a **PersonDirectory** is to compare the enrolled **Person** objects against a given face and identify the most likely candidate it belongs to. Multiple faces can be provided in the request, and each will receive its own set of comparison results in the response.
 
 In **PersonDirectory**, there are three types of scopes each face can be identified against:
 
