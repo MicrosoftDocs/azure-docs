@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 04/26/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -26,12 +26,12 @@ The following table describes the types of storage accounts recommended by Micro
 
 | Type of storage account | Supported services | Redundancy options | Usage |
 |--|--|--|--|
-| Standard general-purpose v2 | Blob (including Data Lake Storage<sup>1</sup>), Azure Files, Queue, and Table  | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.<br><br>Note: If you want NFS file share support in Azure Files, use the premium file shares account type. |
-| Premium block blobs<sup>3</sup> | Blob (including Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Storage account with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency. [Learn more about example workloads.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
-| Premium file shares<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Files-only storage account with premium performance characteristics. Recommended for enterprise or high-performance scale applications.<br><br>Use this account type if you want a storage account that supports both SMB and NFS file shares.<br><br>[Learn more about storage accounts for Azure Files.](../files/storage-files-planning.md#management-concepts) |
+| Standard general-purpose v2 | Blob (including Data Lake Storage<sup>1</sup>), Azure Files, Queue, and Table  | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Standard storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage. Note that if you want support for NFS file shares in Azure Files, use the premium file shares account type. |
+| Premium block blobs<sup>3</sup> | Blob (including Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency. [Learn more about example workloads.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
+| Premium file shares<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for file shares only. Recommended for enterprise or high-performance scale applications. Use this account type if you want a storage account that supports both SMB and NFS file shares. |
 | Premium page blobs<sup>3</sup> | Mostly used for disk storage/VHDs | LRS | Premium storage account type for page blobs only. [Learn more about page blobs and sample use cases.](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup>Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage Gen2](/blobs/create-data-lake-storage-account.md).
+<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage Gen2](/blobs/create-data-lake-storage-account.md).
 
 <sup>2</sup> Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose v2, premium block blobs, and premium file shares accounts in certain regions. For more information, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -53,7 +53,7 @@ The following table lists the format of the endpoint for each of the Azure Stora
 | Storage service | Endpoint |
 |--|--|
 | Blob storage | `https://<storage-account>.blob.core.windows.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Data Lake Storage Gen2 (built on Blob storage) | `https://<storage-account>.dfs.core.windows.net` |
 | Azure Files | `https://<storage-account>.file.core.windows.net` |
 | Queue storage | `https://<storage-account>.queue.core.windows.net` |
 | Table storage | `https://<storage-account>.table.core.windows.net` |
