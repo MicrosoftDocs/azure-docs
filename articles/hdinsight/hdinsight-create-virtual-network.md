@@ -372,7 +372,7 @@ Before deploying your cluster, you can check that your many of your network conf
 
 1. In the **Basics** tab, under **Project details**, select your subscription, and choose an existing Resource group or create a new one.
 
-	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/hdinsight-create-virtual-network/project-details.png)
+    :::image type="content" source="./media/hdinsight-create-virtual-network/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine.":::
 
 1. Under **Instance details**, enter a unique **Virtual machine name**, select the same **Region** as your VNet, choose *No infrastructure redundancy required* for **Availability options**, choose *Ubuntu 18.04 LTS* for your **Image**, leave **Azure Spot instance** blank, and choose Standard_B1s (or larger) for the **Size**.
 
@@ -380,17 +380,17 @@ Before deploying your cluster, you can check that your many of your network conf
 
 1. Under **Administrator account**, select **Password** and enter a username and password for the administrator account. 
 
-    ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](./media/hdinsight-create-virtual-network/administrator-account.png)
+    :::image type="content" source="./media/hdinsight-create-virtual-network/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials.":::
 
 1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** from the drop-down, and then click **Next: Disks >**
 
-	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/hdinsight-create-virtual-network/inbound-port-rules.png)
+    :::image type="content" source="./media/hdinsight-create-virtual-network/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on.":::
 
 1. Under **Disk options**, choose *Standard SSD for the OS disk type*, and then click **Next: Networking >**.
 
 1. On the **Networking** page, under **Network interface**, select the **Virtual Network** and the **Subnet** in which you plan to add the HDInsight cluster to, and then select the **Review + create** button at the bottom of the page.
 
-    ![Screenshot of the network interface section where you select the VNet and subnet in which to add the virtual machine](./media/hdinsight-create-virtual-network/vnet.png)
+    :::image type="content" source="./media/hdinsight-create-virtual-network/vnet.png" alt-text="Screenshot of the network interface section where you select the VNet and subnet in which to add the virtual machine."::
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
@@ -398,7 +398,7 @@ Before deploying your cluster, you can check that your many of your network conf
 
 1. On the page for your new VM, select the public IP address and copy it to your clipboard.
 
-	![Screenshot showing how to copy the IP address for the virtual machine](./media/hdinsight-create-virtual-network/ip-address.png)
+    :::image type="content" source="./media/hdinsight-create-virtual-network/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine."::
 
 **Run the /networkValidator.sh script**
 
