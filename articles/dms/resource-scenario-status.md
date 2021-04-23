@@ -34,7 +34,7 @@ The following tables show which migration scenarios are supported when using Azu
 > If a scenario listed as supported below does not appear within the user interface, please contact the [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com) alias for additional information.
 
 > [!IMPORTANT]
-> To view all scenarios currently supported by Azure Database Migration Service in Private Preview, see the [DMS Preview site](https://aka.ms/dms-preview).
+> To view all scenarios currently supported by Azure Database Migration Service in Private Preview, see the DMS Preview site.
 
 ### Offline (one-time) migration support
 
