@@ -7,9 +7,7 @@ ms.date: 10/14/2020
 ms.author: baanders
 ---
 
-## Prerequisites: Permission requirements
-
-To be able to complete all the steps in this article, you need to have a [role in your subscription](../articles/role-based-access-control/rbac-and-directory-admin-roles.md) that has the following permissions:
+To be able to complete all the following steps, you need to have a [role in your subscription](../articles/role-based-access-control/rbac-and-directory-admin-roles.md) that has the following permissions:
 * Create and manage Azure resources
 * Manage user access to Azure resources (including granting and delegating permissions)
 
