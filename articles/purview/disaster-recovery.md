@@ -33,7 +33,7 @@ The following steps show how you can achieve disaster recovery manually:
     - Creation and maintenance of Glossary terms. 
 
 
-While you take care of BCDR manually, below are a few points to keep in mind: 
+As you plan your manual BCDR plan, keep the following points in mind: 
 
 1. You will be charged for primary and secondary Purview accounts. 
 
