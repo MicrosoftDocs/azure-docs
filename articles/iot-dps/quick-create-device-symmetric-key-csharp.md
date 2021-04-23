@@ -95,8 +95,8 @@ The provisioning code will contact the DPS resource using these parameters in or
  
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
-    | `--s` or `--IdScope`              | True     | The Id Scope of the DPS instance |
-    | `--i` or `--Id`                   | True     | The registration Id when using individual enrollment, or the desired device Id when using group enrollment. |
+    | `--s` or `--IdScope`              | True     | The ID Scope of the DPS instance |
+    | `--i` or `--Id`                   | True     | The registration ID when using individual enrollment, or the desired device ID when using group enrollment. |
     | `--p` or `--PrimaryKey`           | True     | The primary key of the individual or group enrollment. |
     | `--e` or `--EnrollmentType`       | False    | The type of enrollment: `Individual` or `Group`. Defaults to `Individual` |
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
