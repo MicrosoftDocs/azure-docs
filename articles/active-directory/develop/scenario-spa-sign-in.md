@@ -188,7 +188,7 @@ function App() {
 You can also use the `@azure/msal-browser` APIs directly to invoke a login paired with the `AuthenticatedTemplate` and/or `UnauthenticatedTemplate` components to render specific contents to signed-in or signed-out users respectively. This is the recommended approach if you need to invoke login as a result of user interaction such as a button click.
 
 ```javascript
-import { useMsal } from "@azure/msal-react";
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 
 function signInClickHandler(instance) {
     instance.loginPopup();
@@ -428,7 +428,7 @@ function SignOutButton() {
     // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
     const { instance } = useMsal();
 
-    return <button onClick={() => signOutClickHandler(instance)}>Sign In</button>
+    return <button onClick={() => signOutClickHandler(instance)}>Sign Out</button>
 };
 
 // Remember that MsalProvider must be rendered somewhere higher up in the component tree
@@ -529,7 +529,7 @@ function SignOutButton() {
     // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
     const { instance } = useMsal();
 
-    return <button onClick={() => signOutClickHandler(instance)}>Sign In</button>
+    return <button onClick={() => signOutClickHandler(instance)}>Sign Out</button>
 };
 
 // Remember that MsalProvider must be rendered somewhere higher up in the component tree
