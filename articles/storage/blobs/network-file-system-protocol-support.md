@@ -101,7 +101,7 @@ The status of items that appear in this tables will change over time as support 
 
 | Storage feature | Supported | Storage Feature | Supported|
 |-----------------|---------------------|----|----|
-| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | [Posix-like access control lists (ACLs)](data-lake-storage-access-control.md) | ⛔   |
+| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2) | ⛔ |
 | [Access tiers for Azure Blob storage](storage-blob-storage-tiers.md) |	✔️ | [Blob index tags](storage-blob-index-how-to.md) |	⛔ |
 | [Azure Blob Storage lifecycle management](storage-lifecycle-management-concepts.md) | ✔️  | [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |
 |  [Azure Storage blob inventory](blob-inventory.md) |	✔️  | [Change Feed](storage-blob-change-feed.md) |	⛔ |
@@ -117,11 +117,16 @@ The status of items that appear in this tables will change over time as support 
 | [Azure Active Directory (AD) security](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ | [Encryption scopes](encryption-scope-overview.md)  |	⛔ |
 | [Object replication for block blobs](object-replication-overview.md) | ⛔  | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |
 
-> [!NOTE]
-> You can't enable NFS 3.0 support on existing storage accounts, nore can you disable NFS 3.0 support in a storage account after you've enabled it.
-
   
-## NFS 3.0 features not yet supported
+## Known issues
+
+- NFS 3.0 support can't be enabled on existing storage accounts.
+
+- NFS 3.0 support cant' be disabled in a storage account after you've enabled it.
+
+-  Files can't be viewed in either the Azure portal or Azure Storage Explorer. To list files and directories, either [mount a Blob Storage container by using the NFS 3.0 protocol](network-file-system-protocol-support-how-to.md), or use the [Blob service REST API](/rest/api/storageservices/blob-service-rest-api).
+
+### NFS 3.0 features not yet supported
 
 The following NFS 3.0 features aren't yet supported.
 
@@ -139,7 +144,7 @@ The following NFS 3.0 features aren't yet supported.
 
 - Exporting a container as read-only
 
-## NFS 3.0 clients not yet supported
+### NFS 3.0 clients not yet supported
 
 The following NFS 3.0 clients aren't yet supported.
 
