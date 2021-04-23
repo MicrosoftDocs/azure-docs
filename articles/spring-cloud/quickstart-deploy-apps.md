@@ -320,6 +320,7 @@ To get the PetClinic app functioning with all features like Admin Server, Visits
 * admin-server
 * vets-service
 * visits-service
+
 Then run the `deploy` command again.
 
 #### [IntelliJ](#tab/IntelliJ)
