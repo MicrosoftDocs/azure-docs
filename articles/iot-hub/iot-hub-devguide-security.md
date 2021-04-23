@@ -1,6 +1,6 @@
 ---
 title: Access control and security for IoT Hub | Microsoft Docs
-description: Developer guide - how to control access to IoT Hub for device apps and back-end apps. Includes information about security tokens and support for X.509 certificates.
+description: Overview on how to control access to IoT Hub, includes links to depth articles on AAD integration and SAS options.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc

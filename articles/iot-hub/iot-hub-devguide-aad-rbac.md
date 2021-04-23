@@ -1,6 +1,6 @@
 ---
 title: Control access to IoT Hub using Azure Active Directory | Microsoft Docs
-description: Developer guide - how to control access to IoT Hub for device apps and back-end apps. Includes information about security tokens and support for X.509 certificates.
+description: Developer guide - how to control access to IoT Hub for back-end apps using Azure AD and Azure RBAC.
 author: jlian
 manager: briz
 ms.author: jlian
@@ -15,7 +15,7 @@ ms.custom: ['Role: Cloud Development']
 
 Azure IoT Hub supports using Azure Active Directory (AAD) to authenticate requests to its service APIs like create device identity or invoke direct method. Also, IoT Hub supports authorization of the same service APIs with Azure role-based access control (Azure RBAC). Together, you can grant permissions to access IoT Hub's service APIs to an AAD security principal, which could be a user, group, or application service principal.
 
-Authenticating access with Azure AD and controlling permissions with Azure RBAC provides superior security and ease of use over [security tokens](iot-hub-devguide-token-based-access.md). To minimize potential security vulnerabilities inherent in security tokens, Microsoft recommends using Azure AD with your IoT hub whenever possible.
+Authenticating access with Azure AD and controlling permissions with Azure RBAC provides superior security and ease of use over [security tokens](iot-hub-devguide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, Microsoft recommends using Azure AD with your IoT hub whenever possible.
 
 > [!NOTE]
 > Authenticating with Azure AD isn't supported for IoT Hub's *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](iot-hub-devguide-sas.md#use-a-symmetric-key-in-the-identity-registry) or [X.509](iot-hub-x509ca-overview.md) to authenticate devices to IoT hub.
@@ -39,10 +39,10 @@ IoT Hub provides the following Azure built-in roles for authorizing access to Io
 
 | Role | Description | 
 | ---- | ----------- | 
-| [Azure IoT Hubs Data Contributor](../role-based-access-control/built-in-roles.md#azure-iot-hubs-data-contributor) | Allows for full access to Azure IoT Hubs data plane operations. |
-| [Azure IoT Hubs Data Reader](../role-based-access-control/built-in-roles.md#azure-iot-hubs-data-reader) | Allows for full read access to Azure Iot Hubs data plane properties. |
-| [Azure IoT Hubs Registry Contributor](../role-based-access-control/built-in-roles.md#azure-iot-hubs-registry-contributor) | Allows for full access to Azure IoT Hubs device registry. |
-| [Azure IoT Hubs Twin Contributor](../role-based-access-control/built-in-roles.md#azure-iot-hubs-twin-contributor) | Allows for read and write access to all Azure IoT Hubs device and module twins. |
+| [IoT Hub Data Contributor](../role-based-access-control/built-in-roles.md#iot-hub-data-contributor) | Allows for full access to IoT Hub data plane operations. |
+| [IoT Hub Data Reader](../role-based-access-control/built-in-roles.md#iot-hub-data-reader) | Allows for full read access to IoT Hub data plane properties. |
+| [IoT Hub Registry Contributor](../role-based-access-control/built-in-roles.md#iot-hub-registry-contributor) | Allows for full access to IoT Hub device registry. |
+| [IoT Hub Twin Contributor](../role-based-access-control/built-in-roles.md#iot-hub-twin-contributor) | Allows for read and write access to all IoT Hub device and module twins. |
 
 You can also define custom roles for use with IoT Hub by combining [permissions](#permissions-for-iot-hub-service-apis) that you need. For more information, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md).
 
