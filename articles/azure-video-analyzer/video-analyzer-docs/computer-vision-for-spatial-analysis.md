@@ -181,7 +181,7 @@ Follow these steps to generate the manifest from the template file and then depl
 1. After about 30-seconds, in the lower-left corner of the window, refresh **AZURE IOT HUB** pane. The edge device now shows the following deployed modules:
    
     * Azure Video Analyzer (module name **avaedge**).
-    * Real-Time Streaming Protocol (RTSP) simulator (module name rtspsim).
+    * Real-Time Streaming Protocol (RTSP) simulator (module name **rtspsim**).
     * Spatial Analysis (module name **spatialanalysis**).
     
 
@@ -218,7 +218,7 @@ To see these events, follow these steps:
     
 ## Run the program
 
-There is a program.cs which will invoke the direct methods in src/cloud-to-device-console-app/operations.json. We need to setup operations.json and provide a pipelineTopology for media graph use.  
+There is a program.cs which will invoke the direct methods in src/cloud-to-device-console-app/operations.json. We need to setup operations.json and provide a pipelineTopology for pipeline use.  
 
 In operations.json:
 
