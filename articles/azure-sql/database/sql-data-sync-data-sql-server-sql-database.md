@@ -196,7 +196,7 @@ Once the sync group is created and provisioned, you can then disable these setti
 
 ### How much does the SQL Data Sync service cost
 
-There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. For more information, see [data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### What regions support Data Sync
 
