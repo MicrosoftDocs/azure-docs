@@ -29,11 +29,15 @@ You can use a new or existing key vault to store customer-managed keys. The stor
 
 Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
+You'll also have to configure an access policy so that the storage account has access to the key in your key vault.
+
 ### [Azure portal](#tab/portal)
 
-To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md). When you create the key vault, enable purge protection and configure an access policy so that the storage account has access to the key in your key vault.
+To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md). 
 
 ### Enable purge protection for a new key vault
+
+When you create the key vault, enable purge protection.
 
 1. Select **Enable purge protection**, as shown in the following image.
 
@@ -41,11 +45,17 @@ To learn how to create a key vault with the Azure portal, see [Quickstart: Creat
 
 ### Enable purge protection on an existing key vault
 
+You can also enable purge protection on an existing key vault.
+
 1. Navigate to your key vault in the Azure portal.
+
 2. Under **Settings**, choose **Properties**.
+
 3. In the **Purge protection** section, choose **Enable purge protection**.
 
 ### Configure a key vault access policy
+
+Configure an access policy so that the storage account has access to the key in your key vault.
 
 For step-by-step guidance, see [Assign a Key Vault access policy using the Azure portal](../../key-vault/general/assign-access-policy-portal.md). 
 
@@ -57,7 +67,7 @@ For step-by-step guidance, see [Assign a Key Vault access policy using the Azure
    > [!div class="mx-imgBorder"]
    > ![Set access policy for key vault](./media/customer-managed-keys-configure-key-vault/configure-key-vault-access-policy.png)
 
-3. Select the **Select Principal** button and use the search feature to find the user-assigned managed identity that you want to use, or the system-wide managed identity of the storage account. 
+3. Select the **Select Principal** button, and then use the search feature to find a user-assigned managed identity, or the system-wide managed identity of the storage account. 
 
    > [!NOTE]
    > You can find the system-wide managed identity of the storage account by searching for the storage account name.
