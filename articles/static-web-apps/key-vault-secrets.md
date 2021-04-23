@@ -13,7 +13,7 @@ ms.author: cshoe
 
 When configuring custom ODIC providers, you may want to store connection secrets in Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault secrets.
 
-Security secrets requires the following items to be in place.
+Security secrets require the following items to be in place.
 
 - Create a system-assigned identity in the Static Web Apps instance.
 - Grant access a Key Vault secret access to the identity.
@@ -26,7 +26,7 @@ Security secrets requires the following items to be in place.
 
 ## Create identity
 
-1. Open your Static Web Apps site in the Azure Portal.
+1. Open your Static Web Apps site in the Azure portal.
 1. Under _Settings_ menu, select **Identity**.
 1. Select the **System Assigned** tab.
 1. Select the **On** button.
@@ -37,9 +37,7 @@ You can now define an access policy to allow your static web app to read Key Vau
 
 ## Define a Key Vault access policy
 
-Grant access to secrets from SWA managed identity.
-
-1. Open your Key Vault resource in the Azure Portal.
+1. Open your Key Vault resource in the Azure portal.
 1. Under the _Settings_ menu, select **Access policies**.
 1. Select **Secret permissions** drop down.
 1. Select **Get**.
@@ -60,13 +58,13 @@ The access policy is now saved to Key Vault. Next, access the secret's URI to us
 
 ## Add application setting
 
-1. Open your Static Web Apps site in the Azure Portal.
+1. Open your Static Web Apps site in the Azure portal.
 1. Under the _Settings_ menu, select **Configuration**.
 1. Select **New application setting**.
 1. Enter a name in the text box for the _Name_ field.
 1. Enter the secret value in text box for the _Value_ field.
 
-    The secreted value is a composite of a few different values. The following template depicts how the final string is built.
+    The secret value is a composite of a few different values. The following template depicts how the final string is built.
 
     ```text
     @Microsoft.KeyVault(SecretUri=<YOUR-KEY-VAULT-SECRET-URI>)
