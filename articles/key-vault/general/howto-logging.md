@@ -184,7 +184,7 @@ With Azure PowerShell, use [Get-AzStorageBlob](/powershell/module/az.storage/get
 Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
-From the output of either the Azure CLI command or the Azure PowerShell cmdlet, you can see that the name of the blobs are in the following format: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`. The date and time values use Coordinated Universal Time.
+From the output of either the Azure CLI command or the Azure PowerShell cmdlet, you can see that the names of the blobs are in the following format: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`. The date and time values use Coordinated Universal Time.
 
 Because you can use the same storage account to collect logs for multiple resources, the full resource ID in the blob name is useful to access or download just the blobs that you need.
 
