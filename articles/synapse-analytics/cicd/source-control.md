@@ -3,7 +3,7 @@ title: Source control in Synapse Studio
 description: Learn how to configure source control in Azure Synapse Studio
 author: liud
 ms.service: synapse-analytics
-ms.subservice: workspace
+ms.subservice: cicd
 ms.topic: conceptual 
 ms.date: 11/20/2020
 ms.author: liud 
