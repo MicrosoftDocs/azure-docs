@@ -132,10 +132,10 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az_aks_create
 [limit-egress-traffic]: ./limit-egress-traffic.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az_group_delete
 [private-clusters]: private-clusters.md

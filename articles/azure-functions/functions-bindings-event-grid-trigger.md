@@ -442,7 +442,7 @@ For more information about how to create subscriptions by using the Azure portal
 
 ### Azure CLI
 
-To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command.
+To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) command.
 
 The command requires the endpoint URL that invokes the function. The following example shows the version-specific URL pattern:
 
@@ -567,7 +567,7 @@ To test an Event Grid trigger locally, you have to get Event Grid HTTP requests 
 1. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
 1. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
 
-When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI command.
+When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update) Azure CLI command.
 
 ### Create a viewer web app
 

@@ -32,7 +32,7 @@ Setting the property “allowModelOverride” = true here will update the cloud 
         "packageUrl": "[parameters('packageSasUri')]",
         "configurationUrl": "[parameters('configurationSasUri')]",
         "upgradeMode": "[parameters('upgradeMode')]",
-        “**allowModelOverride**” : true,
+        “allowModelOverride” : true,
         "roleProfile": {
           "roles": [
             {

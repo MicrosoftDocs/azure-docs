@@ -2,7 +2,7 @@
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 04/19/2021
 ---
 
 # Message sessions
@@ -19,15 +19,6 @@ Any sender can create a session when submitting messages into a topic or queue b
 On session-aware queues or subscriptions, sessions come into existence when there's at least one message with the session ID. Once a session exists, there's no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the session ID matches, the session is the same from the Service Bus perspective.
 
 Typically, however, an application has a clear notion of where a set of related messages starts and ends. Service Bus doesn't set any specific rules. For example, your application could set the **Label** property for the first message to **start**, for intermediate messages to **content**, and for the last message to **end**. The relative position of the content messages can be computed as the current message *SequenceNumber* delta from the **start** message *SequenceNumber*.
-
-You enable the feature by setting the [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property on the queue or subscription via Azure Resource Manager, or by setting the flag in the portal. It's required before you attempt to use the related API operations.
-
-In the portal, you can enable sessions while creating an entity (queue or subscription) as shown in the following examples. 
-
-:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
-
-:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
-
 
 > [!IMPORTANT]
 > When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by accepting the session.
@@ -85,14 +76,19 @@ Multiple applications can send their requests to a single request queue, with a 
 > The application that sends the initial requests should know about the session ID and use it to accept the session so that the session on which it is expecting the response is locked. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or a timeout specified on the session receiver for the queue to ensure that responses are available to be locked and processed by specific receivers.
 
 ## Next steps
+You can enable message sessions while creating a queue using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](enable-message-sessions.md). 
 
+Try the samples in the language of your choice to explore Azure Service Bus features. 
+
+- [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Azure Service Bus client library for Java - Samples](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Azure Service Bus client library for Python - Samples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
-- [Azure Service Bus client library for JavaScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Azure Service Bus client library for TypeScript - Samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (Sessions and SessionState samples)  
 
-To learn more about Service Bus messaging, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+Find samples for the older .NET and Java client libraries below:
+- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [azure-servicebus samples for Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
 [1]: ./media/message-sessions/sessions.png
+

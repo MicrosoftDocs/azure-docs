@@ -267,6 +267,8 @@
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
+            - name: Event Grid Blob Trigger local development
+              href: functions-event-grid-blob-trigger.md
         - name: Create functions
           items:
             - name: HTTP trigger

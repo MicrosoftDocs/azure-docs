@@ -95,7 +95,7 @@ If takes a few minutes to update the capacity of your scale set. If you decrease
 
 
 ## Stop and start VMs in a scale set
-To stop one or more VMs in a scale set, use [az vmss stop](/cli/azure/vmss#az-vmss-stop). The `--instance-ids` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a space.
+To stop one or more VMs in a scale set, use [az vmss stop](/cli/azure/vmss#az_vmss_stop). The `--instance-ids` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a space.
 
 The following example stops instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your own values as follows:
 
