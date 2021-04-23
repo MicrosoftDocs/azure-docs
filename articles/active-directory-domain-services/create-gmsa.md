@@ -104,6 +104,6 @@ For more information about gMSAs, see [Getting started with group managed servic
 
 <!-- EXTERNAL LINKS -->
 [New-ADOrganizationalUnit]: /powershell/module/addsadministration/New-AdOrganizationalUnit
-[New-ADServiceAccount]: /powershell/module/addsadministration/New-AdServiceAccount
+[New-ADServiceAccount]: /powershell/module/activedirectory/new-adserviceaccount
 [gmsa-overview]: /windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview
 [gmsa-start]: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts
