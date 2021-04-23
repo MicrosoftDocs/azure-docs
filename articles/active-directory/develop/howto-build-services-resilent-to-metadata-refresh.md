@@ -27,7 +27,7 @@ Web apps and web APIs need to refresh stale OpenID Connect metadata for them to 
 
 Use latest version of [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually follow the guidelines below.
 
-Ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and that you're using the latest Microsoft.IdentityModel.* library. This property should be enabled by default.
+In the `ConfigureServices` method of the Startup.cs, ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and that you're using the latest Microsoft.IdentityModel.* library. This property should be enabled by default.
 
 ```csharp
   services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
