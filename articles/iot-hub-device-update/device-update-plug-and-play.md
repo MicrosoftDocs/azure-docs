@@ -38,20 +38,21 @@ information and status to Device Update services.
 Example JSON:
 
 
-{
-  azureDeviceUpdateAgent: {
-    "__t": "c", 
-    "client": {
-      "state": 0, 
-      "resultCode": 200, 
-      "extendedResultCode": 0, 
-      "deviceProperties": {
-       "manufacturer": "Contoso", 
-       "model": "Camera"
-      }
-    }
-  }
-}
+ "azureDeviceUpdateAgent": {
+                "__t": "c",
+                "client": {
+                    "state": 0,
+                    "resultCode": 200,
+                    "extendedResultCode": 0,
+                    "deviceProperties": {
+                        "manufacturer": "Contoso",
+                        "model": "Video",
+                        "aduVer": "DU;agent/0.6.0-public-preview+20210227-001549",
+                        "doVer": "DU;lib/v0.4.0+20210210.004034.22ccf38,DU;agent/v0.4.0+20210210.004429.22ccf38,DU;plugin-apt/v0.2.0+20210210.004058.22ccf38"
+                    },
+                    "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
+                },
+                }
 
 Note: 
 The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component.
