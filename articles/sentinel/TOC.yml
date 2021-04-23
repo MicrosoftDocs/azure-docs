@@ -66,7 +66,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/sentinel-security-baseline
 - name: How-to guides
   items:
   - name: Connect data sources
