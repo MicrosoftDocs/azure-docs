@@ -16,7 +16,7 @@ This article explains how to configure a disaster recovery environment for Azure
 
 Business continuity and disaster recovery in Azure Purview instance refers to the mechanisms, policies, and procedures that enable your business to protect data loss and continue operating in the face of disruption, particularly to its scanning, catalog, and insights tiers. This document explains how to configure a disaster recovery environment for Azure Purview.
 
-Today, Azure Purview does not support automated BCDR. Until Purview supports automated BCDR, it relies completely on customer-managed BCDR processes. This would mean that backup and restore activities will be your responsibility to take care until automated BCDR is in place. For backup and disaster recovery purposes, you can create secondary Purview accounts at the time of creation of their primary Purview account or later.
+Today, Azure Purview does not support automated BCDR. Until that support is added, you are responsible to take care of backup and restore activities. You can manually create a secondary Purview account as a warm standby instance in another region.
 
 The following steps show how you can achieve disaster recovery manually:
 
