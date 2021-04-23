@@ -112,9 +112,9 @@
   - name: Use widgets
     href: use-widgets.md #404
   - name: Monitoring and logging - Cloud
-    href: monitor-configure-logs.md #404
+    href: monitor-configure-logs-cloud.md #404
   - name: Monitoring and logging - Edge
-    href: monitor-logging.md #404
+    href: monitor-logging-edge.md #404
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference 
