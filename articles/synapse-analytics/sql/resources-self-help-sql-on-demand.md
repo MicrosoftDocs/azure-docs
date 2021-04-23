@@ -32,18 +32,26 @@ If your query fails with the error saying 'File cannot be opened because it does
 
 If you want to give permission only for a this or a subset of files, this is how it can be done: 
 
-* First of all, all users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). This needs to be set within the Azure Data Lake Gen2.  Learn more about this [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-explorer-acl)
+* First of all, all users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). Execute permission on the container level needs to be set within the Azure Data Lake Gen2.  Permissions on the folder can be set within Synapse. 
+Learn more about this [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-explorer-acl)
+
+If you would like to query data2.csv in this example, the following permissions are needed: 
+    * execute permission on container
+    * execute permission on folder1 
+    * read permission on data2.csv
+
+![permission structure on data lake](./media/resources-self-help-sql-on-demand/folder_structure_dataLake.png)
 
 * Log into Synapse with a admin user that has full permissions on the data you want to access.
 
 * In the data pane, right click on the file and select MANAGE ACCESS.
 
-![Recursive data for external tables](./media/resources-self-help-sql-on-demand/manage_access.png)
+![Manage Access UI](./media/resources-self-help-sql-on-demand/manage_access.png)
 
 * Choose at least “read” permission, type in the users UPN or Object ID, e.g. user@contoso.com and click Add
 
 * Grant read permission for this user.
-![Recursive data for external tables](./media/resources-self-help-sql-on-demand/grant_permission.png)
+![Grant read permissions UI](./media/resources-self-help-sql-on-demand/grant_permission.png)
 
 > [!NOTE]
 > For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Synapse. 
