@@ -51,7 +51,7 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 
 <sup>1</sup> In the scenario where there is pod failure, a new SQL Managed Instance will start up and re-attach to the persistent volume containing your data. [Learn more about Kubernetes persistent volumes here](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-<sup>2</sup> Future releases will provide AG capabilities 
+<sup>2</sup> Future releases will provide AG capabilities. 
 
 
 ###  <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
