@@ -69,7 +69,7 @@ For the bot on surface products, you can take the following steps to create a bo
     
       ![Screenshot of explicit metdata input](../media/qnamaker-tutorial-updates/explicit-metadata-input.png)
     
-    * Implicitly Identify domain based on bot context. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
+    * Implicitly Identify domain based on bot context. For instance, in case the previous question was on a particular Surface product, it can be saved as context client side. If the user doesn't specify the product in the next query, you could pass on the bot context as metadata to the Generate Answer API.
 
       ![Screenshot of extract metadata from context](../media/qnamaker-tutorial-updates/extract-metadata-from-context.png)
 
