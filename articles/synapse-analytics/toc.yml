@@ -681,7 +681,7 @@ items:
     - name: Synapse Link supported features
       href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
     - name: Synapse Link FAQ
-      href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link use cases
       href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   # - name: Tutorials

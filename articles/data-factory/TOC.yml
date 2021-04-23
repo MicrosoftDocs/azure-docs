@@ -617,7 +617,7 @@
     - name: Azure private link for Data Factory
       href: data-factory-private-link.md
     - name: Azure security baseline
-      href: sec/security/benchmark/azure/baselines/data-factory-security-baseline
+      href: /security/benchmark/azure/baselines/data-factory-security-baseline
   - name: Monitor and manage
     items:
     - name: Monitor visually
