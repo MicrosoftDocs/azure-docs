@@ -58,7 +58,7 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it on our UserVoice web site.
+Is your question about a missing feature or functionality? Consider requesting or voting for it using the [feedback tool](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749).
 
 ## See also
 
