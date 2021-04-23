@@ -134,9 +134,9 @@ The steps in this section walk-through creating a custom Docker image in your Az
     ```text
     FROM ubuntu:16.04
 
-    ARG CONDA_VERSION=4.7.12
+    ARG CONDA_VERSION=4.9.2
     ARG PYTHON_VERSION=3.7
-    ARG AZUREML_SDK_VERSION=1.13.0
+    ARG AZUREML_SDK_VERSION=1.27.0
     ARG INFERENCE_SCHEMA_VERSION=1.1.0
 
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
