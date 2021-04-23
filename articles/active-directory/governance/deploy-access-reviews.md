@@ -497,12 +497,6 @@ Access Reviews activities are recorded and available from the [Azure AD’s audi
 
 For more advanced queries and analysis of Access Reviews, and to track changes and completion of reviews, we recommend you export your Azure AD Audit Logs to [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) or Azure Event Hub. When stored in Azure Log Analytics, you can use the [powerful analytics language](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) – and build your own dashboards.
 
-## Get Access Reviews History (Preview)
-
-With Azure Active Directory (Azure AD) Access Reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.  
-
-To learn how to create a report, got to [Create and Manage Downloadable Access Review History Report (Preview)]((https://review.docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-downloadable-review-history?branch=pr-en-us-152190)
-
 ## Next steps
 
 Learn about the below related technologies.
