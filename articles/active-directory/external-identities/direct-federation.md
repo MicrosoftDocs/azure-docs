@@ -175,7 +175,7 @@ Next, you'll configure federation with the identity provider configured in step 
 
 ### To configure direct federation in Azure AD using PowerShell
 
-1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, see the guidance in the Quickstart, [Powershell Module](b2b-quickstart-invite-powershell.md#prerequisites).)
+1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the Quickstart includes the guidance, [Powershell Module](b2b-quickstart-invite-powershell.md#prerequisites).)
 2. Run the following command: 
    ```powershell
    Connect-AzureAD
