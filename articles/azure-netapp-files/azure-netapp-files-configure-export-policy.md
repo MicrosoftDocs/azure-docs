@@ -53,8 +53,5 @@ You can create up to five export policy rules.
 
 ## Next steps 
 * [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-<<<<<<< HEAD
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md) 
-=======
->>>>>>> 3b23428910893ed179ee0d917beecb64c6797c52
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)
