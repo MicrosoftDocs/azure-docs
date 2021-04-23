@@ -2,7 +2,7 @@
 title: Work Item Integration - Application Insights
 description: Learn how to create work items in GitHub or Azure DevOps with Application Insights data embedded in them.
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 04/22/2021
 
 ---
 
