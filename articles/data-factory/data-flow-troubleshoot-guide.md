@@ -310,7 +310,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-SQLDW-InvalidStorageType
 - **Message**: Storage type can either be blob or gen2.
 - **Cause**: An invalid storage type is provided for staging.
-- **Recommendations**: Check the storage type of the linked service used for staging and make sure that it is Blob or Gen2.
+- **Recommendation**: Check the storage type of the linked service used for staging and make sure that it is Blob or Gen2.
 
 ### Error code: DF-SQLDW-InvalidGen2StagingConfiguration
 - **Message**: ADLS Gen2 storage staging only support service principal key credential.
@@ -326,17 +326,17 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-DELTA-InvalidConfiguration
 - **Message**: Timestamp and version can't be set at the same time.
 - **Cause**: The timestamp and version can't be set at the same time.
-- **Recommendations**: Set the timestamp or version in the delta settings.
+- **Recommendation**: Set the timestamp or version in the delta settings.
 
 ### Error code: DF-DELTA-KeyColumnMissed
 - **Message**: Key column(s) should be specified for non-insertable operations.
 - **Cause**: Key column(s) are missed for non-insertable operations.
-- **Recommendations**: Specify key column(s) on delta sink to have non-insertable operations.
+- **Recommendation**: Specify key column(s) on delta sink to have non-insertable operations.
 
 ### Error code: DF-DELTA-InvalidTableOperationSettings
 - **Message**: Recreate and truncate options can't be both specified.
 - **Cause**: Recreate and truncate options can't be specified simultaneously.
-- **Recommendations**: Update delta settings to have either recreate or truncate operation.
+- **Recommendation**: Update delta settings to have either recreate or truncate operation.
 
 ### Error code: DF-Excel-WorksheetConfigMissed
 - **Message**: Excel sheet name or index is required.
