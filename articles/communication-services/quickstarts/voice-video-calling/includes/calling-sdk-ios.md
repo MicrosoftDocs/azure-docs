@@ -230,40 +230,38 @@ final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelega
 }
 ```
 
-==== BREAKPOINT ====
-
 ### Accept an incoming call
-To accept a call, call the `accept` method on a call object. Set a delegate to `CallAgent`.
+To accept a call, call the `accept` method on a `IncomingCall` object.
 
 ```swift
-final class CallHandler: NSObject, CallAgentDelegate
-{
-    public var incomingCall: Call?
- 
-    public func onCallsUpdated(_ callAgent: CallAgent!, args: CallsUpdatedEventArgs!) {
-        if let incomingCall = args.addedCalls?.first(where: { $0.isIncoming }) {
-            self.incomingCall = incomingCall
-        }
-    }
+self.incomingCall!.accept(options: AcceptCallOptions()) { (call, error) in
+   if (error == nil) {
+       print("Successfully accepted incoming call")
+       self.call = call
+   } else {
+       print("Failed to accept incoming call")
+   }
 }
 
-let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras!.first
-let localVideoStream = LocalVideoStream(camera: firstCamera)
+let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras.first
+localVideoStreams = [LocalVideoStream]()
+localVideoStreams!.append(LocalVideoStream(camera: firstCamera!))
 let acceptCallOptions = AcceptCallOptions()
-acceptCallOptions!.videoOptions = VideoOptions(localVideoStream:localVideoStream!)
-if let incomingCall = CallHandler().incomingCall {
-   incomingCall.accept(options: acceptCallOptions) { (call, error) in
-               if error == nil {
-                   print("Incoming call accepted")
-               } else {
-                   print("Failed to accept incoming call")
-               }
-           }
+acceptCallOptions.videoOptions = VideoOptions(localVideoStreams: localVideoStreams!)
+if let incomingCall = self.incomingCall {
+  incomingCall.accept(options: acceptCallOptions) { (call, error) in
+        if error == nil {
+            print("Incoming call accepted")
+        } else {
+            print("Failed to accept incoming call")
+        }
+    }
 } else {
-   print("No incoming call found to accept")
+  print("No incoming call found to accept")
 }
 ```
 
+=== BREAKPOINT ===
 ## Set up push notifications
 
 A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
