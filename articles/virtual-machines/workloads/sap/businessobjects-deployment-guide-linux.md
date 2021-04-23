@@ -599,9 +599,9 @@ As part of backup process, snapshot is taken and the data is transferred to the 
 
 Based on your SAP BOBI deployment on Linux, filestore of SAP BOBI platform can be Azure NetApp Files. Choose from the following options for backup and restore based on the storage you use for filestore.
 
-1. **Azure NetApp Files**, you can create an on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+- **Azure NetApp Files**, you can create an on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
-2. If you have created separate NFS server, make sure you implement the back and restore strategy for the same.
+- If you have created separate NFS server, make sure you implement the back and restore strategy for the same.
 
 #### Backup & restore for CMS and audit database
 
@@ -659,8 +659,8 @@ As this File share service isn't available in all region, make sure you refer to
 
 To distribute traffic across web server, you can either use Azure Load Balancer or Azure Application Gateway. The redundancy for either of the load balancer can be achieved based on the SKU you choose for deployment.
 
-1. For Azure Load Balancer, redundancy can be achieved by configuring Standard Load Balancer frontend as zone-redundant. For more information, see [Standard Load Balancer and Availability Zones](../../../load-balancer/load-balancer-standard-availability-zones.md)
-2. For Application Gateway, high availability can be achieved based on the type of tier selected during deployment.
+- For Azure Load Balancer, redundancy can be achieved by configuring Standard Load Balancer frontend as zone-redundant. For more information, see [Standard Load Balancer and Availability Zones](../../../load-balancer/load-balancer-standard-availability-zones.md)
+- For Application Gateway, high availability can be achieved based on the type of tier selected during deployment.
    -  v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. So with this SKU, redundancy can be achieved within the zone.
    -  v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency. For more details, refer [Autoscaling and Zone-redundant Application Gateway v2](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md)
 
@@ -680,8 +680,8 @@ In several Azure Regions, Availability Zones are offered which means it has inde
 
 The instruction in this section explains the strategy to provide disaster recovery protection for SAP BOBI Platform running on Linux. It complements the [Disaster Recovery for SAP](../../../site-recovery/site-recovery-sap.md) document, which represents the primary resources for overall SAP disaster recovery approach. For SAP BusinessObjects BI platform refer to SAP Note [2056228](https://launchpad.support.sap.com/#/notes/2056228), which describe below methods to implement DR environment safely.
 
-  1. Fully or selectively using Lifecycle Management (LCM) or federation to promote/distribute the content from primary system.
-  2. Periodically copying over the CMS and FRS contents.
+- Fully or selectively using Lifecycle Management (LCM) or federation to promote/distribute the content from primary system.
+- Periodically copying over the CMS and FRS contents.
 
 In this guide, we'll talk about second option to implement DR environment. It won't cover an exhaustive list of all possible configuration options for disaster recovery, but covers solution that feature native Azure services in combination with SAP BOBI Platform configuration.
 
