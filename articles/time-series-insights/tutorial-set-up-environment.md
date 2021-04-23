@@ -109,19 +109,18 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
    | **IoT Hub name** | Select the IoT hub name you created for the device simulator. |
    | **IoT Hub access policy** | Select **iothubowner**. |
    | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **+ Add**. The consumer group must be a unique value in Azure Time Series Insights Gen2. |
+   | **Start options** | Select **Beginning now**. |
    | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Azure Time Series Insights Gen2 defaults to. |
 
-1. Select **Review + Create**.
-
-   [![Configure the created IoT hub as an event source.](media/tutorial-set-up-environment/configure-event-source.png)](media/tutorial-set-up-environment/configure-event-source.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/configure-event-source.png" alt-text="Configure the created IoT hub as an event source" lightbox="media/tutorial-set-up-environment/configure-event-source.png":::
 
 1. Select **Review + Create**.
 
-    [![Review + Create page, with Create button.](media/tutorial-set-up-environment/environment-confirmation.png)](media/tutorial-set-up-environment/environment-confirmation.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/environment-confirmation.png" alt-text="Review + Create page, with Create button" lightbox="media/tutorial-set-up-environment/environment-confirmation.png":::
 
-    You can review the status of your deployment:
+   You can review the status of your deployment:
 
-    [![Notification that deployment is complete.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
+   [![Notification that deployment is complete.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
 
 1. Expand deployment details.
 
