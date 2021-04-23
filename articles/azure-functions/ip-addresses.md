@@ -11,7 +11,7 @@ ms.date: 12/03/2018
 This article explains the following concepts related to IP addresses of function apps:
 
 * Locating the IP addresses currently in use by a function app.
-* Conditions that cause function app IP addresses to changed.
+* Conditions that cause function app IP addresses to change.
 * Restricting the IP addresses that can access a function app.
 * Defining dedicated IP addresses for a function app.
 
@@ -46,7 +46,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> When a function app that runs on the [Consumption plan](consumption-plan.md) or the [Premium plan](functions-premium-plan.md) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you may need to add the entire data center to an allow list.
+> When a function app that runs on the [Consumption plan](consumption-plan.md) or the [Premium plan](functions-premium-plan.md) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you may need to add the entire data center to an allowlist.
 
 ## Data center outbound IP addresses
 
@@ -92,7 +92,7 @@ The relative stability of the outbound IP address depends on the hosting plan.
 
 ### Consumption and Premium plans
 
-Because of auto-scaling behaviors, the outbound IP can change at any time when running on a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md). 
+Because of autoscaling behaviors, the outbound IP can change at any time when running on a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md). 
 
 If you need to control the outbound IP address of your function app, such as when you need to add it to an allow list, consider implementing a [virtual network NAT gateway](#virtual-network-nat-gateway-for-outbound-static-ip) in your premium plan.
 
