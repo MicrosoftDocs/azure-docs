@@ -26,7 +26,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/data-lake-analytics-security-baseline
 - name: How-to guides
   items:
   - name: Manage Data Lake Analytics

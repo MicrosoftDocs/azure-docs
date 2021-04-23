@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/23/2021
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -302,7 +302,12 @@ To learn how to modify this template or create new ones, see:
 
 ## Delete a storage account
 
-Deleting a storage account deletes the entire account, including all data in the account, and cannot be undone.
+Deleting a storage account deletes the entire account, including all data in the account. Usually, this operation can't be undone. The recovery of a storage account is only possible under certain circumstances and is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
+
+> [!WARNING]
+> Be sure to back up anything you want to save before you delete the account. It's usually not possible to restore a deleted storage account or retrieve any of the resources that it contained before deletion.
+
+If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 # [Portal](#tab/azure-portal)
 
@@ -346,11 +351,6 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ---
 
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
-
-> [!WARNING]
-> It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
->
-> If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 ## Next steps
 
