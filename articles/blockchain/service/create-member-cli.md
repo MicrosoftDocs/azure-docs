@@ -42,7 +42,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
     When working with extension references for the Azure CLI, you must first install the extension.  Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.  To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-    Install the [extension for Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain) by running the following command:
+    Install the [extension for Azure Blockchain Service](/cli/azure/blockchain) by running the following command:
 
     ```azurecli-interactive
     az extension add --name blockchain
