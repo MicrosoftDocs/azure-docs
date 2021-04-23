@@ -145,7 +145,7 @@ az spring-cloud app logs -s <service instance name> -g <resource group name> -n 
 
 You will see logs like this:
 
-[ ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-streaming-cli.png) ](media/logs-metrics-tracing/logs-streaming-cli.png#lightbox)
+[ ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-streaming-cli.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-streaming-cli.png#lightbox)
 
 > [!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
@@ -154,11 +154,11 @@ You will see logs like this:
 
 1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud.
 
-   [ ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png#lightbox)
+   [ ![Logs Analytics portal entry](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png#lightbox)
 
 1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
 
-   [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png) ](media/logs-metrics-tracing/logs-query.png#lightbox)
+   [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png#lightbox)
 
 
 ## Metrics
@@ -185,6 +185,7 @@ You can see these custom metrics in the `Metrics` blade:
 
 You can use the Availability Test feature in Application Insights and monitor 
 the availability of applications:
+
 ![Availability test](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-availability.jpg)
 
 Navigate to the `Live Metrics` blade - you can see live metrics on screen with low latencies < 1 second:
@@ -238,15 +239,15 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud. 
 
-   [ ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
+   [ ![Logs Analytics entry IntelliJ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
 1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
 
-   [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
+   [ ![Logs Analytics query IntelliJ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
 1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
-## Metrics
+## Metrics IntelliJ
 
 1. Go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
 
