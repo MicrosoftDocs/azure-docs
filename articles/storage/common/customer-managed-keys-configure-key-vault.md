@@ -89,9 +89,7 @@ To learn how to enable purge protection on an existing key vault with PowerShell
 
 #### Configure a key vault access policy
 
-You'll need to configure an access policy so that the storage account has access to the key in your key vault.
-
-First, decide whether to use a system-assigned or a user-defined managed identity. To learn more, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md##managed-identity-types). Then, use the managed identity to grant the storage account permissions to access the key vault.  
+You can use a system-wide managed identity or a user-defined managed identity to grant the storage account permissions to access the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).   
 
 #### Option 1: Use a system-assigned managed identity
 
@@ -130,7 +128,7 @@ $userManagedIdentityObjectID = '<your object ID>'
 
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
-    -ObjectId $storageAccount.Identity.PrincipalId `
+    -ObjectId $userManagedIdentityObjectID `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
@@ -150,9 +148,7 @@ To learn how to enable purge protection on an existing key vault with Azure CLI,
 
 #### Configure a key vault access policy
 
-You'll need to configure an access policy so that the storage account has access to the key in your key vault.
-
-First, decide whether to use a system-assigned or a user-defined managed identity. To learn more, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md##managed-identity-types). Then, use the managed identity to grant the storage account permissions to access the key vault.  
+You can use a system-wide managed identity or a user-defined managed identity to grant the storage account permissions to access the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).  
 
 #### Use a system-assigned managed identity
 
@@ -200,7 +196,7 @@ To set the access policy for the key vault, call [az keyvault set-policy](/cli/a
 az keyvault set-policy \
     --name <key-vault> \
     --resource-group <resource_group>
-    --object-id <object id> \
+    --object-id <object-id> \
     --key-permissions get unwrapKey wrapKey
 ```
 
