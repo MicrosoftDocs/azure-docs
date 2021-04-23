@@ -34,10 +34,12 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 -   You have an Azure Active Directory (Azure AD) tenant with federated domains.
 
 -   You have decided to move to either of two options:
-    - **Option A** - *password hash synchronization (sync)* + *seamless single sign-on (SSO)*.  For more information, see [What is password hash sync](whatis-phs.md) and [What is seamless SSO](how-to-connect-sso.md)
-    - **Option B** - *pass-through authentication* + *seamless SSO*.  For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
+    - **Option A** - *password hash synchronization (sync)*.  For more information, see [What is password hash sync](whatis-phs.md) 
+    - **Option B** - *pass-through authentication*.  For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
     
-    Although *seamless SSO* is optional, we recommend enabling it to achieve a silent sign-in experience for users who are running domain-joined machines from inside a corporate network.
+    For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
+    For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
+    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) or personal registered devices via Add Work or School Account.
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
