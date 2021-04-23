@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/31/2021
 ---
 
-<!-- Used in faq.md and concepts-private-clouds-clusters.md -->
+<!-- Used in faq.md, concepts-upgrades.md, and concepts-private-clouds-clusters.md -->
 
 
 The VMware software versions used in new deployments of Azure VMware Solution  private clouds clusters are:
