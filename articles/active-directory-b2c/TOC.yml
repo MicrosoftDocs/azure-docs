@@ -350,6 +350,10 @@
       href: b2clogin.md
     - name: Configure a custom domain
       href: custom-domain.md
+    - name: Web Application Firewall partners
+      items:
+      - name: Cloudflare
+        href: partner-cloudflare.md
     - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
