@@ -15,7 +15,7 @@ This article describes how to ...
 
 :::image type="content" source="media/isv-image.png" alt-text="A view of the 'Add Generation' link.":::
 
-| | Abridged view of ISVs sales processes | Unabridged view of ISVs sales processes vs. Marketplace API's – live vs planned | Abridged view of sales processes on Marketplace UI |
+| | Overview of ISV sales processes | Overview of Marketplace APIs vs processes | Overview of Marketplace UI vs processes |
 | -- | -- | -- | -- |
 | **Product Marketing** | Create product messaging, positioning, promotion, pricing | Create product messaging, positioning, promotion, pricing<br>[Partner Ingestion API](https://apidocs.microsoft.com/services/partneringestion/)<br>[Azure Apps Onboarding API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-app-apis)<br>**Partner Ingestion API v.2**</ul> | Create product messaging, positioning, promotion, pricing<br>Partner Center ( **PC** ) -> Offer Creation |
 | **Demand Generation** | Product Promotion<br>Lead nurturing<br>Eval, trial & PoC | Product Promotion<br>Lead nurturing<br>Eval, trial & PoC<br>**Lead Sharing API & Lead Navigator UI**<br>[Lead CRM Connector for D365, SFDC and Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)<br>[Co-Sell Connector for SalesForce CRM](https://docs.microsoft.com/partner-center/connector-salesforce)<br>[Co-Sell Connector for Dynamics 365 CRM](https://docs.microsoft.com/partner-center/connector-dynamics) | Product Promotion<br>Lead nurturing<br>Eval, trial & PoC<br>**Azure Marketplace** and **AppSource**<br>**PC** Marketplace Insights<br>**PC** Co-Sell Opportunities |
