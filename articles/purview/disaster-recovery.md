@@ -12,7 +12,7 @@ ms.date: 04/23/2021
 
 This article explains how to configure a disaster recovery environment for Azure Purview. Azure data center outages are rare, but can last anywhere from a few minutes to hours. Data Center outages can cause disruption to environments that are being relied on for data governance. By following the steps detailed in this article, you can continue to govern your data in the event of a data center outage for the primary region of your purview account.
 
-## Achieving business continuity for Azure Purview
+## Achieve business continuity for Azure Purview
 
 Business continuity and disaster recovery (BCDR) in Azure Purview instance refers to the mechanisms, policies, and procedures that enable your business to protect data loss and continue operating in the face of disruption, particularly to its scanning, catalog, and insights tiers. This page explains how to configure a disaster recovery environment for Azure Purview.
 
