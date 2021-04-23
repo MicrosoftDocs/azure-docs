@@ -146,7 +146,7 @@ Create service account only after relevant information is documented in your CMD
 
 * [Account Expiry](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
-   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the "Account Expires" flag. For more details, refer to[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
+   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the "Account Expires" flag. For more details, refer to[ Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration). 
 
 * Log On To ([LogonWorkstation](/powershell/module/activedirectory/set-aduser))
 
