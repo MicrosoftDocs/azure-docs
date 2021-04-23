@@ -23,7 +23,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 ## April-2021
 
-## AzAcSnap v5.0 (Build: 20210421.6349) - GA Released (21-April-2021)
+### AzAcSnap v5.0 (Build: 20210421.6349) - GA Released (21-April-2021)
 
 AzAcSnap v5.0 (Build: 20210421.6349) has been made Generally Available and for this build had the following fixes and improvements:
 
