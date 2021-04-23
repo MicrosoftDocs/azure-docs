@@ -8,14 +8,14 @@ ms.date: 04/21/2021
 ms.author: gopalv
 ---
 
-The entry script receives data submitted to a deployed web service and passes it to the model. It then takes the response returned by the model and returns that to the client. *The script is specific to your model*. It must understand the data that the model expects and returns.
+The entry script receives data submitted to a deployed web service and passes it to the model. It then returns the model's response to the client. *The script is specific to your model*. The entry script must understand the data that the model expects and returns.
 
 The two things you need to accomplish in your entry script are:
 
 1. Loading your model (using a function called `init()`)
 1. Running your model on input data (using a function called `run()`)
 
-For your initial deployment, we will use a dummy entry script that prints the data it receives.
+For your initial deployment, use a dummy entry script that prints the data it receives.
 
 ```python
 import json
@@ -37,7 +37,7 @@ So, for example, if a user calls your model with:
 curl -X POST -d '{"this":"is a test"}' -H "Content-Type: application/json" http://localhost:6789/score
 ```
 
-they will see the following value returned:
+The following value is returned:
 
 ```bash
 "test is {'this': 'is a test'}"
