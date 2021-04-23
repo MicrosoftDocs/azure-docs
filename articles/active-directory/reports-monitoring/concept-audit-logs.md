@@ -5,7 +5,7 @@ description: Introduction to the audit activity reports in the Azure Active Dire
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/17/2020
+ms.date: 04/22/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -219,3 +219,4 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 - [Azure AD audit activity reference](reference-audit-activities.md)
 - [Azure AD reports retention reference](reference-reports-data-retention.md)
 - [Azure AD log latencies reference](reference-reports-latencies.md)
+- [Unknown actors in audit report](https://docs.microsoft.com/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)

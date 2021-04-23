@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/09/2020
+ms.date: 04/21/2021
 ---
 
 # Data encryption with Azure Machine Learning
@@ -32,7 +32,7 @@ The `hbi_workspace` flag controls the amount of [data Microsoft collects for dia
 * Cleans up your local scratch disk between runs
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
-* Please note compute instances are not supported in HBI workspace
+* Compute instances are supported in HBI workspace
 
 ### Azure Blob storage
 

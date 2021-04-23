@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 
 ## See also
 
-- [How to encode with a custom transform by using CLI](../latest/encode-custom-preset-cli-how-to.md)
+- [How to encode with a custom transform by using CLI](../latest/transform-custom-preset-cli-how-to.md)
 - [Encoding with Media Services v3](../latest/encode-concept.md)
 
 ## Media Services learning paths

@@ -3,12 +3,15 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
 ---
+
 # Update Management overview
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
+
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse allows you to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks like Update Management more efficient across those tenants you're responsible for.
 
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
@@ -18,7 +21,7 @@ You can use Update Management in Azure Automation to manage operating system upd
 
 To download and install available *Critical* and *Security* patches automatically on your Azure VM, review [Automatic VM guest patching](../../virtual-machines/automatic-vm-guest-patching.md) for Windows VMs.
 
-Before deploying Update Management and enabling your machines for management, make sure that you understand the information in the following sections.  
+Before deploying Update Management and enabling your machines for management, make sure that you understand the information in the following sections.
 
 ## About Update Management
 
@@ -34,7 +37,7 @@ The following diagram illustrates how Update Management assesses and applies sec
 
 ![Update Management workflow](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant.
+Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
 
@@ -125,7 +128,7 @@ VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are a
 
 ## Permissions
 
-To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](../automation-role-based-access-control.md#update-management-permissions).
+To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
 ## Update Management components
 

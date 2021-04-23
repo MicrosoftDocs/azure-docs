@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 04/19/2021
 ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
@@ -20,7 +20,7 @@ able to pair as the Aligned Sentences in each of the data sets.
 
 ## Pairing and alignment process
 
-Custom Translator learns translations of sentences one sentence at a time. It reads a sentence from the source text , and then the translation of this sentence from the target text. Then it aligns words and phrases in these two sentences to each other. This process enables it to create a map of the words and phrases in one sentence to the equivalent words and phrases in the translation of his sentence. Alignment tries to ensure that the system trains on sentences that are translations of each other.
+Custom Translator learns translations of sentences one sentence at a time. It reads a sentence from the source text, and then the translation of this sentence from the target text. Then it aligns words and phrases in these two sentences to each other. This process enables it to create a map of the words and phrases in one sentence to the equivalent words and phrases in the translation of the sentence. Alignment tries to ensure that the system trains on sentences that are translations of each other.
 
 ## Pre-aligned documents
 
@@ -36,19 +36,21 @@ alignments.
 
 ## Suggested minimum number of sentences
 
-For a training to succeed, the table below shows the minimum number of sentences required in each document type. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. The general guideline is having more in-domain parallel sentences of human translation quality should produce higher quality models.
+For a training to succeed, the table below shows the minimum number of sentences required in each document type. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. The general guideline is having more in-domain parallel sentences of human translation quality should produce higher-quality models.
 
 | Document type   | Suggested minimum sentence count | Maximum sentence count |
 |------------|--------------------------------------------|--------------------------------|
 | Training   | 10,000                                     | No upper limit                 |
 | Tuning     | 500                                      | 2,500       |
 | Testing    | 500                                      | 2,500  |
-| Dictionary | 0                                          | No upper limit                 |
+| Dictionary | 0                                          | 250,000                 |
 
 > [!NOTE]
-> - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met. 
-> - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing. 
+>
+> - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met.
+> - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing.
 > - You can train a model using only dictionary data. Please refer to [What is Dictionary](./what-is-dictionary.md).
+> - If your dictionary contains more than 250,000 sentences, **[Document Translator](https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview)** is likely a better choice.
 
 ## Next steps
 

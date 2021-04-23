@@ -100,13 +100,13 @@ The output [Asset](/rest/api/media/assets) stores the result of your encoding jo
 
 ### Create a Transform and a Job that encodes the uploaded file
 
-When encoding or processing content in Media Services, it's a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you're applying that recipe to all the videos in your library. A recipe in Media Services is called a **Transform**. For more information, see [Transforms and Jobs](./transforms-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices.
+When encoding or processing content in Media Services, it's a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you're applying that recipe to all the videos in your library. A recipe in Media Services is called a **Transform**. For more information, see [Transforms and Jobs](./transform-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices.
 
 #### Transform
 
 When creating a new [Transform](/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code below. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](encode-autogen-bitrate-ladder.md).
 
-You can use a built-in EncoderNamedPreset or use custom presets. For more information, see [How to customize encoder presets](encode-custom-presets-how-to.md).
+You can use a built-in EncoderNamedPreset or use custom presets. For more information, see [How to customize encoder presets](transform-custom-presets-how-to.md).
 
 When creating a [Transform](/rest/api/media/transforms), you should first check if one already exists using the **Get** method, as shown in the code that follows. In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 

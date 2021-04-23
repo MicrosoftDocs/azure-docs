@@ -4,7 +4,8 @@ description: This article tells how to trigger a runbook to run when an Azure al
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use an alert to trigger an Azure Automation runbook

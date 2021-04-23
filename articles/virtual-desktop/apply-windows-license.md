@@ -1,10 +1,10 @@
 ---
 title: Apply Windows license to session host virtual machines - Azure
 description: Describes how to apply the Windows license for Windows Virtual Desktop VMs.
-author: ChristianMontoya
+author: Heidilohr
 ms.topic: how-to
 ms.date: 08/14/2019
-ms.author: chrimo
+ms.author: helohr
 ---
 # Apply Windows license to session host virtual machines
 
@@ -55,3 +55,7 @@ Run the following cmdlet to see a list of all session host VMs that have the Win
 $vms = Get-AzVM
 $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object ResourceGroupName, Name, LicenseType
 ```
+
+## Requirements for deploying Windows Server Remote Desktop Services
+
+If you deploy Windows Server 2019, 2016, or 2012 R2 as Windows Virtual Desktop hosts in your deployment, a Remote Desktop Services license server must be accessible from those virtual machines. The Remote Desktop Services license server can be located on-premises or in Azure. For more information, see [Activate the Remote Desktop Services license server](/windows-server/remote/remote-desktop-services/rds-activate-license-server).
