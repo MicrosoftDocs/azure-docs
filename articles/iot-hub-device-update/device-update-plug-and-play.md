@@ -35,9 +35,8 @@ information and status to Device Update services.
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be null for a device that has never taken an update through Device Update.|Null|
 |`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
 
-Example JSON:
-
-
+Sample json in IoT Hub Device Twin
+```json
  "azureDeviceUpdateAgent": {
                 "__t": "c",
                 "client": {
@@ -49,10 +48,11 @@ Example JSON:
                         "model": "Video",
                         "aduVer": "DU;agent/0.6.0-public-preview+20210227-001549",
                         "doVer": "DU;lib/v0.4.0+20210210.004034.22ccf38,DU;agent/v0.4.0+20210210.004429.22ccf38,DU;plugin-apt/v0.2.0+20210210.004058.22ccf38"
-                    },
+                                        },
                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
-                },
-                }
+                          },
+                            }
+```
 
 Note: 
 The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component.
