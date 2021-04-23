@@ -63,7 +63,7 @@
     - name: FQDN in network rules
       href: fqdn-filtering-network-rules.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/firewall-security-baseline
     - name: Active FTP support
       href: active-ftp-support.md
 - name: How-to guides

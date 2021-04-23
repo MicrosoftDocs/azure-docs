@@ -109,8 +109,8 @@ items:
       href: ./cicd/continuous-integration-deployment.md
     - name: Security
       items:
-      # - name: Security baseline
-      #   href: security-baseline.md
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/synapse-analytics-security-baseline
       - name: Security Controls by Azure Policy
         href: ./security-controls-policy.md
       - name: Encryption
