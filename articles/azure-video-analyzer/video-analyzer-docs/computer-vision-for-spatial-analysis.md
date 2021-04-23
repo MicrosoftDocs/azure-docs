@@ -659,12 +659,14 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 </details>
 
 ## Video Player
+
 You can use a video player to view the generated video including the inferences (bounding boxes) as shown below:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Spatial Analysis: connection string":::
+> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Bounding boxes":::
 
 ## Troubleshooting
+
 The spatialanalysis is a large container and its startup time can take up to 60 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events.
 
 ``` JSON
