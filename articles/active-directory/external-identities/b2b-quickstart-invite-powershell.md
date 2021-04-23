@@ -28,7 +28,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 ### PowerShell Module
-Install the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
+Install the [Azure AD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [Azure AD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ### Get a test email account
 
