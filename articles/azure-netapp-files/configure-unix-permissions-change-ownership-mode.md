@@ -1,6 +1,6 @@
 ---
 title: Configure Unix permissions and change ownership mode for Azure NetApp Files NFS and dual-protocol volumes | Microsoft Docs
-description: Describes how to set the Unix permissions and the change ownership mode (Chown Mode) options for Azure NetApp Files NFS and dual-protocol volumes. 
+description: Describes how to set the Unix permissions and the change ownership mode (`Chown Mode`) options for Azure NetApp Files NFS and dual-protocol volumes. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes
 
-For Azure NetApp Files NFS volumes or dual-protocol volumes with the `Unix` security style, you have the option to set the **Unix permissions** and the **change ownership mode** (**Chown Mode**) options. You can specify these settings during volume creation or after volume creation. 
+For Azure NetApp Files NFS volumes or dual-protocol volumes with the `Unix` security style, you have the option to set the **Unix permissions** and the **change ownership mode** (**`Chown Mode`**) options. You can specify these settings during volume creation or after volume creation. 
 
 ## Unix permissions   
 
@@ -30,7 +30,7 @@ The Unix permissions setting is set to `0770` by default. This default setting g
 
 ## Change ownership mode   
 
-The change ownership mode (**Chown Mode**) functionality enables you to set the ownership management capabilities of files and directories.  You can specify or modify the setting under a volume's export policy. Two options for **Chown Mode** are available:   
+The change ownership mode (**`Chown Mode`**) functionality enables you to set the ownership management capabilities of files and directories.  You can specify or modify the setting under a volume's export policy. Two options for **`Chown Mode`** are available:   
 
 * `Restricted` (default) - Only the root user can change the ownership of files and directories.
 * `Unrestricted` - Non-root users can change the ownership for files and directories that they own.
@@ -68,7 +68,7 @@ The change ownership mode (**Chown Mode**) functionality enables you to set the 
         
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-2. You can specify the **Unix permissions** and change ownership mode (**Chown Mode**) settings under the **Protocol** tab when you [create an NFS volume](azure-netapp-files-create-volumes.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). 
+2. You can specify the **Unix permissions** and change ownership mode (**`Chown Mode`**) settings under the **Protocol** tab when you [create an NFS volume](azure-netapp-files-create-volumes.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). 
 
     The following example shows the Create a Volume screen for an NFS volume. 
 
@@ -79,7 +79,7 @@ The change ownership mode (**Chown Mode**) functionality enables you to set the 
     1. To modify Unix permissions, right-click the **volume**, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.  
         ![Screenshots that shows the Edit screen for Unix permissions.](../media/azure-netapp-files/unix-permissions-edit.png)
 
-    2. To modify the change ownership mode, click the **volume**, click **Export policy**, then modify the **Chown Mode** setting.  
+    2. To modify the change ownership mode, click the **volume**, click **Export policy**, then modify the **`Chown Mode`** setting.  
         ![Screenshots that shows the Export Policy screen.](../media/azure-netapp-files/chown-mode-edit.png)
 
 ## Next steps  

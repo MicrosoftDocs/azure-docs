@@ -21,6 +21,19 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## May 2021
+
+* [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
+
+    You can now set the Unix permissions and the change ownership mode (`Chown Mode`) options on Azure NetApp Files NFS volumes or dual-protocol volumes with the Unix security style. You can specify these settings during volume creation or after volume creation.   
+
+    The change ownership mode (`Chown Mode`) functionality enables you to set the ownership management capabilities of files and directories. You can specify or modify the setting under a volume's export policy. Two options for `Chown Mode` are available: *Restricted* (default),  where only the root user can change the ownership of files and directories, and *Unrestricted*, where non-root users can change the ownership for files and directories that they own.   
+
+    The Azure NetApp Files Unix Permissions functionality enables you to specify change permissions for the mount path. 
+
+    These new features provide options to move access control of certain files or directories into the hands of the data user instead of the service operator.   
+
+
 ## April 2021
 
 * [SMB Continuous Availability (CA) shares support for FSLogix user profile containers](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview)  
