@@ -43,7 +43,7 @@ In the `ConfigureServices` method of the Startup.cs, ensure that `JwtBearerOptio
 
 Microsoft recommends that you move to ASP.NET Core, as development has stopped on ASP.NET. 
 
-If you're using ASP.NET classic, use the latest [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and manually follow the guidelines below.
+If you're using ASP.NET classic, use the latest [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel).
 
 OWIN has an automatic 24-hour refresh interval for the `OpenIdConnectConfiguration`. This refresh will only be triggered if a request is received after the 24-hour time span has passed. As far as we know, there's no way to change this value or trigger a refresh early, aside from restarting the application.
 
