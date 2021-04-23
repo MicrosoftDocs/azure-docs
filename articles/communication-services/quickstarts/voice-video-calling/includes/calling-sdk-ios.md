@@ -149,7 +149,6 @@ self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { 
 }
 
 ```
-======= BREAKPOINT ========
 
 ### Place a 1:n call with users and PSTN
 To place the call to PSTN, you have to specify a phone number acquired with Communication Services.
@@ -157,8 +156,15 @@ To place the call to PSTN, you have to specify a phone number acquired with Comm
 ```swift
 
 let pstnCallee = PhoneNumberIdentifier(phoneNumber: '+1999999999')
-let callee = CommunicationUserIdentifier(identifier: 'UserId')
-let groupCall = self.callAgent.call(participants: [pstnCallee, callee], options: StartCallOptions())
+let callee = CommunicationUserIdentifier('UserId')
+self.callAgent?.startCall(participants: [pstnCallee, callee], options: StartCallOptions()) { (groupCall, error) in
+     if error == nil {
+         print("Successfully started outgoing call to multiple participants")
+         self.call = groupCall
+     } else {
+         print("Failed to start outgoing call to multiple participants")
+     }
+}
 
 ```
 
@@ -167,15 +173,23 @@ To get a device manager instance, see the section about [managing devices](#mana
 
 ```swift
 
-let camera = self.deviceManager!.cameras!.first
-let localVideoStream = LocalVideoStream(camera: camera)
-let videoOptions = VideoOptions(localVideoStream: localVideoStream)
+let firstCamera = self.deviceManager!.cameras.first
+self.localVideoStreams = [LocalVideoStream]()
+self.localVideoStreams!.append(LocalVideoStream(camera: firstCamera!))
+let videoOptions = VideoOptions(localVideoStreams: self.localVideoStreams!)
 
 let startCallOptions = StartCallOptions()
-startCallOptions?.videoOptions = videoOptions
+startCallOptions.videoOptions = videoOptions
 
-let callee = CommunicationUserIdentifier(identifier: 'UserId')
-let call = self.callAgent?.call(participants: [callee], options: startCallOptions)
+let callee = CommunicationUserIdentifier('UserId')
+self.callAgent?.startCall(participants: [callee], options: startCallOptions) { (call, error) in
+     if error == nil {
+         print("Successfully started outgoing video call")
+         self.call = call
+     } else {
+         print("Failed to start outgoing video call")
+     }
+}
 
 ```
 
@@ -184,8 +198,15 @@ To join a call, you need to call one of the APIs on `CallAgent`.
 
 ```swift
 
-let groupCallLocator = GroupCallLocator(groupId: UUID(uuidString: "uuid_string"))!
-let call = self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCallOptions())
+let groupCallLocator = GroupCallLocator(groupId: UUID(uuidString: "uuid_string")!)
+self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCallOptions()) { (call, error) in
+     if error == nil {
+         print("Successfully joined group call")
+         self.call = call
+     } else {
+         print("Failed to join group call")
+     }
+}
 
 ```
 
@@ -196,18 +217,20 @@ Subscribe to an incoming call event.
 final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelegate
 {
     // Event raised when there is an incoming call
-    public func onIncomingCall(_ callAgent: CallAgent!, incomingcall: IncomingCall!) {
+    public func callAgent(_ callAgent: CallAgent, didRecieveIncomingCall incomingcall: IncomingCall) {
         self.incomingCall = incomingcall
         // Subscribe to get OnCallEnded event
         self.incomingCall?.delegate = self
     }
 
     // Event raised when incoming call was not answered
-    public func onCallEnded(_ incomingCall: IncomingCall!, args: PropertyChangedEventArgs!) {
+    public func incomingCall(_ incomingCall: IncomingCall, didEnd args: PropertyChangedEventArgs) {
         self.incomingCall = nil
     }
 }
 ```
+
+==== BREAKPOINT ====
 
 ### Accept an incoming call
 To accept a call, call the `accept` method on a call object. Set a delegate to `CallAgent`.
