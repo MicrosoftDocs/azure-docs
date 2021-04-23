@@ -95,4 +95,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Set offer availability](d365-operations-availability.md)
+- [Set offer availability](dynamics-365-operations-availability.md)

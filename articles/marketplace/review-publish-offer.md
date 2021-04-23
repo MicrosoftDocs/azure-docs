@@ -52,7 +52,7 @@ After all pages are complete and you have entered applicable testing notes,  sel
 
 For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
 
-For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations functional validation](d365-operations-validation.md).
+For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations functional validation](dynamics-365-operations-validation.md).
 
 ## Automated validation phase
 

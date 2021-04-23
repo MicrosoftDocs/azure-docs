@@ -30,8 +30,8 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](what-is-test-drive.md).
 
-To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](d365-operations-offer-setup.md#test-drive) tab. To remove test drive from your offer, clear this check box.</strike>
+To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](dynamics-365-operations-offer-setup.md#test-drive) tab. To remove test drive from your offer, clear this check box.</strike>
 
 ## Next steps
 
-- [Configure supplemental content](d365-operations-supplemental-content.md)
+- [Configure supplemental content](dynamics-365-operations-supplemental-content.md)

@@ -39,4 +39,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure offer listing](d365-operations-offer-listing.md)
+- [Configure offer listing](dynamics-365-operations-offer-listing.md)
