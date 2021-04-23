@@ -8,7 +8,7 @@ ms.date: 12/08/2020
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
 
-1. If you don't already have an ExpressRoute authorization key, you'll need to request one.
+1. Request an ExpressRoute authorization key:
 
    [!INCLUDE [request-authorization-key](request-authorization-key.md)]
 
