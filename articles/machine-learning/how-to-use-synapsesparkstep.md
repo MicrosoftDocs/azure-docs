@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
-ms.topic: conceptual
-ms.custom: how-to, synapse-azureml
+ms.topic: how-to
+ms.custom: synapse-azureml
 
 # Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 

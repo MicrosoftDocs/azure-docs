@@ -35,6 +35,8 @@
     href: tutorial-multi-availability-sets-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Add a load balancer to an existing virtual machine scale set
+    href: tutorial-add-lb-existing-scale-set-portal.md
   - name: Cross-region load balancer
     items:
     - name: Create cross-region load balancer - Portal
