@@ -43,6 +43,8 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 
 ### Use an existing virtual network gateway
 
+[!INCLUDE [request-authorization-key](request-authorization-key.md)]
+
 [!INCLUDE [connect-expressroute-vnet](includes/connect-expressroute-vnet.md)]
 
 ## Step 4. Validate the connection

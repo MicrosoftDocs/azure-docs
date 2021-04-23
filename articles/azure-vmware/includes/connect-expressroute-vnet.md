@@ -7,8 +7,6 @@ ms.date: 12/08/2020
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
-[!INCLUDE [request-authorization-key](request-authorization-key.md)]
-
 1. Navigate to the virtual network gateway you plan to use and select **Connections** > **+ Add**.
 
 1. On the **Add connection** page, provide values for the fields, and select **OK**. 
