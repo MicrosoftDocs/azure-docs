@@ -33,4 +33,4 @@ ms.author: tomfitz
 
 You can exceed some template limits by using a nested template. For more information, see [Use linked templates when you deploy Azure resources](../articles/azure-resource-manager/templates/linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
-You may get an error with a template or parameter file of less than 4 MB, if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](../templates/error-job-size-exceeded.md).
+You may get an error with a template or parameter file of less than 4 MB, if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](../articles/azure-resource-manager/templates/error-job-size-exceeded.md).
