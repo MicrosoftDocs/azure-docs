@@ -1,7 +1,7 @@
 ---
 title: Creating and using resource files 
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
-ms.date: 04/23/2021
+ms.date: 04/26/2021
 ms.topic: how-to
 ---
 
@@ -57,7 +57,7 @@ ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 If desired, you can use the [blobPrefix](/dotnet/api/microsoft.azure.batch.resourcefile.blobprefix) property to limit downloads to only those blobs whose name begins with a specified prefix:
 
 ```csharp
-ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl, blobPrefix = yourprefix);
+ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl, blobPrefix = yourPrefix);
 ```
 
 An alternative to generating a SAS URL is to enable anonymous, public read-access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public read-access is typically used for scenarios where you want certain blobs to be always available for anonymous read-access. If this scenario suits your solution, see the [Anonymous access to blobs](../storage/blobs/anonymous-read-access-configure.md) article to learn more about managing access to your blob data.
@@ -77,7 +77,7 @@ ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 As with a storage container URL, you can use the [blobPrefix](/dotnet/api/microsoft.azure.batch.resourcefile.blobprefix) property to specify which blobs will be downloaded:
 
 ```csharp
-ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName, blobPrefix = yourprefix);
+ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName, blobPrefix = yourPrefix);
 ```
 
 ### Single resource file from web endpoint
