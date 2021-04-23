@@ -293,7 +293,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
                     <appName>customers-service</appName>
     
     ```
-    You may have to correct `appName` text to the following:
+    You may have to correct `appName` texts to the following:
     * api-gateway
     * customers-service
 
