@@ -47,20 +47,21 @@ One architecture uses the common Hub and Spoke virtual network topology, with on
 ##### 1. Create Private DNS Zone and link to DNS Server Virtual Network
 
 The first step in ensuring a Custom DNS solution works with your Azure Machine Learning workspace is to create two Private DNS Zones rooted at the following domains:
-	Azure Public Cloud:
-        privatelink.api.azureml.ms
-        privatelink.notebooks.azure.net
-	Azure China Cloud:
-        privatelink.api.ml.azure.cn
-        privatelink.notebooks.chinacloudapi.cn
-	Azure US Government:
-        privatelink.api.ml.azure.us
-        privatelink.notebooks.usgovcloudapi.net
+###### Azure Public Cloud:
+- ``` privatelink.api.azureml.ms```
+- ``` privatelink.notebooks.azure.net```
+###### Azure China Cloud:
+- ```privatelink.api.ml.azure.cn```
+- ```privatelink.notebooks.chinacloudapi.cn```
+###### Azure US Government:
+- ```privatelink.api.ml.azure.us```
+- ```privatelink.notebooks.usgovcloudapi.net```
 
-Following creation of the Private DNS Zone, it needs to be linked to the DNS Server Virtual Network – the Virtual Network that contains the DNS Server.  
+Following creation of the Private DNS Zone, it needs to be linked to the DNS Server Virtual Network – the Virtual Network that contains the DNS Server.
+
 A Private DNS Zone overrides domain name resolution for all domain names in the scope of the root of the zone, for all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at privatelink.api.azureml.ms is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve bar.workspace.westus2.privatelink.api.azureml.ms will receive any record that is listed in the privatelink.api.azureml.ms zone.
-However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. So while the custom DNS Server will resolve domains for devices spread throughout your network topology, the custom DNS Server will need to resolve Azure Machine Learning-related domains against the Azure DNS Virtual Server IP address.
 
+However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. So while the custom DNS Server will resolve domains for devices spread throughout your network topology, the custom DNS Server will need to resolve Azure Machine Learning-related domains against the Azure DNS Virtual Server IP address.
 
 ## Manual custom DNS server integration
 
