@@ -10,9 +10,7 @@ ms.date: 04/26/2021
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
 ## April 26, 2021
-All new Azure VMware Solution private clouds are now deployed with VMware vCenter version 6.7U3l and NSX-T version 2.5.2. 
-
-We are not using NSX-T 3.1.1 for new private clouds because of an identified issue in NSX-T 3.1.1 that impacts customer VM connectivity. 
+All new Azure VMware Solution private clouds are now deployed with VMware vCenter version 6.7U3l and NSX-T version 2.5.2. We're not using NSX-T 3.1.1 for new private clouds because of an identified issue in NSX-T 3.1.1 that impacts customer VM connectivity. 
 
 The VMware recommended mitigation was applied to all existing private clouds currently running NSX-T 3.1.1 on Azure VMware Solution. The workaround has been confirmed that there's no impact to customer VM connectivity.
 
