@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: curtand
 ---
 
@@ -32,13 +32,14 @@ You can view all of your recent work or school account sign-in activity, from th
 
 1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
-2. Select **My Sign-ins** from the left navigation pane or select the **Review recent activity** link from the **My sign-ins** block.
+1. Select **My Sign-ins** from the left navigation pane or select the **Review recent activity** link from the **My sign-ins** block.
 
     ![My Account page, showing highlighted Recent activity links](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
+1. Expand and review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
 
     ![Recent activity page with expanded sign-in details](media/my-account-portal-sign-ins-page/recent-activity.png)
+
 
 ### If you see a successful sign-in
 
@@ -70,9 +71,51 @@ Sign-ins that are flagged as unusual activity can be confirmed in the tile for t
 
 ![Unusual sign-in tile for confirms that you did or did not attempt the sign-in](media/my-account-portal-sign-ins-page/this-wasnt-me.png)
 
+## View sign-in activity on Android
+
+Each time you view or change security information, you must sign in to your work or school account to continue.
+
+1. Open the Microsoft Authenticator app, and select the home page for your work or school account.
+
+1. Select **Recent account activity**.
+
+    ![Work or school account home page, showing highlighted recent sign-in activity link](media/my-account-portal-sign-ins-page/android-recent-activity.png)
+
+1. If your sign-in is successful, review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
+
+    ![Recent activity page with sign-in details](media/my-account-portal-sign-ins-page/android-activity-page.png)
+
+## Change your password on Android
+
+Your administrator can make it possible for you to reset your password from the Authenticator app. Each time you sign in to view or change security information, you must sign in to your work or school account to continue.
+
+1. Open the Microsoft Authenticator app, and select the home page for your work or school account.
+
+1. Select **Change password**.
+
+    ![Work or school account home page, showing highlighted Change password link](media/my-account-portal-sign-ins-page/android-change-password.png)
+
+1. If your sign-in is successful, you can update your password info on the **Change password** page.
+
+    ![Recent activity page with old and new password entry](media/my-account-portal-sign-ins-page/android-password-page.png)
+
+## Update security info on Android
+
+Each time you sign in to view or change security information, you must sign in to your work or school account to continue.
+
+1. Open the Microsoft Authenticator app, and select the home page for your work or school account.
+
+1. Select **Update security info**.
+
+    ![Work or school account home page, showing highlighted Update security info link](media/my-account-portal-sign-ins-page/android-update-security-info.png)
+
+1. If your sign-in is successful, you can update your security details the **Security info** page.
+
+    ![Recent activity page with security info](media/my-account-portal-sign-ins-page/android-security-info-page.png)
+
 ## Next steps
 
-After viewing your recent sign-in activity, you can:
+After viewing your recent sign-in info, you can:
 
 - View or manage your [security info](./security-info-setup-signin.md).
 

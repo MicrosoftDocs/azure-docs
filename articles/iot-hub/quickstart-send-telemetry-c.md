@@ -106,7 +106,7 @@ However, in this quickstart, you'll prepare a development environment used to cl
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this section, you'll use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this section, you'll use the Azure Cloud Shell with the [IoT extension](/cli/azure/iot) to register a simulated device.
 
 1. Run the following command in Azure Cloud Shell to create the device identity.
 
@@ -175,7 +175,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Read the telemetry from your hub
 
-In this section, you'll use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to monitor the device messages that are sent by the simulated device.
+In this section, you'll use the Azure Cloud Shell with the [IoT extension](/cli/azure/iot) to monitor the device messages that are sent by the simulated device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

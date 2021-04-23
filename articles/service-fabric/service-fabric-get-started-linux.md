@@ -262,7 +262,7 @@ After you install the generators, create guest executable or container services 
 
 ## Set up .NET Core 3.1 development
 
-Install the [.NET Core 3.1 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
+Install the [.NET Core 3.1 SDK for Ubuntu](/dotnet/core/install/linux-ubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
 
 ## Set up Java development
 

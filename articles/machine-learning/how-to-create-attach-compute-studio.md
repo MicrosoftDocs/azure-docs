@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
+ms.topic: how-to
+ms.custom: contperf-fy21q1
 ---
 # Create compute targets for model training and deployment in Azure Machine Learning studio
 

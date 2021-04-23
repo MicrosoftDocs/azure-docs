@@ -5,7 +5,7 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Set up continuous deployment with Chocolatey
 

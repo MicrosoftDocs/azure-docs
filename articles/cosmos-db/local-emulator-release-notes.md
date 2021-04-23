@@ -22,6 +22,10 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Release notes
 
+### 2.11.13 (21 April 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version and adds a new MongoDB endpoint configuration, "4.0".
+
 ### 2.11.11 (22 February 2021)
 
  - This release updates the local Data Explorer content to latest Azure portal version.
