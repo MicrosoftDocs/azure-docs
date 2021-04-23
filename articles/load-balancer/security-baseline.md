@@ -47,7 +47,7 @@ Using a Standard Load Balancer is recommended for your production workloads and 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -73,11 +73,11 @@ Also send the flow logs to a Log Analytics workspace and then use Traffic Analyt
 
 - [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [How do I check my outbound connection statistics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-outbound-connection-statistics)
+- [How do I check my outbound connection statistics](./load-balancer-standard-diagnostics.md#how-do-i-check-my-outbound-connection-statistics)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -132,7 +132,7 @@ Use Security Center's Adaptive Network Hardening feature to recommend network se
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -146,7 +146,7 @@ Use Security Center's Adaptive Network Hardening feature to recommend network se
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -191,7 +191,7 @@ By default, every network security group includes the service tag AzureLoadBalan
 
 Refer to Azure documentation for all the service tags available for use in network security group rules.
 
-- [Available service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
+- [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags)
 
 **Responsibility**: Customer
 
@@ -207,7 +207,7 @@ Apply the blueprint to new subscriptions, and fine-tune control and management t
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -241,7 +241,7 @@ Use Azure PowerShell or Azure CLI to look up or perform actions on resources bas
 
 Create alerts in Azure Monitor to notify you when critical resources are changed.
 
-- [How to view and retrieve Azure Activity log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -309,7 +309,7 @@ Enable and on-board data to Azure Sentinel or a third-party SIEM based on your b
 
 - [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md)
 
-- [Retrieve multi-dimensional metrics programmatically via APIs](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#retrieve-multi-dimensional-metrics-programmatically-via-apis)
+- [Retrieve multi-dimensional metrics programmatically via APIs](./load-balancer-standard-diagnostics.md#retrieve-multi-dimensional-metrics-programmatically-via-apis)
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
@@ -323,9 +323,9 @@ Enable and on-board data to Azure Sentinel or a third-party SIEM based on your b
 
 - [View activity logs to monitor actions on resources article](../azure-resource-manager/management/view-activity-logs.md)
 
-- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsibility**: Customer
 
@@ -359,7 +359,7 @@ Stream logs to an event hub or a Log Analytics workspace. They can also be extra
 
 - [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md)
 
-- [View your load balancer metrics in the Azure portal](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#view-your-load-balancer-metrics-in-the-azure-portal)
+- [View your load balancer metrics in the Azure portal](./load-balancer-standard-diagnostics.md#view-your-load-balancer-metrics-in-the-azure-portal)
 
 **Responsibility**: Customer
 
@@ -449,7 +449,7 @@ Inventory Pre-defined and built-in roles for certain resources with tools like A
 
 Azure Identity Access Reviews can be performed to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the active users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -463,7 +463,7 @@ Azure Identity Access Reviews can be performed to efficiently manage group membe
 
 Streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. Any desired alerts can be configured within Log Analytics Workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -473,7 +473,7 @@ Streamline this process by creating Diagnostic Settings for Azure AD user accoun
 
 **Guidance**: Use Azure Active Directory (Azure AD)'s Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. Ingest data into Azure Sentinel for any further investigations.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -493,7 +493,7 @@ Streamline this process by creating Diagnostic Settings for Azure AD user accoun
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsibility**: Customer
 
@@ -557,7 +557,7 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 **Guidance**: Apply tags to Azure resources with metadata to logically organize according to a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -611,9 +611,9 @@ Ensure all Azure resources present in the environment are approved.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
-- [Azure policy sample built-ins for virtual network](/azure/virtual-network/policy-samples)
+- [Azure policy sample built-ins for virtual network](../virtual-network/policy-reference.md)
 
 **Responsibility**: Customer
 
@@ -701,7 +701,7 @@ Grant or deny permissions to specific users, built-in security groups, or groups
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsibility**: Customer
 

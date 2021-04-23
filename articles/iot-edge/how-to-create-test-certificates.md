@@ -356,7 +356,7 @@ When you authenticate an IoT device with self-signed certificates, you need to u
 Then, you perform a verification to prove to IoT Hub that you own the root CA certificate.
 Finally, you use the same root CA certificate to create device certificates to put on your IoT device so that it can authenticate with IoT Hub.
 
-The certificates in this section are for the steps in [Set up X.509 security in your Azure IoT hub](../iot-hub/iot-hub-security-x509-get-started.md).
+The certificates in this section are for the steps in [Set up X.509 security in your Azure IoT hub](../iot-hub/tutorial-x509-scripts.md).
 
 #### Windows
 
