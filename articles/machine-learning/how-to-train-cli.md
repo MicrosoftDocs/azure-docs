@@ -212,7 +212,7 @@ Create the job:
 
 ## Best practices
 
-Colocate data and compute in the same Azure region whenever possible. While this does not matter much using the Iris dataset from a public blob in `eastus`, it quickly becomes both inefficient and costly when running jobs on large data.
+Colocate data and compute in the same Azure region whenever possible.
 
 Use prebuilt Docker images where possible for your environment to reduce job preparation time. The Azure Machine Learning studio environments tab (preview) has prebuilt environments for common frameworks.
 
