@@ -47,6 +47,11 @@ Private access with virtual network (vnet) integration provides private and secu
 
 :::image type="content" source="./media/how-to-manage-virtual-network-portal/flexible-pg-vnet-diagram.png" alt-text="Flexible server Postgres VNET":::
 
+In the above diagram,
+1. Flexible servers are injected into a delegated subnet - 10.0.1.0/24 of VNET **VNet-1**.
+2. Applications that are deployed on different subnets within the same vnet can access the Flexible servers directly.
+3. Applications that are deployed on a different VNET **VNet-2** do not have direct access to flexible servers. You have to perform [private DNS zone VNET peering](#private-dns-zone-and-vnet-peering) before they can access the flexible server.
+   
 ### Virtual network concepts
 Here are some concepts to be familiar with when using virtual networks with PostgreSQL flexible servers.
 
@@ -54,7 +59,6 @@ Here are some concepts to be familiar with when using virtual networks with Post
    An Azure Virtual Network (VNet) contains a private IP address space that is configured for your use. Visit the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md) to learn more about Azure virtual networking.
 
     Your virtual network must be in the same Azure region as your flexible server.
-
 
 * **Delegated subnet** - 
    A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
@@ -65,13 +69,20 @@ Here are some concepts to be familiar with when using virtual networks with Post
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. Review the [network security group overview](../../virtual-network/network-security-groups-overview.md) for more information.
 
 * **Private DNS integration** - 
-  Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any regional peered VNET where the private DNS Zone is linked. See [private DNS zone documentation](https://docs.microsoft.com/azure/dns/private-dns-overview) for more details.
+   Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. See [private DNS zone documentation](https://docs.microsoft.com/azure/dns/private-dns-overview) for more details.
+
+Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
+
+> [!NOTE]
+> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
 ### Private DNS zone and VNET peering
 
-Private DNS zone settings are independent of VNET peering. 
-* If you want to setup your own private DNS zone to use with the flexible server, please see this [documentation](https://docs.microsoft.com/azure/dns/private-dns-overview) for more details.
-* If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See this [documentation](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+Private DNS zone settings and VNET peering are independent of each other.
+
+* By default, a new private DNS zone is auto-provisioned per server using the server name provided. However, if you want to setup your own private DNS zone to use with the flexible server, please see the [private DNS overview](https://docs.microsoft.com/azure/dns/private-dns-overview) documentation.
+* If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See [how to link the virtual network](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) documentation.
+
 
 ### Unsupported virtual network scenarios
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
@@ -79,10 +90,6 @@ Private DNS zone settings are independent of VNET peering.
 * Subnet size (address spaces) cannot be increased once resources exist in the subnet
 * Peering VNets across regions is not supported
 
-Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
-
-> [!NOTE]
-> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
 ## Public access (allowed IP addresses)
 Characteristics of the public access method include:

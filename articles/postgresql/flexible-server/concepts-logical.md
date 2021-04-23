@@ -13,7 +13,11 @@ ms.date: 04/22/2021
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-Azure Database for PostgreSQL - Flexible Server supports PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) and [pglogical](https://github.com/2ndQuadrant/pglogical) extension - which also provides logical streaming replication. In addition, flexible server also supports logical decoding.
+Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
+1. **Logical replication**
+   1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
+   2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc.
+2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
 Logical replication and logical decoding have several similarities. They both
@@ -31,8 +35,7 @@ Logical replication
 
 Logical decoding 
 * extracts changes across all tables in a database 
-* cannot directly send data between PostgreSQL instances
-
+* cannot directly send data between PostgreSQL instances.
 
 ## Pre-requisites for logical replication and logical decoding
 

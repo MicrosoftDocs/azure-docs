@@ -13,7 +13,7 @@ ms.date: 04/20/2021
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-Azure Database for PostgreSQL – Flexible Server offers [PgBouncer](https://github.com/pgbouncer/pgbouncer) as a built-in connection pooling solution. This is an optional service that can be enabled on a per-database server basis. PgBouncer runs in the same virtual machine as the Postgres database server. Since Postgres uses a process-based model for connections, it makes it expensive to maintain many idle connections. Because of that, Postgres itself runs into resource constraints once a server runs more than a few thousand connections. The primary benefit of PgBouncer is to improve idle connections and short-lived connections at the database server.
+Azure Database for PostgreSQL – Flexible Server offers [PgBouncer](https://github.com/pgbouncer/pgbouncer) as a built-in connection pooling solution. This is an optional service that can be enabled on a per-database server basis and is supported with both public and private access. PgBouncer runs in the same virtual machine as the Postgres database server. Since Postgres uses a process-based model for connections, it makes it expensive to maintain many idle connections. Because of that, Postgres itself runs into resource constraints once a server runs more than a few thousand connections. The primary benefit of PgBouncer is to improve idle connections and short-lived connections at the database server.
 
 PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only uses actual Postgres connections when needed, i.e., when inside an open transaction, or when a query is active. This model can support thousands of connections more easily with low overhead and allows scaling to up to 10,000 connections with low overhead.
 
@@ -31,7 +31,7 @@ You can configure PgBouncer, settings with these parameters:
 | Parameter Name             | Description | Default | 
 |----------------------|--------|-------------|
 | pgbouncer.default_pool_size | Set this to the number of connections per user/database pair      | 50       | 
-| pgBouncer.max_client_conn | Set this to the highest number of connections to PgBouncer you want to support (up to 10,000 connections)     | 5000     | 
+| pgBouncer.max_client_conn | Set this to the highest number of client connections to PgBouncer that you want to support      | 5000     | 
 | pgBouncer.pool_mode | Set this to TRANSACTION for transaction pooling (which is the recommended setting for most workloads).      | TRANSACTION     |
 | pgBouncer.min_pool_size | Add more server connections to pool if below this number.    |   0 (Disabled)   |
 | pgBouncer.stats_users | Optional, set this to the name of an existing user, to be able to login to the special PgBouncer statistics database (named “PgBouncer”)    |      |
@@ -42,7 +42,7 @@ You can configure PgBouncer, settings with these parameters:
 ## Switching your application to use PgBouncer
 
 In order to start using PgBouncer, follow these steps:
-1. Connect to your database server, but use port 6432 instead of the regular port 5432 -- verify that this connection works
+1. Connect to your database server, but use port **6432** instead of the regular port 5432 -- verify that this connection works
 ```azurecli-interactive
 psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=postgres user=myUser password=myPassword sslmode=require"
 ```
@@ -66,7 +66,6 @@ Utilizing an application side pool together with PgBouncer on the database serve
  
 * PgBouncer is currently not supported with Burstable server compute tier. 
 * If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you will lose the PgBouncer capability.
-* PgBouncer is currently limited to 10,000 max connections.
 * Whenever the server is restarted during scale operations, HA failover, or a restart, the PgBouncer is also restarted along with the server virtual machine. Hence the existing connections have to be re-established.
 * Due to a known issue, the portal does not show all PgBouncer parameters. Once you enable PgBouncer and save the parameter, you have to exit Parameter screen (for example, click Overview) and then get back to Parameters page. This will be addressed in future service update.
 
