@@ -169,10 +169,10 @@ Follow these steps to get started:
     
     # Publish the artifact to be used as a source for a release pipeline.
     
-    - task: PublishBuildArtifact@1
+    - task: PublishBuildArtifacts@1
       inputs:
-        targetPath: '$(Build.Repository.LocalPath)/ArmTemplate'
-        artifact: 'ArmTemplates'
+        PathToPublish: '$(Build.Repository.LocalPath)/ArmTemplate'
+        ArtifactName: 'ArmTemplates'
     ```
 
 1.	Enter your YAML code. We recommend that you use the YAML file as a starting point.
