@@ -44,4 +44,4 @@ You are charged based on number of minutes the Media Reserved Units are provisio
 
 ## See also
 
-* [Quotas and limits](limits-quotas-constraints.md)
+* [Quotas and limits](limits-quotas-constraints-reference.md)

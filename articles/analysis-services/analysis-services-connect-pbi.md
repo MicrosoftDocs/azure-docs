@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 4/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -13,8 +13,8 @@ ms.reviewer: minewiskan
 
 Once you've created a server in Azure, and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data. 
 
-> [!TIP]
-> Be sure to use the latest version of [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> [!NOTE]
+> If publishing a Power BI Desktop model to the Power BI service, on the Azure Analysis Services server, ensure the Case-Sensitive collation server property is not selected (default). The Case-Sensitive server property can be set by using SQL Server Management Studio.
 > 
 > 
   

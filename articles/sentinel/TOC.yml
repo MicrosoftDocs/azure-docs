@@ -35,6 +35,8 @@
       href: roles.md
     - name: Manage access by resource
       href: resource-context-rbac.md
+    - name: Protect MSSP intellectual property
+      href: mssp-protect-intellectual-property.md
   - name: Advanced multistage attack detection
     href: fusion.md
   - name: Automation (SOAR)
@@ -59,6 +61,8 @@
     href: extend-sentinel-across-workspaces-tenants.md
   - name: Normalize your data across tables
     href: normalization.md
+  - name: Use Azure Data Explorer for long-term log retention
+    href: store-logs-in-azure-data-explorer.md
   - name: Security
     items:
     - name: Security baseline
@@ -92,6 +96,8 @@
         href: connect-azure-kubernetes-service.md
       - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
+      - name: Azure Storage accounts
+        href: connect-azure-storage-account.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
       - name: Defender for IoT (formerly ASC for IoT)
@@ -118,6 +124,8 @@
         href: connect-windows-firewall.md
       - name: Windows security events
         href: connect-windows-security-events.md
+      - name: Windows Virtual Desktop
+        href: connect-windows-virtual-desktop.md
     - name: Connect external solutions
       items:
       - name: Agari Phishing Defense and Brand Protection
@@ -291,6 +299,8 @@
   items:
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
+  - name: Azure CLI
+    href: /cli/azure/sentinel
   - name: Azure RBAC roles
     items:
     - name: All Azure roles

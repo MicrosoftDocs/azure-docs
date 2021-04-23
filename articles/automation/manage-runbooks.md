@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/22/2021
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ---
 # Manage runbooks in Azure Automation
 
@@ -337,7 +338,7 @@ $getJobParams = @{
     ResourceGroupName     = 'MyResourceGroup'
     Runbookname           = 'Test-Runbook'
 }
-$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate –Desc)[0]
+$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate -Desc)[0]
 $job | Select-Object JobId, Status, JobParameters
 
 $getOutputParams = @{

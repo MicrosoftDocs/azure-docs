@@ -24,7 +24,7 @@ In this tutorial, you create a **Smart Building** gateway device template. A **S
 As well as enabling downstream devices to communicate with your IoT Central application, a gateway device can also:
 
 * Send its own telemetry, such as temperature.
-* Respond to writeable property updates made by an operator. For example, an operator could changes the telemetry send interval.
+* Respond to writable property updates made by an operator. For example, an operator could changes the telemetry send interval.
 * Respond to commands, such as rebooting the device.
 
 > [!div class="checklist"]

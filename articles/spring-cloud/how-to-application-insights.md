@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Application Insights Java In-Process Agent in Azure Spring Cloud (Preview)
 
-This document explains how to monitor apps and microservices using the Application Insights Java agent in Azure Spring Cloud. 
+This article explains how to monitor apps and microservices by using the Application Insights Java agent in Azure Spring Cloud. 
 
 With this feature you can:
 
@@ -83,6 +83,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## ARM Template
+
 To use the Azure Resource Manager template, copy following content to `azuredeploy.json`.
 
 ```json
@@ -116,22 +117,23 @@ To use the Azure Resource Manager template, copy following content to `azuredepl
 ```
 
 ## CLI
+
 Apply ARM template with the CLI command:
 
 * For an existing Azure Spring Cloud instance:
 
 ```azurecli
-az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" –name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" â€“name "assignedName" â€“resource-group "resourceGroupName"
 ```
 * For a newly created Azure Spring Cloud instance:
 
 ```azurecli
-az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" â€“resource-group "resourceGroupName"
 ```
 * To disable app-insight:
 
 ```azurecli
-az spring-cloud app-insights update --disable –name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud app-insights update --disable â€“name "assignedName" â€“resource-group "resourceGroupName"
 
 ```
 

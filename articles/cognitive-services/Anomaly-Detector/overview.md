@@ -24,6 +24,12 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 Using the Anomaly Detector doesn't require any prior experience in machine learning, and the RESTful API enables you to easily integrate the service into your applications and processes.
 
+This documentation contains the following types of articles:
+* The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./how-to/identify-anomalies.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](./concepts/anomaly-detection-best-practices.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./tutorials/batch-anomaly-detection-powerbi.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Features
 
 With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
@@ -102,5 +108,5 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 ## Next steps
 
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](quickstarts/client-libraries.md)
-* The Anomaly Detector API [online demo](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
+* The Anomaly Detector API [online demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
 * The Anomaly Detector [REST API reference](https://aka.ms/anomaly-detector-rest-api-ref)

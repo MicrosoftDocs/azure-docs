@@ -23,7 +23,7 @@ An HTTP trigger endpoint function is created to support the schedule and sequenc
 
 |Name |Trigger |Description |
 |-----|--------|------------|
-|AlertAvailabilityTest |Timer |This function is performs the availability test to make sure the primary function **AutoStopVM** is always available.|
+|AlertAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **AutoStopVM** is always available.|
 |AutoStop |HTTP |This function supports the **AutoStop** scenario, which is the entry point function that is called from Logic App.|
 |AutoStopAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **AutoStop** is always available.|
 |AutoStopVM |HTTP |This function is triggered automatically by the VM alert when the alert condition is true.|
@@ -90,7 +90,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription.
 
-- Start/Stop VMs v2 (preview) is available in all Azure global regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions. For the Azure Government cloud, it is available only in the US Government Virginia region.
+- Start/Stop VMs v2 (preview) is available in all Azure global and US Government cloud regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions.
 
 ## Next steps
 

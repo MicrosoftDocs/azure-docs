@@ -2,7 +2,7 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 04/19/2021
 ---
 
 # Encryption of backup data using customer-managed keys
@@ -37,6 +37,9 @@ This article discusses the following:
 
     >[!NOTE]
     >Use Az module 5.3.0 or greater to use customer managed keys for backups in the Recovery Services vault.
+    
+    >[!Warning]
+    >If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 
 If you haven't created and configured your Recovery Services vault, you can [read how to do so here](backup-create-rs-vault.md).
 
@@ -380,11 +383,11 @@ Using the **Select from Key Vault** option helps to enable auto-rotation for the
 
 Azure Backup allows you to use Azure Polices to audit and enforce encryption, using customer-managed keys, of data in the Recovery Services vault. Using the Azure Policies:
 
-- The audit policy can be used for auditing vaults with encryption using customer-managed keys, enabled after 3/31/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negatives results (that is, these vaults may be reported as non-compliant, despite having the CMK encryption enabled).
-- To use the audit policy for auditing vaults with the CMK encryption enabled before 3/31/2021, use the Azure portal to update an encryption key. This helps to upgrade to the new model. If you do not want to change the encryption key, provide the same key again through the key URI or the key selection option. 
+- The audit policy can be used for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negative results (that is, these vaults may be reported as non-compliant, despite having **CMK encryption** enabled).
+- To use the audit policy for auditing vaults with **CMK encryption** enabled before 04/01/2021, use the Azure portal to update an encryption key. This helps to upgrade to the new model. If you do not want to change the encryption key, provide the same key again through the key URI or the key selection option. 
 
-    >[!Warning]
-    >For users using PowerShell for managing encryption keys for Backup, it is not recommended to upgrade to the new model.<br></br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
+   >[!Warning]
+    >If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 
 ## Frequently asked questions
 

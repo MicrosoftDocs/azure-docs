@@ -3,7 +3,7 @@ title: Enable a managed identity for your Azure Automation account (preview)
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2021
+ms.date: 04/20/2021
 ms.topic: conceptual
 ---
 # Enable a managed identity for your Azure Automation account (preview)

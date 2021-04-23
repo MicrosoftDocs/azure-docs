@@ -1,6 +1,6 @@
 ---
 title: FAQ - Azure ExpressRoute | Microsoft Docs
-description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details.
+description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and other Technical Details.
 services: expressroute
 author: duongau
 
@@ -14,11 +14,11 @@ ms.author: duau
 
 ## What is ExpressRoute?
 
-ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet.
+ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility. ExpressRoute connections don't go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet.
 
 ### What are the benefits of using ExpressRoute and private network connections?
 
-ExpressRoute connections do not go over the public Internet. They offer higher security, reliability, and speeds, with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
+ExpressRoute connections don't go over the public Internet. They offer higher security, reliability, and speeds, with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
 
 ### Where is the service available?
 
@@ -42,7 +42,7 @@ No. You can purchase a private connection of any speed from your service provide
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, do I have the ability to use more than my procured bandwidth?
 
-Yes, you may use up to two times the bandwidth limit you procured by using the bandwidth available on the secondary connection of your ExpressRoute circuit. The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for additional traffic if necessary. Because the secondary connection is meant for redundancy, however, it is not guaranteed and should not be used for additional traffic for a sustained period of time. To learn more about how to use both connnections to transmit traffic, see [Use AS PATH prepending](./expressroute-optimize-routing.md#solution-use-as-path-prepending).
+Yes, you may use up to two times the bandwidth limit you procured by using the bandwidth available on the secondary connection of your ExpressRoute circuit. The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for additional traffic if necessary. Because the secondary connection is meant for redundancy, however, it is not guaranteed and should not be used for additional traffic for a sustained period of time. To learn more about how to use both connections to transmit traffic, see [Use AS PATH prepending](./expressroute-optimize-routing.md#solution-use-as-path-prepending).
 
 If you plan to use only your primary connection to transmit traffic, the bandwidth for the connection is fixed and attempting to oversubscribe it will result in increased packet drops. If traffic flows through an ExpressRoute Gateway, the bandwidth for the Gateway SKU is fixed and not burstable. For the bandwidth of each Gateway SKU, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
@@ -91,7 +91,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc.)  
-* Most of the other Azure services are also supported. Please check directly with the service that you want to use to verify support.
+* Most of the other Azure services are also supported. Check directly with the service that you want to use to verify support.
 
 **Not supported:**
 
@@ -104,7 +104,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 ### Public peering
 
-Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you a circuit that was created prior to public peering being deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
+Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
 
 For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
 
@@ -347,13 +347,17 @@ Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressro
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
 ## ExpressRoute Local
+
 ### What is ExpressRoute Local?
-ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard SKU and the Premium SKU. A key feature of Local is that a Local circuit at an ExpressRoute peering location gives you access only to one or two Azure regions in or near the same metro. In contrast, a Standard circuit gives you access to all Azure regions in a geopolitical area and a Premium circuit to all Azure regions globally. 
+
+ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard SKU and the Premium SKU. A key feature of Local is that a Local circuit at an ExpressRoute peering location gives you access only to one or two Azure regions in or near the same metro. In contrast, a Standard circuit gives you access to all Azure regions in a geopolitical area and a Premium circuit to all Azure regions globally. Specifically, with a Local SKU you can only advertise routes (over Microsoft and private peering) from the corresponding local region of the ExpressRoute circuit. You won't be able to receive routes for other regions different than the defined Local region.
 
 ### What are the benefits of ExpressRoute Local?
+
 While you need to pay egress data transfer for your Standard or Premium ExpressRoute circuit, you don't pay egress data transfer separately for your ExpressRoute Local circuit. In other words, the price of ExpressRoute Local includes data transfer fees. ExpressRoute Local is a more economical solution if you have massive amount of data to transfer and you can bring your data over a private connection to an ExpressRoute peering location near your desired Azure regions. 
 
 ### What features are available and what are not on ExpressRoute Local?
+
 Compared to a Standard ExpressRoute circuit, a Local circuit has the same set of features except:
 * Scope of access to Azure regions as described above
 * ExpressRoute Global Reach is not available on Local
@@ -361,6 +365,7 @@ Compared to a Standard ExpressRoute circuit, a Local circuit has the same set of
 ExpressRoute Local also has the same limits on resources (e.g. the number of VNets per circuit) as Standard. 
 
 ### Where is ExpressRoute Local available and which Azure regions is each peering location mapped to?
+
 ExpressRoute Local is available at the peering locations where one or two Azure regions are close-by. It is not available at a peering location where there is no Azure region in that state or province or country/region. Please see the exact mappings on [the Locations page](expressroute-locations-providers.md).  
 
 ## ExpressRoute for Microsoft 365

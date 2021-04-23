@@ -144,7 +144,7 @@ To view all of the digital twins in your instance, use a [query](how-to-query-gr
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 ## Update a digital twin
 

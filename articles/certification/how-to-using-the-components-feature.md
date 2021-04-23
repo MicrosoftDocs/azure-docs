@@ -1,7 +1,7 @@
 ---
 title: How to use the components feature in the Azure Certified Device portal
 description: A guide on how to best use the components feature of the Device details section to accurately describe your device
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: how-to 

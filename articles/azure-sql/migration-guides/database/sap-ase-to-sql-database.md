@@ -5,7 +5,7 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
@@ -15,7 +15,7 @@ ms.date: 03/19/2021
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn how to migrate your SAP Adapter Server Enterprise (ASE) databases to an Azure SQL database by using SQL Server Migration Assistant for SAP Adapter Server Enterprise.
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your SAP Adapter Server Enterprise (ASE) databases to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for SAP Adapter Server Enterprise.
 
 For other migration guides, see [Azure Database Migration Guide](https://docs.microsoft.com/data-migration). 
 
@@ -29,7 +29,7 @@ Before you begin migrating your SAP SE database to your SQL database, do the fol
 
 ## Pre-migration
 
-After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your migration.
+After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your [Azure cloud migration](https://azure.microsoft.com/migration).
 
 ### Assess
 
@@ -118,6 +118,7 @@ For more information about these issues and the steps to mitigate them, see the 
 - To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Cloud Migration Resources](https://azure.microsoft.com/migration/resources)
 
 - To assess the application access layer, see [Data Access Migration Toolkit (preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).

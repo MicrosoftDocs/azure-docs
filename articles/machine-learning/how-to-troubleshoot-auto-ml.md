@@ -8,9 +8,9 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/08/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl, references_regions
+ms.date: 03/08/2021
+ms.topic: troubleshooting
+ms.custom: devx-track-python, automl, references_regions
 ---
 
 # Troubleshoot automated ML experiments in Python
