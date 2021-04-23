@@ -44,7 +44,7 @@ additionalContent:
   # Supports up to 4 sections
   sections:
     - title: Connectivity services  # < 60 chars (optional)
-      summary:  # < 160 chars (optional)
+      summary:
       items:
         # Card
         - title: Virtual Network
@@ -94,7 +94,7 @@ additionalContent:
             - text: See more
               url: ../dns/index.yml
     - title: Application delivery services  # < 60 chars (optional)
-      summary: # < 160 chars (optional)
+      summary:
       items:
         # Card
         - title: Network load balancer
@@ -229,18 +229,3 @@ additionalContent:
               url: ../azure-monitor/insights/network-insights-overview.md
             - text: See more
               url: ../azure-monitor/index.yml
-    - title: References and Resources # < 60 chars (optional)
-      summary:  # < 160 chars (optional)
-      items:
-        # Card
-        - title: Azure networking reference
-          links:
-            - text: Learn about the Azure networking Cmdlets 
-              url: /powershell/module/az.network/#networking
-            - text: Azure CLI commands for Azure networking
-              url: /cli/azure/network
-
-        - title: Azure Networking blogs
-          links:
-            - text: View the latest blogs in Azure networking
-              url: https://azure.microsoft.com/blog/topics/networking/
