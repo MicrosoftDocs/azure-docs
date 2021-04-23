@@ -224,7 +224,7 @@ You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled.
 
 ## Create virtual machine scale set
 
-In this section you'll create a virtual machine scale sets without a load balancer. Later in this tutorial, you'll add a load balancer to this scale set in the Azure portal.
+In this section, you'll create a virtual machine scale set without a load balancer. Later, you'll add a load balancer to this scale set in the Azure portal.
 
 1. In the search box at the top of the portal, enter **Virtual machine scale**.
 
@@ -232,7 +232,7 @@ In this section you'll create a virtual machine scale sets without a load balanc
 
 3. Select **+ Add**.
 
-4. In the **Basics** tab of **Create a virtual machine scale set**, enter or select the following information:
+4. In the **Basics** tab of **Create a virtual machine scale set**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -244,7 +244,7 @@ In this section you'll create a virtual machine scale sets without a load balanc
     | Region | Select **(US) West US 2**. |
     | Availability zone | Leave the default of **None**. |
     | **Orchestration** |   |
-    | Orchestration mode | Leave the default of **Uniform: optimized for large scale stateless workloads with identical instances**. |
+    | Orchestration mode | Leave the default of **Uniform: optimized for large-scale stateless workloads with identical instances**. |
     | **Instance details** |   |
     | Image | Select **Windows Server 2019 Datacenter - Gen1**. |
     | Azure Spot Instance | Leave the default of the box unchecked. |
