@@ -66,7 +66,7 @@ Here are some concepts to be familiar with when using virtual networks with Post
    Your PostgreSQL flexible server must be in a subnet that is **delegated** for PostgreSQL flexible server use only. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforPostgreSQL/flexibleServers.
 
 * **Network security groups (NSG)** - 
-   Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. Review the [network security group overview](../../virtual-network/network-security-groups-overview.md) for more information.
+   Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. See [network security group overview](../../virtual-network/network-security-groups-overview.md) documentation for more information.
 
 * **Private DNS integration** - 
    Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. See [private DNS zone documentation](https://docs.microsoft.com/azure/dns/private-dns-overview) for more details.
@@ -113,7 +113,7 @@ If a fixed outgoing IP address isn't available for your Azure service, you can c
 ### Troubleshooting public access issues
 Consider the following points when access to the Microsoft Azure Database for PostgreSQL Server service does not behave as you expect:
 
-* **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for PostgreSQL Server firewall configuration to take effect.
+* **Changes to the allowlist have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for PostgreSQL Server firewall configuration to take effect.
 
 * **Authentication failed:** If a user does not have permissions on the Azure Database for PostgreSQL server or the password used is incorrect, the connection to the Azure Database for PostgreSQL server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server. Each client must still provide the necessary security credentials.
 
