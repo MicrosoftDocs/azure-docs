@@ -8,12 +8,12 @@ ms.author: shipatel
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 12/23/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
 
-# Deploy MLflow models as Azure web services (preview)
+# Deploy MLflow models as Azure web services
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
 
@@ -22,6 +22,7 @@ Azure Machine Learning offers deployment configurations for:
 * Azure Kubernetes Service (AKS) which is recommended for scalable production deployments.
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to deploy their MLflow model to an Azure Machine Learning web service endpoint. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## MLflow with Azure Machine Learning deployment
 
 MLflow is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond model training to the deployment phase of your production model.
