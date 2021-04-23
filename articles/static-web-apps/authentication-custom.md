@@ -119,7 +119,7 @@ To allow users to login using a custom OIDC provider, have them navigate to `/.a
 
 The following tables contain the different configuration options for each default provider.
 
-### Azure Active Directory
+# [Azure Active Directory](#tabs/aad)
 
 | Field Path                             | Description                                                                                                              |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -147,7 +147,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-### Apple
+# [Apple](#tabs/apple)
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -173,7 +173,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-### Facebook
+# [Facebook](#tabs/facebook)
 
 | Field Path                          | Description                                                                                          |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -199,7 +199,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-### GitHub
+# [GitHub](#tabs/github)
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -225,7 +225,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-### Google
+# [Google](#tabs/google)
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -251,7 +251,7 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
-### Twitter
+# [Twitter](#tabs/twitter)
 
 | Field Path                               | Description                                                                                           |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -279,5 +279,5 @@ The following tables contain the different configuration options for each defaul
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Access user authentication and authorization data](user-information.md)
