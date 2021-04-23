@@ -243,7 +243,7 @@
         href: dynamics-365-customer-engage-review-publish.md
     - name: Create an Operations offer
       items: 
-      - name: Create the offer 
+      - name: Create the offer
         href: dynamics-365-operations-offer-setup.md
       - name: Properties
         href: dynamics-365-operations-properties.md
@@ -255,8 +255,6 @@
         href: dynamics-365-operations-technical-configuration.md
       - name: Supplemental content
         href: dynamics-365-operations-supplemental-content.md
-      - name: Review and publish
-        href: dynamics-365-operations-review-publish.md
       - name: Functional validation
         href: dynamics-365-finance-operations-functional-validation.md
     - name: Create a Business Central offer

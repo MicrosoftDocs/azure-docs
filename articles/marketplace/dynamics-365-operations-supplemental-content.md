@@ -27,8 +27,8 @@ Select **Yes** if the solution enables use of local standards and policies (for 
 
 Select **Yes** if the text in your solution can be translated into other languages. Otherwise, select **No**.
 
-Select **Save draft**, then **Review and publish**.
+Select **Save draft**, then continue **Functional validation**, which is not in the left-nav menu.
 
 ## Next steps
 
-- [Review and publish your offer](review-publish-offer.md)
+- [Functional validation](dynamics-365-finance-operations-functional-validation.md)

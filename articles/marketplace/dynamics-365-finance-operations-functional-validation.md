@@ -71,4 +71,5 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 ## Next steps
 
-- [Create a Dynamics 365 for Operations offer](dynamics-365-operations-offer-setup.md).
+- If you think your offer is ready, [review and publish your offer](review-publish-offer.md).
+- To start a new Dynamics 365 offer, [plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md).
