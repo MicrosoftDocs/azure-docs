@@ -29,8 +29,8 @@ For the bot on surface products, you can take the following steps to create a bo
 
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
-  >[!div class="mx-imgBorder"]
-  >[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
+>[!div class="mx-imgBorder"]
+>  [![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
 
 3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
@@ -66,8 +66,8 @@ For the bot on surface products, you can take the following steps to create a bo
 
     * Explicitly take the domain as input from the user through the bot client. For instance as shown below, you can take product category as input from the user when the conversation is initiated.
     
-  >[!div class="mx-imgBorder"]
-  >[![Take metadata input]( ../media/qnamaker-tutorial-updates/explicit-metadata-input.png) ]( ../media/qnamaker-tutorial-updates/expand/explicit-metadata-input.png#lightbox)
+  [!div class="mx-imgBorder"]
+  [![Take metadata input]( ../media/qnamaker-tutorial-updates/explicit-metadata-input.png) ]( ../media/qnamaker-tutorial-updates/expand/explicit-metadata-input.png)
 
     * Implicitly Identify domain based on bot context. For instance, in case the previous question was on a particular Surface product, it can be saved as context client side. If the user doesn't specify the product in the next query, you could pass on the bot context as metadata to the Generate Answer API.
 
