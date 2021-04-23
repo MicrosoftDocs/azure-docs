@@ -42,16 +42,28 @@
     href: search-get-started-arm.md
 - name: Tutorials
   items:
-  - name: Add Search to website
+  - name: Add Search to a website
     items: 
-    - name: 1 - Website overview
-      href: tutorial-javascript-overview.md
-    - name: 2 - Create a search index
-      href: tutorial-javascript-create-load-index.md
-    - name: 3 - Deploy static web app
-      href: tutorial-javascript-deploy-static-web-app.md
-    - name: 4 - Understand search integration
-      href: tutorial-javascript-search-query-integration.md    
+    - name: C#
+      items: 
+      - name: Website overview
+        href: tutorial-csharp-overview.md
+      - name: Create a search index
+        href: tutorial-csharp-create-load-index.md
+      - name: Deploy static web app
+        href: tutorial-csharp-deploy-static-web-app.md
+      - name: Integration cheat sheet
+        href: tutorial-csharp-search-query-integration.md          
+    - name: JavaScript 
+      items:         
+      - name: Website overview
+        href: tutorial-javascript-overview.md
+      - name: Create a search index
+        href: tutorial-javascript-create-load-index.md
+      - name: Deploy static web app
+        href: tutorial-javascript-deploy-static-web-app.md
+      - name: Integration cheat sheet
+        href: tutorial-javascript-search-query-integration.md     
   - name: Create a C# app
     items:
     - name: 1 - Basic search page
@@ -133,7 +145,7 @@
     - name: Accessing protected content
       href: search-indexer-securing-resources.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/cognitive-search-security-baseline
 - name: How-to guides
   items:
   - name: Management

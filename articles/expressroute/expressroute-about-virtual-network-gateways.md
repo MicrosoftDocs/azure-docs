@@ -39,6 +39,11 @@ The following table shows the gateway types and the estimated performances. This
 >
 >
 
+> [!NOTE]
+> The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network remains at 4.
+>
+>
+
 ## <a name="gwsub"></a>Gateway subnet
 
 Before you create an ExpressRoute gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required ExpressRoute gateway settings. Never deploy anything else (for example, additional VMs) to the gateway subnet. The gateway subnet must be named 'GatewaySubnet' to work properly. Naming the gateway subnet 'GatewaySubnet' lets Azure know that this is the subnet to deploy the virtual network gateway VMs and services to.
