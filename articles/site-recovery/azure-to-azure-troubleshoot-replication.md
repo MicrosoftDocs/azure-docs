@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
 description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery
-author: sideeksh
+author: sideeksha
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
@@ -103,7 +103,7 @@ Following are some of the most common issues.
 
 ### App-consistency not enabled on Linux servers
 
-**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.yml#replication) are the steps to enable it.
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](/site-recovery-faq.yml#replication) are the steps to enable it.
 
 ### More causes because of VSS-related issues:
 
