@@ -215,4 +215,4 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 - [Azure AD audit activity reference](reference-audit-activities.md)
 - [Azure AD logs retention reference](reference-reports-data-retention.md)
 - [Azure AD log latencies reference](reference-reports-latencies.md)
-- [Unknown actors in audit report](https://docs.microsoft.com/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)
+- [Unknown actors in audit report](/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)

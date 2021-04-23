@@ -70,12 +70,12 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 ## 1.6.2.4
 >[!IMPORTANT]
 > Update per March 30, 2021: we have discovered an issue in this build. After installation of this build, the Health services are not registered. We recommend not installing this build. We will release a hotfix shortly.
-> If you already installed this build, you can manually register the Health services by using the cmdlet as shown in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#manually-register-azure-ad-connect-health-for-sync)
+> If you already installed this build, you can manually register the Health services by using the cmdlet as shown in [this article](./how-to-connect-health-agent-install.md#manually-register-azure-ad-connect-health-for-sync)
 
 >[!NOTE]
 > - This release will be made available for download only.
 > - The upgrade to this release will require a full synchronization due to sync rule changes.
-> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud and if you need to deploy this version in this environment you need to follow [these instructions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
+> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud and if you need to deploy this version in this environment you need to follow [these instructions](./how-to-connect-sync-endpoint-api-v2.md#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
 
 ### Release status
 3/19/2021: Released for download, not available for auto upgrade
@@ -93,11 +93,11 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
      - The updated rule will be disabled by default. However, a new sync rule “Out to AD - Group SOAInAAD - Exchange” which is added will be enabled.
      - Depending on the Cloned Custom Sync Rule's precedence, AADConnect will flow the Mail and Exchange attributes.
      - If the Cloned Custom Sync Rule does not flow some Mail and Exchange attributes, then new Exchange Sync Rule will add those attributes.
- - Added support for [Selective Password hash Synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
- - Added the new [Single Object Sync cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
+ - Added support for [Selective Password hash Synchronization](./how-to-connect-selective-password-hash-synchronization.md)
+ - Added the new [Single Object Sync cmdlet](./how-to-connect-single-object-sync.md). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
  -  Azure AD Connect now supports the Hybrid Identity Administrator role for configuring the service.
  - Updated AADConnectHealth agent to 3.1.83.0
- - New version of the [ADSyncTools PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools), which has several new or improved cmdlets. 
+ - New version of the [ADSyncTools PowerShell module](./reference-connect-adsynctools.md), which has several new or improved cmdlets. 
  
    - Clear-ADSyncToolsMsDsConsistencyGuid
    - ConvertFrom-ADSyncToolsAadDistinguishedName
@@ -131,7 +131,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
     - Get-ADSyncAADConnectorExportApiVersion - to get export AWS API version
 
  - Changes made to synchronization rules are now tracked to assist troubleshooting changes in the service. The cmdlet "Get-ADSyncRuleAudit" will retrieve tracked changes.
- - Updated the Add-ADSyncADDSConnectorAccount cmdlet in the the [ADSyncConfig PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account#using-the-adsyncconfig-powershell-module) to allow a user in ADSyncAdmin group to change the AD DS Connector account. 
+ - Updated the Add-ADSyncADDSConnectorAccount cmdlet in the the [ADSyncConfig PowerShell module](./how-to-connect-configure-ad-ds-connector-account.md#using-the-adsyncconfig-powershell-module) to allow a user in ADSyncAdmin group to change the AD DS Connector account. 
 
 ### Bug fixes
  - Updated disabled foreground color to satisfy luminosity requirements on a white background. Added additional conditions for navigation tree to set foreground text color to white when a disabled page is selected to satisfy luminosity requirements.

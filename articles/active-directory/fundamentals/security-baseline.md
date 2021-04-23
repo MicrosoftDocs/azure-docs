@@ -52,7 +52,7 @@ Azure AD supports external identity that allows users without a Microsoft accoun
 
 - [How to create and configure an Azure AD instance](active-directory-access-create-new-tenant.md)
 
-- [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)
+- [Use external identity providers for application](../external-identities/identity-providers.md)
 
 - [What is the identity secure score in Azure Active Directory](identity-secure-score.md)
 
@@ -106,7 +106,7 @@ Authentication based on password credentials alone is susceptible to popular att
  
 
  
-- [Azure AD default password policy](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts)
+- [Azure AD default password policy](../authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
 
 - [Eliminate bad passwords using Azure AD Password Protection](../authentication/concept-password-ban-bad.md)
 
@@ -152,12 +152,12 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
  
 
  
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [How to view Azure AD risky sign-ins](../identity-protection/overview-identity-protection.md) 
 
  
 
  
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [How to identify Azure AD users flagged for risky activity](../identity-protection/overview-identity-protection.md) 
 
  
 
@@ -214,7 +214,7 @@ Alternatively, Microsoft Cloud App Security is a Cloud Access Security Broker (C
  
 
  
-- [Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy#what-is-application-proxy) 
+- [Azure Active Directory Application Proxy](../manage-apps/application-proxy.md#what-is-application-proxy) 
 
  
 
@@ -245,11 +245,11 @@ Limit the number of highly privileged accounts and protect these accounts at an 
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
-- [Administrator role permissions in Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
+- [Administrator role permissions in Azure AD](../roles/permissions-reference.md) 
 
 - [Use Azure Privileged Identity Management security alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md) 
 
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md)
 
 **Responsibility**: Customer
 
@@ -296,7 +296,7 @@ You should ensure that the credentials (such as password,
 certificate, or smart card) for emergency access accounts are kept secure and
 known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 
 **Responsibility**: Customer
 
@@ -398,7 +398,7 @@ As the customer uses various Azure AD tools, features, and applications that int
 
 - [Where is your data located dashboard](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9)
 
-- [Azure AD roles documentation](/azure/active-directory/roles/)
+- [Azure AD roles documentation](../roles/index.yml)
 
 **Responsibility**: Customer
 
@@ -424,11 +424,11 @@ versions and protocols, and weak ciphers should be disabled.
 By default, Azure provides encryption for data in
 transit between Azure data centers.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) 
+- [Understand encryption in transit with Azure](../../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
 - [Information on TLS Security](/security/engineering/solving-tls1-problem) 
 
-- [Double encryption for Azure data in transit](https://docs.microsoft.com/azure/security/fundamentals/double-encryption#data-in-transit)
+- [Double encryption for Azure data in transit](../../security/fundamentals/double-encryption.md#data-in-transit)
 
 **Responsibility**: Customer
 
@@ -448,7 +448,7 @@ Security Reader permissions can be applied broadly to an entire tenant (Root Man
 
 Additional permissions might be required to get visibility into workloads and services. 
 
-- [Overview of Security Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)
+- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
 
 - [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
 
@@ -504,7 +504,7 @@ Identity Protection risk detections are enabled by default and require no onboar
 
 - [Enable Azure Identity Protection](../identity-protection/overview-identity-protection.md)  
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](../../security-center/azure-defender.md)
 
 **Responsibility**: Customer
 
@@ -547,7 +547,7 @@ Identity Protection risk detections are enabled by default and require no onboar
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.  
  
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)   
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)   
  
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
@@ -562,9 +562,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [How to configure Log Analytics Workspace Retention Period](/azure/azure-monitor/platform/manage-cost-storage)  
+- [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/logs/manage-cost-storage.md)  
 
-- [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Storing resource logs in an Azure Storage Account](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storagesend-to-azure-storage)
 
 **Responsibility**: Customer
 
@@ -654,7 +654,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -667,7 +667,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 - [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
 
-- [Set up automated threat responses in Azure Security Center](https://docs.microsoft.com/azure/security-center/tutorial-security-incident#triage-security-alerts)
+- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
 
 - [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 

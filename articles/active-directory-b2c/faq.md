@@ -99,7 +99,7 @@ No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using t
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 
-This feature is in public preview. For details, see [Embedded sign-in experience](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login).
+This feature is in public preview. For details, see [Embedded sign-in experience](./embedded-login.md).
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
 
@@ -127,7 +127,7 @@ Yes, see [language customization](language-customization.md). We provide transla
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 
-This feature is available in public preview. For details, see [Azure AD B2C custom domains](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
+This feature is available in public preview. For details, see [Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).
 
 ### How do I delete my Azure AD B2C tenant?
 
