@@ -17,19 +17,19 @@ This article describes how to troubleshoot errors that pause a data upload to th
 
 ## Upload pause notification
 
-When data is uploaded to Azure from your device, if non-retryable errors cause any file uploads to fail, the upload is paused to give you a chance to review the errors. You'll see the following notification in the Azure portal.
+When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, the upload will be paused to give you a chance to review the errors. You'll see the following notification in the Azure portal.
 
 ![Copy errors notification](media/data-box-troubleshoot-data-upload/copy-errors-01.png)
 
-You should review the errors in the data copy log. Then confirm that you've reviewed the errors and want to proceed with the upload.  For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+You should review the errors in the data copy log. You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+To resume the upload, you should confirm that you've reviewed the errors and want to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
 
 After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
 
 ## Non-retryable upload errors
 
-The following data configuration errors require your action to proceed with a data upload to the cloud from a Data Box and Data Box Heavy device:
+The following non-retryable errors result in a pause in an upload and a notification:
 
 |Error category                    |Error code |Error message                                                                             |
 |----------------------------------|-----------|------------------------------------------------------------------------------------------|
@@ -42,7 +42,7 @@ The following data configuration errors require your action to proceed with a da
 |UploadErrorCloudHttp              |409        |There is currently a lease on the blob and no lease ID was specified in the request. [Learn more](#there-is-currently-a-lease-on-the-blob-and-no-lease-id-was-specified-in-the-request).|
 |UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
 
-For information about other types of copy log entries, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).<!--NOTE TO ME: Recast "For information" - lame.-->
+For more information about the data log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
 
 > [!NOTE]
 > The **Follow-up** sections in the error descriptions describe how to update your data configuration before you place a new import order or perform a network transfer. You can't fix these errors in the current upload. The upload will complete with errors.
@@ -54,7 +54,7 @@ For information about other types of copy log entries, see [Tracking and event l
 
 **Error code:** 400
 
-**Error description:** Although most file naming issues are caught during either the **Prepare to ship** phase or the data upload (resulting in a **Copy with warnings** status), the import job name validator occasionally misses some invalid file names, and the files fail to upload to Azure.
+**Error description:** Most file naming issues are caught during the **Prepare to ship** phase or fixed automatically during the upload (resulting in a **Copy with warnings** status). However, the name validator for an import job occasionally misses some invalid file names, and the files fail to upload to Azure.
 
 **Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new order, rename the listed files to meet naming requirements for Azure Files. For naming requirements, see [Directory and File Names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
@@ -76,10 +76,10 @@ For information about other types of copy log entries, see [Tracking and event l
 
 **Error code:** 400
 
-**Error description:** The listed blobs could not be uploaded because they don't meet format or size requirements for blobs in Azure storage.
+**Error description:** The listed blobs couldn't be uploaded because they don't meet format or size requirements for blobs in Azure storage.
 
 **Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, ensure that:
-- The listed page blobs are 512-byte aligned.
+- The listed page blobs align to the 512-byte page boundaries.<!--Style in use: "To add or update the contents of a page blob, you write a page or pages by specifying an offset and a range that both align to 512-byte page boundaries."-->
 - The listed block blobs do not exceed the 4.75-TiB maximum size.
 
 
@@ -102,7 +102,7 @@ For information about other types of copy log entries, see [Tracking and event l
 
 **Error description:** The upload failed because the total size of the data exceeds the storage account size limit. For example, the maximum capacity of a FileStorage account is 100 TiB. If total data size exceeds 100 TiB, the upload will fail.  
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure the total capacity of all shares within the storage account will not exceed the storage account size limit. For more information, see [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure the total capacity of all shares in the storage account will not exceed the size limit of the storage account. For more information, see [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).<!--Is this about share capacity or used capacity for the share? This is not clear.-->
 
 
 ### The blob type is invalid for this operation
@@ -123,16 +123,16 @@ For information about other types of copy log entries, see [Tracking and event l
 
 **Error description:** Data import to a blob in the cloud will fail if the destination blob has an active lease.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, *WHAT OPTIONS DO THEY HAVE?*. *Can they specify a lease ID in a network transfer? If they specify a lease ID when the copy the data to the device, will that lease ID be available for the upload to the cloud? If not, do they need to contact Support to provide that information and plan the upload?* For more information, see *reference/link needed*. 
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, *DO WHAT*. *Can they specify a lease ID in a network transfer? If they specify a lease ID when the copy the data to the device, will that lease ID be available for the upload to the cloud? If not, do they need to contact Support to provide that information and plan the upload?* For more information, see *reference/link needed*. 
 
 
-### The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.
+### The size of the blob being imported is invalid. The blob size is `<blob-size>` Bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.
 
 **Error category:** UploadErrorManagedConversionError
 
 **Error code:** 409
 
-**Error description:** The listed page blobs failed to upload because they are not a size that can be converted to a Managed Disk. To be converted to a Managed Disk, a page blob must be from 20971520 Bytes to 8192 GiB in size.
+**Error description:** The listed page blobs failed to upload because they are not a size that can be converted to a Managed Disk. To be converted to a Managed Disk, a page blob must be from 20 MB (20,971,520 Bytes) to 8192 GiB in size.
 
 **Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20971520 Bytes to 8192 GiB in size.
 
