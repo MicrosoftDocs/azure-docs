@@ -20,6 +20,8 @@ This article covers information about Azure Automanage for virtual machines, whi
 - Monitors for drift and corrects for it when detected
 - Provides a simple experience (point, click, set, forget)
 
+> [!NOTE]
+Azure Automanage is currently in public preview in Azure public cloud. Automanage is not currently available in the Azure Government or Azure China clouds.
 
 ## Overview
 
