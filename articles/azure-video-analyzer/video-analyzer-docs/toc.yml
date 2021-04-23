@@ -150,8 +150,8 @@
   - name: Azure Video Analyzer player
     href: player.md #404
   - name: FAQs - Cloud
-    href: frequently-asked-questions.md # 404
+    href: faqs-cloud.md # 404
   - name: FAQs - Edge
-    href: faq.md
+    href: faqs-edge.md # 404
   - name: Quotas and limitations
     href: quotas-limitations.md
