@@ -386,7 +386,7 @@ You can also configure `logoutPopup` to redirect the main window to a different 
 const config = {
     auth: {
         clientId: 'your_app_id',
-        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        redirectUri: "your_app_redirect_uri", // defaults to application start page
         postLogoutRedirectUri: "your_app_logout_redirect_uri"
     }
 }
