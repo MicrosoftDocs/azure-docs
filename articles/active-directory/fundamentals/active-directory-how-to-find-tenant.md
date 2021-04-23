@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro"
+ms.custom: "it-pro, devx-track-azurepowershell"
 ms.collection: M365-identity-device-management
 ---
 

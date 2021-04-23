@@ -8,7 +8,7 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/20/2021
 ms.author: oliversc
 ms.custom: seodec18
 ---
@@ -37,7 +37,7 @@ With this release, we now support a total of 142 neural voices across 60 languag
 
 **Get facial pose events to animate characters**
 
-The [Viseme event](how-to-speech-synthesis-viseme.md) is added to Neural TTS, which allows users to get the facial pose sequence and duration from synthesized speech. Viseme can be used to control the movement of 2D and 3D avatar models, perfectly matching mouth movements to synthesized speech. Now, viseme only works for en-US-AriaNeural voice.
+Neural Text-to-speech now includes the [viseme event](how-to-speech-synthesis-viseme.md). Viseme events allow users to get a sequence of facial poses along with synthesized speech. Visemes can be used to control the movement of 2D and 3D avatar models, matching mouth movements to synthesized speech. Viseme events are only available for `en-US-AriaNeural` voice at this time.
 
 **Add the bookmark element in Speech Synthesis Markup Language (SSML)**
 
@@ -62,6 +62,10 @@ The [bookmark element](speech-synthesis-markup.md#bookmark-element) allows you t
 - **C++/C#/Java/Objective-C/Python**: Added support for separate shared library for audio microphone and speaker control. This allows to use the SDK in environments that do not have required audio library dependencies.
 - **Objective-C/Swift**: Added support for module framework with umbrella header. This allows to import Speech SDK as a module in iOS/Mac Objective-C/Swift apps. This addresses [GitHub issue #452](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452).
 - **Python**: Added support for [Python 3.9](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python) and dropped support for Python 3.5 per Python's [end-of-life for 3.5](https://devguide.python.org/devcycle/#end-of-life-branches).
+
+**Known issues**
+
+- **C++/C#/Java**: `DialogServiceConnector` cannot use a `CustomCommandsConfig` to access a Custom Commands application and will instead encounter a connection error. This can be worked around by manually adding your application ID to the request with `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)`. The expected behavior of `CustomCommandsConfig` will be restored in the next release.
 
 #### Improvements
 

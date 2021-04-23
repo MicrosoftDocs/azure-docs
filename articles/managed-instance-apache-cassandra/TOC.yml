@@ -38,4 +38,4 @@
       - name: Cassandra data centers
         href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandradatacenters
     - name: Azure CLI
-      href: /cli/azure/ext/cosmosdb-preview/managed-cassandra
+      href: /cli/azure/managed-cassandra
