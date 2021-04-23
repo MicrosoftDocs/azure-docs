@@ -114,6 +114,12 @@
   - name: Overview of FHIR Search
     expanded: false
     href: overview-fhir-search.md
+  - name: Defining custom search parameters
+    expanded: false
+    href: how-to-do-custom-search.md
+  - name: How-to run a reindex job
+    expanded: false
+    href: how-to-run-a-reindex.md
 - name: Concepts
   expanded: false
   items:
