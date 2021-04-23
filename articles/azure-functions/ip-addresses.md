@@ -88,14 +88,24 @@ When your function app runs in a [Consumption plan](consumption-plan.md) or in a
 
 ## Outbound IP address changes
 
-The set of available outbound IP addresses for a function app might change when you:
+The relative stability of the outbound IP address depends on the hosting plan.  
+
+### Consumption and Premium plans
+
+Because of auto-scaling behaviors, the outbound IP can change at any time when running on a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md). 
+
+If you need to control the outbound IP address of your function app, such as when you need to add it to an allow list, consider implementing a [virtual network NAT gateway](#virtual-network-nat-gateway-for-outbound-static-ip) in your premium plan.
+
+### Dedicated plans
+
+When running on Dedicated (App Service) plans, the set of available outbound IP addresses for a function app might change when you:
 
 * Take any action that can change the inbound IP address.
-* Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
+* Change your Dedicated (App Service) plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
-When your function app runs in a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
+#### Forcing an outbound IP address change
 
-Use the following procedure to deliberately force an outbound IP address change:
+Use the following procedure to deliberately force an outbound IP address change in a Dedicated (App Service) plan:
 
 1. Scale your App Service plan up or down between Standard and Premium v2 pricing tiers.
 
