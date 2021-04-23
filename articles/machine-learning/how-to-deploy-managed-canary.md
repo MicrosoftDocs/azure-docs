@@ -17,6 +17,8 @@ ms.custom: how-to
 
 {>> Q: This seems more like blue-green than canary to me. The word 'canary' refers to _users_ being used as "the canary in the coalmine" while this deployment technique is traffic-based. <<}
 
+{>> Q: All code in how-to-deploy-declarative-safe-rollout-online-endpoints.sh uses `-n my-new-endpoint` to override `name: my-endpoint` in YAML. Existing endpoint from `how-to-deploy-managed-online-endpoints.sh` is `my-endpoint`. Is this renaming / override intentional and necessary? <<}
+
 Canary release is a deployment approach in which new version of a service is introduced to production by rolling out the change to small subset of users/requests before rolling it out completely.
 
 In the example below, we will start by creating a new endpoint with a deployment (v1 of the model, that we call blue). Then we will scale this deployment to handle more requests. Once we are ready to launch v2 of the model (called green), we will do so safely by performing a canary release: Deploy the v2 (i.e. green) but taking no live traffic yet, test the deployment in isolation, then gradually divert live production traffic (say 10%) to green deployment, and finally, make the 100% traffic switch to green and delete blue.
@@ -58,7 +60,7 @@ Update the deployment with:
 
 To deploy your new model, add a new section to the `deployments` section of your configuration file, but specify in the `traffic` section that it should receive 0% of traffic:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/2-scale-blue.yaml" highlight="7,35-56":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/3-create-green.yaml" highlight="7,35-56":::
 
 Update the deployment: 
 
@@ -77,17 +79,45 @@ You should see a result similar to:
 tk
 ```
 
-## 
+## Divide traffic between models
+
+Once you have tested your `green` deployment, you can serve some percentage of traffic by modifying the `traffic` node in the configuration file:
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/4-flight-green.yaml" range="5-7":::
+
+The above shows only a snippet from the configuration file, which is otherwise unchanged. Update your deployment with:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="green_10pct_traffic" :::
+
+Now, your `green` deployment will receive 10% of requests. 
+
+## Swap all traffic to your new model
+
+Once you're satisfied that your `green` deployment is fully satisfactory, switch all traffic to it. The following snippet shows only the relevant code from the configuration file, which is otherwise unchanged:
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/5-full-green.yaml" range="5-7":::
+
+And update the deployment: 
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="green_100pct_traffic" :::
+
+## Remove the old deployment
+
+Complete the swap-over to your new model by deleting the older `blue` deployment. The final configuration file looks like:
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/6-delete-blue.yaml":::
+
+Update the deployment with:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="delete_blue" :::
 
 ## Delete the endpoint and deployment
 
 If you are not going use the deployment, you should delete it with:
 
-```azurecli
-az ml endpoint delete -n my-endpoint
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="delete_endpoint" :::
 
 ## Next steps
-- Perform a more complex, blue-green deployment by following [tk](blue-green.md)
+- [tk](tk)
 - Understand managed inference [tk](concept-article.md)
 - {>> Anything else? More on log analytics? <<}
