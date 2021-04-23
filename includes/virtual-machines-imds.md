@@ -1174,7 +1174,7 @@ If there is a data element not found or a malformed request, the Instance Metada
   - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
 
 - Is user data the same as custom data?
-  - User data offers the similar functionality to custom data, allowing you to pass your own metadata to the VM instance. The difference is, user data is retrieved through IMDS, and is persistent throughout the lifetime of the VM instance. Existing custom data feature will continue to work as described in [this article](https://docs.microsoft.com/azure/virtual-machines/custom-data). However you can only get custom data through local system folder, not through IMDS.
+  - User data offers the similar functionality to custom data, allowing you to pass your own metadata to the VM instance. The difference is, user data is retrieved through IMDS, and is persistent throughout the lifetime of the VM instance. Existing custom data feature will continue to work as described in [this article](../articles/virtual-machines/custom-data.md). However you can only get custom data through local system folder, not through IMDS.
 
 - Why am I not seeing all data populated for a new version?
   - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.

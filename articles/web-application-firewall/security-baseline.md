@@ -36,9 +36,9 @@ Follow up on high severity recommendations from Security Center for any web-enab
 
 - [Web Application Firewall CRS rule groups and rules](ag/application-gateway-crs-rulegroups-rules.md) 
 
-- [WAF modes on Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
+- [WAF modes on Application Gateway](./ag/ag-overview.md#waf-modes)
 
-- [WAF modes on Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+- [WAF modes on Front Door](./afds/afds-overview.md#waf-modes)
 
 **Responsibility**: Customer
 
@@ -49,13 +49,13 @@ Follow up on high severity recommendations from Security Center for any web-enab
 **Guidance**: Use custom rules with the Azure Web Application Firewall (WAF) to allow and block traffic. For example, all traffic coming from a range of IP addresses can be blocked. 
 Configure Azure WAF to run in Prevention mode which blocks intrusions and attacks detected by the rules. An attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-- [WAF modes on Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
+- [WAF modes on Application Gateway](./ag/ag-overview.md#waf-modes)
 
-- [WAF modes on Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+- [WAF modes on Front Door](./afds/afds-overview.md#waf-modes)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](../governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](../security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](../security-center/azure-defender.md) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -69,11 +69,11 @@ Customize Azure WAF with rules and rule groups to suit web application requireme
 
 Configure the Azure WAF to run in Prevention mode after baselining the network traffic in Detection mode for a determined period of time. The Azure WAF blocks intrusions and attacks detected by the rules in Prevention mode. An attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-- [WAF modes on Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
+- [WAF modes on Application Gateway](./ag/ag-overview.md#waf-modes)
 
-- [WAF modes on Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+- [WAF modes on Front Door](./afds/afds-overview.md#waf-modes)
 
-- [Web Application firewall CRS rule groups and rules](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=owasp31)
+- [Web Application firewall CRS rule groups and rules](./ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31)
 
 **Responsibility**: Customer
 
@@ -115,7 +115,7 @@ Choose Azure PowerShell or Azure CLI to look up or perform actions on resources 
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Web Application Firewall (WAF) deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -155,7 +155,7 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 
 **Guidance**: Enable logging on your Azure Web Application Firewall (WAF) resources for access to audit, security, and diagnostic logs. Azure Web Application Firewall provides detailed reporting on each of its detected threats which are made available in the configured diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [Logging overview](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#logging)
+- [Logging overview](./ag/ag-overview.md#logging)
 
 - [Azure Monitor log query overview](../azure-monitor/logs/log-query-overview.md)
 
@@ -168,7 +168,7 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 ### 2.5: Configure security log storage retention
 
 **Guidance**: Send the Azure Web Application Firewall (WAF) logs to a custom storage account and define the retention policy. Use Azure Monitor to set your Log Analytics workspace retention period based on your organization's compliance requirements.
-- [Configure monitoring for a storage account](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
+- [Configure monitoring for a storage account](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsibility**: Customer
 
@@ -182,7 +182,7 @@ Azure WAF instances are integrated with Security Center to send alerts and healt
 
 Azure Sentinel has a built-in WAF - firewall events workbook, which provides an overview of the security events on the WAF. These include events, matched and blocked rules, and everything else that gets logged in the firewall logs.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 
@@ -224,9 +224,9 @@ Azure WAF provides centralized protection of your web applications from common e
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles are query-able and must be explicitly assigned. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Responsibility**: Customer
 
@@ -239,7 +239,7 @@ It is a good practice to create standard operating procedures around the use of 
 
 - [Understand Azure Security Center Identity and Access](../security-center/security-center-identity-access.md)
 
-- [Understand how to create admin users in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account)
+- [Understand how to create admin users in Azure Database for PostgreSQL](../postgresql/howto-create-users.md#the-server-admin-account)
 
 - [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -308,7 +308,7 @@ Create logical groupings of IP address ranges or countries and regions with name
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. Use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Review user access on a regular basis to ensure only active users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -322,7 +322,7 @@ Create logical groupings of IP address ranges or countries and regions with name
 
 Streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within the Log Analytics workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -378,7 +378,7 @@ Control access to Azure resources with Azure Active Directory (Azure AD) role-ba
 
 Follow Security Center recommendations for encryption at rest and encryption in transit where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsibility**: Shared
 
@@ -400,7 +400,7 @@ Follow Security Center recommendations for encryption at rest and encryption in 
 
 - [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [How to configure customer-managed encryption keys](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal)
+- [How to configure customer-managed encryption keys](../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal)
 
 **Responsibility**: Customer
 
@@ -412,11 +412,11 @@ Follow Security Center recommendations for encryption at rest and encryption in 
 
 The Azure WAF, in Prevention mode, blocks intrusions and attacks that are detected by the rules. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-- [Overview of integration between Application Gateway and Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration#overview)
+- [Overview of integration between Application Gateway and Azure Security Center](../security-center/security-center-partner-integration.md#overview)
 
-- [WAF modes on Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
+- [WAF modes on Application Gateway](./ag/ag-overview.md#waf-modes)
 
-- [WAF modes on Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+- [WAF modes on Front Door](./afds/afds-overview.md#waf-modes)
 
 **Responsibility**: Customer
 
@@ -434,7 +434,7 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -507,7 +507,7 @@ Use Azure Resource Graph to query or discover Azure Web Application Firewall (WA
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -547,7 +547,7 @@ Use Azure Resource Graph to query or discover Azure Web Application Firewall (WA
 
 Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Application Gateways, Virtual Networks, network security groups and use built-in policy definitions.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -577,7 +577,7 @@ Use Azure Resource Manager templates to maintain the security configuration of y
 
 Grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD), if integrated with Azure DevOps, or Azure AD, if integrated with Team Foundation Server (TFS).
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -591,7 +591,7 @@ Grant or deny permissions to specific users, built-in security groups, or groups
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy documentation](/azure/governance/policy)
+- [Azure Policy documentation](../governance/policy/index.yml)
 
 **Responsibility**: Customer
 
@@ -605,7 +605,7 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy documentation](/azure/governance/policy)
+- [Azure Policy documentation](../governance/policy/index.yml)
 
 **Responsibility**: Customer
 
@@ -640,7 +640,7 @@ Azure Application Gateway supports integration with Key Vault for server certifi
 
 **Guidance**: Ensure that soft delete is enabled for Azure Key Vault. Soft delete allows recovery of deleted key vaults and vault objects such as keys, secrets, and certificates.
 
-- [How to use Azure Key Vault's Soft Delete](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell&amp;preserve-view=true)
+- [How to use Azure Key Vault's Soft Delete](../key-vault/general/key-vault-recovery.md?amp;preserve-view=true&tabs=azure-powershell)
 
 **Responsibility**: Customer
 
