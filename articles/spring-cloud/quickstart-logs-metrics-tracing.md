@@ -137,19 +137,6 @@ You will see logs like this:
 
 #### [Portal](#tab/Azure-portal)
 
-You can use log streaming in the Azure CLI with the following command.
-
-```azurecli
-az spring-cloud app logs -s <service instance name> -g <resource group name> -n api-gateway -f
-```
-
-You will see logs like this:
-
-[ ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-streaming-cli.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-streaming-cli.png#lightbox)
-
-> [!TIP]
-> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
-
 ## Log Analytics
 
 1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud.
@@ -159,7 +146,6 @@ You will see logs like this:
 1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
 
    [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png#lightbox)
-
 
 ## Metrics
 
@@ -234,8 +220,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
----
-### Log Analytics
+## Log Analytics
 
 1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud. 
 
@@ -247,7 +232,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
-## Metrics IntelliJ
+## Metrics
 
 1. Go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
 
