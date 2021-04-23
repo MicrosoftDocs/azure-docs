@@ -255,13 +255,11 @@ Azure NetApp Files provides capacity pool and volume usage metrics. You can also
 
 ### How do I determine if a directory is approaching the limit size?
 
-<<<<<<< HEAD
 You can use the `stat` command from a client to see whether a directory is approaching the [maximum size limit](azure-netapp-files-resource-limits.md#resource-limits) for directory metadata (320 MB).
-=======
 See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#directory-limit) for the limit and calculation. 
 
-<!-- You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
->>>>>>> 290c44d76c1b72585df3a5df86e01b4a7531a620
+<!-- 
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
 
 For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
 
