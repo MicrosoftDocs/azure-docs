@@ -18,7 +18,7 @@ ms.custom: contperf-fy21q3
 When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead __use your own custom DNS server__, you must manually create DNS entries or use conditional forwarders for the workspace.
 
 > [!IMPORTANT]
-> This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
+> This article covers how to find the fully qualified domain names (FQDN) and IP addresses for these entries if you would like to manually register DNS records in your DNS solution. Additionally this article provides architecture recommendations for how to configure your custom DNS solution to automatically resolve FQDNs to the correct IP addresses. This article does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
 
 ## Prerequisites
 
@@ -32,7 +32,17 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## Public regions
+## Automated custom DNS server integration
+
+### Introduction
+
+There are two predominant architectures Azure Machine Learning customers should use when accessing their Machine Learning workspace via a Private Endpoint when using a custom DNS solution. While some customers will find final architectures that deviate from those described here, the two architectures discussed here can serve as a reference point to ensure the custom DNS solution is implemented properly – and, if something with the implemented solution is not working, this document can walk through troubleshooting steps that can identify the components in the architecture that may be misconfigured.
+
+
+
+## Manual custom DNS server integration
+
+### Public regions
 
 The following list contains the fully qualified domain names (FQDN) used by your workspace if it is in a public region::
 
@@ -48,7 +58,7 @@ The following list contains the fully qualified domain names (FQDN) used by your
     > * Compute instances can be accessed only from within the virtual network.
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
-## Azure China 21Vianet regions
+### Azure China 21Vianet regions
 
 The following FQDNs are for Azure China 21Vianet regions:
 
@@ -59,27 +69,27 @@ The following FQDNs are for Azure China 21Vianet regions:
     > [!NOTE]
     > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 characters.
 * `<instance-name>.<region>.instances.ml.azure.cn`
-## Find the IP addresses
+### Find the IP addresses
 
 To find the internal IP addresses for the FQDNs in the VNet, use one of the following methods:
 
 > [!NOTE]
 > The fully qualified domain names and IP addresses will be different based on your configuration. For example, the GUID value in the domain name will be specific to your workspace.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'customDnsConfigs[*].{FQDN: fqdn, IPAddress: ipAddresses[0]}' --output table
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $workspaceDns=Get-AzPrivateEndpoint -Name <endpoint> -resourcegroupname <resource-group>
 $workspaceDns.CustomDnsConfigs | format-table
 ```
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning __workspace__.
 1. From the __Settings__ section, select __Private endpoint connections__.
