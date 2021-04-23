@@ -60,10 +60,15 @@ For the bot on surface products, you can take the following steps to create a bo
 
     * Explicitly take the domain as input from the user through the bot client. For instance as shown below, you can take product category as input from the user when the conversation is initiated.
     
-       ![Screenshot of explicit metdata input](../media/qnamaker-tutorial-updates/explicit-metadata-input.png)
+      ![Screenshot of explicit metdata input](../media/qnamaker-tutorial-updates/explicit-metadata-input.png)
     
     * Implicitly Identify domain based on bot context. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
+
+      ![Screenshot of extract metadata from context](../media/qnamaker-tutorial-updates/extract-metadata-from-context.png)
+
     * Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
+
+      ![Screenshot of extract metadata from query](../media/qnamaker-tutorial-updates/extract-metadata-from-query.png)
 
 #### How large can our knowledgebases be? 
 
