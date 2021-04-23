@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 04/23/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -255,7 +255,13 @@ Azure NetApp Files provides capacity pool and volume usage metrics. You can also
 
 ### How do I determine if a directory is approaching the limit size?
 
+<<<<<<< HEAD
 You can use the `stat` command from a client to see whether a directory is approaching the [maximum size limit](azure-netapp-files-resource-limits.md#resource-limits) for directory metadata (320 MB).
+=======
+See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#directory-limit) for the limit and calculation. 
+
+<!-- You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
+>>>>>>> 290c44d76c1b72585df3a5df86e01b4a7531a620
 
 For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
 
@@ -274,6 +280,7 @@ Size: 12288           Blocks: 24         IO Block: 65536  directory
 File: 'tmp1'
 Size: 4096            Blocks: 8          IO Block: 65536  directory
 ```
+--> 
 
 ### Does snapshot space count towards the usable / provisioned capacity of a volume?
 
@@ -345,6 +352,11 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
 Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
+
+### Does Azure NetApp Files work with Azure Policy?
+
+Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
+[Azure Policy now available for Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) on Microsoft Tech Community. 
 
 ## Next steps  
 
