@@ -9,6 +9,7 @@
   - name: Video Analyzer terminology
     href: terminology.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Get started - Azure Video Analyzer
     href: get-started-detect-motion-emit-events.md
