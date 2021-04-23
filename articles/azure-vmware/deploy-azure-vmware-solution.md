@@ -50,7 +50,7 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 
 You should have connectivity between the Azure Virtual Network where the ExpressRoute terminates and the Azure VMware Solution private cloud. 
 
-1. Use a [virtual machine](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates (see [Step 3. Connect to Azure Virtual Network with ExpressRoute](#step-3-connect-to-azure-virtual-network-with-expressroute)).  
+1. Use a [virtual machine](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates (see [Step 3. Connect to Azure Virtual Network with ExpressRoute](#step-3-connect-to-azure-virtual-network-with-expressroute)).  
 
    1. Log into the Azure [portal](https://portal.azure.com).
    2. Navigate to a VM that is in the running state, and under **Settings**, select **Networking** and select the network interface resource.

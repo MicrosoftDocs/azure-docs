@@ -16,7 +16,7 @@ In addition to this how-to, you can also view the video for [resetting the vCent
  First let's reset your Azure VMare Solution components credentials. Your vCenter Server CloudAdmin and NSX-T admin credentials don’t expire; however, you can follow these steps to generate new passwords for these accounts.
 
 > [!NOTE]
-> If you use your CloudAdmin credentials for connected services like HCX, vRealize Orchestrator, vRealizae Operations Manager or VMware Horizon, your connections will stop working once you update your password.  These services should be stopped before initiating the password rotation.  Failure to do so may result in temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services will continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](https://docs.microsoft.com/azure/azure-vmware/concepts-identity).
+> If you use your CloudAdmin credentials for connected services like HCX, vRealize Orchestrator, vRealizae Operations Manager or VMware Horizon, your connections will stop working once you update your password.  These services should be stopped before initiating the password rotation.  Failure to do so may result in temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services will continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
 1. From the Azure portal, open an Azure Cloud Shell session.
 

@@ -16,7 +16,7 @@ ms.date: 11/06/2020
 
 In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your IBM Db2 databases to Azure SQL Database, by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Db2. 
 
-For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration). 
+For other migration guides, see [Azure Database Migration Guides](/data-migration). 
 
 ## Prerequisites 
 

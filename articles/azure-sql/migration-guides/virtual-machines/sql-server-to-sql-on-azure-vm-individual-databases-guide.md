@@ -25,7 +25,7 @@ You can migrate SQL Server running on-premises or on:
 - Amazon Relational Database Service (AWS RDS).
 - Compute Engine (Google Cloud Platform [GCP]).
 
-For information about extra migration strategies, see the [SQL Server VM migration overview](sql-server-to-sql-on-azure-vm-migration-overview.md). For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration).
+For information about extra migration strategies, see the [SQL Server VM migration overview](sql-server-to-sql-on-azure-vm-migration-overview.md). For other migration guides, see [Azure Database Migration Guides](/data-migration).
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Diagram that shows a migration process flow.":::
 
@@ -48,7 +48,7 @@ Before you begin your migration, you need to discover the topology of your SQL e
 Azure Migrate assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises. To plan for the migration, use Azure Migrate to [identify existing data sources and details about the features](../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use. This process involves scanning the network to identify all of your SQL Server instances in your organization with the version and features in use.
 
 > [!IMPORTANT]
-> When you choose a target Azure virtual machine for your SQL Server instance, be sure to consider the [Performance guidelines for SQL Server on Azure Virtual Machines](../../virtual-machines/windows/performance-guidelines-best-practices.md).
+> When you choose a target Azure virtual machine for your SQL Server instance, be sure to consider the [Performance guidelines for SQL Server on Azure Virtual Machines](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 For more discovery tools, see the [services and tools](../../../dms/dms-tools-matrix.md#business-justification-phase) available for data migration scenarios.
 
@@ -141,7 +141,7 @@ The following table provides a list of components and recommended migration meth
 | **Feature** | **Component** | **Migration methods** |
 | --- | --- | --- |
 | **Databases** | Model | Script with SQL Server Management Studio. |
-|| TempDB | Plan to move tempDB onto [Azure VM temporary disk (SSD)](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your tempDB. |
+|| TempDB | Plan to move tempDB onto [Azure VM temporary disk (SSD)](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your tempDB. |
 || User databases with FileStream | Use the [Backup and restore](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) methods for migration. Data Migration Assistant doesn't support databases with FileStream. |
 | **Security** | SQL Server and Windows logins | Use Data Migration Assistant to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
 || SQL Server roles | Script with SQL Server Management Studio. |
@@ -188,7 +188,7 @@ The post-migration phase is crucial for reconciling any data accuracy issues, ve
 For more information about these issues and the steps to mitigate them, see:
 
 - [Post-migration validation and optimization guide](/sql/relational-databases/post-migration-validation-and-optimization-guide)
-- [Tuning performance in Azure SQL virtual machines](../../virtual-machines/windows/performance-guidelines-best-practices.md)
+- [Tuning performance in Azure SQL virtual machines](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md)
 - [Azure cost optimization center](https://azure.microsoft.com/overview/cost-optimization/)
 
 ## Next steps
