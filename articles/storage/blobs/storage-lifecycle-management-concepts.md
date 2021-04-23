@@ -42,11 +42,16 @@ The lifecycle management feature is free of charge. Customers are charged the re
 You can add, edit, or remove a policy by using any of the following methods:
 
 - The Azure portal
-- Azure PowerShell ([Add-AzStorageAccountManagementPolicy](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction), [Set-AzStorageAccountManagementPolicy](/powershell/module/az.storage/set-azstorageaccountmanagementpolicy), [Remove-AzStorageAccountManagementPolicy](/powershell/module/az.storage/remove-azstorageaccountmanagementpolicy))
+- Azure PowerShell
+   - [Add-AzStorageAccountManagementPolicyAction](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction)
+   - [New-AzStorageAccountManagementPolicyFilter](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyfilter)
+   - [New-AzStorageAccountManagementPolicyRule](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyrule)
+   - [Set-AzStorageAccountManagementPolicy](/powershell/module/az.storage/set-azstorageaccountmanagementpolicy)
+   - [Remove-AzStorageAccountManagementPolicy](/powershell/module/az.storage/remove-azstorageaccountmanagementpolicy)
 - [Azure CLI](/cli/azure/storage/account/management-policy)
 - [REST APIs](/rest/api/storagerp/managementpolicies)
 
-A policy can be read or written in full. Partial updates are not supported. 
+A policy can be read or written in full. Partial updates are not supported.
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
