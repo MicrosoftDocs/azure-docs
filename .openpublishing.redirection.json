@@ -13276,6 +13276,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/azure-vmware-solution-on-premises.md",
+      "redirect_url": "/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
       "redirect_url": "/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
       "redirect_document_id": false
@@ -19306,14 +19311,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-custom-sdks.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/quickstart-adt-explorer.md",
       "redirect_url": "/azure/digital-twins/quickstart-azure-digital-twins-explorer",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
       "redirect_url": "/azure/digital-twins/concepts-event-notifications",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-integrate-models.md",
@@ -19323,17 +19333,17 @@
     {
       "source_path_from_root": "/articles/digital-twins/how-to-enable-private-link.md",
       "redirect_url": "/azure/digital-twins/how-to-enable-private-link-portal",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities.md",
       "redirect_url": "/azure/digital-twins/how-to-enable-managed-identities-portal",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/overview-differences.md",
       "redirect_url": "/azure/digital-twins/resources-compare-original-release",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/concepts-convert-models.md",
@@ -19348,7 +19358,7 @@
     {
       "source_path_from_root": "/articles/digital-twins/how-to-manage-routes.md",
       "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-use-parser.md",
@@ -19358,22 +19368,22 @@
     {
       "source_path_from_root": "/articles/digital-twins/how-to-set-up-instance-manual.md",
       "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-set-up-instance.md",
       "redirect_url": "/azure/digital-twins/how-to-set-up-instance-portal",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-configure-postman.md",
       "redirect_url": "/azure/digital-twins/how-to-use-postman",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/digital-twins/about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cosmos-db/mongodb-migrate.md",
@@ -27232,8 +27242,13 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-existing-model.md",
-      "redirect_url": "/azure/machine-learning/how-to-deploy-existing-model",
-      "redirect_document_id": true
+      "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-existing-model.md",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/concept-accelerate-with-fpgas.md",

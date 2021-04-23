@@ -313,6 +313,8 @@ the load balancer and the supporting resources with the following steps:
 
 6. Select **Delete**.
 
+## Next steps
+
 In this tutorial, you:
 
 * Created a virtual network and Azure Bastion host.
