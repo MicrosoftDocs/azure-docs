@@ -1,6 +1,6 @@
 ---
 title: Disaster recovery for Azure Purview
-description: Disaster recovery for Azure Purview
+description: Learn how to configure a disaster recovery environment for Azure Purview.
 author: sudheerreddykoppula
 ms.author: sukoppul
 ms.service: purview
