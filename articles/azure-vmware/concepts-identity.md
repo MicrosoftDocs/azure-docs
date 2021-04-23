@@ -99,10 +99,10 @@ Use the *administrator* account to access NSX-T Manager. It has full privileges 
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:
 
-- [Private cloud upgrade concepts](concepts-upgrades.md)
+- [Private cloud upgrade concepts](concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management)
 - [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 - [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
-- [How Azure VMware Solution monitors and repairs private clouds](concepts-monitor-repair-private-cloud.md)
+- [How Azure VMware Solution monitors and repairs private clouds](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
 - [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 
 
@@ -110,4 +110,4 @@ Now that you've covered Azure VMware Solution access and identity concepts, you 
 [VMware product documentation]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html
 
 <!-- LINKS - internal -->
-[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management
