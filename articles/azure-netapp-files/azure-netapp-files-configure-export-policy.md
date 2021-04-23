@@ -11,7 +11,7 @@ ms.date: 04/22/2021
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
-You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) and the dual protocol (NFSv3 and SMB). 
+You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB). 
 
 You can create up to five export policy rules.
 
@@ -42,8 +42,12 @@ You can create up to five export policy rules.
 
       ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
-    * **Chown Mode**:	Modify the change ownership mode as needed to set the ownership management capabilities of files and directories.   
-    Registration requirement and considerations apply for this functionality. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
+    * **Chown Mode**:	Modify the change ownership mode as needed to set the ownership management capabilities of files and directories.  Two options are available:   
+
+      * `restricted` (default) - Only the root user can change the ownership of files and directories.
+      * `unrestricted` - Non-root users can change the ownership for files and directories that they own.  
+
+        Registration requirement and considerations apply for setting **Chown Mode**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
 
       ![Screenshot that shows the Chown Mode option.](../media/azure-netapp-files/chown-mode-export-policy.png) 
 
