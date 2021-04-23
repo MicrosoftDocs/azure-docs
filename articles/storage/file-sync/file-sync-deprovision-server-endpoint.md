@@ -16,7 +16,7 @@ Before you deprovision your server endpoint, there are a few steps you should to
 If it is ok to permanently lose the data that you are currently syncing, you can skip to directly deprovisioning your server endpoint.
 
 > [!Important]
-> Don’t try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see Troubleshooting Azure File Sync see [Troubleshooting Azure File Sync](./storage-sync-files-troubleshoot.md). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. 
+> Don’t try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see Troubleshooting Azure File Sync see [Troubleshooting Azure File Sync](./file-sync-troubleshoot.md). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. 
 
 ## Scenario 1: You intend to delete your server endpoint and stop using your local server/VM
 
