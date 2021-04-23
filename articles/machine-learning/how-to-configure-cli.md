@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/24/2021
+ms.date: 05/25/2021
 ---
 
 # Install, set up, and use the new Azure Machine Learning CLI
@@ -124,4 +124,4 @@ Check the status:
 
 - [Train models using Machine Learning CLI extension](how-to-train-cli.md)
 - [Deploy models using Machine Learning CLI extension](how-to-deploy-cli.md)
-- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).
+- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml)

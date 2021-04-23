@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/24/2021
+ms.date: 05/25/2021
 ---
 
 # Train models (create jobs) with the new Azure Machine Learning CLI
@@ -200,7 +200,7 @@ Create the job:
 
 Azure ML supports launching an MPI job across multiple nodes and multiple processes per node. It launches the job via `mpirun`. If your training code uses the Horovod framework for distributed training, for example, you can leverage this job type to train on Azure ML.
 
-To launch an MPI job, specify `mpi` as the type and the number of processes per node to launch (`process_count_per_instance`) in the `distribution:` section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the `node_count` field in the `compute:` section.
+To launch an MPI job, specify `mpi` as the type and the number of processes per node to launch (`process_count_per_instance`) in the `distribution:` section. If this field is not specified, Azure ML will default to launching one process per node.
 
 An example YAML specification, which runs a TensorFlow job on MNIST using Horovod:
 
@@ -221,4 +221,4 @@ If using VS Code, consider configuring to autopopulate options when authoring YA
 ## Next steps
 
 - [Deploy models with the Machine Learning CLI extension](how-to-deploy-cli.md)
-- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml).
+- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml)
