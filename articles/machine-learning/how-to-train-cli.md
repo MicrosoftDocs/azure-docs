@@ -47,9 +47,9 @@ But it's not a useful job since it doesn't produce anything other than a line in
 
 Artifacts produced by an Azure Machine Learning job which should be retained should be written to the special `./outputs` directory from the job.
 
-Additionally, you can use MLflow logging, including `mlflow.autolog()` for a number of common machine learning frameworks. This will generally log model parameters, performance metrics, model artifacts, and even feature importance graphs. Additional metrics, parameters, or artifacts logged through `mlflow.log*` are kept with the job.
+Additionally, you can use MLflow logging, including `mlflow.autolog()` for a number of common machine learning frameworks. This will generally log model parameters, performance metrics, model artifacts, and even feature importance graphs. Other metrics, parameters, or artifacts logged through `mlflow.log*` are kept with the job.
 
-Often, a job involves running some source code which is edited and controlled locally. You can specify `code` to include in the job - the `command` then runs with that as the source directory.
+Often, a job involves running some source code which is edited and controlled locally. You can specify a source code directory to include in the job, from which the command will be run.
 
 For instance, look at the `jobs/train/lightgbm/iris` project directory in the examples repository:
 
@@ -87,7 +87,7 @@ With `cpu-cluster` created, you can run the basic LightGBM on Iris job. Let's re
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
-`$schema:` specifies the YAML schema. You can view the schema in the above example in a browser to see all available options for a command job YAML file. Also, if using VSCode (and the extension?) this will ?
+`$schema:` specifies the YAML schema. You can view the schema in the above example in a browser to see all available options for a command job YAML file. Also, if using VS Code (and the extension?) this will ?
 
 `code:/local_path:` specifies the local path to the source directory, relative to the YAML file, to be uploaded and used with the job. Consider using `src` in the same directory as the job file(s) for consistency.
 
@@ -215,7 +215,7 @@ Colocate data and compute in the same Azure region whenever possible. While this
 
 Use prebuilt Docker images where possible for your environment to reduce job preparation time. The Azure Machine Learning studio environments tab (preview) has prebuilt environments for common frameworks.
 
-If using VSCode, consider configuring to autopopulate options when authoring YAML files with a `$schema` specified.
+If using VS Code, consider configuring to autopopulate options when authoring YAML files with a `$schema` specified. For more information, see [JSON schemas and settings](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings).
 
 ## Next steps
 
