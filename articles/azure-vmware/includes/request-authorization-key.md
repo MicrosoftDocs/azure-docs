@@ -19,5 +19,6 @@ ms.date: 03/15/2021
   
 1. Copy the authorization key and ExpressRoute ID. You'll need them to complete the peering. 
  
-   > [!NOTE]
-   > The authorization key disappears after some time, so copy it as soon as it appears.
+    >[!NOTE]
+    >The authorization key disappears after some time, so copy it as soon as it appears.
+
