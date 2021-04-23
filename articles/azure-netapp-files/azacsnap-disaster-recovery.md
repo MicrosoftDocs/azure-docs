@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Disaster recovery using Azure Application Consistent Snapshot tool (preview)
+# Disaster recovery using Azure Application Consistent Snapshot tool
 
 This article explains how to perform disaster recovery when using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
