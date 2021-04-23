@@ -145,7 +145,7 @@ If you are not able to do any of those options, then you can also [change where 
 
 If you see an error message saying that a token cannot be acquired because a tenant is filtered out, that means you are trying to access a resource which is in a tenant you have filtered out. To unfilter the tenant, go to the **Account Panel** and make sure the checkbox for the tenant specified in the error is checked. Refer to the [Managing accounts](./storage-explorer-sign-in.md#managing-accounts) for more information on filtering tenants in Storage Explorer.
 
-## Authentication library failed to start properly
+### Authentication library failed to start properly
 
 If on startup you see an error message which says that Storage Explorer's authentication library failed to start properly then make sure your install environment meets all [prerequisites](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). Not meeting prerequisites is the most likely cause of this error message.
 
