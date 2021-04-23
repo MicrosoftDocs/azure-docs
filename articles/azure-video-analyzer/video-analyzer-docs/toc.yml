@@ -29,13 +29,15 @@
     - name: with your own HTTP model
       displayName: analyze live video
       href: analyze-live-video-use-your-model-http.md
-  - name: Use Direct Method calls
+  - name: Detect motion and emit events
     items:
-    - name: Detect motion and emit events
-      displayName: direct methods    
+    - name: Using direct method calls
+      displayName: Detect motion and emit events    
       href: detect-motion-emit-events-quickstart.md
-    - name: Detect motion, record video on edge devices
-      displayName: direct methods
+  - name: Detect motion, record video on edge devices
+    items:
+    - name: Using direct method calls
+      displayName: Detect motion, record video on edge devices
       href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
@@ -60,9 +62,6 @@
     - name: With OVMS / HTTP
       displayName: analyze live video    
       href: analyze-live-video-intel-openvino.md #404
-    - name: With Spatial Analysis
-      displayName: analyze live video    
-      href: use-live-video-spatial-analysis.md #404
 - name: Concepts
   items:
   - name: Pipeline
