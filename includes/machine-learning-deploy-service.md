@@ -10,7 +10,7 @@ ms.author: gopalv
 
 # [Azure CLI](#tab/azcli)
 
-Replace "bidaf_onnx:1" with the name of your model and its version number.
+Replace `bidaf_onnx:1` with the name of your model and its version number.
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m bidaf_onnx:1 --ic inferenceconfig.json --dc deploymentconfig.json
