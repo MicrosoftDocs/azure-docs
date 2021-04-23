@@ -36,9 +36,9 @@ If you want to give permission only for a this or a subset of files, this is how
 Learn more about this [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-explorer-acl)
 
 If you would like to query data2.csv in this example, the following permissions are needed: 
-    * execute permission on container
-    * execute permission on folder1 
-    * read permission on data2.csv
+   - execute permission on container
+   - execute permission on folder1 
+   - read permission on data2.csv
 
 ![permission structure on data lake](./media/resources-self-help-sql-on-demand/folder_structure_dataLake.png)
 
