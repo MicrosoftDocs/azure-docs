@@ -1,7 +1,7 @@
 ---
 
-title: Audit activity reports in the Azure Active Directory portal | Microsoft Docs
-description: Introduction to the audit activity reports in the Azure Active Directory portal
+title: Audit activity logs in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to the audit activity logs in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -21,23 +21,19 @@ ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
-# Audit activity reports in the Azure Active Directory portal 
+# Audit activity logs in the Azure Active Directory portal 
 
-With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing.
+As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
+
+To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
+
+- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
+
+This article gives you an overview of the audit logs.
 
 
-
-The reporting architecture consists of the following components:
-
-- **Activity** 
-    - **Sign-ins** – The [sign-ins report](concept-sign-ins.md) provides information about the usage of managed applications and user sign-in activities.
-    - **Audit logs** - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
-    - **Provisioning logs** - [Provisioning logs](./concept-provisioning-logs.md) allow customers to monitor activity by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday. 
-- **Security** 
-    - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
-    - **Users flagged for risk** - A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.
-
-This article gives you an overview of the audit report.
  
 ## Who can access the data?
 
@@ -168,7 +164,7 @@ In addition to **Azure Active Directory**, the Azure portal provides you with tw
 
 ### Users and groups audit logs
 
-With user and group-based audit reports, you can get answers to questions such as:
+With user and group-based audit logs, you can get answers to questions such as:
 
 - What types of updates have been applied to users?
 
@@ -196,7 +192,7 @@ If you want to review only auditing data that is related to groups, you can find
 
 ### Enterprise applications audit logs
 
-With application-based audit reports, you can get answers to questions such as:
+With application-based audit logs, you can get answers to questions such as:
 
 * What applications have been added or updated?
 * What applications have been removed?
@@ -217,6 +213,6 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 ## Next steps
 
 - [Azure AD audit activity reference](reference-audit-activities.md)
-- [Azure AD reports retention reference](reference-reports-data-retention.md)
+- [Azure AD logs retention reference](reference-reports-data-retention.md)
 - [Azure AD log latencies reference](reference-reports-latencies.md)
 - [Unknown actors in audit report](https://docs.microsoft.com/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)
