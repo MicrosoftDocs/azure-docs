@@ -982,10 +982,10 @@
     tocHref: /azure/azure-video-analyzer/
     topicHref: /azure/azure-video-analyzer/
     items:
-    - name: Analyze videos in cloud and on Edge
+    - name: Analyze videos with Video Analyzer
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
-    - name: Extract insights from videos
+    - name: Extract insights with Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
     
