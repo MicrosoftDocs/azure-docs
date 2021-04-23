@@ -55,9 +55,7 @@ Sample json in IoT Hub Device Twin
 ```
 
 Note: 
-The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component.
-<https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property> ![image](https://user-images.githubusercontent.com/60334494/115900626-03cd8080-a415-11eb-98ea-be0a8e5f606c.png)
-
+The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component, learn more [here](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property).
 
 #### State
 
