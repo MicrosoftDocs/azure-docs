@@ -1,11 +1,11 @@
 ---
 title: Connect to GitHub
 description: Use GitHub to specify your Common Data Model entity references
-author: dcstwh
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.author: weetok
+ms.author: jingwang
 ---
 
 
