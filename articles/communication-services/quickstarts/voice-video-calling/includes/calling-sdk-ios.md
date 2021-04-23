@@ -225,6 +225,7 @@ final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelega
 
     // Event raised when incoming call was not answered
     public func incomingCall(_ incomingCall: IncomingCall, didEnd args: PropertyChangedEventArgs) {
+        print("Incoming call was not answered")
         self.incomingCall = nil
     }
 }
@@ -261,7 +262,6 @@ if let incomingCall = self.incomingCall {
 }
 ```
 
-=== BREAKPOINT ===
 ## Set up push notifications
 
 A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
@@ -284,7 +284,7 @@ Registration for push notifications needs to happen after successful initializat
 ```swift
 
 let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
-callAgent.registerPushNotifications(deviceToken: deviceToken) { (error) in
+callAgent.registerPushNotifications(deviceToken: deviceToken!) { (error) in
     if(error == nil) {
         print("Successfully registered to push notification.")
     } else {
@@ -299,13 +299,13 @@ To receive push notifications for incoming calls, call `handlePushNotification()
 
 ```swift
 
-let callNotification = IncomingCallInformation.from(payload: pushPayload?.dictionaryPayload)
+let callNotification = PushNotificationInfo.fromDictionary(pushPayload.dictionaryPayload)
 
 callAgent.handlePush(notification: callNotification) { (error) in
-    if (error != nil) {
-        print("Handling of push notification failed")
-    } else {
+    if (error == nil) {
         print("Handling of push notification was successful")
+    } else {
+        print("Handling of push notification failed")
     }
 }
 
@@ -319,11 +319,11 @@ Applications can unregister push notification at any time. Simply call the `unre
 
 ```swift
 
-callAgent.unregisterPushNotifications { (error) in
-    if (error != nil) {
-        print("Unregister of push notification failed, please try again")
-    } else {
+callAgent.unregisterPushNotification { (error) in
+    if (error == nil) {
         print("Unregister of push notification was successful")
+    } else {
+       print("Unregister of push notification failed, please try again")
     }
 }
 
@@ -359,6 +359,7 @@ call!.unmute { (error) in
     }
 }
 ```
+=== BREAKPOINT ===
 
 ### Start and stop sending local video
 
