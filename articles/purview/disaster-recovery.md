@@ -24,13 +24,13 @@ The following steps show how you can achieve disaster recovery manually:
 
 2. All activities performed on the primary Purview account must be carried out on the secondary Purview accounts as well. This includes: 
 
-    - Maintenance of Account information
-    - Creation and maintenance of custom Scan rule sets, Classifications, and Classification rules
-    - Registering and scanning sources
-    - Creation and maintenance of Collections along with association of sources with the Collections
-    - Creation and maintenance of Credentials used while scanning.
-    - Curation of data assets
-    - Creation and maintenance of Glossary terms. 
+    - Maintain Account information
+    - Create and maintain custom Scan rule sets, Classifications, and Classification rules
+    - Register and scan sources
+    - Create and maintain Collections along with the association of sources with the Collections
+    - Create and maintain Credentials used while scanning.
+    - Curate data assets
+    - Create and maintain Glossary terms
 
 
 As you plan your manual BCDR plan, keep the following points in mind: 
