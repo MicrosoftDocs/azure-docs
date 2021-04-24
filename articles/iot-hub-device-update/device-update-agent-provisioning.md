@@ -77,7 +77,7 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 1. Follow the instructions to [Install and provision the Azure IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
 
 1. Install the Device Update image update agent
-    - We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the .swu file is the base image which you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
+    - We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the ".swu" file is the base image which you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
 
 1. Install the Device Update package update agent  
     - For latest agent versions from packages.miscrosoft.com: Update package lists on your device and install the Device Update agent package and its dependencies using:	
