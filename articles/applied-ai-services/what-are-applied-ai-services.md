@@ -2,13 +2,14 @@
 title: What are Azure Applied AI Services?
 titleSuffix: Azure Applied AI Services
 description: Applied AI Services description.
-author: nitinme
+keywords: applied ai services, artifical intelligence, applied ai, ai services, cognitive search, applied ai features
+author: jeffme
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice:
 ms.topic: overview
 ms.date: 04/24/2021
-ms.author: nitinme
+ms.author: jeffme
 ---
 
 # What are Azure Applied AI Services?
