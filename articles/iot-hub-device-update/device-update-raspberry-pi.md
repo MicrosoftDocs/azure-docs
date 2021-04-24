@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Yocto Image | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ Reference Yocto Image.
-author: valls
-ms.author: valls
+author: ValOlson
+ms.author: ValOlson
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
