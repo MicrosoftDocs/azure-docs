@@ -68,12 +68,8 @@ The need for access to privileged Azure resource roles by employees changes over
 1. Under **Review role membership**, select the privileged Azure roles to review. 
 
     > [!NOTE]
-    > - Roles selected here include both [permanent and eligible roles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
-    > - Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
-    If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
-
-    > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
+    If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
 
 1. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **(Preview) eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **(Preview) active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
 
