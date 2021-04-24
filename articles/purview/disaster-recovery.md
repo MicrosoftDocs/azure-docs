@@ -14,7 +14,7 @@ This article explains how to configure a disaster recovery environment for Azure
 
 ## Achieve business continuity for Azure Purview
 
-Business continuity and disaster recovery (BCDR) in Azure Purview instance refers to the mechanisms, policies, and procedures that enable your business to protect data loss and continue operating in the face of disruption, particularly to its scanning, catalog, and insights tiers. This page explains how to configure a disaster recovery environment for Azure Purview.
+Business continuity and disaster recovery (BCDR) in an Azure Purview instance refers to the mechanisms, policies, and procedures that enable your business to protect data loss and continue operating in the face of disruption, particularly to its scanning, catalog, and insights tiers. This page explains how to configure a disaster recovery environment for Azure Purview.
 
 Today, Azure Purview does not support automated BCDR. Until that support is added, you are responsible to take care of backup and restore activities. You can manually create a secondary Purview account as a warm standby instance in another region.
 
@@ -24,13 +24,13 @@ The following steps show how you can achieve disaster recovery manually:
 
 2. All activities performed on the primary Purview account must be carried out on the secondary Purview accounts as well. This includes: 
 
-    - Maintenance of Account information
-    - Creation and maintenance of custom Scan rule sets, Classifications, and Classification rules
-    - Registering and scanning sources
-    - Creation and maintenance of Collections along with association of sources with the Collections
-    - Creation and maintenance of Credentials used while scanning.
-    - Curation of data assets
-    - Creation and maintenance of Glossary terms. 
+    - Maintain Account information
+    - Create and maintain custom Scan rule sets, Classifications, and Classification rules
+    - Register and scan sources
+    - Create and maintain Collections along with the association of sources with the Collections
+    - Create and maintain Credentials used while scanning.
+    - Curate data assets
+    - Create and maintain Glossary terms
 
 
 As you plan your manual BCDR plan, keep the following points in mind: 
