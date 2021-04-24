@@ -10,7 +10,7 @@ ms.date: 04/13/2021
 
 ## Pre-read  
 
-* [Video playback]()<!--video-playback-concept.md-->
+* [Video playback](video-playback-concept.md)
 * [Continuous video recording](continuous-video-recording.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
 
@@ -18,10 +18,10 @@ ms.date: 04/13/2021
 
 You can use Azure Video Analyzer on IoT Edge for [continuous video recording](continuous-video-recording.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
 
-Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag]()<!-- add link to swagger--> that will be set to `true` for the video resource.
+Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag](add-valid-link.md)<!-- add link to swagger--> that will be set to `true` for the video resource.
 
 
-Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). See the [video playback]()<!--video-playback-concept.md--> article for more details. You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [Widgets]() <!-- add link--> that are JavaScript plugins built on top of the Client APIs.
+Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). See the [video playback](video-playback-concept.md) article for more details. You would use Video Analyzer [Client APIs](add-valid-link.md)<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [Widgets](widgets.md) that are JavaScript plugins built on top of the Client APIs.
  
 ### Live vs. VoD  
 
@@ -35,7 +35,7 @@ Consider the scenario where you have used Azure Video Analyzer on IoT Edge to re
 * A way to determine what dates/hours of video you have in a  recording.
 * A way to select a portion (for example, 9AM to 11AM on New Years Day) of that recording to playback.
 
-Video Analyzer provides you with a query parameter (`availableMedia`) to address the first issue, and time-range filters (startTime, endTime) to address the second. This parameter is to be appended with to the `archiveBaseUrl` [property]()<!-- add link to swagger--> of the video resource.
+Video Analyzer provides you with a query parameter (`availableMedia`) to address the first issue, and time-range filters (startTime, endTime) to address the second. This parameter is to be appended with to the `archiveBaseUrl` [property](add-valid-link.md)<!-- add link to swagger--> of the video resource.
 
 ## Query API 
 
@@ -302,7 +302,7 @@ With such a recording:
 
 ## Recording and playback latencies
 
-When using Video Analyzer to record to a video resource, you will specify a `segmentLength` [property]()<!--add link--> which tells the module to aggregate a minimum duration of video (in seconds) before it is written to the cloud. For example, if `segmentLength` is set to 300, then the module will accumulate 5 minutes worth of video before uploading one 5 minutes “chunk”, then go into accumulation mode for the next 5 minutes, and upload again. Increasing the `segmentLength` has the benefit of lowering your Azure Storage transaction costs, as the number of reads and writes will be no more frequent than once every `segmentLength` seconds.
+When using Video Analyzer to record to a video resource, you will specify a `segmentLength` [property](add-valid-link.md) which tells the module to aggregate a minimum duration of video (in seconds) before it is written to the cloud. For example, if `segmentLength` is set to 300, then the module will accumulate 5 minutes worth of video before uploading one 5 minutes “chunk”, then go into accumulation mode for the next 5 minutes, and upload again. Increasing the `segmentLength` has the benefit of lowering your Azure Storage transaction costs, as the number of reads and writes will be no more frequent than once every `segmentLength` seconds.
 
 Consequently, streaming of the video from your Video Analyzer account will be delayed by at least that much time. 
 
@@ -310,4 +310,4 @@ Another factor that determines playback latency (the delay between the time an e
 
 ## Next steps
 
-[Continuous video recording tutorial]() <!-- should point to continuous-video-recording-tutorial.md -->
+[Continuous video recording tutorial](continuous-video-recording-tutorial.md)
