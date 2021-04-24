@@ -38,6 +38,8 @@
           href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
+    - name: Visual Studio
+      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Tutorials
   items:
     - name: Enable dynamic configuration using poll model
@@ -75,6 +77,7 @@
         - name: Deploy to Kubernetes using Helm
           href: integrate-kubernetes-deployment-helm.md
     - name: Feature management
+      items:
         - name: Manage feature flags
           href: manage-feature-flags.md
         - name: Use feature flags
@@ -133,8 +136,6 @@
       href: howto-backup-config-store.md
     - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
-    - name: Integrate App Configuration in Visual Studio
-      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Reference
   items:
     - name: Client libraries
@@ -170,6 +171,7 @@
         - name: Terraform
           href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
     - name: Data operation
+      items:
         - name: REST API
           items:
             - name: Overview
