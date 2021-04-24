@@ -91,4 +91,4 @@ You can also create a separate knowledge base for each domain and maintain the k
 You can locate the Knowledgebase ID in the Publish page section as shown below.
 
 >[!div class="mx-imgBorder"]
->[Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png)
+>![Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png)
