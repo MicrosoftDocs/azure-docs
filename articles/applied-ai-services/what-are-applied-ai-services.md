@@ -46,10 +46,24 @@ Enhance reading comprehension and achievement with AI. Azure Immersive Reader is
 
 Enable rapid creation of customizable, sophisticated, conversational experiences with pre-built conversational components enabling business value right out of the box.  Azure Bot Service is an open-source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer integrates language understanding services such as LUIS and QnA Maker and allows sophisticated composition of bot replies using language generation. 
 
-[Learn more about Azure Bot Service >](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)​
+[Learn more about Azure Bot Service >](https://docs.microsoft.com/azure/bot-service)​
 
 ## Azure Video Analytics
 
 Enabling businesses to build automated apps powered by video intelligence without being a video or AI expert.  Azure Video Analytics is a service for building AI-based video solutions and applications. You can generate real-time business insights from video streams, processing data near the source and applying the AI of your choice. Record videos of interest on the edge or in the cloud and combine them with other data to power your business decisions.
 
 [Learn more about Azure Video Analytics >](https://aka.ms/video-analyzer-hub)​​
+
+## Certifications and compliance
+
+Applied AI Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "download") certifications for your own audits and security reviews.
+
+To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/ "Trust Center").
+
+## Support
+
+Applied AI Services provides several support options to help you move forward with creating intelligent applications. Applied AI Services also has a strong community of developers that can help answer your specific questions. For a full list of options available to you, see:
+
+- [Submit Feedback on UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737/)
+- [Ask Questions on Microsoft Q&A]( https://docs.microsoft.com/answers)
+- [Troubleshoot on StackOverflow](https://aka.ms/AppliedAIStackOverflow)
