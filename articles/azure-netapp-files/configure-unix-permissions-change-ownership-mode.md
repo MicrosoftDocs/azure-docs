@@ -1,6 +1,6 @@
 ---
 title: Configure Unix permissions and change ownership mode for Azure NetApp Files NFS and dual-protocol volumes | Microsoft Docs
-description: Describes how to set the Unix permissions and the change ownership mode (`Chown Mode`) options for Azure NetApp Files NFS and dual-protocol volumes. 
+description: Describes how to set the Unix permissions and the change ownership mode options for Azure NetApp Files NFS and dual-protocol volumes. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche

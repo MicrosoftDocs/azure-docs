@@ -31,7 +31,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The Azure NetApp Files Unix Permissions functionality enables you to specify change permissions for the mount path. 
 
-    These new features provide options to move access control of certain files or directories into the hands of the data user instead of the service operator.   
+    These new features provide options to move access control of certain files and directories into the hands of the data user instead of the service operator.   
 
 
 ## April 2021

@@ -47,9 +47,9 @@ You can create up to five export policy rules.
       * `Restricted` (default) - Only the root user can change the ownership of files and directories.
       * `Unrestricted` - Non-root users can change the ownership for files and directories that they own.  
 
-        Registration requirement and considerations apply for setting **Chown Mode**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
+        Registration requirement and considerations apply for setting **`Chown Mode`**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
 
-      ![Screenshot that shows the Chown Mode option.](../media/azure-netapp-files/chown-mode-export-policy.png) 
+      ![Screenshot that shows the change ownership mode option.](../media/azure-netapp-files/chown-mode-export-policy.png) 
 
 ## Next steps 
 * [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
