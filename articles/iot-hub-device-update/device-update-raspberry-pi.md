@@ -15,7 +15,7 @@ and package-based.
 
 Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
 
-This tutorial walks you through the steps to complete an end-to-end image-based update using Device Update for IoT Hub. 
+This tutorial walks you through the steps to complete an end-to-end image-based update using Device Update for IoT Hub on a Raspberry Pi 3 B+ board. 
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
@@ -31,9 +31,7 @@ In this tutorial you will learn how to:
 
 ## Download image
 
-There are three images available as a part of the "Assets" in a given
-[Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and one update image (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the device. To do so, you'll need to upload the update images to the Device Update for IoT Hub
-Service, as a part of the import.
+We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .swu file is the base image which you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. 
 
 ## Flash SD card with image
 
