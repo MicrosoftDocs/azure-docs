@@ -46,13 +46,13 @@ landingContent:
         links:
         - text: Keys and values in App Config
           url: concept-key-value.md
-        - text: Sync your App Configuration instance using GitHub Actions
-          url: concept-github-action.md
+        - text: Feature management
+          url: concept-feature-management.md
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
         links:
-        - text: Code a ASP.NET Core app
+        - text: Code an ASP.NET Core app
           url: quickstart-aspnet-core-app.md
         - text: Code a .NET Core app
           url: quickstart-dotnet-core-app.md
@@ -153,5 +153,5 @@ landingContent:
           url: https://go.microsoft.com/fwlink/?linkid=2103727
         - text: Azure SDK for JavaScript
           url: https://go.microsoft.com/fwlink/?linkid=2103664
-        - text: REST
+        - text: REST API
           url: rest-api.md
