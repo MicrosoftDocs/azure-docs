@@ -71,19 +71,19 @@ For the bot on surface products, you can take the following steps to create a bo
     * Explicitly take the domain as input from the user through the bot client. For instance as shown below, you can take product category as input from the user when the conversation is initiated.
 
 
-  [![Take metadata input]( ../media/qnamaker-tutorial-updates/explicit-metadata-input.png) ]( ../media/qnamaker-tutorial-updates/expand/explicit-metadata-input.png)
+  ![Take metadata input]( ../media/qnamaker-tutorial-updates/explicit-metadata-input.png)( ../media/qnamaker-tutorial-updates/expand/explicit-metadata-input.png)
 
 
     * Implicitly Identify domain based on bot context. For instance, in case the previous question was on a particular Surface product, it can be saved as context client side. If the user doesn't specify the product in the next query, you could pass on the bot context as metadata to the Generate Answer API.
 
 
-  [![Pass context]( ../media/qnamaker-tutorial-updates/extract-metadata-from-context.png) ]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-context.png)
+  ![Pass context]( ../media/qnamaker-tutorial-updates/extract-metadata-from-context.png)( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-context.png)
 
 
     * Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
 
 
-  [![Extract metadata from query]( ../media/qnamaker-tutorial-updates/extract-metadata-from-query.png) ]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-query.png)
+  ![Extract metadata from query]( ../media/qnamaker-tutorial-updates/extract-metadata-from-query.png)( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-query.png)
 
 
 #### How large can our knowledgebases be? 
