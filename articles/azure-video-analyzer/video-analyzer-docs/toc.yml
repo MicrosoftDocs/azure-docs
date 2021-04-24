@@ -148,9 +148,9 @@
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Azure Video Analyzer player
     href: player.md #404
-  - name: FAQs - Cloud
-    href: faqs-cloud.md # 404
+  - name: FAQ - Cloud
+    href: faq-cloud.md # 404
   - name: FAQs - Edge
-    href: faqs-edge.md # 404
+    href: faq-edge.md 
   - name: Quotas and limitations
     href: quotas-limitations.md

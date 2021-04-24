@@ -35,7 +35,6 @@ Complete the following steps to use Azure Video Analyzer on IoT Edge to detect t
 
 ## Setup Azure Resources
 
-
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
 [!INCLUDE [resources](includes/common-includes/azure-resources.md)]
