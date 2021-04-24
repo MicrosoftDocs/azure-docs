@@ -41,6 +41,8 @@
       href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
+  - name: Continuous video recording and playback
+    href: continuous-video-recording-tutorial.md
   - name: Playback multi-day recordings	
     href: playback-multi-day-recordings.md #404
   - name: Use continuous video recording
