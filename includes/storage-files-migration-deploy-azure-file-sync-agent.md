@@ -35,4 +35,4 @@ These steps are described in more detail in the deployment guide, which includes
 Use the latest agent. You can download it from the Microsoft Download Center:
 [Azure File Sync Agent](https://aka.ms/AFS/agent "Azure File Sync Agent download").
 
-After a successful installation and server registration, you can check that you've successfully completed this step. Go to the Storage Sync Service resource in the Azure portal. On the left menu, go to **Registered servers**. You'll see your server listed there.
+After a successful installation and server registration, you can confirm that you've successfully completed this step. Go to the Storage Sync Service resource in the Azure portal. In the left menu, go to **Registered servers**. You'll see your server listed there.

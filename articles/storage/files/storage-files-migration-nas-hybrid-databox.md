@@ -60,7 +60,7 @@ In this phase, you need to map the results of the migration plan from the previo
 To determine how many devices you need and their types, consider these important limits:
 
 * Any Azure Data Box appliance can move data into up to 10 storage accounts. 
-* Each Data Box option comes with its own usable capacity. See [DataBox options](#databox-options).
+* Each Data Box option comes with its own usable capacity. See [Data Box options](#data-box-options).
 
 Consult your migration plan to find the number of storage accounts you've decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining this information will allow you to optimize and decide which appliance should be sending data to which storage accounts. Two Data Box devices can move files into the same storage account, but don't split content of a single file share across two Data Boxes.
 
@@ -79,8 +79,8 @@ For a standard migration, choose one or a combination of these Data Box options:
 
 While you wait for your Azure Data Box devices to arrive, you can start reviewing the needs of one or more Windows Server instances you'll be using with Azure File Sync.
 
-* Create a Windows Server 2019 instance (at a minimum Windows Server 2012 R2) as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
-* Provision or add Direct Attached Storage (DAS, as opposed to NAS, which isn't supported).
+* Create a Windows Server 2019 instance (at a minimum, Windows Server 2012 R2) as a virtual machine or physical server. A Windows Server failover cluster is also supported.
+* Provision or add Direct Attached Storage. (DAS, as opposed to NAS, which isn't supported.)
 
 The resource configuration (compute and RAM) of the Windows Server instance you deploy depends mostly on the number of files and folders you'll be syncing. We recommend a higher performance configuration if you have any concerns.
 
@@ -97,7 +97,7 @@ When your Data Box arrives, you need to set it up in the line of sight to your N
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
 * [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md).
 
-Depending on the type of Data Box, there might be Data Box copy tools available. At this point, we don't recommend them for migrations to Azure file shares because they don't copy your files to the Data Box with full fidelity. Use Robocopy instead.
+Depending on the type of Data Box, Data Box copy tools might be available. At this point, we don't recommend them for migrations to Azure file shares because they don't copy your files to the Data Box with full fidelity. Use Robocopy instead.
 
 When your Data Box arrives, it will have pre-provisioned SMB shares available for each storage account you specified when you ordered it.
 
