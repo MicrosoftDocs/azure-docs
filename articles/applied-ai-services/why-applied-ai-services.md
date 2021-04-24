@@ -6,7 +6,7 @@ author: jeffme
 manager: jeffme
 ms.service: applied-ai-services
 ms.subservice:
-ms.topic: concept
+ms.topic: overview
 ms.date: 04/24/2021
 ms.author: jeffme
 ---
