@@ -26,20 +26,20 @@ For the bot on surface products, you can take the following steps to create a bo
 1. Add the following FAQ URLs on Surface products in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. 
    
    [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98)<br>[Surface Earbuds FAQ](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9)
+   
 
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
 
->[!div class="mx-imgBorder"]
-
->[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
+>     [!div class="mx-imgBorder"]
+>     [![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
 
 
 3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
 
->[!div class="mx-imgBorder"]
->[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-1.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-1.png#lightbox)
+       >[!div class="mx-imgBorder"]
+       >[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-1.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-1.png#lightbox)
 
 
 4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
