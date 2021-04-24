@@ -33,7 +33,7 @@ Protecting organization’s growth by enabling them to make right decision based
 
 Unlock valuable information lying latent in all your content in order to perform an action or make decisions.  Azure Cognitive Search is the only cloud search service with built-in AI capabilities that enrich all types of information to help you identify and explore relevant content at scale. Use cognitive skills for vision, language, and speech, or use custom machine learning models to uncover insights from all types of content. Azure Cognitive Search also offers semantic search capability, which uses advanced machine learning techniques to understand user intent and contextually rank the most relevant search results. Spend more time innovating and less time maintaining a complex cloud search solution.
 
-[Learn more about Azure Cognitive Search >](https://docs.microsoft.com/en-us/azure/search/)​​
+[Learn more about Azure Cognitive Search >](https://docs.microsoft.com/azure/search/)​​
 
 ## Azure Immersive Reader
 
@@ -45,7 +45,7 @@ Enhance reading comprehension and achievement with AI. Azure Immersive Reader is
 
 Enable rapid creation of customizable, sophisticated, conversational experiences with pre-built conversational components enabling business value right out of the box.  Azure Bot Service is an open-source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer integrates language understanding services such as LUIS and QnA Maker and allows sophisticated composition of bot replies using language generation. 
 
-[Learn more about Azure Bot Service >](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)​
+[Learn more about Azure Bot Service >](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)​
 
 ## Azure Video Analytics
 
