@@ -14,10 +14,10 @@ ms.author: jeffme
 # Customer Spotlight on Use Cases
 
 :::row:::
-   :::column span="":::
+   :::column span="0.5":::
       ![Progressive_Logo](./media/Progressive.png)
    :::column-end:::
-   :::column span="":::
+   :::column span="2":::
       ## Progressive helps customers make smarter insurance decisions with Bot Service 
 "One of the great things about Bot Service is that, out of the box, we could use it to quickly put together the basic framework for our bot." 
 -Matt White, Marketing Manager, Personal Lines Acquisition Experience, Progressive Insurance 
@@ -34,10 +34,18 @@ ms.author: jeffme
 
 [Read the story >](https://customers.microsoft.com/en-us/story/764974-wix-partner-professional-services-azure-cognitive-search)
 
-
-![Chevron Logo](./media/Chevron.png)
-## Chevron uses Form Recognizer to extract volumes of data from unstructured reports  
+:::row:::
+   :::column span="0.5":::
+      ![Progressive_Logo](./media/Chevron.png)
+   :::column-end:::
+   :::column span="2":::
+      ## Chevron uses Form Recognizer to extract volumes of data from unstructured reports  
 “We only have a finite amount of time to extract data, and oftentimes the data that’s left behind is valuable. With this new technology, we're able to extract everything and then decide what we can use to improve our performance.” 
 -Diane Cillis, Engineering Technologist, Chevron Canada 
 
-[Read the story >](https://customers.microsoft.com/en-us/story/chevron-mining-oil-gas-azure-cognitive-services) ​​
+[Read the story >](https://customers.microsoft.com/en-us/story/chevron-mining-oil-gas-azure-cognitive-services)
+   :::column-end:::
+:::row-end:::
+
+
+ ​​
