@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Create an access review of groups and applications in Azure AD access reviews
 
-Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members (preview) as long as the Global or User Administrator enables the setting via Access Reviews Settings blade. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
+Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
 
 You can watch a quick video talking about enabling Access Reviews:
 
@@ -31,7 +31,6 @@ This article describes how to create one or more access reviews for group member
 
 - Azure AD Premium P2
 - Global administrator or User administrator
-- Microsoft 365 and Security group owner (Preview)
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
