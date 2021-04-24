@@ -16,6 +16,7 @@ You can design your bot to handle queries across multiple domains with QnA Maker
 
 * Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
 * Create a separate knowledge base for each domain.
+* Create a separate QnA Maker resource for each domain.
 
 ### Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
 
@@ -91,3 +92,5 @@ When the user question is receieved by the service, you would need to pass on th
 
 >[!div class="mx-imgBorder"]
 >![Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png)
+
+#### Create a separate QnA Maker resource for each domain.
