@@ -13,12 +13,18 @@ ms.author: jeffme
 
 # Customer Spotlight on Use Cases
 
-![Progressive_Logo](../media/Progressive.png)
-## Progressive helps customers make smarter insurance decisions with Bot Service 
+:::row:::
+   :::column span="":::
+      ![Progressive_Logo](../media/Progressive.png)
+   :::column-end:::
+   :::column span="":::
+      ## Progressive helps customers make smarter insurance decisions with Bot Service 
 "One of the great things about Bot Service is that, out of the box, we could use it to quickly put together the basic framework for our bot." 
 -Matt White, Marketing Manager, Personal Lines Acquisition Experience, Progressive Insurance 
 
 [Read the story >](https://customers.microsoft.com/en-us/story/789698-progressive-insurance-cognitive-services-insurance)
+   :::column-end:::
+:::row-end:::
  
  ​
 ![Wix Logo](../media/Wix.png)
