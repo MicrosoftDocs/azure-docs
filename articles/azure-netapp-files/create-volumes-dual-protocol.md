@@ -104,10 +104,10 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
     * Specify the **Active Directory** connection to use.
 
-    * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
-
     * Specify the **Volume path** for the volume.   
     This volume path is the name of the shared volume. The name must start with an alphabetical character, and it must be unique within each subscription and each region.  
+
+    * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
 
