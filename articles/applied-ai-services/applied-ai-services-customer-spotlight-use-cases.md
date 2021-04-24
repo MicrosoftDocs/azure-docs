@@ -15,7 +15,7 @@ ms.author: jeffme
 
 :::row:::
    :::column span="0.5":::
-      ![Progressive_Logo](./media/Progressive.png)
+      ![Progressive_Logo](./media/logo-progressive.svg)
    :::column-end:::
    :::column span="2":::
       ## Progressive helps customers make smarter insurance decisions with Bot Service 
@@ -27,16 +27,22 @@ ms.author: jeffme
 :::row-end:::
  
  ​
-![Wix Logo](./media/Wix.png)
-## WIX deploys smart, scalable search across 150 million websites with Cognitive Search 
+ :::row:::
+   :::column span="0.5":::
+      ![Wix Logo](./media/wix-logo.svg)
+   :::column-end:::
+   :::column span="2":::
+     ## WIX deploys smart, scalable search across 150 million websites with Cognitive Search 
 “We really benefitted from choosing Azure Cognitive Search because we could go to market faster than we had with other products. We don’t have to manage infrastructure, and our developers can spend time on higher-value tasks.” 
 -Giedrius Graževičius: Project Manager for Search, Wix 
 
 [Read the story >](https://customers.microsoft.com/en-us/story/764974-wix-partner-professional-services-azure-cognitive-search)
+   :::column-end:::
+:::row-end:::
 
 :::row:::
    :::column span="0.5":::
-      ![Chevron logo](./media/Chevron.png)
+      ![Chevron logo](./media/Chevron2.png)
    :::column-end:::
    :::column span="2":::
       ## Chevron uses Form Recognizer to extract volumes of data from unstructured reports  
