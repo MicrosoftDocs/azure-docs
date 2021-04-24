@@ -27,8 +27,8 @@ For the bot on surface products, you can take the following steps to create a bo
    
    [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98)<br>[Surface Earbuds FAQ](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9)
  
->[!div class="mx-imgBorder"]
->[![Create KB]( ../media/qnamaker-tutorial-updates/add-urls-sample-bot.png) ]( ../media/qnamaker-tutorial-updates/add-urls-sample-bot.png#lightbox)
+> [!div class="mx-imgBorder"]
+  ![Create KB]( ../media/qnamaker-tutorial-updates/expand/add-urls-sample-bot.png)
 
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
