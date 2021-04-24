@@ -41,7 +41,6 @@ For the bot on surface products, you can take the following steps to create a bo
 >[!div class="mx-imgBorder"]
 >[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-2.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-2.png#lightbox)
 
-
 4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
 
     You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
@@ -90,3 +89,6 @@ You add upto 50000 QnA pairs to a single knowledgebase. If your data exceeds 50,
 You can also create a separate knowledge base for each domain and maintain the knowledgebases separately. [All APIs](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) require for the user to pass on the Knowledgebase ID when making any updates to the knowledgebase or fetch an answer to the user's question. You would have to write a logic to direct the user queries to the relevant knowledgebase. You can update and track the content in each knowledgebase separately. When the user question is receieved by the service, you would need to pass on the KB id in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase.
 
 You can locate the Knowledgebase ID in the Publish page section as shown below.
+
+>[!div class="mx-imgBorder"]
+>[Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png.png)
