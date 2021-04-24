@@ -69,7 +69,6 @@ Click **New** to create a new access review.
 1. Under **Review role membership**, select the privileged Azure AD roles to review. 
 
     > [!NOTE]
-    > - Roles selected here include both [permanent and eligible roles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
     > - For roles with groups assigned to them, the access of each group linked with the role under review will be reviewed as a part of the access review.
     If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
