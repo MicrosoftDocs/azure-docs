@@ -36,7 +36,7 @@ ms.author: jeffme
 
 :::row:::
    :::column span="0.5":::
-      ![Progressive_Logo](./media/Chevron.png)
+      ![Chevron logo](./media/Chevron.png)
    :::column-end:::
    :::column span="2":::
       ## Chevron uses Form Recognizer to extract volumes of data from unstructured reports  
@@ -45,7 +45,4 @@ ms.author: jeffme
 
 [Read the story >](https://customers.microsoft.com/en-us/story/chevron-mining-oil-gas-azure-cognitive-services)
    :::column-end:::
-:::row-end:::
-
-
- ​​
+:::row-end::: ​​
