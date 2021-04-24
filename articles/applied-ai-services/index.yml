@@ -71,7 +71,7 @@ additionalContent:
       items:
         - title: Support & Help
           links:
-            - text: Submit Feedeback on UserVoice
+            - text: Submit Feedback on UserVoice
               url: https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737/
  #           - text: Ask Questions on Microsoft Q&A
  #             url: https://docs.microsoft.com/en-us/answers/topics/azure-cognitive-services.html/
