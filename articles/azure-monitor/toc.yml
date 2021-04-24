@@ -148,7 +148,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/monitor-security-baseline
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
