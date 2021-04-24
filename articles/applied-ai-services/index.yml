@@ -81,9 +81,9 @@ additionalContent:
         - title: Get Started
           links:
             - text: How To Guides
-#             url: 
+             url: https://aka.ms
             - text: Start For Free
-#              url: 
+             url: https://aka.ms
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
