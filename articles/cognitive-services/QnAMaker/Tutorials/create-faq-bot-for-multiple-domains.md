@@ -93,6 +93,6 @@ When the user question is receieved by the service, you would need to pass on th
 >[!div class="mx-imgBorder"]
 >![Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png)
 
-#### Create a separate QnA Maker resource for each domain.
+### Create a separate QnA Maker resource for each domain.
 
 Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledgebases on Surface and Xbox. In this case, it is advised to create two QnA Maker resources - one  for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource. Read more about [Role based access control](../How-To/manage-qna-maker-app.md). 
