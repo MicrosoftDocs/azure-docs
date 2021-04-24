@@ -29,7 +29,7 @@ For the bot on surface products, you can take the following steps to create a bo
    
    
 >[!div class="mx-imgBorder"]
->[![Create KB]( ../media/qnamaker-tutorial-updates/add-urls-sample-bot.png) ]( ../media/qnamaker-tutorial-updates/add-urls-sample-bot.png#lightbox)
+>[![Create KB]( ../media/qnamaker-tutorial-updates/add-urls-sample-bot.png) ]( ../media/qnamaker-tutorial-updates/expand/add-urls-sample-bot.png#lightbox)
 
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
