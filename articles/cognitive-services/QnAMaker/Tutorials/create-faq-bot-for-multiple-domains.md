@@ -31,6 +31,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
 
 >[!div class="mx-imgBorder"]
+
 >[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
 
 
