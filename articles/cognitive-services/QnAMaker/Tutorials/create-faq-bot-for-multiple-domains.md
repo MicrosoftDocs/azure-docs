@@ -51,7 +51,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
     ```json
     {
-        "question": "change pen tips?",
+        "question": "What is the price?",
         "top": 6,
         "isTest": true,
         "scoreThreshold": 30,
