@@ -213,10 +213,20 @@ Create the private endpoint to lock down your Service Bus:
 
 1. On the **Configuration** tab, for the **Subnet** setting, choose **default**.
 
-1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults the private DNS zone subscription and Private DNS zone name (e.g., privatelink.servicebus.windows.net).
-
+1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults for the Subscription and Private DNS zone name (e.g., privatelink.servicebus.windows.net).
+    :::image type="content" source="./media/functions-create-vnet/19-create-private-endpoint-configuration.png" alt-text="Screenshot of the Configuration section for creating a new Service Bus private endpoint.":::
 1. Select **Review + create**. After validation finishes, select **Create**. 
-1. After the private endpoint is created, return to the **Firewalls and virtual networks** section and add your virtual network and subnet. 
+1. After the private endpoint is created, return to the **Firewalls and virtual networks** section of your Service Bus namespace.  Ensure **Selected networks** is selected.  Select **+ Add existing virtual network** to add the recently created virtual network.  On the **Add networks** tab, use the network settings from the following table:
+
+    | Setting | Suggested value | Description|
+    |---------|-----------------|------------|
+    | **Subscription** | Your subscription | The subscription under which your resources are created. |
+    | **Virtual networks** | myVirtualNet | The name of the virtual network that your function app will connect to. |
+    | **Subnets** | functions | The name of the subnet your function app will connect to. |
+
+1. Select **Enable** to enable the service endpoint.
+1. Select **Add** to add the selected virtual network and subnet to the firewall rules for the Service Bus.
+1. Select **Save** to save the updated firewall rules.
 
 Resources in the virtual network can now communicate with the Service Bus.
 
@@ -244,7 +254,7 @@ Create the queue where your Azure Functions Service Bus trigger will get events:
 
 1. In your Service Bus, in the menu on the left, select **Queues**.
 
-1. Select **Shared access policies**. For the purposes of this tutorial, name the list *queue*.
+1. Select **Queue**. For the purposes of this tutorial, provide the name *queue* as the name of the new queue.
 
     :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Screenshot of how to create a Service Bus queue.":::
 
@@ -272,7 +282,7 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
 1. Under **Virtual Network**, select the virtual network you created earlier.
 
-1. Select the **functions** subnet you created earlier. Your function app is now integrated with your virtual network!
+1. Select the **functions** subnet you created earlier. Select **OK**.  Your function app is now integrated with your virtual network!
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
@@ -316,9 +326,10 @@ To use your function app with virtual networks, you need to join it to a subnet.
     | ------------ | ---------------- | ---------------- |
     | **Source** | GitHub | You should have created a GitHub repository for the sample code in step 2. | 
     | **Organization**  | myOrganization | The organization your repo is checked into. It's usually your account. |
-    | **Repository** | myRepo | The repository you created for the sample code. |
+    | **Repository** | functions-vnet-tutorial | The repository forked from https://github.com/Azure-Samples/functions-vnet-tutorial. |
     | **Branch** | main | The main branch of the repository you created. |
     | **Runtime stack** | .NET | The sample code is in C#. |
+    | **Version** | .NET Core 3.1 | The runtime version. |
 
 1. Select **Save**. 
 
