@@ -10,7 +10,7 @@ ms.date: 04/23/2021
 ---
 # Disaster recovery for Purview
 
-This article explains how to configure a disaster recovery environment for Azure Purview. Azure data center outages are rare, but can last anywhere from a few minutes to hours. Data Center outages can cause disruption to environments that are being relied on for data governance. By following the steps detailed in this article, you can continue to govern your data in the event of a data center outage for the primary region of your purview account.
+This article explains how to configure a disaster recovery environment for Azure Purview. Azure data center outages are rare, but can last anywhere from a few minutes to hours. Data Center outages can cause disruption to environments that are being relied on for data governance. By following the steps detailed in this article, you can continue to govern your data in the event of a data center outage for the primary region of your Purview account.
 
 ## Achieve business continuity for Azure Purview
 
@@ -47,6 +47,7 @@ As you plan your manual BCDR plan, keep the following points in mind:
 
 - [Business Continuity and Disaster Recovery](../best-practices-availability-paired-regions.md)
 - [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
+- [Azure status](https://status.azure.com/status)
 
 ## Next steps
 
