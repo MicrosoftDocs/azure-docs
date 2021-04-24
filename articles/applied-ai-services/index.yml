@@ -81,9 +81,9 @@ additionalContent:
         - title: Get Started
           links:
             - text: How To Guides
-              url: /dotnet/api/overview/azure/cognitiveservices/client
+              url: 
             - text: Start For Free
-              url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+              url: 
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
