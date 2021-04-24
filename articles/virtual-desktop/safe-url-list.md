@@ -90,7 +90,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
-|*.wvd.microsoft.us|443|Service traffic|WindowsVirtualDesktop|
+|*.wvd.azure.us|443|Service traffic|WindowsVirtualDesktop|
 |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic|AzureCloud|
