@@ -34,10 +34,10 @@
     - name: Using direct method calls
       displayName: Detect motion and emit events    
       href: detect-motion-emit-events-quickstart.md
-  - name: Detect motion, record video on edge devices
+  - name: Detect motion, record video clips on edge devices
     items:
     - name: Using direct method calls
-      displayName: Detect motion, record video on edge devices
+      displayName: Detect motion, record video clips on edge devices
       href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
