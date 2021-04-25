@@ -13,11 +13,11 @@ ms.author: jeffme
 
 # Why Azure Applied AI Services?
 
-Azure Applied AI Services reduce the time needed to modernize business processes from months to days with Azure Applied AI Services. These services help you accelerate time to value for specific business scenarios through a combination of Azure Cognitive Services, task-specific AI, and business logic.  ​
+Azure Applied AI Services reduce the time developers need to modernize business processes from months to days. These services help you accelerate time to value for specific business scenarios through a combination of Azure Cognitive Services, task-specific AI, and business logic.  ​
 
 ## Time to Value
 
-Enabling organizations in all industries to consume information hidden within documents to increase productivity, automate business process and generate knowledge and insights. ​​
+ ​​
 
 ## What is the difference between Applied AI Services and  Cognitive Services? 
  
