@@ -58,14 +58,6 @@ Yes, you can create custom alerts based on multiple parameters including IP/MAC 
 
 The sensors and agents continue to run and store data as long as the device is running. Data is stored in the security message cache according to size configuration. When the device regains connectivity, security messages resume sending.
 
-## How do I check the sanity of my deployment
-
-After installing the software for your on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System](how-to-install-software.md#system) statistics through the GUI,
-
-You can also [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli). Here you will test the systems sanity, version, network and management access to the UI.
-
-You can follow these links, if [The appliance isn't responding](how-to-install-software.md#the-appliance-isnt-responding) or [You can't connect by using a web interface](how-to-install-software.md#you-cant-connect-by-using-a-web-interface).
-
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:

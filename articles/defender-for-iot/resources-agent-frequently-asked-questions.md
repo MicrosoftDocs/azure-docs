@@ -2,7 +2,7 @@
 title: Azure Defender for IoT agent frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT agent.
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 04/25/2021
 ---
 
 # Azure Defender for IoT agent frequently asked questions
@@ -98,6 +98,15 @@ You can see how to [update your sensor network configuration before activation](
 You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
 
 If you are working with the CLI commands, you can view a table of the [available commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration), or you can learn how to [Filter network configurations](references-work-with-defender-for-iot-cli-commands.md#filter-network-configurations).
+
+## How do I check the sanity of my deployment
+
+After installing the software for your on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System](how-to-install-software.md#system) statistics through the GUI,
+
+You can also [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli). Here you will test the systems sanity, version, network and management access to the UI.
+
+You can follow these links, if [The appliance isn't responding](how-to-install-software.md#the-appliance-isnt-responding) or [You can't connect by using a web interface](how-to-install-software.md#you-cant-connect-by-using-a-web-interface).
+
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
