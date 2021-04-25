@@ -54,4 +54,5 @@ ms.author: jeffme
 
 [Read the story >](https://customers.microsoft.com/en-us/story/chevron-mining-oil-gas-azure-cognitive-services)
    :::column-end:::
-:::row-end::: ​​
+:::row-end::: 
+​​
