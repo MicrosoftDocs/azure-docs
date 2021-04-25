@@ -83,7 +83,7 @@ additionalContent:
             - text: How To Guides
               url: https://aka.ms
             - text: Start For Free
-              url: https://aka.ms
+              url: https://azure.microsoft.com/free/
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
