@@ -362,7 +362,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Read excel files with different schema is not supported now.
 - **Cause**: Reading excel files with different schemas is not supported now.
 - **Recommendation**: Please apply one of following options to solve this problem:
-    1. Use **ForeEach** + **data flow** activity to read Excel worksheets one by one. 
+    1. Use **ForEach** + **data flow** activity to read Excel worksheets one by one. 
     1. Update each worksheet schema to have the same columns manually before reading data.
 
 ### Error code: DF-Excel-InvalidDataType
