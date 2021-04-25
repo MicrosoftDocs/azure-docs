@@ -83,7 +83,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/application-gateway-security-baseline
   - name: SSL
     items:
     - name: SSL termination and end to end SSL

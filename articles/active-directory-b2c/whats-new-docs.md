@@ -82,7 +82,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Set up sign-up and sign-in with a Twitter account using Azure Active Directory B2C](identity-provider-twitter.md)
 - [Set up sign-up and sign-in with a WeChat account using Azure Active Directory B2C](identity-provider-wechat.md)
 - [Set up sign-up and sign-in with a Weibo account using Azure Active Directory B2C](identity-provider-weibo.md)
-- [Azure AD B2C custom policy overview](custom-policy-trust-frameworks.md)
+- [Azure AD B2C custom policy overview](custom-policy-overview.md)
 
 
 ## December 2020

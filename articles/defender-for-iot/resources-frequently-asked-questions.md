@@ -66,8 +66,6 @@ You can also [Check system health by using the CLI](how-to-install-software.md#c
 
 You can follow these links, if [The appliance isn't responding](how-to-install-software.md#the-appliance-isnt-responding) or [You can't connect by using a web interface](how-to-install-software.md#you-cant-connect-by-using-a-web-interface).
 
-
-
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:

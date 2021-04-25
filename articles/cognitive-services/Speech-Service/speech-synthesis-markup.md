@@ -622,7 +622,7 @@ In the sample above, we're using the International Phonetic Alphabet, also known
 
 Considering that the IPA is not easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
 
-You can use the `sapi` as the vale for the `alphabet` attribute with custom lexicons as demonstrated below:
+You can use the `sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1011,7 +1011,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # [Swift](#tab/swift)
 
-For more information, see <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+For more information, see <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer" target="_blank"> `addBookmarkReachedEventHandler` </a>.
 
 ---
 

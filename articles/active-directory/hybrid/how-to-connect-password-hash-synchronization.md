@@ -205,7 +205,7 @@ If your server has been locked down according to Federal Information Processing 
 
 **To enable MD5 for password hash synchronization, perform the following steps:**
 
-1. Go to %programfiles%\Azure AD Sync\Bin.
+1. Go to %programfiles%\Microsoft Azure AD Sync\Bin.
 2. Open miiserver.exe.config.
 3. Go to the configuration/runtime node at the end of the file.
 4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`

@@ -17,6 +17,24 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - Deprecated functionality
 - Plans for changes
 
+## 6.1.0-preview (2020-10)
+- [Managed identities for system topics](enable-identity-system-topics.md)
+- [Custom delivery properties](delivery-properties.md)
+- [Storage queue - message time-to-live (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)
+- [Advanced filtering improvements](event-filtering.md#advanced-filtering)
+    - Support filtering on array data in incoming events
+    - Allow filtering on CloudEvents extensions context attributes
+    - New operators
+        - StringNotContains
+        - StringNotBeginsWith
+        - StringNotEndsWith
+        - NumberInRange
+        - NumberNotInRange
+        - IsNull
+        - IsNotNull
+- [Allow Event Grid schema to CloudEvents 1.0 schema transformations for custom topics and domains](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+        
+
 ## 6.0.0 (2020-06)
 - Add support to new generally available (GA) service API version 2020-06-01.
 - The new features that became GA:

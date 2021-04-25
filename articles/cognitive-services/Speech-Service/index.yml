@@ -102,7 +102,7 @@ conceptualContent:
       links:
         - itemType: quickstart
           text: Recognize speech, intents, and entities
-          url: quickstarts/intent-recognition.md
+          url: get-started-intent-recognition.md
         - itemType: how-to-guide
           text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
