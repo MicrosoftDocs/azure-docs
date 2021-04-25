@@ -56,7 +56,7 @@ For more information about incident integration and advanced hunting event colle
     > [!NOTE]
     > When you enable the Microsoft 365 Defender connector, all of the M365D components’ connectors (the ones mentioned at the beginning of this article) are automatically connected in the background. In order to disconnect one of the components’ connectors, you must first disconnect the Microsoft 365 Defender connector.
 
-1. To query M365 Defender incident data, use the following statement in the query window:
+1. To query Microsoft 365 Defender incident data, use the following statement in the query window:
     ```kusto
     SecurityIncident
     | where ProviderName == "Microsoft 365 Defender"
@@ -88,7 +88,7 @@ For more information about incident integration and advanced hunting event colle
 
 The data graph in the connector page indicates that you are ingesting data. You'll notice that it shows one line each for incidents, alerts, and events, and the events line is an aggregation of event volume across all enabled tables. Once you have enabled the connector, you can use the following KQL queries to generate more specific graphs.
 
-Use the following KQL query for a graph of the incoming M365 Defender incidents:
+Use the following KQL query for a graph of the incoming Microsoft 365 Defender incidents:
 
 ```kusto
 let Now = now(); 

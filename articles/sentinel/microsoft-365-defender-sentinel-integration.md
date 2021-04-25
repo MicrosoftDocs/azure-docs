@@ -39,7 +39,7 @@ This integration gives Microsoft 365 security incidents the visibility to be man
 - **Microsoft Defender for Endpoint** (formerly Microsoft Defender ATP)
 - **Microsoft Defender for Identity** (formerly Azure ATP)
 - **Microsoft Defender for Office 365** (formerly Office 365 ATP)
-- **Microsoft Cloud App Security** (MCAS)
+- **Microsoft Cloud App Security**
 
 In addition to collecting alerts from these components, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Azure Sentinel.
 
@@ -60,7 +60,7 @@ Once you have enabled the Microsoft 365 Defender data connector to [collect inci
 
 - Incidents will be ingested and synchronized at no extra cost.
 
-Once the Microsoft 365 Defender integration is connected, all the component alert connectors (Defender for Endpoint, Defender for Identity, Defender for Office 365, MCAS) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Azure Sentinel with no additional configuration or charge.
+Once the Microsoft 365 Defender integration is connected, all the component alert connectors (Defender for Endpoint, Defender for Identity, Defender for Office 365, Cloud App Security) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Azure Sentinel with no additional configuration or charge.
 
 ### Microsoft 365 Defender incidents and Microsoft incident creation rules
 
@@ -70,9 +70,9 @@ Once the Microsoft 365 Defender integration is connected, all the component aler
 
 - Using both mechanisms together is completely supported, and this configuration can be used to facilitate the transition to the new Microsoft 365 Defender incident creation logic. This will, however, create **duplicate incidents** for the same alerts.
 
-- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365 - see MCAS below) when connecting Microsoft 365 Defender. This can be done by marking the relevant check box in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
+- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365 - see Cloud App Security below) when connecting Microsoft 365 Defender. This can be done by marking the relevant check box in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
 
-- For Microsoft Cloud App Security (MCAS) alerts, not all alert types are currently onboarded to Microsoft 365 Defender. To make sure you are still getting incidents for all MCAS alerts, you must keep or create **Microsoft incident creation rules** for the [alert types *not onboarded* to Microsoft 365 Defender](mcas-alerts-not-imported-m365d.md).
+- For Microsoft Cloud App Security alerts, not all alert types are currently onboarded to Microsoft 365 Defender. To make sure you are still getting incidents for all Cloud App Security alerts, you must keep or create **Microsoft incident creation rules** for the [alert types *not onboarded* to Microsoft 365 Defender](mcas-alerts-not-imported-m365d.md).
 
 ### Working with Microsoft 365 Defender incidents in Azure Sentinel and bi-directional sync
 
