@@ -1,18 +1,12 @@
 ---
-title: File integrity monitoring in Azure Security Center | Microsoft Docs
+title: File integrity monitoring in Azure Security Center
 description: Learn how to configure file integrity monitoring (FIM) in Azure Security Center using this walkthrough.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2020
+ms.date: 04/25/2021
 ms.author: memildin
 
 ---
@@ -164,9 +158,9 @@ The **Servers** tab lists the machines reporting to this workspace. For each mac
 - Total changes that occurred during the selected period of time
 - A breakdown of total changes as file changes or registry changes
 
-**Log Search** opens when you enter a machine name in the search field or select a machine listed under the Computers tab. Log Search displays all the changes made during the selected time period for the machine. You can expand a change for more information.
+When you select a machine, the query appears along with the results that identify the changes made during the selected time period for the machine. You can expand a change for more information.
 
-![Log Search][8]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/query-machine-changes.png" alt-text="Log Analytics query showing the changes identified by Azure Security Center's file integrity monitoring" lightbox="./media/security-center-file-integrity-monitoring/query-machine-changes.png":::
 
 The **Changes** tab (shown below) lists all changes for the workspace during the selected time period. For each entity that was changed, the dashboard lists the:
 
