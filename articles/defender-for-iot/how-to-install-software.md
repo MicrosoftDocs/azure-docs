@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 12/2/2020
+ms.date: 04/25/2021
 ms.topic: how-to
 ---
 
@@ -867,7 +867,7 @@ Post-installation validation must include the following tests:
 
   - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Checking system health by using the GUI
+### Check system health by using the GUI
 
 :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
@@ -919,7 +919,7 @@ To access the tool:
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
-### Checking system health by using the CLI
+### Check system health by using the CLI
 
 **Test 1: Sanity**
 
