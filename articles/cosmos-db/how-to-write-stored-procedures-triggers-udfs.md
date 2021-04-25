@@ -387,7 +387,7 @@ For examples of how to register and use a user-defined function, see [How to use
 
 When using stored procedure, triggers or user-defined functions, you can log the steps using the `console.log()` command. This command will concentrate a string for debugging when `EnableScriptLogging` is set to true as shown in the following example:
 
-```javascript
+```c#
 var response = await client.ExecuteStoredProcedureAsync(
 document.SelfLink,
 new RequestOptions { EnableScriptLogging = true } );
