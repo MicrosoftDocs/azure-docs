@@ -48,13 +48,17 @@ To activate the on-premises management console:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
 
+   You can onboard the on-premises management console to more than one subscription by selecting the subscriptions from your available subscriptions. The activation will include all subscriptions selected at the time of download.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="You can select multiple subscriptions to onboard your on-premises management console to.":::
+
    If you have not already onboarded a subscription, then [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
 1. Navigate back to the **Activation** popup screen and select **Choose File**.
 
 1. Select the downloaded file.
 
-After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. If this happens, upload a new activation file.
+After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This issue occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. If this warning appears, you need to upload a new activation file.
 
 ## Set up a certificate
 
@@ -96,7 +100,7 @@ For information about uploading a new certificate, supported certificate files, 
 
 ## Connect sensors to the on-premises management console
 
-You must ensure that sensors send information to the on-premises management console, and that the on-premises management console can perform backups, manage alerts, and carry out other activity on the sensors. To do that, use the following procedures to verify that you make an initial connection between sensors and the on-premises management console.
+Ensure that sensors send information to the on-premises management console, and that the on-premises management console can perform backups, manage alerts, and carry out other activity on the sensors. To do that, use the following procedures to verify that you make an initial connection between sensors and the on-premises management console.
 
 Two options are available for connecting Azure Defender for IoT sensors to the on-premises management console:
 
@@ -171,7 +175,7 @@ Access groups enable better control over where users manage and analyze devices 
 
 You can define a business unit, and a region for each site in your organization. You can then add zones, which are logical entities that exist in your network. 
 
-You should assign at least one sensor per zone. The five-level model provides the flexibility and granularity required to deliver the protection system that reflects the structure of your organization.
+Assign at least one sensor per zone. The five-level model provides the flexibility and granularity required to deliver the protection system that reflects the structure of your organization.
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagram showing sensors and regional relationship.":::
 
@@ -189,7 +193,7 @@ To set up a site:
 
    1. Enter the new business unit name and select **ADD**.
 
-1. Add a new regions to reflect your organization's regions.
+1. Add new regions to reflect your organization's regions.
 
    1. From the Enterprise View, select **All Regions** > **Manage Regions**.
 
