@@ -16,7 +16,7 @@ Azure Static Web Apps provides managed authentication but also the option to pro
 ## Overriding a default provider
 
 > [!NOTE]
-> Custom authentication is only available in the Standard tier of Azure Static Web Apps and can be used to override and built-in provider.
+> Custom authentication is only available in the Standard tier of Azure Static Web Apps and is used to override a built-in provider.
 
 The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Azure Active Directory provider is configured (see [Default provider configuration](#default-provider-configuration) for options across all providers).
 
@@ -27,8 +27,8 @@ The settings used to override the built-in providers are configured in the `auth
       "enabled": true,
       "registration": {
         "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-        "clientIdSettingName": "AAD_CLIENT_ID",
-        "clientSecretSettingName": "AAD_CLIENT_SECRET"
+        "clientIdSettingName": "<AAD_CLIENT_ID>",
+        "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
       },
       "login": {
         "loginParameters": []
@@ -39,17 +39,31 @@ The settings used to override the built-in providers are configured in the `auth
 }
 ```
 
-- `enabled`: Defaults to `true` on all the providers if the provider is configured to a non-null value (i.e. not `"azureActiveDirectory": null`).
-- `userDetailsClaim`: The name of the claim that contains the `userDetails` identity value.
-- To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md), for a matching name in the configuration file.
+| Property | Description |
+| --- | --- |
+| `enabled` | Defaults to `true` on all the providers if the provider is configured to a non-null value. For instance, not `"azureActiveDirectory": null`.
+| `userDetailsClaim` | The name of the claim that contains the `userDetails` identity value. |
+
+To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md), for a matching name in the configuration file.
 
 ### Authentication callbacks
 
-Authentication providers will likely need a URL to redirect to when login or logout has completed. The redirect endpoints required for login or logout are `https://<YOUR-SITE>/.auth/login/complete` and `https://<YOUR-SITE>/.auth/logout/complete`.
+Authentication providers often need a URL to redirect to when a login or logout is complete.
+
+The following endpoints are available as redirect destinations.
+
+| Type | URL pattern |
+| --- | --- |
+| Login | `https://<YOUR-SITE>/.auth/login/complete` |
+| Logout | `https://<YOUR-SITE>/.auth/logout/complete` |
 
 ## Configuring a custom OpenID Connect provider
 
-This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/). You can configure your app to use one or more OIDC providers. Each must be given a unique name in the configuration, and only one can serve as the default redirect target.
+This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/).
+
+- One or more OIDC providers are allowed.
+- Each provider must have a unique name in the configuration.
+- Only one provider can serve as the default redirect target.
 
 ### Register your application with the identity provider
 
@@ -60,14 +74,16 @@ You are required to register your application's details with an identity provide
 
 Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later.
 
-Additionally, you will need the OpenID Connect metadata for the provider. This is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
+Additionally, you need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
-If you are unable to use a configuration metadata document, you will need to gather the following values separately:
+If you are unable to use a configuration metadata document, gather the following values separately:
 
-- The issuer URL, sometimes shown as `issuer`.
-- The [OAuth 2.0 Authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1), sometimes shown as `authorization_endpoint`.
-- The [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2), sometimes shown as `token_endpoint`.
-- The URL of the [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document, sometimes shown as `jwks_uri`.
+| Value | Remarks |
+| --- | --- |
+| Issuer URL | Sometimes shown as `issuer`. |
+| [OAuth 2.0 Authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1) | Sometimes shown as `authorization_endpoint`. |
+| [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2) | Sometimes shown as `token_endpoint`. |
+| [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document URL | Sometimes shown as `jwks_uri`. |
 
 Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this configuration, based on which information you collected:
 
@@ -91,12 +107,12 @@ Once the configuration is set, you are ready to use your OpenID Connect provider
       "openIdConnectProviders": {
         "myProvider": {
           "registration": {
-            "clientIdSettingName": "MY_PROVIDER_ID",
+            "clientIdSettingName": "<MY_PROVIDER_ID>",
             "clientCredential": {
-              "secretSettingName": "MY_PROVIDER_CLIENT_SECRET"
+              "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
             },
             "openIdConnectConfiguration": {
-              "wellKnownOpenIdConfiguration": "https://MY_ID_SERVER/.well-known/openid-configuration"
+              "wellKnownOpenIdConfiguration": "https://<MY_ID_SERVER>/.well-known/openid-configuration"
             }
           },
           "login": {
@@ -113,7 +129,13 @@ Once the configuration is set, you are ready to use your OpenID Connect provider
 
 ## Login, logout and purging user details
 
-To allow users to login using a custom OIDC provider, have them navigate to `/.auth/<PROVIDER_NAME>/login`. To logout, use the URL `/.auth/<PROVIDER_NAME>/logout` and to purge the user details, use the URL `/.auth/<PROVIDER_NAME>/purge`.
+To use a custom OIDC provider, use the following URL patterns.
+
+| Action | Pattern |
+| --- | --- |
+| Login | `/.auth/<PROVIDER_NAME>/login` |
+| Logout | `/.auth/<PROVIDER_NAME>/logout` |
+| Purge user details | `/.auth/<PROVIDER_NAME>/purge` |
 
 ## Default provider configuration
 
@@ -123,10 +145,10 @@ The following tables contain the different configuration options for each defaul
 
 | Field Path                             | Description                                                                                                              |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant                                                              |
-| `registration.clientIdSettingName`     | The name of an application setting that is configured with the Application (client) ID for the Azure AD app registration |
-| `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration            |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected                      |
+| `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant.                                                              |
+| `registration.clientIdSettingName`     | The name of an application setting that is configured with the Application (client) ID for the Azure AD app registration. |
+| `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration.            |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected.                      |
 
 ```json
 {
@@ -135,8 +157,8 @@ The following tables contain the different configuration options for each defaul
       "enabled": true,
       "registration": {
         "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-        "clientIdSettingName": "AAD_CLIENT_ID",
-        "clientSecretSettingName": "AAD_CLIENT_SECRET"
+        "clientIdSettingName": "<AAD_CLIENT_ID>",
+        "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
       },
       "login": {
         "loginParameters": []
@@ -151,9 +173,9 @@ The following tables contain the different configuration options for each defaul
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID                                               |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret                                           |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                              |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                          |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected.|
 
 ```json
 {
@@ -161,8 +183,8 @@ The following tables contain the different configuration options for each defaul
     "apple": {
       "enabled": true,
       "registration": {
-        "clientIdSettingName": "APPLE_CLIENT_ID",
-        "clientSecretSettingName": "APPLE_CLIENT_SECRET"
+        "clientIdSettingName": "<APPLE_CLIENT_ID>",
+        "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
       },
       "login": {
         "loginParameters": []
@@ -177,9 +199,9 @@ The following tables contain the different configuration options for each defaul
 
 | Field Path                          | Description                                                                                          |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | The name of the application setting for the App ID                                                   |
-| `registration.appSecretSettingName` | The name pf the application setting for the App Secret                                               |
-| `userDetailsClaim`                  | The field to read from the Claims response and expose as user details. The value `email` is expected |
+| `registration.appIdSettingName`     | The name of the application setting for the App ID.                                                  |
+| `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                                              |
+| `userDetailsClaim`                  | The field to read from the Claims response and expose as user details. The value `email` is expected.|
 
 ```json
 {
@@ -187,8 +209,8 @@ The following tables contain the different configuration options for each defaul
     "facebook": {
       "enabled": true,
       "registration": {
-        "appIdSettingName": "FACEBOOK_APP_ID",
-        "appSecretSettingName": "FACEBOOK_APP_SECRET"
+        "appIdSettingName": "<FACEBOOK_APP_ID>",
+        "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
       },
       "login": {
         "loginParameters": []
@@ -203,9 +225,9 @@ The following tables contain the different configuration options for each defaul
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID                                               |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret                                           |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                              |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                          |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected.|
 
 ```json
 {
@@ -213,8 +235,8 @@ The following tables contain the different configuration options for each defaul
     "github": {
       "enabled": true,
       "registration": {
-        "clientIdSettingName": "GITHUB_CLIENT_ID",
-        "clientSecretSettingName": "GITHUB_CLIENT_SECRET"
+        "clientIdSettingName": "<GITHUB_CLIENT_ID>",
+        "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
       },
       "login": {
         "loginParameters": []
@@ -229,9 +251,9 @@ The following tables contain the different configuration options for each defaul
 
 | Field Path                             | Description                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID                                               |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret                                           |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                              |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                          |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected.|
 
 ```json
 {
@@ -255,9 +277,9 @@ The following tables contain the different configuration options for each defaul
 
 | Field Path                               | Description                                                                                           |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key                                              |
-| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret                                           |
-| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected |
+| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                             |
+| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                          |
+| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected. |
 
 ```json
 {
@@ -279,4 +301,5 @@ The following tables contain the different configuration options for each defaul
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Access user authentication and authorization data](user-information.md)
+> [!div class="nextstepaction"]
+> [Access user authentication and authorization data](user-information.md)
