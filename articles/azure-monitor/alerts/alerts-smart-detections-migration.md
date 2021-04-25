@@ -49,6 +49,18 @@ The migration does not change the algorithmic design and behavior of Smart Detec
 
 The migration to Smart Alerts needs to be applied to each Application Insights resource separately. For resources that are not explicitly migrated, Smart Detection will continue to work.
 
+### Action group configuration for the new smart alert rules
+
+As part of the migration process, each new Smart Alert rule is automatically configured with an action group. The migration tool can assign a default action group for each rule. The default action group depends on the notification settings for the equivalent Smart Detection rule prior to the migration.
+
+* If the **Smart Alert rule has the default email or no notifications configured** (as in preview detectors), then the new Smart Alert rule is configured with an action group named  “Application Insights Smart Detection".
+    - If the system finds an existing action group with that name, it links the new Smart Alert rule to that group.  
+    - Otherwise, it creates a new action group with that name. The new group in configured for "Email Azure Resource Manager Role" actions and sends notification to your Azure Resource Manager Monitoring Contributor and Monitoring Reader users.
+
+* If the **default email was changed** before migration, then an action group called "Application Insights Smart Detection Custom" is created, with an email action sending notifications to the previously configured email addresses.
+
+As an alternative, you can select not to use the default action group, and instead select an existing action group that will be configured for all the migrated alert rules.
+
 ## Executing Smart Detection migration process
 
 ### Migrate your Smart Detection using the Azure portal
@@ -68,14 +80,6 @@ To migrate take the following steps:
 ![Smart Detection Migration Dialog](media/alerts-smart-detections-migration/Smart-Detection-Migration-Dialog.png)
 
 After the migration, new Smart Alert rules are created for your Application Insight resource, as explained above. 
-
-As part of the migration process, each new Smart Alert rule is automatically configured with an action group. The action group configured for each rule depends on the notification settings for the equivalent Smart Detection rule prior to the migration.
-
-* If the **Smart Alert rule has the default email or no notifications configured** (as in preview detectors), then the new Smart Alert rule is configured with an action group named  “Application Insights Smart Detection".
-    - If the system finds an existing action group with that name, it links the new Smart Alert rule to that group.  
-    - Otherwise, it creates a new action group with that name. The new group in configured for "Email Azure Resource Manager Role" actions and sends notification to your Azure Resource Manager Monitoring Contributor and Monitoring Reader users.
-
-* If the **default email was changed** before migration, then an action group called "Application Insights Smart Detection Custom" is created, with an email action sending notifications to the previously configured email addresses.
 
 ### Migrate your Smart Detection using Azure CLI
 
