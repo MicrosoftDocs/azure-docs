@@ -95,7 +95,7 @@
         href: concept-baseline.md
       - name: Azure security baseline for Azure Defender for IoT
         displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline
       - name: Defender-IoT-micro-agent classic event aggregation                                          
         displayName: twin, default, configuration, alerts
         href: event-aggregation.md

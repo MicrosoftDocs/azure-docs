@@ -194,7 +194,7 @@
     - name: Security
       items:
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/iot-hub-security-baseline
         - name: Recommendations
           href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security from the ground up
