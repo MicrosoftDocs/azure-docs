@@ -16,7 +16,7 @@ ms.author: ambapat
 # Import HSM-protected keys for Key Vault (nCipher)
 
 > [!WARNING]
-> The HSM-key import method described in this document is **deprecated** and will not be supported in future. It only works with nCipher nShield family of HSMs with firmware 12.40.2 or 12.50 with a hotfix. Using [new method to import HSM-keys](hsm-protected-keys-byok.md) is strongly recommended.
+> The HSM-key import method described in this document is **deprecated** and will not be supported after June 30, 2021. It only works with nCipher nShield family of HSMs with firmware 12.40.2 or 12.50 with a hotfix. Using [new method to import HSM-keys](hsm-protected-keys-byok.md) is strongly recommended.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -17,12 +17,12 @@ Here's what you need to configure MSIX app attach:
 
 - A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
 - A Windows Virtual Desktop host pool with at least one active session host.
-- This host pool must be in the validation environment. 
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
 - A file share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
 - The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
 - If the certificate isn't publicly trusted, follow the instructions in [Install certificates](app-attach.md#install-certificates).
+- The Azure Government cloud doesn't currently support MSIX app attach.
 
 ## Turn off automatic updates for MSIX app attach applications
 
@@ -42,9 +42,6 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
 ```
-
->[!NOTE]
->We recommend that you restart the virtual machine after enabling Hyper-V.
 
 ## Configure the MSIX app attach management interface
 

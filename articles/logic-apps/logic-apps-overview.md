@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/11/2020
+ms.date: 03/24/2021
 ---
 
 # What is Azure Logic Apps?
@@ -87,7 +87,7 @@ Start small with your current systems and services, and grow incrementally at yo
   * [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
   * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
 
-For example, if you're using Microsoft BizTalk Server, logic apps can communicate with your BizTalk Server by using the [BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by including [integration account connectors](../connectors/apis-list.md#integration-account-connectors), which are available with the Enterprise Integration Pack.
+For example, if you're using Microsoft BizTalk Server, logic apps can communicate with your BizTalk Server by using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by including [integration account connectors](../connectors/managed.md#integration-account-connectors), which are available with the Enterprise Integration Pack.
 
 Going in the other direction, BizTalk Server can connect to and communicate with logic apps by using the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
 

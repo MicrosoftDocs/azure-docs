@@ -67,7 +67,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/batch-security-baseline
     - name: Security best practices
       href: security-best-practices.md
   - name: Batch service workflow and resources

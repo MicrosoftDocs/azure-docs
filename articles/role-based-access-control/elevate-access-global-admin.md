@@ -158,7 +158,7 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 ### List role assignment at root scope (/)
 
-To list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) command.
+To list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) command.
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -188,7 +188,7 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 1. Sign in as a user that can remove elevated access. This can be the same user that was used to elevate access or another Global Administrator with elevated access at root scope.
 
-1. Use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command to remove the User Access Administrator role assignment.
+1. Use the [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) command to remove the User Access Administrator role assignment.
 
     ```azurecli
     az role assignment delete --assignee username@example.com --role "User Access Administrator" --scope "/"
