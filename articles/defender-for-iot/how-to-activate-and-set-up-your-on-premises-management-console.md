@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-ms.date: 4/6/2021
+ms.date: 4/25/2021
 ms.topic: how-to
 ---
 
@@ -48,7 +48,7 @@ To activate the on-premises management console:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
 
-   You can onboard the on-premises management console to more than one subscription by selecting the subscriptions from your available subscriptions. The activation will include all subscriptions selected at the time of download.
+   You can select more than one subscription from your available subscriptions to associate the on-premises management console to. The activation file will include all subscriptions selected at the time of download.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="You can select multiple subscriptions to onboard your on-premises management console to.":::
 
