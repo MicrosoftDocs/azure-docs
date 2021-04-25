@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 04/25/2021
 ---
 
-# What's new in Azure Defender for IoT?
+# What's new in Azure Defender for IoT?  
 
 This article lists new features and feature enhancements for Defender for IoT.
 
