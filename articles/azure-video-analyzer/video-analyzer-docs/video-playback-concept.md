@@ -8,13 +8,13 @@ ms.date: 04/12/2021
 ---
 # Video playback 
 
-You can use [pipelines]() to record video into your Azure Video Analyzer account [AVA video](). In this article, you learn about the steps you need to take in order to play an asset using existing streaming capabilities of Video Analyzer.
+You can use [pipelines](pipeline.md) to record video into your Azure Video Analyzer account [AVA video](add-valid-link.md). In this article, you learn about the steps you need to take in order to play an asset using existing streaming capabilities of Video Analyzer.
 
 ## Suggested pre-reading 
 
-* [Azure Video Analyzer overview]()
-* [Azure Video Analyzer terminology]()
-* [Pipeline concept]()
+* [Azure Video Analyzer overview](overview.md)
+* [Azure Video Analyzer terminology](terminology.md)
+* [Pipeline concept](pipeline.md)
 
 
 ## RVX Widget One Player

@@ -533,4 +533,4 @@ Key aspects:
 
 ## Next steps
 
-[Module Twin configuration schema]()
+[Module Twin configuration schema](module-twin-configuration-shcema.md)

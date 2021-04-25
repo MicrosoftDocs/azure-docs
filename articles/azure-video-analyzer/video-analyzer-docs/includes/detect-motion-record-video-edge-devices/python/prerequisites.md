@@ -21,9 +21,9 @@ ms.author: juliako
 * If you didn't complete the [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart, be sure to [set up Azure resources](#setup-azure-resources).    
 * Set up the following:
 
-    * [Set up your development environment]()<!--add a link-->
-    * [Generate and deploy the IoT Edge deployment manifest ]()<!--add a link-->
-    * [Prepare to monitor events]()<!--add a link-->
+    * [Set up your development environment](set-up-dev-environment.md) 
+    * [Generate and deploy the IoT Edge deployment manifest](set-up-dev-environment.md) 
+    * [Prepare to monitor events](set-up-dev-environment.md) 
 
 ## Set up Azure resources
 

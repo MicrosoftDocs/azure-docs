@@ -249,7 +249,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
 ### Best practices around logging
 
-[Monitoring and logging]()<!--monitoring-logging.md)--> should help in understanding the taxonomy and how to generate logs that will help in debugging issues with LVA. 
+[Monitoring and logging](monitoring-logging.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with LVA. 
 
 As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.  
 
@@ -329,4 +329,4 @@ To use your gRPC server with Live Video Analytics, shared memory can be used for
 
 ## Next steps
 
-[Tutorial: Event-based video recording to cloud and playback from cloud]()<!--event-based-video-recording-tutorial.md)-->
+[Tutorial: Event-based video recording to cloud and playback from cloud](add-valid-link.md)

@@ -173,7 +173,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * aadServicePrincipalAppId - this is the app ID of the service principal for your Media Service Account and is the same as the "AadClientId" from the above link.
     * aadServicePrincipalSecret - this is the password of the service principal and is the same as the "AadSecret" from the above link.
 
-    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitor-logging-edge.md):
+    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitor-log-edge.md):
     
     ```
     "diagnosticsEventsOutputName": "avaEdgeDiagnostics",
