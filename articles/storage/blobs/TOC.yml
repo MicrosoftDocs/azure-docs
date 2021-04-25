@@ -97,6 +97,14 @@
         href: simulate-primary-region-failure.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
+    - name: Add role assignment conditions
+      items:
+      - name: Portal (Preview)
+        href: storage-blob-abac-portal.md
+      - name: PowerShell (Preview)
+        href: storage-blob-abac-powershell.md
+      - name: CLI (Preview)
+        href: storage-blob-abac-cli.md
   - name: Samples
     items:
     - name: .NET
@@ -124,8 +132,18 @@
       - name: Authorizing data operations
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
-        - name: Authorize with Azure AD
-          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize with Azure AD and conditions
+          items:
+          - name: Authorize with Azure AD
+            href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Authorize with conditions (Preview)
+            href: storage-blob-auth-abac.md
+          - name: Attributes and operations for conditions (Preview)
+            href: storage-blob-auth-abac-attributes.md
+          - name: Security for conditions (Preview)
+            href: storage-blob-auth-abac-security.md
+          - name: Example conditions (Preview)
+            href: storage-blob-abac-examples.md
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
         - name: Delegate access with shared access signatures (SAS)

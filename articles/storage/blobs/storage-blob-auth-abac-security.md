@@ -1,0 +1,90 @@
+---
+title: Security Considerations for Attribute-based Access Control
+titleSuffix: Azure Storage
+description: Security considerations for Attribute-based Access Control (ABAC).
+services: storage
+author: santoshc
+
+ms.service: storage
+ms.topic: conceptual
+ms.date: 04/16/2021
+ms.author: santoshc
+ms.reviewer: jiacfan
+ms.subservice: common
+---
+# Security considerations for attribute-based access control
+To fully secure resources using [attribute-based access control](storage-blob-auth-abac.md) (ABAC),  we must also protect the [attributes](storage-blob-auth-abac-attributes.md) used in the [role assignment conditions](../../role-based-access-control/conditions-format.md). This requires that we also secure all the permissions or actions that can be used to modify the attributes used in ABAC conditions. For instance, if you author an ABAC role assignment condition for a storage account based on path, you should keep in mind that access could be compromised if the principal has an unrestricted permission to rename a file path.
+
+This article details security considerations that you should factor into your ABAC conditions.
+
+## Use of other authorization mechanisms 
+In Azure, attribute-based access control is implemented as conditions on role assignments. Since these conditions are only evaluated when using [role-based access control](../../role-based-access-control/overview.md)  with Azure Active Directory (Azure AD), they can be bypassed if you enable access using alternate authorization methods. ABAC conditions are thus not evaluated when using shared key or shared access signature authorization. Similarly, they're not evaluated when access is granted to a file or a folder [using ACLs in ADLS Gen2](../blobs/data-lake-storage-access-control.md).
+
+You can [disable shared key authorization](shared-key-authorization-prevent.md) for your storage account to prevent this.
+
+## Securing storage attributes used in ABAC conditions
+
+### Blob path
+When using blob path as a *@Resource* attribute for an ABAC condition, you should also prevent users from renaming a blob to get access to a file when using ADLS Gen2. For instance, if you want to author a condition based on blob path, you should also restrict the user's access to the following actions:
+
+| Action | Description |
+| :--- | :--- |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | This allows customers to rename a file using the Path Create API. |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | This allows access to various Filesystem and Path operations. |
+
+### Blob index tags
+
+[Blob index tags](storage-manage-find-blobs.md) are used as free-form attributes for ABAC in Storage. If you author any access conditions using these tags, you must also protect the tags themselves. Specifically, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` DataAction allows users to modify the tags on a storage object. A principal's access to this action must also be suitably constrained to prevent them from modifying a tag key or value to gain access to a stored object that they'd otherwise be unable to access.
+
+In addition, if blob index tags are used in conditions on role assignments, there can be periods of vulnerability in access to data if the data and the associated index tags are updated in separate operations. To ensure the security of data from the instant it’s written to storage, the ABAC conditions for blob write operations should require the appropriate value for the associated index tags for the blob to be set to appropriate values in the same update operation.
+
+#### Tags on copied blobs
+
+Blob index tags are not copied from a source blob to the destination by default when the [Copy Blob](/rest/api/storageservices/Copy-Blob) API or any of its variants is used. To preserve the scope of access for blob upon copy, its tags must also be explicitly copied as well.
+
+#### Tags on snapshots
+
+Update of tags on blob snapshots is not supported in preview. This implies that you must update the tags on a blob before taking the snapshot. Any update to tags will apply only to the base blob. The tags on the snapshot will continue to have the previous value.
+If a tag on the base blob is modified after a snapshot is taken and if there’s an ABAC condition which uses that tag, then the scope of access for the base blob may be different than that for the blob snapshot.
+
+#### Tags on blob versions
+
+Blob index tags are not copied when a blob version is created through the [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) or [Copy Blob](/rest/api/storageservices/Copy-Blob) APIs. You can specify tags through the header for these APIs.
+
+You can modify tags on different versions of a blob, but these aren’t updated automatically when the tags on a base blob are modified. If you want to change the scope of access for a blob and all its versions using tags, you must update the tags on the base blob as well as all its versions.
+
+#### Querying and filtering limitations for versions and snapshots
+
+When querying or filtering blobs in a container by tags, only the base blobs are included in the response. Blob versions or snapshots with the requested keys/values are not included.
+
+## Roles and permissions
+
+If you’re using ABAC with role assignment conditions for [Azure built-in roles](../../role-based-access-control/built-in-roles.md), you should carefully review all the permissions that the role grants to a principal.
+
+### Inherited role assignments
+Role assignments can be configured for a management group, subscription, resource group, storage account or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a principal has a permission assigned to them through multiple roles or a given role at multiple levels, then access for an operation using that permission is evaluated separately for each assigned role at every level.
+
+Since ABAC conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the access restrictions intended by the ABAC policy. For instance, if a security principal is assigned a role, such as *Storage Blob Data Contributor*, at both the subscription and storage account levels and the ABAC role assignment condition is only defined at the storage account level, then the principal will have unrestricted access to the account through the role assignment at the subscription level, and vice versa.
+
+ABAC conditions must hence be consistently applied at all levels of a resource hierarchy where principals have been granted access to a resource.
+
+## Other considerations
+
+### Conditions operations that write blobs
+
+Many of the operations that write blobs require either the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` or the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` permission. Built-in roles, such as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) grant both permissions to a principal.
+
+When you define a role assignment condition on these roles, you should use identical conditions on both these permissions to ensure consistent access restrictions for write operations.
+
+### Behavior for Copy Blob and Copy Blob from URL
+
+For the [Copy Blob](/rest/api/storageservices/Copy-Blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations, `@Request` conditions using blob path as attribute on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` action and its subOperations are only evaluated for the destination blob.
+
+For conditions on the source blob, `@Resource` conditions on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` action are evaluated.
+
+### Behavior for Get Page Ranges
+
+For the [Get Page Ranges](/rest/api/storageservices/get-page-ranges) operation, `@Resource` conditions using `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` as an attribute on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read action` and its subOperations are only evaluated for the destination blob.
+
+ABAC conditions do not apply for access to the blob specified by the `prevsnapshot` URI parameter in the API.
+

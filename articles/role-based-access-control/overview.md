@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 04/18/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 
@@ -95,7 +95,7 @@ For more information, see [Understand Azure deny assignments](deny-assignments.m
 
 ## How Azure RBAC determines if a user has access to a resource
 
-The following are the high-level steps that Azure RBAC uses to determine if you have access to a resource on the management plane. This is helpful to understand if you are trying to troubleshoot an access issue.
+The following are the high-level steps that Azure RBAC uses to determine if you have access to a resource. These steps apply to Azure Resource Manager or data plane services integrated with Azure RBAC. This is helpful to understand if you are trying to troubleshoot an access issue.
 
 1. A user (or service principal) acquires a token for Azure Resource Manager.
 
@@ -105,13 +105,25 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
 1. Azure Resource Manager retrieves all the role assignments and deny assignments that apply to the resource upon which the action is being taken.
 
+1. If a deny assignment applies, access is blocked. Otherwise, evaluation continues.
+
 1. Azure Resource Manager narrows the role assignments that apply to this user or their group and determines what roles the user has for this resource.
 
-1. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource.
+1. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource. If the roles include `Actions` that have a wildcard (`*`), the effective permissions are computed by subtracting the `NotActions` from the allowed `Actions`. Similarly, the same subtraction is done for any data actions.
 
-1. If the user doesn't have a role with the action at the requested scope, access is not granted. Otherwise, Azure Resource Manager checks if a deny assignment applies.
+    `Actions - NotActions = Effective management permissions`
 
-1. If a deny assignment applies, access is blocked. Otherwise access is granted.
+    `DataActions - NotDataActions = Effective data permissions`
+
+1. If the user doesn't have a role with the action at the requested scope, access is not allowed. Otherwise, any conditions are evaluated.
+
+1. If the role assignment includes conditions, they are evaluated. Otherwise access is allowed.
+
+1. If conditions are met, access is allowed. Otherwise access is not allowed.
+
+The following diagram is a summary of the evaluation logic.
+
+![Evaluation logic role assignments](./media/overview/evaluation-logic.png)
 
 ## License requirements
 

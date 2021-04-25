@@ -1,0 +1,38 @@
+---
+title: Authorize access to blobs using Attribute-based Access Control
+titleSuffix: Azure Storage
+description: Authorize access to Azure blobs and ADLS Gen2 using Attribute-based Access Control (ABAC). Define conditions on role assignments using Storage attributes.
+services: storage
+author: santoshc
+
+ms.service: storage
+ms.topic: conceptual
+ms.date: 04/16/2021
+ms.author: santoshc
+ms.reviewer: jiacfan
+ms.subservice: common
+---
+# Authorize access to blobs and ADLS Gen2 using attribute-based access control (preview)
+
+Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with security principals, resources, requests and the environment. In Azure, ABAC builds on role-based access control (RBAC) by adding [conditions on role assignments](../../role-based-access-control/conditions-overview.md) in the existing identity and access management (IAM) system. This preview includes support for ABAC on Blobs and ADLS Gen2 and enables you to author role-assignment conditions based on resource and request attributes.
+
+## Overview of ABAC in Azure Storage
+
+Azure Storage enables the [use of Azure Active Directory](../common/storage-auth-aad.md) (Azure AD) to authorize requests to Blob, ADLS Gen2 and Queue storage. Azure AD authorizes access rights to secured resources using role-based access control (RBAC). Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access blob and queue data. You can also define custom roles with select set of permissions. Azure Storage supports role assignments for storage accounts or blob containers.
+
+However, in some cases you may need to enable finer-grained access to Storage resources or simplify the management of hundreds of role assignments for a storage resource. In such cases, ABAC can be configured as [conditions on role assignments](../../role-based-access-control/conditions-overview.md) for [DataActions](../../role-based-access-control/role-definitions.md#dataactions). ABAC is not currently supported for management operations on the [Storage Resource Provider](/rest/api/storagerp).
+
+You can use ABAC with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. Using custom roles has the advantage that they can be designed to only contain the specific permissions or data actions that you want to grant to your users. The built-in roles supported in this preview include Storage Blob Data Contributor and Storage Blob Data Reader. If you’re working with conditions based on blob index tags, you may have to use Storage Blob Data Owner since permissions for tag operations are included in the Owner role.
+
+ABAC in Azure Storage is supported for blobs and ADLS Gen2. ABAC is currently not supported for Files, Queues and Tables.
+
+## Supported attributes and operations
+
+In this preview, you can add conditions to built-in roles for accessing Blob and ADLS Gen2 data, including [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) and [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader). If you’re working with conditions based on [blob index tags](../blobs/storage-manage-find-blobs.md), you may have to use [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) since permissions for tag operations are included in this role.
+
+The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows use of `@Resource` or `@Request` attributes in the conditions. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container or a blob. A `@Request` attribute refers to an attribute included in a storage operation request.
+
+Azure Storage supports a select set of request or resource attributes that may be used in conditions on role assignments for each DataAction. For the full list of attributes supported for each DataAction, please see the [Attributes and Operations supported for ABAC](storage-blob-auth-abac-attributes.md).
+
+## Security considerations for ABAC
+

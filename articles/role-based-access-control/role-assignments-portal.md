@@ -7,7 +7,7 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/12/2021
+ms.date: 04/25/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal
 ---
@@ -203,13 +203,14 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 If you selected a role that supports conditions, a **Condition** tab will appear and you have the option to add a condition to your role assignment.
 
-Currently, conditions can only be added to role assignments that have storage data actions. These include the following built-in roles:
+Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
+
 
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
 
-1. Click **Add condition** if you want to further refine the role assignments based on principal and resource attributes. For more information, see Add or edit Azure role assignment conditions.
+1. Click **Add condition** if you want to further refine the role assignments based on principal and resource attributes. For more information, see [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md).
 
    ![Add role assignment page with Add condition tab](./media/role-assignments-portal/condition.png)
 
