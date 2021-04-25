@@ -9,7 +9,7 @@ ms.date: 04/25/2021
 
 This article lists new features and feature enhancements for Defender for IoT.
 
-Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Versioning and support for Azure Defender for IoT 
 
@@ -73,7 +73,7 @@ API version 2 is required when working with the new fields.
 
 ### Features delivered as Generally Available (GA)
 
-The following features were previously available for Public Preview, and are now Generally Available (GA)features:
+The following features were previously available for Public Preview, and are now Generally Available (GA) features:
 
 - Sensor - enhanced custom alert rules
 - On-premises management console - export alerts
@@ -134,7 +134,7 @@ Certificate and password recovery enhancements were made for this release.
 This version lets you:
 
 - Upload SSL certificates directly to the sensors and on-premises management consoles.
-- Perform validation between the on-premises management console and connected sensors, and between a management console and a High Availability management console. Validation is based on expiration dates, root CA authenticity and Certificate Revocation Lists.  If validation fails, the session will not continue.
+- Perform validation between the on-premises management console and connected sensors, and between a management console and a High Availability management console. Validation is based on expiration dates, root CA authenticity, and Certificate Revocation Lists.  If validation fails, the session will not continue.
 
 For upgrades:
 
