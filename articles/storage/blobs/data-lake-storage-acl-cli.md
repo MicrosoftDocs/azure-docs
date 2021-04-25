@@ -26,7 +26,7 @@ ACL inheritance is already available for new child items that are created under 
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
-- Azure CLI version `2.6.0` or higher.
+- Azure CLI version `2.14.0` or higher.
 
 - One of the following security permissions:
 
@@ -132,6 +132,9 @@ This example sets the ACL on a file for the owning user, owning group, or other 
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
+> [!NOTE]
+> To a set the ACL of a specific group or user, use their respective object IDs. For example, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` or `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
 The following image shows the output after setting the ACL of a file.
 
 ![Get ACL output 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -179,6 +182,9 @@ This example updates the ACL of a **file**.
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
+
+> [!NOTE]
+> To a update the ACL of a specific group or user, use their respective object IDs. For example, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` or `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user.
 

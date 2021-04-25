@@ -1,14 +1,15 @@
 ---
-title: "Quickstart: Azure Blob Storage library v12 - Python"
+title: 'Quickstart: Azure Blob Storage library v12 - Python'
 description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: mhopkins-msft
-
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/28/2021
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - mode-api
 ---
 
 # Quickstart: Manage blobs with Python v12 SDK
@@ -26,7 +27,7 @@ More resources:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
-- [Python](https://www.python.org/downloads/) 2.7, 3.5, or above.
+- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

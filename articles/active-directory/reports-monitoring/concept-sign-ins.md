@@ -1,10 +1,10 @@
 ---
-title: Sign-in activity reports in the Azure Active Directory portal | Microsoft Docs
-description: Introduction to sign-in activity reports in the Azure Active Directory portal 
+title: Sign-in activity logs in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to sign-in activity logs in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,23 +14,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 04/23/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
-# Sign-in activity reports in the Azure Active Directory portal
+# Sign-in activity logs in the Azure Active Directory portal
 
-The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
+As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
-- **Activity** 
-    - **Sign-ins** – Information about the usage of managed applications and user sign-in activities.
-    - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications, and directory activities.
-    - **Provisioning logs** - [Provisioning logs](./concept-provisioning-logs.md) allow customers to monitor activity by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday. 
-- **Security** 
-    - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt by someone who isn't the legitimate owner of a user account.
-    - **Users flagged for risk** - A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.
+To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
+
+- **Sign-ins** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
 This article gives you an overview of the sign-ins report.
 
@@ -91,9 +89,17 @@ Select an item in the list view to get more detailed information.
 
 ![Screenshot shows a detailed information view.](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
 
-> [!NOTE]
-> Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
-> For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
+
+
+## Sign-in error code
+
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. 
+
+![sign-in error code](./media/concept-all-sign-ins/error-code.png)
+ 
+While the log item provides you with a failure reason, there are cases where you might get more information using the [sign-in error lookup tool](https://login.microsoftonline.com/error). For example, if available, this tool provides you with remediation steps.  
+
+![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
 
 
@@ -239,7 +245,7 @@ By clicking an item, you get more details about the sign-in operation:
 
 > [!NOTE]
 > IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
-> Currently in Azure AD reports, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
 
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
@@ -280,3 +286,4 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 * [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)
+* [First party Microsoft applications in sign-ins report](https://docs.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

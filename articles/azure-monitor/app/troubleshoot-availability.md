@@ -4,8 +4,7 @@ description: Troubleshoot web tests in Azure Application Insights. Get alerts if
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
-
+ms.date: 02/14/2021
 ms.reviewer: sdash
 ---
 
@@ -54,7 +53,7 @@ The Troubleshooting Report allows you to easily diagnose common problems that ca
 
 ### I did not get an email when the alert triggered, or resolved or both?
 
-Check the classic alerts configuration to confirm your email is directly listed, or a distribution list you are on is configured to receive notifications. If it is, then check the distribution list configuration to confirm it can receive external emails. Also check if your mail administrator may have any policies configured that may cause this issue.
+Check the alerts' action group configuration to confirm your email is directly listed, or a distribution list you are on is configured to receive notifications. If it is, then check the distribution list configuration to confirm it can receive external emails. Also check if your mail administrator may have any policies configured that may cause this issue.
 
 ### I did not receive the webhook notification?
 
@@ -107,21 +106,6 @@ There's a limit of 100 requests per test. Also, the test is stopped if it runs l
 ### How can I run a test with client certificates?
 
 This is currently not supported.
-
-## Who receives the (classic) alert notifications?
-
-This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../alerts/alerts-classic.overview.md)and the new alerts experience refer to the [alerts overview article](../alerts/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../alerts/action-groups.md).
-
-* We recommend the use of specific recipients for classic alert notifications.
-
-* For alerts on failures from X out of Y locations, the **bulk/group** check-box option, if enabled, sends to users with admin/co-admin roles.  Essentially _all_ administrators of the _subscription_ will receive notifications.
-
-* For alerts on availability metrics the **bulk/group** check-box option if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
-
-> [!NOTE]
-> If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
-
-Use the new alert experience/near-realtime alerts if you need to notify users based on their roles. With [action groups](../alerts/action-groups.md), you can configure email notifications to users with any of the contributor/owner/reader roles (not combined together as a single option).
 
 ## Next steps
 

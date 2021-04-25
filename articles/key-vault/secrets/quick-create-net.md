@@ -16,7 +16,7 @@ Get started with the Azure Key Vault secret client library for .NET. [Azure Key 
 
 Key Vault client library resources:
 
-[API reference documentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[API reference documentation](/dotnet/api/azure.security.keyvault.secrets) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 For more information about Key Vault and secrets, see:
 - [Key Vault Overview](../general/overview.md)
@@ -248,4 +248,4 @@ To learn more about Key Vault and how to integrate it with your apps, see the fo
 - See an [Access Key Vault from App Service Application Tutorial](../general/tutorial-net-create-vault-azure-web-app.md)
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

@@ -33,8 +33,12 @@ keywords: speech to text, speech to text software
 [!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-nodejs"
 [!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-browserjs"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-browser-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-languages-objectivec-swift"

@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor Logs Dedicated Clusters
 description: Customers who ingest more than 1 TB a day of monitoring data may use dedicated rather than shared clusters
-ms.subservice: logs
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
@@ -29,7 +28,7 @@ Once the cluster is created, it can be configured and workspaces linked to it. W
 
 Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or [customer-managed key](../logs/customer-managed-keys.md), and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview) control.
 
-All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](../platform/manage-access.md). 
+All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
 
 ## Cluster pricing model
@@ -72,7 +71,7 @@ The following properties must be specified:
 - **ClusterName**: Used for administrative purposes. Users are not exposed to this name.
 - **ResourceGroupName**: As for any Azure resource, clusters belong to a resource group. We  recommended you use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md)
 - **Location**: A cluster is located in a specific Azure region. Only workspaces located in this region can be linked to this cluster.
-- **SkuCapacity**: You must specify the *capacity reservation* level (sku) when creating a *cluster* resource. The *capacity reservation* level can be in the range of 1,000 GB to 3,000 GB per day. You can update it in steps of 100 later if needed. If you need capacity reservation level higher than 3,000 GB per day, contact us at LAIngestionRate@microsoft.com. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **SkuCapacity**: You must specify the *capacity reservation* level (sku) when creating a *cluster* resource. The *capacity reservation* level can be in the range of 1,000 GB to 3,000 GB per day. You can update it in steps of 100 later if needed. If you need capacity reservation level higher than 3,000 GB per day, contact us at LAIngestionRate@microsoft.com. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 After you create your *Cluster* resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
@@ -295,7 +294,7 @@ After you create your *Cluster* resource and it is fully provisioned, you can ed
 - **keyVaultProperties** - Updates the key in Azure Key Vault. See [Update cluster with Key identifier details](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). It contains the following parameters: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** - The *billingType* property determines the billing attribution for the *cluster* resource and its data:
   - **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
-  - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
+  - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
 
 > [!NOTE]
 > The *billingType* property is not supported in PowerShell.
@@ -569,5 +568,5 @@ Use the following REST call to delete a cluster:
 
 ## Next steps
 
-- Learn about [Log Analytics dedicated cluster billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Learn about [Log Analytics dedicated cluster billing](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Learn about [proper design of Log Analytics workspaces](../logs/design-logs-deployment.md)

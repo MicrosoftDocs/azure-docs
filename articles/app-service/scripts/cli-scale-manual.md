@@ -34,10 +34,10 @@ This script uses the following commands to create a resource group, App Service 
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
-| [`az appservice plan update`](/cli/azure/appservice/plan#az-appservice-plan-update) | Updates properties of the App Service plan. |
+| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
+| [`az appservice plan update`](/cli/azure/appservice/plan#az_appservice_plan_update) | Updates properties of the App Service plan. |
 
 ## Next steps
 

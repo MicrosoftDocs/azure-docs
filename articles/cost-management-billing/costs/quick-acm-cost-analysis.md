@@ -3,12 +3,12 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, devx-track-azurecli
 ---
 # Quickstart: Explore and analyze costs with cost analysis
 
@@ -62,11 +62,9 @@ The initial cost analysis view includes the following areas.
 
 ### Understand forecast
 
-Cost forecast shows a projection of your estimated costs for the selected time period. The model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data.
+Based on your recent usage, cost forecasts show a projection of your estimated costs for the selected time period. If a budget is set up in Cost analysis, you can view when forecasted spend is likely to exceed budget threshold. The forecast model can predict future costs for up to a year. Select filters to view the granular forecasted cost for your selected dimension.
 
-The model uses a maximum of six months of training data to project costs for a year. At a minimum, it needs seven days of training data to change its prediction. The prediction is based on dramatic changes, such as spikes and dips, in cost and usage patterns. Forecast doesn't generate individual projections for each item in **Group by** properties. It only provides a forecast for total accumulated costs. If you use multiple currencies, the model provides forecast for costs only in USD.
-
-Because of the model's reliance on data dips and spikes, large purchases like reserved instances will cause your forecast to become artificially inflated. The forecast time period and the size of purchases affect how long the forecast is affected. The forecast returns to normal when spending stabilizes.
+The forecast model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data.
 
 ## Customize cost views
 
@@ -165,7 +163,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) command to query month-to-date usage information for your subscription:
+After you sign in, use the [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) command to query month-to-date usage information for your subscription:
 
 ```azurecli
 az costmanagement query --timeframe MonthToDate --type Usage \
@@ -182,7 +180,7 @@ az costmanagement query --timeframe MonthToDate --type Usage \
 
 The **--dataset-filter** parameter takes a JSON string or `@json-file`.
 
-You also have the option of using the [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
+You also have the option of using the [az costmanagement export](/cli/azure/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
 
 1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
 
@@ -196,7 +194,7 @@ You also have the option of using the [az costmanagement export](/cli/azure/ext/
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
+1. Run the [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type Usage \

@@ -52,6 +52,12 @@ There are two billing options available: pay-as-you-go monthly plan and commitme
 
 You decide which billing option to use when you create the service.
 
+## Connector to Azure Cosmos DB
+
+From within the Confluent Hub client, install the Cosmos DB Connector as recommended in the [Confluent Hub listing](https://www.confluent.io/hub/microsoftcorporation/kafka-connect-cosmos). 
+
+To install the connector manually, first download an uber JAR from the [Cosmos DB Releases page](https://github.com/microsoft/kafka-connect-cosmosdb/releases). Alternatively, you can [build your own uber JAR directly from the source code](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/README_Sink.md#install-sink-connector). Complete the installation by following the guidance described in the Confluent documentation for [installing connectors manually](https://docs.confluent.io/home/connect/install.html#install-connector-manually).  
+
 ## Confluent links
 
 For additional help with using Apache Kafka for Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).

@@ -41,7 +41,7 @@ You must have sufficient permissions to register an application with your Azure 
 1. In the left pane, select **User settings**.
 1. Check the **App registrations** setting. This value can only be set by an administrator. If set to **Yes**, any user in the Azure AD tenant can register an app.
 
-If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [available roles](../roles/permissions-reference.md#available-roles) and [role permissions](../roles/permissions-reference.md#role-permissions) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
+If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [Azure AD built-in roles](../roles/permissions-reference.md#all-roles) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
 
 ### Check Azure subscription permissions
 
@@ -80,6 +80,9 @@ Let's jump straight into creating the identity. If you run into a problem, check
    ![Type a name for your application](./media/howto-create-service-principal-portal/create-app.png)
 
 You've created your Azure AD application and service principal.
+
+> [!NOTE]
+> You can register multiple applications with the same name in Azure AD, but the applications must have different Application (client) IDs.
 
 ## Assign a role to the application
 
@@ -131,7 +134,7 @@ There are two types of authentication available for service principals: password
 
 ### Option 1: Upload a certificate
 
-You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for *testing purposes only*. To create a self-signed certificate, open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create the cert in the user certificate store on your computer:
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for *testing purposes only*. To create a self-signed certificate, open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) with the following parameters to create the cert in the user certificate store on your computer:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -175,7 +178,7 @@ If you choose not to use a certificate, you can create a new application secret.
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Configure access policies on resources
-Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.
+Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/security-features.md#privileged-access) to give your application access to keys, secrets, or certificates.
 
 1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, navigate to your key vault and select **Access policies**.
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.

@@ -1,7 +1,7 @@
 ---
 title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates (ARM templates).
-ms.date: 02/16/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -78,8 +78,8 @@ The _CreateWebApp_ folder is the folder where the template is stored. The `pwd` 
 
 Instead of creating the templates, you can download the templates and save them to the _CreateWebApp_ folder.
 
-* The main template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
-* The linked template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
+* The main template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* The linked template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Both the folder name and the file names are used as they are in the pipeline. If you change these names, you must update the names used in the pipeline.
 
@@ -101,7 +101,7 @@ The _azuredeploy.json_ has been added to the local repository. Next, you upload 
     You might get a warning about LF. You can ignore the warning. **main** is the main branch.  You typically create a branch for each update. To simplify the tutorial, you use the main branch directly.
 
 1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _CreateWebApp_ folder and the two files inside the folder.
-1. Select _linkedStorageAccount.json_ to open the template.
+1. Select _azuredeploy.json_ to open the template.
 1. Select the **Raw** button. The URL begins with `https://raw.githubusercontent.com`.
 1. Make a copy of the URL. You need to provide this value when you configure the pipeline later in the tutorial.
 
@@ -169,10 +169,10 @@ To create a pipeline with a step to deploy a template:
     * **Action**: Select the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
     * **Resource group**: Enter a new resource group name. For example, **AzureRmPipeline-rg**.
     * **Location**: Select a location for the resource group, for example, **Central US**.
-    * **Template location**: Select **Linked artifact**, which means the task looks for the template file directly from the connected repository.
-    * **Template**: Enter _CreateWebApp/azuredeploy.json_. If you changed the folder name and the file name, you need to change this value.
-    * **Template parameters**: Leave this field blank. You will specify the parameter values in the **Override template parameters**.
-    * **Override template parameters**: Enter `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]`. Replace the project name and the linked template URL. The linked template URL is what you wrote down at the end of [Create a GitHub repository](#create-a-github-repository). It starts with `https://raw.githubusercontent.com`.
+    * **Template location**: Select **URL of the file**, which means the task looks for the template file by using the URL. Because _relativePath_ is used in the main template and _relativePath_ is only supported on URI-based deployments, you must use URL here.
+    * **Template link**: Enter the URL that you got at the end of the [Prepare a GitHub repository](#prepare-a-github-repository) section. It starts with `https://raw.githubusercontent.com`.
+    * **Template parameters link**: Leave this field blank. You will specify the parameter values in the **Override template parameters**.
+    * **Override template parameters**: Enter `-projectName [EnterAProjectName]`.
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 

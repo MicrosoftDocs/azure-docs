@@ -1,25 +1,33 @@
 ---
-title: "Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster(Preview)"
+title: "Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Use GitOps with Helm for an Azure Arc enabled cluster configuration (Preview)"
+description: "Use GitOps with Helm for an Azure Arc enabled cluster configuration"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
-# Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster (Preview)
+# Deploy Helm Charts using GitOps on an Arc enabled Kubernetes cluster
 
 Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers like APT and Yum, Helm is used to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
 This article shows you how to configure and use Helm with Azure Arc enabled Kubernetes.
 
-## Before you begin
+## Prerequisites
 
-Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./quickstart-connect-cluster.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing Azure Arc enabled Kubernetes connected cluster.
+    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
+- An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
+- Install the `k8s-configuration` Azure CLI extension of version >= 1.0.0:
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
 
 ## Overview of using GitOps and Helm with Azure Arc enabled Kubernetes
 
@@ -65,7 +73,7 @@ The Helm release config contains the following fields:
 | `metadata.name` | Mandatory field. Needs to follow Kubernetes naming conventions. |
 | `metadata.namespace` | Optional field. Determines where the release is created. |
 | `spec.releaseName` | Optional field. If not provided the release name will be `$namespace-$name`. |
-| `spec.chart.path` | The directory containing the Chart, given relative to the repository root. |
+| `spec.chart.path` | The directory containing the chart (relative to the repository root). |
 | `spec.values` | User customizations of default parameter values from the Chart itself. |
 
 The options specified in the HelmRelease `spec.values` will override the options specified in `values.yaml` from the Chart source.
@@ -74,30 +82,27 @@ You can learn more about the HelmRelease in the official [Helm Operator document
 
 ## Create a configuration
 
-Using the Azure CLI extension for `k8sconfiguration`, link your connected cluster to the example Git repository. Give this configuration the name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
+Using the Azure CLI extension for `k8s-configuration`, link your connected cluster to the example Git repository. Give this configuration the name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
 
 ```console
-az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-chart-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
-### Configuration Parameters
+### Configuration parameters
 
-To customize the creation of the configuration, [learn about additional parameters you may use](./use-gitops-connected-cluster.md#additional-parameters).
+To customize the creation of the configuration, [learn about additional parameters](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
-## Validate the Configuration
+## Validate the configuration
 
-Using the Azure CLI, verify the `sourceControlConfiguration` was successfully created.
+Using the Azure CLI, verify that the configuration was successfully created.
 
 ```console
-az k8sconfiguration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
+az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
-The `sourceControlConfiguration` resource is updated with compliance status, messages, and debugging information.
+The configuration resource is updated with compliance status, messages, and debugging information.
 
-**Output:**
-
-```console
-Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
+```output
 {
   "complianceStatus": {
     "complianceState": "Installed",
@@ -125,7 +130,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 }
 ```
 
-## Validate Application
+## Validate application
 
 Run the following command and navigate to `localhost:8080` on your browser to verify that application is running.
 
@@ -135,4 +140,4 @@ kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 
 ## Next steps
 
-- [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+Apply cluster configurations at scale using [Azure Policy](./use-azure-policy.md).

@@ -2,7 +2,7 @@
 title: Tutorial - Network planning checklist
 description: Learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 04/23/2021
 ---
 
 # Networking planning checklist for Azure VMware Solution 
@@ -87,10 +87,7 @@ Use the DHCP service built-in to NSX or use a local DHCP server in the private c
 
 ## Next steps
 
-In this tutorial, you learned about the considerations and requirements for deploying an Azure VMware Solution private cloud. 
-
-
-Once you have the proper networking in place, continue to the next tutorial to create your Azure VMware Solution private cloud.
+In this tutorial, you learned about the considerations and requirements for deploying an Azure VMware Solution private cloud. Once you have the proper networking in place, continue to the next tutorial to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
 > [Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md)

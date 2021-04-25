@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-#customer intent: As an admin, I want to automate user provisioning to SaaS apps
+# Customer intent: As an administrator, I want to automate user provisioning to SaaS apps.
 ---
 
 # Plan an automatic user provisioning deployment
@@ -318,7 +318,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&A Azure AD forum](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q&A Azure AD forum](/answers/topics/azure-active-directory.html)
 
 ## Next steps
 * [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

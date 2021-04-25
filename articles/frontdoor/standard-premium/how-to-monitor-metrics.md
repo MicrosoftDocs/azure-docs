@@ -17,11 +17,11 @@ ms.author: yuajia
 
 Azure Front Door Standard/Premium is integrated with Azure Monitor and has 11 metrics to help monitor Azure Front Door Standard/Premium in real-time to track, troubleshoot, and debug issues.  
 
-Azure Front Door Standard/Premium measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/platform/data-platform-metrics.md).  
+Azure Front Door Standard/Premium measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md).  
 
 The default metrics are free of charge. You can enable additional metrics for an extra cost. 
 
-You can configure alerts for each metric such as a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger an alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md). 
+You can configure alerts for each metric such as a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger an alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). 
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -70,7 +70,7 @@ You can configure alerts for each metric such as a threshold for 4XXErrorRate or
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/platform/alerts-overview.md).
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/alerts/alerts-overview.md).
 
 ## Next steps
 

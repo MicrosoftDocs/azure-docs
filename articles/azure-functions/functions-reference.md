@@ -111,10 +111,11 @@ Some connections in Azure Functions are configured to use an identity instead of
 
 Identity-based connections are supported by the following trigger and binding extensions:
 
-| Extension name | Extension version                                                                                     | Supports identity-based connections in the Consumption plan |
+| Extension name | Extension version                                                                                     | Supported in the Consumption plan |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
 | Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
+| Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
 
 > [!NOTE]
 > Support for identity-based connections is not yet available for storage connections used by the Functions runtime for core behaviors. This means that the `AzureWebJobsStorage` setting must be a connection string.
@@ -123,9 +124,10 @@ Identity-based connections are supported by the following trigger and binding ex
 
 An identity-based connection for an Azure service accepts the following properties:
 
-| Property    | Environment variable | Is Required | Description |
+| Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
-| Service URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | The data plane URI of the service to which you are connecting. |
+| Service URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` |  The data plane URI of the service to which you are connecting. |
+| Fully Qualified Namespace | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hub namespace. |
 
 Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 
@@ -147,14 +149,26 @@ In some cases, you may wish to specify use of a different identity. You can add 
 > [!NOTE]
 > The following configuration options are not supported when hosted in the Azure Functions service.
 
-To connect using an Azure Active Directory service principal with a client ID and secret, define the connection with the following properties:
+To connect using an Azure Active Directory service principal with a client ID and secret, define the connection with the following required properties in addition to the [Connection properties](#connection-properties) above:
 
-| Property    | Environment variable | Is Required | Description |
-|---|---|---|---|
-| Service URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | The data plane URI of the service to which you are connecting. |
-| Tenant ID | `<CONNECTION_NAME_PREFIX>__tenantId` | Yes | The Azure Active Directory tenant (directory) ID. |
-| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | Yes |  The client (application) ID of an app registration in the tenant. |
-| Client secret | `<CONNECTION_NAME_PREFIX>__clientSecret` | Yes | A client secret that was generated for the app registration. |
+| Property    | Environment variable | Description |
+|---|---|---|
+| Tenant ID | `<CONNECTION_NAME_PREFIX>__tenantId` | The Azure Active Directory tenant (directory) ID. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` |  The client (application) ID of an app registration in the tenant. |
+| Client secret | `<CONNECTION_NAME_PREFIX>__clientSecret` | A client secret that was generated for the app registration. |
+
+Example of `local.settings.json` properties required for identity-based connection with Azure Blob: 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### Grant permission to the identity
 

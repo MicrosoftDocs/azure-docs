@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Customize Remote Desktop Protocol (RDP) properties for a host pool
 

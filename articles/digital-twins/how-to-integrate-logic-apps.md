@@ -43,7 +43,7 @@ You also need to complete the following items as part of prerequisite setup. The
 
 This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
 
-You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
 
 You will need the **_Twin ID_** of a twin in your instance that you've created.
 
@@ -91,7 +91,7 @@ Next, you'll configure the connector you've created to reach Azure Digital Twins
 
 First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the **Azure Digital Twins custom Swaggers (Logic Apps connector)** sample from [**this link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by hitting the *Download ZIP* button. Navigate to the downloaded *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* folder and unzip it. 
 
-The custom Swagger for this tutorial is located in the _**Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps**_ folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger. Whichever version you select, the Swagger file is named _**digitaltwins.json**_.
+The custom Swagger for this tutorial is located in the ***Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps*** folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger. Whichever version you select, the Swagger file is named _**digitaltwins.json**_.
 
 > [!NOTE]
 > Unless you're working with a preview feature, it's generally recommended to use the most recent *stable* version of the Swagger. However, earlier versions and preview versions of the Swagger are also still supported. 

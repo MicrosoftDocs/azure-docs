@@ -1,7 +1,6 @@
 ---
 title: Pricing FAQ for Azure Network Performance Monitor | Microsoft Docs
 description: Frequently asked questions - Azure Network Performance Monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
@@ -12,7 +11,7 @@ ms.date: 04/02/2018
 # Pricing changes for Azure Network Performance Monitor
 
 > [!IMPORTANT]
-> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 We have listened to your feedback and recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) for various monitoring services across Azure. 
 This article captures the pricing changes related to Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (NPM) in an easy-to-read question and answer format.

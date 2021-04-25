@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Troubleshoot Azure Application Consistent Snapshot tool (preview)
+# Troubleshoot Azure Application Consistent Snapshot tool
 
 This article provides troubleshooting content for using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
@@ -50,6 +50,13 @@ Example output from `/var/log/messages` file.
 ```output
 Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 ```
+
+## Failed communication with Azure NetApp Files
+
+When validating communication with Azure NetApp Files, communication might fail or time-out.  Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:-
+
+- (https://)management.azure.com:443
+- (https://)login.microsoftonline.com:443 
 
 ## Failed communication with SAP HANA
 

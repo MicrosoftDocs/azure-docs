@@ -10,7 +10,7 @@ ms.author: rongzhang
 
 # Azure API Management Diagnostics overview
 
-When you built and managed an API in Azure API Management, you want to be prepared for any issues that may arise, from 404 not found errors to 502 bad gateway error. API Management Diagnostics is an intelligent and interactive experience to help you troubleshoot your API published in APIM with no configuration required. When you do run into issues with your published APIs, API Management Diagnostics points out what’s wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
+When you build and managed an API in Azure API Management, you want to be prepared for any issues that may arise, from 404 not found errors to 502 bad gateway error. API Management Diagnostics is an intelligent and interactive experience to help you troubleshoot your API published in APIM with no configuration required. When you do run into issues with your published APIs, API Management Diagnostics points out what’s wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
 
 Although this experience is most helpful when you re having issues with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 

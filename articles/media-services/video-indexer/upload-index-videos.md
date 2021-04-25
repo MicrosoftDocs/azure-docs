@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
 ---
@@ -31,7 +31,7 @@ The article shows how to upload and index your videos with these options:
 
 ## Supported file formats for Video Indexer
 
-See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
+See the [input container/file formats](../latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Indexer.
 
 ## Video files storage
 
@@ -58,11 +58,11 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
 ## Upload and index with API
 
-Use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
+Use the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
 
 ### Configurations and params
 
-This section describes some of the optional parameters and when you would want to set them. For the most up to date params info, see the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API.
+This section describes some of the optional parameters and when you would want to set them. For the most up to date params info, see the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API.
 
 #### externalID 
 
@@ -79,18 +79,22 @@ This parameter enables you to specify an ID that will be associated with the vid
 
 #### indexingPreset
 
-Use this parameter if raw or external recordings contain background noise. This parameter is used to configure the indexing process. You can specify the following values:
+Use this parameter to define the AI bundle you would like to apply on your audio or video file . This parameter is used to configure the indexing process. You can specify the following values:
 
-- `AudioOnly` – Index and extract insights using audio only (ignoring video)
-- `VideoOnly` - Index and extract insights using video only (ignoring audio)
-- `Default` – Index and extract insights using both audio and video
-- `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
+- `AudioOnly` – Index and extract insights using audio only (ignoring video).
+- `VideoOnly` - Index and extract insights using video only (ignoring audio).
+- `Default` – Index and extract insights using both audio and video.
+- `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream.
+
+    The `DefaultWithNoiseReduction` value is now mapped to default preset (deprecated).
+- `BasicAudio` - Index and extract insights using audio only (ignoring video), including only basic audio features (transcription, translation, format output captions and subtitles).
+ - `AdvancedAudio` - Index and extract insights using audio only (ignoring video), including advanced audio features (audio event detection) in addition to the standard audio analysis.
 
 > [!NOTE]
 > Video Indexer covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
 If you want to index the tracks separately, you will need to extract the relevant audio file and index it as `AudioOnly`.
 
-Price depends on the selected indexing option.  
+Price depends on the selected indexing option. For more information refer to [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### priority
 
@@ -102,10 +106,10 @@ Videos are indexed by Video Indexer according to their priority. Use the **prior
 
 Once your video has been uploaded, Video Indexer, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Indexer is done analyzing, you will get a notification with the video ID.  
 
-When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
+When using the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) or [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
 For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Indexer encodes it as 1280x720. Otherwise, as 640x468.
-The Default setting is [content aware encoding](../latest/content-aware-encoding.md).
+The Default setting is [content aware encoding](../latest/encode-content-aware-concept.md).
 
 In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 

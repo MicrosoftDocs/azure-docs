@@ -52,7 +52,7 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
 ### Publish the RD host endpoint
 
 1. [Publish a new Application Proxy application](application-proxy-add-on-premises-application.md) with the following values:
-   - Internal URL: `https://\<rdhost\>.com/`, where `\<rdhost\>` is the common root that RD Web and RD Gateway share.
+   - Internal URL: `https://<rdhost>.com/`, where `<rdhost>` is the common root that RD Web and RD Gateway share.
    - External URL: This field is automatically populated based on the name of the application, but you can modify it. Your users will go to this URL when they access RDS.
    - Preauthentication method: Azure Active Directory
    - Translate URL headers: No
@@ -64,7 +64,7 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
 
 4. Select **Azure Active Directory**, and then **App Registrations**. Choose your app from the list.
 5. Under **Manage**, select **Branding**.
-6. Update the **Home page URL** field to point to your RD Web endpoint (like `https://\<rdhost\>.com/RDWeb`).
+6. Update the **Home page URL** field to point to your RD Web endpoint (like `https://<rdhost>.com/RDWeb`).
 
 ### Direct RDS traffic to Application Proxy
 

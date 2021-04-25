@@ -20,7 +20,10 @@ ms.author: b-juche
 
 The NFS client configuration described in this article is part of the setup when you [configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). A wide variety of Linux distributions are available to use with Azure NetApp Files. This article describes configurations for two of the more commonly used environments: RHEL 8 and Ubuntu 18.04. 
 
+## Requirements and considerations  
+
 Regardless of the Linux flavor you use, the following configurations are required:
+
 * Configure an NTP client to avoid issues with time skew.
 * Configure DNS entries of the Linux client for name resolution.  
     This configuration must include the “A” (forward) record and the PTR (reverse) record . 

@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/27/2020
 ms.custom: data4ml
 ---
@@ -48,12 +48,7 @@ To create a project, select **Add project**. Give the project an appropriate nam
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
 * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
-* Choose **Instance Segmentation (Polygon)(Preview)** for projects when you want to assign a label and draw a polygon around each object within an image.
-
-> [!IMPORTANT]
-> Instance Segmentation (Polygon) is in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Choose **Instance Segmentation (Polygon)** for projects when you want to assign a label and draw a polygon around each object within an image.
 
 Select **Next** when you're ready to continue.
 
@@ -103,12 +98,9 @@ If you plan to add new images to your dataset, use incremental refresh to add th
 
 To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 
-Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled.
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled, so you will have to wait after you add new data to the datastore before it shows up in your project.  You can see a timestamp for when data was last  refreshed in the **Incremental refresh** section of **Details** tab for your project.
 
 Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
-
-You can find the timestamp for the latest refresh in the **Incremental refresh** section of **Details** tab for your project.
-
 
 ## Specify label classes
 
