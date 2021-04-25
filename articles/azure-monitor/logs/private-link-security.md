@@ -162,14 +162,13 @@ You've now created a new private endpoint that is connected to this AMPLS.
 ## Review and validate your Private Link setup
 
 ### Reviewing your Endpoint's DNS settings
-The Private Endpoint you created should now have an four DNS zones configured:
-
-[![Screenshot of Private Endpoint DNS zones.](./media/private-link-security/private-endpoint-dns-zones.png)](./media/private-link-security/private-endpoint-dns-zones-expanded.png#lightbox)
+The Private Endpoint you created should now have an five DNS zones configured:
 
 * privatelink-monitor-azure-com
 * privatelink-oms-opinsights-azure-com
 * privatelink-ods-opinsights-azure-com
 * privatelink-agentsvc-azure-automation-net
+* privatelink-blob-core-windows-net
 
 > [!NOTE]
 > Each of these zones maps specific Azure Monitor endpoints to private IPs from the VNet's pool of IPs. The IP addresses showns in the below images are only examples. Your configuration should instead show private IPs from your own network.
