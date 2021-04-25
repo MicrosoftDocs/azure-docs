@@ -11,6 +11,21 @@ This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+## Versioning and support for Azure Defender for IoT 
+
+Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available. 
+
+### Servicing information and timelines 
+
+Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+
+### Versions and support dates
+
+| Version | Date released | End support date |
+|--|--|--|
+| 10.0 | 01/2021 | 10/2021 |
+| 10.3 | 04/2021 | 02/2022 |
+
 ## April 2021
 
 ### Work with automatic threat Intelligence updates (Public Preview)
