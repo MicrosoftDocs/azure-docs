@@ -5,30 +5,41 @@ author: batami
 ms.author: bagol
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 04/25/2021
 ---
 
 
 # Cloud feature availability for US Government customers
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds for Azure Sentinel. Stay tuned as we add data for other Azure services.
+This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
+- Azure Security Center
 ## Azure Government
 
-Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have the same comprehensive security controls in place, and the same Microsoft commitment on the safeguarding of customer data.
+Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data.
 
-Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides another layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
+Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
+
+For more information about Azure Government, see [What is Azure Government?](/azure/azure-government/documentation-government-welcome)
 
 ## Microsoft 365 integration
 
 Offerings hosted in the Azure environment are accessible from the Microsoft 365 Enterprise and Microsoft 365 Government platforms.
+
 The following diagram displays the hierarchy of Microsoft clouds and how they relate to each other.
 
 :::image type="content" source="media/microsoft-365-cloud-integration.png" alt-text="Microsoft 365 cloud integration.":::
 
 The Office 365 GCC environment helps customers comply with US government requirements, including FedRAMP High, CJIS, and IRS 1075. The Office 365 GCC High and DoD environments support customers who need compliance with DoD IL4/5, DFARS 7012, NIST 800-171, and ITAR.
 
-Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure Commercial. Offerings for Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
+Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
+
+> [!NOTE]
+> For more information about Office 365 US Government environments, see:
+>
+> - [Office 365 GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)
+> - [Office 365 GCC High and DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+>
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
 
@@ -38,13 +49,10 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 
 For more information, see the [Azure Sentinel product documentation](/azure/sentinel/overview).
 
-> [!NOTE]
-> <sup><a name="footnote1" /></a>1</sup> Azure Sentinel in the Azure cloud supports commercial and GCC Microsoft services.
->
-> <sup><a name="footnote2" /></a>2</sup> Azure Sentinel in Azure Government clouds supports GCC-High and Office DoD Microsoft services.
->
+The following tables display the current Azure Sentinel feature availability in Azure and Azure Government.
 
-| Feature | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
+
+| Feature | Azure | Azure Government  |
 | ----- | ----- | ---- |
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
@@ -161,46 +169,46 @@ For more information, see the [Azure Sentinel product documentation](/azure/sent
 
 ### Microsoft 365 data connectors
 
-Azure Sentinel in Azure cloud supports commercial and GCC Microsoft services, while Azure Sentinel in Azure Government clouds supports GCC and Office DoD services.
+Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
 
-| Connector | Azure <sup>[1](#footnote1)</sup> | Azure Government <sup>[2](#footnote2)</sup> |
+| Connector | Azure  | Azure Government  |
 | ------------------------------------ | -------------- | ---------------------- |
 | **[Dynamics365](/azure/sentinel/connect-dynamics-365)**                               |              |                      |
-| - GCC |Public Preview | -|
-| - GCC High | -|Not Available |
-| - Office DoD |- | Not Available|
+| - Office 365 GCC |Public Preview | -|
+| - Office 365 GCC High | -|Not Available |
+| - Office 365 DoD |- | Not Available|
 | **[Microsoft 365 Defender](/azure/sentinel/connect-microsoft-365-defender)**                             |              |                      |
-| - GCC | Public Preview| -|
-| - GCC High |- |Not Available |
-| - Office DoD |- | Not Available|
+| - Office 365 GCC | Public Preview| -|
+| - Office 365 GCC High |- |Not Available |
+| - Office 365 DoD |- | Not Available|
 | **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)**                                      |              |                      |
-| - GCC | GA| -|
-| - GCC High |-|GA |
-| - Office DoD |- |GA |
+| - Office 365 GCC | GA| -|
+| - Office 365 GCC High |-|GA |
+| - Office 365 DoD |- |GA |
 | **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)** <br>Shadow IT logs                                  |              |                      |
-| - GCC | Public Preview| -|
-| - GCC High |-|Public Preview |
-| - Office DoD |- |Public Preview |
+| - Office 365 GCC | Public Preview| -|
+| - Office 365 GCC High |-|Public Preview |
+| - Office 365 DoD |- |Public Preview |
 | **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)**                  <br>Alerts                    |              |                      |
-| - GCC | Public Preview| -|
-| - GCC High |-|Public Preview |
-| - Office DoD |- |Public Preview |
+| - Office 365 GCC | Public Preview| -|
+| - Office 365 GCC High |-|Public Preview |
+| - Office 365 DoD |- |Public Preview |
 | **[Microsoft Defender for Endpoint](/azure/sentinel/connect-microsoft-defender-advanced-threat-protection)**                                       |              |                      |
-| - GCC | GA|- |
-| - GCC High |- |Not Available |
-| - Office DoD |- | Not Available|
+| - Office 365 GCC | GA|- |
+| - Office 365 GCC High |- |Not Available |
+| - Office 365 DoD |- | Not Available|
 | **[Microsoft Defender for Identity](/azure/sentinel/connect-azure-atp)**                                        |              |                      |
-| - GCC |Public Preview | -|
-| - GCC High |- | Not Available |
-| - Office DoD |- |Not Available |
+| - Office 365 GCC |Public Preview | -|
+| - Office 365 GCC High |- | Not Available |
+| - Office 365 DoD |- |Not Available |
 | **[Microsoft Defender for Office 365](/azure/sentinel/connect-office-365-advanced-threat-protection)**               |              |                      |
-| - GCC |Public Preview |- |
-| - GCC High |- |Not Available |
-| - Office DoD | -|Not Available |
+| - Office 365 GCC |Public Preview |- |
+| - Office 365 GCC High |- |Not Available |
+| - Office 365 DoD | -|Not Available |
 | **[Office 365](/azure/sentinel/connect-office-365)**                                      |              |                      |
-| - GCC | GA|- |
-| - GCC High |- |GA |
-| - Office DoD |- |GA |
+| - Office 365 GCC | GA|- |
+| - Office 365 GCC High |- |GA |
+| - Office 365 DoD |- |GA |
 | | |
 
 
