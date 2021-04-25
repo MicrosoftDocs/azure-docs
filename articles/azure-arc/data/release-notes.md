@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -20,7 +20,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## March 2021
 
-The March 2021 release is introduced on April 6, 2021.
+The March 2021 release was initially introduced on April 5th 2021, and the final stages of release were completed April 9th 2021.
 
 Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
 
@@ -41,7 +41,9 @@ Both custom resource definitions (CRD) for PostgreSQL have been consolidated int
 
 You will delete the previous CRDs as you cleanup past installations. See [Cleanup from past installations](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
 
-### Azure Arc enabled managed instance
+### Azure Arc enabled SQL Managed Instance
+
+- You can now create a SQL managed instance from the Azure portal in the direct connected mode.
 
 - You can now restore a database to SQL Managed Instance with 3 replicas and it will be automatically added to the availability group. 
 
@@ -54,6 +56,7 @@ You will delete the previous CRDs as you cleanup past installations. See [Cleanu
 - Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
 - Deployment of Azure Arc enabled PostgeSQL Hyperscale in direct mode is currently not available.
 - Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
+- Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
 
 ## February 2021
 

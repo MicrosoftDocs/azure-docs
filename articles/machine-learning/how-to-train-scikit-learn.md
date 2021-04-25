@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
@@ -201,5 +201,5 @@ The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine
 
 In this article, you trained and registered a scikit-learn model, and learned about deployment options. See these other articles to learn more about Azure Machine Learning.
 
-* [Track run metrics during training](how-to-track-experiments.md)
+* [Track run metrics during training](how-to-log-view-metrics.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)

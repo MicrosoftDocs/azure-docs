@@ -16,6 +16,19 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## April 2021
+
+### Computer Vision v3.2 GA
+
+The Computer Vision API v3.2 is now generally available with the following updates:
+* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions and content displayed in the image. This is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). See the Image Analysis [how-to guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) and [overview](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) to learn more.
+* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy and gory visual content. This is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). See the Image Analysis [how-to guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) and [overview](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) to learn more.
+* [OCR (Read) available for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
+* [OCR (Read)](./overview-ocr.md) also available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
+
+> [!div class="nextstepaction"]
+> [See Computer Vision v3.2 GA](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+
 ## March 2021
 
 ### Computer Vision 3.2 Public Preview update

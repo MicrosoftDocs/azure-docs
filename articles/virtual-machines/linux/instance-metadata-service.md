@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/21/2021
+ms.date: 04/16/2021
 ms.author: sukumari
 ms.reviewer: azmetadatadev
 ---
