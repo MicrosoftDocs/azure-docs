@@ -1,7 +1,7 @@
 ---
 title: "JavaScript tutorial: Search integration highlights"
 titleSuffix: Azure Cognitive Search
-description: Understand the JavaScript SDK Search queries used in the Search-enabled website
+description: Understand the JavaScript SDK Search integration queries used in the Search-enabled website with this cheat sheet. 
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -12,9 +12,13 @@ ms.custom: devx-track-js
 ms.devlang: javascript
 ---
 
-# 4 - Search integration highlights
+# 4 - JavaScript Search integration cheat sheet
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your JavaScript app, this article explains what you need to know.
+
+The application is available: 
+* [Sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website)
+* [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## Azure SDK @azure/search-documents 
 

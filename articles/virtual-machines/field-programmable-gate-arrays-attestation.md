@@ -46,7 +46,7 @@ https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-lates
 
 Your netlist file must be uploaded to an Azure storage blob container for access by the attestation service.  
 
-Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: https://docs.microsoft.com/azure/storage/blobs/storage-quickstartblobs-cli.  
+Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](/azure/storage/blobs/storage-quickstart-blobs-cli).  
 
 You can also use the Azure portal for this as well.  
 
@@ -54,7 +54,7 @@ You can also use the Azure portal for this as well.
 
 There are several ways to copy the file; an example using the az storage upload cmdlet is shown below. The az commands run on both Linux and Windows. You can choose any name for the “blob” name but make sure to retain the xclbin extension. 
 
-```az storage blob upload --account-name <storage account to receive netlist> container-name <blob container name> --name <blob filename> --file <local file with netlist>  ```
+```az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>  ```
 
 ## Download the attestation scripts  
 
@@ -76,13 +76,13 @@ If you wish to use virtual directories, you must include the directory hierarchy
 
 ### PowerShell   
 
-```$sas=$(az storage container generate-sas --account-name <storage acct name> -name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)  ```
+```$sas=$(az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)  ```
 
 ```.\Validate-FPGAImage.ps1 -StorageAccountName <storage acct name> -Container <blob container name> -BlobContainerSAS $sas -NetlistName <netlist blob filename>  ```
 
 ### Bash  
 
-``` sas=az storage container generate-sas --account-name <storage acct name> -name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  ```
+``` sas=az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  ```
 
 ```validate-fpgaimage.sh --storage-account <storage acct name> --container <blob container name> --netlist-name <netlist blob filename> --blob-container-sas $sas ``` 
 

@@ -196,6 +196,8 @@ Replace the following parameters in the steps with the information below:
 
 7. When you see the **Validation passed** message, select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Deploy the Firewall
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.

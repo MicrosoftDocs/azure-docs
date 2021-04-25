@@ -404,9 +404,12 @@ It takes a few minutes for the *gpunodepool* to be successfully created.
 
 ## Specify a taint, label, or tag for a node pool
 
-### Setting nodepool taints
-
 When creating a node pool, you can add taints, labels, or tags to that node pool. When you add a taint, label, or tag, all nodes within that node pool also get that taint, label, or tag.
+
+> [!IMPORTANT]
+> Adding taints, labels, or tags to nodes should be done for the entire node pool using `az aks nodepool`. Applying taints, lablels, or tags to individual nodes in a node pool using `kubectl` is not recommended.  
+
+### Setting nodepool taints
 
 To create a node pool with a taint, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
 
