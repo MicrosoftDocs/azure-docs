@@ -16,9 +16,9 @@ This article describes feature availability in the Microsoft Azure and Azure Gov
 - Azure Security Center
 ## Azure Government
 
-Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data.
+Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have the same comprehensive security controls in place, and the same Microsoft commitment on the safeguarding of customer data.
 
-Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
+Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an extra layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
 
 For more information about Azure Government, see [What is Azure Government?](/azure/azure-government/documentation-government-welcome)
 
@@ -45,7 +45,7 @@ The following sections identify when a service has an integration with Microsoft
 
 ## Azure Sentinel
 
-Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 For more information, see the [Azure Sentinel product documentation](/azure/sentinel/overview).
 
@@ -57,7 +57,7 @@ The following tables display the current Azure Sentinel feature availability in 
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
 | - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Not Available |
-| - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[3](#footnote1)</sup> | GA | Not Available |
+| - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | Not Available |
 |- [Notebooks](/azure/sentinel/notebooks) | GA | GA |
 |- [SOC incident audit metrics](/azure/sentinel/manage-soc-with-incident-metrics) | GA | GA |
 |- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
@@ -165,7 +165,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | | | |
 
 
-<sup><a name="footnote3" /></a>3</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
+<sup><a name="footnote1" /></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
 ### Microsoft 365 data connectors
 
