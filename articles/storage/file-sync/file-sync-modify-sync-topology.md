@@ -27,7 +27,7 @@ After you confirm your data is up-to-date on your local server (see [Deprovision
 
 Azure File Sync resources must be deprovisioned in a specific order: server endpoints, sync group, and then Storage Service. While the entire flow is documented below, you may stop at any level you desire. 
 
-First, navigate to the Storage Sync Service resource in the Azure Portal and select a sync group in the Storage Sync Service. Follow the steps in [Deprovision your Azure File Sync server endpoint](./file-sync-deprovision-server-endpoint.md) to ensure data integrity and availability when deleting server endpoints. In order to deprovision your sync group or Storage Sync Service, all server endpoints must be deleted. If you only aim to delete specific server endpoints, you can stop here. 
+First, navigate to the Storage Sync Service resource in the Azure portal and select a sync group in the Storage Sync Service. Follow the steps in [Deprovision your Azure File Sync server endpoint](./file-sync-deprovision-server-endpoint.md) to ensure data integrity and availability when deleting server endpoints. In order to deprovision your sync group or Storage Sync Service, all server endpoints must be deleted. If you only aim to delete specific server endpoints, you can stop here. 
 
 Once you delete all the server endpoints in the sync group, delete the cloud endpoint. 
 
