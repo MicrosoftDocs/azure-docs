@@ -90,7 +90,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-wan-security-baseline
   - name: Pricing concepts
     href: pricing-concepts.md
   - name: About NVA in a virtual hub

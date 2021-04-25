@@ -27,6 +27,9 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 
 * The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database.
 
+> [!Note]
+> Accounts with Synapse Link enabled are not supported.
+
 ## <a id="backup-storage-redundancy"></a>Backup storage redundancy
 
 By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../best-practices-availability-paired-regions.md).  
