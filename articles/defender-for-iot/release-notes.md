@@ -2,7 +2,7 @@
 title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 04/25/2021
 ---
 
 # What's new in Azure Defender for IoT?
