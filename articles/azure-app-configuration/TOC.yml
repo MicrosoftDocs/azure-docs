@@ -94,6 +94,8 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Samples on GitHub
+      href: https://github.com/Azure/AppConfiguration/tree/main/examples
 - name: Concepts
   items:
     - name: Keys and values
@@ -145,7 +147,7 @@
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Java Spring provider
-          href: https://github.com/microsoft/spring-cloud-azure/tree/master/
+          href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration
         - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Azure SDK for Java
