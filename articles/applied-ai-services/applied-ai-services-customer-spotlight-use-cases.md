@@ -16,15 +16,17 @@ ms.author: jeffme
 
 | Customer | Use Case | Product link | Case Study |
 |---------|-------------|----------------------|--------------------|
-| ![Agolo](media/resource-partners/agolo-logo.png "Agolo company logo") | [**Agolo**](https://www.agolo.com) is the leading summarization engine for enterprise use. Agolo’s AI platform analyzes hundreds of thousands of media articles, research documents and proprietary information to give each customer a summary of key points specific to their areas of interest. </br></br>Our partnership with Microsoft combines the power and adaptability of the Azure Cognitive Search platform, integrated with Agolo summarization. Rather than typical search engine snippets, the results page displays contextually relevant Agolo summaries, instantly enabling the user to determine the relevance of that document to their specific needs. The impact of summarization-powered search is that users find more relevant content faster, enabling them to do their job more effectively and gaining a competitive advantage. | [Product page](https://www.agolo.com/microsoft-azure-cognitive-search ) | |
-|![Progressive_Logo](./media/logo-progressive.svg)| Progressive helps customers make smarter insurance decisions with Bot Service |[Azure Bot Service](https://aka.ms/botservice)|[Read the story >](https://customers.microsoft.com/en-us/story/789698-progressive-insurance-cognitive-services-insurance)|
+|![Progressive_Logo](./media/logo-progressive.svg) | Progressive helps customers make smarter insurance decisions with Bot Service |[Azure Bot Service](https://aka.ms/botservice)|[Read the story >](https://customers.microsoft.com/en-us/story/789698-progressive-insurance-cognitive-services-insurance)|
+|![Wix Logo](./media/wix-logo.svg) | WIX deploys smart, scalable search across 150 million websites with Azure Cognitive Search  |[Azure Cognitive Search](https://azure.microsoft.com/services/search/)|[Read the story >](https://customers.microsoft.com/en-us/story/764974-wix-partner-professional-services-azure-cognitive-search)|
+|![Chevron logo](./media/Chevron2.png) | Chevron uses Azure Form Recognizer to extract volumes of data from unstructured reports |[Azure Form Recognizer](https://aka.ms/formrecognizer)|[Read the story >](https://customers.microsoft.com/en-us/story/chevron-mining-oil-gas-azure-cognitive-services)|
 
+**OR THIS STYLE?**
 :::row:::
    :::column span="0.5":::
       ![Progressive_Logo](./media/logo-progressive.svg)
    :::column-end:::
    :::column span="2":::
-      ## Progressive helps customers make smarter insurance decisions with Bot Service 
+      ## Progressive helps customers make smarter insurance decisions with Bot Service Cognitive Search
 "One of the great things about Bot Service is that, out of the box, we could use it to quickly put together the basic framework for our bot." 
 
 -Matt White, Marketing Manager, Personal Lines Acquisition Experience, Progressive Insurance 
