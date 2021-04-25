@@ -21,6 +21,8 @@ ms.author: jeffme
 |![Chevron logo](./media/Chevron2.png) | Chevron uses Azure Form Recognizer to extract volumes of data from unstructured reports |[Azure Form Recognizer](https://aka.ms/formrecognizer)|[Read the story >](https://customers.microsoft.com/en-us/story/chevron-mining-oil-gas-azure-cognitive-services)|
 
 **OR THIS STYLE?**
+
+
 :::row:::
    :::column span="0.5":::
       ![Progressive_Logo](./media/logo-progressive.svg)
