@@ -73,7 +73,7 @@ Typically there are three parameters you need to consider:
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide number of knowledge bases you need based on number of different subject domains. Once subject domain (for a single language) should be in one knowledge base.
 
-    With Custom question anwering (Preview) you have a choice to setup your QnA Maker service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your Custom question anwering (Preview) feature.
+    With Custom question anwering (Preview) you have a choice to setup your Text Analytics service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your Custom question anwering (Preview) feature.
 
     ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
 
