@@ -66,6 +66,10 @@ Once you are satisfied with the expression, simply click the **Apply expression*
 This will add the expression to the agent configuration.
 ![Agent configuration](media/how-to-expression-builder/expression-6.png)
 
+## Setting a NULL value on an expression
+To set an attributes value to NULL.  You can use an expression with the value of `""`.  This will flow the NULL value to the target attribute.
+
+![NULL value](media/how-to-expression-builder/expression-7.png)
 
 ## Next steps 
 
