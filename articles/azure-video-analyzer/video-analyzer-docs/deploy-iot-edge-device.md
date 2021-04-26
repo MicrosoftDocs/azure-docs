@@ -27,32 +27,6 @@ This article lists the steps that will help you deploy Azure Video Analyzer on y
 
 ## Configuring Azure resources for using Azure Video Analyzer
 
-### Create custom Azure Resource Manager role
-
-See [Create custom Azure Resource Manager role](add-valid-link.md) and assign it to a service principal for Azure Video Analyzer use.
-
-### Set up a premium streaming endpoint
-
-If you intend to use Azure Video Analyzer to record video continuously to the cloud, and subsequently use [query APIs](add-valid-link.md) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-endpoint-concept).
-<!-- Is above still true under AVA? -->  
-
-This is an optional step. You can use this Azure CLI command to do so:
-
-```azurecli
-az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1
-```
-
-You can use this command to start the streaming endpoint 
-
-> [!IMPORTANT]
-> Your subscription will start getting billed at this point.
-
-```azurecli
-az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
-```
-
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](https://docs.microsoft.com/azure/media-services/latest/access-api-howto?tabs=portal) and select the Portal tab.
-
 ## Create and use local user account for deployment
 
 To run the Azure Video Analyzer module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
