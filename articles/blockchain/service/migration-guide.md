@@ -17,7 +17,7 @@ The first step when planning a migration is to evaluate alternative offerings. T
 
 ### Production or pilot phase
 
-If you have already deployed and developed a blockchain solution that is in the production or pilot phase, consider the following are the alternatives.
+If you have already deployed and developed a blockchain solution that is in the production or pilot phase, consider the following alternatives.
 
 #### Quorum Blockchain Service
 
@@ -40,8 +40,8 @@ There are several blockchain resource management templates you can use to deploy
 
 If you are starting to develop a new solution or are in an evaluation phase, consider the following alternatives based on your scenario requirements.
 
-- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/en-in/marketplace/apps/consensys.quorum-dev-quickstart?tab=Overview) 
-- [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/en-in/marketplace/apps/consensys.hyperledger-besu-quickstart?tab=Overview)
+- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart?tab=Overview) 
+- [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.hyperledger-besu-quickstart?tab=Overview)
 
 ## Migrate data from Azure Blockchain Service
 
@@ -66,7 +66,7 @@ Open a Microsoft Support ticket to pause the consortium and export your blockcha
 
     ![Support ticket additional details form in the Azure portal](./media/migration-guide/additional-details.png)
     
-    - Subscription ID or ARM resource ID
+    - Subscription ID or Azure Resource Manager resource ID
     - Tenant
     - Consortium name
     - Region
@@ -90,7 +90,7 @@ Azure Blockchain Service team pauses the consortium, exports a snapshot of data,
 Download the data using the Microsoft Support provided SAS URL link.
 
 > [!IMPORTANT]
-> you are required to download your data within seven days.
+> You are required to download your data within seven days.
 
 Decrypt the data using the API access key. You can [get the key from the Azure portal](configure-transaction-nodes.md#access-keys) or [through the REST API](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys).
 
