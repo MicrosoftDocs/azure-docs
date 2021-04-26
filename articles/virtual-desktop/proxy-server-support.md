@@ -38,7 +38,7 @@ If your organization's network and security policies require proxy servers for w
 
 Some organizations require that all user traffic goes through a proxy server for tracking or packet inspection. This section describes how we recommend configuring your environment in these cases.
 
-### Use proxy servers in the same geography as the Windows Virtual Desktop components
+### Use proxy servers in the same Azure geography
 
 When you use a proxy server, it handles all communication with the Windows Virtual Desktop infrastructure and performs DNS resolution and Anycast routing to the nearest Azure Front Door. If your proxy servers are distant or distributed across an Azure geography, your geographical resolution will be less accurate. Less accurate geographical resolution means connections will be routed to a more distant Windows Virtual Desktop cluster. To avoid this issue, only use proxy servers that are geographically close to your Windows Virtual Desktop cluster.
 
