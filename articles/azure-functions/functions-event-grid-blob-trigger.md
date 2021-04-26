@@ -20,7 +20,6 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 - Create or use an existing function app
 - Create or use an existing storage account
 - Have version 5.0+ of the [Microsoft.Azure.WebJobs.Extensions.Storage extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2) installed
-- Have version 2.1.0+ of the [Event Grid extension](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid) installed
 - Download [ngrok](https://ngrok.com/) to allow Azure to call your local function
 
 ## Create a new function
@@ -38,6 +37,12 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     ```
 
     # [Python](#tab/python)
+
+    ```http
+    http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
+    ```
+
+    # [Java](#tab/java)
 
     ```http
     http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
@@ -78,11 +83,46 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
           ]
         }
     ```
+
+    # [Java](#tab/java)
+    **Press F5** to build the function and create the **function.json** file. Once the build is complete, add **"source": "EventGrid"** to the function.json binding data.
+    
+    ```json
+        {
+          "scriptFile" : "../java-1.0-SNAPSHOT.jar",
+          "entryPoint" : "com.function.{functionName}.run",
+          "bindings" : [ {
+            "type" : "blobTrigger",
+            "direction" : "in",
+            "name" : "content",
+            "path" : "samples-workitems/{name}",
+            "dataType" : "binary",
+            "source": "EventGrid",
+            "connection" : "testblobcachai_STORAGE"
+          } ]
+        }
+    ```
+
     ---
 
 1. Set a breakpoint in your function on the line that handles logging.
 
-1. **Press F5** to start a debugging session.
+1. Start a debugging session.
+
+    # [C#](#tab/csharp)
+    **Press F5** to start a debugging session.
+
+    # [Python](#tab/python)
+    **Press F5** to start a debugging session.
+
+    # [Java](#tab/java)
+    Open a new terminal and run the below mvn command to start the debugging session.
+
+    ```bash
+        mvn azure-functions:run
+    ```
+
+    ---
 
 [!INCLUDE [functions-event-grid-local-dev](../../includes/functions-event-grid-local-dev.md)]
 
@@ -100,6 +140,12 @@ https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionNam
 ```
 
 # [Python](#tab/python)
+
+```http
+https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION-NAME>&code=<BLOB-EXTENSION-KEY>
+```
+
+# [Java](#tab/java)
 
 ```http
 https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION-NAME>&code=<BLOB-EXTENSION-KEY>
