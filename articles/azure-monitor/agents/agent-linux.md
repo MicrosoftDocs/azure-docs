@@ -67,16 +67,16 @@ The python2 executable must be aliased to *python*. Following is one method that
     ```
 
 ## Supported Linux hardening
-The OMS Agent has limited customization support for Linux. 
+The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
 - FIPs
 
-The following are in consideration but not yet supported:
+The following are not supported:
 - CIS
 - SELINUX
 
-Other hardening and customization methods are not supported nor planned for OMS Agent.  
+CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview). Further hardening and customization methods are not supported nor planned for OMS Agent.  
 
 ## Agent prerequisites
 

@@ -126,6 +126,7 @@ For more information about application security recommendations, see [Microsoft 
 1. Select **Add**.
 1. *Record the secret's value* for use in your client application code. This secret value is *never displayed again* after you leave this page.
 
+For security reasons, Microsoft limits creation of client secrets longer than 24 months and strongly recommends that you set this to a value less than 12 months.
 
 ## Next steps
 

@@ -71,7 +71,7 @@ For different authentication types, refer to the following sections on prerequis
 - [Azure AD application token authentication: Managed identities for Azure resources](#managed-identity)
 
 >[!TIP]
->If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
+>If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again. `Pooling=false` is also recommended for **SHIR(Self Hosted Integration Runtime)** type linked service setup. Pooling and other connection parameters can be added as new parameter names and values in **Additional connection properties** section of linked service creation form.
 
 ### SQL authentication
 

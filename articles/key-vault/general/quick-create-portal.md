@@ -3,7 +3,6 @@ title: Quickstart - Create an Azure Key Vault with the Azure portal
 description: Quickstart showing how to create an Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -66,5 +65,5 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this quickstart, you created a Key Vault using the Azure portal. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](overview.md)
-- Review the [Azure Key Vault security overview](security-overview.md)
+- Review the [Azure Key Vault security overview](security-features.md)
 - See the [Azure Key Vault developer's guide](developers-guide.md)
