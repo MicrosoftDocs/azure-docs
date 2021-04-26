@@ -3,7 +3,7 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/08/2017
+ms.date: 04/26/2021
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 
@@ -77,8 +77,10 @@ Checks have been added to make sure only valid users can perform various operati
 As part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
 
 > [!NOTE]
->
-> Currently, security pin isn't supported for **Stop Protection with Delete data** for DPM and MABS.
+> Currently, for the following DPM and MABS vers, security PIN is supported for **Stop Protection with Delete data** to online storage:
+>- DPM 2016 UR9 or later
+>- DPM 2019 UR1 or later
+>- MABS v3 UR1 or later 
 
 To receive this PIN:
 
