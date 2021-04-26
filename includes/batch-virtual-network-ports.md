@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 02/16/2021
+ms.date: 04/23/2021
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -82,7 +82,7 @@ Outbound to `BatchNodeManagement` is required for contacting the Batch service f
 ### Pools in the Cloud Services configuration
 
 > [!WARNING]
-> Cloud Service Configuration Pools are deprecated. Please use Virtual Machine Configuration Pools instead.
+> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead.
 
 **Supported VNets** - Classic VNets only
 
