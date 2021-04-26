@@ -51,7 +51,7 @@ The quickstart example in Azure NetApp Files documentation uses 10.7.0.0/16 for 
 
 ### Capacity pool service level
 
-When choosing the [service level](../azure-netapp-files/azure-netapp-files-service-levels) for your capacity pool, consider your workflow. If you frequently write data back to the Azure NetApp Files volume, the cache's performance can be restricted if the writeback time is slow. Choose a high service level for volumes that will have frequent writes.
+When choosing the [service level](../azure-netapp-files/azure-netapp-files-service-levels.md) for your capacity pool, consider your workflow. If you frequently write data back to the Azure NetApp Files volume, the cache's performance can be restricted if the writeback time is slow. Choose a high service level for volumes that will have frequent writes.
 
 Volumes with low service levels also might show some lag at the start of a task while the cache pre-fills content. After the cache is up and running with a good working set of files, the delay should become unnoticeable.
 
