@@ -5,12 +5,12 @@ description: 'Control access to Azure Machine Learning workspaces with Azure Fir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
-ms.custom: how-to, devx-track-python
+ms.custom: devx-track-python
 ---
 
 # Use workspace behind a Firewall for Azure Machine Learning

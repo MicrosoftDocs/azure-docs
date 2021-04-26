@@ -270,14 +270,14 @@ Follow the same steps we followed in the previous tutorial to issue the verifiab
 
   ![add credential screen after authenticating](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
 
-We have now issued a verifiable credential using our tenant to generate our vc while still using our B2C tenant for authentication.
+We have now issued a verifiable credential using your tenant to generate your vc while still using the original B2C tenant for authentication.
 
   ![vc issued by your azure AD and authenticated by our Azure B2C instance](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 
 ## Test verifying the VC using the sample app
 
-Now that we've issued the verifiable credential from our own tenant with claims from your Azure AD, let's verify it using our sample app.
+Now that we've issued the verifiable credential from your own tenant with claims from your Azure AD, let's verify it using the sample app.
 
 1. Stop running your issuer ngrok service.
 

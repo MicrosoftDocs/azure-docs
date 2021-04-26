@@ -10,11 +10,17 @@ ms.date: 03/15/2021
 # Enable SQL insights (preview)
 This article describes how to enable [SQL insights](sql-insights-overview.md) to monitor your SQL deployments. Monitoring is performed from an Azure virtual machine that makes a connection to your SQL deployments and uses Dynamic Management Views (DMVs) to gather monitoring data. You can control what datasets are collected and the frequency of collection using a monitoring profile.
 
+> [!NOTE]
+> To enable SQL insights by creating the monitoring profile and virtual machine using a resource manager template, see [Resource Manager template samples for SQL insights](resource-manager-sql-insights.md).
+
 ## Create Log Analytics workspace
 SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-workspaces).  Before you can enable  SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
 
 ## Create monitoring user 
 You need a user on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
+
+The instructions below cover the process per type of SQL that you can monitor.  To accomplish this with a script on several SQL resouces at once, please refer to the following [README file](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) and [example script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1).
+
 
 ### Azure SQL database
 Open Azure SQL Database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal.
@@ -82,7 +88,7 @@ Verify the user was created.
 select name as username,
        create_date,
        modify_date,
-       type_desc as type,
+       type_desc as type
 from sys.server_principals
 where type not in ('A', 'G', 'R', 'X')
        and sid is not null
