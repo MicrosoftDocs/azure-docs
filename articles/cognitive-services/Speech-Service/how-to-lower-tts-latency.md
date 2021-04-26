@@ -33,7 +33,7 @@ Streaming is critical to lower the latency,
 In client side, you need to start the playback when the first audio chunk is received.
 In service scenario, you need to ensure you forward the audio chunks immediately to your clients instead of waiting for the whole audio.
 
-You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), ['Synthesizing` event](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
