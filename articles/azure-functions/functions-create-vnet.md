@@ -171,8 +171,7 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | **Target sub-resource** | file | The private endpoint that will be used for files from the storage account. |
 
 1. On the **Configuration** tab, for the **Subnet** setting, choose **default**.
-1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults for the Subscription and Private DNS zone name (for example, privatelink.file.core.windows.net).
-:::image type="content" source="./media/functions-create-vnet/20-create-storage-file-private-endpoint-configuration.png" alt-text="Screenshot of the Configuration section for creating a new Service Bus private endpoint.":::
+
 1. Select **Review + create**. After validation finishes, select **Create**. Resources in the virtual network can now communicate with storage files.
 
 1. Create another private endpoint for blobs. On the **Resources** tab, use the settings shown in the following table. For all other settings, use the same values you used to create the private endpoint for files.
@@ -184,7 +183,6 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | **Name** | blob-endpoint | The name of the private endpoint for blobs from your storage account. |
     | **Resource** | mysecurestorage | The storage account you created. |
     | **Target sub-resource** | blob | The private endpoint that will be used for blobs from the storage account. |
-    | **Private DNS zone** | privatelink.blob.core.windows.net | Private DNS zone for connecting to Azure Storage blobs. |
 
 ## Lock down your Service Bus
 
@@ -216,7 +214,6 @@ Create the private endpoint to lock down your Service Bus:
 
 1. On the **Configuration** tab, for the **Subnet** setting, choose **default**.
 
-1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults for the Subscription and Private DNS zone name (for example, privatelink.servicebus.windows.net).
 1. Select **Review + create**. After validation finishes, select **Create**. 
 1. After the private endpoint is created, return to the **Firewalls and virtual networks** section of your Service Bus namespace.  Ensure **Selected networks** is selected.  Select **+ Add existing virtual network** to add the recently created virtual network.  On the **Add networks** tab, use the network settings from the following table:
 
