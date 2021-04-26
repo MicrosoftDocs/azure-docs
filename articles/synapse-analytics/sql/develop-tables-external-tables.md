@@ -17,7 +17,7 @@ An external table points to data located in Hadoop, Azure Storage blob, or Azure
 
 Depending on the type of the external data source, you can use two types of external tables:
 - Hadoop external tables that you can use to read and write data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as generally available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
-- Native external tables that you can use to read and write data in varios data formats such as CSV, Parquet, and Delta Lake (in preview). Native external tables are generally available in serverless Synapse SQL pools, and in public preview in dedicated Synapse SQL pools.
+- Native external tables that you can use to read and write data in various data formats such as CSV, Parquet, and Delta Lake (in preview). Native external tables are generally available in serverless Synapse SQL pools, and in public preview in dedicated Synapse SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
@@ -26,7 +26,7 @@ The key differences between Hadoop and native external tables are presented in t
 | Dedicated SQL pool | Available | In preview |
 | Serverless SQL pool | Not available | Available |
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, RC | Delimited/CSV, Parquet, Delta Lake (in preview) |
-| Folder partition elimination | No | Only for the partitioned tables synchronied from Apaceh Spark |
+| Folder partition elimination | No | Only for the partitioned tables synchronized from Apache Spark pools in Synapse workspace |
 | Custom format for location | No | Yes, using wildcards |
 | Recursive folder scan | Always | Only when specified `/**` in the location path |
 | Storage authentication | SAK, AAD passthrough, Managed identity | SAK, AAD passthrough, Managed identity |
@@ -114,7 +114,7 @@ External data sources without a credential in dedicated SQL pool will use caller
 - In serverless SQL pool, database scoped credential can specify caller's Azure AD identity, workspace Managed Identity, or SAS key. 
 
 #### TYPE
-TYPE = `HADOOP` is the option that specifies that older Polybase technolog should be used to access underlying files. This parameter can't be used in serverless SQL pool that uses built-in native reader.
+TYPE = `HADOOP` is the option that specifies that older Polybase technology should be used to access underlying files. This parameter can't be used in serverless SQL pool that uses built-in native reader.
 
 ### Example for CREATE EXTERNAL DATA SOURCE
 
@@ -314,7 +314,7 @@ If you specify a folder LOCATION, a serverless SQL pool query will select from t
 > [!NOTE]
 > Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. 
  
-Both Hadoop and native external tables will skipp the files with the names that begin with an underline (_) or a period (.).
+Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
 
 In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
