@@ -1,7 +1,7 @@
 ---
-title: Azure Blockchain Service Migration Guide
+title: Azure Blockchain Service retirement notification and guidance
 description: Migrate Azure Blockchain Service to a managed or self-managed blockchain offering
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: how-to
 
 #Customer intent: As a network operator, I want to migrate Azure Blockchain Service to an alterative offering so that I can use blockchain after Azure Blockchain Service retirement.
@@ -9,11 +9,11 @@ ms.topic: how-to
 
 # Migrate Azure Blockchain Service
 
-You can migrate Azure Blockchain Service to an alternate offering to prepare for the retirement of Azure Blockchain Service public preview.
+You can migrate ledger data from Azure Blockchain Service to an alternate offering. Azure Blockchain Service public preview is being retired and you are advised to evaluate the following alternatives based on your development status of being in production or evaluation.
 
 ## Evaluate alternatives
 
-The first step when planning a migration is to evaluate alternative offerings based. The following guidance is based on your development phase.
+The first step when planning a migration is to evaluate alternative offerings. The following guidance is based on your development phase.
 
 ### Production or pilot phase
 
@@ -45,7 +45,7 @@ If you are starting to develop a new solution or are in an evaluation phase, con
 
 ## Migrate data from Azure Blockchain Service
 
-This section describes the steps involved in exporting the data from your Azure Blockchain Service deployment.
+Based on your current development state, you can either opt to use existing ledger data on Azure Blockchain Service or start a new network and use the solution of your choice. We recommend creating a new consortium based on a solution of your choice in all scenarios where you do not need or intend to use existing ledger data on Azure Blockchain Service.
 
 ### Open support case
 
@@ -234,11 +234,11 @@ The existing Azure Blockchain Service deployments cannot be continued beyond ret
 
 ### What happens to existing deployments after the announcement of retirement?
 
-Existing deployments are supported for 90 days from the day of the retirement announcement. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
+Existing deployments are supported for 120 days from the day of the retirement announcement. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
 
 ### How long will the existing deployments be supported on Azure Blockchain Service?
 
-Existing deployments are supported for 90 days from the day of retirement announcement.
+Existing deployments are supported for 120 days from the day of retirement announcement.
 
 ### Will I be allowed to create new Azure Blockchain members while in retirement phase?
 
