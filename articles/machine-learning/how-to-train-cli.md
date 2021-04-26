@@ -130,9 +130,7 @@ This will download the logs and any captured artifacts locally in a directory na
 
 ## Sweeping hyperparameters
 
-Often after training...
-
-Let's see how we can modify the `job.yml` from before to now sweep over hyperparameters:
+With a parameterized command, you can easily modify the `job.yml` to sweep over hyperparameters:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
