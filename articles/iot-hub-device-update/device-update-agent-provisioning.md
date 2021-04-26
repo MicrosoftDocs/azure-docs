@@ -105,9 +105,9 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     1. Open a terminal window.
     1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
     
-        ```shell
-        sudo apt-get install aziot-identity-service
-        ```
+	 ```shell
+	 sudo apt-get install aziot-identity-service
+	 ```
         
 1. Provisioning IoT Identity service to get the IoT device information.
     * Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
