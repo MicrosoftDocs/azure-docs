@@ -1,7 +1,7 @@
 ---
-title: Attributes and Operations supported for ABAC in Azure Storage
+title: Attributes and operations supported for Azure role assignment conditions in Azure Storage (Preview)
 titleSuffix: Azure Storage
-description: Supported attributes and operations for ABAC in Azure Storage. Understanding subOperations.
+description: Supported attributes and operations for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in Azure Storage. Understanding subOperations.
 services: storage
 author: santoshc
 
@@ -12,24 +12,24 @@ ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
 ---
-# Attributes and operations supported for attribute-based access control in Azure Storage
+# Attributes and operations supported for Azure role assignment conditions in Azure Storage (Preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article describes the supported attribute dictionaries that can be used in conditions on role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, please see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
+This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, please see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
 
 To understand the role assignment condition format, please refer to the [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
 
 ## Understanding subOperations
 
-Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations associated with the same permission may support different parameters. *SubOperations* enable you to differentiate between service operations which require the same permission but support different set of attributes for ABAC. Thus, using a subOperation you can specify one ABAC condition for access to a subset of operations that support a given parameter, and another access condition for operations with the same action that don’t support that parameter.
+Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations associated with the same permission may support different parameters. *SubOperations* enable you to differentiate between service operations which require the same permission but support different set of attributes for conditions. Thus, using a subOperation you can specify one condition for access to a subset of operations that support a given parameter, and another access condition for operations with the same action that don’t support that parameter.
 
 For instance, the *Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write* action is required for over a dozen different service operations. Some of these operations can accept blob index tags as request parameter, while others don't. For operations that accept them as a parameter, you can use blob index tags in a Request condition. However, if such a condition is defined on the Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write action, all operations that do not accept tags as a request parameter cannot evaluate this condition, and will fail the authorization access check.
 
-In this case, the optional subOperation Blobs.Write.WithTagHeaders can be used to apply an ABAC condition to only those operations that support blob index tags as a request parameter.
+In this case, the optional subOperation Blobs.Write.WithTagHeaders can be used to apply a condition to only those operations that support blob index tags as a request parameter.
 
 Similarly, only select operations on the Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read action can have support blob index tags as a precondition for access. This subset of operations is identified by the Blobs.Read.WithTagConditions subOperation.
 
@@ -43,7 +43,7 @@ In this preview, the subOperations supported for storage actions are:
 
 ## Actions, subOperations and attributes
 
-The table below compiles the full list of supported actions, subOperations and attribute dictionaries for ABAC in Azure Storage.
+The table below compiles the full list of supported actions, subOperations and attribute dictionaries for conditions in Azure Storage.
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
