@@ -25,7 +25,7 @@ Active Directory offers four types of on-premises service accounts:
 * [User accounts that function as service accounts](service-accounts-user-on-premises.md)
 
 
-It is critical to govern service accounts closely to: 
+It is critical to govern service accounts closely so that you can: 
 
 * Protect them based on their use-case requirements and purpose.  
 * Manage the lifecycle of the accounts and their credentials.  
@@ -42,15 +42,15 @@ When you create a service account, understand the considerations listed in the f
 | Ownership| Ensure that there's an owner who requests and assumes responsibility for the account. |
 | Scope| Define the scope clearly, and anticipate usage duration for the service account. |
 | Purpose| Create service accounts for a single, specific purpose. |
-| Permissions | Apply the principle of *least permission*. To do so:<li>Never assign permissions to built-in groups, such as administrators.<li>Remove local machine permissions, where appropriate.<li>Tailor access and use Active Directory delegation for directory access.<li>Use granular access permissions.<li>Set account expirations and location-based restrictions on user-based service accounts. |
-| Monitor and audit use| Monitor sign-in data and ensure that it matches the intended usage. Set alerts for anomalous usage. |
+| Permissions | Apply the principle of *least permission*. To do so:<li>Never assign permissions to built-in groups, such as administrators.<li>Remove local machine permissions, where appropriate.<li>Tailor access, and use Active Directory delegation for directory access.<li>Use granular access permissions.<li>Set account expirations and location-based restrictions on user-based service accounts. |
+| Monitor and audit use| Monitor sign-in data, and ensure that it matches the intended usage. Set alerts for anomalous usage. |
 | | |
 
 ### Set restrictions for user accounts
 
 For user accounts that are used as service accounts, apply the following settings:
 
-* [**Account expiration**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): Set the service account to automatically expire at a set time after its review period, unless it is determined that the account should continue.
+* [**Account expiration**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): Set the service account to automatically expire at a set time after its review period, unless you've determined that the account should continue.
 
 *  **LogonWorkstations**: Restrict permissions where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from signing in anywhere else.
 
@@ -72,7 +72,7 @@ For lifecycle management of service accounts, use the following process:
 
 ### Collect usage information for the service account
 
-Collect relevant business information for each service account. The following table lists the minimum amount of information to collect, but you should collect everything that's necessary to make the business case for the accounts' existence.
+Collect relevant business information for each service account. The following table lists the minimum amount of information to collect, but you should collect everything that's necessary to make the business case for each account's existence.
 
 | Data| Description |
 | - | - |
@@ -179,8 +179,8 @@ After you've removed all permissions, remove the account by doing the following:
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
-* [Help secure group managed service accounts](service-accounts-group-managed.md)  
-* [Help secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Help secure computer accounts](service-accounts-computer.md)  
-* [Help secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure group managed service accounts](service-accounts-group-managed.md)  
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
+* [Secure computer accounts](service-accounts-computer.md)  
+* [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
