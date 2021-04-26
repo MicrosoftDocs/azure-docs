@@ -209,7 +209,7 @@
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
     - name: Azure security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
     maintainContext: true
   - name: Monitoring
     href: ../azure-monitor/vm/monitor-vm-azure.md

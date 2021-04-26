@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 04/01/2021
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q3
+ms.topic: how-to
+ms.custom: contperf-fy21q3
 ---
 
 # How to use your workspace with a custom DNS server
