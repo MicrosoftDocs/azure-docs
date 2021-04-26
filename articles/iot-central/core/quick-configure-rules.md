@@ -55,7 +55,7 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
     :::image type="content" source="media/quick-configure-rules/action.png" alt-text="Screenshot that shows an email action added to the rule":::
 
-1. Select **Save**. Your rule should now be listed on the **Rules** page.
+1. Select **Save**. Your rule is now listed on the **Rules** page.
 
 ## Test the rule
 
