@@ -16,7 +16,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 * Latest [**Postman**](https://www.getpostman.com/).
 * You must have
-    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) for the GA version. You would need to create a Text Analytics resource if you want to use the Custom question answering (preview release).
+    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) for the GA version. You would need to create a Text Analytics resource if you want to use the Custom question answering (preview release) feature.
     * A trained and published [knowledge base with questions and answers](../Quickstarts/add-question-metadata-portal.md) built from the quickstart is configured with metadata and Chit chat.
 
 > [!NOTE]
