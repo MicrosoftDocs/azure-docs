@@ -60,12 +60,16 @@ The logs provide answers to questions such as:
 
 
 
-## Ways of interacting with the provisioning logs 
-Customers can interact with the provisioning logs in four ways:
+## Accessing the log data 
 
-- Accessing the logs from the Azure portal, as described in the next section.
+To access the log data, you have the following options:
+
+- The Azure portal
+
 - Streaming the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
+
 - Querying the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) for the provisioning logs.
+
 - Downloading the provisioning logs as a CSV or JSON file.
 
 
