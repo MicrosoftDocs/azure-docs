@@ -87,4 +87,4 @@ To close an open handle, use the following command:
 
 * [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
