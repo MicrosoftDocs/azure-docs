@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 04/26/2021
 ---
 
 # Tenant deployments with ARM templates
@@ -16,8 +16,9 @@ Not all resource types can be deployed to the tenant level. This section lists w
 For Azure Policies, use:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+  You can create assignments for the build-in policies and initiatives. You can't deploy custom Azure policy definitions or initiatives.
 
 For Azure role-based access control (Azure RBAC), use:
 
