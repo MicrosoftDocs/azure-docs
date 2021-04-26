@@ -17,8 +17,6 @@
       href: overview-opc-publisher.md
     - name: What is Connected Factory
       href: iot-accelerators-connected-factory-features.md
-  - name: Device simulation
-    href: iot-accelerators-device-simulation-overview.md
 - name: Quickstarts
   items:
   - name: Deploy the device simulation solution accelerator
@@ -29,11 +27,6 @@
 - name: Tutorials
   items:
   - name: Device simulation
-    items:
-    - name: Create and run a simulation
-      href: iot-accelerators-device-simulation-create-simulation.md
-    - name: Create a custom simulated device
-      href: iot-accelerators-device-simulation-create-custom-device.md
 - name: Concepts
   items:
   - name: Industrial IoT
@@ -79,15 +72,6 @@
       - name: Run OPC Publisher
         href: howto-opc-publisher-run.md
   - name: Device simulation
-    items:
-    - name: Use an existing IoT Hub
-      href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Create an advanced simulated device
-      href: iot-accelerators-device-simulation-advanced-device.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Serialize telemetry using Protobuf
-      href: iot-accelerators-device-simulation-protobuf.md
 - name: Resources
   items:
   - name: Support and help options
@@ -138,6 +122,6 @@
     - name: Solution Accelerators FAQ
       href: iot-accelerators-faq.md
     - name: Connected Factory FAQ
-      href: iot-accelerators-faq-cf.md 
+      href: iot-accelerators-faq-cf.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
