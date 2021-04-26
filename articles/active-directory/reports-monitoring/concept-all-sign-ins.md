@@ -43,15 +43,18 @@ This article gives you an overview of the sign-in activity report with the previ
 
 
 
-## Prerequisites
+## What can you do with it?
 
-Before you can start using this feature, you should know the answers to:
+The sign-ins report provides answers to questions like:
 
-- Who can access the data?
+- What is the sign-in pattern of a user, application or service?
 
-- What Azure AD license do you need to access sign-in activity?
+- How many users, apps or services have signed in over a week?
 
-### Who can access the data?
+- What’s the status of these sign-ins?
+
+
+## Who can access the data?
 
 - Users in the Security Administrator, Security Reader, and Report Reader roles
 
@@ -59,20 +62,25 @@ Before you can start using this feature, you should know the answers to:
 
 - Any user (non-admins) can access their own sign-ins 
 
-### What Azure AD license do you need to access sign-in activity?
+## What Azure AD license do you need to access sign-in activity?
 
 Your tenant must have an Azure AD Premium license associated with it to see sign-in activities. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the logs after you upgrade to a premium license with no data activities before the upgrade.
 
 
 
-## Sign-ins report
 
-The sign-ins report provides answers to the following questions:
 
-- What is the sign-in pattern of a user, application or service?
-- How many users, apps or services have signed in over a week?
-- What’s the status of these sign-ins?
 
+
+
+
+
+
+
+
+
+
+## User sign-ins in the Azure Portal
 
 In the sign-ins report blade, you can switch between:
 
@@ -88,17 +96,6 @@ In the sign-ins report blade, you can switch between:
 ![Sign-ins report types](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
 
-
-
-
-
-
-
-
-
-
-
-## User sign-ins
 
 Each tab in the sign-ins blade shows the default columns below. Some tabs have additional columns:
 
