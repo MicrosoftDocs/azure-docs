@@ -18,7 +18,7 @@ The Kafka API can only be accessed by resources inside the same virtual network.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
+[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-kafka%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-kafka/).
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-kafka/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -39,7 +39,7 @@ Two Azure resources are defined in the template:
 
 1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
 
-   [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
+   [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-kafka%2Fazuredeploy.json)
 
 1. Enter or select the following values:
 
