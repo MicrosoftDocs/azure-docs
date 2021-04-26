@@ -92,8 +92,8 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 | $50.00 - $100.00 | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
 |||
 
-> [!TIP]
-> To avoid being charged a store service fee on your test, open a [support ticket](support.md) within 7 days of the test purchase.
+> [!IMPORTANT]
+>  To avoid being charged a store service fee on your test, open a [support ticket](support.md) within 7 days of the test purchase.
 
 #### Free trial
 
