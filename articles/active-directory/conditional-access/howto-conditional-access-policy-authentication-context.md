@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Authentication context with Privileged Identity Management
 
-When users elevate to privileged roles in Azure AD the only thing administrators could require in the past was Azure AD Multi-Factor Authentication. Now, with Conditional Access authentication context, administrators can create more complex requirements. This policy template shows how to create an authentication context, how to add that context to a Conditional Access policy, and then how to apply that policy to a privileged identity role setting.
+When users elevate to privileged roles in Azure AD, the only thing administrators could require in the past, was Azure AD Multi-Factor Authentication. Now, with Conditional Access authentication context, administrators can create more complex requirements. This example shows how to create an authentication context, add that context to a policy, then how to apply that policy to a privileged identity role setting.
 
 ## Create an authentication context
 
@@ -30,7 +30,7 @@ When users elevate to privileged roles in Azure AD the only thing administrators
 
 ## Create a Conditional Access policy
 
-:::image type="content" source="media/howto-conditional-access-policy-authentication-context/conditional-access-policy-authentication-context.png" alt-text="Conditional Access policy shown with an authenticaion context configured":::
+:::image type="content" source="media/howto-conditional-access-policy-authentication-context/conditional-access-policy-authentication-context.png" alt-text="Conditional Access policy shown with an authentication context configured":::
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
