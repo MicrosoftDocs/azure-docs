@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 04/26/2021
 ms.author: alkohli
 ---
 # Deactivate and delete a StorSimple Virtual Array
@@ -37,11 +37,11 @@ Deactivation is a PERMANENT operation and cannot be undone. You cannot register 
 
 ## Deactivate a device
 
-To deactivate your device, perform the following steps.
+To deactivate your device, perform the following steps. A device must be online to be deactivated.
 
 #### To deactivate the device
 
-1. In your service, go to **Management > Devices**. In the **Devices** blade, click and select the device that you wish to deactivate.
+1. In your service, go to **Management > Devices**. In the **Devices** blade, click and select the device that you wish to deactivate. The device status must be **Online**.
    
     ![Select device to deactivate](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
 2. In your **Device dashboard** blade, click **… More** and from the list, select **Deactivate**.
