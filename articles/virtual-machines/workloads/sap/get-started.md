@@ -76,9 +76,9 @@ In this section, you can find information in how to configure SSO with most of t
 ## Documentation on integration of Azure services into SAP components
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
-
-
 ## Change Log
+- 04/23/2021: Added section to configure private link for Azure database for MySQL and some minor changes in [SAP BusinessObjects BI platform deployment guide for linux on Azure](businessobjects-deployment-guide-linux.md)
+- 04/22/2021: Release of SAP BusinessObjects BI Platform for Windows on Azure documentation, [SAP BusinessObjects BI platform deployment guide for Windows on Azure](businessobjects-deployment-guide-windows.md)
 - 04/21/2021: Add explanation why HCMT/HWCCT storage tests on M32ts and M32ls might fall short of HANA KPIs when enabling read cache for the Premium storage disks in article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - 04/20/2021: Clarify storage block sizes for IBM Db2 with different Azure block storage in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
 - 04/12/2021: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md), [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) and [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to add configuration instructions for SAP HANA system replication Python hook  

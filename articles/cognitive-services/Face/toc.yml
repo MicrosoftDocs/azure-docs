@@ -35,8 +35,6 @@
     href: Face-API-How-to-Topics/how-to-migrate-face-data.md
   - name: Use the Face container
     items:
-    - name: Cognitive Services containers documentation
-      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
     - name: Containers overview
       href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
     - name: Install and run containers
@@ -45,6 +43,9 @@
       href: face-resource-container-config.md
     - name: Use container instances
       href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+    - name: All Cognitive Services containers documentation
+      href: ../containers/index.yml
+      maintainContext: true
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
