@@ -27,7 +27,7 @@ Unregistering a node from the service only sets the Local Configuration Manager 
 1. On the **Nodes** tab, select the name of the node you want to unregister.
 1. On the pane for that node, click **Unregister**.
 
-   :::image type="content" source="./media/remove-dsc-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-dsc-package/unregister-node.png":::
+   :::image type="content" source="./media/remove-desired-state-configuration-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-desired-state-configuration-package/unregister-node.png":::
 
 ### Unregister using PowerShell
 
@@ -50,11 +50,11 @@ You can delete configurations for both Windows and Linux nodes from the Azure po
 1. From your Automation account, select **State configuration (DSC)** under **Configuration Management**.
 1. On the **State configuration (DSC)** page, click the **Configurations** tab, then select the name of the configuration you want to delete.
 
-   :::image type="content" source="./media/remove-dsc-package/configurations-tab.png" alt-text="Screenshot of configurations tab." lightbox="./media/remove-dsc-package/configurations-tab.png":::
+   :::image type="content" source="./media/remove-desired-state-configuration-package/configurations-tab.png" alt-text="Screenshot of configurations tab." lightbox="./media/remove-desired-state-configuration-package/configurations-tab.png":::
 
 1. On the configuration's detail page, click **Delete** to remove the configuration.
 
-   :::image type="content" source="./media/remove-dsc-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/remove-dsc-package/delete-extension.png":::
+   :::image type="content" source="./media/remove-desired-state-configuration-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/remove-desired-state-configuration-package/delete-extension.png":::
 
 ## Manually delete a configuration file from a node
 
