@@ -126,7 +126,7 @@ Create the virtual network to which the function app integrates:
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
     | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
-    | **Name** | myVirtualNet| The name of the virtual network that your function app will connect to. |
+    | **Name** | myVirtualNet| The name of the virtual network to which your function app will connect. |
     | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region where you created your function app. |
 
 1. On the **IP Addresses** tab, select **Add subnet**. Use the following table to configure the subnet settings.
@@ -135,7 +135,7 @@ Create the virtual network to which the function app integrates:
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Subnet name** | functions | The name of the subnet your function app will connect to. | 
+    | **Subnet name** | functions | The name of the subnet to which your function app will connect. | 
     | **Subnet address range** | 10.0.1.0/24 | The subnet address range. In the preceding image, notice that the IPv4 address space is 10.0.0.0/16. If the value were 10.1.0.0/16, the recommended subnet address range would be 10.1.1.0/24. |
 
 1. Select **Review + create**. After validation finishes, select **Create**.
@@ -183,7 +183,13 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | **Name** | blob-endpoint | The name of the private endpoint for blobs from your storage account. |
     | **Resource** | mysecurestorage | The storage account you created. |
     | **Target sub-resource** | blob | The private endpoint that will be used for blobs from the storage account. |
+1. After the private endpoints are created, return to the **Firewalls and virtual networks** section of your storage account.  Ensure **Selected networks** is selected.  Select **+ Add existing virtual network** to add the recently created virtual network.  On the **Add networks** tab, use the network settings from the following table:
 
+    | Setting | Suggested value | Description|
+    |---------|-----------------|------------|
+    | **Subscription** | Your subscription | The subscription under which your resources are created. |
+    | **Virtual networks** | myVirtualNet | The name of the virtual network to which your function app will connect. |
+    | **Subnets** | functions | The name of the subnet to which your function app will connect. |
 ## Lock down your Service Bus
 
 Create the private endpoint to lock down your Service Bus:
@@ -220,8 +226,8 @@ Create the private endpoint to lock down your Service Bus:
     | Setting | Suggested value | Description|
     |---------|-----------------|------------|
     | **Subscription** | Your subscription | The subscription under which your resources are created. |
-    | **Virtual networks** | myVirtualNet | The name of the virtual network that your function app will connect to. |
-    | **Subnets** | functions | The name of the subnet your function app will connect to. |
+    | **Virtual networks** | myVirtualNet | The name of the virtual network to which your function app will connect. |
+    | **Subnets** | functions | The name of the subnet to which your function app will connect. |
 
 1. Select **Add your client IP address** to give your current client IP access to the namespace.
     > [!NOTE]
@@ -428,4 +434,4 @@ Use the following links to learn more about the available networking features:
 > [Service Bus private endpoints](../service-bus-messaging/private-link-service.md)
 
 > [!div class="nextstepaction"]
-> [Azure Storage network security](../storage/common/storage-network-security.md)
+> [Azure Storage private endpoints](../storage/common/storage-private-endpoints.md)
