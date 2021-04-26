@@ -184,14 +184,14 @@ Use these keys when making requests to the service through APIs.
 
 |Name|Location|Purpose|
 |--|--|--|
-|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the [QnA Maker management service APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new QnA Maker service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
+|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the [QnA Maker management service APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
 |Azure Cognitive Search Admin Key|[Azure portal](../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure cognitive search with the QnA Maker managed (Preview) service, the admin key is automatically passed on to the QnA Maker service. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal
 
-You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker managed (Preview) resource.
+You can view and reset your authoring keys from the Azure portal, where you created the Custom question anwering (Preview) resource.
 
-1. Go to the QnA Maker managed (Preview) resource in the Azure portal and select the resource that has the *Cognitive Services* type:
+1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
     ![QnA Maker managed (Preview) resource list](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
 
@@ -201,7 +201,7 @@ You can view and reset your authoring keys from the Azure portal, where you crea
 
 ### Update the resources
 
-Learn how to upgrade the resources used by your knowledge base. QnA Maker managed (Preview) is **free** while in preview. 
+Learn how to upgrade the resources used by your knowledge base. Custom question anwering (Preview) feature is **free** while in preview. 
 
 ---
 
