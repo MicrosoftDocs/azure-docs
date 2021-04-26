@@ -516,6 +516,16 @@
       href: howto-add-app-roles-in-azure-ad-apps.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
+  - name: Build for resilience
+    items:
+    - name: Development Overview
+      href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Client applications
+      href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json  
+    - name: Daemon applications
+      href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: OpenID Connect metadata refresh
+      href: howto-build-services-resilent-to-metadata-refresh.md
   - name: Bring an app to market
     items:
     - name: Follow the branding guidelines

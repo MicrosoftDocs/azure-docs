@@ -5,12 +5,12 @@ description: Learn how to use identity-based data access to connect to storage s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute to train my machine learning models.
 ---

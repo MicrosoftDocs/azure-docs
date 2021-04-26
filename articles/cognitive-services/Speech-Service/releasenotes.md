@@ -37,7 +37,7 @@ With this release, we now support a total of 142 neural voices across 60 languag
 
 **Get facial pose events to animate characters**
 
-The [Viseme event](how-to-speech-synthesis-viseme.md) is added to Neural TTS, which allows users to get the facial pose sequence and duration from synthesized speech. Viseme can be used to control the movement of 2D and 3D avatar models, perfectly matching mouth movements to synthesized speech. Now, viseme only works for en-US-AriaNeural voice.
+Neural Text-to-speech now includes the [viseme event](how-to-speech-synthesis-viseme.md). Viseme events allow users to get a sequence of facial poses along with synthesized speech. Visemes can be used to control the movement of 2D and 3D avatar models, matching mouth movements to synthesized speech. Viseme events are only available for `en-US-AriaNeural` voice at this time.
 
 **Add the bookmark element in Speech Synthesis Markup Language (SSML)**
 

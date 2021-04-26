@@ -260,7 +260,7 @@ You receive the response:
 
 ## Custom resource provider commands
 
-Use the [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands to work with your custom resource provider.
+Use the [custom-providers](/cli/azure/custom-providers/resource-provider) commands to work with your custom resource provider.
 
 ### List custom resource providers
 

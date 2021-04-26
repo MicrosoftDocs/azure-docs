@@ -160,6 +160,8 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Power BI lineage
+      href: how-to-lineage-powerbi.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor
