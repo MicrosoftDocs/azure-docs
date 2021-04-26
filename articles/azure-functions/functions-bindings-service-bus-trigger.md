@@ -407,8 +407,8 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`CorrelationId`|`string`|The correlation ID.|
 |`DeadLetterSource`|`string`|The dead letter source.|
 |`DeliveryCount`|`Int32`|The number of deliveries.|
-|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
-|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC. (For version 5.x+ of the extension, use `EnqueuedTime`.)|
+|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC. (For version 5.x+ of the extension, use `ExpiresAt`.)|
 |`Label`|`string`|The application-specific label.|
 |`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |`MessageReceiver`|`MessageReceiver`|Service Bus message receiver. Can be used to abandon, complete, or deadletter the message.|
