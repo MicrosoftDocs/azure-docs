@@ -14,6 +14,11 @@ ms.subservice: common
 ---
 # Attributes and operations supported for attribute-based access control in Azure Storage
 
+> [!IMPORTANT]
+> Azure ABAC and Azure role assignment conditions are currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This article describes the supported attribute dictionaries that can be used in conditions on role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, please see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
 
 To understand the role assignment condition format, please refer to the [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).

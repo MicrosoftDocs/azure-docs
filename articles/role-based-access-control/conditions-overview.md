@@ -50,7 +50,7 @@ There are several scenarios where you might want to add a condition to your role
 - Write access to blobs in containers named Contosocorp with a path of uploads/contoso
 - Read access to blobs with the tag Program=Alpine and a path of logs
 
-For more information about how to create these examples, see [Examples of Azure role assignment conditions](conditions-examples.md).
+For more information about how to create these examples, see [Examples of Azure role assignment conditions](../storage/blobs/storage-blob-abac-examples.md).
 
 ## Where can conditions be added?
 
@@ -114,5 +114,5 @@ To better understand Azure RBAC and Azure ABAC, you can refer back to the follow
 
 ## Next steps
 
-- [Example Azure role assignment conditions](conditions-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](tutorial-conditions-role-assignments-portal.md)
+- [Example Azure role assignment conditions](../storage/blobs/storage-blob-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](../storage/blobs/storage-blob-abac-portal.md)

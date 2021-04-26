@@ -21,12 +21,12 @@ ms.author: rolyon
 
 ## Prerequisites
 
-For information about the prerequisites to add or edit role assignment conditions, see [Prerequisites](conditions-prerequisites.md).
+For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
 
 ## Step 1: Determine the condition you need
 
-To determine the conditions you need, review the examples in [Example Azure role assignment conditions](conditions-examples.md).
+To determine the conditions you need, review the examples in [Example Azure role assignment conditions](../storage/blobs/storage-blob-abac-examples.md).
 
 Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
 

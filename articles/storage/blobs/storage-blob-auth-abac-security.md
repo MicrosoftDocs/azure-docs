@@ -13,6 +13,12 @@ ms.reviewer: jiacfan
 ms.subservice: common
 ---
 # Security considerations for attribute-based access control
+
+> [!IMPORTANT]
+> Azure ABAC and Azure role assignment conditions are currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 To fully secure resources using [attribute-based access control](storage-blob-auth-abac.md) (ABAC),  we must also protect the [attributes](storage-blob-auth-abac-attributes.md) used in the [role assignment conditions](../../role-based-access-control/conditions-format.md). This requires that we also secure all the permissions or actions that can be used to modify the attributes used in ABAC conditions. For instance, if you author an ABAC role assignment condition for a storage account based on path, you should keep in mind that access could be compromised if the principal has an unrestricted permission to rename a file path.
 
 This article details security considerations that you should factor into your ABAC conditions.
@@ -20,7 +26,7 @@ This article details security considerations that you should factor into your AB
 ## Use of other authorization mechanisms 
 In Azure, attribute-based access control is implemented as conditions on role assignments. Since these conditions are only evaluated when using [role-based access control](../../role-based-access-control/overview.md)  with Azure Active Directory (Azure AD), they can be bypassed if you enable access using alternate authorization methods. ABAC conditions are thus not evaluated when using shared key or shared access signature authorization. Similarly, they're not evaluated when access is granted to a file or a folder [using ACLs in ADLS Gen2](../blobs/data-lake-storage-access-control.md).
 
-You can [disable shared key authorization](shared-key-authorization-prevent.md) for your storage account to prevent this.
+You can [disable shared key authorization](../common/shared-key-authorization-prevent.md) for your storage account to prevent this.
 
 ## Securing storage attributes used in ABAC conditions
 

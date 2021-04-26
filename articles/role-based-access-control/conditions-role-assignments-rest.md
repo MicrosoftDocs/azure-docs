@@ -21,7 +21,7 @@ ms.author: rolyon
 
 ## Prerequisites
 
-For information about the prerequisites to add or edit role assignment conditions, see [Prerequisites](conditions-prerequisites.md).
+For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
 ## Add a condition
 

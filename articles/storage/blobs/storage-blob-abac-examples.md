@@ -25,7 +25,7 @@ This article list some examples of role assignment conditions.
 
 ## Prerequisites
 
-For information about the prerequisites to add or edit role assignment conditions, see [Prerequisites](conditions-prerequisites.md).
+For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](../../role-based-access-control/conditions-prerequisites.md).
 
 ## Example 1: Read access to blobs with a tag
 

@@ -14,6 +14,11 @@ ms.subservice: common
 ---
 # Authorize access to blobs and ADLS Gen2 using attribute-based access control (preview)
 
+> [!IMPORTANT]
+> Azure ABAC and Azure role assignment conditions are currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with security principals, resources, requests and the environment. In Azure, ABAC builds on role-based access control (RBAC) by adding [conditions on role assignments](../../role-based-access-control/conditions-overview.md) in the existing identity and access management (IAM) system. This preview includes support for ABAC on Blobs and ADLS Gen2 and enables you to author role-assignment conditions based on resource and request attributes.
 
 ## Overview of ABAC in Azure Storage

@@ -36,10 +36,14 @@
     href: scope-overview.md
   - name: Best practices
     href: best-practices.md
-  - name: Conditions FAQ (Preview)
-    href: conditions-faq.md
   - name: Condition format (Preview)
     href: conditions-format.md
+  - name: Example conditions (Preview)
+    href: ../storage/blobs/storage-blob-abac-examples.md?toc=%2fazure%2frole-based-access-control%2ftoc.json
+  - name: Conditions prerequisites (Preview)
+    href: conditions-prerequisites.md
+  - name: Conditions FAQ (Preview)
+    href: conditions-faq.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
   - name: Security
@@ -84,7 +88,7 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Add or edit conditions
+  - name: Add or edit conditions (Preview)
     items:
     - name: Portal (Preview)
       href: conditions-role-assignments-portal.md
@@ -94,6 +98,8 @@
       href: conditions-role-assignments-cli.md
     - name: REST API (Preview)
       href: conditions-role-assignments-rest.md
+    - name: Troubleshoot conditions (Preview)
+      href: conditions-troubleshoot.md
   - name: Remove role assignments
     href: role-assignments-remove.md
   - name: List deny assignments
@@ -131,8 +137,6 @@
     href: transfer-subscription.md
   - name: Troubleshoot
     href: troubleshooting.md
-  - name: Troubleshoot conditions (Preview)
-    href: conditions-troubleshoot.md
 - name: Reference
   items:
   - name: Built-in roles

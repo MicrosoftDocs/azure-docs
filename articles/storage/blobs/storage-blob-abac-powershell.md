@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-For information about the prerequisites to add or edit role assignment conditions, see [Prerequisites](conditions-prerequisites.md).
+For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](../../role-based-access-control/conditions-prerequisites.md).
 
 ## Condition
 
@@ -83,7 +83,7 @@ Here is what the condition looks like in code:
 
 ## Step 2: Sign in to Azure
 
-1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the instructions that appear to sign in to your directory as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner).
+1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the instructions that appear to sign in to your directory as [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
     ```azurepowershell
     Connect-AzAccount
@@ -122,7 +122,7 @@ Here is what the condition looks like in code:
 
 ## Step 4: Set up storage
 
-1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Prerequisites](conditions-prerequisites.md).
+1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
 1. Use [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
 
