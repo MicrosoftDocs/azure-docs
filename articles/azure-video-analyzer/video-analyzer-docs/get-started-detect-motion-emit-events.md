@@ -80,7 +80,7 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
 
 > [!TIP]
-> If you have [manually deployed Azure Video Analyzer](add-valid-link.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+> If you have [manually deployed Azure Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
 
 ## Use direct method calls
 
