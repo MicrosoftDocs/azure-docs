@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # WebSocket and API Management
 
-Alongside REST and SOAP APIs, API Management provides native support for WebSocket APIs. With this capability, you can manage, protect, observe, and expose your WebSocket APIs in API Management. 
+Alongside REST and SOAP APIs, API Management provides native support for managing, protecting, observing, adn exposing your WebSocket APIs. 
 
 With API Management’s new solution, customers can now manage both WebSocket and REST APIs with API Management and provide a central hub for discovering and consuming all APIs. API publishers can quickly add a WebSocket API in API Management via:
 * A simple gesture in the Azure portal or API Management Visual Studio Code extension, and 
@@ -41,15 +41,16 @@ In this article, you will learn how to:
 
     | Field | Description |
     |----------------|-------|
-    | Display name | The name by which your WebSocket API will be displayed |
-    | Name | Raw name of the WebSocket API |
-    | WebSocket URL | The name by which your WebSocket API will be displayed |
+    | Display name | The name by which your WebSocket API will be displayed. |
+    | Name | Raw name of the WebSocket API. Automatically populates as you type the display name. |
+    | WebSocket URL | The base URL with your websocket name. For example: ws://example.com/your-socket-name |
     | Products | Associate your WebSocket API with a product to publish it. |
     | Gateways | Associate your WebSocket API with existing gateway(s). |
  
 1. Click **Create**.
 
 ## onHandshake operation
+
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
 1. <!-- Step n -->
@@ -63,6 +64,11 @@ In this article, you will learn how to:
 
 
 ## Limitations
+
+WebSocket APIs are not currently supported in the following:
+* Consumption tier
+* Self-hosted gateway
+* Azure CLI, PowerShell, and SDK
 
 ## Next steps
 - [Write how-to guides](contribute-how-to-write-howto.md)
