@@ -89,6 +89,20 @@ The following tables describe the permissions available for IoT Hub service API 
 > - [Get Digital Twin](/rest/api/iothub/service/digitaltwin/getdigitaltwin) requires `Microsoft.Devices/IotHubs/twins/read` while [Update Digital Twin](/rest/api/iothub/service/digitaltwin/updatedigitaltwin) requires `Microsoft.Devices/IotHubs/twins/write`
 > - Both [Invoke Component Command](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) and [Invoke Root Level Command](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) require `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
 
+## Azure AD access from Azure portal
+
+When you try to access IoT Hub, the Azure portal first checks whether you've been assigned an Azure role with **Microsoft.Devices/iotHubs/listkeys/action**. If so, then Azure portal uses the keys from shared access policies for accessing IoT Hub. If not, Azure portal tries to access data using your Azure AD account. 
+
+To access IoT Hub from Azure portal using your Azure AD account, you need permissions to access the IoT hub data resources (like devices and twins), and you also need permissions to navigate to the IoT hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin, but they don't grant access to the IoT Hub resource. So, access to the portal also requires assignment of an Azure Resource Manager (ARM) like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal, and it doesn't include the **Microsoft.Devices/iotHubs/listkeys/action** permission (which gives access to all IoT Hub data resources via shared access policies). 
+
+To ensure an account doesn't have access outside of assigned permissions, *don't* include the **Microsoft.Devices/iotHubs/listkeys/action** permission when creating a custom role. For example, to create a custom role that could read device identities, but cannot create or delete devices, create a custom role that:
+- Has the **Microsoft.Devices/IotHubs/devices/read** data action
+- Doesn't have the **Microsoft.Devices/IotHubs/devices/write** data action
+- Doesn't have the **Microsoft.Devices/IotHubs/devices/write** data action
+- Doesn't have the **Microsoft.Devices/iotHubs/listkeys/action** action
+
+Then, make sure the account doesn't have any other roles that have the **Microsoft.Devices/iotHubs/listkeys/action** permission - such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). To let the account have resource access and can navigate the portal, assign [Reader](../role-based-access-control/built-in-roles.md#reader).
+
 ## Built-in Event Hub compatible endpoint doesn't support Azure AD authentication
 
 The [the built-in endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support Azure AD integration. Accessing it with a security principal or managed identity isn't possible. To access the built-in endpoint, use the connection string (shared access key) method as before.
