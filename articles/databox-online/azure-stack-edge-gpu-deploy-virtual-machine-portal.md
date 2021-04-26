@@ -18,12 +18,6 @@ ms.author: alkohli
 
 You can create and manage virtual machines (VMs) on an Azure Stack Edge device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a VM on your Azure Stack Edge device by using the Azure portal. 
 
-This article applies to devices with:
- 
-- Azure Stack Edge Pro GPU
-- Azure Stack Edge Pro R
-- Azure Stack Edge Mini R
-
 > [!IMPORTANT] 
 > We recommend that you enable multifactor authentication for the user who manages VMs that are deployed on your device from the cloud.
         
