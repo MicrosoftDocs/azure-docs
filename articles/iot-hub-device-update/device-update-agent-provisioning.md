@@ -81,18 +81,18 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 
 1. Install the Device Update package update agent  
     - For latest agent versions from packages.miscrosoft.com: Update package lists on your device and install the Device Update agent package and its dependencies using:	
-	```shell
-	sudo apt-get update
-	```
+		```shell
+		sudo apt-get update
+		```
 	
-	```shell
-	sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
-	```
+		```shell
+		sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
+		```
 	
     - For upcoming release candidate versions from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) : Download the .dep file to the machine you want to install the Device Update agent on, then:
-	 ```shell
-	Sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
-	 ```
+	 	```shell
+		sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
+	 	```
 	
 1. You are now ready to start the Device Update agent on your IoT Edge device. 
 
@@ -105,12 +105,12 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     1. Open a terminal window.
     1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
     
-	 ```shell
-	 sudo apt-get install aziot-identity-service
-	 ```
+        ```shell
+        sudo apt-get install aziot-identity-service
+        ```
         
 1. Provisioning IoT Identity service to get the IoT device information.
-    * Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
+    1. Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
       
         ```shell
         sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
