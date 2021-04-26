@@ -194,7 +194,7 @@ In the preceding output:
 
 ### RecordingStarted event
 
-When motion is detected, the signal gate processor node is activated, and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an operational event. The type is set to motion to indicate that it's a result from the motion detection processor. The eventTime value is the UTC time at which the motion occurred. For more information about this process, see the [overview](add-valid-link.md) section in this quickstart.
+When motion is detected, the signal gate processor node is activated, and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an operational event. The type is set to motion to indicate that it's a result from the motion detection processor. The eventTime value is the UTC time at which the motion occurred. For more information about this process, see the [overview](detect-motion-record-video-edge-devices.md#overview) section in this quickstart.
 
 Here's an example of this message:
 
