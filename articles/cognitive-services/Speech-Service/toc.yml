@@ -489,8 +489,9 @@
           href: ../containers/azure-container-instance-recipe.md
         - name: Containers FAQ
           href: speech-container-faq.md
-        - name: Cognitive Services containers documentation
+        - name: All Cognitive Services containers documentation
           href: ../containers/index.yml
+          maintainContext: true
     - name: Migration
       items:
         - name: From Bing Speech
