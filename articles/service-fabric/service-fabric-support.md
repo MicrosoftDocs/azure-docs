@@ -18,7 +18,7 @@ or [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?pri
 Learn more about:
 
 - [Azure support options](https://azure.microsoft.com/support/plans/?b=16.44).
-- [Microsoft premier support](https://support.microsoft.com/en-us/premier).
+- [Microsoft premier support](https://support.microsoft.com/premier).
 
 > [!Note]
 > Clusters running on a bronze reliability tier or Single Node Cluster will allow you to run test workloads only. If you experience issues with a cluster running on bronze reliability or Single Node Cluster, the Microsoft support team will assist you in mitigating the issue, but will not perform a Root Cause Analysis. For more information, please refer to [the reliability characteristics of the cluster](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster).
@@ -60,7 +60,7 @@ The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place
 > [!Note]
 > **Service Fabric preview versions are not supported for production use.** Occasionally we make special preview releases containing significant feature changes for which we would like to survey early feedback. You should only use preview versions in isolated test environments that do not serve production workloads. Your production cluster should always be running a supported, stable, Service Fabric version. We don't offer a paid support option for these preview releases.
 >
-> A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Use one of the options listed under [Report Azure Service Fabric issues](#report-azure-service-fabric-issues) to ask questions or provide feedback.
+> A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Please use one of the options listed above to provide feedback.
 
 ## Next steps
 
