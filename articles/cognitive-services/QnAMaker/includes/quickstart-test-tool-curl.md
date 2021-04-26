@@ -402,9 +402,9 @@ You can request a minimum threshold for the answer. If the threshold is not met,
         "activeLearningEnabled": true
     }
     ```
-## Use unstructured data sources.
+## Use unstructured data sources
     
-We now support the ability to add unstrutcured documents that cant be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API.
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
      
 # [QnA Maker GA (stable release)](#tab/v1)
 We don't support unstructured data sets in the GA service.
@@ -417,7 +417,7 @@ We don't support unstructured data sets in the GA service.
     curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question': 'what is Surface Headphones 2+ priced at?', 'includeUnstructuredSources':true,'top': 2}"
     ```
 
-2. The response also includes the source of answer. 
+2. The response includes the source of answer. 
     
     ```json
     {
