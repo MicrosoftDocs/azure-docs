@@ -62,7 +62,7 @@ To deactivate your device, perform the following steps. A device must be online 
 
 ## Delete the device
 
-A device has to be first deactivated to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device however remains in the cloud. This data then accrues charges.
+A device has to be first deactivated to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device, however, remains in the cloud. This data then accrues charges.
 
 To delete the device, perform the following steps.
 
