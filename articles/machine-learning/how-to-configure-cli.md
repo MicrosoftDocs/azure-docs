@@ -81,7 +81,7 @@ Similarly for the machine learning workspace:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_workspace_create":::
 
-Nearly all machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` flags to be specified. To avoid typing these flags repeatedly, you may configure defaults:
+Nearly all machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters to be specified. To avoid typing these parameters repeatedly, you may configure defaults:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_configure_defaults":::
 
