@@ -34,8 +34,6 @@ You're not going to create unit tests or UI tests during this quickstart. Feel f
    use_frameworks!
    target 'AzureCommunicationCallingSample' do
      pod 'AzureCommunicationCalling', '~> 1.0.0'
-     pod 'AzureCommunication', '~> 1.0.0'
-     pod 'AzureCore', '~> 1.0.0'
    end
    ```
 
