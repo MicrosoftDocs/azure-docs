@@ -45,7 +45,8 @@
         href: ../containers/azure-container-instance-recipe.md
         displayName: container instances, container, containers, images
       - name: All Cognitive Services containers
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+        href: ../containers/index.yml
+        maintainContext: true
   - name: Reference
     items:
     - name: OCR REST API v3.2
