@@ -1,5 +1,5 @@
 ---
-title: Help secure on-premises user service accounts  | Azure Active Directory
+title: Secure on-premises user service accounts  | Azure Active Directory
 description: A guide to securing on-premises user accounts.
 services: active-directory
 author: BarbaraSelden
@@ -15,13 +15,13 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Help secure on-premises user accounts in Active Directory
+# Secure on-premises user accounts in Active Directory
 
-On-premises user accounts are the traditional approach to helping secure services that run on Windows. Use these accounts as a last resort when group managed service accounts (gMSAs) and standalone managed service accounts (sMSAs) aren't supported by your service. For information about selecting the best type of account to use, see [Introduction to on-premises service accounts](service-accounts-on-premises.md). 
+Using on-premises user accounts is the traditional approach to helping secure services that run on Windows. Use these accounts as a last resort when group managed service accounts (gMSAs) and standalone managed service accounts (sMSAs) aren't supported by your service. For information about selecting the best type of account to use, see [Introduction to on-premises service accounts](service-accounts-on-premises.md). 
 
 You might also want to investigate whether you can move your service to use an Azure service account such as a managed identity or a service principal. 
 
-You can create on-premises user accounts to provide a security context for the services and permissions that they require to access local and network resources. On-premises user accounts require manual password management much like any other Active Directory user account. Service and domain administrators are required to observe strong password management processes to help keep these accounts secure.
+You can create on-premises user accounts to provide a security context for the services and permissions that the accounts require to access local and network resources. On-premises user accounts require manual password management, much like any other Active Directory user account. Service and domain administrators are required to observe strong password management processes to help keep these accounts secure.
 
 When you create a user account as a service account, use it for a single service only. Name it in a way that makes it clear that it's a service account and which service it's for. 
 
@@ -109,10 +109,10 @@ Additionally, evaluate whether the service itself could be moved to Azure so tha
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
-* [Help secure group managed service accounts](service-accounts-group-managed.md)  
-* [Help secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Help secure computer accounts](service-accounts-computer.md)  
-* [Help secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure group managed service accounts](service-accounts-group-managed.md)  
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
+* [Secure computer accounts](service-accounts-computer.md)  
+* [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
 
  
