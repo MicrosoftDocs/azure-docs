@@ -21,7 +21,7 @@ Cloud apps, actions, and authentication context are key signals in a Conditional
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices (Preview)**, allowing Conditional Access to enforce controls around those actions.
-- Administrators can use [authentication context](#authentication-context-preview) to provide an additional layer of security inside of applications. 
+- Administrators can use [authentication context](#authentication-context-preview) to provide an extra layer of security inside of applications. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -65,7 +65,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Virtual Private Network (VPN)
 - Windows Defender ATP
 
-Applications that are available to Conditional Access have gone through an onboarding and validation process. This does not include all Microsoft apps, as many are backend services and not meant to have policy directly applied to them. If you are looking for an application that is missing, you can contact the specific application team or make a request on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
+Applications that are available to Conditional Access have gone through an onboarding and validation process. This list does not include all Microsoft apps, as many are backend services and not meant to have policy directly applied to them. If you are looking for an application that is missing, you can contact the specific application team or make a request on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### Office 365
 
@@ -146,12 +146,12 @@ Authentication contexts are managed in the Azure portal under **Azure Active Dir
 
 Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Configure the following attributes:
 
-- **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like “trusted devices”, to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end user experience.
+- **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like “trusted devices”, to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
 - **Description** provides more information about the policies it is used by Azure AD administrators and those applying authentication contexts to resources.
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
-- **ID** is read-only and used in tokesn and apps for request specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
+- **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
 
-For an example policy using authentication context see the article, [Conditional Access: Authentication context with Privileged Identity Management](howto-conditional-access-policy-authentication-context.md).
+For an example policy using authentication context, see the article, [Conditional Access: Authentication context with Privileged Identity Management](howto-conditional-access-policy-authentication-context.md).
 
 ### Add to Conditional Access policy
 
