@@ -18,19 +18,8 @@ summary: |
   
 
 sections:
-  - name: Ignored
+  - name: Resource management
     questions:
-      - question: |
-          Resource management
-        answer: |
-          - [Can I create an Azure container registry using a Resource Manager template?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template-)
-          - [Is there security vulnerability scanning for images in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr-)
-          - [How do I configure Kubernetes with Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry-)
-          - [How do I get admin credentials for a container registry?](#how-do-i-get-admin-credentials-for-a-container-registry-)
-          - [How do I get admin credentials in a Resource Manager template?](#how-do-i-get-admin-credentials-in-a-resource-manager-template-)
-          - [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
-          - [Firewall rules are updated successfully but they do not take effect](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
-          
       - question: |
           Can I create an Azure Container Registry using a Resource Manager template?
         answer: |
@@ -100,32 +89,20 @@ sections:
           az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
           ```
           
-      - question: |
+      - question:  |
           Firewall rules are updated successfully but they do not take effect
         answer: |
           It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
           
           
-      - question: |
-          Registry operations
-        answer: |
-          - [How do I access Docker Registry HTTP API V2?](#how-do-i-access-docker-registry-http-api-v2-)
-          - [How do I delete all manifests that are not referenced by any tag in a repository?](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository-)
-          - [Why does the registry quota usage not reduce after deleting images?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images-)
-          - [How do I validate storage quota changes?](#how-do-i-validate-storage-quota-changes-)
-          - [How do I authenticate with my registry when running the CLI in a container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container-)
-          - [How to enable TLS 1.2?](#how-to-enable-tls-1-2-)
-          - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust-)
-          - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource-)
-          - [How do I enable automatic image quarantine for a registry?](#how-do-i-enable-automatic-image-quarantine-for-a-registry-)
-          - [How do I enable anonymous pull access?](#how-do-i-enable-anonymous-pull-access-)
-          - [How do I push non-distributable layers to a registry?](#how-do-i-push-non-distributable-layers-to-a-registry-)
-          
+  - name: Registry operations
+    questions:
       - question: |
           How do I access Docker Registry HTTP API V2?
         answer: |
           ACR supports Docker Registry HTTP API V2. The APIs can be accessed at
           `https://<your registry login server>/v2/`. Example: `https://mycontainerregistry.azurecr.io/v2/`
+
           
       - question: |
           How do I delete all manifests that are not referenced by any tag in a repository?
@@ -151,7 +128,7 @@ sections:
         answer: |
           This situation can happen if the underlying layers are still being referenced by other container images. If you delete an image with no references, the registry usage updates in a few minutes.
 
-      - question: |
+      - question:  |
           How do I validate storage quota changes?
         answer: |
           Create an image with a 1GB layer using the following docker file. This ensures that the image has a layer that is not shared by any other image in the registry.
@@ -181,7 +158,7 @@ sections:
           az acr repository delete -n myregistry --image 1gb
           ```
           
-      - question: |
+      - question:  |
           How do I authenticate with my registry when running the CLI in a container?
         answer: |
           You need to run the Azure CLI container by mounting the Docker socket:
@@ -202,7 +179,7 @@ sections:
           az acr login -n MyRegistry
           ```
           
-      - question: |
+      - question:  |
           How to enable TLS 1.2?
         answer: |
           Enable TLS 1.2 by using any recent docker client (version 18.03.0 and above). 
@@ -210,14 +187,14 @@ sections:
           > [!IMPORTANT]
           > Starting January 13, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
           
-      - question: |
+      - question:  |
           Does Azure Container Registry support Content Trust?
         answer: |
           Yes, you can use trusted images in Azure Container Registry, since the [Docker Notary](https://docs.docker.com/notary/getting_started/) has been integrated and can be enabled. For details, see [Content Trust in Azure Container Registry](container-registry-content-trust.md).
           
           
-      - question:  Where is the file for the thumbprint located?
-        answer: |
+          #### Where is the file for the thumbprint located?
+
           Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
           
           * Public keys and certificates of all roles (except delegation roles) are stored in the `root.json`.
@@ -225,7 +202,7 @@ sections:
           
           It is suggested to verify those public keys and certificates after the overall TUF verification done by the Docker and Notary client.
           
-      - question: |
+      - question:  |
           How do I grant access to pull or push images without permission to manage the registry resource?
         answer: |
           ACR supports [custom roles](container-registry-roles.md) that provide different levels of permissions. Specifically, `AcrPull` and `AcrPush` roles allow users to pull and/or push images without the permission to manage the registry resource in Azure.
@@ -271,12 +248,12 @@ sections:
           
           With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have the permission to manage the registry resource in Azure. For example, `az acr list` or `az acr show -n myRegistry` won't show the registry.
           
-      - question: |
+      - question:  |
           How do I enable automatic image quarantine for a registry?
         answer: |
           Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
           
-      - question: |
+      - question:  |
           How do I enable anonymous pull access?
         answer: |
           Setting up an Azure container registry for anonymous (unauthenticated) pull access is currently a preview feature, available in the Standard and Premium [service tiers](container-registry-skus.md). 
@@ -293,11 +270,12 @@ sections:
           > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
           > * Only data-plane operations are available to unauthenticated clients.
           > * The registry may throttle a high rate of unauthenticated requests.
+          > * Currently, anonymous pull access isn't supported in [geo-replicated](container-registry-geo-replication.md) registry regions.
           
           > [!WARNING]
           > Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
           
-      - question: |
+      - question:  |
           How do I push non-distributable layers to a registry?
         answer: |
           A non-distributable layer in a manifest contains a URL parameter that content may be fetched from. Some possible use cases for enabling non-distributable layer pushes are for network restricted registries, air-gapped registries with restricted access, or for registries with no internet connectivity.
@@ -325,29 +303,15 @@ sections:
           > [!WARNING]
           > Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Use this feature only to push artifacts to private registries. Ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
           
-      - question: |
-          Diagnostics and health checks
-        answer: |
-          - [Check health with `az acr check-health`](#check-health-with--az-acr-check-health-)
-          - docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
-          - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error--unauthorized--authentication-required)
-          - [`az acr login` succeeds, but docker commands fails with error: unauthorized: authentication required](#az-acr-login-succeeds-but-docker-fails-with-error--unauthorized--authentication-required)
-          - [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon----)    
-          - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
-          - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
-          - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags--)
-          - [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags-)
-          - [Why does my pull or push request fail with disallowed operation?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation-)
-          - [Repository format is invalid or unsupported](#repository-format-is-invalid-or-unsupported)
-          - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows-)
-          
-      - question: |
+  - name: Diagnostics and health checks
+    questions:
+      - question:  |
           Check health with `az acr check-health`
         answer: |
           To troubleshoot common environment and registry issues, see [Check the health of an Azure container registry](container-registry-check-health.md).
           
       - question: |
-          docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+           docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
         answer: |
            - If this error is a transient issue, then retry will succeed.
            - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
@@ -359,18 +323,18 @@ sections:
           
            - You should always have a retry mechanism on all Docker client operations.
           
-      - question: |
+      - question:  |
           Docker pull is slow
         answer: |
           Use [this](http://www.azurespeed.com/Azure/Download) tool to test your machine network download speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
           
-      - question: |
+      - question:  |
           Docker push is slow
         answer: |
           Use [this](http://www.azurespeed.com/Azure/Upload) tool to test your machine network upload speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
           
       - question: |
-          Docker push succeeds but docker pull fails with error: unauthorized: authentication required
+           Docker push succeeds but docker pull fails with error: unauthorized: authentication required
         answer: |
           This error can happen with the Red Hat version of the Docker daemon, where `--signature-verification` is enabled by default. You can check the Docker daemon options for Red Hat Enterprise Linux (RHEL) or Fedora by running the following command:
           
@@ -403,11 +367,11 @@ sections:
           Details of `--signature-verification` can be found by running `man dockerd`.
           
       - question: |
-          az acr login succeeds but docker fails with error: unauthorized: authentication required
+           az acr login succeeds but docker fails with error: unauthorized: authentication required
         answer: |
           Make sure you use an all lowercase server URL, for example, `docker push myregistry.azurecr.io/myimage:latest`, even if the registry resource name is uppercase or mixed case, like `myRegistry`.
           
-      - question: |
+      - question:  |
           Enable and get the debug logs of the Docker daemon    
         answer: |
           Start `dockerd` with the `debug` option. First, create the Docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
@@ -441,7 +405,7 @@ sections:
               ```
               Now you have access to all the files of the VM running `dockerd`. The log is at `/var/log/docker.log`.
           
-      - question: |
+      - question:  |
           New user permissions may not be effective immediately after updating
         answer: |
           When you grant new permissions (new roles) to a service principal, the change might not take effect immediately. There are two possible reasons:
@@ -470,7 +434,7 @@ sections:
           },
           ```
           
-      - question: |
+      - question:  |
           Authentication information is not given in the correct format on direct REST API calls
         answer: |
           You may encounter an `InvalidAuthenticationInfo` error, especially using the `curl` tool with the option `-L`, `--location` (to follow redirects).
@@ -498,12 +462,12 @@ sections:
           curl $redirect_url
           ```
           
-      - question: |
+      - question:  |
           Why does the Azure portal not list all my repositories or tags? 
         answer: |
           If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
 
-      - question: |
+      - question:  |
           Why does the Azure portal fail to fetch repositories or tags?
         answer: |
           The browser might not be able to send the request for fetching repositories or tags to the server. There could be various reasons such as:
@@ -515,40 +479,37 @@ sections:
           
           Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
           
-      - question: |
+      - question:  |
           Why does my pull or push request fail with disallowed operation?
         answer: |
           Here are some scenarios where operations may be disallowed:
-          * Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az-acr-update) or the Azure portal.
+          * Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az_acr_update) or the Azure portal.
           * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
           * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
           * Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).
           
-      - question: |
+      - question:  |
           Repository format is invalid or unsupported
         answer: |
           If you see an error such as "unsupported repository format", "invalid format", or "the requested data does not exist" when specifying a repository name in repository operations, check the spelling and case of the name. Valid repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
           
           For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
           
-      - question: |
+      - question:  |
           How do I collect http traces on Windows?
         answer: |
-      - question: |
-          Prerequisites
-        answer: |
+          #### Prerequisites
+
           - Enable decrypting https in fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
           - Enable Docker to use a proxy through the Docker ui: <https://docs.docker.com/docker-for-windows/#proxies>
           - Be sure to revert when complete.  Docker won't work with this enabled and fiddler not running.
           
-      - question: |
-          Windows containers
-        answer: |
+          #### Windows containers
+
           Configure Docker proxy to 127.0.0.1:8888
           
-      - question: |
-          Linux containers
-        answer: |
+          #### Linux containers
+
           Find the ip of the Docker vm virtual switch:
           
           ```powershell
@@ -557,15 +518,9 @@ sections:
           
           Configure the Docker proxy to output of the previous command and the port 8888 (for example 10.0.75.1:8888)
           
-      - question: |
-          Tasks
-        answer: |
-          - [How do I batch cancel runs?](#how-do-i-batch-cancel-runs-)
-          - [How do I include the .git folder in az acr build command?](#how-do-i-include-the--git-folder-in-az-acr-build-command-)
-          - [Does Tasks support GitLab for Source triggers?](#does-tasks-support-gitlab-for-source-triggers-)
-          - [What git repository management service does Tasks support?](#what-git-repository-management-service-does-tasks-support-)
-          
-      - question: |
+  - name: Tasks
+    questions:
+      - question:  |
           How do I batch cancel runs?
         answer: |
           The following commands cancel all running tasks in the specified registry.
@@ -575,7 +530,7 @@ sections:
           | xargs -I% az acr task cancel-run -r $myregistry --run-id %
           ```
           
-      - question: |
+      - question:  |
           How do I include the .git folder in az acr build command?
         answer: |
           If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
@@ -584,12 +539,12 @@ sections:
           
           This setting also applies to the `az acr run` command.
           
-      - question: |
+      - question:  |
           Does Tasks support GitLab for Source triggers?
         answer: |
           We currently do not support GitLab for Source triggers.
 
-      - question: |
+      - question:  |
           What git repository management service does Tasks support?
         answer: |
           | Git service | Source context | Manual build | Auto build through commit trigger |
@@ -599,21 +554,18 @@ sections:
           | GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | No |
           | BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | No |
           
-      - question: |
-          Run Error Message Troubleshooting
-        answer: |
+          ## Run Error Message Troubleshooting
+
           | Error message | Troubleshooting guide |
           |---|---|
           |No access was configured for the VM, hence no subscriptions were found|This could happen if you are using `az login --identity` in your ACR Task. This is a transient error and occurs when the role assignment of your Managed Identity hasn't propagated. Waiting a few seconds before retrying works.|
           
-      - question: |
-          CI/CD integration
-        answer: |
+          ## CI/CD integration
+
           - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
           - [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
           
 additionalContent: |
-  ## Next steps
-        answer: |
-          * [Learn more](container-registry-intro.md) about Azure Container Registry.         
 
+  ## Next steps
+    * [Learn more](container-registry-intro.md) about Azure Container Registry.
