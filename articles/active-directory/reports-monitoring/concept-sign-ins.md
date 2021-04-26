@@ -126,7 +126,8 @@ While the log item provides you with a failure reason, there are cases where you
 
 ## Filter sign-in activities
 
-First, narrowing down the reported data to a level that works for you. Second, filter sign-ins data using date field as default filter. Azure AD provides you with a broad range of additional filters you can set:
+
+You can filter the data in a log to narrow it down to a level that works for you:
 
 ![Screenshot shows the Add filters option.](./media/concept-sign-ins/04.png "Sign-in activity")
 
