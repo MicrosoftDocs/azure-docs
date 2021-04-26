@@ -3319,7 +3319,7 @@ We've created a new Azure AD **Audit logs** page to help improve both readabilit
 
 ![New Audit logs page, with sample info](media/whats-new/audit-logs-page.png)
 
-For more information about the new **Audit logs** page, see [Audit activity reports in the Azure Active Directory portal](../reports-monitoring/concept-audit-logs.md#audit-logs).
+For more information about the new **Audit logs** page, see [Audit activity reports in the Azure Active Directory portal](../reports-monitoring/concept-audit-logs.md).
 
 ---
 

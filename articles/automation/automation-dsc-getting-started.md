@@ -233,16 +233,7 @@ You can assign a node to use a different node configuration than the one you ini
 
 ## Unregister a node
 
-If you no longer want a node to be managed by State Configuration, you can unregister it.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the left, click **All resources** and then the name of your Automation account.
-1. On the Automation account page, click **State configuration (DSC)** under **Configuration Management**.
-1. On the State configuration (DSC) page, click the **Nodes** tab.
-1. On the **Nodes** tab, click on the name of the node you want to unregister.
-1. On the pane for that node, click **Unregister**.
-
-    ![Screenshot of the Node details page highlighting the Unregister button](./media/automation-dsc-getting-started/UnregisterNode.png)
+If you no longer want a node to be managed by State Configuration, you can unregister it. See [How to remove a configuration and node from Automation State Configuration](./how-to/remove-desired-state-configuration-package.md).
 
 ## Next steps
 

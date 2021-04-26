@@ -9,7 +9,7 @@ ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
 ms.date: 12/1/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
 

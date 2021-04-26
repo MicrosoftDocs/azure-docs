@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/20/2021
+ms.date: 04/21/2021
 ms.author: memildin
 
 ---
@@ -27,6 +27,7 @@ Updates in April include:
 - [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [Recommendations to enable Azure Defender for DNS and Resource Manager (preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
 - [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
@@ -76,6 +77,24 @@ Enabling Azure Defender plans results in charges. Learn about the pricing detail
 
 > [!TIP]
 > Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+
+
+### Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted
+
+We've added three standards for use with Azure Security Center. Using the regulatory compliance dashboard, you can now track your compliance with:
+
+- [CIS Microsoft Azure Foundations Benchmark 1.3.0](../governance/policy/samples/cis-azure-1-3-0.md)
+- [CMMC Level 3](../governance/policy/samples/cmmc-l3.md)
+- [New Zealand ISM Restricted](../governance/policy/samples/new-zealand-ism.md)
+
+You can assign these to your subscriptions as described in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Three standards added for use with Azure Security Center's regulatory compliance dashboard." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
+
+Learn more in:
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
+- [Tutorial: Improve your regulatory compliance](security-center-compliance-dashboard.md)
+- [FAQ - Regulatory compliance dashboard](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### Four new recommendations related to guest configuration (preview)
 
@@ -280,7 +299,7 @@ We've released an improved version of the recommendations list to present more i
 Now on the page you'll see:
 
 1. The maximum score and current score for each security control.
-1. Icons replacing tags such as **Quick fix** and **Preview**.
+1. Icons replacing tags such as **Fix** and **Preview**.
 1. A new column showing the [Policy initiative](security-policy-concept.md) related to each recommendation - visible when "Group by controls" is disabled.
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Enhancements to Azure Security Center's recommendations page - March 2021" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
@@ -739,13 +758,13 @@ The filters added this month provide options to refine the recommendations list 
 
 - **Environment** - View recommendations for your AWS, GCP, or Azure resources (or any combination)
 - **Severity** - View recommendations according to the severity classification set by Security Center
-- **Response actions** - View recommendations according to the availability of Security Center response options: Quick fix, Deny, and Enforce
+- **Response actions** - View recommendations according to the availability of Security Center response options: Fix, Deny, and Enforce
 
     > [!TIP]
     > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
     > 
     > Learn more about each of these response options:
-    > - [Quick fix remediation](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Fix button](security-center-remediate-recommendations.md#fix-button)
     > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control" lightbox="./media/release-notes/added-recommendations-filters.png":::

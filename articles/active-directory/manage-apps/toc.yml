@@ -170,7 +170,7 @@
           href: configure-permission-classifications.md
         - name: Manage app consent policies
           href: manage-app-consent-policies.md
-        - name: Configure admin consent workflow (preview)
+        - name: Configure admin consent workflow
           href: configure-admin-consent-workflow.md
         - name: Manage and evaluate consent requests
           href: manage-consent-requests.md
@@ -204,7 +204,7 @@
         href: migrate-adfs-apps-to-azure.md
       - name: Migrate application authentication to Azure Active Directory
         href: migrate-application-authentication-to-azure-active-directory.md
-      - name: Use the AD FS application activity report (preview)
+      - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
     - name: Configure on-premises connectors
       items:

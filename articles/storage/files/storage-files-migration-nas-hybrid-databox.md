@@ -77,7 +77,7 @@ While you wait for your Azure DataBox(es) to arrive, you can already start revie
 
 The resource configuration (compute and RAM) of the Windows Server you deploy depends mostly on the number of items (files and folders) you will be syncing. A higher performance configuration is recommended if you have any concerns.
 
-[Learn how to size a Windows Server based on the number of items (files and folders) you need to sync.](storage-sync-files-planning.md#recommended-system-resources)
+[Learn how to size a Windows Server based on the number of items (files and folders) you need to sync.](../file-sync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > The previously linked article presents a table with a range for server memory (RAM). You can orient towards the smaller number for your server but expect that initial sync can take significantly more time.
@@ -168,7 +168,7 @@ The following RoboCopy command will copy only the differences (updated files and
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
-If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering-overview.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
+If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
 It is possible, that RoboCopy needs to move numerous files, more than you have local storage for on the Windows Server. On average, you can expect RoboCopy to move a lot faster than Azure File Sync can upload your files over and tier them off your local volume. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few. The good news is that the /MIR switch will only move deltas and once a delta has been moved, a restarted job will not need to move this file again.
 
 ### User cut-over
@@ -211,6 +211,6 @@ Check the link in the following section for troubleshooting Azure File Sync issu
 There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices, and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
 * [Migration overview](storage-files-migration-overview.md)
-* [AFS overview](./storage-sync-files-planning.md)
-* [AFS deployment guide](./storage-how-to-create-file-share.md)
-* [AFS troubleshooting](storage-sync-files-troubleshoot.md)
+* [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
+* [Create a file share](storage-how-to-create-file-share.md)
+* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
