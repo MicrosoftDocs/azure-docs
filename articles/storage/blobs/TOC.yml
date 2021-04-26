@@ -97,7 +97,7 @@
         href: simulate-primary-region-failure.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
-    - name: Add role assignment conditions
+    - name: Add role assignment conditions (Preview)
       items:
       - name: Portal (Preview)
         href: storage-blob-abac-portal.md
