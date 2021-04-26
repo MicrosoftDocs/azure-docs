@@ -120,6 +120,9 @@
   - name: How-to run a reindex job
     expanded: false
     href: how-to-run-a-reindex.md
+  - name: Search examples for Azure API for FHIR
+    expanded: false
+    href: fhir-search-samples.md
 - name: Concepts
   expanded: false
   items:
