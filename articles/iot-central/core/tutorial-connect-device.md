@@ -94,7 +94,7 @@ If you'd prefer to continue through the set of IoT Central tutorials and learn m
 > [!div class="nextstepaction"]
 > [Create a gateway device template](./tutorial-define-gateway-device-type.md)
 
-As a device developer, now that you've learned the basics of how to create a device using Java, some suggested next steps are to:
+As a device developer, now that you've learned the basics of how to create a device, some suggested next steps are to:
 
 * Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
 * Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

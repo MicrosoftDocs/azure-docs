@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory sign-in activity logs - preview | Microsoft Docs
-description: Introduction to the sign-in activity logs in the Azure Active Directory portal 
+title: Sign-ins logs in Azure Active Directory - preview | Microsoft Docs
+description: Overview of the sign-ins logs in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/23/2021
+ms.date: 04/26/2021
 ms.author: markvi
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory sign-in activity logs - preview
+# Sign-ins logs in Azure Active Directory - preview
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
