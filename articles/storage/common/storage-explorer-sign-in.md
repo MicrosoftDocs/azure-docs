@@ -43,7 +43,7 @@ If you want to remove your entire Azure account, then click on the **Remove** ne
 
 By default sign-in will happen in your OS' **default web browser**. Signing-in with your default web browser streamlines how you access resources secured via CA policies, such as MFA. If for some reason signing in with your OS' **default web browser** isn't working, you can change where or how Storage Explorer performs sign-in.
 
-Under **Settings** > **Application** > **Sign-in**, look for the **Sign in with** setting. There are three options:
+Under **Settings (gear icon on the left)** > **Application** > **Sign-in**, look for the **Sign in with** setting. There are three options:
 - **Default Web Browser**: sign-in will happen in your OS' **default web browser**. This option is recommended.
 - **Integrated Sign-In**: sign-in will happen in a Storage Explorer window. This option may be useful if you're trying to log in with multiple Microsoft accounts (MSAs) at once. You may have issues with some CA policies if you choose this option.
 - **Device Code Flow**: Storage Explorer will give you a code to enter into a browser window. This option isn't recommended. Device code flow isn't compatible with many CA policies.
@@ -51,3 +51,8 @@ Under **Settings** > **Application** > **Sign-in**, look for the **Sign in with*
 ## Troubleshooting sign-in issues
 
 If you're having trouble signing in, or are having issues with an Azure account after signing in, refer to the [sign in section of the Storage Explorer troubleshooting guide](./storage-explorer-troubleshooting.md#sign-in-issues).
+
+## Next steps
+
+* [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md)
+* [Troubleshoot sign in issues](./storage-explorer-troubleshooting.md#sign-in-issues)

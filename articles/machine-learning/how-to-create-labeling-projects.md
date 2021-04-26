@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/27/2020
 ms.custom: data4ml
 ---

@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/03/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 
 ---
 

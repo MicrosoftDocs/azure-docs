@@ -46,7 +46,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/firewall-manager-security-baseline
 - name: How-to guides
   items:
   - name: Deploy security partner providers

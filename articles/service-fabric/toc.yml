@@ -154,7 +154,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/service-fabric-security-baseline
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications

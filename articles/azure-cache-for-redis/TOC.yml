@@ -79,7 +79,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline
     - name: Caching architecture
       href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: How-to guides

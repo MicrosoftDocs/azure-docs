@@ -9,8 +9,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 12/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 
 # Deploy MLflow models as Azure web services (preview)

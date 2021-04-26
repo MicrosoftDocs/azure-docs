@@ -3,7 +3,7 @@ title: Azure IoT Hub Device Provisioning Service - Symmetric key attestation
 description: This article provides a conceptual overview of symmetric key attestation using IoT Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
@@ -69,7 +69,74 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 This exact example is used in the [How to provision legacy devices using symmetric keys](how-to-legacy-device-symm-key.md) article.
 
-Once a registration ID has been defined for the device, the symmetric key for the enrollment group is used to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID to produce a derived device key. The hashing of the registration ID can be performed with the following C# code:
+Once a registration ID has been defined for the device, the symmetric key for the enrollment group is used to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID to produce a derived device key. Some example approaches to computing the derived device key are given in the tabs below.  
+
+
+# [Azure CLI](#tab/azure-cli)
+
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from Windows-based or Linux systems, in PowerShell or a Bash shell.
+
+Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
+
+Replace the value of `--registration-id` argument with your registration ID.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Example result:
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
+
+# [Windows](#tab/windows)
+
+If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+
+Replace the value of **KEY** with the **Primary Key** from your enrollment group.
+
+Replace the value of **REG_ID** with your registration ID.
+
+```powershell
+$KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
+$REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
+
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID))
+$derivedkey = [Convert]::ToBase64String($sig)
+echo "`n$derivedkey`n"
+```
+
+```powershell
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# [Linux](#tab/linux)
+
+If you are using a Linux workstation, you can use openssl to generate your 
+derived device key as shown in the following example.
+
+Replace the value of **KEY** with the **Primary Key** from your enrollment group.
+
+Replace the value of **REG_ID** with your registration ID.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# [CSharp](#tab/csharp)
+
+The hashing of the registration ID can be performed with the following C# code:
 
 ```csharp
 using System; 
@@ -91,6 +158,8 @@ public static class Utils
 ```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
+
+---
 
 The resulting device key is then used to generate a SAS token to be used for attestation. Each device in an enrollment group is required to attest using a security token generated from a unique derived key. The enrollment group symmetric key cannot be used directly for attestation.
 
