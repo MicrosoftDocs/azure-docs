@@ -231,8 +231,6 @@ sections:
       - question: What are trial clusters?
         answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
 
-      - question: Can I use High-end hosts for trial clusters?
-        answer: No. High-end ESXi hosts are reserved for use in production clusters.
 
   - name: Identity management
     questions:
