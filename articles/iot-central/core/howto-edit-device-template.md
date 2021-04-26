@@ -1,54 +1,61 @@
 ---
-title: Editing a device template within your Azure IoT Central apps | Microsoft Docs
+title: Edit a device template in your Azure IoT Central application | Microsoft Docs
 description: Iterate over your device templates without impacting your live connected devices
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/13/2021
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ---
 
-# Make changes to an existing device template
+# Edit an existing device template
 
 *This article applies to solution builders and device developers.*
 
-A device template includes a schema that describes how a device interacts with IoT Central. This schema provides a definition for how to read the device data and send information back to the device. Parts of template, such as telemetry, properties, and commands, help define interactions between the device and IoT Central, such as Jobs, Rules, and Exports.
+A device template includes a model that describes how a device interacts with IoT Central. This model defines the capabilities of the device and how to IoT Central interacts with them. Devices can send telemetry and property values to IoT Central, IoT Central can send property updates and commands to a device. IoT Central also uses the model to define interactions with IoT Central features such as jobs, rules, and exports.
 
-Therefore, making changes to a device template can result in impacts across your entire application, especially if devices are connected to the template. Editing a capability used across an application within Rules, Exports, Device Groups, or Jobs can cause those areas of the application to behave unexpectedly or not trigger at all. For example, removing a telemetry from a template can cause device data that is sending to go from modeled to unmodeled, because IoT Central no longer has a way to interpret that data. If that telemetry value was specifically selected for export, the data would no longer export.
+Changes to the model in a device template can affect your entire application, including any connected devices. Changes to a capability that's used by rules, exports, device groups, or jobs may cause them to behave unexpectedly or not work at all. For example, if you remove a telemetry definition from a template:
 
-To avoid unintended consequences from editing a device template, follow the recommendations in this article that help align your changes to your stages of development.
+- IoT Central is no longer able interpret that value. IoT Central shows device data that it can't interpret as **Unmodeled data** on the device's **Raw data** page.
+- IoT Central no longer includes the value in any data exports.
 
-> To learn more about what a device template is or how to create one, see [What are device templates?](concepts-device-templates.md) and [Set up a device template](howto-set-up-template.md)
+To help you avoid any unintended consequences from editing a device template, this article includes recommendations based on your current development life-cycle stage. In general, the earlier you are in the development life cycle, the more tolerant you can be to device template changes.
 
-## Modify a device template across development stages
+To learn more about device templates and how to create one, see [What are device templates?](concepts-device-templates.md) and [Set up a device template](howto-set-up-template.md).
 
-Additive changes, like adding a capability or interface, to a device template will not cause other areas of the application to break. Additive changes can be made directly to a device template at any stage of development. Breaking changes include removing parts of a device template, changing names, or changing schemas. These changes could cause parts of the app, such as Rules, Exports, or Dashboards to display error messages and stop executing.
+## Modify a device template
 
-In early phases of device development, the model and device are still being designed and tested, there is greater tolerance for making changes directly to your device model. Prior to connecting live production devices to a model, the template can be edited directly and those changes will automatically be applied to devices upon publishing a device template.
+Additive changes, such as adding a capability or interface to a model are non-breaking changes. You can make additive changes to a model at any stage of the development life cycle.
 
-Once production devices have been attached to a device template, the impacts of changes should be evaluated before directly editing a device template. Breaking changes should not be made on a device template in production. To make these changes, a new version of the device template should first be created. The new device template can be tested out, and then production devices can be migrated to the new template at a scheduled downtime.
+Breaking changes include removing parts of a model, or changing a capability name or schema type. These changes could cause application features such as rules, exports, or dashboards to display error messages and stop working.
+
+In early device development phases, while you're still designing and testing the model, there's greater tolerance for making changes directly to your device model. Before you connect production devices to a device template, you can edit the device template directly. IoT Central applies those changes automatically to devices when you publish the device template.
+
+After you attach production devices to a device template, evaluate the impact of any changes before you edit a device template. You shouldn't make breaking changes to a device template in production. To make such changes, create a new version of the device template. Test the new device template and then migrate your production devices to the new template at a scheduled downtime.
 
 ## Update an IoT Edge device template
 
-IoT Edge device templates contain two parts: a device model and a deployment manifest. The device model defines the modules and capabilities within IoT Central. The deployment manifest is a separate JSON document that tells an IoT Edge device which modules to install and how to configure them. The device model can be updated according the same principles in the section above, with one additional consideration: Every module defined in the device model must also be included in the deployment manifest. Once an IoT Edge template has been published, a new version must be created in order to replace the deployment manifest. IoT Edge device instances must be migrated to the new template version to receive the deployment manifest update.
+IoT Edge device templates contain a _deployment manifest_ in addition to the device model. For an IoT Edge device, the model groups capabilities by modules that correspond to the IoT Edge modules running on the device. The deployment manifest is a separate JSON document that tells an IoT Edge device which modules to install and how to configure them. The same guidance as outlined in the previous section applies to the modules in the device model. Also, every module defined in the device model must be included in the deployment manifest. Once an IoT Edge device template is published, you must create a new version if you need to replace the deployment manifest. For IoT Edge devices to receive the new deployment manifest, migrate them to the new template version.
 
-> To learn more, see [oT Edge deployment manifests and IoT Central device templates](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates).
+To learn more, see [IoT Edge deployment manifests and IoT Central device templates](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates).
 
-## Edit and publish actions
+### Edit and publish actions
 
-- _Save_. When you make changes to a part of your device template, saving the changes will preserve them as a draft that you can refer back to. These changes will not yet impact connected devices. Any devices created from this template will not have the saved changes, until the changes are published.
-- _Publish_. Publishing changes to the template applies any saved modifications to existing device instances. Newly created device instances will always be created with the latest published template.
-- _Version a template_. Versioning a device template creates a new template with all of the latest saved changes. Existing devices instances will not be impacted by changes made to a new version.
-- _Version an interface_. Versioning an interface will create a new interface with all of the latest saved capabilities. Interfaces can be reused within templates, so that any changes made to one reference to an interface will impact all areas of the template where the interface is reused. When an interface is versioned, this is no longer the case, as the new version acts like a separate interface.
-- _Migrate a device_. Migrating a device swaps the device instance from one device template to another. This can cause a short delay where data being processed by IoT Central.
+The following actions are useful when you edit a device template:
 
-## Version numbers
+- _Save_. When you change part of your device template, saving the changes creates a draft that you can return to. These changes don't yet affect connected devices. Any devices created from this template won't have the saved changes until you publish it.
+- _Publish_. When you publish the device template, it applies any saved changes to existing device instances. Newly created device instances always use the latest published template.
+- _Version a template_. When you version a device template, it creates a new template with all the latest saved changes. Existing device instances aren't impacted by changes made to a new version. To learn more, see [Version a device template](#version-a-device-template).
+- _Version an interface_. When you version an interface, it creates a new interface with all the latest saved capabilities. You can reuse an interface in multiples locations within a template. That's why a change made to one reference to an interface changes all the places in the template that use the interface. When you version an interface, this behavior changes because the new version is now a separate interface. To learn more, see [Version an interface](#version-an-interface).
+- _Migrate a device_. When you migrate a device, the device instance swaps from one device template to another. Device migration can cause a short while IoT Central processes the changes. To learn more, see [Migrate a device across versions](#migrate-a-device-across-versions).
 
-This section explains the purpose of version numbers. Both device models and interfaces have version numbers. Differing version numbers allow models or interfaces to largely share '@id', while providing a history of progression. Version numbers will only increment if you choose to version the template or interface, or if you deliberately change the version number. It's recommended to change a version number when issuing a major change to a template or interface.
+### Version numbers
 
-The following snippet shows the device model for a thermostat device. The device model has a single interface. You can see the version number at the end of the`@id` field.
+Both device models and interfaces have version numbers. Different version numbers let models or interfaces share an `@id` value, while providing a history of updates. Version numbers only increment if you choose to version the template or interface, or if you deliberately change the version number. You should change a version number when you make a major change to a template or interface.
+
+The following snippet shows the device model for a thermostat device. The device model has a single interface. You can see the version number, `1`, at the end of the`@id` field.
 
 ```json
 {
@@ -65,19 +72,18 @@ The following snippet shows the device model for a thermostat device. The device
 
 To view this information in the IoT Central UI, select **View identity** in the device template editor:
 
-:::image type="content" source="media/howto-version-device-template/view-identity.png" alt-text="View the identity of an interface to see the version number":::
-
-The following sections walk you through the steps of performing these actions.
+:::image type="content" source="media/howto-edit-device-template/view-identity.png" alt-text="View the identity of an interface to see the version number":::
 
 ## Version a device template
 
 To version a device template:
 
 1. Go to the **Device templates** page.
-1. Select the device template you're trying to version.
-1. Select the **Version** button at the top of the page and give the template a new name. IoT Central suggests a new name, which you can edit.
+1. Select the device template you want to version.
+1. Select **Version** at the top of the page and give the template a new name. IoT Central suggests a new name, which you can edit.
 1. Select **Create**.
-1. Now you've created a new template with a unique identity that is no not attached to any existing devices.
+
+Now you've created a new template with a unique identity that isn't attached to any existing devices.
 
 ## Version an interface
 
@@ -85,10 +91,11 @@ To version an interface:
 
 1. Go to the **Device templates** page.
 1. Select the device template you have in a draft mode.
-1. Select the interface that is in published mode that you want to version and edit.
-1. Select the **Version** button at the top of the interface page.
+1. Select the published interface that you want to version and edit.
+1. Select **Version** at the top of the interface page.
 1. Select **Create**.
-1. Now you've created a new interface with a unique identity will not be sychronized with the previous interface version.
+
+Now you've created a new interface with a unique identity isn't synchronized with the previous interface version.
 
 ## Migrate a device across versions
 
@@ -97,7 +104,9 @@ You can create multiple versions of the device template. Over time, you'll have 
 1. Go to the **Devices** page.
 1. Select the device you need to migrate to another version.
 1. Choose **Migrate**:
-    :::image type="content" source="media/howto-version-device-template/migrate-device.png" alt-text="Choose the option to start migrating a device":::
+
+    :::image type="content" source="media/howto-edit-device-template/migrate-device.png" alt-text="Choose the option to start migrating a device":::
+
 1. Select the device template with the version you want to migrate the device to and select **Migrate**.
 
 ## Next steps

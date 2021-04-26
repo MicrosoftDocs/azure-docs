@@ -79,10 +79,9 @@ To create a device template in IoT Central:
 
 You can rename or delete a template from the template's editor page.
 
-After you've defined the template, you can publish it. Until publishing, you will not be able to connect a device to this template, and it will not appear on the **Devices** page.
+After you've defined the template, you can publish it. Until the template is published, you can't connect a device to it, and it doesn't appear on the **Devices** page.
 
-> [!NOTE]
-> For best practices on managing a device template in accordance with your development stages, follow [Make changes to an existing device template](howto-edit-device-template.md)
+To learn more about modifying device templates, see [Edit an existing device template](howto-edit-device-template.md).
 
 ## Create a capability model
 
@@ -169,7 +168,7 @@ The following table shows the configuration settings for a command capability:
 | Display Name | The display name for the command used on views and forms. |
 | Name | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Command. |
-| Queue if offline | If enabled, the command can be executed even if a device is offline. If not enabled, the command will only execute if the device is online. |
+| Queue if offline | If enabled, you can call the command even if the device is offline. If not enabled, you can only call the command when the the device is online. |
 | Comment | Any comments about the command capability. |
 | Description | A description of the command capability. |
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
@@ -194,7 +193,11 @@ Cloud-to-device messages:
 
 ## Manage a component
 
-Components can be used to create organizable sections within your device template. While inherited interfaces should typically be used for generic, reusable parts of a model, components are meant for independent instances of arranging capabilities within a model. Components can be edited directly in the device template or exported and imported as JSON files. 
+Use components to assemble a device template from other interfaces. For example, the device template for a temperature controller could include several thermostat components. Components can be edited directly in the device template or exported and imported as JSON files. Devices can interact with component instances. For example, a device with two thermostats can send telemetry from each thermostat to separate components in your IoT Central application.
+
+## Inheritance
+
+You can extend an interface using inheritance. Use inheritance to add capabilities to existing interfaces. Inherited interfaces are transparent to devices.
 
 ## Add cloud properties
 
@@ -265,7 +268,7 @@ To add a form to a device template:
 
 Before you can connect a device that implements your device model, you must publish your device template.
 
- To learn more about modifying a device template after publishing, follow [Make changes to an existing device template](howto-edit-device-template.md)
+To learn more about modifying a device template it's published, see [Edit an existing device template](howto-edit-device-template.md).
 
 To publish a device template, go to you your device template, and select **Publish**.
 
