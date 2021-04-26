@@ -62,12 +62,30 @@ const userAgentApplication = new UserAgentApplication(config);
 
 For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
+
+```javascript
+// In app.module.ts
+import { MsalModule } from '@azure/msal-angular';
+import { PublicClientApplication } from '@azure/msal-browser';
+
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'Enter_the_Application_Id_Here',
+            }
+        }), null, null)
+    ]
+})
+export class AppModule { }
+```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
 
 ```javascript
 // App.module.ts
 import { MsalModule } from '@azure/msal-angular';
-
 @NgModule({
     imports: [
         MsalModule.forRoot({
@@ -77,7 +95,6 @@ import { MsalModule } from '@azure/msal-angular';
         })
     ]
 })
-
 export class AppModule { }
 ```
 

@@ -75,7 +75,7 @@
       - name: Security
         items:
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/databox-security-baseline
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Review security 
