@@ -32,25 +32,44 @@ To support you with this goal, the Azure Active Directory portal gives you acces
 
 This article gives you an overview of the sign-ins report.
 
-## Prerequisites
 
-### Who can access the data?
+## What can you do with it?
 
-* Users in the Security Administrator, Security Reader, Global Reader, and Report Reader roles
-* Global Administrators
-* Any user (non-admins) can access their own sign-ins 
+You can use the the sign-ins log to find answers to questions like:
 
-### What Azure AD license do you need to access sign-in activity?
+- What is the sign-in pattern of a user?
+
+- How many users have signed in over a week?
+
+- What’s the status of these sign-ins?
+
+
+## Who can access it?
+
+You can always access your own sign-ins log. 
+
+To access the sign-ins log of another user, you need to be:
+
+- A global administrator
+
+- A user in one of the following roles:
+    - Security administrator
+
+    - Security reader
+
+    - Gobal reader
+
+    - Report reader
+
+
+
+## What Azure AD license do you need to access sign-in activity?
 
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
 ## Sign-ins report
 
-The user sign-ins report provides answers to the following questions:
 
-* What is the sign-in pattern of a user?
-* How many users have signed in over a week?
-* What’s the status of these sign-ins?
 
 On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
