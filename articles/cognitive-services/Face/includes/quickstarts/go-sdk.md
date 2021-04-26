@@ -14,7 +14,7 @@ Get started with facial recognition using the Face client library for Go. Follow
 
 Use the Face service client library for Go to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
 * [Find similar faces](#find-similar-faces)
@@ -98,7 +98,7 @@ The following classes and interfaces handle some of the major features of the Fa
 These code samples show you how to complete basic tasks using the Face service client library for Go:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
 * [Find similar faces](#find-similar-faces)
@@ -113,7 +113,7 @@ Create a **main** function and add the following code to it to instantiate a cli
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_main_client)]
 
 
-## Detect faces in an image
+## Detect and analyze faces
 
 Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
 

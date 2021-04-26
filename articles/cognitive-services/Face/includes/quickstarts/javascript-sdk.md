@@ -17,7 +17,7 @@ Get started with facial recognition using the Face client library for JavaScript
 
 Use the Face client library for JavaScript to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Find similar faces](#find-similar-faces)
 
@@ -98,7 +98,7 @@ The following classes and interfaces handle some of the major features of the Fa
 The code snippets below show you how to do the following tasks with the Face client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Find similar faces](#find-similar-faces)
 
@@ -123,7 +123,7 @@ You'll use the following function to wait for the training of the PersonGroup to
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="helpers":::
 
-## Detect faces in an image
+## Detect and analyze faces
 
 Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
 

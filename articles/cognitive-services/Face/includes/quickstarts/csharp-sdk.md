@@ -15,7 +15,7 @@ Get started with facial recognition using the Face client library for .NET. Foll
 
 Use the Face client library for .NET to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Find similar faces](#find-similar-faces)
 
@@ -116,7 +116,7 @@ The following classes and interfaces handle some of the major features of the Fa
 The code snippets below show you how to do the following tasks with the Face client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Find similar faces](#find-similar-faces)
 
@@ -136,8 +136,7 @@ In your **Main** method, define strings to point to the different recognition mo
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
-## Detect faces in an image
-
+## Detect and analyze faces
 Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
 
 ### Get detected face objects

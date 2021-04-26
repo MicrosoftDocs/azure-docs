@@ -14,7 +14,7 @@ Get started with facial recognition using the Face client library for Python. Fo
 
 Use the Face client library for Python to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
 * [Find similar faces](#find-similar-faces)
@@ -77,7 +77,7 @@ The following classes and interfaces handle some of the major features of the Fa
 These code snippets show you how to do the following tasks with the Face client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
 * [Find similar faces](#find-similar-faces)
@@ -89,7 +89,7 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
 
-## Detect faces in an image
+## Detect and analyze faces
 
 Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
 

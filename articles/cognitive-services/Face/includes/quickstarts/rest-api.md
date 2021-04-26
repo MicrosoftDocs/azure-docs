@@ -15,7 +15,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 Use the Face REST API to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Find similar faces](#find-similar-faces)
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Use the Face REST API to:
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 
-## Detect faces in an image
+## Detect and analyze faces
 
 You'll use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
 
