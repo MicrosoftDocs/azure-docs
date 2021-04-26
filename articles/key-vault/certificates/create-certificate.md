@@ -3,7 +3,6 @@ title: Certificate creation methods
 description: Learn about different options to create or import a Key Vault certificate in Azure Key Vault. There are several ways to create a Key Vault certificate.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -47,7 +46,7 @@ The following descriptions correspond to the green lettered steps in the precedi
 ## Asynchronous process
 KV certificate creation is an asynchronous process. This operation will create a KV certificate request and return an http status code of 202 (Accepted). The status of the request can be tracked by polling the pending object created by this operation. The full URI of the pending object is returned in the LOCATION header.  
 
-When a request to create a KV certificate completes, the status of the pending object will change to “completed” from “inprogress”, and a new version of the KV certificate will be created. This will become the current version.  
+When a request to create a KV certificate completes, the status of the pending object will change to "completed" from "in progress", and a new version of the KV certificate will be created. This will become the current version.  
 
 ## First creation
  When a KV certificate is created for the first time, an addressable key and secret is also created with the same name as that of the certificate. If the name is already in use, then the operation will fail with an http status code of 409 (conflict).
@@ -75,7 +74,7 @@ When a request to create a KV certificate completes, the status of the pending o
 ```  
 
 ## Partnered CA Providers
-Certificate creation can be completed manually or using a “Self” issuer. Key Vault also partners with certain issuer providers to simplify the creation of certificates. The following types of certificates can be ordered for key vault with these partner issuer providers.  
+Certificate creation can be completed manually or using a "Self" issuer. Key Vault also partners with certain issuer providers to simplify the creation of certificates. The following types of certificates can be ordered for key vault with these partner issuer providers.  
 
 |Provider|Certificate type|Configuration setup  
 |--------------|----------------------|------------------|  
@@ -90,5 +89,5 @@ Note that when an order is placed with the issuer provider, it may honor or over
 
 ## See Also
 
- - How-to guide to create certificates in Key Vault using [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), [Azure CLI](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli), [Azure Powershell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
+ - How-to guide to create certificates in Key Vault using [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), [Azure CLI](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli), [Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

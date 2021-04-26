@@ -7,7 +7,7 @@ ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Set up Azure App Service access restrictions

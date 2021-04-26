@@ -4,7 +4,8 @@ description: This article tells how to install an Azure Automation Hybrid Runboo
 services: automation
 ms.subservice: process-automation
 ms.date: 04/06/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy a Linux Hybrid Runbook Worker

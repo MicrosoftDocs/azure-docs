@@ -5,6 +5,7 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 04/15/2021
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure machines to a desired state
