@@ -39,9 +39,9 @@ To learn how to create a key vault with the Azure portal, see [Quickstart: Creat
 
 When you create the key vault, enable purge protection.
 
-1. Select **Enable purge protection**, as shown in the following image.
+Select **Enable purge protection**, as shown in the following image.
 
-   :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault":::
 
 #### Enable purge protection on an existing key vault
 
@@ -124,11 +124,9 @@ $userManagedIdentityResourceId = '/subscriptions/{my subscription ID}/resourceGr
 To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy):
 
 ```powershell
-$userManagedIdentityObjectID = '<your object ID>'
-
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
-    -ObjectId $userManagedIdentityObjectID `
+    -ObjectId <object-id> `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
