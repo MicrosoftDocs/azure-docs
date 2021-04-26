@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 04/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
@@ -45,6 +45,7 @@ More information about emergency access accounts and why they are important can 
 * [Block access by location](howto-conditional-access-policy-location.md)
 * [Require compliant device](howto-conditional-access-policy-compliant-device.md)
 * [Block access except specific apps](howto-conditional-access-policy-block-access.md)
+* [Authentication context with Privileged Identity Management](howto-conditional-access-policy-authentication-context.md)
 
 ## Next steps
 

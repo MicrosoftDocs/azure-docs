@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 04/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,8 +20,8 @@ ms.collection: M365-identity-device-management
 Cloud apps, actions, and authentication context are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
-- Administrators may choose to define policy not based on a cloud application but on a user action like **Register security information** or **Register or join devices (Preview)**, allowing Conditional Access to enforce controls around those actions.
-- Administrators can use authentication context to provide an additional layer of security inside of applications. 
+- Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices (Preview)**, allowing Conditional Access to enforce controls around those actions.
+- Administrators can use [authentication context](#authentication-context-preview) to provide an additional layer of security inside of applications. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -147,6 +147,8 @@ Create new authentication context definitions by selecting **New authentication 
 - **Description** provides more information about the policies it is used by Azure AD administrators and those applying authentication contexts to resources.
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
 - **ID** is read-only and used in tokesn and apps for request specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
+
+For an example policy using authentication context see the article, [Conditional Access: Authentication context with Privileged Identity Management](howto-conditional-access-policy-authentication-context.md).
 
 ### Add to Conditional Access policy
 
