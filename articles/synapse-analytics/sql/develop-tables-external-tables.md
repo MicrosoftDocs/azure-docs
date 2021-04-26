@@ -21,15 +21,15 @@ Depending on the type of the external data source, you can use two types of exte
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
-| | Hadoop | Native |
+| Feature | Hadoop | Native |
 | --- | --- | --- |
 | Dedicated SQL pool | Available | In preview |
 | Serverless SQL pool | Not available | Available |
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, RC | Delimited/CSV, Parquet, Delta Lake (in preview) |
 | Folder partition elimination | No | Only for the partitioned tables synchronized from Apache Spark pools in Synapse workspace |
-| Custom format for location | No | Yes, using wildcards |
+| Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | Always | Only when specified `/**` in the location path |
-| Storage authentication | SAK, AAD passthrough, Managed identity | SAK, AAD passthrough, Managed identity |
+| Storage authentication | SAK, AAD passthrough, Managed identity | SAK, AAD passthrough, Managed identity, Custom application Azure AD identity |
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
@@ -107,11 +107,9 @@ LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path
 `https:` prefix enables you to use subfolder in the path.
 
 #### Credential
-CREDENTIAL = `<database scoped credential>` is optional credential that will be used to authenticate on Azure storage. External data source without credential can access public storage account. 
-
-External data sources without a credential in dedicated SQL pool will use caller's Azure AD identity to access files on storage. An external data source for serverless SQL pool with credential  `IDENTITY='User Identity'` will use caller's Azure AD identity to access files.
+CREDENTIAL = `<database scoped credential>` is optional credential that will be used to authenticate on Azure storage. External data source without credential can access public storage account or use the caller's Azure AD identity to access files on storage. 
 - In dedicated SQL pool, database scoped credential can specify custom application identity, workspace Managed Identity, or SAK key. 
-- In serverless SQL pool, database scoped credential can specify caller's Azure AD identity, workspace Managed Identity, or SAS key. 
+- In serverless SQL pool, database scoped credential can specify workspace Managed Identity, or SAS key. 
 
 #### TYPE
 TYPE = `HADOOP` is the option that specifies that older Polybase technology should be used to access underlying files. This parameter can't be used in serverless SQL pool that uses built-in native reader.
