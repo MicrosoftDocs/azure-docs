@@ -422,7 +422,10 @@
           href: how-to-use-mlflow.md
         - name: Track Azure Databricks runs with MLflow
           displayName: log, monitor, deploy, metrics, databricks
-          href: how-to-use-mlflow-azure-databricks.md              
+          href: how-to-use-mlflow-azure-databricks.md
+        - name: Train experiments with MLflow Projects 
+          displayName: log, monitor, metrics, model registry, register
+          href: how-to-train-mlflow-projects.md              
         - name: Deploy MLflow models
           displayName: log, monitor, deploy, metrics, databricks, aci, aks
           href: how-to-deploy-mlflow-models.md              
