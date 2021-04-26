@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -224,7 +224,11 @@ The following template can be used to create a Conditional Access policy with di
 
 ## Enable multi-factor authentication (optional)
 
-When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can set MFA to **Always On** so that MFA is always required regardless of your Conditional Access setup. Or, you can set MFA to **Conditional** so that MFA is required only when an active Conditional Access Policy requires it.
+When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can choose from these MFA options:
+
+   - **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
+   - **Always on** - MFA is always required regardless of your Conditional Access setup. If users aren't already enrolled in MFA, they're prompted to enroll during sign-in. During sign-up, users are prompted to enroll in MFA.
+   - **Conditional (Preview)** - MFA is required only when an active Conditional Access Policy requires it. If the result of the Conditional Access evaluation is an MFA challenge with no risk, MFA is enforced during sign-in. If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked. During sign-up, users aren't prompted to enroll in MFA.
 
 > [!IMPORTANT]
 > If your Conditional Access policy grants access with MFA but the user hasn't enrolled a phone number, the user may be blocked.
@@ -245,9 +249,9 @@ To enable Conditional Access for a user flow, make sure the version supports Con
  
    ![Configure MFA and Conditional Access in Properties](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. In the **Multi-factor authentication** section, select the desired **MFA method**, and then under **MFA enforcement**, select **Conditional (Recommended)**.
+1. In the **Multifactor authentication** section, select the desired **Type of method**, and then under **MFA enforcement**, select **Conditional (Preview)**.
  
-1. In the **Conditional Access** section, select the **Enforce conditional access policies** check box.
+1. In the **Conditional access (Preview)** section, select the **Enforce conditional access policies** check box.
 
 1. Select **Save**.
 

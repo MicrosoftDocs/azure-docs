@@ -477,25 +477,25 @@ Here's a PowerShell script that completes these steps:
 
 ```powershell
     # Check for marker file indicating that config has already been done
-    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
         return 0
     }
 
     # Delete previous Tomcat directory if it exists
     # In case previous config could not be completed or a new config should be forcefully installed
-    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
     }
 
     # Copy Tomcat to local
     # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
-    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
 
     # Perform the required customization of Tomcat
     {... customization ...}
 
     # Mark that the operation was a success
-    New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+    New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
 ```
 
 ##### Transforms
@@ -565,7 +565,7 @@ This example transform adds a new connector node to `server.xml`. Note the *Iden
                  clientAuth="false" sslProtocol="TLS" />
     </xsl:template>
 
-</xsl:stylesheet>
+    </xsl:stylesheet>
 ```
 
 ###### Function for XSL transform
@@ -628,61 +628,65 @@ The following example script copies a custom Tomcat to a local folder, performs 
 
 ```powershell
     # Locations of xml and xsl files
-    $target_xml="$LOCAL_EXPANDED\tomcat\conf\server.xml"
-    $target_xsl="$HOME\site\server.xsl"
-
+    $target_xml="$Env:LOCAL_EXPANDED\tomcat\conf\server.xml"
+    $target_xsl="$Env:HOME\site\server.xsl"
+    
     # Define the transform function
     # Useful if transforming multiple files
     function TransformXML{
         param ($xml, $xsl, $output)
-
+    
         if (-not $xml -or -not $xsl -or -not $output)
         {
             return 0
         }
-
+    
         Try
         {
             $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
             $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
             $xslt_settings.EnableScript = 1;
-
+    
             $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
             $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
             $xslt.Transform($xml, $output);
         }
-
+    
         Catch
         {
             $ErrorMessage = $_.Exception.Message
             $FailedItem = $_.Exception.ItemName
-            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            echo  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
             return 0
         }
         return 1
     }
-
+    
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+    
     # Check for marker file indicating that config has already been done
-    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
         return 0
     }
-
+    
     # Delete previous Tomcat directory if it exists
     # In case previous config could not be completed or a new config should be forcefully installed
-    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
     }
-
+    
+    md -Path "$Env:LOCAL_EXPANDED\tomcat"
+    
     # Copy Tomcat to local
     # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
-    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
-
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+    
     # Perform the required customization of Tomcat
     $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
-
+    
     # Mark that the operation was a success if successful
     if($success){
-        New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+        New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
     }
 ```
 
