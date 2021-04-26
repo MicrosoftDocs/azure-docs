@@ -3,7 +3,7 @@ title: Connect Azure Active Directory data to Azure Sentinel | Microsoft Docs
 description: Learn how to collect data from Azure Active Directory, and stream Azure AD sign-in, audit, and provisioning logs into Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: yelevin
+author: MarkusVi
 manager: rkarlin
 editor: ''
 
@@ -15,14 +15,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
-ms.author: yelevin
+ms.author: markvi
 
 ---
 # Connect Azure Active Directory (Azure AD) data to Azure Sentinel
 
 You can use Azure Sentinel's built-in connector to collect data from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Azure Sentinel. The connector allows you to stream the following log types:
 
-- [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md), which contain information about [interactive user sign-ins](../active-directory/reports-monitoring/concept-all-sign-ins.md#user-sign-ins) where a user provides an authentication factor.
+- [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md), which contain information about interactive user sign-ins where a user provides an authentication factor.
 
     The Azure AD connector now includes the following three additional categories of sign-in logs, all currently in **PREVIEW**:
     
