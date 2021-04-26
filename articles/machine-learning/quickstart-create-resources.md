@@ -1,19 +1,19 @@
 ---
-title: "Quickstart: Create a machine learning workspace"
+title: "Quickstart: Get started with Azure Machine Learning"
 titleSuffix: Azure Machine Learning
-description: Get started with Azure Machine Learning by creating and exploring the workspace, and add compute resources to the workspace.
+description: Get started with Azure Machine Learning.  Set up a workspace and add compute resources to create your development environment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/15/2021
+ms.date: 04/26/2021
 adobe-target: true
 # Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
-# Quickstart: Set up your workspace to get started with Azure Machine Learning
+# Quickstart: Get started with Azure Machine Learning
 
 In this quickstart, you'll complete the steps to get started with Azure Machine Learning by creating an Azure Machine Learning workspace, then add compute resources to the workspace. 
 
@@ -25,25 +25,31 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 ## Create the workspace
 
+If you  already have a workspace, skip this section and continue to [Explore the workspace](#studio).
+
+If you don't yet have a workspace, create one now:
+
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-## Explore the studio
+## <a name="studio"></a> Explore the workspace
 
-From the portal view of your workspace, select **Launch studio** to go to the Azure Machine Learning studio. The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.
+If you didn't select **Go to workspace** in the previous section, sign in now to [Azure Machine Learning studio](http://ml.azure.com) and select your workspace. The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.
+
+Review the parts of the studio on the left-hand navigation bar.
 
 The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
 
-* **Notebooks** allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts
+* **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts
 * **Automated ML** steps you though created a machine learning model without writing code
 * **Designer** gives you a drag-and-drop way to build a model using prebuilt modules
 
-The **Assets** section of the studio helps you keep track of the assets you create as you run your jobs.  Since this is a new workspace, there's nothing in any of these sections yet.
+The **Assets** section of the studio helps you keep track of the assets you create as you run your jobs.  If you have a new workspace, there's nothing in any of these sections yet.
 
 The **Manage** section of the studio helps you create and manage compute resources, data, and external services you link to your workspace.  You'll use this section to set up some compute resources next.
 
 ## Create compute instance
 
-While you can install Azure Machine Learning on your own computer, you can also take advantage of an online compute resource that has a development environment already installed and ready to go.  You'll use the compute instance for your development environment, writing and running code in Python scripts or Jupyter notebooks.  You can think of it as your "local" environment, even though it is actually in the cloud.
+You can install Azure Machine Learning on your own computer.  Or you create an online compute resource that has a development environment already installed and ready to go.  You'll use this online resource, a *compute instance*, for your development environment to write and run code in Python scripts or Jupyter notebooks. 
 
 Create a *compute instance* to use this development environment for the rest of the tutorials and quickstarts.
 
@@ -52,7 +58,7 @@ Create a *compute instance* to use this development environment for the rest of 
 1. Keep all the defaults on the first page, select **Next**.
 1. Supply a name and select **Create**.
  
-In about two minutes, you will see the **State** of the compute instance change from *Creating* to *Running*.  It's now ready to go.  
+In about two minutes, you'll see the **State** of the compute instance change from *Creating* to *Running*.  It's now ready to go.  
 
 ## Create compute clusters
 
@@ -60,7 +66,7 @@ Next you'll create a compute cluster.  Clusters allow you to distribute a traini
 
 Create a compute cluster that will autoscale between zero and four nodes:
 
-1. Still in the **Compute** section, in the top tabs, select **Compute clusters**.
+1. Still in the **Compute** section, in the top tab, select **Compute clusters**.
 1. Select **+New** to create a new compute cluster.
 1. Keep all the defaults on the first page, select **Next**.
 1. Name the cluster **cpu-cluster**.  If this name already exists, add your initials to the name to make it unique.
@@ -76,14 +82,18 @@ In less than a minute, the **State** of the cluster will change from *Creating* 
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+### Stop compute instance
 
-If you plan to come back later to move on to another tutorial, stop the compute instance:
+If you plan to continue now to the next tutorial, leave the compute instance running.  If you plan come back later to move on to another tutorial, stop the compute instance:
 
 1. In the studio, on the left, select **Compute**.
 1. In the top tabs, select **Compute instances**
 1. Select the compute instance in the list.
 1. On the top toolbar, select **Stop**.
+
+### Delete all resources
+
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

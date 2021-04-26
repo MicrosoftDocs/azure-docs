@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Run a "Hello world!" Python script'
 titleSuffix: Azure Machine Learning
-description: Part 21 of the Azure Machine Learning get-started series shows how to submit a trivial "Hello world!" Python script to the cloud.
+description: Part 1 of the Azure Machine Learning get-started series shows how to submit a trivial "Hello world!" Python script to the cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 04/16/2021
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Run a "Hello world!" Python script (part 2 of 4)
+# Tutorial: Run a "Hello world!" Python script (part 1 of 3)
 
 In this tutorial, you learn how to use the Azure Machine Learning SDK for Python to submit and run a Python "Hello world!" script.
 
@@ -22,7 +22,7 @@ This tutorial is *part 1 of a three-part tutorial series* in which you learn the
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create and run a "Hello world!" Python script locally.
+> * Create and run a "Hello world!" Python script.
 > * Create a Python control script to submit "Hello world!" to Azure Machine Learning.
 > * Understand the Azure Machine Learning concepts in the control script.
 > * Submit and run the "Hello world!" script.
@@ -30,9 +30,11 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-workspace.md)
+- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-workspace.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
 
-## Create and run a Python script locally
+## Create and run a Python script
+
+This tutorial will use the compute instance as your development computer.  First create a few folders and the script:
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com) and select your workspace if prompted.
 1. On the left, select **Notebooks**
@@ -50,7 +52,7 @@ Copy this code into your file:
 print("Hello world!")
 ```
 
-Your project directory structure will now look like:
+Your project directory structure will now look like: (NEEDS NEW IMAGE)
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Directory structure shows hello.py in src subdirectory":::
 
@@ -59,7 +61,9 @@ Your project directory structure will now look like:
 
 You can run your code locally, which in this case means on the compute instance. Running code locally has the benefit of interactive debugging of code.  
 
-If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for it's state to chang to *Running*.
+If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for its state to change to *Running*.
+
+NEEDS AN IMAGE
 
 Use the **Save and run script in terminal** to run the script.
 
@@ -67,6 +71,7 @@ Use the **Save and run script in terminal** to run the script.
 cd <path/to/tutorial>
 python ./src/hello.py
 ```
+
 You'll see the output of the script in the terminal window that opens.
 
 > [!div class="nextstepaction"]
@@ -91,7 +96,9 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
-If you changed the name of the compute cluster, make sure to adjust the name in the code as well.
+
+> [!TIP]
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
 
 ### Understand the code
 
@@ -143,14 +150,14 @@ Here's a description of how the control script works:
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
-Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
 
 In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
 
 > [!div class="nextstepaction"]
 > [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
-## <a name="monitor"></a>Monitor your code in the cloud by using the studio
+## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
 The output from your script will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
@@ -163,7 +170,7 @@ Follow the link.  At first, you'll see a status of **Preparing**.  The very firs
 
 Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
 
-You may have to use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
+Wait about 10 minutes.  Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

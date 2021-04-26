@@ -41,4 +41,5 @@ ms.date: 11/04/2019
    When the process is finished, a deployment success message appears.
  
  1. To view the new workspace, select **Go to resource**.
+ 1. From the portal view of your workspace, select **Launch studio** to go to the Azure Machine Learning studio. 
 
