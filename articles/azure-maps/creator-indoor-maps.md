@@ -23,11 +23,18 @@ You can use Creator to develop applications with map features based on indoor ma
 
 To use Creator services, Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
 
-## Creator Authentication Settings
+## Creator Authentication
 
-It's recommended that all solutions built using Creator services use Azure Active Directory (Azure AD) for authentication. For more information, on Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication).
+Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
 
-It's also advisable to use role-based access control settings, which allow map makers to act as the Azure Maps Data Contributor role, and Creator map data users to act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
+Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
+
+>[!Important]
+>It's recommended to make use of:
+>
+> * Azure Active Directory (Azure AD) in all solutions built with an Azure Maps account using Creator services. For more information, on Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication)
+>
+>* Role-based access control settings, to allow map makers to act as the Azure Maps Data Contributor role, and Creator map data users to act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
 
 ## Upload a Drawing package
 
