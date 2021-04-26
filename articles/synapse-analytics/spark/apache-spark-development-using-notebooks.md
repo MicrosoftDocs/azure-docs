@@ -31,10 +31,12 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Feature|Classical Notebook|Preview Notebook|
 |--|--|--|
 |%run| Not supported | &#9745;|
-|%history| Not supported |&#9745;
+|%history| Not supported |&#9745;|
 |%load| Not supported |&#9745;|
 |%%html| Not supported |&#9745;|
 |Drag and drop to move a cell| Not supported |&#9745;|
+|Outline (Table of Content)| Not supported |&#9745;|
+|Variable explorer| Not supported |&#9745;|
 |Format text cell with toolbar buttons|&#9745;| Not available |
 |Undo cell operation| &#9745;| Not available |
 
@@ -254,6 +256,20 @@ Select the **More commands** ellipses (...) on the cell toolbar and **output** t
 
 ---
 
+### Notebook outline
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+The Outlines (Table of Contents) presents the first markdown header of any markdown cell in a sidebar window for quick navigation. The Outlines sidebar is resizable and collapsible to fit the screen in the best ways possible. You can select the **Outline** button on the notebook command bar to open or hide sidebar
+
+![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+---
+
+
 ## Run notebooks
 
 You can run the code cells in your notebook individually or all at once. The status and progress of each cell is represented in the notebook.
@@ -326,6 +342,22 @@ Example: ``` %run /path/notebookA ```.
 
 ---
 
+### Variable explorer
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+Synapse notebook provides a built-in variables explorer for you to see the list of the variables name, type, length, and value in the current Spark session for PySpark (Python) cells. More variables will show up automatically as they are defined in the code cells. Clicking on each column header will sort the variables in the table.
+
+You can select the **Variables** button on the notebook command bar to open or hide the variable explorer.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### Cell status indicator
 

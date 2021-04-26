@@ -78,7 +78,7 @@ During the deployment of your BareMetal instances, a new [Azure resource group](
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) command for your resource group:
+To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az_baremetalinstance_list) command for your resource group:
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -122,7 +122,7 @@ Also, on the right side, you'll find the [Azure proximity placement group's](../
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show) command:
+To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az_baremetalinstance_show) command:
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
@@ -154,7 +154,7 @@ Deleting tags also works the same way as for VMs. Applying and deleting a tag is
 
 Assigning tags to BareMetal instances works the same as assigning tags for virtual machines. As with VMs, the tags exist in the Azure metadata. Tags have the same restrictions for BareMetal instances as for VMs.
 
-To add tags to a BareMetal instance, run the [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) command:
+To add tags to a BareMetal instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az_baremetalinstance_update) command:
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
@@ -192,7 +192,7 @@ When you restart a BareMetal instance, you'll experience a delay. During this de
 
 ### [Azure CLI](#tab/azure-cli)
 
-To restart a BareMetal instance, use the [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) command:
+To restart a BareMetal instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az_baremetalinstance_restart) command:
 
 ```azurecli
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01

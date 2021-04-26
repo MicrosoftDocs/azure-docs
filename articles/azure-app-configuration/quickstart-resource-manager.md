@@ -7,7 +7,7 @@ ms.author: jken
 ms.date: 10/16/2020
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template

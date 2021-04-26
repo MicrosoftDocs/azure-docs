@@ -171,7 +171,7 @@ The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in t
 Now configure your web app to deploy from the `main` branch:
 
 ```azurecli-interactive
- az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
 ```
 
 Go to your new app by using the following command. Replace `<your-webapp-name>` with your app name.
@@ -342,4 +342,4 @@ Where before you saw "Hello World!", you should now see the value of your secret
 - [Use Azure Key Vault with applications deployed to a virtual machine in .NET](./tutorial-net-virtual-machine.md)
 - Learn more about [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
 - View the [Developer's Guide](./developers-guide.md)
-- [Secure access to a key vault](./security-overview.md)
+- [Secure access to a key vault](./security-features.md)

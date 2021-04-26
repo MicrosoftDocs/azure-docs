@@ -264,6 +264,6 @@ public class App {
 In this quickstart you created a key vault, created a key, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Read the [Key Vault security overview](../general/security-overview.md)
+- Read the [Key Vault security overview](../general/security-features.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- How to [Secure access to a key vault](../general/security-overview.md)
+- How to [Secure access to a key vault](../general/security-features.md)
