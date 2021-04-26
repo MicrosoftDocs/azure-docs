@@ -57,7 +57,7 @@ To access the sign-ins log of another user, you need to be:
 
     - Security reader
 
-    - Gobal reader
+    - Global reader
 
     - Report reader
 
