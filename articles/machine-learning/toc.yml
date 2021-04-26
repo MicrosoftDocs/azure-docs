@@ -171,7 +171,7 @@
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Data encryption

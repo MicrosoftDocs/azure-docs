@@ -49,7 +49,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/dns-security-baseline
   - name: Public DNS
     items:
     - name: Zones and records
