@@ -185,7 +185,7 @@ Use these keys when making requests to the service through APIs.
 |Name|Location|Purpose|
 |--|--|--|
 |Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the [QnA Maker management service APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
-|Azure Cognitive Search Admin Key|[Azure portal](../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure cognitive search with the QnA Maker managed (Preview) service, the admin key is automatically passed on to the QnA Maker service. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
+|Azure Cognitive Search Admin Key|[Azure portal](../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure cognitive search with the Custom question answering (Preview) feature, the admin key is automatically passed on to the QnA Maker service. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal
 
