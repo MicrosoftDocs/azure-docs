@@ -28,34 +28,16 @@ A [service connection](/azure/devops/pipelines/library/service-endpoints) allows
 1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.
 1. Select **Azure Resource Manager**.
 ![Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.](./media/new-service-connection.png)
-1. In the **Authentication method** dialog, select **Service principal (automatic)**.
-    > [!NOTE]
-    > **Managed identity** authentication is currently unsupported for the App Configuration task.
+1. In the **Authentication method** dialog, select **Service principal (automatic)** to create a new service principal or select **Service principal (manual)** to [use an existing service principal](azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn).
 1. Fill in your subscription and resource. Give your service connection a name.
 
-Now that your service connection is created, find the name of the service principal assigned to it. You'll add a new role assignment to this service principal in the next step.
+If you created a new service principal, find the name of the service principal assigned to the service connection. You'll add a new role assignment to this service principal in the next step.
 
 1. Go to **Project Settings** > **Service connections**.
 1. Select the service connection that you created in the previous section.
 1. Select **Manage Service Principal**.
 1. Note the **Display name** listed.
 ![Screenshot shows the service principal display name.](./media/service-principal-display-name.png)
-
-## Create a service connection (manual setup)
-
-1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.
-1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.
-1. Select **Azure Resource Manager**.
-1. In the **Authentication method** dialog, select **Service principal (manual)** and enter the Service principal details.
-1. Select the Environment name (such as Azure Cloud, Azure Stack, or an Azure Government Cloud).
-1. Enter the information about your service principal into the Azure subscription dialog textboxes.
-     - Subcription Id
-     - Subscription Name 
-     - Service principal Id 
-     - Enter the service principal client key (Certificate is currently unsupported for the App Configuration task)
-     - Tenant Id
-1. Choose **Verify connection** to validate settings you entered.
-1. Enter a user-friendly **Connection name** to use when referring to this service connection. 
 
 ## Add role assignment
 
