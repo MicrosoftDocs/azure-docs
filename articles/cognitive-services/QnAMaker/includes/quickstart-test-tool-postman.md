@@ -16,7 +16,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 * Latest [**Postman**](https://www.getpostman.com/).
 * You must have
-    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) for the GA version. You would need to create a Text Analytics resource if you want to use the Custom question answering (preview release).
     * A trained and published [knowledge base with questions and answers](../Quickstarts/add-question-metadata-portal.md) built from the quickstart is configured with metadata and Chit chat.
 
 > [!NOTE]
@@ -422,7 +422,7 @@ You can request a minimum threshold for the answer. If the threshold is not met,
     ```
 ## Use unstructured data sources.
     
-We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API.
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
      
 # [QnA Maker GA (stable release)](#tab/v1)
 We don't support unstructured data sets in the GA service.
@@ -437,7 +437,7 @@ We don't support unstructured data sets in the GA service.
        "top": 2
     }
     ```
-2. The response also includes the source of answer. 
+2. The response includes the source of answer. 
     ```json
        {
      "answers": [
