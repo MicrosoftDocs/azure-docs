@@ -16,14 +16,14 @@ ms.reviewer: jrasnick
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to dedicated SQL pool or serverless SQL pool.
 
 Depending on the type of the external data source, you can use two types of external tables:
-- Hadoop external tables that you can use to read and write data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as generally available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
-- Native external tables that you can use to read and write data in various data formats such as CSV, Parquet, and Delta Lake (in preview). Native external tables are generally available in serverless Synapse SQL pools, and in public preview in dedicated Synapse SQL pools.
+- Hadoop external tables that you can use to read and write data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
+- Native external tables that you can use to read and write data in various data formats such as CSV, Parquet, and Delta Lake (in preview). Native external tables are available in serverless Synapse SQL pools, but they are not available in dedicated Synapse SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
 | Feature | Hadoop | Native |
 | --- | --- | --- |
-| Dedicated SQL pool | Available | In preview |
+| Dedicated SQL pool | Available | Not available |
 | Serverless SQL pool | Not available | Available |
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, RC | Delimited/CSV, Parquet, Delta Lake (in preview) |
 | Folder partition elimination | No | Only for the partitioned tables synchronized from Apache Spark pools in Synapse workspace |
@@ -39,7 +39,7 @@ External table created on `HADOOP` external data sources to:
 - Import and store data from Azure Blob Storage and Azure Data Lake Storage.
 - Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
 
-You can create external tables using serverless SQL pool via the following steps:
+You can create external tables in Synapse SQL pool via the following steps:
 
 1. CREATE EXTERNAL DATA SOURCE
 2. CREATE EXTERNAL FILE FORMAT
@@ -292,7 +292,7 @@ column_name <data_type>
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
-The one to three-part name of the table to create. For an external table, serverless SQL pool stores only the table metadata. No actual data is moved or stored in serverless SQL pool.
+The one to three-part name of the table to create. For an external table, Synapse SQL pool stores only the table metadata. No actual data is moved or stored in Synapse SQL database.
 
 <column_definition>, ...*n* ]
 
@@ -354,7 +354,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## Create and query external tables from a file in Azure Data Lake
 
-Using Data Lake exploration capabilities you can now create and query an external table using dedicated SQL pool or serverless SQL pool with a simple right-click on the file. The one-click gesture to create external tables from the ADLS Gen2 storage account is only supported for Parquet files. 
+Using Data Lake exploration capabilities of Synapse Studio you can now create and query an external table using Synapse SQL pool with a simple right-click on the file. The one-click gesture to create external tables from the ADLS Gen2 storage account is only supported for Parquet files. 
 
 ### Prerequisites
 
