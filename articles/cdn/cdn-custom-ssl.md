@@ -5,12 +5,12 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-# As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
-
+#Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 ---
+
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
 
 This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with an Azure CDN endpoint. 
@@ -154,7 +154,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 5. Select **Add**. 
 
-    Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
+> [!NOTE]
+> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault. 
+
  
 ### Select the certificate for Azure CDN to deploy
  
@@ -166,15 +168,18 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 3. Under Certificate management type, select **Use my own certificate**. 
 
-    ![Configure your certificate](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Screenshot of how to configure certificate for cdn endpoint.":::
 
-4. Select a key vault, certificate (secret), and certificate version.
+4. Select a key vault, Certificate/Secret, and Certificate/Secret version.
 
     Azure CDN lists the following information: 
     - The key vault accounts for your subscription ID. 
-    - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions. 
+    - The certificates/secrets under the selected key vault. 
+    - The available certificate/secret versions.
  
+    > [!NOTE]
+    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
+   
 5. Select **On** to enable HTTPS.
   
 6. When you use your certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
@@ -228,7 +233,7 @@ DigiCert sends a verification email to the following email addresses. Verify tha
 * **hostmaster@your-domain-name.com**  
 * **postmaster@your-domain-name.com**  
 
-You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allow list. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allowlist. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -350,6 +355,11 @@ The following table shows the operation progress that occurs when you disable HT
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert. 
+
+8. *Do I need to re-enable HTTPS after the endpoint restarts?*
+
+    Yes. If you're using **Azure CDN from Akamai**, if the endpoint stops and restarts, you must re-enable the HTTPS setting if the setting was active before.
+
 
 ## Next steps
 

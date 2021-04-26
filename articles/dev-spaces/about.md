@@ -36,7 +36,7 @@ For more information on how Azure Dev Spaces works, see [How Azure Dev Spaces wo
 
 ## Supported regions and configurations
 
-Azure Dev Spaces is supported only by AKS clusters in [some regions][supported-regions]. Azure Dev Spaces supports using the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installed on Linux, macOS, or Windows 8 or greater to build and run your applications on AKS. It also supports using [Visual Studio 2019](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installed on Windows with the Azure Development workload.
+Azure Dev Spaces is supported only by AKS clusters in [some regions][supported-regions]. Azure Dev Spaces supports using the [Azure CLI](/cli/azure/install-azure-cli) or [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installed on Linux, macOS, or Windows 8 or greater to build and run your applications on AKS. It also supports using [Visual Studio 2019](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installed on Windows with the Azure Development workload.
 
 ## Next steps
 

@@ -66,7 +66,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 >
 > If you plan to use this log forwarder machine to forward [Syslog messages](connect-syslog.md) as well as CEF, then in order to avoid the duplication of events to the Syslog and CommonSecurityLog tables:
 >
-> 1. On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
+> 1. On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
 >
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
@@ -225,5 +225,7 @@ Choose a syslog daemon to see the appropriate description.
 ## Next steps
 
 In this document, you learned how to deploy the Log Analytics agent to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
+- Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).

@@ -77,4 +77,4 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 ## Next steps
 
 - [Learn more about Azure Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md)
+- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)

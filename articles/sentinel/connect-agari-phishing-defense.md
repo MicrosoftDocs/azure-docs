@@ -34,7 +34,7 @@ The following are required to connect Agari's Phishing Defense and Brand Protect
 
 - Read and write permissions on the Azure Sentinel workspace.
 
-- Read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Read and write permissions on Azure Functions, to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 

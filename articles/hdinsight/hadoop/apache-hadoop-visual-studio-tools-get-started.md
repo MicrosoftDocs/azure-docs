@@ -36,7 +36,7 @@ Follow the appropriate instructions to install Data Lake Tools for your version 
 
     For existing Visual Studio installations, go to the IDE menu bar, and select **Tools** > **Get Tools and Features** to open Visual Studio Installer. In the **Workloads** tab, select at least the **Azure development** workload (under **Web & Cloud**). Or select the **Data storage and processing** workload (under **Other Toolsets**).
 
-  ![Workload selection, Visual Studio Installer](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
+  :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png" alt-text="Workload selection, Visual Studio Installer" border="true":::
 
 * For Visual Studio 2015:
 
@@ -86,7 +86,7 @@ To connect to your Azure subscription:
 
 5. If you don't have any clusters, create one by using the Azure portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-   ![HDInsight cluster list, Server Explorer, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
+   :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png" alt-text="HDInsight cluster list, Server Explorer, Visual Studio" border="true":::
 
 6. Expand an HDInsight cluster. The cluster contains nodes for **Hive Databases**. Also, a default storage account, any additional linked storage accounts, and **Hadoop Service Log**. You can further expand the entities.
 
@@ -119,23 +119,23 @@ To link an HDInsight cluster:
 
 2. Enter a **Connection Url** in the form `https://CLUSTERNAME.azurehdinsight.net`. The **Cluster Name** automatically fills in with the cluster name portion of your URL when you go to another field. Then enter a **Username** and **Password**, and select **Next**.
 
-    ![Link a cluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
+    :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png" alt-text="Link a cluster, HDInsight, Visual Studio" border="true":::
 
 3. Select **Finish**. If the cluster linking is successful, the cluster is then listed under the **HDInsight** node.
 
 To update a linked cluster, right-click the cluster and select **Edit**. You can then update the cluster information.
 
-![Edit a linked cluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
+:::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png" alt-text="Edit a linked cluster, HDInsight, Visual Studio" border="true":::
 
 ## Explore linked resources
 
 From Server Explorer, you can see the default storage account and any linked storage accounts. If you expand the default storage account, you can see the containers on the storage account. The default storage account and the default container are marked.
 
-![Data Lake Tools for Visual Studio linked resources in Server Explorer](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
+:::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png" alt-text="Data Lake Tools for Visual Studio linked resources in Server Explorer" border="true":::
 
 Right-click a container and select **View Container** to view the container's contents. After opening a container, you can use the toolbar buttons to **Refresh** the content list, **Upload Blob**, **Delete selected blobs**, **Open Blob**, and download (**Save As**) selected blobs.
 
-![Container list and blob operations, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
+:::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png" alt-text="Container list and blob operations, HDInsight cluster, Visual Studio" border="true":::
 
 ## Run interactive Apache Hive queries
 
@@ -180,7 +180,7 @@ To create a Hive table, you can use the GUI or you can use Hive queries. For inf
 
 4. Select the **Create Table** button to submit the job, which creates the new Hive table.
 
-    ![Create Table window, Hive, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png)
+    :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png" alt-text="Create Table window, Hive, HDInsight cluster, Visual Studio" border="true":::
 
 ### Create and run Hive queries
 
@@ -199,9 +199,9 @@ To create and run an ad-hoc query:
 
     The Hive editor supports IntelliSense. Data Lake Tools for Visual Studio supports loading remote metadata when you edit your Hive script. For example, if you type `SELECT * FROM`, IntelliSense lists all the suggested table names. When a table name is specified, IntelliSense lists the column names. The tools support most Hive DML statements, subqueries, and built-in UDFs.
 
-    ![IntelliSense example 1, Hive ad-hoc query, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-table-names.png)
+    :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-table-names.png" alt-text="IntelliSense example 1, Hive ad-hoc query, HDInsight cluster, Visual Studio" border="true":::
 
-    ![IntelliSense example 2, Hive ad-hoc query, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-column-names.png)
+    :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-column-names.png" alt-text="IntelliSense example 2, Hive ad-hoc query, HDInsight cluster, Visual Studio" border="true":::
 
     > [!NOTE]  
     > IntelliSense suggests only the metadata of the cluster that is selected in the HDInsight toolbar.
@@ -221,17 +221,17 @@ To create and run an ad-hoc query:
 
         In the first drop-down list, choose **Interactive**, and then select **Execute**.
 
-        ![Interactive mode, Hive ad-hoc query, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
+        :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png" alt-text="Interactive mode, Hive ad-hoc query, HDInsight cluster, Visual Studio" border="true":::  
 
     * **Batch**  
 
         In the first drop-down list, choose **Batch**, and then select **Submit**. Or select the drop-down icon next to **Submit** and choose **Advanced**.
 
-        ![Batch mode, Hive ad-hoc query, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)
+        :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png" alt-text="Batch mode, Hive ad-hoc query, HDInsight cluster, Visual Studio" border="true":::
 
         If you select the advanced submit option, the **Submit Script** dialog box appears. Configure the **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script.
 
-        ![Submit Script dialog box, Hive ad-hoc query, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png)
+        :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png" alt-text="Submit Script dialog box, Hive ad-hoc query, HDInsight cluster, Visual Studio" border="true":::
 
       > [!NOTE]  
       > You can't submit batches to Interactive Query clusters.  You must use interactive mode.
@@ -246,7 +246,7 @@ To create and run a Hive solution:
 
 3. In the **Configure your new project** window, enter a **Project name**, select or create the project **Location**, and then select **Create**.
 
-    ![New Hive application, Configure your new project window, HDInsight Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png)
+    :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png" alt-text="New Hive application, Configure your new project window, HDInsight Visual Studio" border="true":::
 
 4. In **Solution Explorer**, double-click **Script.hql** to open the script.
 
@@ -254,7 +254,7 @@ To create and run a Hive solution:
 
 The job summary varies slightly between **Batch** and **Interactive** mode.
 
-![Hive job summary windows, batch and interactive mode, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png)
+:::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png" alt-text="Hive job summary windows, batch and interactive mode, Visual Studio" border="true":::
 
 Use the **Refresh** icon to update the status until the job status changes to **Finished**.  
 
@@ -262,7 +262,7 @@ Use the **Refresh** icon to update the status until the job status changes to **
 
 * For the job details from **Interactive** mode, see the **Output** and **HiveServer2 Output** panes.
 
-    ![Hive interactive job output, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png)
+    :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png" alt-text="Hive interactive job output, HDInsight cluster, Visual Studio" border="true":::
 
 ### View job graph
 
@@ -272,14 +272,14 @@ To view all the operators inside the vertex, double-click the vertices of the jo
 
 Even if Tez is specified as the execution engine, the job graph may not appear if no Tez application is launched.  This situation might occur because the job doesn't contain DML statements. Or because the DML statements can return without launching a Tez application. For example, `SELECT * FROM table1` won't launch the Tez application.
 
-![Apache Hive job graph, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png)
+:::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png" alt-text="Apache Hive job graph, Visual Studio" border="true":::
 
 ### View task execution detail
 
 From the job graph, you can select **Task Execution Detail** to get structured and visualized information for Hive jobs. You may also get more job details. If performance issues occur, you can use the view to get more details about the issue. For example, you may retrieve information about how each task operates and detailed information about each task
 (data read/write, schedule/start/end time, and more). Use the information to tune job configurations or system architecture based on the visualized information.
 
-![Task Execution View window, Data Lake Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png)
+:::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png" alt-text="Task Execution View window, Data Lake Visual Studio Tools" border="true":::
 
 ### View Hive jobs
 
@@ -291,7 +291,7 @@ To view Hive jobs:
 
 1. Right-click an HDInsight cluster, and select **View Jobs**.
 
-    ![View Jobs, Apache Hive, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png)
+    :::image type="content" source="./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png" alt-text="View Jobs, Apache Hive, HDInsight cluster, Visual Studio" border="true":::
 
     A list of the Hive jobs that ran on the cluster appears.  
 

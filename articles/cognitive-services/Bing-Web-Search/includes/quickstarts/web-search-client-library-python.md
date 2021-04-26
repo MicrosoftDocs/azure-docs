@@ -16,9 +16,9 @@ Want to see the code right now? Samples for the [Bing Search client libraries fo
 
 
 ## Prerequisites
-The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. We recommend using a virtual environment for this quickstart.
+The Bing Web Search SDK is compatible with Python 2.7 or 3.6+. We recommend using a virtual environment for this quickstart.
 
-* Python 2.7, 3.3, 3.4, 3.5 or 3.6
+* Python 2.7 or 3.6+
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) for Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) for Python 3.x
 

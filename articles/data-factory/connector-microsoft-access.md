@@ -1,16 +1,12 @@
 ---
 title: Copy data from and to Microsoft Access
 description: Learn how to copy data from and to Microsoft Access by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/28/2020
+ms.date: 03/17/2021
 ---
 
 # Copy data from and to Microsoft Access using Azure Data Factory
@@ -165,6 +161,7 @@ To copy data to Microsoft Access, the following properties are supported in the 
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default is 0 - auto detected) |
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into data store in each run. You can use this property to clean up the pre-loaded data. |No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run.Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

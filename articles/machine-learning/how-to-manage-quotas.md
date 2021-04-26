@@ -9,7 +9,7 @@ ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
 ms.date: 12/1/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
 
@@ -184,7 +184,6 @@ Azure Machine Learning creates resources in your (customer) subscription, but so
  In the following scenarios, you might need to request a quota allowance in the Microsoft-owned subscription:
 
 * Azure Private Link enabled workspace with a customer-managed key (CMK)
-* Azure Container Registry for the workspace behind your virtual network
 * Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace
 
 To request an allowance for these scenarios, use the following steps:

@@ -34,9 +34,7 @@ Please review [environment access policies](./concepts-access-policies.md) and m
 > [!IMPORTANT]
 > * Download and install the latest version of [Power BI Desktop](https://powerbi.microsoft.com/downloads/). To follow along with the steps in this article, please make sure you have at least the December 2020 (2.88.321.0) version of Power BI Desktop installed. 
 
-## Connect data from Azure Time Series Insights to Power BI
-
-### 1. Export data into Power BI desktop
+## Export data from Azure Time Series Insights into Power BI desktop
 
 To get started:
 
@@ -50,37 +48,36 @@ To get started:
    * **Data format**: Choose whether you want to export **Aggregate data** or **Raw events** to Power BI. 
 
        > [!NOTE]
-       > * If you export raw events, you can aggregate that data later in Power BI. However, if you export aggregate data, you cannot revert to raw data in Power BI. 
-       > * There is a 250,000 event count limit for Raw Event level data.
+       > If you export raw events, you can aggregate that data later in Power BI. However, if you export aggregate data, you cannot revert to raw data in Power BI. There is a 250,000 event count limit for Raw Event level data.
 
    * **Time Range**: Choose whether you'd like to see a **fixed** time range or the **latest** data in Power BI. Choosing the fixed time range means the data in the search span you've charted will be exported to Power BI. Choosing the latest time range means that Power BI will grab the latest data for the search span you've chosen (e.g. If you chart any 1 hour of data and choose the "latest" setting, Power BI Connector will always make queries for the latest 1 hour of data.)
   
-   * **Store Type**: Choose whether you'd like to run your selected query against **Warm Store** or **Cold Store**. 
+   * **Store Type**: Choose whether you'd like to run your selected query against **Warm Store** or **Cold Store**. If you've selected a range that spans both Cold and Warm stores, your query will be routed to Cold Store by default since Warm store will contain only the latest data. Manually changing the storeType parameter is allowed, but not recommended for best experience. 
 
-    > [!TIP]
-    > * Azure Time Series Insights Explorer will automatically select the recommended parameters depending on the data you've chosen to export. 
+    > [!TIP] 
+    > Azure Time Series Insights Explorer will automatically select the recommended parameters depending on the search span and view of data you've chosen to export. 
 
 1. Once you have configured your settings, select **Copy query to clipboard**.
 
     [![Azure Time Series Insights Explorer export modal](media/how-to-connect-power-bi/choose-explorer-parameters.jpg)](media/how-to-connect-power-bi/choose-explorer-parameters.jpg#lightbox)
 
-2. Launch Power BI Desktop.
+1. Launch Power BI Desktop.
    
-3. In Power BI Desktop on the **Home** tab, select **Get Data** in the upper left corner, then **More**.
+1. In Power BI Desktop on the **Home** tab, select **Get Data** in the upper left corner, then **More**.
 
     [![Get data in Power BI](media/how-to-connect-power-bi/get-data-power-bi.jpg)](media/how-to-connect-power-bi/get-data-power-bi.jpg#lightbox)
 
-4. Search for **Azure Time Series Insights**, select **Azure Time Series Insights (Beta)**, then **Connect**.
+1. Search for **Azure Time Series Insights**, select **Azure Time Series Insights (Beta)**, then **Connect**.
 
     [![Connect Power BI to Azure Time Series Insights](media/how-to-connect-power-bi/select-tsi-connector.jpg)](media/how-to-connect-power-bi/select-tsi-connector.jpg#lightbox)
 
     Alternatively, navigate to the **Azure** tab, select **Azure Time Series Insights (Beta)**, then **Connect**.
 
-5. Paste the query you copied from Azure Time Series Insights Explorer into the **Custom Query** field, then press **OK**.
+1. Paste the query you copied from Azure Time Series Insights Explorer into the **Custom Query** field, then press **OK**.
 
     [![Paste in the custom query and select OK](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
-6.  The data table will now load. Press **Load** to load into Power BI. If you wish to make any transformations to the data, you can do so now by clicking **Transform Data**. You can also transform your data after it's loaded.
+1.  The data table will now load. Press **Load** to load into Power BI. If you wish to make any transformations to the data, you can do so now by clicking **Transform Data**. You can also transform your data after it's loaded.
 
     [![Review the data in the table and select Load](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
 

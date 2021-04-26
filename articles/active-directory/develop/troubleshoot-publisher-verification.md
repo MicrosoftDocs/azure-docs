@@ -237,7 +237,7 @@ When a request to add a verified publisher is made, an number of signals are use
 
 ## Next steps
 
-If you have reviewed all of the previous information and are still receiving an error from Microsoft Graph, gather as much of the following information as possible related to the failing request and [contact Microsoft support](developer-support-help-options.md#open-a-support-request).
+If you have reviewed all of the previous information and are still receiving an error from Microsoft Graph, gather as much of the following information as possible related to the failing request and [contact Microsoft support](developer-support-help-options.md#create-an-azure-support-request).
 
 - Timestamp 
 - CorrelationId 

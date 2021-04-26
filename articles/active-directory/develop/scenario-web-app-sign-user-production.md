@@ -48,6 +48,12 @@ This progressive tutorial has production-ready code for a web app, including how
 - [Azure AD B2C](../../active-directory-b2c/overview.md)
 - National clouds
 
+## Tutorial: Node.js web app
+
+Learn more about the Node.js web in this tutorial:
+
+[Tutorial: Sign-in users in a Node.js & Express web app](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
+
 ## Sample code: Java web app
 
 Learn more about the Java web app from this sample on GitHub: 

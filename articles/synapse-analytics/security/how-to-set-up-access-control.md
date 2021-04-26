@@ -4,12 +4,12 @@ title: How to set up access control for your Synapse workspace
 description: This article will teach you how to control access to a Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 
 services: synapse-analytics 
-author: billgib 
+author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
 ms.date: 12/03/2020 
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
@@ -121,7 +121,7 @@ To run pipelines and perform system tasks, Synapse requires that the workspace m
 
 ## STEP 5: Grant Synapse administrators the Azure Contributor role on the workspace 
 
-To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor access to the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling.
+To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor role at the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling. If you are using Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, then you need Azure Contributor role at the resource group level. 
 
 - Open the Azure portal
 - Locate the workspace, `workspace1`
@@ -129,7 +129,7 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users must hav
 
 ## STEP 6: Assign SQL Active Directory Admin role
 
-The workstation creator is automatically set up as the SQL Active Directory Admin for the workspace.  Only a single user or group can be granted this role. In this step, you assign the SQL Active Directory Admin on the workspace  to the `workspace1_SQLAdmins` security group.  Assigning this role gives this group highly privileged admin access to all SQL pools and databases in the workspace.   
+The workspace creator is automatically set up as the SQL Active Directory Admin for the workspace.  Only a single user or group can be granted this role. In this step, you assign the SQL Active Directory Admin on the workspace  to the `workspace1_SQLAdmins` security group.  Assigning this role gives this group highly privileged admin access to all SQL pools and databases in the workspace.   
 
 - Open the Azure portal
 - Navigate to `workspace1`

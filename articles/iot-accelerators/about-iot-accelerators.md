@@ -9,9 +9,7 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-
-
-# Intent: As a developer or IT Pro, I need to know what the IoT solution accelerators do, so I can understand if they can help me to build and manage my IoT solution.
+# Customer intent: As a developer or IT Pro, I need to know what the IoT solution accelerators do, so I can understand if they can help me to build and manage my IoT solution.
 ---
 
 # What are Azure IoT solution accelerators?
@@ -66,7 +64,7 @@ The original solution accelerators were written using .NET using a model-view-co
 | Solution accelerator   | Architecture  | Languages     |
 | ---------------------- | ------------- | ------------- |
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
-| Device Simulation      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
+| Device Simulation      | Microservices | [.NET](https://github.com/Azure/azure-iot-pcs-device-simulation)          |
 
 To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](/azure/architecture/reference-architectures/iot/).
 

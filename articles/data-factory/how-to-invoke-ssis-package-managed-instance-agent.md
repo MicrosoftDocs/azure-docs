@@ -1,13 +1,10 @@
 ---
 title: Run SSIS packages using Azure SQL Managed Instance Agent
 description: Learn how to run SSIS packages by using Azure SQL Managed Instance Agent. 
-services: data-factory
-documentationcenter: ""
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: lle
-author: lle
+author: lrtoyou1223
 ms.date: 04/14/2020
 ---
 

@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: robinsh
-ms.custom: mqtt, devx-track-python
+ms.custom: mqtt, devx-track-python, devx-track-azurecli
 ---
 
 # Get started with device management (Python)

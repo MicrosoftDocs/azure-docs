@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: mvc
-# As an Azure CDN administrator, I want to create custom rules on my CDN endpoint so that I can control how content is cached.
+#Customer intent: As an Azure CDN administrator, I want to create custom rules on my CDN endpoint so that I can control how content is cached.
 
 ---
 

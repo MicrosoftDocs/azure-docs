@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/15/2021
 ms.author: jeedes
 ---
 
@@ -24,13 +24,16 @@ By using Azure Active Directory (Azure AD), you can customize the claim type for
 - An Azure AD subscription with directory setup.
 - A subscription that has single sign-on (SSO) enabled. You must configure SSO with your application.
 
+> [!NOTE]
+> This article explains on how to create/update/delete application roles on the service principal using APIs in Azure AD. If you would like to use the new user interface for App Roles then please see the details [here](./howto-add-app-roles-in-azure-ad-apps.md).
+
 ## When to use this feature
 
 Use this feature if your application expects custom roles in the SAML response returned by Azure AD. You can create as many roles as you need.
 
 ## Create roles for an application
 
-1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, in the left pane, select the **Azure Active Directory** icon.
+1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, in the left pane, select the **Azure Active Directory** icon.
 
     ![Azure Active Directory icon][1]
 

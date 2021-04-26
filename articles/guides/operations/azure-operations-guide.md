@@ -195,7 +195,7 @@ If you exceed the credit amount, your service is disabled until the next month s
 
 Azure RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
 
-For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### View billing information in the Azure portal
 
@@ -299,7 +299,7 @@ Here are a few examples of [built-in roles in Azure](../../role-based-access-con
 
 - **Storage Account Contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 

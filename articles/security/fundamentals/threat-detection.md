@@ -86,7 +86,7 @@ In addition to providing valuable services on its own, Azure Monitor logs can in
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
 ### Insight and analytics
-At the center of [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md) is the repository, which is hosted by Azure.
+At the center of [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) is the repository, which is hosted by Azure.
 
 ![Insight and analytics diagram](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -95,8 +95,8 @@ You collect data into the repository from connected sources by configuring data 
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 
 Most of your interaction with Azure Monitor logs is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
-* [Log searches](../../azure-monitor/log-query/log-query-overview.md) where you construct queries to analyze collected data.
-* [Dashboards](../../azure-monitor/learn/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
+* [Log searches](../../azure-monitor/logs/log-query-overview.md) where you construct queries to analyze collected data.
+* [Dashboards](../../azure-monitor/visualize/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
 * [Solutions](../../azure-monitor/insights/solutions.md), which provide additional functionality and analysis tools.
 
 Solutions add functionality to Azure Monitor logs. They primarily run in the cloud and provide analysis of data that's collected in the log analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the log analytics dashboard.
@@ -365,6 +365,6 @@ For examples of web application firewalls that are available in the Azure Market
 
 ## Next steps
 
-- [Responding to today’s threats](../../security-center/security-center-alerts-overview.md#respond-threats): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
+- [Responding to today’s threats](../../security-center/security-center-managing-and-responding-alerts.md): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
 
 - [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Helps address your concerns about potential threats to your databases.

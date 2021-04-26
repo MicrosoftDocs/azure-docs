@@ -12,7 +12,7 @@ ms.date: 05/04/2020
 
 After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run status, [runs history](#review-runs-history), [trigger history](#review-trigger-history), and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
 
-For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
+For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
 > If your logic apps run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
@@ -149,7 +149,7 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
 ## Set up monitoring alerts
 
-To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md). Learn about [metrics in Azure](../azure-monitor/platform/data-platform.md). To set up alerts without using [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), follow these steps.
+To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md). Learn about [metrics in Azure](../azure-monitor/data-platform.md). To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-overview.md), follow these steps.
 
 1. On your logic app menu, under **Monitoring**, select **Alerts** > **New alert rule**.
 

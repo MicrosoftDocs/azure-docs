@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 
 # Upgrade from Read v2.x to Read v3.x
 
-This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.0 and v3.1 preview.
+This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.x.
 
 ## Determine your API path
 Use the following table to determine the **version string** in the API path based on the Read 3.x version you are migrating to.

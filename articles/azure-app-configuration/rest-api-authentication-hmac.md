@@ -355,14 +355,14 @@ private static String buildContentHash(HttpUriRequest request) throws IOExceptio
 
 ```golang
 import (
-	"bytes"
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/base64"
-	"io/ioutil"
-	"net/http"
-	"strings"
-	"time"
+    "bytes"
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/base64"
+    "io/ioutil"
+    "net/http"
+    "strings"
+    "time"
 )
 
 //SignRequest Setup the auth header for accessing Azure App Configuration service

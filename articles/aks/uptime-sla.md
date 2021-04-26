@@ -33,9 +33,6 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 
 ## Creating a new cluster with Uptime SLA
 
-> [!NOTE]
-> Currently, if you enable Uptime SLA, there is no way to remove it from a cluster.
-
 To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location:
@@ -102,6 +99,15 @@ Use the [`az aks update`][az-aks-update] command to update the existing cluster:
   },
   ```
 
+## Opt out of Uptime SLA
+
+You can update your cluster to change to the free tier and opt out of Uptime SLA.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
+
 ## Clean up
 
 To avoid charges, clean up any resources you created. To delete the cluster, use the [`az group delete`][az-group-delete] command to delete the AKS resource group:
@@ -126,10 +132,10 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az_aks_create
 [limit-egress-traffic]: ./limit-egress-traffic.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-group-delete]: /cli/azure/group#az_group_delete
 [private-clusters]: private-clusters.md

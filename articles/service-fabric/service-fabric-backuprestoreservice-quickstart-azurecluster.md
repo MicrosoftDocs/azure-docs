@@ -210,6 +210,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 
 #### Using Service Fabric Explorer
+Make sure the [advanced mode](service-fabric-visualizing-your-cluster.md#backup-and-restore) for Service Fabric Explorer is enabled 
 
 1. Select an application and go to action. Click Enable/Update Application Backup.
 

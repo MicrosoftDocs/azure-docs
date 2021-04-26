@@ -93,7 +93,7 @@
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
-    href: site-recovery-faq.md
+    href: site-recovery-faq.yml
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure architecture
@@ -179,7 +179,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/site-recovery-security-baseline
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery
@@ -216,7 +216,9 @@
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
-      - name: Enable Zone to Zone disaster recovery
+    - name: Zone to Zone disaster recovery
+      items:
+      - name: Enable replication between zones within a region
         href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - name: Manage
       items:

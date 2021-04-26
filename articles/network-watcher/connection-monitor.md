@@ -6,7 +6,7 @@ documentationcenter: na
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+# Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 
 ms.service: network-watcher
 ms.devlang: na
@@ -133,7 +133,7 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Connection Monitor that you want to use.
 
     ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
-1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
+1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
 
     ![alert page with signals selected](./media/connection-monitor/set-alert-signals.png)
 1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.

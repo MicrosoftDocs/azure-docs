@@ -42,8 +42,6 @@
     href: access-control.md
   - name: Local RBAC built-in roles
     href: built-in-roles.md
-- name: How-to guides 
-  items:
 
 - name: Reference
   items:
@@ -52,11 +50,11 @@
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/key-vault
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
     href: /python/api/overview/azure/key-vault-index
   - name: REST

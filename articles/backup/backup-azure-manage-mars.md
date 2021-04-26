@@ -190,7 +190,7 @@ We recommend the following configuration for your antivirus software to avoid co
 
 1. **Add Path Exclusions**: To avoid degradation of performance and possible conflicts, exclude the following paths from real-time monitoring by the antivirus software:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` and subfolders
-    1. **Scratch folder**: If the scratch folder isn't in the standard location, add that to the exclusions as well.  [See here for steps](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) to determine the scratch folder location.
+    1. **Scratch folder**: If the scratch folder isn't in the standard location, add that to the exclusions as well.  [See here for steps](backup-azure-file-folder-backup-faq.yml#how-to-check-if-scratch-folder-is-valid-and-accessible-) to determine the scratch folder location.
 1. **Add Binary Exclusions**: To avoid degradation of backup and console activities, exclude processes for the following binaries from real-time monitoring by the antivirus software:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
 
@@ -201,4 +201,4 @@ We recommend the following configuration for your antivirus software to avoid co
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](./backup-support-matrix-mars-agent.md).
 - Learn more about [On demand backup policy retention behavior](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
-- For more frequently asked questions, see the [MARS agent FAQ](backup-azure-file-folder-backup-faq.md).
+- For more frequently asked questions, see the [MARS agent FAQ](backup-azure-file-folder-backup-faq.yml).
