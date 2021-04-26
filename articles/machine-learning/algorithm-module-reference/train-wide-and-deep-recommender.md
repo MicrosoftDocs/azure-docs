@@ -145,7 +145,7 @@ To enable distributed training for **Train Wide & Deep Recommender** module, you
 
 1. Select the module and open the right panel. Expand the **Run settings** section.
 
-    ![Screenshot showing how to set distributed training in run setting](./media/module/distributed-training-runsetting.png)
+    [![Screenshot showing how to set distributed training in run setting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
 
 1. Make sure you have select AML compute for the compute target.
 
@@ -157,7 +157,7 @@ To enable distributed training for **Train Wide & Deep Recommender** module, you
 
     You can check the **Maximum number of nodes** and **Processing Unit** of your compute by clicking the compute name into the compute detail page.
 
-    ![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)
+    [![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
 
 You can learn more about distributed training in Azure Machine Learning [here](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
 
@@ -166,13 +166,13 @@ You can learn more about distributed training in Azure Machine Learning [here](h
 
 If you enable distributed training for this module, there will be driver logs for each process. `70_driver_log_0` is for master process. You can check driver logs for error details of each process under **Outputs+logs** tab in the right pane.
 
-![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) 
+[![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png)](./media/module/distributed-training-error-driver-log.png#lightbox) 
 
 If the module enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
 
 The following example shows a common error that is **Process count per node** is larger than **Processing Unit** of the compute.
 
-![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png)
+[![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png)](./media/module/distributed-training-error-mpi-log.png#lightbox)
 
 ## Results
 

@@ -1606,12 +1606,12 @@ If the module enabled distributed training fails without any `70_driver` logs, y
 
   The following example shows that the **Node count** of run settings is larger than available node count of compute cluster.
   
-  ![Screenshot showing node count error](./media/module/distributed-training-error1.png)
+  [![Screenshot showing node count error](./media/module/distributed-training-node-count-error.png)](./media/module/distributed-training-node-count-error.png#lightbox)
 
   The following example shows that **Process count per node** is larger than **Processing Unit** of the compute.
 
-  ![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png) 
+  [ ![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png) ](./media/module/distributed-training-error-mpi-log.png#lightbox)
 
 Otherwise, you can check `70_driver_log` for each process. `70_driver_log_0` is for master process.
 
-![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) 
+  [ ![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)
