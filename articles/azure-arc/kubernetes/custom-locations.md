@@ -24,11 +24,6 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 - Install or upgrade to the latest versions of the following tools:
     - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), version 2.19.1 or later.
-    - `kubectl` (version 1.13.2 or later), using the following command:
-        ```azurecli
-        az aks install-cli
-        ```
-
     - [Helm](https://helm.sh/docs/intro/install/), version 3.5.3 or later.
 
 - Install the following Azure CLI extensions:
