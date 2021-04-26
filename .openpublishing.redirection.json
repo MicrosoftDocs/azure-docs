@@ -6733,7 +6733,7 @@
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-agent-25-beta.md",
       "redirect_url": "/azure/azure-monitor/app/java-agent",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-collectd.md",
