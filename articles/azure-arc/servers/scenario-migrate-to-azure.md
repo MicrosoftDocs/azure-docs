@@ -1,7 +1,7 @@
 ---
 title: Migrate Azure Arc enabled server to Azure
 description: Learn how to migrate your Azure Arc enabled servers running on-premises or other cloud environment to Azure.
-ms.date: 04/26/201
+ms.date: 04/26/2021
 ms.topic: conceptual
 ---
 
@@ -44,11 +44,11 @@ To list role assignments for the Arc enabled servers resource, you can use [Azur
 
 Disconnect the machine from Azure Arc using one of the following methods:
 
-    * Running `azcmagent disconnect` command on the machine or server.
+   * Running `azcmagent disconnect` command on the machine or server.
 
-    * From the selected registered Arc enabled server in the Azure portal by selecting **Delete** from the top bar.
+   * From the selected registered Arc enabled server in the Azure portal by selecting **Delete** from the top bar.
 
-    * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
+   * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
 
 Remove the Azure Arc enabled servers Windows or Linux agent following the [Remove agent](manage-agent.md#remove-the-agent) steps.
 
