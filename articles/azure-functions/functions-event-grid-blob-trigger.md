@@ -90,7 +90,7 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     ```json
         {
           "scriptFile" : "../java-1.0-SNAPSHOT.jar",
-          "entryPoint" : "com.function.{functionName}.run",
+          "entryPoint" : "com.function.{MyFunctionName}.run",
           "bindings" : [ {
             "type" : "blobTrigger",
             "direction" : "in",
@@ -98,7 +98,7 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
             "path" : "samples-workitems/{name}",
             "dataType" : "binary",
             "source": "EventGrid",
-            "connection" : "testblobcachai_STORAGE"
+            "connection" : "MyStorageAccountConnectionString"
           } ]
         }
     ```
