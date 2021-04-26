@@ -41,7 +41,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
