@@ -42,13 +42,17 @@ If you create a QnA service through Azure Resource Manager templates, you can cr
 
 Learn more about how to configure the App Service [Application settings](../../../app-service/configure-common.md#configure-app-settings).
 
+> [!NOTE]
+> If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
+
+
 # [Custom question answering (preview release)](#tab/v2)
 
-### Configure Text Analytics resource with Custom question answering to use different Cognitive Search resource
+### Configure Text Analytics resource with Custom question answering feature to use a different Cognitive Search resource
 
-If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics service. After these resources are created, you can update the Search service in the **Features** tab.
+If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics resource. After these resources are created, you can update the Search resource in the **Features** tab.
 
-1. Go to your Text Analytics service in the Azure portal.
+1. Go to your Text Analytics resource in the Azure portal.
 
 1. Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics service.
 
@@ -57,7 +61,7 @@ If you create a Text Analytics resource and its dependencies (such as Search) th
 1. Click **Save**.
 
 > [!NOTE]
-> If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
+> If you change the Azure Search service associated with Text Analytics, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
 
 ---
 
