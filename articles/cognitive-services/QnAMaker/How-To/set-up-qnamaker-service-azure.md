@@ -8,7 +8,7 @@ ms.date: 11/09/2020
 ---
 # Manage QnA Maker resources
 
-Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
+Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service. If you are trying the Custom question answering feature, you would need to create the Text Analytics resource and add the Custom question answering feature.
 
 A solid understanding of the following concepts is helpful before creating your resource:
 
@@ -158,7 +158,7 @@ Free Search resources are deleted after 90 days without receiving an API call.
 
 If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
-Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
+Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the Custom question answering stack. To do this, follow these steps:
 
 1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
 
@@ -166,7 +166,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
 1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Link the new Azure search resource to the QnA Maker feature for the Text Analytics resource in the [features tab of the Text Analytics resource](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/configure-qna-maker-resources?tabs=v2#configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource) .
+1. Link the new Azure search resource to the Custom question answering feature in the [features tab of the Text Analytics resource](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/configure-qna-maker-resources?tabs=v2#configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource) .
 
 ### Inactivity policy for free Search resources
 
