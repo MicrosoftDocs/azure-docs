@@ -39,8 +39,8 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 1. Sign in to [Facebook for developers](https://developers.facebook.com/apps) with your Facebook developer account credentials.
 1. Select **Create App**.
 1. For the **Select an app type**, select **Consumer**, then select **Continue**.
-1. Enter a **App Display Name** and a valid **App Contact Email**.
-1. Select **Create App**. This may require you to accept Facebook platform policies and complete an online security check.
+1. Enter an **App Display Name** and a valid **App Contact Email**.
+1. Select **Create App**. This step may require you to accept Facebook platform policies and complete an online security check.
 1. Select **Settings** > **Basic**.
     1. Copy the value of **App ID**.
     1. Select **Show** and copy the value of **App Secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
