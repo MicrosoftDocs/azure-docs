@@ -69,6 +69,6 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/web-pubsub/
   - name: StackOverflow
-    href: https://stackoverflow.com/search?q=azure+web+pubsub
+    href: https://stackoverflow.com/questions/tagged/azure-web-pubsub
   - name: FAQs
     href: resource-faq.md
