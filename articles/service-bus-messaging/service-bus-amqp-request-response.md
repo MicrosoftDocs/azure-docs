@@ -124,7 +124,7 @@ The request message must include the following application properties:
 |`lock-tokens`|array of uuid|Yes|Message lock tokens to renew.|  
 
 > [!NOTE]
-> Lock token is a property on received messages when using the peek lock mode. 
+> Lock token here refers to the `delivery-tag` property on the received AMQP message. If you received a deferred message and want to renew its lock, then use the property `lock-token` on the message instead of the `delivery-tag`. 
 > 
   
 #### Response  
