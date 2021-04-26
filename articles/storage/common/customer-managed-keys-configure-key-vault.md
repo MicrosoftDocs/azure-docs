@@ -116,10 +116,10 @@ Set-AzKeyVaultAccessPolicy `
 
 First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following PowerShell script to find the object ID. To use this script, you'll need the resource ID of the user-assigned managed identity.
 
-    ```powershell
-    $userManagedIdentityResourceId = '/subscriptions/{my subscription ID}/resourceGroups/{my resource group name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{my managed identity name}'
-    (Get-AzResource -ResourceId $userManagedIdentityResourceId).Properties.PrincipalId
-    ```
+```powershell
+$userManagedIdentityResourceId = '/subscriptions/{my subscription ID}/resourceGroups/{my resource group name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{my managed identity name}'
+(Get-AzResource -ResourceId $userManagedIdentityResourceId).Properties.PrincipalId
+```
 
 To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy):
 
