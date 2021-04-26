@@ -91,9 +91,9 @@ A Fortanix CCM Image is a software release or version of an application. Each im
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-image1.png" alt-text="Screenshot that shows how to create an image.":::
 
 
-## Domain and image whitelisting
+## Domain and image allowlist
 
-An application whose domain is added to the whitelist will get a TLS certificate from the Fortanix Confidential Computing Manager. When an Enclave OS application starts, it will contact the Fortanix Confidential Computing Manager to receive that TLS certificate.
+An application whose domain is added to the allowlist will get a TLS certificate from the Fortanix Confidential Computing Manager. When an Enclave OS application starts, it will contact the Fortanix Confidential Computing Manager to receive that TLS certificate.
 
 Switch to the **Tasks** tab on the left and approve the pending requests to allow the domain and image.
 
