@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/20/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -82,3 +82,5 @@ For [guest users](../external-identities/what-is-b2b.md) who need to register fo
 [Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+
+[Require users to reconfirm authentication information](../authentication/concept-sspr-howitworks.md#reconfirm-authentication-information)

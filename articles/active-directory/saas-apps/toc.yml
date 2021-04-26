@@ -191,6 +191,8 @@
         href: bamboo-hr-tutorial.md
       - name: Bambu by Sprout Social
         href: bambubysproutsocial-tutorial.md
+      - name: Banyan Command Center
+        href: banyan-command-center-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
       - name: Beekeeper Azure AD Data Connector
@@ -363,6 +365,8 @@
         href: clearreview-tutorial.md
       - name: ClearCompany
         href: clearcompany-tutorial.md
+      - name: Clebex
+        href: clebex-tutorial.md
       - name: Clever
         href: clever-tutorial.md
       - name: Clever Nelly
@@ -1114,6 +1118,8 @@
         href: logicmonitor-tutorial.md
       - name: LoginRadius
         href: lr-tutorial.md
+      - name: LogMeIn
+        href: logmein-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Lucidchart
@@ -2172,7 +2178,9 @@
       - name: Brivo Onair Identity Connector
         href: brivo-onair-identity-connector-provisioning-tutorial.md
       - name: Britive
-        href: britive-provisioning-tutorial.md       
+        href: britive-provisioning-tutorial.md
+      - name: BrowserStack Single Sign-on
+        href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
@@ -2205,6 +2213,8 @@
         href: druva-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
+      - name: Eletive
+        href: eletive-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
       - name: Federated Directory

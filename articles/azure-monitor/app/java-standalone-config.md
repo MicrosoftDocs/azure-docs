@@ -270,13 +270,13 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
-## Auto-collected Azure SDK telemetry
+## Auto-collected Azure SDK telemetry (preview)
 
-This feature is in preview.
+Many of the latest Azure SDK libraries emit telemetry (see the [full list](./java-in-process-agent.md#azure-sdks-preview)).
 
-Many of the latest Azure SDK libraries emit telemetry.
+Starting from Application Insights Java 3.0.3, you can enable capturing this telemetry.
 
-Starting from version 3.0.3, you can enable collection of this telemetry:
+If you want to enable this feature:
 
 ```json
 {
@@ -375,7 +375,8 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set.
+Application Insights Java 3.0 also respects the global `https.proxyHost` and `https.proxyPort` system properties
+if those are set (and `http.nonProxyHosts` if needed).
 
 ## Metric interval
 
