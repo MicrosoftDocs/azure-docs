@@ -44,7 +44,7 @@ You can use the the sign-ins log to find answers to questions like:
 - What’s the status of these sign-ins?
 
 
-### Who can access it?
+## Who can access it?
 
 You can always access your own sign-ins log. 
 
@@ -63,7 +63,7 @@ To access the sign-ins log of another user, you need to be:
 
 
 
-### What Azure AD license do you need to access sign-in activity?
+## What Azure AD license do you need to access sign-in activity?
 
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
