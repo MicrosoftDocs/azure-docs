@@ -276,7 +276,7 @@ The most common way to use face data in a **PersonDirectory** is to compare the 
 
 In **PersonDirectory**, there are three types of scopes each face can be identified against:
 
-### Scenario 1: Identifying against a DynamicPersonGroup
+### Scenario 1: Identify against a DynamicPersonGroup
  
 Specifying the _dynamicPersonGroupId_ property in the request compares the face against every **Person** referenced in the group. Only a single **DynamicPersonGroup** can be identified against in a call. 
 
@@ -304,7 +304,7 @@ using (var content = new ByteArrayContent(byteData))
 }
 ```
 
-### Scenario 2: Identifying against a specific list of persons
+### Scenario 2: Identify against a specific list of persons
 
 You can also specify a list of **Person** IDs in the _personIds_ property to compare the face against each of them.
 
@@ -331,7 +331,7 @@ using (var content = new ByteArrayContent(byteData))
 }
 ```
 
-### Scenario 3: Identifying against the entire **PersonDirectory**
+### Scenario 3: Identify against the entire **PersonDirectory**
 
 Providing a single asterisk in the _personIds_ property in the request compares the face against every single **Person** enrolled in the **PersonDirectory**. 
  
