@@ -52,7 +52,7 @@ The workbook group item allows you to add a group of items to a workbook. As the
 - Editable
   - The group in the workbook allows you to add, remove, or edit the contents of the items in the group. This is most commonly used for layout and visibility purposes.
 - From template
-  - The group in the workbook loads from the contents of another template by its ID. The content of that template is loaded and merged into the workbook at runtime. In edit mode, you cannot modify any of the contents of the group, as they will just load again from the template next time the item loads. When loading a group from a template, use the full Azure Resource ID of an existing workbook or template.
+  - The group in the workbook loads from the contents of another workbook by its ID. The content of that workbook is loaded and merged into the workbook at runtime. In edit mode, you cannot modify any of the contents of the group, as they will just load again from the template next time the item loads. When loading a group from a template, use the full Azure Resource ID of an existing workbook.
 
 ## Load types
 
