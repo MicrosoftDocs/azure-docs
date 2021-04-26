@@ -39,7 +39,7 @@ If you can't use a gMSA, use a [standalone managed service account (sMSA)](servi
 
 If you can't use an MSA, consider using a [computer account](service-accounts-computer.md). The LocalSystem account is a predefined local account that has extensive permissions on the local computer and acts as the computer identity on the network.
 
-Services that run as a LocalSystem account access network resources by using the credentials of the computer account in the format <domain_name>\\<computer_name>. Its predefined name is NT AUTHORITY\SYSTEM. You can use it to start a service and provide security context for that service.
+Services that run as a LocalSystem account access network resources by using the credentials of the computer account in the format <domain_name>\\<computer_name>. Its predefined name is NT AUTHORITY\SYSTEM. You can use it to start a service and provide a security context for that service.
 
 > [!NOTE]
 > When you use a computer account, you can't determine which service on the computer is using that account. Consequently, you can't audit which service is making changes. 
@@ -50,7 +50,7 @@ If you can't use an MSA, consider using a [user account](service-accounts-user-o
 
 A domain user account enables the service to take full advantage of the service security features of Windows and Microsoft Active Directory Domain Services. The service will have local and network permissions granted to the account. It will also have the permissions of any groups of which the account is a member. Domain service accounts support Kerberos mutual authentication.
 
-A local user account (name format: ".\UserName") exists only in the Security Account Manager database of the host computer. It doesn't have a user object in Active Directory Domain Services. A local account can't be authenticated by the domain. So, a service that runs in the security context of a local user account doesn't have access to network resources (except as an anonymous user). Services that run in the local user context can't support Kerberos mutual authentication in which the service is authenticated by its clients. For these reasons, local user accounts are ordinarily inappropriate for directory-enabled services.
+A local user account (name format: *.\UserName*) exists only in the Security Account Manager database of the host computer. It doesn't have a user object in Active Directory Domain Services. A local account can't be authenticated by the domain. So, a service that runs in the security context of a local user account doesn't have access to network resources (except as an anonymous user). Services that run in the local user context can't support Kerberos mutual authentication in which the service is authenticated by its clients. For these reasons, local user accounts are ordinarily inappropriate for directory-enabled services.
 
 > [!IMPORTANT]
 > Service accounts shouldn't be members of any privileged groups, because privileged group membership confers permissions that might be a security risk. Each service should have its own service account for auditing and security purposes.
@@ -91,7 +91,7 @@ Out-GridView
 
 ## Find on-premises service accounts
 
-We recommend that you add a prefix such as “svc.” to all accounts that you use as service accounts. This naming convention will make the accounts easier to find and manage. Also consider using a description attribute for the service account and the owner of the service account. The description can be a team alias or security team owner.
+We recommend that you add a prefix such as “svc.” (including the dot) to all accounts that you use as service accounts. This naming convention will make the accounts easier to find and manage. Also consider using a description attribute for the service account and the owner of the service account. The description can be a team alias or security team owner.
 
 Finding on-premises service accounts is key to ensuring their security. Doing so can be difficult for non-MSA accounts. We recommend that you review all the accounts that have access to your important on-premises resources, and that you determine which computer or user accounts might be acting as service accounts. 
 
@@ -120,9 +120,9 @@ After you've found the service accounts in your on-premises environment, documen
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
-* [Help secure group managed service accounts](service-accounts-group-managed.md)  
-* [Help secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Help secure computer accounts](service-accounts-computer.md)  
-* [Help secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure group managed service accounts](service-accounts-group-managed.md)  
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
+* [Secure computer accounts](service-accounts-computer.md)  
+* [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
 
