@@ -434,9 +434,10 @@ We don't support unstructured data sets in the GA service.
     {
        "question": "what is Surface Headphones 2+ priced at?",
        "includeUnstructuredSources":true,
-       "top": 3
+       "top": 2
     }
     ```
 2. The response also includes the source of answer. 
-
+    ```json
+    ```
 ---
