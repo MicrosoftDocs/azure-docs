@@ -85,7 +85,7 @@ IoT Hub, a connection string will be generated for the device.
 
 1. From the Azure portal, launch the Azure IoT Hub.
 2. Create a new device.
-3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' >
+3. On the left-hand side of the page, navigate to 'IoT Devices' >
    Select "New".
 4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate
    keys" is checkbox is selected.
@@ -117,7 +117,7 @@ Replace `<device connection string>` with your connection string
 
 ## Connect the device in Device Update IoT Hub
 
-1. On the left-hand side of the page, select 'IoT Devices' under 'Explorers'.
+1. On the left-hand side of the page, select 'IoT Devices'.
 2. Select the link with your device name.
 3. At the top of the page, select 'Device Twin' if directly connecting to Device Update using the IoT device indentity. Otherwise select the module you created above and selct its ‘Module Twin’.
 4. Under the 'reported' section of the device twin properties, look for the Linux kernel version.
