@@ -370,7 +370,7 @@ Supported certificates include:
 
 * **CA-signed X.509 certificate**. To identify a device and authenticate it with IoT Hub, you can use an X.509 certificate generated and signed by a Certification Authority (CA). Works with either thumbprint or CA authentication.
 
-* **A self-generated and self-signed X-509 certificate**. A device manufacturer or in-house deployer can generate these certificates and store the corresponding private key (and certificate) on the device. You can use tools such as [OpenSSL](https://www.openssl.org/) and [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) utility for this purpose. Only works with thumbprint authentication.
+* **A self-generated and self-signed X-509 certificate**. A device manufacturer or in-house deployer can generate these certificates and store the corresponding private key (and certificate) on the device. You can use tools such as [OpenSSL](https://www.openssl.org/) and [Windows SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) utility for this purpose. Only works with thumbprint authentication.
 
 A device may either use an X.509 certificate or a security token for authentication, but not both. With X.509 certificate authentication, make sure you have a strategy in place to handle certificate rollover when an existing certificate expires.
 

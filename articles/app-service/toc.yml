@@ -115,7 +115,7 @@
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/app-service-security-baseline
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

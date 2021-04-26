@@ -34,7 +34,7 @@
   - name: Security
     items: 
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/database-migration-security-baseline
 - name: Tutorials
   expanded: true
   items:
