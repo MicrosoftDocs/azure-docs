@@ -23,7 +23,7 @@ Azure Batch provides more than one way to persist task output. The File Conventi
 
 - You can easily modify the code for the application that your task is running to persist files using the File Conventions library.
 - You want to stream data to Azure Storage while the task is still running.
-- You want to persist data from pools created with either the cloud service configuration or the virtual machine configuration.
+- You want to persist data from pools.
 - Your client application or other tasks in the job needs to locate and download task output files by ID or by purpose.
 - You want to view task output in the Azure portal.
 

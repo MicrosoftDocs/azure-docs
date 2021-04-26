@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/14/2021
+ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -87,6 +87,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
+| **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center Powershell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](https://docs.microsoft.com/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Note: This tag is not currently configurable via Azure Portal.* | Both | No | Yes |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
