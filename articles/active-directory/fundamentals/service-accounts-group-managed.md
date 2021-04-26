@@ -1,5 +1,5 @@
 ---
-title: Help secure group managed service accounts  | Azure Active Directory
+title: Secure group managed service accounts  | Azure Active Directory
 description: A guide to securing group managed service account (gMSA) computer accounts.
 services: active-directory
 author: BarbaraSelden
@@ -15,9 +15,9 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Help secure group managed service accounts
+# Secure group managed service accounts
 
-Group managed service accounts (gMSAs) are managed domain accounts that you use to help secure services. gMSAs can run on a single server or on a server farm, such as systems behind a network load balancing or Internet Information Services (IIS) server. After you configure your services to use a gMSA principal, password management for that account is handled by Windows.
+Group managed service accounts (gMSAs) are managed domain accounts that you use to help secure services. gMSAs can run on a single server or on a server farm, such as systems behind a network load balancing or Internet Information Services (IIS) server. After you configure your services to use a gMSA principal, password management for that account is handled by the Windows operating system.
 
 ## Benefits of using gMSAs
 
@@ -25,7 +25,7 @@ gMSAs offer a single identity solution with greater security. At the same time, 
 
 * **Set strong passwords**: gMSAs use 240-byte, randomly generated complex passwords. The complexity and length of gMSA passwords minimizes the likelihood of a service getting compromised by brute force or dictionary attacks.
 
-* **Cycle passwords regularly**: gMSAs shift password management to Windows, which changes the password every 30 days. Service and domain administrators no longer need to schedule password changes or manage service outages to help keep service accounts secure. 
+* **Cycle passwords regularly**: gMSAs shift password management to the Windows operating system, which changes the password every 30 days. Service and domain administrators no longer need to schedule password changes or manage service outages to help keep service accounts secure. 
 
 * **Support deployment to server farms**: The ability to deploy gMSAs to multiple servers allows for the support of load balanced solutions where multiple hosts run the same service. 
 
@@ -129,8 +129,8 @@ gMSA accounts are the most secure type of service account for on-premises needs.
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
-* [Help secure group managed service accounts](service-accounts-group-managed.md)  
-* [Help secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Help secure computer accounts](service-accounts-computer.md)  
-* [Help secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure group managed service accounts](service-accounts-group-managed.md)  
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
+* [Secure computer accounts](service-accounts-computer.md)  
+* [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
