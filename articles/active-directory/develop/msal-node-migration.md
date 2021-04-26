@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/19/2021
+ms.date: 04/26/2021
 ms.author: v-doeris
 #Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.
 ---
 
 # How to migrate a Node.js app from ADAL to MSAL
 
-[Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) (MSAL Node) is now the recommended SDK for enabling authentication and authorization for your applications registered on the Microsoft identity platform. This article covers the important steps you need to go through in order to migrate your apps from ADAL Node to MSAL Node.
+[Microsoft Authentication Library for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) (MSAL Node) is now the recommended SDK for enabling authentication and authorization for your applications registered on the Microsoft identity platform. This article covers the important steps you need to go through in order to migrate your apps from Active Directory Authentication Library for Node (ADAL Node) to MSAL Node.
 
 ## Prerequisites
 
@@ -25,13 +25,13 @@ ms.author: v-doeris
 
 ## Update app registration settings
 
-When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL Node to MSAL Node should also consider switching to **Azure AD v2.0 endpoint**.
+When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL to MSAL should also consider switching to **Azure AD v2.0 endpoint**.
 
 1. Review the [differences between v1 and v2 endpoints](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison)
 1. Update, if necessary, your existing app registrations accordingly.
 
 > [!NOTE]
-> MSAL Node supports both v1.0 end v2.0 endpoints to ensure backward compatibility.
+> In order to ensure backward compatibility, MSAL Node supports both v1.0 end v2.0 endpoints.
 
 ## Install and import MSAL
 
@@ -55,7 +55,7 @@ npm uninstall adal-node
 
 ## Initialize MSAL
 
-In ADAL Node, you initialize an `AuthenticationContext` object, which then exposes the methods you can use in different authentication grants/flows (e.g. `acquireTokenWithAuthorizationCode` for web apps). When initializing, the only mandatory parameter is the **authority URI**:
+In ADAL Node, you initialize an `AuthenticationContext` object, which then exposes the methods you can use in different authentication flows (e.g. `acquireTokenWithAuthorizationCode` for web apps). When initializing, the only mandatory parameter is the **authority URI**:
 
 ```javascript
 var adal = require('adal-node');
@@ -77,7 +77,7 @@ const pca = new msal.PublicClientApplication({
 ```
 
 > [!NOTE]
-> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Azure AD organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any AAD account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations`.
+> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Azure AD organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any Azure AD account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations` instead.
 
 On the other hand, if you are building a web app or a daemon app, you instantiate a `ConfidentialClientApplication` object. With such apps you also need to supply a *client credential*, such as a client secret or a certificate:
 
@@ -136,7 +136,7 @@ const msalConfig = {
 const cca = new msal.ConfidentialClientApplication(msalConfig);
 ```
 
-As a notable difference, MSAL does not have a flag to disable authority validation and authorities are always validated. MSAL now compares your requested authority against a list of authorities known to Microsoft or a list of authorities you've specified in your configuration. See for more: [Configuration Options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)
+As a notable difference, MSAL does not have a flag to disable authority validation and authorities are always validated by default. MSAL compares your requested authority against a list of authorities known to Microsoft or a list of authorities you've specified in your configuration. See for more: [Configuration Options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)
 
 ## Enable logging
 
@@ -187,7 +187,7 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 ## Use scopes instead of resources
 
-An important difference between v1.0 vs. v2.0 endpoints is about how the resources are accessed. In ADAL Node, you would first register a permission on app registration portal, and then request an access token for a resource as shown below:
+An important difference between v1.0 vs. v2.0 endpoints is about how the resources are accessed. In ADAL Node, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
 
 ```javascript
   authenticationContext.acquireTokenWithAuthorizationCode(
@@ -201,7 +201,7 @@ An important difference between v1.0 vs. v2.0 endpoints is about how the resourc
   );
 ```
 
-MSAL Node supports both **v1.0** and **v2.0** endpoints. The v2.0 endpoint employs a scope-centric model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
+MSAL Node supports both **v1.0** and **v2.0** endpoints. The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
     const tokenRequest = {
@@ -363,9 +363,9 @@ Once your changes are done, run the app and test your authentication scenario:
 npm start
 ```
 
-## Example: Web app migrating from ADAL Node to MSAL Node
+## Example: Securing web apps with ADAL Node vs. MSAL Node
 
-The snippet below demonstrates a confidential client web app in Express.js framework. The web app performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph via the `/redirect` route and then displays the content of the said token.
+The snippet below demonstrates a confidential client web app in the Express.js framework. The app is secured with ADAL Node. It performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph via the `/redirect` route and then displays the content of the said token.
 
 ```javascript
 // Import dependencies
@@ -437,6 +437,8 @@ app.get('/redirect', function(req, res) {
 
 app.listen(3000, function() { console.log(`listening on port 3000!`); });
 ```
+
+A web app with equivalent functionality can be secured with MSAL Node as shown below:
 
 ```javascript
 // Import dependencies
