@@ -47,10 +47,6 @@ Yes, when the live pipeline is in *inactive* state.
 
 Yes, an [RTSP simulator](add-valid-link.md)<!-- https://github.com/Azure/azure-video-analyzer/tree/master/utilities/rtspsim-live555 --> edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
 
-**Do you support ONVIF discovery of IP cameras at the edge?**
-
-No, we don't support Open Network Video Interface Forum (ONVIF) discovery of devices on the edge.
-
 ## Streaming and playback
 
 **What players can I use to view content from the recorded assets?**
