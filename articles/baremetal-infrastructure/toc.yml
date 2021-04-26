@@ -85,3 +85,6 @@
         href: /azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration?context=/azure/baremetal-infrastructure/workloads/sap/context/context
       - name: Buy an SAP HANA Large Instances reservation
         href: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+  - name: Oracle
+    href: ./workloads/oracle/toc.yml
+    

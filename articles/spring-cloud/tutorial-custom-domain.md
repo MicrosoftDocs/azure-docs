@@ -25,7 +25,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Keyvault Private Link Considerations
 
-The Azure Spring Cloud management IPs aren't part of the Azure Trusted Microsoft services. Therefore, to allow Azure Spring Cloud to load certificates from a Key Vault protected with Private endpoint connections, you must add the following IPs to Azure Key Vault Firewall:
+The Azure Spring Cloud management IPs are not yet part of the Azure Trusted Microsoft services. Therefore, to allow Azure Spring Cloud to load certificates from a Key Vault protected with Private endpoint connections, you must add the following IPs to Azure Key Vault Firewall:
 
 ```
 20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243

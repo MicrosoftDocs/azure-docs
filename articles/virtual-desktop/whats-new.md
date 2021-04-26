@@ -36,11 +36,19 @@ The Windows Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Windows Virtual Desktop Agent:
 
-- Version 1.0.2866.1500: This update was released March 26, 2021 and fixed an issue with the stack health check.
-- Version 1.0.2800.2802: This update was released March 10, 2021 and has general improvements and bug fixes.
-- Version 1.0.2800.2800: This update was released March 2, 2021 and fixed a reverse connection issue.
-- Version 1.0.2800.2700: This update was released February 10, 2021 and has general improvements and bug fixes.
-- Version 1.0.2800.2700: This update was released February 4, 2021 and fixed an access denied orchestration issue.
+- Version 1.0.2990.800: This update was released April 13 2021, and has the following changes:
+    - Updated agent error messages.
+    - Adds an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
+    - Has updated heartbeat service logic.
+- Version 1.0.2944.1400: This update was released April 7, 2021 and has the following changes:
+    - Placed links to the Windows Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
+    - Added an additional exception for better error handling.
+    - Added the WVDAgentUrlTool.exe that allows customers to check which required URLs they can access.
+- Version 1.0.2866.1500: This update was released March 26, 2021 and it fixes an issue with the stack health check.
+- Version 1.0.2800.2802: This update was released March 10, 2021 and it has general improvements and bug fixes.
+- Version 1.0.2800.2800: This update was released March 2, 2021 and it fixes a reverse connection issue.
+- Version 1.0.2800.2700: This update was released February 10, 2021 and it has general improvements and bug fixes.
+- Version 1.0.2800.2700: This update was released February 4, 2021 and it fixes an access denied orchestration issue.
 
 ## FSLogix updates
 
@@ -301,7 +309,7 @@ Here's what changed in August 2020:
 
 - Azure Advisor is now a part of Windows Virtual Desktop. When you access Windows Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Windows Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
 
-- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/) for a list of extension commands.
+- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/desktopvirtualization) for a list of extension commands.
 
 - We've updated our deployment templates to make them fully compatible with the Windows Virtual Desktop Azure Resource Manager interfaces. You can find the templates on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 

@@ -6,15 +6,15 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/14/2021
 ---
 
 # Point-in-time restore of a Hyperscale (Citus) server group
 
 This article provides step-by-step procedures to perform [point-in-time
-recoveries](concepts-hyperscale-backup.md#point-in-time-restore-pitr) for a
-Hyperscale (Citus) server group using backups. You can restore either to the
-earliest backup or to a custom restore point within your retention period.
+recoveries](concepts-hyperscale-backup.md#restore) for a Hyperscale (Citus)
+server group using backups. You can restore either to the earliest backup or to
+a custom restore point within your retention period.
 
 ## Restoring to the earliest restore point
 

@@ -104,13 +104,13 @@
     - name: Routing preference Unmetered
       href: routing-preference-unmetered.md   
     - name: Public IP security baseline
-      href: public-ip-security-baseline.md
+      href: /security/benchmark/azure/baselines/public-ip-security-baseline
   - name: Security
     items:
     - name: Virtual network security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-network-security-baseline
     - name: Virtual network NAT security baseline
-      href: nat-security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
     - name: Network isolation of Azure services
       href: vnet-integration-for-azure-services.md
     - name: Network security groups

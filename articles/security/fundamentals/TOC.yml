@@ -83,7 +83,7 @@
   - name: DDoS Protection best practices
     href: ../../ddos-protection/fundamental-best-practices.md
   - name: DDoS Protection security baseline
-    href: ddos-protection-security-baseline.md
+    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
   - name: Secure hybrid network architecture
@@ -133,7 +133,7 @@
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
-    href: customer-lockbox-security-baseline.md
+    href: /security/benchmark/azure/baselines/lockbox-security-baseline
 
 - name: Application
   items:

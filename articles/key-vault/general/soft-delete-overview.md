@@ -4,9 +4,9 @@ description: Soft-delete in Azure Key Vault allows you to recover deleted key va
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 12/15/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ---
 
 # Azure Key Vault soft-delete overview

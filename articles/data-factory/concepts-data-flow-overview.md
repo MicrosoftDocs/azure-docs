@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/11/2021
+ms.date: 04/14/2021
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -106,6 +106,67 @@ Debug mode allows you to interactively see the results of each transformation st
 Mapping data flow integrates with existing Azure Data Factory monitoring capabilities. To learn how to understand data flow monitoring output, see [monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
 The Azure Data Factory team has created a [performance tuning guide](concepts-data-flow-performance.md) to help you optimize the execution time of your data flows after building your business logic.
+
+
+## Available regions
+
+Mapping data flows are available in the following regions in ADF:
+
+| Azure region | Data flows in ADF |
+| ------------ | ----------------- |
+| Australia Central | |
+| Australia Central 2 | |
+| Australia East | ✓ |
+| Australia Southeast	| ✓ |
+| Brazil South	| ✓ |
+| Canada Central | ✓ |
+| Central India	| ✓ |
+| Central US	| ✓ |
+| China East |		|
+| China East 2	|	|
+| China Non-Regional | |
+| China North | ✓ |
+| China North 2	| ✓ |
+| East Asia	| ✓ |
+| East US	| ✓ |
+| East US 2	| ✓ |
+| France Central | ✓ |
+| France South	| |
+| Germany Central (Sovereign) | |
+| Germany Non-Regional (Sovereign) | |
+| Germany North (Public) | |
+| Germany Northeast (Sovereign) | |
+| Germany West Central (Public) |  |
+| Japan East | ✓ |
+| Japan West |	|
+| Korea Central	| ✓ |
+| Korea South | |
+| North Central US	| ✓ |
+| North Europe	| ✓ |
+| Norway East | ✓ |
+| Norway West | |
+| South Africa North	| ✓ |
+| South Africa West	|  |
+| South Central US	| |
+| South India | |
+| Southeast Asia	| ✓ |
+| Switzerland North	| 	|
+| Switzerland West | |
+| UAE Central | |
+| UAE North	| ✓ |
+| UK South	| ✓ |
+| UK West |		|
+| US DoD Central | |
+| US DoD East | |
+| US Gov Arizona | ✓ |
+| US Gov Non-Regional | |
+| US Gov Texas | |
+| US Gov Virginia | ✓ |
+| West Central US |		|
+| West Europe	| ✓ |
+| West India | |
+| West US	| ✓ |
+| West US 2	| ✓ |
 
 ## Next steps
 

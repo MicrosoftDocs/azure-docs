@@ -300,7 +300,7 @@ To unregister your SQL Server VM from the extension using the Azure portal, foll
 
 # [Azure CLI](#tab/azure-cli)
 
-To unregister your SQL Server VM from the extension with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm#az-sql-vm-delete) command. This will remove the SQL Server VM *resource* but will not delete the virtual machine. 
+To unregister your SQL Server VM from the extension with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm#az_sql_vm_delete) command. This will remove the SQL Server VM *resource* but will not delete the virtual machine. 
 
 
 ```azurecli-interactive

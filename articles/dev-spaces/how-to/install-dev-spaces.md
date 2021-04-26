@@ -4,6 +4,7 @@ services: azure-dev-spaces
 ms.date: "07/24/2019"
 ms.topic: "conceptual"
 description: "Learn how to enable Azure Dev Spaces on an AKS cluster and install the client-side tools."
+ms.custom: devx-track-azurecli
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 
@@ -13,7 +14,7 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 
 This article shows you several ways to enable Azure Dev Spaces on an AKS cluster as well as install the client-side tools.
 
-## Enable Azure Dev Spaces using the CLI
+## Enable Azure Dev Spaces using the Azure CLI
 
 Before you can enable Dev Spaces using the CLI, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account][az-portal-create-account].
@@ -54,7 +55,7 @@ You can use the Azure Dev Spaces client-side tools to interact with dev spaces o
 * In [Visual Studio 2019][visual-studio], install the Azure Development workload.
 * Download and install the [Windows][cli-win], [Mac][cli-mac], or [Linux][cli-linux] CLI.
 
-## Remove Azure Dev Spaces using the CLI
+## Remove Azure Dev Spaces using the Azure CLI
 
 To remove Azure Dev Spaces from your AKS cluster, use the `azds remove` command.
 

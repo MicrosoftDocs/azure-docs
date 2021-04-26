@@ -6,7 +6,8 @@ ms.subservice:
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Hybrid Runbook Worker issues

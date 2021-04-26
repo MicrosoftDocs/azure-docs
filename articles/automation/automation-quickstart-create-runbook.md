@@ -5,7 +5,9 @@ services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - mode-api
 ---
 
 # Create an Azure Automation runbook

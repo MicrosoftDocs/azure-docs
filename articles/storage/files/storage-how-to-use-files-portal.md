@@ -4,7 +4,7 @@ description: See how to create and manage Azure file shares in the Azure portal.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -22,12 +22,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To create an Azure file share:
 
 1. Select the storage account from your dashboard.
-2. On the storage account page, in the **Services** section, select **Files**.
-	![A screenshot of the services section of the storage account; select the Files service](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. On the storage account page, in the **Services** section, select **Files**.
+	
+    ![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. On the menu at the top of the **File service** page, click **File share**. The **New file share** page drops down.
-4. In **Name** type *myshare*.
-5. Click **OK** to create the Azure file share.
+1. On the menu at the top of the **File service** page, click **File share**. The **New file share** page drops down.
+1. In **Name** type *myshare*, enter a quoate, and leave **Transaction optimized** selected for **Tiers**.
+1. Select **Create** to create the Azure file share.
 
 Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
@@ -56,20 +57,21 @@ Now that you have created an Azure file share, you can mount the file share with
 To create a new directory named *myDirectory* at the root of your Azure file share:
 
 1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.
-2. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
-3. Type *myDirectory* and then click **OK**.
+1. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
+1. Type *myDirectory* and then click **OK**.
 
 #### Upload a file 
 To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've selected the file you would like to upload:
 
 1. Click on the **myDirectory** directory. The **myDirectory** panel opens.
-2. In the menu at the top, click **Upload**. The **Upload files** panel opens.  
-	![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
+1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
+	
+    ![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-3. Click on the folder icon to open a window to browse your local files. 
-4. Select a file and then click **Open**. 
-5. In the **Upload files** page, verify the file name and then click **Upload**.
-6. When finished, the file should appear in the list on the **myDirectory** page.
+1. Click on the folder icon to open a window to browse your local files. 
+1. Select a file and then click **Open**. 
+1. In the **Upload files** page, verify the file name and then click **Upload**.
+1. When finished, the file should appear in the list on the **myDirectory** page.
 
 #### Download a file
 You can download a copy of the file you uploaded by right-clicking on the file. After clicking the download button, the exact experience will depend on the operating system and browser you're using.

@@ -5,12 +5,12 @@ description: Learn how to link Azure Synapse and Azure Machine Learning workspac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
-ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
+ms.custom: devx-track-python, data4ml, synapse-azureml
 
 
 # Customer intent: As a workspace administrator, I want to link Azure Synapse workspaces and Azure Machine Learning workspaces for a unified data wrangling experience.
@@ -20,7 +20,7 @@ ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
 
 In this article, you learn how to create a linked service that links your [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) workspace and [Azure Machine Learning workspace](concept-workspace.md).
 
-With your Azure Machine Learning workspace linked with your Azure Synapse workspace, you can attach an Apache Spark pool as a dedicated compute for data wrangling at scale and conduct model training from the same notebook.
+With your Azure Machine Learning workspace linked with your Azure Synapse workspace, you can attach an Apache Spark pool as a dedicated compute for data wrangling at scale or conduct model training all from the same Python notebook.
 
 You can link your ML workspace and Synapse workspace via the [Python SDK](#link-sdk) or the [Azure Machine Learning studio](#link-studio).
 

@@ -3,6 +3,7 @@ title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
 ms.date: 03/22/2021
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ---
 # Understand Azure Policy for Kubernetes clusters
 
