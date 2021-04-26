@@ -150,7 +150,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blobs.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
     ```
 
-    In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!). In this case, you can disable history expansion with the command `set +H`. To enable history expansion use `set -H`.
+    In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!). In this case, you can disable history expansion with the command `set +H`. To enable history expansion, use `set -H`.
 
     In Bash, a dollar sign ($) has special meaning for expansion. If your condition includes a dollar sign ($), you might need to prefix it with a backslash (\\). For example, this condition uses dollar signs to delineate the tag key name.
 

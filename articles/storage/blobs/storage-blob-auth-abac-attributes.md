@@ -19,13 +19,13 @@ ms.subservice: common
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, please see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
+This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
 
-To understand the role assignment condition format, please refer to the [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
+To understand the role assignment condition format, see [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
 
 ## Understanding subOperations
 
-Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations associated with the same permission may support different parameters. *SubOperations* enable you to differentiate between service operations which require the same permission but support different set of attributes for conditions. Thus, using a subOperation you can specify one condition for access to a subset of operations that support a given parameter, and another access condition for operations with the same action that don’t support that parameter.
+Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations associated with the same permission may support different parameters. *SubOperations* enable you to differentiate between service operations that require the same permission but support different set of attributes for conditions. Thus, using a subOperation you can specify one condition for access to a subset of operations that support a given parameter, and another access condition for operations with the same action that don’t support that parameter.
 
 For instance, the *Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write* action is required for over a dozen different service operations. Some of these operations can accept blob index tags as request parameter, while others don't. For operations that accept them as a parameter, you can use blob index tags in a Request condition. However, if such a condition is defined on the Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write action, all operations that do not accept tags as a request parameter cannot evaluate this condition, and will fail the authorization access check.
 
@@ -41,9 +41,9 @@ In this preview, the subOperations supported for storage actions are:
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blobs.Read.WithTagConditions` | Blob read operations that support conditions on tags | Includes REST operations Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges, Query Blob Contents |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blobs.Write.WithTagHeaders` | Blob writes for content with optional tags | Includes REST operations Put Blob, Copy Blob, Copy Blob From URL and Put Block List |
 
-## Actions, subOperations and attributes
+## Actions, subOperations, and attributes
 
-The table below compiles the full list of supported actions, subOperations and attribute dictionaries for conditions in Azure Storage.
+The table below compiles the full list of supported actions, subOperations, and attribute dictionaries for conditions in Azure Storage.
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.

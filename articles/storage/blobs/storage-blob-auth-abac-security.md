@@ -31,7 +31,7 @@ You can [disable shared key authorization](../common/shared-key-authorization-pr
 ## Securing storage attributes used in conditions
 
 ### Blob path
-When using blob path as a *@Resource* attribute for an condition, you should also prevent users from renaming a blob to get access to a file when using ADLS Gen2. For instance, if you want to author a condition based on blob path, you should also restrict the user's access to the following actions:
+When using blob path as a *@Resource* attribute for a condition, you should also prevent users from renaming a blob to get access to a file when using ADLS Gen2. For instance, if you want to author a condition based on blob path, you should also restrict the user's access to the following actions:
 
 | Action | Description |
 | :--- | :--- |
@@ -51,7 +51,7 @@ Blob index tags are not copied from a source blob to the destination by default 
 #### Tags on snapshots
 
 Update of tags on blob snapshots is not supported in preview. This implies that you must update the tags on a blob before taking the snapshot. Any update to tags will apply only to the base blob. The tags on the snapshot will continue to have the previous value.
-If a tag on the base blob is modified after a snapshot is taken and if there’s a condition which uses that tag, then the scope of access for the base blob may be different than that for the blob snapshot.
+If a tag on the base blob is modified after a snapshot is taken and if there’s a condition that uses that tag, then the scope of access for the base blob may be different than that for the blob snapshot.
 
 #### Tags on blob versions
 
@@ -68,7 +68,7 @@ When querying or filtering blobs in a container by tags, only the base blobs are
 If you’re using role assignment conditions for [Azure built-in roles](../../role-based-access-control/built-in-roles.md), you should carefully review all the permissions that the role grants to a principal.
 
 ### Inherited role assignments
-Role assignments can be configured for a management group, subscription, resource group, storage account or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a principal has a permission assigned to them through multiple roles or a given role at multiple levels, then access for an operation using that permission is evaluated separately for each assigned role at every level.
+Role assignments can be configured for a management group, subscription, resource group, storage account, or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a principal has a permission assigned to them through multiple roles or a given role at multiple levels, then access for an operation using that permission is evaluated separately for each assigned role at every level.
 
 Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the access restrictions intended by the condition policy. For instance, if a security principal is assigned a role, such as *Storage Blob Data Contributor*, at both the subscription and storage account levels and the role assignment condition is only defined at the storage account level, then the principal will have unrestricted access to the account through the role assignment at the subscription level, and vice versa.
 
