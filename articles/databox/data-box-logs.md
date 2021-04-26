@@ -277,7 +277,7 @@ After 14 days, the upload will be completed automatically. By acting on the noti
 
 For troubleshooting information for these errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For the steps to confirm your error review and continue the upload, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
 
-Here is an example of a non-retryable error that causes an upload to pause:<!--Veda to send a new example. This error is not in the set that pause an upload.-->
+Here is an example of a non-retryable error that causes an upload to pause:
 
 ```xml
 <ErroredEntity Path="myblobcontainer01\myblob01.vhd">
