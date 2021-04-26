@@ -170,7 +170,7 @@
           href: configure-permission-classifications.md
         - name: Manage app consent policies
           href: manage-app-consent-policies.md
-        - name: Configure admin consent workflow (preview)
+        - name: Configure admin consent workflow
           href: configure-admin-consent-workflow.md
         - name: Manage and evaluate consent requests
           href: manage-consent-requests.md

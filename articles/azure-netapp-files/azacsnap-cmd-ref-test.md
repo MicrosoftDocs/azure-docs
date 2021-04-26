@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Test Azure Application Consistent Snapshot tool (preview)
+# Test Azure Application Consistent Snapshot tool
 
 This article explains how to run the test command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 

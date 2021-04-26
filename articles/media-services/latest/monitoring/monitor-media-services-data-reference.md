@@ -7,14 +7,14 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
-ms.date: 03/17/2021
+ms.date: 04/21/2021
 ---
 
 # Monitoring Media Services data reference
 
 This article covers the data that is useful for monitoring Media Services. For more information about all platform metrics supported in Azure Monitor, review [Supported metrics with Azure Monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
-## Media Services metrics
+## Metrics
 
 Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
 
@@ -35,15 +35,13 @@ You should also review [account quotas and limits](../limits-quotas-constraints-
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-<!--**PLACEHOLDER** for dimensions table.-->
-OutputFormat, 
-HttpStatusCode, 
-ErrorCode, 
-TrackName
+Media services has the following metric dimensions.  They are self-explantory based on the metrics they support.  See the [metrics links](#metrics) above for more information.   
+- OutputFormat
+- HttpStatusCode 
+- ErrorCode 
+- TrackName 
 
 ## Resource logs
-
-## Media Services resource logs
 
 Resource logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../../azure-monitor/essentials/platform-logs-overview.md).
 
