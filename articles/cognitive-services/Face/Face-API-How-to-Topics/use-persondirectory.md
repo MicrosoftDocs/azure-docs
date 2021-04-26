@@ -252,7 +252,7 @@ HttpResponseMessage response;
 
 // Request body
 var body = new Dictionary<string, object>();
-body.Add("name", "Example SearchScope updated");
+body.Add("name", "Example Dynamic Person Group updated");
 body.Add("userData", "User defined data updated");
 body.Add("addPersonIds", new List<string>{"{guid1}", "{guid2}", …});
 body.Add("removePersonIds", new List<string>{"{guid1}", "{guid2}", …});
@@ -294,7 +294,7 @@ HttpResponseMessage response;
 // Request body
 var body = new Dictionary<string, object>();
 body.Add("faceIds", new List<string>{"{guid1}", "{guid2}", …});
-body.Add("dynamicPersonGroupId", "{searchScopeIdToIdentifyIn}");
+body.Add("dynamicPersonGroupId", "{dynamicPersonGroupIdToIdentifyIn}");
 byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body));
 
 using (var content = new ByteArrayContent(byteData))
