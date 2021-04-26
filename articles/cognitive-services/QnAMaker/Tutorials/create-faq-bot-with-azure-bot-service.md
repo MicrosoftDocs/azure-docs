@@ -76,3 +76,8 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Enter a user query into the test web chat.":::
 1. Light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
+
+   * Click on **Channels** in the Bot service resource.
+
+   >[!div class="mx-imgBorder"]
+   >![Screenshot of integration with teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)
