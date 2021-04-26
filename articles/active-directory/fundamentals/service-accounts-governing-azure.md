@@ -48,7 +48,7 @@ We recommend the following practices for service account privileges.
 
 * Do not assign built-in roles to service accounts. Instead, use the [OAuth2 permission grant model for Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
 
-* If the service principal must be assigned a privileged role, consider assigning a [custom role](https://docs.microsoft.com/azure/active-directory/roles/custom-create) with specific, required privileged, in a time-bound fashion.
+* If the service principal must be assigned a privileged role, consider assigning a [custom role](../roles/custom-create.md) with specific, required privileged, in a time-bound fashion.
 
 * Do not include service accounts as members of any groups with elevated permissions. 
 
@@ -58,10 +58,10 @@ We recommend the following practices for service account privileges.
    or use  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Use OAuth 2.0 scopes](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) to limit the functionality a service account can access on a resource.
+* [Use OAuth 2.0 scopes](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource.
 * Service principals and managed identities can use OAuth 2.0 scopes in either a delegated context that is impersonating a signed-on user, or as service account in the application context. In the application context no is signed-on.
 
-* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see to [Microsoft Graph permission reference](https://docs.microsoft.com/graph/permissions-reference).
+* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see to [Microsoft Graph permission reference](/graph/permissions-reference).
 
 * Ensure you trust the developer of the application or API with the access requested to your resources.
 
@@ -73,9 +73,9 @@ We recommend the following practices for service account privileges.
 
 Once you have a clear understanding of the purpose, scope, and necessary permissions, create your service account. 
 
-[Create and use managed identities](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Create and use managed identities](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[Create and use service principals](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[Create and use service principals](../develop/howto-create-service-principal-portal.md)
 
 Use a managed identity when possible. If you cannot use a managed identity, use a service principal. If you cannot use a service principal, then and only then use an Azure AD user account.
 
@@ -95,7 +95,7 @@ Proactively monitor your service accounts to ensure the service account’s usag
 
 * Using the Azure AD Sign-In Logs in the Azure AD Portal.
 
-* Exporting the Azure AD Sign-In Logs to [Azure Storage](https://docs.microsoft.com/azure/storage/), [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), or [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
+* Exporting the Azure AD Sign-In Logs to [Azure Storage](../../storage/index.yml), [Azure Event Hubs](../../event-hubs/index.yml), or [Azure Monitor](../../azure-monitor/logs/data-platform-logs.md).
 
 
 ![Screen shot showing service principal sign-in screen.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -167,7 +167,7 @@ Establish a review process to ensure that service accounts are regularly reviewe
 
 **The processes for deprovisioning should include the following tasks.**
 
-1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) and resource access by the service account.
+1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md#sign-ins-report) and resource access by the service account.
 
    * If the account still is active, determine how it's being used before taking subsequent steps.
  
@@ -191,4 +191,3 @@ For more information on securing Azure service accounts, see:
 
  
 
- 

@@ -46,7 +46,7 @@ The control plane includes two scenarios for handling requests - "green field" a
 
 ## Data plane
 
-Requests for data plane operations are sent to an endpoint that is specific to your instance. For example, the [Detect Language operation](/rest/api/cognitiveservices/textanalytics/detect%20language/detect%20language) in Cognitive Services is a data plane operation because the request URL is:
+Requests for data plane operations are sent to an endpoint that is specific to your instance. For example, the [Detect Language operation](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) in Cognitive Services is a data plane operation because the request URL is:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

@@ -2,13 +2,13 @@
 title: "Environment variables"
 description: set environment variables
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:

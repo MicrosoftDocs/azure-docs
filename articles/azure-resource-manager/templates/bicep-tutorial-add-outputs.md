@@ -2,7 +2,7 @@
 title: Tutorial - add outputs to Azure Resource Manager Bicep file
 description: Add outputs to your Bicep file to simplify the syntax.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -32,7 +32,7 @@ It deploys a storage account, but it doesn't return any information about the st
 
 You can use outputs to return values from the deployment. For example, it might be helpful to get the endpoints for your new storage account.
 
-The following example highlights the change to your Bicep file to add an output value. Copy the whole file and replace your Bicep file with its contents.
+The following example shows the change to your Bicep file to add an output value. Copy the whole file and replace your Bicep file with its contents.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
@@ -40,7 +40,9 @@ There are some important items to note about the output value you added.
 
 The type of returned value is set to `object`, which means it returns a template object.
 
-To get the `primaryEndpoints` property from the storage account, you use the storage account symbolic name.
+To get the `primaryEndpoints` property from the storage account, you use the storage account symbolic name. The autocomplete feature of the Visual Studio Code presents you a full list of the properties:
+
+   ![Visual Studio Code Bicep symbolic name object properties](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## Deploy Bicep file
 

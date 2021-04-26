@@ -4,7 +4,7 @@ description: Describes critical open issues and resolutions for the Azure StorSi
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 04/13/2021
 ms.author: alkohli
 ---
 
@@ -26,6 +26,11 @@ Update 1.3 corresponds to software version 10.0.10319.0.
 This update contains the following improvements:KB4540725
 
 - Transport Layer Security (TLS) 1.2 is a mandatory update and must be installed. From this release onward, TLS 1.2 becomes the standard protocol for all Azure portal communication.
+  
+   If you see the following warning, you must update the software on the device before proceeding:
+
+   One or more StorSimple devices are running an older software version. The latest available update for TLS 1.2 is a mandatory update and should be installed immediately on these devices. TLS 1.2 is used for all Azure portal communication and without this update, the device won’t be able to communicate with the StorSimple service.
+
 - Garbage collection bug fixes improve the performance of the garbage collection cycle when the device and storage account are in two distant regions.
 - Fix for backup failures due to blob timeouts.
 - Updated OS/.NET framework security patches:
@@ -35,12 +40,12 @@ This update contains the following improvements:KB4540725
 
 ## Download Update 1.3
 
-To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4575898 package. This package contains the following packages:
+To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4575898 package. This package contains the following packages. Install the packages in this order:
 
-- **KB4540725**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [March monthly security rollup](https://support.microsoft.com/help/4540725).
-- **KB4565541**, which contains cumulative Windows Updates for 2012 R2 up to July 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4565541).
-- **KB4565622**, which contains cumulative.NET Framework updates up to July 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4565622).
-- **KB3011067**, which contains device software updates.
+1. **KB4540725**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [March monthly security rollup](https://support.microsoft.com/help/4540725).
+1. **KB4565541**, which contains cumulative Windows Updates for 2012 R2 up to July 2020. For more information on what is included in this rollup, go to [July monthly security rollup](https://support.microsoft.com/help/4565541).
+1. **KB4565622**, which contains cumulative.NET Framework updates up to July 2020. For more information on what is included in this rollup, go to [KB4565622](https://support.microsoft.com/help/4565622).<!--The Help link opens the KB. I can't find a monthly rollup. I updated the link text to accurately describe what opens.-->
+1. **KB3011067**, which contains device software updates.
 
 Download KB4575898, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
@@ -60,4 +65,4 @@ Looking for an older release note? Go to:
 - [StorSimple Virtual Array Update 0.4 Release Notes](./storsimple-virtual-array-update-04-release-notes.md)
 - [StorSimple Virtual Array Update 0.3 Release Notes](./storsimple-ova-update-03-release-notes.md)
 - [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](./storsimple-ova-update-01-release-notes.md)
-- [StorSimple Virtual Array General Availability Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-pp-release-notes)
+- [StorSimple Virtual Array General Availability Release Notes](./storsimple-virtual-array-update-06-release-notes.md)

@@ -1,19 +1,14 @@
 ---
 title: Azure Desired State Configuration Extension Handler 
 description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
-services: virtual-machines-windows 
-documentationcenter: ''
-author: bobbytreed 
-manager: carmonm 
-editor: ''
-ms.assetid: 
-ms.service: virtual-machines-windows 
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: windows
-ms.workload: 
-ms.date: 03/26/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: bobbytreed  
 ms.author: robreed
+ms.collection: windows
+ms.date: 03/26/2018
+
 ---
 # PowerShell DSC Extension
 

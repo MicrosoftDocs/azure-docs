@@ -22,8 +22,10 @@ The Azure portal uses the remote desktop extension to enable remote desktop even
 2. Select **Add**.
 3. Choose the roles to enable remote desktop for.
 4. Fill in the required fields for user name, password, expiry, and certificate (not required).
+> [Note] 
+> The password for remote desktop must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character 5) Control characters are not allowed
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="Image shows inputting the information required to connect to remote desktop.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="Image shows inputting the information required to connect to remote desktop.":::
 
 5. When finished, select **Save**. It will take a few moments before your role instances are ready to receive connections.
 

@@ -13,7 +13,7 @@ ms.custom: "monitoring, devx-track-csharp"
 
 # Azure Storage analytics logging
 
-Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
+Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis. This means that most requests will result in a log record, but the completeness and timeliness of Storage Analytics logs are not guaranteed. 
 
 > [!NOTE]
 > We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. To learn more, see any of the following articles:

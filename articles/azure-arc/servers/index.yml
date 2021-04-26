@@ -19,9 +19,9 @@ landingContent:
         links:
           - text: What is Azure Arc enabled servers?
             url: overview.md
-      - linkListType: architecture
+      - linkListType: deploy
         links:
-          - text: Plan an at-scale deployment
+          - text: Plan for deployment
             url: plan-at-scale-deployment.md
       - linkListType: get-started
         links:

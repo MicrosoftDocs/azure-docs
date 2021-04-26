@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -65,8 +65,8 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |passwordPolicies     |String|Policy of the password. It's a string consisting of different policy name separated by comma. For example, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
 |physicalDeliveryOfficeName (officeLocation)|String|The office location in the user's place of business. Max length 128.|Yes|No|Persisted, Output|
 |postalCode      |String|The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Max length 40.|Yes|No|Persisted, Output|
-|preferredLanguage    |String|The preferred language for the user. Should follow ISO 639-1 Code. Example: "en-US".|No|No|Persisted, Output|
-|refreshTokensValidFromDateTime|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
+|preferredLanguage    |String|The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: "en-US", or "es-ES".|No|No|Persisted, Output|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
 |signInNames ([Identities](#identities-attribute)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
 |signInNames.userName ([Identities](#identities-attribute)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |signInNames.phoneNumber ([Identities](#identities-attribute)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|

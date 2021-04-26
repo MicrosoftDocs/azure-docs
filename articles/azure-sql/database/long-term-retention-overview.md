@@ -8,7 +8,7 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: shkale-msft
+author: shkale
 ms.author: shkale
 ms.reviewer: mathoma, sstein
 ms.date: 02/25/2021

@@ -1,12 +1,8 @@
 ---
 title: Create data mining reports
 description: generate comprehensive and granular information about your network devices at various layers, such as protocols, firmware versions, or programming commands.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Sensor data mining queries

@@ -65,7 +65,7 @@ The maximum score for this control, Apply system updates, is always 6. In this e
 |**Security control's current score**|<br>![Equation for calculating a security control's score](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
 |**Secure score**<br>Single subscription|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Secure score**<br>Multiple subscriptions|<br>![Equation for calculating the secure score for multiple subscriptions](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, Security Center includes a *weight* for each subscription. The relative weights for your subscriptions are determined by Security Center based on factors such as the number of resources.<br>The current score for each subscription is calculated in the same way as for a single subscription, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
-||||
+
 
 ### Which recommendations are included in the secure score calculations?
 
@@ -79,7 +79,7 @@ An example of a preview recommendation:
 
 ## Improve your secure score
 
-To improve your secure score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **Quick Fix!** option (when available) to apply a remediation for a recommendation to a group of resources quickly. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md).
+To improve your secure score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **Fix** option (when available) to resolve an issue on multiple resources quickly. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md).
 
 Another way to improve your score and ensure your users don't create resources that negatively impact your score is to configure the Enforce and Deny options on the relevant recommendations. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
 
@@ -87,14 +87,14 @@ Another way to improve your score and ensure your users don't create resources t
 
 The table below lists the security controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
 
-The set of security recommendations provided with Security Center is tailored to the available resources in each organization’s environment. The recommendations can be further customized by [disabling policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempting specific resources from a recommendation](exempt-resource.md). 
+The set of security recommendations provided with Security Center is tailored to the available resources in each organization's environment. The recommendations can be further customized by [disabling policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempting specific resources from a recommendation](exempt-resource.md). 
  
 We recommend every organization carefully review their assigned Azure Policy initiatives. 
 
 > [!TIP]
 > For details of reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
 
-Even though Security Center’s default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it’ll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it’s aligned with your organization’s own policies. industry standards, regulatory standards, and benchmarks you’re obligated to meet.<br><br>
+Even though Security Center's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it'll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies. industry standards, regulatory standards, and benchmarks you're obligated to meet.<br><br>
 <div class="foo">
 
 <style type="text/css">

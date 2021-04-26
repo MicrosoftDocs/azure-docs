@@ -136,7 +136,7 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
                 Write-Host "Created network rule " $firewallPolicyNetRule.Name
                 $firewallPolicyNetRules += $firewallPolicyNetRule
 			    }
-			$fwpNetRuleCollection = New-AzFirewallPolicyFilterRuleCollection -Name $rc.Name -Priority $rc.Pl.llriority -ActionType $rc.Action.Type -Rule $firewallPolicyNetRules
+			$fwpNetRuleCollection = New-AzFirewallPolicyFilterRuleCollection -Name $rc.Name -Priority $rc.Priority -ActionType $rc.Action.Type -Rule $firewallPolicyNetRules
 			Write-Host "Created NetworkRuleCollection "  $fwpNetRuleCollection.Name
 		}
 		$firewallPolicyNetRuleCollections += $fwpNetRuleCollection

@@ -54,7 +54,7 @@ Azure HPC Cache manages which files are cached and preloaded to maximize cache h
 
 ## Enable Azure Key Vault encryption (optional)
 
-If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support.
+The **Disk encryption keys** page appears between the **Cache** and **Tags** tabs.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 If you want to manage the encryption keys used for your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
 
@@ -102,7 +102,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.
 
-Use the [az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) command to create a new Azure HPC Cache.
+Use the [az hpc-cache create](/cli/azure/hpc-cache#az_hpc_cache_create) command to create a new Azure HPC Cache.
 
 Supply these values:
 
@@ -121,7 +121,7 @@ nets/<cache_subnet_name>"``
   * The cache size (in GB)
   * The SKU of the virtual machines used in the cache infrastructure
 
-  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported.
+  [az hpc-cache skus list](/cli/azure/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported.
 
   This chart shows which cache size and SKU combinations are valid at the time this document is being prepared (July 2020).
 

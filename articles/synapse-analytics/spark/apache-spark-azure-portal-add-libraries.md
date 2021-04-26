@@ -59,7 +59,7 @@ Session-scoped packages allow users to define package dependencies at the start 
 To learn more about how to manage session-scoped packages, visit the following how-to guides:
 
 - [Python session packages (preview): ](./apache-spark-manage-python-packages.md) At the start of a session, provide a Conda *environment.yml* to install additional Python packages from popular repositories. 
-- [Scala/Java session packages: ](./apache-spark-manage-scala-packages.md) At the start of your session, provide a list of jar files to install using ```%%configure```.
+- [Scala/Java session packages: ](./apache-spark-manage-scala-packages.md) At the start of your session, provide a list of jar files to install using `%%configure`.
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)

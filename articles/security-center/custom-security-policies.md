@@ -1,7 +1,6 @@
 ---
 title: Create custom security policies in Azure Security Center | Microsoft Docs
 description: Azure custom policy definitions monitored by Azure Security Center.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -18,6 +17,9 @@ To help secure your systems and environment, Azure Security Center generates sec
 With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
 As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
+
+> [!TIP]
+> For an overview of the key concepts on this page, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
 ::: zone pivot="azure-portal"
 
@@ -83,7 +85,7 @@ Important concepts in Azure Policy:
 
 - An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
-Security Center has a built-in initiative, Azure Security Benchmark, that includes all of its security policies. To assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
+Security Center has a built-in initiative, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), that includes all of its security policies. To assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
 
 The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Security Center’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**.
 

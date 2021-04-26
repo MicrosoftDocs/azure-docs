@@ -82,7 +82,7 @@ More information about the inbound security rules:
 
 * **Application**. The application port range should be large enough to cover the endpoint requirement of your applications. This range should be exclusive from the dynamic port range on the machine, that is, the ephemeralPorts range as set in the configuration. Service Fabric uses these ports whenever new ports are required and takes care of opening the firewall for these ports on the nodes.
 
-* **SMB**. The SMB protocol is in use by the ImageStore service for two scenarios. This port is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas. 
+* **SMB**. Optional, the runtime version 7.1+ doesn't use SMB any more by default. The SMB protocol is in use by the ImageStore service for two scenarios. This port is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas. 
 
 * **RDP**. Optional, if RDP is required from the Internet or VirtualNetwork for jumpbox scenarios. 
 

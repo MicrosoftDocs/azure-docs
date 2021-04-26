@@ -13,6 +13,8 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Send data via transparent gateway
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 In this article, we once again use the development VM as a simulated device. However instead of sending data directly to the IoT Hub, the device sends data to the IoT Edge device configured as a transparent gateway.
 
 We monitor the operation of the IoT Edge device while the simulated device is sending data. Once the device is finished running, we look at the data in our storage account to validate everything worked as expected.
@@ -243,4 +245,4 @@ In this article, we used our development VM to simulate a leaf device sending se
 To continue learning about IoT Edge capabilities, try this tutorial next:
 
 > [!div class="nextstepaction"]
-> [Create a hierarchy of IoT Edge devices (Preview)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)
+> [Create a hierarchy of IoT Edge devices](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

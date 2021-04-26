@@ -3,7 +3,7 @@ title: Request host quota and enable Azure VMware Solution
 description: Learn how to request host quota/capacity and enable the Azure VMware Solution resource provider. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 02/17/2021
+ms.date: 04/21/2021
 ---
 
 # Request host quota and enable Azure VMware Solution
@@ -101,10 +101,6 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
       >Azure VMware Solution recommends a minimum of three hosts to spin up your private cloud and for redundancy N+1 hosts. 
    
    1. Select **Review + Create** to submit the request.
-
-## Register the **Microsoft.AVS** resource provider
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## Next steps

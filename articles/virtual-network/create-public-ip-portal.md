@@ -47,7 +47,7 @@ Use the following steps to create a standard zone-redundant public IP address na
 
 > [!NOTE]
 > These selections are valid in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones). </br>
-You can select a specific zone in these regions, though it won't be resilient to zonal failure. </br> For more information on availability zones, see [Availability zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+You can select a specific zone in these regions, though it won't be resilient to zonal failure. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 \* = Tier relates to the [Cross-region load balancer](../load-balancer/cross-region-overview.md) functionality, currently in Preview.
 

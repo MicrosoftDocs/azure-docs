@@ -73,10 +73,10 @@ Azure Attestation is the preferred choice for attesting TEEs as it offers the fo
 Clusters deployed in two regions will operate independently under normal circumstances. In the case of a fault or outage of one region, the following takes place:
 
 - Azure Attestation BCDR will provide seamless failover in which customers do not need to take any extra step to recover
-- The [Azure Traffic Manager](../traffic-manager/index.yml) for the region will detect the health probe is degraded and switch the endpoint to paired region
+- The [Azure Traffic Manager](../traffic-manager/index.yml) for the region will detect that the health probe is degraded and switches the endpoint to paired region
 - Existing connections will not work and will receive internal server error or timeout issues
-- All control plane operations will be blocked. Customers will not be able to create attestation providers and update policies in the primary region
-- All data plane operations, including attest calls, will continue to work in primary region
+- All control plane operations will be blocked. Customers will not be able to create attestation providers in the primary region
+- All data plane operations, including attest calls and policy configuration, will be served by secondary region. Customers can continue to work on data plane operations with the original URI corresponding to primary region
 
 ## Next steps
 - Learn about [Azure Attestation basic concepts](basic-concepts.md)

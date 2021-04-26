@@ -90,9 +90,9 @@ landingContent:
           - text: Action Groups, Activity Logs, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
             url:  /cli/azure/azure-cli-reference-for-monitor
           - text: Log Analytics
-            url:  /cli/azure/ext/log-analytics/monitor
+            url:  /cli/azure/monitor
           - text: Application Insights
-            url:  /cli/azure/ext/application-insights/monitor/app-insights
+            url:  /cli/azure/monitor/app-insights
 
   # Card
   - title: Reference - PowerShell
@@ -100,11 +100,11 @@ landingContent:
       - linkListType: reference
         links:
           - text: Metrics, Autoscale, Diagnostic settings, Alerts
-            url: /powershell/module/az.monitor/?view=azps-2.6.0
+            url: /powershell/module/az.monitor
           - text: Log Analytics
             url: /powershell/module/az.operationalinsights
           - text: Application Insights
-            url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0 
+            url: /powershell/module/az.applicationinsights/new-azapplicationinsights
 
   - title: Reference - REST API
     linkLists: 

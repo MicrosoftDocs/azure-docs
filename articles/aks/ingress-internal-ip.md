@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller for an internal, private network in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 04/23/2021
 
 ---
 
@@ -181,7 +181,7 @@ In the following example, traffic to the address `http://10.240.0.42/` is routed
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
 ```yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -195,18 +195,27 @@ spec:
   rules:
   - http:
       paths:
-      - backend:
-          serviceName: aks-helloworld
-          servicePort: 80
-        path: /hello-world-one(/|$)(.*)
-      - backend:
-          serviceName: ingress-demo
-          servicePort: 80
-        path: /hello-world-two(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld
-          servicePort: 80
-        path: /(.*)
+      - path: /hello-world-one(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+      - path: /hello-world-two(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-demo
+            port:
+              number: 80
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
 ```
 
 Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
@@ -228,7 +237,7 @@ ingress.extensions/hello-world-ingress created
 To test the routes for the ingress controller, browse to the two applications with a web client. If needed, you can quickly test this internal-only functionality from a pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
+kubectl run -it --rm aks-ingress-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --namespace ingress-basic
 ```
 
 Install `curl` in the pod using `apt-get`:

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Application Proxy: Version release history'
-description: This article lists all releases of Azure AD Application Proxy and describes new features and fixed issues
+title: 'Azure Active Directory Application Proxy: Version release history'
+description: This article lists all releases of Azure Active Directory Application Proxy and describes new features and fixed issues.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,9 +8,10 @@ ms.assetid:
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/17/2021
 ms.subservice: app-mgmt
 ms.author: kenwith
+ms.reviewer: japere
 ---
 
 # Azure AD Application Proxy: Version release history
@@ -20,11 +21,11 @@ We recommend making sure that auto-updates are enabled for your connectors to en
 
 Here is a list of related resources:
 
-Resource |  Details
---------- | --------- |
-How to enable Application Proxy | Pre-requisites for enabling Application Proxy and installing and registering a connector are described in this [tutorial](application-proxy-add-on-premises-application.md).
-Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates).
-Azure AD Application Proxy Connector Download |  [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+| Resource                                         | Details                                                      |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| How to enable Application Proxy                  | Pre-requisites for enabling Application Proxy and installing and registering a connector are described in this [tutorial](application-proxy-add-on-premises-application.md). |
+| Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates). |
+| Azure AD Application Proxy Connector Download    | [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
 
 ## 1.5.1975.0
 
@@ -37,6 +38,7 @@ This version is only available for install via the download page. An auto-upgrad
 -	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Support for using the Remote Desktop Services web client with Application Proxy. See [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) for more details.
 - Improved websocket extension negotiations. 
+- Support for optimized routing between connector groups and Application Proxy cloud services based on region. See [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md) for more details. 
 
 ### Fixed issues
 - Fixed a websocket issue that forced lowercase strings.

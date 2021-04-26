@@ -34,7 +34,8 @@ To confirm whether your share is being throttled, you can access and use Azure m
     For standard file shares, the following response types are logged if a request is throttled:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     For premium file shares, the following response types are logged if a request is throttled:
 
@@ -68,7 +69,7 @@ To determine whether most of your requests are metadata-centric, start by follow
 ### Workaround
 
 - Check to see whether the application can be modified to reduce the number of metadata operations.
-- Add a virtual hard disk (VHD) on the file share and mount the VHD over SMB from the client to perform file operations against the data. This approach works for single writer and multiple readers scenarios and allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
+- Add a virtual hard disk (VHD) on the file share and mount the VHD over SMB from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
 
 ### Cause 3: Single-threaded application
 
@@ -240,7 +241,8 @@ To confirm, you can use Azure Metrics in the portal -
     For standard file shares, select the following response types:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     For premium file shares, select the following response types:
 

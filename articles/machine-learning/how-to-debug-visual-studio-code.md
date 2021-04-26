@@ -5,7 +5,7 @@ description: Interactively debug Azure Machine Learning code, pipelines, and dep
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
@@ -274,7 +274,7 @@ ip_address: 10.3.0.5
 Save the `ip_address` value. It is used in the next section.
 
 > [!TIP]
-> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure ML experiment runs and metrics](how-to-track-experiments.md).
+> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure ML experiment runs and metrics](how-to-log-view-metrics.md).
 
 ### Configure development environment
 
@@ -335,7 +335,7 @@ Save the `ip_address` value. It is used in the next section.
 In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
 
 > [!IMPORTANT]
-> This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) method.
+> This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
 
 Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/). Note that when working with compute instances, Docker is already installed.
 

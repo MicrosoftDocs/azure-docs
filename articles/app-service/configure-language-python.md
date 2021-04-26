@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
@@ -22,7 +22,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 - **Azure CLI**: you have two options.
 
     - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login).
     
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
@@ -109,7 +109,7 @@ Existing web applications can be redeployed to Azure as follows:
 
 1. **App startup**: Review the section, [Container startup process](#container-startup-process) later in this article to understand how App Service attempts to run your app. App Service uses the Gunicorn web server by default, which must be able to find your app object or *wsgi.py* folder. If needed, you can [Customize the startup command](#customize-startup-command).
 
-1. **Continuous deployment**: Set up continuous deployment, as described on [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment, or [Deploy to App Service using GitHub Actions](deploy-github-actions.md) if using GitHub actions.
+1. **Continuous deployment**: Set up continuous deployment, as described on [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment, or [Deploy to App Service using GitHub Actions](./deploy-continuous-deployment.md) if using GitHub actions.
 
 1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - run database migrations](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - When using continuous deployment, you can perform those actions using post-build commands as described earlier under [Customize build automation](#customize-build-automation).
@@ -124,7 +124,7 @@ The following table describes the production settings that are relevant to Azure
 
 | Django setting | Instructions for Azure |
 | --- | --- |
-| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secrete" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
+| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secret" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
 | `ALLOWED_HOSTS` | In production, Django requires that you include app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code, `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
 | `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](../key-vault/secrets/quick-create-python.md). |
@@ -164,8 +164,10 @@ For App Service, you then make the following modifications:
 1. Also modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include Whitenoise:
 
     ```python
-    MIDDLEWARE = [
-        "whitenoise.middleware.WhiteNoiseMiddleware",
+    MIDDLEWARE = [                                                                   
+        'django.middleware.security.SecurityMiddleware',
+        # Add whitenoise middleware after the security middleware                             
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         # Other values follow
     ]
 
@@ -368,6 +370,7 @@ The following sections provide additional guidance for specific issues.
 - [App doesn't appear - "service unavailable" message](#service-unavailable)
 - [Could not find setup.py or requirements.txt](#could-not-find-setuppy-or-requirementstxt)
 - [ModuleNotFoundError on startup](#modulenotfounderror-when-app-starts)
+- [Database is locked](#database-is-locked)
 - [Passwords don't appear in SSH session when typed](#other-issues)
 - [Commands in the SSH session appear to be cut off](#other-issues)
 - [Static assets don't appear in a Django app](#other-issues)
@@ -404,6 +407,14 @@ The following sections provide additional guidance for specific issues.
 #### ModuleNotFoundError when app starts
 
 If you see an error like `ModuleNotFoundError: No module named 'example'`, this means that Python could not find one or more of your modules when the application started. This most often occurs if you deploy your virtual environment with your code. Virtual environments are not portable, so a virtual environment should not be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### Database is locked
+
+When attempting to run database migrations with a Django app, you may see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database for which Django is configured by default, rather than using a cloud database such as PostgreSQL for Azure.
+
+Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
+
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md), check that you completed the steps in [Configure environment variables to connect the database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 
 #### Other issues
 

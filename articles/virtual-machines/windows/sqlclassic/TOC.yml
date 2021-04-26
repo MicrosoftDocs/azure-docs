@@ -35,7 +35,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/azure/?view=azuresmps-3.7.0
+    href: /powershell/azure/
   - name: Azure CLI
     href: /cli/azure/
   - name: T-SQL

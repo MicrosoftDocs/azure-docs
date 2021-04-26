@@ -40,7 +40,7 @@ When writing queries for Azure Digital Twins, keep the following considerations 
 * **Remember case sensitivity**: All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
 * **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*:
 
-  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 
 ## Reference: Expressions and conditions
 
@@ -86,7 +86,7 @@ This section describes limitations of the query language.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * Graph traversal depth is restricted to five `JOIN` levels per query.
-* The source for `JOIN` operations is restricted: the query must declare the twins where the query begins.
+* Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This means that there are some restrictions on the `JOIN` operation, which is used to query relationships, to make sure that the query declares the twin(s) where the query begins. For examples of this, see [*Query by relationship*](how-to-query-graph.md#query-by-relationship) in the *How-to: Query the twin graph* article.
 
 ## Next steps
 

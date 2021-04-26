@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 02/21/2021
+ms.date: 03/08/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -25,7 +25,11 @@ Azure SQL Database and SQL Managed Instance share a common code base with the la
 - Security features - [Application roles](/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) ([see getting started guide](dynamic-data-masking-overview.md)), [Row Level Security](/sql/relational-databases/security/row-level-security), and Threat detection - see getting started guides for [SQL Database](threat-detection-configure.md) and [SQL Managed Instance](../managed-instance/threat-detection-configure.md).
 - Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server) ([see getting started guide](json-features.md)), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
 
-Azure manages your databases and guarantees their high-availability. Some features that might affect high-availability or can't be used in PaaS world have limited functionalities in SQL Database and SQL Managed Instance. These features are described in the tables below. If you need more details about the differences, you can find them in the separate pages for [Azure SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md) or [Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md).
+Azure manages your databases and guarantees their high-availability. Some features that might affect high-availability or can't be used in PaaS world have limited functionalities in SQL Database and SQL Managed Instance. These features are described in the tables below.
+
+If you need more details about the differences, you can find them in the separate pages:
+- [Azure SQL Database vs. SQL Server differences](transact-sql-tsql-differences-sql-server.md)
+- [Azure SQL Managed Instance vs. SQL Server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## Features of SQL Database and SQL Managed Instance
 

@@ -25,7 +25,7 @@ You can also design the interaction as a validation technical profile. This is s
 
 ## Prerequisites
 
-- Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Complete the steps in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy). You should have a working custom policy for sign-up and sign-in with local accounts.
 - Learn how to [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).
 
 ## Prepare a REST API endpoint

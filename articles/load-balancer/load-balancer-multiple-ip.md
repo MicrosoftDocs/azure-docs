@@ -22,7 +22,6 @@ ms.author: allensu
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-
 In this article, we're going to show you how to use Azure Load Balancer with multiple IP addresses on a secondary network interface controller (NIC). The following diagram illustrates our scenario:
 
 ![Load balancer scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
