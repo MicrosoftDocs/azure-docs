@@ -174,7 +174,7 @@ sections:
       - question: |
           My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
         answer: |
-          Follow these [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS endpoint key and assign it to the app. Then you must change the client application's HTTP request to the endpoint to [use the new endpoint key](luis-how-to-azure-subscription.md). If you created a new resource in a different region, change the HTTP client request's region too.
+          Follow these [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key-) to create a LUIS endpoint key and assign it to the app. Then you must change the client application's HTTP request to the endpoint to [use the new endpoint key](luis-how-to-azure-subscription.md). If you created a new resource in a different region, change the HTTP client request's region too.
           
       - question: |
           How do I secure my LUIS endpoint?
@@ -254,12 +254,12 @@ sections:
       - question: |
           I got an error about being out of quota. How do I fix it?
         answer: |
-          See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
+          See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code--how-do-i-fix-it-) and [429](#i-received-an-http-429-error-status-code--how-do-i-fix-it-) to learn more.
           
       - question: |
           I need to handle more endpoint queries. How do I do that?
         answer: |
-          See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
+          See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code--how-do-i-fix-it-) and [429](#i-received-an-http-429-error-status-code--how-do-i-fix-it-) to learn more.
           
       - question: |
           I created an authoring key but it isn't showing in the LUIS portal. What happened?
