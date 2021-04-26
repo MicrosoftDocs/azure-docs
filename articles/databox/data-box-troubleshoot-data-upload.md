@@ -115,7 +115,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error code:** 409
 
-**Error description:** Data import to a blob in the cloud will fail if the destination blob's data or properties are being modified.
+**Error description:** Data import to a blob in the cloud will fail if the destination blob's data or properties are being modified. *PLEASE VERIFY ERROR DESCRIPTION. ISSUE DESCRIBED SOUNDS LIKE CONCURRENT BLOB MODIFICATION RATHER THAN INVALID BLOB TYPE.*
 
 **Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure there is no concurrent modification of the listed blobs or their properties during the upload.
 
