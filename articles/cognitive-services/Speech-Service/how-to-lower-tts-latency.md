@@ -1,7 +1,7 @@
 ---
 title: Best practices to lower speech synthesis latency using Speech SDK
 titleSuffix: Azure Cognitive Services
-description: Best practices to lower speech synthesis latency using Speech SDK, including streaming, pre-connection, etc.
+description: Best practices to lower speech synthesis latency using Speech SDK, including streaming, pre-connection, and so on.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
