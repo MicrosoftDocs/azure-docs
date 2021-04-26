@@ -61,6 +61,15 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 ### Portal
 
+1. Sign in to the [Azure Portal](https://portal.azure.com)
+
+2. In the search box at the top of the portal, enter **Load balancer**.
+
+3. Select **Load balancers** in the search results.
+
+4. Select your load balancer. For this example, **myLoadBalancer** is used.
+
+5. 
 ### PowerShell
 
 ### Azure CLI

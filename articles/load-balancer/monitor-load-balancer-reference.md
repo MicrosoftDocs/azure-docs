@@ -8,10 +8,6 @@ ms.service: load-balancer
 ms.custom: subject-monitoring
 ms.date: 4/22/2021
 ---
-<!-- VERSION 2.3
-Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
-
-<!-- IMPORTANT STEP 1.  Do a search and replace of Load Balancer with the name of your service. That will make the template easier to read -->
 
 # Monitoring Load Balancer data reference
 
