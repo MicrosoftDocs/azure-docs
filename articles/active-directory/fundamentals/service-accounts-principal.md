@@ -113,7 +113,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Create a service principal](../develop/howto-create-service-principal-portal.md)
 
- [Monitor service principal sign-ins](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
+ [Monitor service principal sign-ins](../reports-monitoring/concept-sign-ins.md)
 
 **To learn more about securing service accounts:**
 
