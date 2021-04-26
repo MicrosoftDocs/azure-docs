@@ -1,10 +1,10 @@
 ---
-title: Overview of provisioning logs in the Azure portal (preview) | Microsoft Docs
-description: Get an introduction to provisioning log reports in Azure Active Directory through the Azure portal. 
+title: Provisioning logs in Azure Active Directory (preview) | Microsoft Docs
+description: Overview of the provisioning logs in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,30 +14,25 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 1/29/2021
+ms.date: 4/26/2021
 ms.author: markvi
 ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
-# Overview of provisioning logs in the Azure portal (preview)
+# Provisioning logs in Azure Active Directory (preview)
 
-The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
+As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
-- Activity: 
-    - **Sign-ins**: Information about the usage of managed applications and user sign-in activities.
-    - [Audit logs](concept-audit-logs.md): System activity information about user and group management, managed applications, and directory activities.
-    - **Provisioning logs**: System activity about users, groups, and roles that are provisioned by the Azure AD provisioning service. 
+To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
 
-- Security: 
-    - **Risky sign-ins**: A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
-    - **Users flagged for risk**: A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.
+- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
-This topic gives you an overview of the provisioning logs. The logs provide answers to questions such as: 
 
-* What groups were successfully created in ServiceNow?
-* What users were successfully removed from Adobe?
-* What users from Workday were successfully created in Active Directory? 
+This article gives you an overview of the provisioning logs. 
+
 
 ## Prerequisites
 
@@ -49,7 +44,20 @@ These users can access the data in provisioning logs:
 * Global administrators
 
 
-For you to view the provisioning activity report, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
+To view the provisioning activity report, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
+
+
+
+## Provisioning logs
+
+The logs provide answers to questions such as: 
+
+-  What groups were successfully created in ServiceNow?
+
+-  What users were successfully removed from Adobe?
+
+-  What users from Workday were successfully created in Active Directory? 
+
 
 
 ## Ways of interacting with the provisioning logs 
@@ -59,6 +67,8 @@ Customers can interact with the provisioning logs in four ways:
 - Streaming the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
 - Querying the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) for the provisioning logs.
 - Downloading the provisioning logs as a CSV or JSON file.
+
+
 
 ## Access the logs from the Azure portal
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** pane in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to appear in the portal.

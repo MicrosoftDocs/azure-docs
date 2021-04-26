@@ -3,8 +3,8 @@ title: Visual authoring
 description: Learn how to use visual authoring in Azure Data Factory
 ms.service: data-factory
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.date: 09/08/2020
 ---
 

@@ -8,8 +8,7 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 
 # Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
@@ -20,7 +19,7 @@ In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/o
 
 This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-and-where.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
 
 ## Prerequisites
 
