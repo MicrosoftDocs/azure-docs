@@ -1339,11 +1339,11 @@
   - name: Security baselines
     items:
     - name: Linux
-      href: ./linux/security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-machines-linux-security-baseline
       displayname: Security baselines
     - name: Windows
       displayName: Security baselines
-      href: ./windows/security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline
   - name: Recommendations
     href: security-recommendations.md
   - name: Trusted launch

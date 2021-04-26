@@ -45,6 +45,8 @@
       href: tutorial-desktop-app-webapi.md
     - name: Single page
       href: tutorial-single-page-app-webapi.md
+  - name: 6 - Clean up and delete tenant
+    href: tutorial-delete-tenant.md
 - name: Samples
   href: code-samples.md
 - name: Concepts

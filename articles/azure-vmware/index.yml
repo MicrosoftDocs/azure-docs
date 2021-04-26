@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 04/20/2021 
+  ms.date: 04/23/2021 
 
 
 # card 1
@@ -34,9 +34,8 @@ landingContent:
           - text: Access and identity for private clouds
             url: concepts-identity.md
           - text: Monitor and repair private clouds
-            url: concepts-monitor-repair-private-cloud.md
-          - text: Private cloud upgrades
-            url: concepts-upgrades.md
+            url: /azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation
+
 
 # faq card
   - title: FAQ
