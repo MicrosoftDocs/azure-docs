@@ -59,7 +59,7 @@ If you are unsure how to represent your QnA pair in the `.tsv` file:
 
 ## Unstructured data format 
 
-You can also create a knowledgebase based on unstructured content imported via a file. Currently this functionality is avaialble only via documents in any of the supported file formats.
+You can also create a knowledgebase based on unstructured content imported via a file. Currently this functionality is avaialble only via document upload for document in any of the supported file formats.
 
 ## Content types of documents you can add to a knowledge base
 Content types include many standard structured documents such as PDF, DOC, and TXT.
