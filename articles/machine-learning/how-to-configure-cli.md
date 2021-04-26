@@ -1,6 +1,6 @@
 ---
-title: 'Install and set up the new Azure Machine Learning CLI'
-description: Learn how to install and set up the new Azure CLI extension for Machine Learning.
+title: 'Install, set up, and use the new Azure Machine Learning CLI'
+description: Learn how to install, set up, and use the new Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,7 +11,7 @@ ms.author: copeters
 ms.date: 05/25/2021
 ---
 
-# Install and set up the new Azure Machine Learning CLI
+# Install, set up, and use the new Azure Machine Learning CLI
 
 The new `ml` extension to the [Azure CLI](/cli/azure/) is the next generation interface for the Azure Machine Learning service. It allows you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
