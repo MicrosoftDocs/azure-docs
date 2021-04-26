@@ -23,6 +23,11 @@ You can use Azure Database Migration Service to perform a one-time full database
 
 [!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
+> [!NOTE]
+> For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](https://docs.microsoft.com/azure/dms/migrate-mysql-to-azure-mysql-powershell).
+
+> [!NOTE]
+> Amazon Relational Database Service (RDS) for MySQL and Amazon Aurora (MySQL-based) are also supported as sources for migration.
 
 In this tutorial, you learn how to:
 
