@@ -185,7 +185,7 @@ See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-bu
 
 #### Step 1. Prepare a self-signed certificate
 
-If you don't already have a certificate, you can use a self-signed certificate for this how-to guide. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
+If you don't already have a certificate, you can use a self-signed certificate for this how-to guide. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 Run this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 

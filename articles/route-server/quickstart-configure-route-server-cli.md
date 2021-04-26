@@ -13,6 +13,8 @@ ms.author: duau
 
 This article helps you configure Azure Route Server to peer with network virtual appliances (NVA) in your virtual network using Azure CLI. Azure Route Server will learn routes from the NVA and program them for the virtual machines in the virtual network. It will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
 
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
+
 > [!IMPORTANT]
 > Azure Route Server (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
