@@ -7,7 +7,7 @@ author: mikebudzynski
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 04/16/2021
+ms.date: 04/26/2021
 ms.author: apimpm
 
 ---
@@ -86,7 +86,7 @@ Test the operation in the Azure portal.  Alternatively, you can test it in the *
 
 ## Add and test a wildcard operation
 
-This section shows how to add a wildcard operation. A wildcard operation lets you pass an arbitrary value with an API operation. Instead of creating separate GET operations as shown in the previous sections, you could create a wildcard GET operation.
+This section shows how to add a wildcard operation. A wildcard operation lets you pass an arbitrary value with an API request. Instead of creating separate GET operations as shown in the previous sections, you could create a wildcard GET operation.
 
 ### Add the operation
 

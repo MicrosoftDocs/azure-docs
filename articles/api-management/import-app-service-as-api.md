@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/16/2021
+ms.date: 04/26/2021
 ms.author: apimpm
 
 ---
@@ -120,7 +120,8 @@ You can test the path `/api/TodoItems` as follows.
 
 1. Select the API you created, and select the operation.
 1. Select the **Test** tab.
-1. In **Template parameters**, update the value next to the wildcard (*) name. For example, enter `api/TodoItems`. This value gets appen
+1. In **Template parameters**, update the value next to the wildcard (*) name. For example, enter `api/TodoItems`. This value gets appended to the path `/` for the wildcard operation.
+
     :::image type="content" source="media/import-app-service-as-api/test-wildcard-operation.png" alt-text="Test wildcard operation":::
 1. Select **Send**.
 
