@@ -60,7 +60,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** Most file naming issues are caught during the **Prepare to ship** phase or fixed automatically during the upload (resulting in a **Copy with warnings** status). However, the name validator for an import job occasionally misses some invalid file names, and the files fail to upload to Azure.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new order, rename the listed files to meet naming requirements for Azure Files. For naming requirements, see [Directory and File Names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new order, rename the listed files to meet naming requirements for Azure Files. For naming requirements, see [Directory and File Names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).<!--Link needs format update. Investigating why truncating did not work.-->
 
 
 ### Bad Request (File property failure for Azure Files)
@@ -115,7 +115,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error code:** 409
 
-**Error description:** Data import to a blob in the cloud will fail if the destination blob's data or properties are being modified. *PLEASE VERIFY ERROR DESCRIPTION. ISSUE DESCRIBED SOUNDS LIKE CONCURRENT BLOB MODIFICATION RATHER THAN INVALID BLOB TYPE.*
+**Error description:** Data import to a blob in the cloud will fail if the destination blob's data or properties are being modified. *PLEASE VERIFY ERROR DESCRIPTION. ISSUE DESCRIBED SOUNDS LIKE CONCURRENT BLOB MODIFICATION RATHER INVALID BLOB TYPE.*
 
 **Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure there is no concurrent modification of the listed blobs or their properties during the upload.
 
