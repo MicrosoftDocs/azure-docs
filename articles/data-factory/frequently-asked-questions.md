@@ -1,8 +1,8 @@
 ---
 title: 'Azure Data Factory: Frequently asked questions '
 description: Get answers to frequently asked questions about Azure Data Factory.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020

@@ -99,9 +99,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
-  - name: Security attributes
-    href: ./security-baseline.md
+      href: /security/benchmark/azure/baselines/expressroute-security-baseline
   - name: BFD over ExpressRoute
     href: expressroute-bfd.md
   - name: QoS requirements

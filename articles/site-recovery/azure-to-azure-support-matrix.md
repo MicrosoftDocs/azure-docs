@@ -50,6 +50,12 @@ China | China East, China North, China North2, China East2
 Brazil | Brazil South
 Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South
 
+Replication and recovery of VMs between two regions in different continents is limited to the following region pairs:
+
+* Southeast Asia and Australia East
+* Southeast Asia and Australia Southeast
+* West Europe and South Central US.
+
 >[!NOTE]
 >
 > - For **Brazil South**, you can replicate and fail over to these regions: Brazil Southeast, South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.

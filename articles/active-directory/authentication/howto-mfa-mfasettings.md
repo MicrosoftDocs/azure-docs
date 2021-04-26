@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/13/2021
 
 ms.author: justinha
 author: justinha
@@ -344,7 +344,7 @@ The remember Multi-Factor Authentication feature sets a persistent cookie on the
 
 The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last multi-factor authentication occurred within the specified number of days.
 
-The feature reduces the number of authentications on web apps, which normally prompt every time. The feature can increase the number of authentications for modern authentication clients that normally prompt every 90 days, if a lower duration is configured. May also increase the number of authentications when combined with Conditional Access policies.
+The feature reduces the number of authentications on web apps, which normally prompt every time. The feature can increase the number of authentications for modern authentication clients that normally prompt every 180 days, if a lower duration is configured. May also increase the number of authentications when combined with Conditional Access policies.
 
 > [!IMPORTANT]
 > The **remember Multi-Factor Authentication** feature isn't compatible with the **keep me signed in** feature of AD FS, when users perform multi-factor authentication for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.

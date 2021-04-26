@@ -26,7 +26,7 @@ Communication Services APIs are documented alongside other Azure REST APIs in [d
 | Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Provision and manage Communication Services resources|
 | Common | Azure.Communication.Common| REST | Provides base types for other SDKs |
 | Identity | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Manage users, access tokens|
-| Phone numbers _(beta)_| Azure.Communication.PhoneNumbers| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Acquire and manage phone numbers |
+| Phone numbers _(beta)_| Azure.Communication.PhoneNumbers| [REST](/rest/api/communication/phonenumbers)| Acquire and manage phone numbers |
 | Chat | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) with proprietary signaling | Add real-time text based chat to your applications |
 | SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Send and receive SMS messages|
 | Calling| Azure.Communication.Calling | Proprietary transport | Use voice, video, screen-sharing, and other real-time data communication capabilities |
@@ -55,8 +55,8 @@ Certain REST APIs and corresponding SDK methods have throttle limits you should 
 
 | API                                                                                                                          | Throttle            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| [All Search Telephone Number Plan APIs](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 requests/day      |
-| [Purchase Telephone Number Plan](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 purchase a month  |
+| [All Search Telephone Number Plan APIs](/rest/api/communication/phonenumbers)         | 4 requests/day      |
+| [Purchase Telephone Number Plan](/rest/api/communication/phonenumbers/purchasephonenumbers) | 1 purchase a month  |
 | [Send SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 requests/minute |
 
 
