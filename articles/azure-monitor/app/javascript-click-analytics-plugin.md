@@ -73,16 +73,42 @@ appInsights.loadAppInsights();
     - The name must not contain any semicolon (U+003A).
     - The name must not contain capital letters.
 
+## What data does the plugin collect
+
+The following are some of the key properties captured by default when the plugin is enabled:
+
+### Custom Event Properties
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| name                  | The `name` of the customEvent. More info on how this is populated is shown [here](#how-to-effectively-use-the-plugin).| About              |
+| itemType              | Type of event.                                      | customEvent      |
+|sdkVersion             | version of Application Insights SDK along with click plugin|javascript:2.6.2_ClickPlugin2.6.2|
+
+### Custom Dimensions
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| actionType            | Action type that caused the click event. Can be left-click or right-click. | CL              |
+| baseTypeSource        | Base Type source of the custom event.                                      | ClickEvent      |
+| clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
+| content               | Placeholder to store additional `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
+| pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
+| parentId              | Id or name of the parent element                                           | navbarContainer |
+
+### Custom Measurements
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| timeToAction          | Time taken in millisecs for the user to click the element since initial page load | 87407              |
+
 ## Configuration
 
 | Name                  | Type                               | Default | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
-| autoCapture           | boolean                            | true    | Automatic capture configuration.                                                                                                         |
-| callback              | [IValueCallback](#ivaluecallback)  | null    | Callbacks configuration.                                                                                                                 |
-| pageTags              | string                             | null    | Page tags.                                                                                                                               |
-| dataTags              | [ICustomDataTags](#icustomdatatags)| null    | Custom Data Tags provided to override default tags used to capture click data.                                                           |
-| urlCollectHash        | boolean                            | false   | Enables the logging of values after a "#" character of the URL.                                                                          |
-| urlCollectQuery       | boolean                            | false   | Enables the logging of the query string of the URL.                                                                                      |
+| autoCapture           | boolean                            | true    | Automatic capture configuration.                                |
+| callback              | [IValueCallback](#ivaluecallback)  | null    | Callbacks configuration.                               |
+| pageTags              | string                             | null    | Page tags.                                             |
+| dataTags              | [ICustomDataTags](#icustomdatatags)| null    | Custom Data Tags provided to override default tags used to capture click data. |
+| urlCollectHash        | boolean                            | false   | Enables the logging of values after a "#" character of the URL.                |
+| urlCollectQuery       | boolean                            | false   | Enables the logging of the query string of the URL.                            |
 | behaviorValidator     | Function                           | null  | Callback function to use for the `data-*-bhvr` value validation. For more information, go to [behaviorValidator section](#behaviorvalidator).|
 | defaultRightClickBhvr | string (or) number                 | ''      | Default Behavior value when Right Click event has occurred. This value will be overridden if the element has the `data-*-bhvr` attribute. |
 | dropInvalidEvents     | boolean                            | false   | Flag to drop events that do not have useful click data.                                                                                   |
