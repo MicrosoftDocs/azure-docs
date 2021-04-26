@@ -32,7 +32,7 @@ landingContent:
         links:
           - text: Get started with a live demo 
             url: quickstart-live-demo.md
-          - text: Start with a simple chat room serverless application 
+          - text: Start with a simple chatroom serverless application 
             url: quickstart-serverless.md
       - linkListType: how-to-guide
         links:

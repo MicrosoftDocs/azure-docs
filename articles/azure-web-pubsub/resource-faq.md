@@ -10,6 +10,8 @@ ms.date: 04/26/2021
 
 # Azure Web PubSub service FAQ
 
+This is the FAQ of Azure Web PubSub service. 
+
 ## Is Azure Web PubSub service ready for production use?
 
 The Azure Web PubSub service is in public preview state and not committed SLA. 
