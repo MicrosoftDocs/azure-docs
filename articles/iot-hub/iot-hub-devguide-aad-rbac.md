@@ -98,7 +98,7 @@ To access IoT Hub from Azure portal using your Azure AD account, you need permis
 To ensure an account doesn't have access outside of assigned permissions, *don't* include the **Microsoft.Devices/iotHubs/listkeys/action** permission when creating a custom role. For example, to create a custom role that could read device identities, but cannot create or delete devices, create a custom role that:
 - Has the **Microsoft.Devices/IotHubs/devices/read** data action
 - Doesn't have the **Microsoft.Devices/IotHubs/devices/write** data action
-- Doesn't have the **Microsoft.Devices/IotHubs/devices/write** data action
+- Doesn't have the **Microsoft.Devices/IotHubs/devices/delete** data action
 - Doesn't have the **Microsoft.Devices/iotHubs/listkeys/action** action
 
 Then, make sure the account doesn't have any other roles that have the **Microsoft.Devices/iotHubs/listkeys/action** permission - such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). To let the account have resource access and can navigate the portal, assign [Reader](../role-based-access-control/built-in-roles.md#reader).
