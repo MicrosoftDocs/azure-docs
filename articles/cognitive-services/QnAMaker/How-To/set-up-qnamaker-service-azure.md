@@ -66,6 +66,8 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 1. Select **Create** after you read the terms and conditions:
 
     ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
+    
+1. Select Custom question answering feature to add to the Text Analytics resource. Click on 'Continue to create your resource'.
 
 1. Select the appropriate tiers and regions for the resource:
 
@@ -75,8 +77,10 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with Text Analytics resource creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
     * In the **Name** field, enter a unique name to identify this Text Analytics service. 
     * Choose the **Location** where you want the Text Analytics service to be deployed. The management APIs and service endpoint will be hosted in this location. 
-    * Select the **Pricing tier** for the Text Analytics service (free for preview). See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
+    * Select the **Pricing tier** for the Text Analytics service. See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
     
+1. For Custom question answering feature, select search location and pricing tier.
+
     * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
     * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
 
