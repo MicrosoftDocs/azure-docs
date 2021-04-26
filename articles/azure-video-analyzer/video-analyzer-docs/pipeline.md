@@ -74,7 +74,7 @@ The motion detection processor node enables you to detect motion in live video. 
 
 #### HTTP extension processor
 
-The HTTP extension processor node enables you to extend the video analyzer pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here](add-valid-link.md).
+The HTTP extension processor node enables you to extend the video analyzer pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here](pipeline-extension.md#http-extension-processor).
 
 #### gRPC extension processor
 
