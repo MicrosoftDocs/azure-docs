@@ -5,7 +5,7 @@ ms.service: api-management
 author: v-hhunter
 ms.author: v-hhunter
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 04/26/2021
 ms.custom: template-how-to 
 ---
 
@@ -73,4 +73,3 @@ WebSocket APIs are not currently supported in the following:
 ## Next steps
 - [Write how-to guides](contribute-how-to-write-howto.md)
 - [Links](links-how-to.md)
-
