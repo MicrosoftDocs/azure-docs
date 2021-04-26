@@ -6,20 +6,21 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 04/26/2021
 ms.author: cherylmc
 
 ---
 
 # Point-to-site VPN session management
 
-Azure virtual network gateways provide an easy way to view and disconnect current Point-to-site VPN sessions. This article helps you view and disconnect current sessions.
+Azure virtual network gateways provide an easy way to view and disconnect current Point-to-site VPN sessions. This article helps you view and disconnect current sessions. The session status is updated every 5 minutes. It is not updated immediately. 
 
->[!NOTE]
->The session status is updated every 5 minutes. It is not updated immediately.
->
 
 ## Portal
+
+>[!NOTE]
+> When using the portal, only IKEv2 and OpenVPN protocols are logged.
+> 
 
 To view and disconnect a session in the portal:
 
