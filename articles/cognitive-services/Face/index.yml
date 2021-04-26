@@ -49,6 +49,8 @@ landingContent:
             url: Face-API-How-to-Topics/how-to-add-faces.md
           - text: Use the large-scale feature
             url: Face-API-How-to-Topics/how-to-use-large-scale.md
+          - text: Use the PersonDirectory structure
+            url: Face-API-How-to-Topics/use-persondirectory.md
           - text: Specify a face recognition model version
             url: Face-API-How-to-Topics/specify-recognition-model.md
 
