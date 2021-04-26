@@ -336,7 +336,7 @@ Each Azure resource created with Custom question anwering (Preview) has a specif
 * Text Analytics resource
 * Cognitive Search resource
 
-### QnA Maker resource
+### Text Analytics resource
 
 The Text Analytics resource with Custom question anwering (Preview) feature provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
 
