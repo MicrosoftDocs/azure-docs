@@ -3,7 +3,7 @@ title: Proxy server guidelines Windows Virtual Desktop
 description: Some guidelines and recommendations for using proxy servers in Windows Virtual Desktop deployments.
 author: sefriend
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 04/26/2021
 ms.author: sefriend
 manager: rkiran
 ---
