@@ -189,7 +189,7 @@ Use these keys when making requests to the service through APIs.
 
 ### Find authoring keys in the Azure portal
 
-You can view and reset your authoring keys from the Azure portal, where you created the Custom question anwering (Preview) resource.
+You can view and reset your authoring keys from the Azure portal, where you added the Custom question anwering (Preview) feature in Text Analytics resource.
 
 1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
@@ -331,7 +331,7 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 
 # [Custom question anwering (preview release)](#tab/v2)
 
-Each Azure resource created with Custom question anwering (Preview) has a specific purpose:
+Each Azure resource created with Custom question anwering (Preview) feature has a specific purpose:
 
 * Text Analytics resource
 * Cognitive Search resource
@@ -355,7 +355,7 @@ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge b
 
 #### Language usage
 
-With Custom question anwering (Preview) you have a choice to setup your service for knowledge bases in a single language or multiple languages. You make this choice during the creation of the first knowledge base in your QnA Maker service. See [here](#pricing-tier-considerations) how to enable language setting per knowledge base.
+With Custom question anwering (Preview) you have a choice to setup your service for knowledge bases in a single language or multiple languages. You make this choice during the creation of the first knowledge base in your Text Analytics service. See [here](#pricing-tier-considerations) how to enable language setting per knowledge base.
 
 ---
 
