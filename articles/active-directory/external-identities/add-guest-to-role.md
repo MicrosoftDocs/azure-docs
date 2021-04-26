@@ -15,6 +15,7 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"                 
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # Grant permissions to users from partner organizations in your Azure Active Directory tenant
