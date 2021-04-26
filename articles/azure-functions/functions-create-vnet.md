@@ -171,7 +171,7 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | **Target sub-resource** | file | The private endpoint that will be used for files from the storage account. |
 
 1. On the **Configuration** tab, for the **Subnet** setting, choose **default**.
-1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults for the Subscription and Private DNS zone name (e.g., privatelink.file.core.windows.net).
+1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults for the Subscription and Private DNS zone name (for example, privatelink.file.core.windows.net).
 :::image type="content" source="./media/functions-create-vnet/20-create-storage-file-private-endpoint-configuration.png" alt-text="Screenshot of the Configuration section for creating a new Service Bus private endpoint.":::
 1. Select **Review + create**. After validation finishes, select **Create**. Resources in the virtual network can now communicate with storage files.
 
@@ -216,7 +216,7 @@ Create the private endpoint to lock down your Service Bus:
 
 1. On the **Configuration** tab, for the **Subnet** setting, choose **default**.
 
-1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults for the Subscription and Private DNS zone name (e.g., privatelink.servicebus.windows.net).
+1. Select **Yes** to the **Integrate with private DNS zone** option, and leave the defaults for the Subscription and Private DNS zone name (for example, privatelink.servicebus.windows.net).
 1. Select **Review + create**. After validation finishes, select **Create**. 
 1. After the private endpoint is created, return to the **Firewalls and virtual networks** section of your Service Bus namespace.  Ensure **Selected networks** is selected.  Select **+ Add existing virtual network** to add the recently created virtual network.  On the **Add networks** tab, use the network settings from the following table:
 
@@ -226,6 +226,9 @@ Create the private endpoint to lock down your Service Bus:
     | **Virtual networks** | myVirtualNet | The name of the virtual network that your function app will connect to. |
     | **Subnets** | functions | The name of the subnet your function app will connect to. |
 
+1. Select **Add your client IP address** to give your current client IP access to the namespace.
+    > [!NOTE]
+    > Allowing your client IP address is necessary to enable the Azure portal to [publish messages to the queue later in this tutorial](#test-your-locked-down-function-app)
 1. Select **Enable** to enable the service endpoint.
 1. Select **Add** to add the selected virtual network and subnet to the firewall rules for the Service Bus.
 1. Select **Save** to save the updated firewall rules.
@@ -423,3 +426,9 @@ Use the following links to learn more about the available networking features:
 
 > [!div class="nextstepaction"]
 > [Azure Functions Premium plan](./functions-premium-plan.md)
+
+> [!div class="nextstepaction"]
+> [Service Bus private endpoints](../service-bus-messaging/private-link-service.md)
+
+> [!div class="nextstepaction"]
+> [Azure Storage network security](../storage/common/storage-network-security.md)
