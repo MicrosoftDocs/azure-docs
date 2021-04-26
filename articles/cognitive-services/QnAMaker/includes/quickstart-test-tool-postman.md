@@ -42,7 +42,7 @@ Use this procedure to configure Postman, then read each subsequent section to co
 
 1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 This quickstart uses the same settings for the Postman **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
 
@@ -429,6 +429,14 @@ We don't support unstructured data sets in the GA service.
 
 # [Custom question answering (preview release)](#tab/v2)
 
-Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 3
+    }
+    ```
+2. The response also includes the source of answer. 
 
 ---
