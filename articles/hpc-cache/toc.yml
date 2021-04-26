@@ -17,7 +17,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/hpc-cache-security-baseline
 - name: How-to guides
   items:
   - name: Prerequisites

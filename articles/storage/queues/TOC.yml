@@ -69,15 +69,13 @@
         href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Authorizing management operations
       href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Built-in security controls
-      href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use Azure Private Endpoints
       href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json  
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Security baseline
-      href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: /security/benchmark/azure/baselines/storage-security-baseline?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Data redundancy
     href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Disaster recovery and failover

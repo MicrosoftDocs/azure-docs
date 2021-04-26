@@ -129,32 +129,36 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Database for MariaDB
 
 ### Azure Data Factory Managed Virtual Network is available in the following Azure regions:
-- East US
-- East US 2
-- West Central US
-- West US
-- West US 2
-- South Central US
-- Central US
-- North Europe
-- West Europe
-- UK South
-- Southeast Asia
 - Australia East
 - Australia Southeast
-- Norway East
+- Brazil South
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- East US
+- East US2
+- France Central
 - Japan East
 - Japan West
 - Korea Central
-- Brazil South
-- France Central
+- North Europe
+- Norway East
+- South Africa North
+- South Central US
+- South East Asia
 - Switzerland North
+- UAE North
+- UK South
 - UK West
-- Canada East
-- Canada Central
+- West Central US
+- West Europe
+- West US
+- West US2
+
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
-- Only port 443 is opened for outbound communications.
+- All ports are opened for outbound communications.
 - Azure Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network.
 
 ### Linked Service creation of Azure Key Vault 
