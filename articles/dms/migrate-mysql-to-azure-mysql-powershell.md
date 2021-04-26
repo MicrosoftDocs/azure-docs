@@ -16,10 +16,14 @@ ms.date: 04/11/2021
 
 # Migrate MySQL to Azure Database for MySQL offline with PowerShell & Azure Database Migration Service
 
-In this article, you migrate a MySQL database restored to an on-premises instance to Azure Database for MySQL by using the offline migration capability of Azure Database Migration Service through Microsoft Azure PowerShell. The article documents a collection of PowerShell scripts which can be executed in sequence to perform the offline migration of MySQL database to Azure.
+In this article, you migrate a MySQL database restored to an on-premises instance to Azure Database for MySQL by using the offline migration capability of Azure Database Migration Service through Microsoft Azure PowerShell. The article documents a collection of PowerShell scripts which can be executed in sequence to perform the offline migration of MySQL database to Azure. You can download the complete PowerShell script described in this tutorial from our [Github repository](https://github.com/Azure/azure-mysql/tree/master/Azure%20DMS%20-%20MySQL%20Offline%20Migration%20Script).
+
 
 > [!NOTE]
 > Currently it is not possible to run complete database migration using the Az.DataMigration module. In the meantime, the sample PowerShell script is provided "as-is" that uses the [DMS Rest API](/rest/api/datamigration/tasks/get) and allows you to automate migration. This script will be modified or deprecated, once official support is added in the Az.DataMigration module and Azure CLI. 
+
+> [!NOTE]
+> Amazon Relational Database Service (RDS) for MySQL and Amazon Aurora (MySQL-based) are also supported as sources for migration.
 
 > [!IMPORTANT]
 > The “MySQL to Azure Database for MySQL” online migration scenario is being replaced with a parallelized, highly performant offline migration scenario from June 1, 2021. For online migrations, you can use this new offering together with [data-in replication](../mysql/concepts-data-in-replication.md). Alternatively, use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with data-in replication for online migrations. 

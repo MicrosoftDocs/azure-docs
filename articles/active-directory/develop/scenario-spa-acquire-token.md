@@ -99,10 +99,89 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
 The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 
+You can specify the scopes for APIs in the `protectedResourceMap` configuration option. `MsalInterceptor` will request these scopes when automatically acquiring tokens.
+
+```javascript
+// In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalInterceptor, MsalModule } from '@azure/msal-angular';
+
+@NgModule({
+	declarations: [
+		// ...
+	],
+	imports: [
+		// ...
+		MsalModule.forRoot( new PublicClientApplication({
+		auth: {
+			clientId: 'Enter_the_Application_Id_Here',
+		},
+		cache: {
+			cacheLocation: 'localStorage',
+			storeAuthStateInCookie: isIE,
+		}
+		}), {
+			interactionType: InteractionType.Popup,
+			authRequest: {
+				scopes: ['user.read']
+			}
+		}, {
+			interactionType: InteractionType.Popup,
+			protectedResourceMap: new Map([ 
+				['https://graph.microsoft.com/v1.0/me', ['user.read']]
+			])
+		})
+	],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: MsalInterceptor,
+			multi: true
+		}
+	],
+	bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+For success and failure of the silent token acquisition, MSAL Angular provides events that you can subscribe to. It's also important to remember to unsubscribe.
+
+```javascript
+import { MsalBroadcastService } from '@azure/msal-angular';
+import { EventMessage, EventType } from '@azure/msal-browser';
+
+// In app.component.ts
+export class AppComponent implements OnInit {
+	private readonly _destroying$ = new Subject<void>();
+
+	constructor(private broadcastService: MsalBroadcastService) { }
+
+	ngOnInit() {
+		this.broadcastService.msalSubject$
+		.pipe(
+			filter((msg: EventMessage) => msg.eventType === EventType.ACQUIRE_TOKEN_SUCCESS),
+			takeUntil(this._destroying$)
+		)
+		.subscribe((result: EventMessage) => {
+			// Do something with event payload here
+		});
+	}
+
+	ngOnDestroy(): void {
+		this._destroying$.next(undefined);
+		this._destroying$.complete();
+	}
+}
+```
+
+Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
+
+# [Angular (MSAL.js v1)](#tab/angular1)
+The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 You can specify the scopes for APIs in the `protectedResourceMap` configuration option. `MsalInterceptor` will request these scopes when automatically acquiring tokens.
 
 ```javascript
@@ -150,7 +229,6 @@ For success and failure of the silent token acquisition, MSAL Angular provides c
     this.subscription=  this.broadcastService.subscribe("msal:acquireTokenFailure", (payload) => {
     });
 }
-
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
    if (this.subscription) {
@@ -335,8 +413,54 @@ myMSALObj.acquireTokenPopup(request);
 
 To learn more, see [Optional claims](active-directory-optional-claims.md).
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
+This code is the same as described earlier, except we recommend bootstrapping the `MsalRedirectComponent` to handle redirects. `MsalInterceptor` configurations can also be changed to use redirects.
+
+```javascript
+// In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalInterceptor, MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
+
+@NgModule({
+    declarations: [
+      // ...
+    ],
+    imports: [
+		// ...
+		MsalModule.forRoot( new PublicClientApplication({
+			auth: {
+				clientId: 'Enter_the_Application_Id_Here',
+			},
+			cache: {
+				cacheLocation: 'localStorage',
+				storeAuthStateInCookie: isIE,
+			}
+		}), {
+			interactionType: InteractionType.Redirect,
+			authRequest: {
+				scopes: ['user.read']
+			}
+		}, {
+			interactionType: InteractionType.Redirect,
+			protectedResourceMap: new Map([ 
+				['https://graph.microsoft.com/v1.0/me', ['user.read']]
+			])
+		})
+    ],
+    providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: MsalInterceptor,
+			multi: true
+		}
+    ],
+    bootstrap: [AppComponent, MsalRedirectComponent]
+})
+export class AppModule { }
+```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
 This code is the same as described earlier.
 
 # [React](#tab/react)
