@@ -25,9 +25,9 @@ The following end-user related service limits apply to all authentication reques
 |User Journey      | Limit    |
 |---------|---------|
 |Sign in  | 12,000/min |
-|Sign up  | 7,680/min |
-|Password reset  | 12,000/min|
-|Profile edit  | 12,000/min|
+|Sign up  | 3,840/min |
+|Password reset  | 3,840/min|
+|Profile edit  | 3,840/min|
 
 When multiple user journeys are in use, they contribute to the overall limits below.
 
@@ -37,8 +37,8 @@ When multiple user journeys are in use, they contribute to the overall limits be
 |Total number of requests per Azure AD B2C tenant   |12,000/min          |
 
 Using the above limits, you can arrive at the following throughput for the **Combined Sign up or Sign in policy**:
-- Perform Sign up's at a rate of 7,000/min
-- Perform Sign in's at a rate of 5,000/min
+- Perform Sign up's at a rate of 3,000/min
+- Perform Sign in's at a rate of 9,000/min
 - All authentications originate from a unique client IP address
 - This will reach the total token issuance rate of 12,000/min
 
