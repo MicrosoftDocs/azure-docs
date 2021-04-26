@@ -10,7 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Manage Azure Maps Creator 
+# Manage Azure Maps Creator
 
 Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using the S1 pricing tier.
 
@@ -28,7 +28,7 @@ This article takes you through the steps to create and delete a Creator resource
 
     ![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Enter the name and location for your Creator resource. Currently, Creator is only supported in the United States. Select **Review + create**.
+4. Enter the name, location, and map provisioning storage units for your Creator resource. Currently, Creator is only supported in the United States. Select **Review + create**.
 
    ![Enter Creator account information page](./media/how-to-manage-creator/creator-creation-dialog.png)
 
@@ -75,9 +75,15 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 
 ## Access to Creator services
 
-Creator services and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+Creator services and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`. The table below shows the the mappings of region to geographical location.
 
-Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United Stated, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
+
+| Regions                  | Geographical location | Geographical API URl |
+|------------------------|----------------------|-------------|
+| West US 2, East US 2 | United States | us.atlas.microsoft.com |
+| West EU, North EU  | Europe | eu.atlas.microsoft.com |
+
+Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. The For example, if Creator is provisioned in the United States, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
 ## Next steps
 
