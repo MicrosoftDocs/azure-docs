@@ -119,7 +119,7 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     Open a new terminal and run the below mvn command to start the debugging session.
 
     ```bash
-        mvn azure-functions:run
+    mvn azure-functions:run
     ```
 
     ---
