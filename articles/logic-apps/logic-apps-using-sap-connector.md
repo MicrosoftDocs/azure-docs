@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/30/2021
+ms.date: 04/26/2021
 tags: connectors
 ---
 
@@ -64,7 +64,7 @@ The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sa
 
 * **Send message to SAP** to [send IDocs over tRFC](#send-idoc-action) action, which you can use to:
 
-    * [Call BAPI functions over RFC](#call-bapi-action)
+    * [Call BAPI functions over RFC](#bapi-call-method-in-sap)
 
     * Call RFC/tRFC in SAP systems
 
@@ -915,7 +915,7 @@ This SAP action returns an [XML schema](#sample-xml-schemas), not the contents o
 
 * The response message's structure. Use this information to parse the response. 
 
-To send the request message, use the generic SAP action **Send message to SAP**, or the targeted **Call BAPI** actions.
+To send the request message, use the generic SAP action **Send message to SAP**, or the targeted **[BAPI] Call method in SAP** actions.
 
 ### Sample XML schemas
 
@@ -1009,7 +1009,7 @@ The following example includes prefixes for the namespaces. You can declare all 
 
 #### XML samples for BAPI requests
 
-The following XML samples are example requests to [call the BAPI method](#call-bapi-action).
+The following XML samples are example requests to [call the BAPI method](#bapi-call-method-in-sap).
 
 > [!NOTE]
 > SAP makes business objects available to external systems by describing them in response to RFC `RPY_BOR_TREE_INIT`, which Logic Apps issues with no input filter. Logic Apps inspects the output table `BOR_TREE`. The `SHORT_TEXT` field is used for names of business objects. Business objects not returned by SAP in the output table aren't accessible to Logic Apps.
@@ -1386,7 +1386,7 @@ The SAP connection parameters for a logic app don't have a language property. So
 
 ### Confirm transaction explicitly
 
-When you send transactions to SAP from Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). By default, the **Send to SAP** action handles both the steps for the function transfer and for the transaction confirmation in a single call. The SAP connector gives you the option to decouple these steps. You can send an IDoc and rather than automatically confirm the transaction, you can use the explicit **Confirm transaction ID** action.
+When you send transactions to SAP from Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). By default, the **Send to SAP** action handles both the steps for the function transfer and for the transaction confirmation in a single call. The SAP connector gives you the option to decouple these steps. You can send an IDoc and rather than automatically confirm the transaction, you can use the explicit **\[IDOC] Confirm transaction ID** action.
 
 This capability to decouple the transaction ID confirmation is useful when you don't want to duplicate transactions in SAP, for example, in scenarios where failures might happen due to causes such as network issues. By confirming the transaction ID separately, the transaction is only completed one time in your SAP system.
 
@@ -1394,13 +1394,13 @@ Here is an example that shows this pattern:
 
 1. Create a blank logic app and add an HTTP trigger.
 
-1. From the SAP connector, add the **Send IDOC** action. Provide the details for the IDoc that you send to your SAP system.
+1. From the SAP connector, add the **\[IDOC] Send document to SAP** action. Provide the details for the IDoc that you send to your SAP system.
 
 1. To explicitly confirm the transaction ID in a separate step, in the **Confirm TID** field, select **No**. For the optional **Transaction ID GUID** field, you can either manually specify the value or have the connector automatically generate and return this GUID in the response from the Send IDOC action.
 
    ![Send IDOC action properties](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
 
-1. To explicitly confirm the transaction ID, add the **Confirm transaction ID** action, making sure to [avoid sending duplicate IDocs to SAP](#avoid-sending-duplicate-idocs). Click inside the **Transaction ID** box so that the dynamic content list appears. From that list, select the **Transaction ID** value that's returned from the **Send IDOC** action.
+1. To explicitly confirm the transaction ID, add the **\[IDOC] Confirm transaction ID** action, making sure to [avoid sending duplicate IDocs to SAP](#avoid-sending-duplicate-idocs). Click inside the **Transaction ID** box so that the dynamic content list appears. From that list, select the **Transaction ID** value that's returned from the **\[IDOC] Send document to SAP** action.
 
    ![Confirm transaction ID action](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
 
@@ -1424,9 +1424,9 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
     1. For **Value**, select the text box **Enter initial value** to open the dynamic content menu. Select the **Expressions** tab. In the list of functions, enter the function `guid()`. Then, select **OK** to save your changes. The **Value** field is now set to the `guid()` function, which generates a GUID.
 
-1. After the **Initialize variable** action, add the action **Send IDOC**.
+1. After the **Initialize variable** action, add the action **\[IDOC] Send document to SAP**.
 
-1. In the editor for the action **Send IDOC**, configure the following settings. Then, save your changes.
+1. In the editor for the action **\[IDOC] Send document to SAP**, configure the following settings. Then, save your changes.
 
     1. For **IDOC type** select your message type, and for **Input IDOC message**, specify your message.
 
@@ -1438,15 +1438,15 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
     1. Select **Add new parameter list** > **Transaction ID GUID**. Select the text box to open the dynamic content menu. Under the **Variables** tab, select the name of the variable that you created. For example, `IDOCtransferID`.
 
-1. On the title bar of the action **Send IDOC**, select **...** > **Settings**. For **Retry Policy**, it's recommended to select **Default** &gt; **Done**. However, you can instead configure a custom policy for your specific needs. For custom policies, it's recommended to configure at least one retry to overcome temporary network outages.
+1. On the title bar of the action **\[IDOC] Send document to SAP**, select **...** > **Settings**. For **Retry Policy**, it's recommended to select **Default** &gt; **Done**. However, you can instead configure a custom policy for your specific needs. For custom policies, it's recommended to configure at least one retry to overcome temporary network outages.
 
-1. After the action **Send IDOC**, add the action **Confirm transaction ID**.
+1. After the action **\[IDOC] Send document to SAP**, add the action **\[IDOC] Confirm transaction ID**.
 
-1. In the editor for the action **Confirm transaction ID**, configure the following settings. Then, save your changes.
+1. In the editor for the action **\[IDOC] Confirm transaction ID**, configure the following settings. Then, save your changes.
 
     1. For **Transaction ID**, enter the name of your variable again. For example, `IDOCtransferID`.
 
-1. Optionally, validate the deduplication in your test environment. Repeat the **Send IDOC** action with the same **Transaction ID** GUID that you used in the previous step. When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
+1. Optionally, validate the deduplication in your test environment. Repeat the **\[IDOC] Send document to SAP** action with the same **Transaction ID** GUID that you used in the previous step. When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
 
 ## Known issues and limitations
 
@@ -1456,7 +1456,7 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
 
   * For send scenarios, data gateway clusters in failover mode are supported. 
 
-  * Data gateway clusters in load balancing mode aren't supported by stateful SAP actions. These actions include **Create stateful session**, **Commit BAPI transaction**, **Rollback BAPI transaction**, **Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+  * Data gateway clusters in load balancing mode aren't supported by stateful SAP actions. These actions include **\[BAPI/RFC] Create stateful session**, **\[BAPI] commit transaction**, **\[BAPI] Rollback transaction**, **\[BAPI/RFC] Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
 
   * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
@@ -1466,7 +1466,7 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
 
 For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/sap/). Additional documentation for Logic Apps is provided for the following actions:
 
-* [Call BAPI](#call-bapi-action)
+* [[BAPI] Call method in SAP](#bapi-call-method-in-sap)
 
 * [Send IDOC](#send-idoc-action)
 
@@ -1474,9 +1474,9 @@ For more technical details about this connector, such as triggers, actions, and 
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
 > this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
-### Call BAPI action
+### [BAPI] Call method in SAP
 
-The [Call BAPI (`CallBapi`)](
+The [**[BAPI] Call method in SAP** (`CallBapi`)](
 https://docs.microsoft.com/connectors/sap/#call-bapi-(preview)) action calls the BAPI method on your SAP server. 
 
 You must use the following parameters with your call: 
@@ -1487,7 +1487,7 @@ You must use the following parameters with your call:
 
 * **Input BAPI parameters** (`body`), in which you call the XML document that contains the BAPI method input parameter values for the call, or the URI of the storage blob that contains your BAPI parameters.
 
-For detailed examples of how to use the Call BAPI action, see the [XML samples of BAPI requests](#xml-samples-for-bapi-requests).
+For detailed examples of how to use the **[BAPI] Call method in SAP** action, see the [XML samples of BAPI requests](#xml-samples-for-bapi-requests).
 
 > [!TIP]
 > If you're using the Logic Apps designer to edit your BAPI request, you can use the following search functions: 
