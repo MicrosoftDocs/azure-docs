@@ -164,7 +164,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/postgresql-security-baseline
     - name: Networking
       items:
       - name: Firewall rules
@@ -417,6 +417,8 @@
     href: flexible-server/index.yml
   - name: Overview
     href: flexible-server/overview.md
+  - name: Release notes
+    href: flexible-server/release-notes.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -468,6 +470,8 @@
       href: flexible-server/concepts-extensions.md
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
+    - name: Connection pooling (PgBouncer)
+      href: flexible-server/concepts-pgbouncer.md      
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -622,7 +626,7 @@
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
       - name: Security baseline
-        href: postgresql-hyperscale-security-baseline.md
+        href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline
     - name: Scheduled maintenance
       href: concepts-hyperscale-maintenance.md
     - name: Business continuity
