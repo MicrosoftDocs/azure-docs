@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 04/26/2021
 ms.author: alkohli
 ---
 
@@ -280,11 +280,11 @@ For troubleshooting information for these errors, see [Troubleshoot paused data 
 Here is an example of a non-retryable error that causes an upload to pause:<!--Veda to send a new example. This error is not in the set that pause an upload.-->
 
 ```xml
-<ErroredEntity Path="lfs5tbfile032521\lfs5tbfile"> 
-  <Category>UploadErrorCloudHttp</Category> 
-  <ErrorCode>400</ErrorCode> 
-    <ErrorMessage>The file size exceeds the maximum permissible limit.</ErrorMessage> 
-  <Type>File</Type> 
+<ErroredEntity Path="myfileshare01\myblob01.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>>The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.</ErrorMessage>
+  <Type>File</Type>
 </ErroredEntity><CopyLog Summary="Summary">
   <Status>Failed</Status> 
   <TotalFiles_Blobs>8</TotalFiles_Blobs> 
