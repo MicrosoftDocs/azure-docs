@@ -63,13 +63,12 @@ To access the sign-ins log of another user, you need to be:
 
 
 
-## What Azure AD license do you need to access sign-in activity?
+## What Azure AD license do you need?
 
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
-## Sign-ins report
 
-
+## Where can you find it in the Azure Portal?
 
 On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
@@ -83,6 +82,9 @@ It may take up to two hours for some sign-in records to show up in the portal.
 
 > [!IMPORTANT]
 > The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
+
+
+## What is the default view?
 
 A sign-ins log has a default list view that shows:
 
