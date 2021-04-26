@@ -25,6 +25,8 @@ Learn more about:
 >
 > For more information about what is required for a production ready cluster, please refer to the [production readiness checklist](./service-fabric-production-readiness-checklist.md).
 
+<a id="getlivesitesupportonprem"></a>
+
 ## Create a support request for standalone Service Fabric clusters
 
 To report issues related to Service Fabric clusters running on-premises or on other clouds, you may open a ticket for professional support on the [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
