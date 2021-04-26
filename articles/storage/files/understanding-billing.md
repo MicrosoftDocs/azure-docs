@@ -18,23 +18,33 @@ For Azure Files pricing information, see [Azure Files pricing page](https://azur
 Azure Files uses base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same unit of measurement or counting system.
 
 ### Windows
-
 Both the Windows operating system and Azure Files measure storage capacity using the base-2 counting system, but there is a difference when labeling units. Azure Files labels its storage capacity with base-2 units of measurement while Windows labels its storage capacity in base-10 units of measurement. When reporting storage capacity, Windows doesn't convert its storage capacity from base-2 to base-10.
 
-|Acronym  |Definition  |Unit  |Windows displays as  |
-|---------|---------|---------|---------|
-|KiB     |1,024 bytes         |kibibyte         |KB (kilobyte)         |
-|MiB     |1,024 KiB (1,048,576 bytes)         |mebibyte         |MB (megabyte)         |
-|GiB     |1024 MiB (1,073,741,824 bytes)         |gibibyte         |GB (gigabyte)         |
-|TiB     |1024 GiB (1,099,511,627,776 bytes)         |tebibyte         |TB (terabyte)         |
+| Acronym | Definition                         | Unit     | Windows displays as |
+|---------|------------------------------------|----------|---------------------|
+| KiB     | 1,024 bytes                        | kibibyte | KB (kilobyte)       |
+| MiB     | 1,024 KiB (1,048,576 bytes)        | mebibyte | MB (megabyte)       |
+| GiB     | 1024 MiB (1,073,741,824 bytes)     | gibibyte | GB (gigabyte)       |
+| TiB     | 1024 GiB (1,099,511,627,776 bytes) | tebibyte | TB (terabyte)       |
 
 ### macOS
-
 See [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) on Apple's website to determine which counting system is used.
 
 ### Linux
-
 A different counting system could be used by each operating system or individual piece of software. See their documentation to determine how they report storage capacity.
+
+## Reserve capacity
+Azure Files supports storage capacity reservations, which enable you to achieve a discount on storage by pre-committing to storage utilization. You should consider purchasing reserved instances for any production workload, or dev/test workloads with consistent footprints. When you purchase reserved capacity, your reservation must specify the following dimensions:
+
+- **Capacity size**: Capacity reservations can be for either 10 TiB or 100 TiB, with more significant discounts for purchasing a higher capacity reservation. You can purchase multiple reservations, including reservations of different capacity sizes to meet your workload requirements. For example, if your production deployment has 120 TiB of file shares, you could purchase one 100 TiB reservation and two 10 TiB reservations to meet the total capacity requirements.
+- **Term**: Reservations can be purchased for either a one year or three year term, with more significant discounts for purchasing a longer reservation term. 
+- **Tier**: The tier of Azure Files for the capacity reservation. Reservations for Azure Files currently are available for the hot and cool tiers.
+- **Location**: The Azure region for the capacity reservation. Capacity reservations are available in a subset of Azure regions.
+- **Redundancy**: The storage redundancy for the capacity reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
+
+Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwdith, and data transfer charges are not including in the reservation.
+
+For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
