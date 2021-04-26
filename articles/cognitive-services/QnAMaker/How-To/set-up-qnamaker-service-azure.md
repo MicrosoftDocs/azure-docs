@@ -174,7 +174,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
 ### Inactivity policy for free Search resources
 
-If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
+If you are not using a QnA maker or Text Analytics resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
 
 Free Search resources are deleted after 90 days without receiving an API call.
 
@@ -182,7 +182,7 @@ Free Search resources are deleted after 90 days without receiving an API call.
 
 ## Delete Azure resources
 
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
+If you delete any of the Azure resources used for your knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
 
 ## Next steps
 
