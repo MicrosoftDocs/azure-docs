@@ -112,7 +112,7 @@
       items:
         - name: Improve synthesis with SSML
           href: speech-synthesis-markup.md
-        - name: Best practices to lower synthesis latency
+        - name: How to lower synthesis latency
           href: how-to-lower-tts-latency.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md

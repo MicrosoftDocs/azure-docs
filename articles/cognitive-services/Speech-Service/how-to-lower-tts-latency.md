@@ -1,7 +1,7 @@
 ---
-title: Best practices to lower speech synthesis latency using Speech SDK
+title: How to lower speech synthesis latency using Speech SDK
 titleSuffix: Azure Cognitive Services
-description: Best practices to lower speech synthesis latency using Speech SDK, including streaming, pre-connection, and so on.
+description: How to lower speech synthesis latency using Speech SDK, including streaming, pre-connection, and so on.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -13,25 +13,27 @@ ms.author: yulili
 ms.custom: references_regions
 ---
 
-# Best practices to lower speech synthesis latency using Speech SDK
+# how to lower speech synthesis latency using Speech SDK
 
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to you and your end users.
-Normally, we measure the latency by `first audio chunk latency` and `all audio latency`, as follows:
+Normally, we measure the latency by `first audio chunk latency` and `finish latency`, as follows:
 
 | Latency | Description |
 |-----------|-------------|
 | `first audio chunk latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. |
-| `all audio latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. |
+| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. |
 
-The `first audio chunk latency` is much lower than `all audio latency` in most cases.
-And the `first audio chunk latency` is almost independent with the text length, while `all audio latency` increases with the text length.
+The `first audio chunk latency` is much lower than `finish latency` in most cases.
+And the `first audio chunk latency` is almost independent with the text length, while `finish latency` increases with the text length.
+
+Ideally, we want to minimum the user-experienced latency (the latency before user hears the sound) to one network route trip time plus the first audio chunk latency of the speech synthesis service.
 
 ## Streaming
 
 Streaming is critical to lower the latency,
-In client side, you need to start the playback when the first audio chunk is received.
-In service scenario, you need to ensure you forward the audio chunks immediately to your clients instead of waiting for the whole audio.
+In client side, the playback could be started when the first audio chunk is received.
+In service scenario, you can forward the audio chunks immediately to your clients instead of waiting for the whole audio.
 
 You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
@@ -95,7 +97,7 @@ For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps while `Au
 Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set and `GStreamer` is properly installed.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
 
-## Others
+## Others tips
 
 ### Caching CRL files
 
@@ -103,3 +105,18 @@ The Speech SDK uses CRL files to check the certification.
 Caching the CRL files until expired help you avoid download `CRL` files every time.
 See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certificate-revocation-checks) for details.
 
+### Using latest Speech SDK
+
+We are keeping improve the Speech SDK's performance, ensure to use the latest Speech SDK in your application.
+For example, we fix a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which help to reduce extra one route trip time.
+
+## Track the latency using Speech SDK
+
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult).
+
+```cpp
+auto result = synthesizer->SpeakTextAsync(text);
+std::cout << "fist byte latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFirstByteLatencyMs)) << " ms" << std::endl;
+std::cout << "finish latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFinishLatencyMs)) << " ms" << std::endl;
+std::cout << "underrun time: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisUnderrunTimeMs)) << " ms" << std::endl;
+```
