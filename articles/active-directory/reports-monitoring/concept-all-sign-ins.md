@@ -69,7 +69,7 @@ Your tenant must have an Azure AD Premium license associated with it to see sign
 
 
 
-## Where can you find it in the Azure Portal?
+## Where can you find it in the Azure portal?
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
