@@ -377,6 +377,8 @@
         href: msal-b2c-overview.md
       - name: Migrate to MSAL.js
         href: msal-compare-msal-js-and-adal-js.md
+      - name: Migrate to MSAL Node
+        href: msal-node-migration.md
       - name: Single sign-on with MSAL.js
         href: msal-js-sso.md
       - name: Considerations - IE
