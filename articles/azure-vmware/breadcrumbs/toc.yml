@@ -6,9 +6,9 @@
     tocHref: /azure/
     topicHref: /azure/azure-vmware/index
     items: 
-     - name: How-to guides
+     - name: Migrate workloads
        tocHref: /azure/migrate/
        topicHref: /azure/azure-vmware/
-     - name: How-to guides
+     - name: Site recovery
        tocHref: /azure/site-recovery/
        topicHref: /azure/azure-vmware/

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 04/16/2021
 
 ---
 
@@ -58,7 +58,7 @@ If you are unsure if you should delete the utterance, either move it to the None
 
 ## Disable active learning
 
-To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) with the `log=false` querystring parameter and value or not using the querystring value because the default value is false.
+To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) with the `log=false` querystring parameter and value or not using the querystring value because the default value is false.
 
 ## Next steps
 

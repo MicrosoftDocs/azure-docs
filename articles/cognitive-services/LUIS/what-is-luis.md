@@ -5,7 +5,7 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 04/13/2021
+ms.date: 04/16/2021
 ms.custom: cog-serv-seo-aug-2020
 ---
 
@@ -16,7 +16,7 @@ ms.custom: cog-serv-seo-aug-2020
 Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. LUIS provides access through its [custom portal](https://www.luis.ai), [APIs][endpoint-apis] and [SDK client libraries](client-libraries-rest-api.md).
 
 For first time users, follow these steps to [sign in to LUIS portal](sign-in-luis-portal.md "sign in to LUIS portal")
-To get started, you can try LUIS [prebuilt domain](luis-get-started-create-app.md) apps, or you can [build your app](get-started-portal-build-app.md).
+To get started, you can try a LUIS [prebuilt domain app](luis-get-started-create-app.md).
 
 This documentation contains the following article types:  
 
@@ -27,7 +27,7 @@ This documentation contains the following article types:
 
 ## What does LUIS Offer 
 
-* **Simplicity**: LUIS offloads you from the need of in-house AI expertise or any prior machine learning knowledge. With only a few clicks you can build your own conversational AI application. You can build your custom application by following one of our [quickstarts](get-started-portal-build-app.md), or you can use one of our [prebuilt domain](luis-get-started-create-app.md) apps.
+* **Simplicity**: LUIS offloads you from the need of in-house AI expertise or any prior machine learning knowledge. With only a few clicks you can build your own conversational AI application. You can build your custom application by following one of our [quickstarts](luis-get-started-create-app.md), or you can use one of our [prebuilt domain](luis-get-started-create-app.md) apps.
 * **Security, Privacy and Compliance**: Backed by Azure infrastructure, LUIS offers enterprise-grade security, privacy, and compliance. Your data remains yours; you can delete your data at any time. Your data is encrypted while it’s in storage. Learn more about this [here](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy).
 * **Integration**: easily integrate your LUIS app with other Microsoft services like [Microsoft Bot framework](https://docs.microsoft.com/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md), and [Speech service](../Speech-Service/quickstarts/intent-recognition.md).
 
