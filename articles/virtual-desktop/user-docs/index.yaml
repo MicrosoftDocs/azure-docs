@@ -1,0 +1,72 @@
+title: Windows Virtual Desktop documentation for users
+summary: Connecting to Windows Virtual Desktop made easy.
+
+metadata:
+  title: Windows Virtual Desktop user documentation
+  description: Windows Virtual Desktop for Azure is a multi-user Windows 10 Enterprise experience virtualized in the cloud.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  manager: femila
+  author: Heidilohr
+  ms.author: helohr
+  ms.date: 03/06/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: Windows Desktop client
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to connect with the Windows Desktop client.
+            url: connect-windows-7-10.md
+
+  # Card
+  - title: Microsoft Store client
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to connect with the Microsoft Store client.
+            url: connect-microsoft-store.md
+
+  # Card
+  - title: Web client
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to connect with the web client.
+            url: connect-web.md
+
+  # Card
+  - title: macOS
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to connect with the macOS client.
+            url: connect-macos.md
+
+  # Card
+  - title: iOS
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to connect with the iOS client.
+            url: connect-ios.md
+
+  # Card
+  - title: Android
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to connect with the Android client.
+            url: connect-android.md
+
+  # Card
+  - title: Thin clients
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to connect with third-party Linux thin clients.
+            url: linux-overview.md
