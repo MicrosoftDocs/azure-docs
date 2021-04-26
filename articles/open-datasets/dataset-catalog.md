@@ -19,14 +19,7 @@ Improve the accuracy of your machine learning models with publicly available dat
 | [TartanAir: AirSim Simulation Dataset](dataset-tartanair-simulation.md) | AirSim Autonomous vehicle data generated to solve Simultaneous Localization and Mapping (SLAM). |
 | [NYC Taxi & Limousine Commission - yellow taxi trip records](dataset-taxi-yellow.md) | The yellow taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
 | [NYC Taxi & Limousine Commission - green taxi trip records](dataset-taxi-green.md) | The green taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
-| [NYC Taxi & Limousine Commission - For-Hire Vehicle (FHV) trip records](dataset-taxi-for-hire-vehicle.md) - For-Hire Vehicle (FHV) trip records | The For-Hire Vehicle trip records include the dispatching base license number and the pick-up date, time, and taxi zone location ID. |
-
-## Weather
-
-| Dataset | Description |
-|--|--|
-| NOAA Global Forecast System (GFS) | 15-day US hourly weather forecast data produced by the Global Forecast System (GFS) from the National Oceanic and Atmospheric Administration (NOAA). |
-| NOAA-Integrated Surface Data (ISD) | NOAA-Integrated Surface Data (ISD) provides Worldwide hourly weather history data sourced from the National Oceanic and Atmospheric Administration (NOAA). |
+| [NYC Taxi & Limousine Commission - For-Hire Vehicle (FHV) trip records](dataset-taxi-for-hire-vehicle.md) | The For-Hire Vehicle trip records include the dispatching base license number and the pick-up date, time, and taxi zone location ID. |
 
 ## Health and genetics
 
