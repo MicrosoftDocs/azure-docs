@@ -19,7 +19,7 @@ Azure virtual network gateways provide an easy way to view and disconnect curren
 ## Portal
 
 >[!NOTE]
-> When using the portal, only IKEv2 and OpenVPN protocols are logged.
+> Connection source info is provided for IKEv2 and OpenVPN connections only.
 > 
 
 To view and disconnect a session in the portal:
