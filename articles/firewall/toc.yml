@@ -103,6 +103,8 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrate to Azure Firewall Premium
       href: premium-migrate.md
+    - name: Scale Outbound SNAT Ports
+      href: integrate-with-nat-gateway.md
 - name: Reference
   items:
   - name: Azure CLI
