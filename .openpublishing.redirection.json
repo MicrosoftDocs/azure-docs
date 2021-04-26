@@ -12041,11 +12041,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sql-database/security-baseline.md",
-      "redirect_url": "/azure/azure-sql/database/security-baseline",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/sql-database/sql-database-security-attributes.md",
       "redirect_url": "/azure/azure-sql/database/security-baseline",
       "redirect_document_id": false
