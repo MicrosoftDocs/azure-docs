@@ -4,7 +4,7 @@ description: Learn how to create and deploy stateless node types in Azure Servic
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 04/16/2021
 ms.author: pepogors
 ---
 # Deploy an Azure Service Fabric cluster with stateless-only node types

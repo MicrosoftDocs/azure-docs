@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 12/2/2020
+ms.date: 4/20/2021
 ms.topic: how-to
 ---
 
@@ -323,11 +323,11 @@ To install:
 
 1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows version selection.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select your sensor version and enterprise type.":::   
 
-1. Define the appliance profile and network properties:
+1. Define the appliance profile, and network properties:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile, and network properties.":::   
 
    | Parameter | Configuration |
    |--|--|
@@ -465,7 +465,7 @@ To install the software:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
-1. In the Installation Wizard, define the appliance profile and network properties:
+1. In the Installation Wizard define the hardware profile and network properties:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -549,7 +549,7 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
-1. In the Installation Wizard, define the appliance profile and network properties.
+1. In the Installation Wizard define the appliance profile and network properties.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -698,6 +698,111 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
 
+## On-premises management console installation
+
+Before installing the software on the appliance, you need to adjust the appliance's BIOS configuration:
+
+### BIOS configuration
+
+To configure the BIOS for your appliance:
+
+1. [Enable remote access and update the password](#enable-remote-access-and-update-the-password).
+
+1. [Configure the BIOS](#configure-the-hpe-bios).
+
+### Software installation
+
+The installation process takes about 20 minutes. After the installation, the system is restarted several times. 
+
+During the installation process, you will can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic) at a later time. 
+
+To install the software:
+
+1. Select your preferred language for the installation process.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::     
+
+1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::   
+
+1. In the Installation Wizard, define the network properties:
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::   
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br /> or <br />**possible value** |
+   | **configure management network IP address:** | **IP address provided by the customer** |
+   | **configure subnet mask:** | **IP address provided by the customer** |
+   | **configure DNS:** | **IP address provided by the customer** |
+   | **configure default gateway IP address:** | **IP address provided by the customer** |
+   
+1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure sensor monitoring interface (Optional):** | **eth1**, or **possible value** |
+   | **configure an IP address for the sensor monitoring interface:** | **IP address provided by the customer** |
+   | **configure a subnet mask for the sensor monitoring interface:** | **IP address provided by the customer** |
+
+1. Accept the settlings and continue by typing `Y`. 
+
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
+
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::  
+
+   Save the usernames, and passwords, you'll need these credentials to access the platform the first time you use it.
+
+1. Select **Enter** to continue.
+
+For information on how to find the physical port on your appliance, see [Find your port](#find-your-port).
+
+### Add a secondary NIC
+
+You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
+
+Both NICs have the user interface (UI) enabled. When routing is not necessary, all of the features that are supported by the UI, will be available on the secondary NIC. High Availability will run on the secondary NIC.
+
+If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
+
+If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
+
+1. Use the network reconfigure command:
+
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Enter the following responses to the following questions:
+
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Enter the following answers to configure your appliance.":::
+
+    | Parameters | Response to enter |
+    |--|--|
+    | **Management Network IP address** | `N` |
+    | **Subnet mask** | `N` |
+    | **DNS** | `N` |
+    | **Default gateway IP Address** | `N` |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, **select a possible value** |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer**|
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer** |
+    | **Hostname** | **provided by the customer** |
+
+1. Review all choices, and enter `Y` to accept the changes. The system reboots.
+
+### Find your port
+
+If you are having trouble locating the physical port on your device, you can use the following command to:
+
+```bash
+sudo ethtool -p <port value> <time-in-seconds>
+```
+
+This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes allowing you to find the port on the back of your appliance. 
+
 ## Virtual appliance: On-premises management console installation
 
 The on-premises management console VM supports the following architectures:
@@ -818,11 +923,7 @@ To create a virtual machine by using Hyper-V:
 
 ### Software installation (ESXi and Hyper-V)
 
-Starting the virtual machine will start the installation process from the ISO image. To enhance security, you can create a second network interface on your on-premises management console. One network interface is dedicated for your users, and can support the configuration of a gateway for routed networks. The second network interface is dedicated to the all attached sensors within an IP address range.
-
-Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. High Availability will run on the secondary network interface.
-
-If you choose not to deploy a secondary network interface, all of the features will be available through the primary network interface. 
+Starting the virtual machine will start the installation process from the ISO image.
 
 To install the software:
 
@@ -832,22 +933,9 @@ To install the software:
 
 1. Define the network interface for the sensor management network: interface, IP, subnet, DNS server, and default gateway.
 
-1. (Optional) Add a second network interface to your on-premises management console.
+1. Sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
 
-    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
-    
-    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
-    
-    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
-
-1. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
-
-    | Username | Description |
-    |--|--|
-    | Support | The administrative user for user management. |
-    | CyberX | The equivalent of root for accessing the appliance. |
-
-1. The appliance restarts.
+   The appliance will then reboot.
 
 1. Access the management console via the IP address previously configured: `<https://ip_address>`.
 

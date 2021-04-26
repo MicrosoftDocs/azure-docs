@@ -36,7 +36,7 @@ For Enterprise Agreement Azure users, there's no change in the technical ability
 
 If you signed up before November 15, 2017, for a pay-as-you-go subscription, there will be no change in your technical ability to try outbound email delivery. You'll still be able to try outbound email delivery from Azure VMs within these subscriptions directly to external email providers without any restrictions from the Azure platform. Again, there's no guarantee that email providers will accept incoming email from any given user. Users will have to work directly with email providers to fix any message delivery or SPAM filtering issues that involve specific providers.
 
-For pay-as-you-go subscriptions that were created after November 15, 2017, there will be technical restrictions that block email that's sent directly from VMs within the subscriptions. If you want to be able to send email from Azure VMs directly to external email providers (without using an authenticated SMTP relay) and you have an account in good standing with a payment history, you can request to have the restriction removed. You can do so in the **Connectivity** section of the **Diagnose and Solve** blade for an Azure Virtual Network resource in the Azure portal. If your request is accepted, your subscription will be enabled or you'll receive instructions for next steps. 
+For pay-as-you-go subscriptions that were created after November 15, 2017, there will be technical restrictions that block email that's sent directly from VMs within the subscriptions. If you want to be able to send email from Azure VMs directly to external email providers (without using an authenticated SMTP relay) and you have an account in good standing with a payment history, you can request to have the restriction removed. You can do so in the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** blade for an Azure Virtual Network resource in the Azure portal. If your request is accepted, your subscription will be enabled or you'll receive instructions for next steps. 
 
 After a pay-as-you-go subscription is exempted and the VMs are stopped and restarted in the Azure portal, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that's routed directly to the internet.
 
@@ -60,7 +60,7 @@ If you're using these subscription types, we encourage you to use SMTP relay ser
 
 ## Cloud Solution Provider
 
-If you're using Azure resources through a Cloud Solution Provider, you can make a request to remove the restriction in the **Connectivity** section of the **Diagnose and Solve** pane for a virtual network resource in the Azure portal. If your request is accepted, your subscription will be enabled or you'll receive instructions for next steps.
+If you're using Azure resources through a Cloud Solution Provider, you can make a request to remove the restriction in the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** pane for a virtual network resource in the Azure portal. If your request is accepted, your subscription will be enabled or you'll receive instructions for next steps.
 
 ## Microsoft Partner Network, BizSpark Plus, or Azure Sponsorship
 
@@ -70,7 +70,7 @@ For subscriptions of the following types that were created after November 15, 20
 - BizSpark Plus
 - Azure Sponsorship
 
-If you want to be able to send email from Azure VMs directly to external email providers (without using an authenticated SMTP relay), you can make a request by opening a support case by using the following issue type: **Technical** > **Virtual Network** > **Connectivity** > **Cannot send email (SMTP/Port 25)**. Be sure to add details about why your deployment has to send mail directly to mail providers instead of using an authenticated relay. Requests will be reviewed and approved at the discretion of Microsoft. Requests will be granted only after additional antifraud checks are completed. 
+If you want to be able to send email from Azure VMs directly to external email providers (without using an authenticated SMTP relay), you can make a request by opening a support case by using the following issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**. Be sure to add details about why your deployment has to send mail directly to mail providers instead of using an authenticated relay. Requests will be reviewed and approved at the discretion of Microsoft. Requests will be granted only after additional antifraud checks are completed. 
 
 After a subscription is exempted and the VMs have been stopped and restarted in the Azure portal, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that's routed directly to the internet.
 
@@ -80,4 +80,4 @@ If you change subscription type or your Cloud Solution Provider or pay-as-you-go
 
 ## Need help? Contact support
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Connectivity** > **Cannot send email (SMTP/Port 25)**.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**.

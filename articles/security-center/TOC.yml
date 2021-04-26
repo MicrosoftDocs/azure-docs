@@ -300,7 +300,7 @@
   - name: REST APIs documentation
     href: /rest/api/securitycenter/
   - name: Security baseline
-    href: security-baseline.md
+    href: /security/benchmark/azure/baselines/security-center-security-baseline
   - name: FAQ for Azure Security Center
     items:
     - name: General questions

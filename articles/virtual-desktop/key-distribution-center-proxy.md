@@ -30,7 +30,7 @@ This article will show you how to configure the feed in the Windows Virtual Desk
 To configure a Windows Virtual Desktop session host with a KDC proxy, you'll need the following things:
 
 - Access to the Azure portal and an Azure administrator account.
-- The remote client machines must be running either Windows 10 or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed.
+- The remote client machines must be running either Windows 10 or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, the web client is not supported.
 - You must have a KDC proxy already installed on your machine. To learn how to do that, see [Set up the RD Gateway role for Windows Virtual Desktop](rd-gateway-role.md).
 - The machine's OS must be Windows Server 2016 or later.
 

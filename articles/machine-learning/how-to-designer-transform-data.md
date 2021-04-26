@@ -8,8 +8,8 @@ ms.subservice: core
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Transform data in Azure Machine Learning designer

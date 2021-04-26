@@ -123,7 +123,7 @@ You'll also need to add references to the URLs for your training and testing dat
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
-* Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) or you can use the above steps to get the SAS URL of an individual document in blob storage.
+* Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)) or you can use the above steps to get the SAS URL of an individual document in blob storage.
 
 ## Analyze layout
 

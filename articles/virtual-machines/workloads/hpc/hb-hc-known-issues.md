@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -15,11 +15,13 @@ ms.reviewer: cynthn
 
 This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
+## qp0 Access Restriction
+
+To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX InfiniBand NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications.
+
 ## MOFED installation on Ubuntu
-On Ubuntu-18.04, the Mellanox OFED showed incompatibility with kernels version `5.4.0-1039-azure #42` and newer which causes an increase in VM boot time to about 30 minutes. 
-This has been reported for both Mellanox OFED versions 5.2-1.0.4.0 and 5.2-2.2.0.0.
-The temporary solution is to use the **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** marketplace image or older and not to update the kernel.
-This issue is expected to be resolved with a newer MOFED (TBD).
+On Ubuntu-18.04 based marketplace VM images with kernels version `5.4.0-1039-azure #42` and newer, some older Mellanox OFED are incompatible causing an increase in VM boot time up to 30 minutes in some cases. This has been reported for both Mellanox OFED versions 5.2-1.0.4.0 and 5.2-2.2.0.0. The issue is resolved with Mellanox OFED 5.3-1.0.0.1.
+If it is necessary to use the incompatible OFED, a solution is to use the **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** marketplace VM image or older and not to update the kernel.
 
 ## MPI QP creation errors
 If in the midst of running any MPI workloads, InfiniBand QP creation errors such as shown below, are thrown, we suggest rebooting the VM and re-trying the workload. This issue will be fixed in the future.
@@ -69,10 +71,6 @@ This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. This will be re
       version: 2
     EOF
     ```
-
-## qp0 Access Restriction
-
-To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX-5 NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications themselves.
 
 ## DRAM on HB-series VMs
 

@@ -393,10 +393,10 @@ Timeout             : PT1H
 
 Using Azure CLI, you can manage deployment scripts at subscription or resource group scope:
 
-- [az deployment-scripts delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): Delete a deployment script.
-- [az deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): List all deployment scripts.
-- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): Retrieve a deployment script.
-- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Show deployment script logs.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts#az_deployment_scripts_delete): Delete a deployment script.
+- [az deployment-scripts list](/cli/azure/deployment-scripts#az_deployment_scripts_list): List all deployment scripts.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az_deployment_scripts_show): Retrieve a deployment script.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az_deployment_scripts_show_log): Show deployment script logs.
 
 The list command output is similar to:
 

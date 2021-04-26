@@ -460,7 +460,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/backup-security-baseline
   - name: Access tier
     items:
     - name: Archive tier

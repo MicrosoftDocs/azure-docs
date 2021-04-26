@@ -1,7 +1,7 @@
 ---
 title: How to get facial pose events for lip-sync
 titleSuffix: Azure Cognitive Services
-description: The Speech SDK supports viseme event in speech synthesis, which are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
+description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -17,9 +17,9 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events
 
 > [!NOTE]
-> Viseme only works for `en-US-AriaNeural` voice for now.
+> Viseme events are only available for `en-US-AriaNeural` voice for now.
 
-A viseme is the visual description of a phoneme in spoken language.
+A _viseme_ is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.
 Each viseme depicts the key facial poses for a specific set of phonemes.
 There is no one-to-one correspondence between visemes and phonemes.

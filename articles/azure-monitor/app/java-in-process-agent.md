@@ -126,9 +126,46 @@ See [configuration options](./java-standalone-config.md) for full details.
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
-### Azure SDKs
+### Azure SDKs (preview)
 
-* This feature is in preview, see the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry) for how to enable it.
+See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)
+to enable this preview feature and capture the telemetry emitted by these Azure SDKs:
+
+* [App Configuration](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Cognitive Search](https://docs.microsoft.com/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Communication Chat](https://docs.microsoft.com/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Communication Common](https://docs.microsoft.com/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Communication Identity](https://docs.microsoft.com/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Communication Sms](https://docs.microsoft.com/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Cosmos DB](https://docs.microsoft.com/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Event Grid](https://docs.microsoft.com/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Event Hubs](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Event Hubs - Azure Blob Storage Checkpoint Store](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Form Recognizer](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme) 1.2.4+
+* [Key Vault - Certificates](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Key Vault - Keys](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Key Vault - Secrets](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Service Bus](https://docs.microsoft.com/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Text Analytics](https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "and version sync'd manually against the oldest version in maven central built on azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    continue"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "}"
+[//]: # "console.log(str)"
 
 ## Send custom telemetry from your application
 

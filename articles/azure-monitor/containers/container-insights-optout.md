@@ -14,7 +14,7 @@ After you enable monitoring of your AKS cluster, you can stop monitoring the clu
 
 ## Azure CLI
 
-Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) command to disable Container insights. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
+Use the [az aks disable-addons](/cli/azure/aks#az_aks_disable_addons) command to disable Container insights. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG

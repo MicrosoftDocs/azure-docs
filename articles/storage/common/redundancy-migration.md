@@ -75,7 +75,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
+To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and specify the `--sku` parameter:
 
 ```azurecli-interactive
 az storage account update \

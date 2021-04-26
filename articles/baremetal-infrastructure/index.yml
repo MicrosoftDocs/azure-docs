@@ -46,6 +46,17 @@ landingContent:
             url: workloads/oracle/oracle-baremetal-architecture.md
           - text: Provision BareMetal for Oracle
             url: workloads/oracle/oracle-baremetal-provision.md
+      - linkListType: reference
+        links:
+          - text: High availability and disaster recovery
+            url: workloads/oracle/concepts-oracle-high-availability.md
+          - text: High availability features 
+            url: workloads/oracle/high-availability-features.md
+          - text: Options and considerations 
+            url: workloads/oracle/options-considerations-high-availability.md
+          - text: Choose how to recover
+            url: workloads/oracle/oracle-high-availability-recovery.md
+
 
 # card 3
   - title: SAP HANA on Azure (Large Instances)

@@ -8,8 +8,8 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to,automl,contperf-fy21q2
+ms.topic: how-to
+ms.custom: automl,contperf-fy21q2
 ms.date: 12/18/2020
 ---
 
