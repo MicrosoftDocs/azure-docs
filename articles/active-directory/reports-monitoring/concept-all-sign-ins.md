@@ -1,6 +1,6 @@
 ---
 title: Sign-ins logs in Azure Active Directory - preview | Microsoft Docs
-description: Overview of the sign-ins logs in Azure Active Directory. 
+description: Overview of the sign-ins logs in Azure Active Directory including new features in preview. 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
