@@ -1,5 +1,5 @@
 ---
-title: Help secure standalone managed service accounts | Azure Active Directory
+title: Secure standalone managed service accounts | Azure Active Directory
 description: A guide to securing standalone managed service accounts.
 services: active-directory
 author: BarbaraSelden
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Help secure standalone managed service accounts
+# Secure standalone managed service accounts
 
 Standalone managed service accounts (sMSAs) are managed domain accounts that you use to help secure one or more services that run on a server. They can't be reused across multiple servers. sMSAs provide automatic password management, simplified service principal name (SPN) management, and the ability to delegate management to other administrators. 
 
@@ -33,9 +33,9 @@ sMSAs offer greater security than user accounts that are used as service account
 
 * **Cycle passwords regularly**: Windows automatically changes the sMSA password every 30 days. Service and domain administrators don’t need to schedule password changes or manage the associated downtime.
 
-* **Simplify SPN management**: Service principal names are automatically updated if the domain functional level is Windows Server 2008 R2. ​For instance, the service principal name is automatically updated when you:
+* **Simplify SPN management**: Service principal names are automatically updated if the domain functional level is Windows Server 2008 R2. For instance, the service principal name is automatically updated when you:
 
-   * Rename the host computer account.  ​
+   * Rename the host computer account.  
    * Change the domain name server (DNS) name of the host computer.  
    * Add or remove other sam-accountname or dns-hostname parameters by using [PowerShell](/powershell/module/addsadministration/set-adserviceaccount).
 
@@ -56,9 +56,9 @@ To see how to mitigate potential security issues posed by sMSAs, refer to the fo
 
 | Security issue| Mitigation |
 | - | - |
-| sMSA is a member of privileged groups | Do one of the following:<li>Remove the sMSA from elevated privileged groups, such as Domain Admins.<li>Use the *least privileged* model, and grant the sMSA only the rights and permissions it requires to run its services.<li>If you're unsure of the required permissions, consult the service creator. |
+| sMSA is a member of privileged groups. | Do one of the following:<li>Remove the sMSA from elevated privileged groups, such as Domain Admins.<li>Use the *least privileged* model, and grant the sMSA only the rights and permissions it requires to run its services.<li>If you're unsure of the required permissions, consult the service creator. |
 | sMSA has read/write access to sensitive resources. | Do one of the following:<li>Audit access to sensitive resources.<li>Archive audit logs to a Security Information and Event Management (SIEM) program, such as Azure Log Analytics or Azure Sentinel, for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
-| By default, the sMSA password rollover frequency is 30 days | You can use group policy to tune the duration, depending on enterprise security requirements. <br>To set the password expiration duration, use the following path:<br>*Computer Configuration\Policies\Windows Settings\Security Settings\Security Options*. For ​domain member, use **Maximum machine account password age**. |
+| By default, the sMSA password rollover frequency is 30 days. | You can use group policy to tune the duration, depending on enterprise security requirements. <br>To set the password expiration duration, use the following path:<br>*Computer Configuration\Policies\Windows Settings\Security Settings\Security Options*. For ​domain member, use **Maximum machine account password age**. |
 | | |
 
 
@@ -109,7 +109,7 @@ To manage your sMSAs, you can use the following Active Directory PowerShell cmdl
 
 If an application service supports sMSAs but not gMSAs, and you're currently using a user account or computer account for the security context, [Create and install an sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) on the server. 
 
-Ideally, move resources to Azure, and use Azure Managed Identities or service principals.
+Ideally, you would move resources to Azure and use Azure Managed Identities or service principals.
 
  
 
@@ -118,9 +118,9 @@ Ideally, move resources to Azure, and use Azure Managed Identities or service pr
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
-* [Help secure group managed service accounts](service-accounts-group-managed.md)  
-* [Help secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Help secure computer accounts](service-accounts-computer.md)  
-* [Help secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure group managed service accounts](service-accounts-group-managed.md)  
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
+* [Secure computer accounts](service-accounts-computer.md)  
+* [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
 
