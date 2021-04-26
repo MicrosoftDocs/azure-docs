@@ -38,7 +38,7 @@
   - name: Business continuity
     href: ddos-disaster-recovery-guidance.md
   - name: Security baseline
-    href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
+    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json
 - name: How-to guides
   items:
     - name: Test through simulations
