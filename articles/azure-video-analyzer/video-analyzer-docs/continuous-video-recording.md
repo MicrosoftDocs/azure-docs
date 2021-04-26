@@ -6,7 +6,8 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 
 ---
-# Continuous video recording 
+
+# Continuous video recording    
 
 Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology](pipeline.md) consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the [pipeline](pipeline.md) can be found  in [the CVR json](add-valid-link.md)<!--pipeline-cvr-json-->.
 
