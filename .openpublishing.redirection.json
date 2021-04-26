@@ -34092,7 +34092,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-cli-reference.md",
-      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud",
+      "redirect_url": "/cli/azure/spring-cloud",
       "redirect_document_id": false
     },
     {
@@ -65256,5 +65256,3 @@
     }
   ]
 }
-
-
