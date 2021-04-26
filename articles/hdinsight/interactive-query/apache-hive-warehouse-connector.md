@@ -105,7 +105,7 @@ Apart from the configurations mentioned in the previous section, add the followi
 
         :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain" border="true":::
 
-    * For instance, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
+    * For instance, `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
     
 1. Save changes and restart components as needed.
 
