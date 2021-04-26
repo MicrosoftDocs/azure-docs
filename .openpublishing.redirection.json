@@ -12041,6 +12041,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sql-database/security-baseline.md",
+      "redirect_url": "/azure/azure-sql/database/security-baseline",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-security-attributes.md",
       "redirect_url": "/azure/azure-sql/database/security-baseline",
       "redirect_document_id": false
@@ -17206,6 +17211,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-databricks/security-baseline.md",
+      "redirect_url": "/azure/databricks/scenarios/security-baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-databricks/service-endpoint-cosmosdb.md",
       "redirect_url": "/azure/databricks/scenarios/service-endpoint-cosmosdb",
       "redirect_document_id": false
@@ -18128,6 +18138,11 @@
     {
       "source_path_from_root": "/articles/asc-for-iot/security-agents.md",
       "redirect_url": "/azure/defender-for-iot/security-agents",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/asc-for-iot/security-baseline.md",
+      "redirect_url": "/azure/defender-for-iot/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -24957,6 +24972,11 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/security-baseline.md",
       "redirect_url": "/azure/key-vault/general/security-baseline",
       "redirect_document_id": false
     },
