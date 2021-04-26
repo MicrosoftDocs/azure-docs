@@ -25,9 +25,9 @@ When you move into the development phase of the project, you should consider:
 
 Plan to have a single QnA Maker resource hold all knowledge bases that have the same language, the same region and the same subject domain combination.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-When you first develop a QnA Maker managed knowledge base, in the prototype phase, it is common to have a single QnA Maker managed resource for both testing and production.
+When you first develop a knowledge base, in the prototype phase, it is common to have a single resource for both testing and production.
 
 When you move into the development phase of the project, you should consider:
 
@@ -63,17 +63,17 @@ The following table gives you some high-level guidelines.
 | **Dev/Test Environment**   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
 | **Production Environment** | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 Typically there are three parameters you need to consider:
 
-* **The throughput you need from the service**:
-    * QnA Maker managed (Preview) is a free service, and the throughput is currently capped at 10 TPS for both management APIs and prediction APIs.
+* **The throughput you need from the feature**:
+    * Custom question answering (Preview) is a free feature, and the throughput is currently capped at 10 TPS for both management APIs and prediction APIs.
     * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../search/search-capacity-planning.md) with replicas.
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide number of knowledge bases you need based on number of different subject domains. Once subject domain (for a single language) should be in one knowledge base.
 
-    With QnA Maker managed (Preview) you have a choice to setup your QnA Maker service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your QnA Maker managed (Preview) service.
+    With Custom question anwering (Preview) you have a choice to setup your QnA Maker service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your QnA Maker managed (Preview) service.
 
     ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
 
