@@ -10,7 +10,7 @@ ms.author: baanders
 One way to do this is with the following CLI command, where `<home-tenant-ID>` is the ID of the Azure AD tenant that contains the Azure Digital Twins instance:
 
 ```azurecli-interactive
-az account get-access-token --tenant <home-tenant-ID> --resource https://azure.microsoft.com/services/digital-twins/
+az account get-access-token --tenant <home-tenant-ID> --resource https://digitaltwins.azure.net
 ```
 
-After requesting this, the identity will receive a token issued for the *https://azure.microsoft.com/services/digital-twins/* Azure AD resource, which has a matching tenant ID claim to the Azure Digital Twins instance. Using this token in API requests or with your `Azure.Identity` code should allow the federated identity to access the Azure Digital Twins resource.
+After requesting this, the identity will receive a token issued for the `https://digitaltwins.azure.net`x Azure AD resource, which has a matching tenant ID claim to the Azure Digital Twins instance. Using this token in API requests or with your `Azure.Identity` code should allow the federated identity to access the Azure Digital Twins resource.
