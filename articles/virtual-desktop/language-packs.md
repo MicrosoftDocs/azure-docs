@@ -170,7 +170,8 @@ The script might take a while depending on the number of languages you need to i
 
 Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 
-After adding additional languages to the Windows image, the inbox apps are also required to be updated to support the added languages. This can be done by refreshing the pre-installed apps with the content from the inbox apps ISO. To perform this refresh in a disconnected environment (no Internet Access from the VM possible), you can use the following PowerShell script sample to automate the process.
+After adding additional languages to the Windows image, the inbox apps are also required to be updated to support the added languages. This can be done by refreshing the pre-installed apps with the content from the inbox apps ISO.
+To perform this refresh in an environment where the VM doesn't have internet access, you can use the following PowerShell script template to automate the process and update only installed versions of inbox apps.
 
 ```powershell
 #########################################
