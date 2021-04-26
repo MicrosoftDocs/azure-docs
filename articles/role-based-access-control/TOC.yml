@@ -5,7 +5,7 @@
   items:
   - name: What is Azure RBAC?
     href: overview.md
-  - name: What is Azure ABAC? (Preview)
+  - name: What is Azure ABAC?
     href: conditions-overview.md
   - name: Understand the different roles
     href: rbac-and-directory-admin-roles.md
@@ -36,13 +36,13 @@
     href: scope-overview.md
   - name: Best practices
     href: best-practices.md
-  - name: Condition format (Preview)
+  - name: Condition format
     href: conditions-format.md
-  - name: Example conditions (Preview)
+  - name: Example conditions
     href: ../storage/blobs/storage-blob-abac-examples.md?toc=%2fazure%2frole-based-access-control%2ftoc.json
-  - name: Conditions prerequisites (Preview)
+  - name: Conditions prerequisites
     href: conditions-prerequisites.md
-  - name: Conditions FAQ (Preview)
+  - name: Conditions FAQ
     href: conditions-faq.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
@@ -88,17 +88,17 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Add or edit conditions (Preview)
+  - name: Add or edit conditions
     items:
-    - name: Portal (Preview)
+    - name: Portal
       href: conditions-role-assignments-portal.md
-    - name: PowerShell (Preview)
+    - name: PowerShell
       href: conditions-role-assignments-powershell.md
-    - name: Azure CLI (Preview)
+    - name: Azure CLI
       href: conditions-role-assignments-cli.md
-    - name: REST API (Preview)
+    - name: REST API
       href: conditions-role-assignments-rest.md
-    - name: Troubleshoot conditions (Preview)
+    - name: Troubleshoot conditions
       href: conditions-troubleshoot.md
   - name: Remove role assignments
     href: role-assignments-remove.md
