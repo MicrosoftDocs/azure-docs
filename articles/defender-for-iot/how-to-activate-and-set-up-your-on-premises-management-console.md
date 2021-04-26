@@ -46,7 +46,7 @@ To activate the on-premises management console:
  
 1. Select a subscription to associate the on-premises management console to, and then select the **Download on-premises management console activation file** button. The activation file is downloaded.
 
-   You can select more than one subscription from your available subscriptions to associate the on-premises management console to. The activation file will include all subscriptions selected at the time of download.
+   You can select more than one subscription from your available subscriptions to associate the on-premises management console to. The activation file will include all of the selected subscriptions, and the number of committed devices at the time of download.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="You can select multiple subscriptions to onboard your on-premises management console to.":::
 
