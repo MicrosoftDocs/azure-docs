@@ -981,7 +981,7 @@
   - name: Concepts
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/hdinsight-security-baseline
     - name: Enterprise security general guidelines
       href: ./domain-joined/general-guidelines.md
     - name: Plan for ESP clusters
