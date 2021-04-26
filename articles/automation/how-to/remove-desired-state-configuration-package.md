@@ -1,6 +1,7 @@
 ---
 title: Remove DSC and node from Automation State Configuration
 description: This article explains how to remove an Azure Automation State Configuration (DSC) configuration document assigned and unregister a managed node.
+titleSuffix: Azure Automation
 services: automation
 ms.subservice: dsc
 ms.date: 04/16/2021
