@@ -4,14 +4,14 @@ description: More scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
+author: MarkusVi
 manager: daveba  
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 12/02/2020
-ms.author: curtand
+ms.author: markvi
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -133,7 +133,7 @@ You can use a PowerShell script to check if users have a license assigned direct
 
 ## Use Audit logs to monitor group-based licensing activity
 
-You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md#audit-logs) to see all activity related to group-based licensing, including:
+You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md) to see all activity related to group-based licensing, including:
 - who changed licenses on groups
 - when the system started processing a group license change, and when it finished
 - what license changes were made to a user as a result of a group license assignment.
