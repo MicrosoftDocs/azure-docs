@@ -1,6 +1,6 @@
 ---
-title: Sign-in activity logs in the Azure Active Directory portal | Microsoft Docs
-description: Introduction to sign-in activity logs in the Azure Active Directory portal 
+title: Sign-ins logs in Azure Active Directory | Microsoft Docs
+description: Overview of the sign-ins logs in Azure Active Directory.  
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/23/2021
+ms.date: 04/26/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Sign-in activity logs in the Azure Active Directory portal
+# Sign-ins logs in Azure Active Directory
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
 To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
 
-- **Sign-ins** – Information about sign-ins and how your resources are used by your users.
+- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
