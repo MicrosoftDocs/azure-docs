@@ -68,7 +68,7 @@ To access the sign-ins log of another user, you need to be:
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
 
-## Where can you find it in the Azure Portal?
+## Where can you find it in the Azure portal?
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 

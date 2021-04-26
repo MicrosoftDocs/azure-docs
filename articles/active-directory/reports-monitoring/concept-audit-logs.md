@@ -88,7 +88,7 @@ To access the audit logs, you need to be in one of the following roles:
 - Global Reader
 - Global Administrator
 
-## Where can you find it in the Azure Portal?
+## Where can you find it in the Azure portal?
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
