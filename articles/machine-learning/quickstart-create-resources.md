@@ -33,7 +33,7 @@ If you don't yet have a workspace, create one now:
 
 ## <a name="studio"></a> Explore the workspace
 
-If you didn't select **Go to workspace** in the previous section, sign in now to [Azure Machine Learning studio](http://ml.azure.com) and select your workspace. The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.
+If you didn't select **Go to workspace** in the previous section, sign in now to [Azure Machine Learning studio](https://ml.azure.com) and select your workspace. The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.
 
 Review the parts of the studio on the left-hand navigation bar.
 

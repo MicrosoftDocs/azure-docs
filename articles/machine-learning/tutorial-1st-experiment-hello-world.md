@@ -30,7 +30,7 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-workspace.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
+- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
 
 ## Create and run a Python script
 
