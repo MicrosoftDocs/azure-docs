@@ -1,7 +1,7 @@
 ---
 
-title: Audit activity logs in the Azure Active Directory portal | Microsoft Docs
-description: Introduction to the audit activity logs in the Azure Active Directory portal
+title: Audit logs in Azure Active Directory | Microsoft Docs
+description: Overview of the audit logs in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/22/2021
+ms.date: 04/26/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Audit activity logs in the Azure Active Directory portal 
+# Audit logs in Azure Active Directory 
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
@@ -37,7 +37,13 @@ This article gives you an overview of the audit logs.
  
 ## Who can access the data?
 
-* Users in the **Security Administrator**, **Security Reader**, **Report Reader** , **Global Reader** or **Global Administrator** roles
+To access the audit logs, you need to be in one of the following roles: 
+
+- Security Administrator
+- Security Reader
+- Report Reader
+- Global Reader
+- Global Administrator
 
 ## Audit logs
 
