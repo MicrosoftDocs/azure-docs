@@ -29,7 +29,9 @@ To connect to Microsoft peering, you need to set up and manage NAT. Your connect
 
 Refer to [Asymmetric routing with multiple network paths](./expressroute-asymmetric-routing.md) for caveats of asymmetric routing before configuring Microsoft peering.
 
-* If you are using public peering and currently have IP Network rules for public IP addresses that are used to access [Azure Storage](../storage/common/storage-network-security.md) or [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), you need to make sure that the NAT IP pool configured with Microsoft peering is included in the list of public IP addresses for the Azure storage account or Azure SQL account.<br>
+* If you are using Public peering and currently have IP Network rules for public IP addresses that are used to access PaaS services, such as: Azure Storage or Azure SQL Database, you need to make sure that the NAT IP pool configured with Microsoft peering is permitted.
+* Please note that legacy Public peering makes use of Source Network Address Translation (SNAT) to a Microsoft-registered public ip, while Microsoft peering does not
+* Once you switch to Microsoft peering, you must make sure to permit the customers Public IP under "Selected Networks" access
 * In order to move to Microsoft peering with no downtime, use the steps in this article in the order that they are presented.
 
 ## <a name="create"></a>1. Create Microsoft peering
