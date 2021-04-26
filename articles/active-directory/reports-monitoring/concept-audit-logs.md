@@ -92,9 +92,9 @@ To access the audit logs, you need to be in one of the following roles:
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Open audit logs](./media/concept-audit-logs/audit-logs-menu.png)
+![Open provisioning logs](./media/concept-provisioning-logs/provisioning-logs-menu.png)
 
-Additionally, you can get directly get to the audit logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit)
+Additionally, you can get directly get to the audit logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents)
 
 
 ## What is the default view?
