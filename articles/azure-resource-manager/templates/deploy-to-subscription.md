@@ -87,7 +87,7 @@ To deploy to a subscription, use the subscription-level deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -204,7 +204,7 @@ The following template creates an empty resource group.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -235,7 +235,7 @@ Use the [copy element](copy-resources.md) with resource groups to create more th
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -279,14 +279,14 @@ The following example creates a resource group, and deploys a storage account to
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [

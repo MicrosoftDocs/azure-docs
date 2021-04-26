@@ -1,14 +1,19 @@
 ---
 title: Quickstart - Add VOIP calling to an Android app using Azure Communication Services
-description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for Android
-author: matthewrobertson
-ms.author: marobert
-ms.date: 08/11/2020
+description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for Android
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for Android.
+In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Android.
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the Calling SDK.
 
 ## Prerequisites
 
@@ -29,7 +34,7 @@ Select "Empty Activity" project template under "Phone and Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
-Select Minimum client library of "API 26: Android 8.0 (Oreo)" or greater.
+Select Minimum SDK of "API 26: Android 8.0 (Oreo)" or greater.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
@@ -102,8 +107,8 @@ In order to request permissions required to make a call, they must first be decl
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Our calling client library depends on the Apache HTTP client library.
-When targeting Android client library 28+, this library needs to be explicitly referenced.
+        <!--Our Calling SDK depends on the Apache HTTP SDK.
+When targeting Android SDK 28+, this library needs to be explicitly referenced.
 See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apache-p-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity">
@@ -177,9 +182,9 @@ import android.widget.Toast;
 
 import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationTokenCredential;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.StartCallOptions;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;
@@ -252,11 +257,11 @@ private void getAllPermissions() {
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| The CallClient is the main entry point to the Calling client library.|
+| CallClient| The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
 | CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|
@@ -297,7 +302,7 @@ private void startCall() {
     
     StartCallOptions options = new StartCallOptions();
 
-    callAgent.call(
+    callAgent.startCall(
         getApplicationContext(),
         new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);

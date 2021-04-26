@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/01/2021
+ms.date: 04/12/2021
 ms.author: radeltch
 
 ---
@@ -86,7 +86,7 @@ Before you begin, refer to the following SAP notes and papers:
   * [Red Hat Enterprise Linux Solution for SAP HANA Scale-Out and System Replication](https://access.redhat.com/solutions/4386601)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 * [Azure NetApp Files documentation][anf-azure-doc] 
-* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 
 ## Overview
 
@@ -211,7 +211,6 @@ For the configuration presented in this document, deploy seven virtual machines:
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
       1. Select **HA Ports**.
-      1. Increase the **idle timeout** to 30 minutes.
       1. Make sure to **enable Floating IP**.
       1. Select **OK**.
 
@@ -1168,5 +1167,5 @@ We recommend to thoroughly test the SAP HANA cluster configuration, by also perf
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha].

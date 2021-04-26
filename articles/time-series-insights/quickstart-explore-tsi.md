@@ -9,7 +9,7 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 01/11/2021
+ms.date: 03/01/2021
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
@@ -124,13 +124,6 @@ By using Azure Time Series Insights Gen2 and sensor telemetry, we've discovered 
     * Change the display to overlay all **Generator System** sensors on the same chart scale.
 
       [![Change the display to include everything](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
-
-## Clean up resources
-
-Now that you've completed the quickstart, clean up the resources that you created:
-
-1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, and locate your Azure Time Series Insights Gen2 resource group.
-1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 

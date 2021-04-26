@@ -5,7 +5,6 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.subservice: alerts
 ---
 
 # Monitor multiple time-series in a single metric alert rule

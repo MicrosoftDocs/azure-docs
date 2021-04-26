@@ -14,8 +14,7 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-# Customer intent: As an application developer, I want to learn how MSAL.js can be used with Azure AD B2C for
-# authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
+# Customer intent: As an application developer, I want to learn how MSAL.js can be used with Azure AD B2C for authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
 ---
 
 # Use the Microsoft Authentication Library for JavaScript to work with Azure AD B2C
@@ -213,6 +212,6 @@ When a user selects **Forgot password**, your application throws an error which 
 
 Learn more about these Azure AD B2C concepts:
 
-- [User flows](../../active-directory-b2c/tutorial-create-user-flows.md)
-- [Custom policies](../../active-directory-b2c/custom-policy-get-started.md)
+- [User flows](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-user-flow)
+- [Custom policies](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [UX customization](../../active-directory-b2c/configure-user-input.md)

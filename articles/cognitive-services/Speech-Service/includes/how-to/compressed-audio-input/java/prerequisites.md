@@ -8,7 +8,7 @@ ms.author: trbye
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Instead, you'll need to use the prebuilt binaries for Android. To download the prebuilt libraries, see [installing for Android development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` is required. Make sure that your GStreamer plugins are linked in `libgstreamer_android.so`.
+`libgstreamer_android.so` is required. Make sure that all the GStreamer plugins (from Android.mk file below) are linked in `libgstreamer_android.so`. When using the latest speech SDK (1.16.0 and above) with gstreamer version 1.18.3, `libc++_shared.so` is also required to be present from android ndk.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -26,7 +26,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := dummy
 LOCAL_SHARED_LIBRARIES := gstreamer_android
-LOCAL_LDLIBS := -llog
 include $(BUILD_SHARED_LIBRARY)
 
 ifndef GSTREAMER_ROOT_ANDROID
@@ -57,10 +56,12 @@ endif
 
 GSTREAMER_NDK_BUILD_PATH  := $(GSTREAMER_ROOT)/share/gst-android/ndk-build/
 include $(GSTREAMER_NDK_BUILD_PATH)/plugins.mk
-GSTREAMER_PLUGINS         :=  coreelements app audioconvert mpg123 \
-    audioresample audioparsers ogg \
-    opusparse opus wavparse alaw mulaw flac
-GSTREAMER_EXTRA_LIBS      := -liconv
+GSTREAMER_PLUGINS         :=  $(GSTREAMER_PLUGINS_CORE) \ 
+                              $(GSTREAMER_PLUGINS_CODECS) \ 
+                              $(GSTREAMER_PLUGINS_PLAYBACK) \
+                              $(GSTREAMER_PLUGINS_CODECS_GPL) \
+                              $(GSTREAMER_PLUGINS_CODECS_RESTRICTED)
+GSTREAMER_EXTRA_LIBS      := -liconv -lgstbase-1.0 -lGLESv2 -lEGL
 include $(GSTREAMER_NDK_BUILD_PATH)/gstreamer-1.0.mk
 ```
 

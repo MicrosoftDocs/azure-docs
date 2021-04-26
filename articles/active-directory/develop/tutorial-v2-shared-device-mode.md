@@ -92,7 +92,7 @@ Use `isSharedDevice()` to determine if an app is running on a device that is in 
 Here's a code snippet that shows how you could use `isSharedDevice()`.  It's from the `SingleAccountModeFragment` class in the sample app:
 
 ```Java
-deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
+deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ? "Shared" : "Non-Shared");
 ```
 
 ### Initialize the PublicClientApplication object

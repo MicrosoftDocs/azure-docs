@@ -1,15 +1,16 @@
 ---
 title: Issues using VM extensions in Python 3-enabled Linux Azure Virtual Machines systems 
 description: Learn about using VM extensions in Python 3-enabled Linux systems
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: v-miegge
 ms.author: jparrel
 manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

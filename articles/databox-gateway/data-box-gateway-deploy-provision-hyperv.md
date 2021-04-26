@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 03/01/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
@@ -51,7 +51,7 @@ Before you deploy a device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. We strongly recommend at least 16 GB of RAM.
   * One network interface.
   * A 250 -GB OS disk.
   * A 2-TB virtual disk for data.

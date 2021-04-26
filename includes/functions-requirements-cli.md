@@ -33,7 +33,7 @@ Before you begin, you must have the following:
 + [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 + The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. 

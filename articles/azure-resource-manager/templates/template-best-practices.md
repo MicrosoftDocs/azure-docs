@@ -2,7 +2,7 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 04/23/2021
 ---
 # ARM template best practices
 
@@ -10,7 +10,7 @@ This article shows you how to use recommended practices when constructing your A
 
 ## Template limits
 
-Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters.
+Limit the size of your template to 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. The parameter file is also limited to 4 MB. You may get an error with a template or parameter file of less than 4 MB, if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](error-job-size-exceeded.md).
 
 You're also limited to:
 
@@ -154,7 +154,7 @@ When your template works as expected, we recommend you continue using the same A
 
 Don't use a parameter for the API version. Resource properties and values can vary by API version. IntelliSense in a code editor can't determine the correct schema when the API version is set to a parameter. If you pass in an API version that doesn't match the properties in your template, the deployment will fail.
 
-Don't use variables for the API version. In particular, don't use the [providers function](template-functions-resource.md#providers) to dynamically get API versions during deployment. The dynamically retrieved API version might not match the properties in your template.
+Don't use variables for the API version. 
 
 ## Resource dependencies
 
@@ -271,7 +271,7 @@ The following information can be helpful when you work with [resources](template
    > [!NOTE]
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the `protectedSettings` property of the relevant extensions.
 
-* Specify explicit values for properties that have default values that could change over time. For example, if you are deploying an AKS cluster, you can either specify or omit the `kubernetesVersion` property. If you don't specify it, then [the cluster is defaulted to the N-1 minor version and latest patch](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). When you deploy the cluster using an ARM template, this default behavior might not be what you expect. Redeploying your template may result in the cluster being upgraded to a new Kubernetes version unexpectedly. Instead, consider specifying an explicit version number and then manually changing it when you are ready to upgrade your cluster.
+* Specify explicit values for properties that have default values that could change over time. For example, if you're deploying an AKS cluster, you can either specify or omit the `kubernetesVersion` property. If you don't specify it, then [the cluster is defaulted to the N-1 minor version and latest patch](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). When you deploy the cluster using an ARM template, this default behavior might not be what you expect. Redeploying your template may result in the cluster being upgraded to a new Kubernetes version unexpectedly. Instead, consider specifying an explicit version number and then manually changing it when you're ready to upgrade your cluster.
 
 ## Use test toolkit
 

@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor Logs for Service Providers | Microsoft Docs
 description: Azure Monitor Logs can help Managed Service Providers (MSPs), large enterprises, Independent Software Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
-ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
@@ -81,7 +80,7 @@ There are two options to implement logs in a central location:
 
 * Automate creation of workspaces using [PowerShell](../logs/powershell-workspace-configuration.md)
 
-* Use [Alerts](../platform/alerts-overview.md) to integrate with existing systems
+* Use [Alerts](../alerts/alerts-overview.md) to integrate with existing systems
 
 * Generate summary reports using [Power BI](../visualize/powerbi.md)
 

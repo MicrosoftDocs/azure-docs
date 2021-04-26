@@ -20,12 +20,12 @@ At this time, most Azure Policy Guest Configuration policy definitions only audi
 the machine. They don't apply configurations. The exception is one built-in policy
 [referenced below](#applying-configurations-using-guest-configuration).
 
+[A video walk-through of this document is available](https://youtu.be/Y6ryD3gTHOs).
+
 ## Enable Guest Configuration
 
 To audit the state of machines in your environment, including machines in Azure and Arc Connected
 Machines, review the following details.
-
-> [!VIDEO https://youtu.be/ASIHC59OuZI]
 
 ## Resource provider
 
@@ -73,14 +73,14 @@ built-in content, Guest Configuration handles loading these tools automatically.
 
 ### Validation frequency
 
-The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
+The Guest Configuration client checks for new or changed guest assignments every 5 minutes. Once a guest assignment is
 received, the settings for that configuration are rechecked on a 15-minute interval. Results are
 sent to the Guest Configuration resource provider when the audit completes. When a policy
 [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the
 machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
 evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the
 latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit
-of the configuration within the machine.
+of the configuration within the machine. The status is simultaneously written to Azure Resource Graph.
 
 ## Supported client types
 
@@ -90,13 +90,13 @@ compatible. The following table shows a list of supported operating systems on A
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 18.04|
-|Credativ|Debian|8 and later|
-|Microsoft|Windows Server|2012 and later|
+|Canonical|Ubuntu Server|14.04 - 20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3 -8|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 Custom virtual machine images are supported by Guest Configuration policy definitions as long as
 they're one of the operating systems in the table above.
@@ -111,10 +111,13 @@ report compliance status.
 
 ### Communicate over virtual networks in Azure
 
-Virtual machines using virtual networks for communication will require outbound access to Azure
-datacenters on port `443`. If you're using a private virtual network in Azure that doesn't allow
-outbound traffic, configure exceptions with Network Security Group rules. The service tag
-"GuestAndHybridManagement" can be used to reference the Guest Configuration service.
+To communicate with the Guest Configuration resource provider in Azure, machines require outbound
+access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
+configure exceptions with [Network Security
+Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
+[service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
+used to reference the Guest Configuration service rather than manually maintaining the [list of IP
+ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Azure datacenters.
 
 ### Communicate over private link in Azure
 
@@ -132,13 +135,6 @@ establish a secure, authenticated channel with Azure platform resources.
 Nodes located outside Azure that are connected by Azure Arc require connectivity to the Guest
 Configuration service. Details about network and proxy requirements provided in the
 [Azure Arc documentation](../../../azure-arc/servers/overview.md).
-
-To communicate with the Guest Configuration resource provider in Azure, machines require outbound
-access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
-configure exceptions with [Network Security
-Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
-[service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
-used to reference the Guest Configuration service.
 
 For Arc connected servers in private datacenters, allow traffic using the following patterns:
 
@@ -255,7 +251,10 @@ The Guest Configuration extension writes log files to the following locations:
 
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux
+
+- Azure VM: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+- Azure VM: `/var/lib/GuestConfig/arc_policy_logs/gc_agent.log`
 
 ### Collecting logs remotely
 
@@ -295,9 +294,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 The Guest Configuration client downloads content packages to a machine and extracts the contents.
 To verify what content has been downloaded and stored, view the folder locations given below.
 
-Windows: `c:\programdata\guestconfig\configurations`
+Windows: `c:\programdata\guestconfig\configuration`
 
-Linux: `/var/lib/guestconfig/configurations`
+Linux: `/var/lib/GuestConfig/Configuration`
 
 ## Guest Configuration samples
 
@@ -306,6 +305,12 @@ Guest Configuration built-in policy samples are available in the following locat
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### Video overview
+
+The following overview of Azure Policy Guest Configuration is from ITOps Talks 2021.
+
+[Governing baselines in hybrid server environments using Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## Next steps
 

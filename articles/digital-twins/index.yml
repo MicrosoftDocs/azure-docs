@@ -34,7 +34,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Explore a sample scenario
-            url: quickstart-adt-explorer.md
+            url: quickstart-azure-digital-twins-explorer.md
 
   - title: Go deeper with the tutorials
     linkLists:

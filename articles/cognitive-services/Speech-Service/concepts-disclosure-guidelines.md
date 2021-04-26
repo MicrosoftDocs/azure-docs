@@ -72,5 +72,5 @@ Use the following diagram to determine whether your synthetic voice experience r
 ## See also
 
 * [Disclosure design patterns](concepts-disclosure-patterns.md)
-* [Disclosure for Voice Talent](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)

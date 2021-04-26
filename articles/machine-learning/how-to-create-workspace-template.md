@@ -5,11 +5,11 @@ description: Learn how to use an Azure Resource Manager template to create a new
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
+ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/30/2020
+ms.date: 04/21/2021
 
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -28,14 +28,9 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/) or the [Azure CLI](/cli/azure/install-azure-cli).
 
-* Some scenarios require you to open a support ticket. These scenarios are:
-
-    * __Private Link enabled workspace with a customer-managed key__
-    * __Azure Container Registry for the workspace behind your virtual network__
-
-    For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Some scenarios require you to open a support ticket. For example, using a Private Link enabled workspace with a customer-managed key. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Limitations
 
@@ -283,7 +278,7 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
 
 # [Azure CLI](#tab/azcli)
 
@@ -653,32 +648,6 @@ To avoid this problem, we recommend one of the following approaches:
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
-    ```
-
-### Virtual network not linked to private DNS zone
-
-When creating a workspace with a private endpoint, the template creates a Private DNS Zone named __privatelink.api.azureml.ms__. A __virtual network link__ is automatically added to this private DNS zone. The link is only added for the first workspace and private endpoint you create in a resource group; if you create another virtual network and workspace with a private endpoint in the same resource group, the second virtual network may not get added to the private DNS zone.
-
-To view the virtual network links that already exist for the private DNS zone, use the following Azure CLI command:
-
-```azurecli
-az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
-```
-
-To add the virtual network that contains another workspace and private endpoint, use the following steps:
-
-1. To find the virtual network ID for the network that you want to add, use the following command:
-
-    ```azurecli
-    az network vnet show --name myvnet --resource-group myresourcegroup --query id
-    ```
-    
-    This command returns a value similar to `"/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"'. Save this value and use it in the next step.
-
-2. To add a virtual network link to the privatelink.api.azureml.ms Private DNS Zone, use the following command. For the `--virtual-network` parameter, use the output of the previous command:
-
-    ```azurecli
-    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## Next steps

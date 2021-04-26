@@ -1,9 +1,9 @@
 ---
 title: Block blob storage performance tiers — Azure Storage
 description: Discusses the difference between premium and standard performance tiers for Azure block blob storage.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 11/12/2019
 ms.service: storage
 ms.subservice: blobs

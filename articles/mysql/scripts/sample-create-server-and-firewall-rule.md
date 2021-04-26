@@ -30,10 +30,10 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Creates a MySQL server that hosts the databases. |
-| [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
-| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
+| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).

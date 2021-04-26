@@ -24,10 +24,14 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
+    - name: Angular - Auth code flow
+      href: quickstart-v2-javascript-auth-code-angular.md
     - name: JavaScript - Auth code flow
       href: quickstart-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
+    - name: React - Auth code flow
+      href: quickstart-v2-javascript-auth-code-react.md 
   - name: Web app
     items:
     - name: ASP.NET
@@ -373,6 +377,8 @@
         href: msal-b2c-overview.md
       - name: Migrate to MSAL.js
         href: msal-compare-msal-js-and-adal-js.md
+      - name: Migrate to MSAL Node
+        href: msal-node-migration.md
       - name: Single sign-on with MSAL.js
         href: msal-js-sso.md
       - name: Considerations - IE
@@ -512,6 +518,16 @@
       href: howto-add-app-roles-in-azure-ad-apps.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
+  - name: Build for resilience
+    items:
+    - name: Development Overview
+      href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Client applications
+      href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json  
+    - name: Daemon applications
+      href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: OpenID Connect metadata refresh
+      href: howto-build-services-resilent-to-metadata-refresh.md
   - name: Bring an app to market
     items:
     - name: Follow the branding guidelines
@@ -547,6 +563,8 @@
       href: vs-active-directory-error.md
   - name: Remove an app registration
     href: quickstart-remove-app.md
+  - name: Restore or remove a deleted app registration
+    href: quickstart-restore-app.md
 - name: Reference
   items:
   - name: Glossary
@@ -612,6 +630,8 @@
         href: active-directory-saml-protocol-reference.md
       - name: SAML tokens
         href: reference-saml-tokens.md
+  - name: Azure CLI
+    href: /cli/azure/identity
   - name: Application types and OAuth 2.0
     displayName: App types, OAuth
     href: v2-app-types.md
@@ -625,6 +645,8 @@
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
     href: /graph/api/resources/azure-ad-overview
+  - name: Claims mapping policy type
+    href: reference-claims-mapping-policy-type.md
   - name: Authentication and authorization error codes
     displayName: AADSTS
     href: reference-aadsts-error-codes.md

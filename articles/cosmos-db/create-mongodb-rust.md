@@ -17,7 +17,7 @@ ms.date: 01/12/2021
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 > * [Rust](create-mongodb-rust.md)
@@ -274,7 +274,7 @@ fn list_todos(self, status_filter: &str) {
 }
 ```
 
-A `todo` status can be updated (from `pending` to `completed` or vice versa) using. The `todo` is converted to a 
+A `todo` status can be updated (from `pending` to `completed` or vice versa). The `todo` is converted to a 
 [bson::oid::ObjectId](https://docs.rs/bson/1.1.0/bson/oid/struct.ObjectId.html) which then used by the[Collection.update_one](https://docs.rs/mongodb/1.1.1/mongodb/struct.Collection.html#method.update_one) method to locate the document that needs to be 
 updated.
 

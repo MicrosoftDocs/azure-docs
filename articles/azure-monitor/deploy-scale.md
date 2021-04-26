@@ -1,7 +1,6 @@
 ---
 title: Deploy Azure Monitor at scale using Azure Policy
 description: Deploy Azure Monitor features at scale using Azure Policy.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -117,34 +116,34 @@ The initiative will apply to each virtual machine as it's created. A [remediatio
 ![Initiative remediation](media/deploy-scale/initiative-remediation.png)
 
 
-## Azure Monitor for VMs
-[Azure Monitor for VMs](vm/vminsights-overview.md) is the primary tool in Azure Monitor for monitoring virtual machines. Enabling Azure Monitor for VMs installs both the Log Analytics agent and the Dependency agent. Rather than performing these tasks manually, use Azure Policy to ensure have each virtual machine configured as you create it.
+## VM insights
+[VM insights](vm/vminsights-overview.md) is the primary tool in Azure Monitor for monitoring virtual machines. Enabling VM insights installs both the Log Analytics agent and the Dependency agent. Rather than performing these tasks manually, use Azure Policy to ensure have each virtual machine configured as you create it.
 
 > [!NOTE]
-> Azure Monitor for VMs includes a feature called **Azure Monitor for VMs Policy Coverage** that allows you to discover and remediate noncompliant VMs in your environment. You can use this feature rather than working directly with Azure Policy for Azure VMs and for hybrid virtual machines connected with Azure Arc. For Azure virtual machine scale sets, you must create the assignment using Azure Policy.
+> VM insights includes a feature called **VM insights Policy Coverage** that allows you to discover and remediate noncompliant VMs in your environment. You can use this feature rather than working directly with Azure Policy for Azure VMs and for hybrid virtual machines connected with Azure Arc. For Azure virtual machine scale sets, you must create the assignment using Azure Policy.
  
 
-Azure Monitor for VMs includes the following built-in initiatives that install both agents to enable full monitoring. 
+VM insights includes the following built-in initiatives that install both agents to enable full monitoring. 
 
 |Name |Description |
 |:---|:---|
-|Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on Azure VMs and hybrid VMs connected with Azure Arc. |
+|Enable VM insights | Installs the Log Analytics agent and Dependency agent on Azure VMs and hybrid VMs connected with Azure Arc. |
 |Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale set. |
 
 
 ### Virtual machines
-Instead of creating assignments for these initiatives using the Azure Policy interface, Azure Monitor for VMs includes a feature that allows you to inspect the number of virtual machines in each scope to determine whether the initiative has been applied. You can then configure the workspace and create any required assignments using that interface.
+Instead of creating assignments for these initiatives using the Azure Policy interface, VM insights includes a feature that allows you to inspect the number of virtual machines in each scope to determine whether the initiative has been applied. You can then configure the workspace and create any required assignments using that interface.
 
-For details of this process, see [Enable Azure Monitor for VMs by using Azure Policy](./vm/vminsights-enable-policy.md).
+For details of this process, see [Enable VM insights by using Azure Policy](./vm/vminsights-enable-policy.md).
 
-![Azure Monitor for VMs policy](media/deploy-scale/vminsights-policy.png)
+![VM insights policy](media/deploy-scale/vminsights-policy.png)
 
 ### Virtual machine scale sets
 To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for virtual machine scale sets** initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
 
 ![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for virtual machine scale sets.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Select the workspace the data will be sent to. This workspace must have the *VMInsights* solution installed as described in [Configure Log Analytics workspace for Azure Monitor for VMs](vm/vminsights-configure-workspace.md).
+Select the workspace the data will be sent to. This workspace must have the *VMInsights* solution installed as described in [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md).
 
 ![Select workspace](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -153,7 +152,7 @@ Create a remediation task if you have existing virtual machine scale set that ne
 ![Remediation task](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### Log Analytics agent
-You may have scenarios where you want to install the Log Analytics agent but not the dependency agent. There is no built-in initiative for just the agent, but you can create your own based on the built-in policy definitions provided by Azure Monitor for VMs.
+You may have scenarios where you want to install the Log Analytics agent but not the dependency agent. There is no built-in initiative for just the agent, but you can create your own based on the built-in policy definitions provided by VM insights.
 
 > [!NOTE]
 > There would be no reason to deploy the Dependency agent on its own since it requires the Log Analytics agent to deliver its data to Azure Monitor.

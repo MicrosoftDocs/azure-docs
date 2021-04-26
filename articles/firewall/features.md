@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 04/02/2021
 ms.author: victorh
 ---
 
@@ -50,7 +50,7 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md)
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
 ## Unrestricted cloud scalability
 
@@ -81,6 +81,8 @@ A [service tag](service-tags.md) represents a group of IP address prefixes to he
 All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
+
+You can monitor SNAT port utilization in Azure Firewall metrics. Learn more and see our recommendation on SNAT port utilization in our [firewall logs and metrics documentation](logs-and-metrics.md#metrics).
 
 ## Inbound DNAT support
 
@@ -119,6 +121,18 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
 
+### Categorization change
+
+You can request a categorization change if you:
+
+ - think an FQDN or URL should be under a different category 
+ 
+or 
+
+- have a suggested category for an uncategorized FQDN or URL
+
+You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
+
 ### Category exceptions
 
 You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
@@ -131,4 +145,4 @@ Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SO
 
 ## Next steps
 
-- [Azure Firewall rule processing logic](rule-processing.md)
+- [Azure Firewall Premium Preview features](premium-features.md)

@@ -12,6 +12,8 @@ services: iot-edge
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 This module is useful in scenarios:

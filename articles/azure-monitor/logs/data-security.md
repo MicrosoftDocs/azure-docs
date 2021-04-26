@@ -1,7 +1,6 @@
 ---
 title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -100,7 +99,7 @@ Log Analytics has an incident management process that all Microsoft services adh
   * Operators working on the Microsoft Azure service have addition training obligations surrounding their access to sensitive systems hosting customer data.
   * Microsoft security response personnel receive specialized training for their roles
 
-If loss of any customer data occurs, we notify each customer within one day. However, customer data loss has never occurred with the service. 
+While very rare, Microsoft will notify each customer within one day if significant loss of any customer data occurs. 
 
 For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
@@ -179,12 +178,12 @@ To access your Log Analytics workspace, you sign into the Azure portal using the
 ## Additional Security features
 You can use these additional security features to further secure your Azure Monitor/Log Analytics environment. These features require more administrator management. 
 - [Customer-managed (security) keys](../logs/customer-managed-keys.md) - You can use customer-managed keys to encrypt data sent to your Log Analytics workspaces. It requires use of Azure Key Vault. 
-- [Private / customer-managed Storage](../platform/private-storage.md) - Manage your personally encrypted storage account and tell Log Analytics to use it to store monitoring data 
-- [Private Link networking](../platform/private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
+- [Private / customer-managed Storage](./private-storage.md) - Manage your personally encrypted storage account and tell Log Analytics to use it to store monitoring data 
+- [Private Link networking](./private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
 - [Azure customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
 
 
 ## Next steps
-* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../learn/quick-collect-azurevm.md).  
+* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../vm/quick-collect-azurevm.md).  
 
-*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../vm/quick-collect-linux-computer.md) or [Quickstart for Windows computers](../learn/quick-collect-windows-computer.md)
+*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../vm/quick-collect-linux-computer.md) or [Quickstart for Windows computers](../vm/quick-collect-windows-computer.md)

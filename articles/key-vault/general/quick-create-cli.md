@@ -40,6 +40,6 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 In this quickstart you created a Key Vault and deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](overview.md)
-- Review the [Azure Key Vault security overview](security-overview.md)
+- Review the [Azure Key Vault security overview](security-features.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
 

@@ -12,6 +12,7 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 01/15/2020
+  ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -109,7 +110,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/ext/virtual-wan/network
+            url: /cli/azure/
           - text: Azure PowerShell
             url: /powershell/module/az.network#networking
           - text: REST

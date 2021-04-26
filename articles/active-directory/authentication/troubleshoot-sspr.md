@@ -19,7 +19,9 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud.
 
-If you have problems with SSPR, the following troubleshooting steps and common errors may help. If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
+If you have problems with SSPR, the following troubleshooting steps and common errors may help. You can also watch this short video on the [How ot resolve the six most common SSPR end-user error messages](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
 
 ## SSPR configuration in the Azure portal
 

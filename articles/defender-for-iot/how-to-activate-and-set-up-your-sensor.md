@@ -1,12 +1,8 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Activate and set up your sensor
@@ -44,7 +40,7 @@ Your sensor was onboarded to Azure Defender for IoT in a specific management mod
 | **Cloud connected mode** | Information that the sensor detects is displayed in the sensor console. Alert information is also delivered through the IoT hub and can be shared with other Azure services, such as Azure Sentinel. |
 | **Locally connected mode** | Information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console, if the sensor is connected to it. |
 
-A locally connected or cloud-connected activation file was generated and downloaded for this sensor during onboarding. The activation file contains instructions for the management mode of the sensor. *A unique activation file should be uploaded to each sensor you deploy.*  The first time you sign in, you need to upload the relevant activation file for this sensor.
+A locally connected, or cloud-connected activation file was generated and downloaded for this sensor during onboarding. The activation file contains instructions for the management mode of the sensor. *A unique activation file should be uploaded to each sensor you deploy.*  The first time you sign in, you need to upload the relevant activation file for this sensor.
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Azure Defender for IoT portal, onboard sensor.":::
 
@@ -209,9 +205,9 @@ You access console tools from the side menu.
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](https://support.microsoft.com/) for help. |
 
-### See also
+## See also
 
-[Onboard a sensor](getting-started.md#4-onboard-a-sensor)
+[Onboard a sensor](getting-started.md#onboard-a-sensor)
 
 [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

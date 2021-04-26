@@ -3,14 +3,18 @@ title: 'Quickstart: Create a dedicated SQL pool (formerly SQL DW) with Azure Pow
 description: Quickly create a dedicated SQL pool (formerly SQL DW) with a server-level firewall rule using Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw 
-ms.date: 4/11/2019
 ms.author: xiaoyul
+manager: craigg
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
+ms.date: 4/11/2019
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
+  - devx-track-azurepowershell
+  - mode-api
 ---
 # Quickstart: Create a dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 

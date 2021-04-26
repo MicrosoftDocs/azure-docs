@@ -1,6 +1,6 @@
 ---
 title: Manage compute resource for for dedicated SQL pool (formerly SQL DW)
-description: Learn about performance scale out capabilities for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. Scale out by adjusting DWUs, or lower costs by pausing the dedicated SQL pool.
+description: Learn about performance scale out capabilities for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. Scale out by adjusting DWUs, or lower costs by pausing the dedicated SQL pool (formerly SQL DW).
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -87,6 +87,7 @@ When you pause a dedicated SQL pool (formerly SQL DW):
 - Data warehouse unit costs are zero for the duration of the pause.
 - Data storage is not affected and your data stays intact.
 - All running or queued operations are cancelled.
+- DMV counters are reset.
 
 When you resume a dedicated SQL pool (formerly SQL DW):
 

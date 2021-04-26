@@ -20,7 +20,7 @@ The following port and URLs are required for the Hybrid Runbook Worker, and for 
 
 ### Network planning for Hybrid Runbook Worker
 
-For either a system or user Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for the Log Analytics agent](../azure-monitor/platform/agent-windows.md) to connect to the Azure Monitor Log Analytics workspace.
+For either a system or user Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for the Log Analytics agent](../azure-monitor/agents/agent-windows.md) to connect to the Azure Monitor Log Analytics workspace.
 
 If you have an Automation account that's defined for a specific region, you can restrict Hybrid Runbook Worker communication to that regional datacenter. Review the [DNS records used by Azure Automation](how-to/automation-region-dns-records.md) for the required DNS records.
 

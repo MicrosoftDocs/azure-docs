@@ -418,6 +418,8 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 10. For **Boot diagnostics**, Select **Disable**.
 10. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Test the firewall
 
 1. First, note the private IP address for **VM-spoke-01** virtual machine.

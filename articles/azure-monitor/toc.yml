@@ -87,6 +87,8 @@
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
+    - name: Container insights
+      href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
@@ -95,11 +97,11 @@
       href: logs/resource-manager-workspace.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
+    - name: SQL insights
+      href: insights/resource-manager-sql-insights.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Azure Monitor for containers
-      href: containers/resource-manager-container-insights.md
-    - name: Azure Monitor for VMs
+    - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: cli-samples.md
@@ -146,7 +148,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/monitor-security-baseline
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
@@ -416,7 +418,7 @@
         - name: Send to Event Hubs
           href: agents/diagnostics-extension-stream-event-hubs.md
         - name: Send to Logs
-          href: essentials/diagnostics-extension-logs.md
+          href: agents/diagnostics-extension-logs.md
         - name: Send to Application Insights
           href: agents/diagnostics-extension-to-application-insights.md
         - name: Version history
@@ -475,8 +477,6 @@
       items:
       - name: Manage metric alerts
         href: alerts/alerts-metric.md
-      - name: Availability
-        href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -642,7 +642,7 @@
       - name: Non-HTTP/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: ASP.NET Console
+      - name: .NET Console
         displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
         href: app/console.md
       - name: Java
@@ -720,12 +720,18 @@
               href: app/java-in-process-agent.md
             - name: Configuration options
               href: app/java-standalone-config.md
-            - name: Telemetry processors
+            - name: Advanced configurations
               items:
-              - name: Overview
-                href: app/java-standalone-telemetry-processors.md
-              - name: Examples
-                href: app/java-standalone-telemetry-processors-examples.md
+              - name: JMX metrics
+                href: app/java-jmx-metrics-configuration.md
+              - name: Sampling overrides
+                href: app/java-standalone-sampling-overrides.md
+              - name: Telemetry processors
+                items:
+                - name: Overview
+                  href: app/java-standalone-telemetry-processors.md
+                - name: Examples
+                  href: app/java-standalone-telemetry-processors-examples.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
             - name: Upgrade from 2.x SDK
@@ -773,6 +779,8 @@
       displayname: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
+      - name: Overview
+        href: app/availability-overview.md
       - name: URL tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
@@ -968,8 +976,6 @@
       items:
       - name: F5 insights
         href: app/visual-studio.md
-      - name: Trends
-        href: app/visual-studio-trends.md
       - name: CodeLens
         href: app/visual-studio-codelens.md
     - name: Other platforms
@@ -986,14 +992,14 @@
       href: app/change-analysis-visualizations.md
     - name: Troubleshoot
       href: app/change-analysis-troubleshoot.md
-  - name: Azure Monitor for VMs
+  - name: VM insights
     items:
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.md  
     - name: FAQ
-      href: faq.md#azure-monitor-for-vms
+      href: faq.md#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1040,12 +1046,14 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
-  - name: Azure Monitor for containers 
+    - name: Troubleshoot
+      href: vm/vminsights-troubleshoot.md
+  - name: Container insights 
     items:
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: faq.md#azure-monitor-for-containers
+      href: faq.md#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1078,7 +1086,7 @@
       href: insights/container-insights-reports.md
     - name: View live data
       items:
-      - name: Live Data (preview) overview
+      - name: Live Data overview
         href: containers/container-insights-livedata-overview.md
       - name: Setup
         href: containers/container-insights-livedata-setup.md
@@ -1128,6 +1136,18 @@
       href: insights/network-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
+    - name: SQL insights (preview)
+      items:
+      - name: Overview
+        href: insights/sql-insights-overview.md
+      - name: FAQ
+        href: faq.md#sql-insights-preview
+      - name: Enable
+        href: insights/sql-insights-enable.md
+      - name: Alerts
+        href: insights/sql-insights-alerts.md
+      - name: Troubleshoot
+        href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md
@@ -1375,7 +1395,7 @@
       href: /cli/azure/azure-cli-reference-for-monitor
       displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: /cli/azure/ext/application-insights/monitor/app-insights
+      href: /cli/azure/monitor/app-insights
     - name: Activity Logs
       href: /cli/azure/monitor/activity-log
     - name: Log Analytics

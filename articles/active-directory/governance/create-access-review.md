@@ -2,7 +2,7 @@
 title: Create an access review of groups & applications - Azure AD
 description: Learn how to create an access review of group members or application access in Azure Active Directory access reviews. 
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
-ms.author: barclayn
+ms.date: 3/3/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -75,7 +75,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     - **Group owner(s)** (Only available when performing a review on a Team or group)
     - **Selected user(s) or groups(s)**
     - **Users review own access**
-    - **(Preview) Managers of users.**
+    - **Managers of users.**
     If you choose either **Managers of users** or **Group owners**  you also have the option to specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or the group does not have an owner.
 
     ![new access review](./media/create-access-review/new-access-review.png)
@@ -154,7 +154,7 @@ If you have assigned guests as reviewers and they have not accepted the invite, 
 
 ## Create reviews via APIs
 
-You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD access reviews API reference](/graph/api/resources/accessreviews-root?view=graph-rest-beta). For a code sample, see [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD access reviews API reference](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true). For a code sample, see [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## Next steps
 

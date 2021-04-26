@@ -2,7 +2,6 @@
 title: Archive data from Log Analytics workspace to Azure storage using Logic App
 description: Describes a method to use Azure Logic Apps to query data from a Log Analytics workspace and send to Azure Storage.
 ms.service:  azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -114,7 +113,7 @@ AzureActivity
     ResourceId = _ResourceId 
 ```
 
-The **Time Range** specifies the records that will be included in the query based on the **TimeGenerated** column. This should be set to a value equal to or higher than the time range selected in the query. Since this query isn't using the **TimeGenerated** column, then **Set in query** option isn't available. See [Query scope](../log-query/scope.md) for more details about the time range. 
+The **Time Range** specifies the records that will be included in the query based on the **TimeGenerated** column. This should be set to a value equal to or higher than the time range selected in the query. Since this query isn't using the **TimeGenerated** column, then **Set in query** option isn't available. See [Query scope](./scope.md) for more details about the time range. 
 
 Select **Last 4 hours** for the **Time Range**. This will ensure that any records with a ingestion time larger than **TimeGenerated** will be included in the results.
    
@@ -206,6 +205,6 @@ Go to the **Storage accounts** menu in the Azure portal and select your storage 
 
 ## Next steps
 
-- Learn more about [log queries in Azure Monitor](../log-query/log-query-overview.md).
+- Learn more about [log queries in Azure Monitor](./log-query-overview.md).
 - Learn more about [Logic Apps](../../logic-apps/index.yml)
 - Learn more about [Power Automate](https://flow.microsoft.com).

@@ -191,7 +191,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
-1. Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the load balancer:
+1. Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the load balancer:
 
 ```azurepowershell-interactive
 $ip = @{

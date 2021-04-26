@@ -22,7 +22,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 |Aspect|Details|
 |----|:----|
 |Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Generally available (GA) |
-|Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|[SQL on Azure virtual machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc enabled SQL servers](/sql/sql-server/azure-arc/overview)<br>On-premises SQL servers on Windows machines without Azure Arc<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
 |||
@@ -39,7 +39,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 - **Azure Defender for SQL servers on machines** extends the protections for your Azure-native SQL Servers to fully support hybrid environments and protect SQL servers (all supported version) hosted in Azure, other cloud environments, and even on-premises machines:
     - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - On-premises SQL servers:
-        - [Azure Arc enabled SQL Server (preview)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [Azure Arc enabled SQL Server (preview)](/sql/sql-server/azure-arc/overview)
         - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
 
 

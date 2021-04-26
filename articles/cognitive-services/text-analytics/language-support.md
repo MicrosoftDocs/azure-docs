@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -19,9 +19,11 @@ ms.author: aahi
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chinese-Simplified    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` also accepted |
 | Chinese-Traditional   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Dutch                 |     `nl`      |     ✓      |         2019-10-01        |                    |
 | English               |     `en`      |     ✓      |         2019-10-01         |                    |
 | French                |     `fr`      |     ✓      |         2019-10-01         |                    |
 | German                |     `de`      |     ✓      |         2019-10-01         |                    |
+| Hindi                 |    `hi`       |     ✓      |         2020-04-01         |                    |
 | Italian               |     `it`      |     ✓      |         2019-10-01         |                    |
 | Japanese              |     `ja`      |     ✓      |         2019-10-01         |                    |
 | Korean                |     `ko`      |    ✓      |         2019-10-01         |                    |
@@ -223,6 +225,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Tibetan|`bo`|✓|2021-01-05|
 |Tigrinya|`ti`|✓|2021-01-05|
 |Tongan|`to`|✓|2020-09-01|
+|Turkish|`tr`|✓|2021-01-05|
 |Turkmen|`tk`|✓|2021-01-05|
 |Xhosa|`xh`|✓|2021-01-05|
 |Yoruba|`yo`|✓|2021-01-05|

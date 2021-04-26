@@ -15,7 +15,7 @@ ms.custom: monitoring
 
 Azure Storage Analytics performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
 
-To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure portal](https://portal.azure.com). For details, see [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties), [Set Queue Service Properties](/rest/api/storageservices/set-queue-service-properties), [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties), and [Set File Service Properties](/rest/api/storageservices/Get-File-Service-Properties) operations to enable Storage Analytics for each service.
+To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure portal](https://portal.azure.com). For details, see [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties), [Set Queue Service Properties](/rest/api/storageservices/set-queue-service-properties), [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties), and [Set File Service Properties](/rest/api/storageservices/Get-File-Service-Properties) operations to enable Storage Analytics for each service.
 
 The aggregated data is stored in a well-known blob (for logging) and in well-known tables (for metrics), which may be accessed using the Blob service and Table service APIs.
 
@@ -41,6 +41,6 @@ Every request made to an account's storage service is either billable or non-bil
 When looking at Storage Analytics data, you can use the tables in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) topic to determine what requests are billable. Then you can compare your logs and metrics data to the status messages to see if you were charged for a particular request. You can also use the tables in the previous topic to investigate availability for a storage service or individual API operation.
 
 ## Next steps
-* [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
+* [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md)
 * [Storage Analytics Metrics](storage-analytics-metrics.md)
 * [Storage Analytics Logging](storage-analytics-logging.md)

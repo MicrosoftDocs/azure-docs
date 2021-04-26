@@ -8,13 +8,15 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/22/2021
 ms.custom: contperf-fy21q3
 ---
 
 # How to configure blob indexing in Cognitive Search
 
-This article shows you how to configure a blob indexer for indexing text-based documents (such as PDFs, Microsoft Office documents, and others) in Azure Cognitive Search. If you're unfamiliar with indexer concepts, start with [Indexers in Azure Cognitive Search](search-indexer-overview.md) and [Create a search indexer](search-howto-create-indexers.md) before diving into blob indexing.
+A blob indexer is used for ingesting content from Azure Blob storage into a Cognitive Search index. Blob indexers are frequently used in [AI enrichment](cognitive-search-concept-intro.md), where an attached [skillset](cognitive-search-working-with-skillsets.md) adds image and natural language processing to create searchable content. But you can also use blob indexers without AI enrichment, to ingest content from text-based documents such as PDFs, Microsoft Office documents, and file formats.
+
+This article shows you how to configure a blob indexer for either scenario. If you're unfamiliar with indexer concepts, start with [Indexers in Azure Cognitive Search](search-indexer-overview.md) and [Create a search indexer](search-howto-create-indexers.md) before diving into blob indexing.
 
 <a name="SupportedFormats"></a>
 
@@ -26,7 +28,7 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 ## Data source definitions
 
-The difference between a blob indexer and any other indexer is the data source definition that's assigned to the indexer. The data source encapsulates all properties that specify the type, connection, and location of the content to be indexed.
+The primary difference between a blob indexer and any other indexer is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": "azureblob"), as well as other properties for authentication and connection to the content to be indexed.
 
 A blob data source definition looks similar to the example below:
 
@@ -72,7 +74,7 @@ The SAS should have the list and read permissions on the container. For more inf
 
 ## Index definitions
 
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience. The following example creates a simple index using the [Create Index (REST API)](/rest/api/searchservice/create-index). 
+The index specifies the fields in a document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination. The following example creates a simple index using the [Create Index (REST API)](/rest/api/searchservice/create-index). 
 
 ```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -90,7 +92,7 @@ api-key: [admin key]
 
 Index definitions require one field in the `"fields"` collection to act as the document key. Index definitions should also include fields for content and metadata.
 
-A **`content`** field is used to store the text extracted from blobs. Your definition of this field might look similar to the one above. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a content Edm.String field in the index, no field mappings required.
+A **`content`** field is common to blob content. It contains the text extracted from blobs. Your definition of this field might look similar to the one above. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a content Edm.String field in the index, with no field mappings required.
 
 You could also add fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties. For more information about indexes, see [Create an index](search-what-is-an-index.md).
 

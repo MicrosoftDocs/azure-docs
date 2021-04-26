@@ -170,7 +170,7 @@ Trusted Microsoft first party services exception feature is free of charge. Char
 
 ### Egress connectivity to storage account endpoints for routing
 
-IoT Hub can route messages to a customer-owned storage account. To allow the routing functionality to access a storage account while firewall restrictions are in place, your IoT Hub needs to have a [managed identity](#turn-on-managed-identity-for-iot-hub). Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your storage account.
+IoT Hub can route messages to a customer-owned storage account. To allow the routing functionality to access a storage account while firewall restrictions are in place, your hub needs to use a managed identity to access the storage account. First your hub will need a [managed identity](#turn-on-managed-identity-for-iot-hub). Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your storage account.
 
 1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
@@ -188,7 +188,7 @@ Now your custom storage endpoint is set up to use your hub's system assigned ide
 
 ### Egress connectivity to event hubs endpoints for routing
 
-IoT Hub can be configured to route messages to a customer-owned event hubs namespace. To allow the routing functionality to access an event hubs resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is created, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your event hubs.
+IoT Hub can be configured to route messages to a customer-owned event hubs namespace. To allow the routing functionality to access an event hubs resource while firewall restrictions are in place, your IoT Hub needs to use a managed identity to access the event hubs resource. First your hub will need a managed identity. Once a managed identity is created, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your event hubs.
 
 1. In the Azure portal, navigate to your event hubs **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
@@ -206,7 +206,7 @@ Now your custom event hubs endpoint is set up to use your hub's system assigned 
 
 ### Egress connectivity to service bus endpoints for routing
 
-IoT Hub can be configured to route messages to a customer-owned service bus namespace. To allow the routing functionality to access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your service bus.
+IoT Hub can be configured to route messages to a customer-owned service bus namespace. To allow the routing functionality to access a service bus resource while firewall restrictions are in place, your IoT Hub needs to use a managed identity to access the service bus resource. First your hub will need a managed identity. Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your service bus.
 
 1. In the Azure portal, navigate to your service bus' **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 

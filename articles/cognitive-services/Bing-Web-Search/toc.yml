@@ -68,19 +68,19 @@
   - name: Bing Web Search API v5
     href: /rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference
   - name: Azure CLI
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
     - name: Python
-      href: /python/api/azure-cognitiveservices-search-websearch/?view=azure-python
+      href: /python/api/azure-cognitiveservices-search-websearch/
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-websearch/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-websearch/
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
   - name: Use and display requirements

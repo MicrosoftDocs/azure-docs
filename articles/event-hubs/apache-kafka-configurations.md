@@ -2,7 +2,7 @@
 title: Recommended configurations for Apache Kafka clients - Azure Event Hubs
 description: This article provides recommended Apache Kafka configurations for clients interacting with Azure Event Hubs for Apache Kafka. 
 ms.topic: reference
-ms.date: 01/07/2021
+ms.date: 03/03/2021
 ---
 
 # Recommended configurations for Apache Kafka clients
@@ -28,7 +28,6 @@ Property | Recommended Values | Permitted Range | Notes
 `metadata.max.idle.ms` | 180000 | > 5000 | Controls how long the producer will cache metadata for a topic that's idle. If the elapsed time since a topic was last produced exceeds the metadata idle duration, then the topic's metadata is forgotten and the next access to it will force a metadata fetch request.
 `linger.ms` | > 0 | | For high throughput scenarios, linger value should be equal to the highest tolerable value to take advantage of batching.
 `delivery.timeout.ms` | | | Set according to the formula (`request.timeout.ms` + `linger.ms`) * `retries`.
-`enable.idempotence` | false | | Idempotency currently not supported.
 `compression.type` | `none` | | Compression currently not supported..
 
 ### Consumer configurations only
@@ -57,7 +56,6 @@ Property | Recommended Values | Permitted Range | Notes
 `retries` | > 0 | | Default is 2. We recommend that you keep this value. 
 `request.timeout.ms` | 30000 .. 60000 | > 20000| EH will internally default to a minimum of 20,000 ms.  `librdkafka` default value is 5000, which can be problematic. *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*
 `partitioner` | `consistent_random` | See librdkafka documentation | `consistent_random` is default and best.  Empty and null keys are handled ideally for most cases.
-`enable.idempotence` | false | | Idempotency currently not supported.
 `compression.codec` | `none` || Compression currently not supported.
 
 ### Consumer configurations only

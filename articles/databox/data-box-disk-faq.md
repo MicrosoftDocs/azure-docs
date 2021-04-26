@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ms.author: alkohli
+ms.custom: references_regions
 ---
 
 # Azure Data Box Disk: Frequently Asked Questions
@@ -44,13 +45,13 @@ A. For information on the price of Data Box Disks, go to [Pricing page](https://
 A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.
 
 ### Q. What is the maximum amount of data I can transfer with Data Box Disks in one instance?
-A. For 5 disks, each with 8 TB capacity (7 TB of usable capacity), the maximum usable capacity is 35 TB. So you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
+A. For five disks, each with 8-TB capacity (7 TB of usable capacity), the maximum usable capacity is 35 TB. So you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
 A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea, and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box Disk is supported for all regions within US, Canada, EU, UK, Australia, Singapore, India, China, Hong Kong, Japan, Korea, and South Africa. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. How can I import source data present at my location in one country/region to an Azure region in a different country?
 A. Data Box Disk supports data ingestion only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Box Disks can ship to and from any EU country/region.
@@ -68,6 +69,18 @@ Ship a [supported disk](../import-export/storage-import-export-requirements.md?t
 2. After the data from your on-premises server is copied to the disks, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
+
+#### Q. Does Data Box Disk store any customer data outside of the service region?
+
+A. No. Data Box Disk does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.  
+
+In addition to the customer data, there is Data Box Disk data that includes metadata and monitoring logs. In all the regions (except Brazil South and Southeast Asia), Data Box Disk data is stored and replicated in a [paired region](../best-practices-availability-paired-regions.md) via a Geo-redundant Storage account to protect against data loss.  
+
+Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, Data Box Disk data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box Disk data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
+
+If there is a service outage in Brazil South and Southeast Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box Disk.
+
+
 
 ### Q. How can I recover my data if an entire region fails?
 
@@ -106,7 +119,7 @@ These lead times are *estimates*. The time for each stage of order processing is
 ## Configure and connect
  
 ### Q. Can I specify the number of Data Box Disks in the order?
-A.  No. You get 8 TB disks (a maximum of 5 disks) depending upon your data size and availability of the disks.  
+A.  No. You get 8-TB disks (a maximum of five disks) depending upon your data size and availability of the disks.  
 
 ### Q. How do I unlock the Data Box Disks? 
 A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal for your operating system. Run the tool on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks. 
@@ -182,7 +195,7 @@ A.  To speed up the copy process:
 - Copy files to the VM's disk.
 
 ### Q. Can I use multiple storage accounts with Data Box Disks?
-A.  No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported. Currently, only the storage accounts in US, West Europe, and North Europe in the Azure public cloud are supported.
+A.  No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported.
 
 ### Q. What is the toolset available for my data with Data Box Disks?
 A. The toolset available with the Data Box Disk contains three tools:

@@ -47,13 +47,13 @@ The **Outages and Downtime** tab has information on total outage instances and t
 
 ## Edit the report
 
-You can edit the report like any other [Azure Monitor Workbook](../platform/workbooks-overview.md). You can customize the queries or visualizations based on your team's needs.
+You can edit the report like any other [Azure Monitor Workbook](../visualize/workbooks-overview.md). You can customize the queries or visualizations based on your team's needs.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF of selecting the edit button to change the visualization to a pie chart." lightbox="./media/sla-report/edit.gif":::
 
 ### Log Analytics
 
-The queries can all be run in [Log Analytics](../log-query/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
+The queries can all be run in [Log Analytics](../logs/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF of log query." lightbox="./media/sla-report/logs.gif":::
 
@@ -65,6 +65,6 @@ The report can be shared with your teams, leadership, or pinned to a dashboard f
 
 ## Next steps
 
-- [Log Analytics query optimization tips](../log-query/query-optimization.md).
-- Learn how to [create a chart in workbooks](../platform/workbooks-chart-visualizations.md).
+- [Log Analytics query optimization tips](../logs/query-optimization.md).
+- Learn how to [create a chart in workbooks](../visualize/workbooks-chart-visualizations.md).
 - Learn how to monitor your website with [availability tests](monitor-web-app-availability.md).

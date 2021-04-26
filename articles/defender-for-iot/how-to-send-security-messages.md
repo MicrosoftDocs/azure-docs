@@ -1,21 +1,9 @@
 ---
 title: Send Defender for IoT device security messages
 description: Learn how to send your security messages using Defender for IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/8/2021
-ms.author: shhazam
 ms.custom: devx-track-js
-
 ---
 
 # Send security messages SDK
