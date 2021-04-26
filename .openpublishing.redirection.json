@@ -65211,11 +65211,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-network/nat-security-baseline.md",
-      "redirect_url": "/azure/virtual-network/nat-gateway/nat-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-network/quickstart-create-nat-gateway-template.md",
       "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-template",
       "redirect_document_id": false
