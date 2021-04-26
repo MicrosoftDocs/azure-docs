@@ -87,42 +87,6 @@ Nearly all machine learning subcommands require the `--workspace/-w` and `--reso
 
 Note: most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
-## Hello world
-
-To follow along, clone and change into the Azure ML CLI examples:
-
-```azurecli
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli
-```
-
-To run hello world locally via Python, see the example in the `jobs` subdirectory:
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
-
-> [!IMPORTANT]
-> [Docker](https://docker.io) needs to be installed and running locally.
-
-And submit:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world":::
-
-This will generate a UUID for the job name. You can capture it for use in later commands with `--query`:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world_output":::
-
-Then open the job in the studio:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="show_job_in_studio":::
-
-Or, stream to the logs, which will block the console:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="stream_job_logs_to_console":::
-
-Check the status:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="check_job_status":::
-
 ## Next steps
 
 - [Train models using Machine Learning CLI extension](how-to-train-cli.md)
