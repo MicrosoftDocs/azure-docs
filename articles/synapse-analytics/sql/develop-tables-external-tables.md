@@ -33,23 +33,11 @@ The key differences between Hadoop and native external tables are presented in t
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
-### [Hadoop](#tab/hadoop) 
-
 External table created on `HADOOP` external data sources to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
 - Import and store data from Azure Blob Storage and Azure Data Lake Storage.
-
-When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
-
-For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
-
-### [Native](#tab/native)
-
-For serverless SQL pool, you'll use an external table to:
-
-- Query data in Azure Blob Storage or Azure Data Lake Storage with Transact-SQL statements
-- Store serverless SQL pool query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
+- Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
 
 You can create external tables using serverless SQL pool via the following steps:
 
@@ -57,7 +45,10 @@ You can create external tables using serverless SQL pool via the following steps
 2. CREATE EXTERNAL FILE FORMAT
 3. CREATE EXTERNAL TABLE
 
----
+> [!NOTE]
+> When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the **dedicated** SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
+> 
+> For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
 ### Security
 
@@ -65,9 +56,6 @@ User must have `SELECT` permission on external table to read the data.
 External table access underlying Azure storage using the database scoped credential defined in data source using the following rules:
 - Data source without credential enables external tables to access publicly available files on Azure storage.
 - Data source can have credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - For examples, see [the Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) article.
-
-> [!IMPORTANT]
-> In dedicated SQL pool, a data source created without a credential enables Azure AD users to access storage files using their Azure AD identity. In serverless SQL pool, you need to create a data source with a database-scoped credential that has `IDENTITY='User Identity'` property - see [examples here](develop-storage-files-storage-access-control.md#examples).
 
 ## CREATE EXTERNAL DATA SOURCE
 
@@ -176,38 +164,6 @@ By creating an external file format, you specify the actual layout of the data r
 
 ### Syntax for CREATE EXTERNAL FILE FORMAT
 
-#### [Hadoop](#tab/hadoop)
-
-```syntaxsql
--- Create an external file format for PARQUET files.  
-CREATE EXTERNAL FILE FORMAT file_format_name  
-WITH (  
-    FORMAT_TYPE = PARQUET  
-    [ , DATA_COMPRESSION = {  
-        'org.apache.hadoop.io.compress.SnappyCodec'  
-      | 'org.apache.hadoop.io.compress.GzipCodec'      }  
-    ]);  
-
---Create an external file format for DELIMITED TEXT files
-CREATE EXTERNAL FILE FORMAT file_format_name  
-WITH (  
-    FORMAT_TYPE = DELIMITEDTEXT  
-    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
-    [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
-    );  
-
-<format_options> ::=  
-{  
-    FIELD_TERMINATOR = field_terminator  
-    | STRING_DELIMITER = string_delimiter
-    | First_Row = integer
-    | USE_TYPE_DEFAULT = { TRUE | FALSE }
-    | Encoding = {'UTF8' | 'UTF16'}
-}
-```
-
-#### [Native](#tab/native)
-
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
@@ -236,9 +192,6 @@ WITH (
     | PARSER_VERSION = {'parser_version'}
 }
 ```
-
----
-
 
 ### Arguments for CREATE EXTERNAL FILE FORMAT
 
@@ -359,7 +312,9 @@ Specifies the folder or the file path and file name for the actual data in Azure
 If you specify a folder LOCATION, a serverless SQL pool query will select from the external table and retrieve files from the folder.
 
 > [!NOTE]
-> Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. Both Hadoop and native external tables will skipp the files with the names that begin with an underline (_) or a period (.).
+> Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. 
+ 
+Both Hadoop and native external tables will skipp the files with the names that begin with an underline (_) or a period (.).
 
 In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
