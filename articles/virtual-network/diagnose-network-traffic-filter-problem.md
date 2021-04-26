@@ -111,7 +111,7 @@ In the previous output, the network interface name is *myVMVMNic*.
 
 If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective security rules for a network interface with [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). The following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named *myResourceGroup*:
+Get the effective security rules for a network interface with [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg). The following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
