@@ -11,7 +11,7 @@ ms.author: deanwe
 ms.custom: references_regions
 ---
 
-# Azure Automanage for virtual machines
+# Preview: Azure Automanage for virtual machines
 
 This article covers information about Azure Automanage for virtual machines, which have the following benefits:
 
@@ -19,7 +19,6 @@ This article covers information about Azure Automanage for virtual machines, whi
 - Automatically configures each service per Azure best practices
 - Monitors for drift and corrects for it when detected
 - Provides a simple experience (point, click, set, forget)
-
 
 ## Overview
 
