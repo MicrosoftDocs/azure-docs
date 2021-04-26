@@ -3,7 +3,7 @@ title: Connect Azure Active Directory data to Azure Sentinel | Microsoft Docs
 description: Learn how to collect data from Azure Active Directory, and stream Azure AD sign-in, audit, and provisioning logs into Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: MarkusVi
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
-ms.author: markvi
+ms.author: yelevin
 
 ---
 # Connect Azure Active Directory (Azure AD) data to Azure Sentinel
