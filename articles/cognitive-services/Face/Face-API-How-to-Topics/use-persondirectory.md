@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
-## Use the PersonDirectory structure
+# Use the PersonDirectory structure
 
 To perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory.
 
@@ -394,4 +394,4 @@ The response will contain a Boolean value indicating whether the service conside
 
 In this guide, you learned how to use the **PersonDirectory** structure to store face and person data for your Face app. Next, learn the best practices for adding your users' face data.
 
-* [Best practices for adding users](https://docs.microsoft.com/en-us/azure/cognitive-services/face/enrollment-overview)
+* [Best practices for adding users](https://docs.microsoft.com/azure/cognitive-services/face/enrollment-overview)
