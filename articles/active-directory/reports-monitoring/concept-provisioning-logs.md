@@ -45,9 +45,6 @@ You can use the the provisioning logs to find answers to questions like:
 -  What users from Workday were successfully created in Active Directory? 
 
 
-
-
-
 ## Who can access it?
 
 These users can access the data in provisioning logs:
