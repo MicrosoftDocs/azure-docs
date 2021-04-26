@@ -18156,6 +18156,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/asc-for-iot/support-policies.md",
+      "redirect_url": "/azure/defender-for-iot/release-notes",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/asc-for-iot/troubleshoot-agent.md",
       "redirect_url": "/azure/defender-for-iot/troubleshoot-agent",
       "redirect_document_id": false
@@ -34087,7 +34092,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-cli-reference.md",
-      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud",
+      "redirect_url": "/cli/azure/spring-cloud",
       "redirect_document_id": false
     },
     {
@@ -65251,5 +65256,3 @@
     }
   ]
 }
-
-
