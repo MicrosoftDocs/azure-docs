@@ -4,8 +4,8 @@ description: Learn how to parameterize linked services in Azure Data Factory and
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/18/2021
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ---
 
 # Parameterize linked services in Azure Data Factory

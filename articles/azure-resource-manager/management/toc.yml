@@ -23,12 +23,10 @@
   - name: Security
     items:
     - name: Security baseline
-      href: ./security-baseline.md
+      href: /security/benchmark/azure/baselines/resource-manager-security-baseline
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-    - name: Azure common security attributes
-      href: ./security-baseline.md
 - name: How to
   items:
   - name: Move resources

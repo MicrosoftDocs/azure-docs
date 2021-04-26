@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to mitigate latency when using the Face service.
 services: cognitive-services
 author: PatrickFarley
-manager: chrhoder
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
