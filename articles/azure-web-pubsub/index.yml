@@ -30,8 +30,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Quick evaluation with serverless application 
+          - text: Get started with a live demo 
+            url: quickstart-live-demo.md
+          - text: Start with a simple chat room serverless application 
             url: quickstart-serverless.md
+          - text: Publish and subscribe messages
+            url: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
       - linkListType: how-to-guide
         links:
           - text: How to create Web PubSub instance

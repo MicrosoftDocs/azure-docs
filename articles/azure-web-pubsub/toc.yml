@@ -9,7 +9,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Serverless Application
+  - name: Try the live demo
+    href: quickstart-live-demo.md
+  - name: Start with a simple chatroom serverless application
     href: quickstart-serverless.md
 
 - name: How-to guides
@@ -38,17 +40,19 @@
 
 - name: Concepts
   items:
+  - name: Azure Web PubSub service internals
+    href: https://azure.github.io/azure-webpubsub/concepts/service-internals
   - name: Billing model
     href: concept-billing-model.md
 
 - name: Reference 
   items:
   - name: REST API
-    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/protocol-rest-api.md
+    href: https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/webpubsub?view=azure-rest-preview&branch=result_openapiHub_production_138700d9fb80
   - name: PubSub WebSocket Subprotocol
-    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/pubsub-websocket-subprotocol.md
+    href: https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol
   - name: Web PubSub CloudEvents 
-    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/protocol-cloudevents.md
+    href: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents
   - name: Server SDKs
     href: choose-server-sdks.md
 
@@ -62,3 +66,5 @@
     href: https://azure.microsoft.com/pricing/details/web-pubsub/
   - name: StackOverflow
     href: https://stackoverflow.com/search?q=azure+web+pubsub
+  - name: FAQs
+    href: resource-faq.md
