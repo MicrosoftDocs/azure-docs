@@ -25,8 +25,8 @@ Improve the accuracy of your machine learning models with publicly available dat
 
 | Dataset | Description |
 |--|--|
-| COVID-19 Data Lake | COVID-19 Data Lake collection is a collection of COVID-19 related datasets from various sources, covering testing and patient outcome tracking data, social distancing policy, hospital capacity, mobility, etc. |
-| COVID-19 Open Research Dataset | A full-text and metadata dataset of COVID-19 and coronavirus-related scholarly articles optimized for machine readability and made available for use by the global research community. |
+| [COVID-19 Data Lake](dataset-covid-19-data-lake.md) | COVID-19 Data Lake collection is a collection of COVID-19 related datasets from various sources, covering testing and patient outcome tracking data, social distancing policy, hospital capacity, mobility, etc. |
+| [COVID-19 Open Research Dataset](dataset-covid-19-open-research.md) | A full-text and metadata dataset of COVID-19 and coronavirus-related scholarly articles optimized for machine readability and made available for use by the global research community. |
 | Genomics Data Lake | The Genomics Data Lake provides various public datasets that you can access for free and integrate into your genomics analysis workflows and applications. The datasets include genome sequences, variant info and subject/sample metadata in BAM, FASTA, VCF, CSV file formats. |
 
 ## Labor and economics
