@@ -24,7 +24,7 @@ In Azure Database for MySQL service, gateway nodes listens on port 3308 for v5.7
 :::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Example connecting via different gateway mysql versions":::
 
 > [!NOTE]
-> Connecting to Azure Database for MySQL via ports 5508 and 5509 are only supported for public connectivity, Private Link and VNet service endpoints can only be used with port 3306.
+> Connecting to Azure Database for MySQL via ports 3308 and 3309 are only supported for public connectivity, Private Link and VNet service endpoints can only be used with port 3306.
 
 ## Azure Database for MySQL currently supports the following major and minor versions of MySQL:
 
