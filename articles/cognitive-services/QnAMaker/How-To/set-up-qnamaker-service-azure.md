@@ -57,25 +57,26 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the *subscription* keys on the **Keys** page for the resource in the Azure portal.
 
-1. Sign in to the Azure portal and [create a QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
+1. Sign in to the Azure portal and [create a Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource.
 
 1. Select **Create** after you read the terms and conditions:
 
     ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
-1. In **QnA Maker**, check the Managed (preview) checkbox and select the appropriate tiers and regions:
+1. Select the appropriate tiers and regions for the resource:
 
     ![Create a new QnA Maker managed service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
 
-    * Choose the **Subscription** under which the QnA Maker resource will be deployed.
-    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this QnA Maker managed (Preview) resource. QnA Maker managed (Preview) creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
-    * In the **Name** field, enter a unique name to identify this QnA Maker managed (Preview) service. 
-    * Choose the **Location** where you want the QnA Maker managed (Preview) service to be deployed. The management APIs and service endpoint will be hosted in this location. 
-    * Select the **Pricing tier** for the QnA Maker managed (Preview) service (free for preview). See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
+    * Choose the **Subscription** under which the Text Analytics resource will be deployed.
+    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with Text Analytics resource creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
+    * In the **Name** field, enter a unique name to identify this Text Analytics service. 
+    * Choose the **Location** where you want the Text Analytics service to be deployed. The management APIs and service endpoint will be hosted in this location. 
+    * Select the **Pricing tier** for the Text Analytics service (free for preview). See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
+    
     * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
     * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
 

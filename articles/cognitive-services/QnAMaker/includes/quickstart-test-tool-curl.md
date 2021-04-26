@@ -449,5 +449,4 @@ We don't support unstructured data sets in the GA service.
        "activeLearningEnabled": true
    }
     ```
-}
 ---
