@@ -1,12 +1,12 @@
 ---
 title: Use external tables with Synapse SQL
-description: Reading or writing data files with Synapse SQL
+description: Reading or writing data files with external tables in Synapse SQL
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/07/2020
+ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
@@ -15,20 +15,36 @@ ms.reviewer: jrasnick
 
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to dedicated SQL pool or serverless SQL pool.
 
+Depending on the type of the external data source, you can use two types of external tables:
+- Hadoop external tables that you can use to read and write data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as generally available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
+- Native external tables that you can use to read and write data in varios data formats such as CSV, Parquet, and Delta Lake (in preview). Native external tables are generally available in serverless Synapse SQL pools, and in public preview in dedicated Synapse SQL pools.
+
+The key differences between Hadoop and native external tables are presented in the following table:
+
+| | Hadoop | Native |
+| --- | --- | --- |
+| Dedicated SQL pool | Available | In preview |
+| Serverless SQL pool | Not available | Available |
+| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, RC | Delimited/CSV, Parquet, Delta Lake (in preview) |
+| Folder partition elimination | No | Only for the partitioned tables synchronied from Apaceh Spark |
+| Custom format for location | No | Yes, using wildcards |
+| Recursive folder scan | Always | Only when specified `/**` in the location path |
+| Storage authentication | SAK, AAD passthrough, Managed identity | SAK, AAD passthrough, Managed identity |
+
 ## External tables in dedicated SQL pool and serverless SQL pool
 
-### [Dedicated SQL pool](#tab/sql-pool) 
+### [Hadoop](#tab/hadoop) 
 
-In dedicated SQL pool, you can use an external table to:
+External table created on `HADOOP` external data sources to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
-- Import and store data from Azure Blob Storage and Azure Data Lake Storage into dedicated SQL pool.
+- Import and store data from Azure Blob Storage and Azure Data Lake Storage.
 
 When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
 
 For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
-### [Serverless SQL pool](#tab/sql-on-demand)
+### [Native](#tab/native)
 
 For serverless SQL pool, you'll use an external table to:
 
@@ -59,7 +75,7 @@ External data sources are used to connect to storage accounts. The complete docu
 
 ### Syntax for CREATE EXTERNAL DATA SOURCE
 
-#### [Dedicated SQL pool](#tab/sql-pool)
+#### [Hadoop](#tab/hadoop)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -71,7 +87,7 @@ WITH
 [;]
 ```
 
-#### [Serverless SQL pool](#tab/sql-on-demand)
+#### [Native](#tab/native)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -110,11 +126,11 @@ External data sources without a credential in dedicated SQL pool will use caller
 - In serverless SQL pool, database scoped credential can specify caller's Azure AD identity, workspace Managed Identity, or SAS key. 
 
 #### TYPE
-TYPE = `HADOOP` is the mandatory option in dedicated SQL pool and specifies that Polybase technology is used to access underlying files. This parameter can't be used in serverless SQL pool that uses built-in native reader.
+TYPE = `HADOOP` is the option that specifies that older Polybase technolog should be used to access underlying files. This parameter can't be used in serverless SQL pool that uses built-in native reader.
 
 ### Example for CREATE EXTERNAL DATA SOURCE
 
-#### [Dedicated SQL pool](#tab/sql-pool)
+#### [Hadoop](#tab/hadoop)
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the New York data set:
 
@@ -128,7 +144,7 @@ WITH
   ) ;
 ```
 
-#### [Serverless SQL pool](#tab/sql-on-demand)
+#### [Native](#tab/native)
 
 The following example creates an external data source for Azure Data Lake Gen2 that can be accessed using SAS credential:
 
@@ -160,7 +176,7 @@ By creating an external file format, you specify the actual layout of the data r
 
 ### Syntax for CREATE EXTERNAL FILE FORMAT
 
-#### [SQL pool](#tab/sql-pool)
+#### [Hadoop](#tab/hadoop)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -190,7 +206,7 @@ WITH (
 }
 ```
 
-#### [Serverless SQL pool](#tab/sql-on-demand)
+#### [Native](#tab/native)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -343,7 +359,7 @@ Specifies the folder or the file path and file name for the actual data in Azure
 If you specify a folder LOCATION, a serverless SQL pool query will select from the external table and retrieve files from the folder.
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Just like Hadoop and PolyBase, it doesn't return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. Both Hadoop and native external tables will skipp the files with the names that begin with an underline (_) or a period (.).
 
 In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
