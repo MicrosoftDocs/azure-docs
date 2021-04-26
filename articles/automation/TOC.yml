@@ -96,6 +96,8 @@
           href: delete-account.md
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
+        - name: How to remove a DSC package
+          href: how-to/remove-desired-state-configuration-package.md
     - name: Shared resources
       items:
         - name: Manage certificates
@@ -341,7 +343,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/automation/automation
+    href: /cli/azure/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation
   - name: Azure PowerShell AzureRM
@@ -373,4 +375,3 @@
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-

@@ -650,14 +650,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|No|
 
 
-## Microsoft.Network/loadBalancers
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|LoadBalancerAlertEvent|Load Balancer Alert Events|No|
-|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
-
-
 ## Microsoft.Network/networksecuritygroups
 
 |Category|Category Display Name|Costs To Export|
