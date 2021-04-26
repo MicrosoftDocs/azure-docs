@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/25/2021
+ms.date: 04/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -95,7 +95,7 @@ Custom policy capabilities are under constant development. The following table i
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone factor authentication](phone-factor-technical-profile.md) |  |  | X |  |
 | [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
-| [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
+| [One-time password](one-time-password-technical-profile.md) |  |  | X |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | Azure email subsystem for email verification |  |  | X |  |
 | [Third party email service providers](custom-email-mailjet.md) |  |  | X |  |
