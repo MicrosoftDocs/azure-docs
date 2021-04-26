@@ -55,7 +55,7 @@ appInsights.loadAppInsights();
 1. Telemetry data generated from the click events are stored as `customEvents` in the Application Insights section of the Azure portal.
 2. The `name` of the customEvent is populated based on the following rules:
     1.  The `id` provided in the `data-*-id` will be used as the customEvent name. For example, if the clicked HTML element has the attribute "data-sample-id"="button1", then "button1" will be the customEvent name.
-    2. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, then the clicked element's HTML attribute `id` or content name of the element will be used as the customEvent name.
+    2. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, then the clicked element's HTML attribute `id` or content name of the element will be used as the customEvent name. If both `id` and content name are present, precedence is given to `id`.
     3. If `useDefaultContentNameOrId` is false, then the customEvent name will be "not_specified".
 
     > [!TIP]
