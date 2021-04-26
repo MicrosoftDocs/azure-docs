@@ -13,7 +13,7 @@ ms.author: yulili
 ms.custom: references_regions
 ---
 
-# how to lower speech synthesis latency using Speech SDK
+# How to lower speech synthesis latency using Speech SDK
 
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to you and your end users.
@@ -60,12 +60,13 @@ using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
 
 ## Pre-connection and reuse SpeechSynthesizer
 
-The latency comes from the network latency and service processing latency.
-
-
 The Speech SDK uses websocket to commutate with the service.
-The establishment of websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which takes a longer time.
+Ideally, the network latency should be one route trip time (RTT).
+If the connection is newly established, the network latency will contains extra connection establishment time.
+The establishment of websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduce time delay.
 To avoid the connection latency, we recommend pre-connection and reusing the `SpeechSynthesizer`.
+
+### Pre-connection
 
 For example, if you are building a speech bot in client, you can per-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
 
@@ -76,7 +77,6 @@ using (var synthesizer = new SpeechSynthesizer(uspConfig, null as AudioConfig))
     {
         connection.Open(true);
     }
-
     await synthesizer.SpeakTextAsync(text);
 }
 ```
@@ -84,16 +84,18 @@ using (var synthesizer = new SpeechSynthesizer(uspConfig, null as AudioConfig))
 > [!NOTE]
 > If the synthesize text is available, just call `SpeakTextAsync` to synthesize the audio, the SDK will handle the connection.
 
+### Reuse SpeechSynthesizer
+
 Another way to reduce the connection latency is to reuse the `SpeechSynthesizer` so you don't need to create a new `SpeechSynthesizer` every synthesis.
 We recommend using object pool in service scenario, see our [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
 
 
 ## Using compressed audio format for transmission on wire
 
-When the network bandwidth is limited or unstable, the payload size will also impact latency.
-Meanwhile, compressed audio format helps to save the users' precious network bandwidth especially for mobile.
+When the network is unstable or with limited bandwidth, the payload size will also impact latency.
+Meanwhile, compressed audio format helps to save the users' precious network bandwidth especially for mobile users.
 
-For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps while `Audio24Khz48KBitRateMonoMp3` only costs 48 kbps.
+For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps, while `Audio24Khz48KBitRateMonoMp3` only costs 48 kbps.
 Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set and `GStreamer` is properly installed.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
 
