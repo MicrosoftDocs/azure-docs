@@ -13,7 +13,7 @@ ms.date: 05/25/2021
 
 # Install, set up, and use the new Azure Machine Learning CLI
 
-The new `ml` extension to the [Azure CLI](/cli/azure/) is the next generation interface for the Azure Machine Learning service. It allows you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
+The new `ml` extension to the [Azure CLI](/cli/azure/) is the next generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
 ## Prerequisites
 
@@ -111,11 +111,11 @@ This will generate a UUID for the job name. You can capture it for use in later 
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world_output":::
 
-Then open the job in the studio:
+Then open the job's run details in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="show_job_in_studio":::
 
-Or, stream to the logs, which will block the console:
+Or, stream the logs, which will block the console:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="stream_job_logs_to_console":::
 
