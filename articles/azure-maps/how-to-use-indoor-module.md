@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Maps Indoor Maps module with Microsoft Creator services (Preview)
+title: Use the Azure Maps Indoor Maps module with Microsoft Creator services
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services (Preview) 
+The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services.
 
 ## Prerequisites
 

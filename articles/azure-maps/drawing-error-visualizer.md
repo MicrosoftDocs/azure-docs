@@ -26,7 +26,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Download
 
-1. Upload your Drawing package to the Azure Maps Creator service (Preview) to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
+1. Upload your Drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
 2. Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
 

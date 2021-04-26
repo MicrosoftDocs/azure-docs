@@ -1,9 +1,9 @@
 ---
 title: Work with indoor maps in Azure Maps Creator 
-description: This article introduces concepts that apply to Azure Maps Creator services (Preview) 
+description: This article introduces concepts that apply to Azure Maps Creator services
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -15,13 +15,19 @@ manager: philmea
 
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 
-You can use Creator to develop applications with map features based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data. The entire workflow is illustrated in the diagram below.
+You can use Creator to develop applications with map features based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data.  Typically the workflow is completed by two different personas with distinct expertise and areas of responsibility: The first is the map maker, who is responsible for curating and preparing the map data. The second, is a Creator map data user who leverages customer map data in applications.  The entire workflow is illustrated in the diagram below.
 
 ![Creator map data workflow](./media/creator-indoor-maps/workflow.png)
 
-## Create Azure Maps Creator 
+## Create Azure Maps Creator
 
-To use Creator services (Preview), Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
+To use Creator services, Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
+
+## Creator Authentication Settings
+
+It's recommended that all solutions built using Creator services use Azure Active Directory (Azure AD) for authentication. For more information, on Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication).
+
+It's also advisable to use role-based access control settings, which allow map makers to act as the Azure Maps Data Contributor role, and Creator map data users to act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
 
 ## Upload a Drawing package
 
@@ -37,7 +43,7 @@ When an error occurs, the Conversion service provides a link to the [Azure Maps 
 
 ## Create indoor map data
 
-Azure Maps Creator provides three services:
+Azure Maps Creator provides services:
 
 * [Dataset service](/rest/api/maps/dataset/createpreview).
 Use the Dataset service to create a dataset from a converted Drawing package data.
