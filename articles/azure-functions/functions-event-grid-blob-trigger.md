@@ -69,38 +69,38 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     Add **"source": "EventGrid"** to the function.json binding data.
     
     ```json
+    {
+      "scriptFile": "__init__.py",
+      "bindings": [
         {
-          "scriptFile": "__init__.py",
-          "bindings": [
-            {
-              "name": "myblob",
-              "type": "blobTrigger",
-              "direction": "in",
-              "path": "samples-workitems/{name}",
-              "source": "EventGrid",
-              "connection": "MyStorageAccountConnectionString"
-            }
-          ]
+          "name": "myblob",
+          "type": "blobTrigger",
+          "direction": "in",
+          "path": "samples-workitems/{name}",
+          "source": "EventGrid",
+          "connection": "MyStorageAccountConnectionString"
         }
+      ]
+    }
     ```
 
     # [Java](#tab/java)
-    **Press F5** to build the function and create the **function.json** file. Once the build is complete, add **"source": "EventGrid"** to the function.json binding data.
+    **Press F5** to build the function. Once the build is complete, add **"source": "EventGrid"** to the **function.json** binding data.
     
     ```json
-        {
-          "scriptFile" : "../java-1.0-SNAPSHOT.jar",
-          "entryPoint" : "com.function.{MyFunctionName}.run",
-          "bindings" : [ {
-            "type" : "blobTrigger",
-            "direction" : "in",
-            "name" : "content",
-            "path" : "samples-workitems/{name}",
-            "dataType" : "binary",
-            "source": "EventGrid",
-            "connection" : "MyStorageAccountConnectionString"
-          } ]
-        }
+    {
+      "scriptFile" : "../java-1.0-SNAPSHOT.jar",
+      "entryPoint" : "com.function.{MyFunctionName}.run",
+      "bindings" : [ {
+        "type" : "blobTrigger",
+        "direction" : "in",
+        "name" : "content",
+        "path" : "samples-workitems/{name}",
+        "dataType" : "binary",
+        "source": "EventGrid",
+        "connection" : "MyStorageAccountConnectionString"
+       } ]
+    }
     ```
 
     ---
