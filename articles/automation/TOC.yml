@@ -97,7 +97,7 @@
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
         - name: How to remove a DSC package
-          href: how-to/remove-dsc-package.md
+          href: how-to/remove-desired-state-configuration-package.md
     - name: Shared resources
       items:
         - name: Manage certificates
