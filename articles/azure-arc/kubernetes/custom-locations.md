@@ -2,7 +2,7 @@
 title: "Custom locations on Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/13/2021
+ms.date: 04/26/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -37,7 +37,6 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     - `customlocation` (version 0.1.0 or later) 
   
     ```azurecli
-    az extension add --name appservice_kube
     az extension add --name connectedk8s
     az extension add --name k8s-extension
     az extension add --name customlocation
@@ -46,7 +45,6 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     If you've previously installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the latest version using the following command:
 
     ```azurecli
-    az extension update --name appservice_kube
     az extension update --name connectedk8s
     az extension update --name k8s-extension
     az extension update --name customlocation
