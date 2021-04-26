@@ -71,7 +71,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     func start
     ```
 
-- The local function will use port defined in the `local.settings.json` file. To make it available in public network. You need to work with [ngrok](https://ngrok.com) to expose this endpoint. Run command below and you'll get a forwarding endpoint, like http://{ngrok-id}.ngrok.io/runtime/webhooks/webpubsub.
+- The local function will use port defined in the `local.settings.json` file. To make it available in public network, you need to work with [ngrok](https://ngrok.com) to expose this endpoint. Run command below and you'll get a forwarding endpoint, for example: http://{ngrok-id}.ngrok.io -> http://localhost:7071.
 
     ```bash
     ngrok http 7071
@@ -80,8 +80,8 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 - Set `Event Handler` in Azure Web PubSub service. Go to **Azure Portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the {ngrok-id} to yours.
 
    - Hub Name: simplechat
-   - URL Template: http://{ngrok-id}.ngrok.io/runtime/webhooks/webpubsub
-   - User Event Patter: *
+   - URL Template: **http://{ngrok-id}.ngrok.io/runtime/webhooks/webpubsub**
+   - User Event Pattern: *
    - System Events: connect, connected, disconnected.
 
 ---
