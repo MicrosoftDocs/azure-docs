@@ -47,25 +47,6 @@ Yes, when the live pipeline is in *inactive* state.
 
 Yes, an [RTSP simulator](add-valid-link.md)<!-- https://github.com/Azure/azure-video-analyzer/tree/master/utilities/rtspsim-live555 --> edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
 
-## Streaming and playback
-
-**What players can I use to view content from the recorded assets?**
-
-All standard players that support compliant HLS version 3 or version 4 are supported. In addition, any player that's capable of compliant MPEG-DASH playback is also supported.
-
-Recommended players for testing include:
-
-* [AVA Player](add-valid-link.md) <!-- use-ava-player.md -->
-* [Azure Media Player](add-valid-link.md) <!-- use-azure-media-player.md -->
-* [HLS.js](https://hls-js.netlify.app/demo/)
-* [Video.js](https://videojs.com/)
-* [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
-* [Shaka Player](https://github.com/google/shaka-player)
-* [ExoPlayer](https://github.com/google/ExoPlayer)
-* [Apple native HTTP Live Streaming](https://developer.apple.com/streaming/)
-* Edge, Chrome, or Safari built-in HTML5 video player
-* Commercial players that support HLS or DASH playback
-
 ## Design your AI model 
 
 **I have multiple AI models wrapped in a Docker container. How should I use them with Azure Video Analyzer?** 
