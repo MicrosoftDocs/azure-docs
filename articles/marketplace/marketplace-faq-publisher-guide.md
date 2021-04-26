@@ -64,7 +64,7 @@ After you sign up and accept the Publisher Agreement, you'll have access to the 
 
 For more information, see [Welcome to the commercial marketplace](index.yml) and [Monetize your Microsoft 365 add-in through Microsoft Commercial Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-### As a publisher, how can my own employees use our offers from the marketplace without being charged?
+### How can my own employees use our offers from the marketplace without being charged?
 
 To prevent Microsoft from charging your employees and assessing the store service fee on the sale of your offer, you must first create a [private plan](/azure/marketplace/private-offers) for the offer with a $0 price and send this offer to the internal users who want to purchase it.
 
