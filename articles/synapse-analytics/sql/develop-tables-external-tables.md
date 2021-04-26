@@ -13,19 +13,19 @@ ms.reviewer: jrasnick
 
 # Use external tables with Synapse SQL
 
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to dedicated SQL pool or serverless SQL pool.
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
 
 Depending on the type of the external data source, you can use two types of external tables:
 - Hadoop external tables that you can use to read and write data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
-- Native external tables that you can use to read and write data in various data formats such as CSV, Parquet, and Delta Lake (in preview). Native external tables are available in serverless Synapse SQL pools, but they are not available in dedicated Synapse SQL pools.
+- Native external tables that you can use to read and write data in various data formats such as CSV as Parquet. Native external tables are available in serverless Synapse SQL pools, but they are not available in dedicated Synapse SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
-| Feature | Hadoop | Native |
+| External table type | Hadoop | Native |
 | --- | --- | --- |
 | Dedicated SQL pool | Available | Not available |
 | Serverless SQL pool | Not available | Available |
-| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, RC | Delimited/CSV, Parquet, Delta Lake (in preview) |
+| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Delimited/CSV and Parquet |
 | Folder partition elimination | No | Only for the partitioned tables synchronized from Apache Spark pools in Synapse workspace |
 | Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | Always | Only when specified `/**` in the location path |
@@ -36,19 +36,19 @@ The key differences between Hadoop and native external tables are presented in t
 External table created on `HADOOP` external data sources to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
-- Import and store data from Azure Blob Storage and Azure Data Lake Storage.
 - Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
-
-You can create external tables in Synapse SQL pool via the following steps:
-
-1. CREATE EXTERNAL DATA SOURCE
-2. CREATE EXTERNAL FILE FORMAT
-3. CREATE EXTERNAL TABLE
+- Import data from Azure Blob Storage and Azure Data Lake Storage and store it into dedicated SQL pool.
 
 > [!NOTE]
 > When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the **dedicated** SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
 > 
 > For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
+
+You can create external tables in Synapse SQL pools via the following steps:
+
+1. CREATE EXTERNAL DATA SOURCE
+2. CREATE EXTERNAL FILE FORMAT
+3. CREATE EXTERNAL TABLE
 
 ### Security
 
@@ -65,6 +65,8 @@ External data sources are used to connect to storage accounts. The complete docu
 
 #### [Hadoop](#tab/hadoop)
 
+External data sources with TYPE=HADOOP are available only in dedicated SQL pools.
+
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
@@ -76,6 +78,8 @@ WITH
 ```
 
 #### [Native](#tab/native)
+
+External data sources without TYPE=HADOOP are available only in serverless SQL pools.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -112,7 +116,7 @@ CREDENTIAL = `<database scoped credential>` is optional credential that will be 
 - In serverless SQL pool, database scoped credential can specify workspace Managed Identity, or SAS key. 
 
 #### TYPE
-TYPE = `HADOOP` is the option that specifies that older Polybase technology should be used to access underlying files. This parameter can't be used in serverless SQL pool that uses built-in native reader.
+TYPE = `HADOOP` is the option that specifies that Java-based technology should be used to access underlying files. This parameter can't be used in serverless SQL pool that uses built-in native reader.
 
 ### Example for CREATE EXTERNAL DATA SOURCE
 
@@ -252,7 +256,7 @@ The DELIMITEDTEXT file format type supports the following compression method:
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 
 PARSER_VERSION = 'parser_version'
-Specifies parser version to be used when reading files. Check PARSER_VERSION argument in [OPENROWSET arguments](develop-openrowset.md#arguments) for details.
+Specifies parser version to be used when reading CSV files. The available parser versions are `1.0` and `2.0`.
 
 ### Example for CREATE EXTERNAL FILE FORMAT
 
@@ -307,16 +311,11 @@ LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure Blob Storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
 
-If you specify a folder LOCATION, a serverless SQL pool query will select from the external table and retrieve files from the folder.
+![Recursive data for external tables](./media/develop-tables-external-tables/folder-traversal.png)
 
-> [!NOTE]
-> Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. 
+Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder. Hadoop tables will return all files within any sub-folder.
  
 Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
-
-In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
-
-![Recursive data for external tables](./media/develop-tables-external-tables/folder-traversal.png)
 
 DATA_SOURCE = *external_data_source_name* - Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
