@@ -49673,7 +49673,7 @@
     {
       "source_path_from_root": "/articles/active-directory/external-identities/add-guest-to-role.md",
       "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
-      "redirect_document_id": true
+      "redirect_document_id": false
       },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
