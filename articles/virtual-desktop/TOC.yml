@@ -185,7 +185,7 @@
   - name: Security
     items:
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support

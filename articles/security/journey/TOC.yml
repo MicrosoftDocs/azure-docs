@@ -115,7 +115,7 @@
       - name: DDoS Protection best practices
         href: ../../ddos-protection/fundamental-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: DDoS Protection security baseline
-        href: ../fundamentals/ddos-protection-security-baseline.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Dangling DNS and subdomain takeover
       href: ../fundamentals/subdomain-takeover.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Network segmentation
@@ -166,7 +166,7 @@
       - name: Customer Lockbox
         href: ../fundamentals/customer-lockbox-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security baseline for Customer Lockbox
-        href: ../fundamentals/customer-lockbox-security-baseline.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Checklist
       href: /azure/architecture/framework/security/design-storage?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 

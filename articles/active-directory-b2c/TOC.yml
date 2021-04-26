@@ -45,6 +45,8 @@
       href: tutorial-desktop-app-webapi.md
     - name: Single page
       href: tutorial-single-page-app-webapi.md
+  - name: 6 - Clean up and delete tenant
+    href: tutorial-delete-tenant.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
@@ -350,6 +352,10 @@
       href: b2clogin.md
     - name: Configure a custom domain
       href: custom-domain.md
+    - name: Web Application Firewall partners
+      items:
+      - name: Cloudflare
+        href: partner-cloudflare.md
     - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin

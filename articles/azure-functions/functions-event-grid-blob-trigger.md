@@ -31,9 +31,19 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
 
 1. The default url for your event grid blob trigger is:
 
+    # [C#](#tab/csharp)
+
     ```http
     http://localhost:7071/runtime/webhooks/blobs?functionName={functionname}
     ```
+
+    # [Python](#tab/python)
+
+    ```http
+    http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
+    ```
+
+    ---
 
     Note your function app's name and that the trigger type is a blob trigger, which is indicated by `blobs` in the url. This will be needed when setting up endpoints later in the how to guide.
 
@@ -49,7 +59,7 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
         log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
     }
     ```
- 
+
     # [Python](#tab/python)
     Add **"source": "EventGrid"** to the function.json binding data.
     
@@ -81,11 +91,21 @@ Once the Blob Trigger recognizes a new file is uploaded to the storage container
 
 ## Deployment
 
-As you deploy the function app to Azure, update the webhook endpoint from your local endpoint to your deployed app endpoint. To update an endpoint, follow the steps in [Add a storage event](#add-a-storage-event) and use the below for the webhook URL in step 5. The `<BLOB-EXTENSION-KEY>` is the function key for your blob trigger function.
+As you deploy the function app to Azure, update the webhook endpoint from your local endpoint to your deployed app endpoint. To update an endpoint, follow the steps in [Add a storage event](#add-a-storage-event) and use the below for the webhook URL in step 5. The `<BLOB-EXTENSION-KEY>` can be found in the **App Keys** section from the left menu of your **Function App**.
+
+# [C#](#tab/csharp)
 
 ```http
-https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Function1&code=<BLOB-EXTENSION-KEY>
+https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=<FUNCTION-NAME>&code=<BLOB-EXTENSION-KEY>
 ```
+
+# [Python](#tab/python)
+
+```http
+https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION-NAME>&code=<BLOB-EXTENSION-KEY>
+```
+
+---
 
 ## Clean up resources
 
