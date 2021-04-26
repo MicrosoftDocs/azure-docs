@@ -57,7 +57,7 @@ All virtual machines (VMs) in a host pool that uses MSIX app attach must have re
 
 ## Can I use Azure Active Directory Domain Services (Azure AD DS) with MSIX app attach?
 
-MSIX app attach doesn't currently support Azure AD DS. Because Azure AD DS computer objects aren't synchronized to Azure Active Directory (Azure AD), they can't be provided the required role-based access control (RBAC) permissions for Azure Files.
+MSIX app attach doesn't currently support Azure AD DS. Because Azure AD DS computer objects aren't synchronized to Azure Active Directory (Azure AD), the administrator can't provided the required role-based access control (RBAC) permissions for Azure Files.
 
 ## Can I use MSIX app attach for HTTP or HTTPs?
 
