@@ -68,7 +68,9 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/web-pubsub/
-  - name: StackOverflow
-    href: https://stackoverflow.com/questions/tagged/azure-web-pubsub
   - name: FAQs
     href: resource-faq.md
+  - name: Microsoft Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-web-pubsub.html
+  - name: StackOverflow
+    href: https://stackoverflow.com/questions/tagged/azure-web-pubsub
