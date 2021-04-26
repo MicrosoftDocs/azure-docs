@@ -11,7 +11,13 @@ ms.author: lechen
 
 # Set up Azure Monitor for your Python application
 
-Azure Monitor supports distributed tracing, metric collection, and logging of Python applications. Throughout your search for a telemetry solution provided by Microsoft, you may have come across the [unsupported Application Insights Python SDK](https://github.com/microsoft/ApplicationInsights-Python). This SDK is UNSUPPORTED and is not reccomended by Microsoft to use as a telemetry solution. Currently, Microsoft's official reccomendation for tracking and exporting data for your Python applications is through the [Opencensus Python SDK](#introducing-opencensus-python-sdk) via the [Azure Monitor exporters](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters). In the future, Microsoft will leverage [OpenTelemetry](https://opentelemetry.io/) and it's supported SDKs. The api libraries and exporters for Azure monitor that support OpenTelemetry are currently under development. Once stable, Microsoft will reccomend OpenTelemetry as the go-to solution for your Python telemetry needs.
+Azure Monitor supports distributed tracing, metric collection, and logging of Python applications.
+
+Microsoft's official reccomendation for tracking and exporting data for your Python applications is through the [Opencensus Python SDK](#introducing-opencensus-python-sdk) via the [Azure Monitor exporters](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters).
+
+You may have come across the [unsupported Application Insights Python SDK](https://github.com/microsoft/ApplicationInsights-Python). This SDK is UNSUPPORTED and is not reccomended by Microsoft to use as a telemetry solution.
+
+In the future, Microsoft will leverage [OpenTelemetry](https://opentelemetry.io/) and it's supported SDKs. The api libraries and exporters for Azure monitor that support OpenTelemetry are currently under development. Once stable, Microsoft will reccomend OpenTelemetry as the go-to solution for your Python telemetry needs.
 
 ## Prerequisites
 
