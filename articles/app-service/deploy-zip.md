@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service with a ZIP file (
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 

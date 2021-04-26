@@ -1,17 +1,11 @@
 ---
 title: Using the regulatory compliance dashboard in Azure Security Center
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 04/21/2021
 ms.author: memildin
 
 ---
@@ -19,6 +13,8 @@ ms.author: memildin
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
+> [!TIP]
+> Learn more about Security Center's regulatory compliance dashboard in the [frequently asked questions](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
 
 ## How are regulatory compliance standards represented in Security Center?
 
@@ -37,11 +33,13 @@ By default, every subscription has the **Azure Security Benchmark** assigned. Th
 
 You can also add standards such as:
 
-- NIST SP 800-53 R4
+- NIST SP 800-53
 - SWIFT CSP CSCF-v2020
 - UK Official and UK NHS
 - Canada Federal PBMM
-- Azure CIS 1.1.0
+- Azure CIS 1.3.0
+- CMMC Level 3
+- New Zealand ISM Restricted
 
 Standards are added to the dashboard as they become available.
 
@@ -66,13 +64,15 @@ The following steps explain how to add a package to monitor your compliance with
 
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards, including:
 
-    - **NIST SP 800-53 R4**
-    - **NIST SP 800 171 R2**
+    - **NIST SP 800-53**
+    - **NIST SP 800 171**
     - **SWIFT CSP CSCF v2020**
     - **UKO and UK NHS**
     - **Canada Federal PBMM**
     - **HIPAA HITRUST**
-    - **Azure CIS 1.1.0**
+    - **Azure CIS 1.3.0**
+    - **CMMC Level 3**
+    - **New Zealand ISM Restricted**
     
     ![Adding regulatory standards to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 

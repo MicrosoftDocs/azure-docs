@@ -90,7 +90,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 ### Create a WAF policy
 
-Create a WAF policy by using the [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create) command. 
+Create a WAF policy by using the [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) command. 
 In the example that follows, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
 
 ```azurecli-interactive 
@@ -101,7 +101,7 @@ az network front-door waf-policy create \
   ```
 ### Add a custom IP access control rule
 
-Use the [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
+Use the [az network front-door waf-policy custom-rule create](/cli/azure/network/front-door/waf-policy/rule#az_network_front_door_waf_policy_rule_create) command to add a custom IP access control rule for the WAF policy you just created.
 
 In the following examples:
 -  Replace *IPAllowPolicyExampleCLI* with your unique policy created earlier.
@@ -134,7 +134,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### Find the ID of a WAF policy 
-Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
+Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -144,7 +144,7 @@ Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli
 
 ### Link a WAF policy to an Azure Front Door front-end host
 
-Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update) command. Replace *IPAllowPolicyExampleCLI* with your unique policy that you created earlier.
+Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](/cli/azure/network/front-door#az_network_front_door_update) command. Replace *IPAllowPolicyExampleCLI* with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door update \

@@ -20,7 +20,7 @@ There is one important exception to this restriction. If a user has opted-in to 
 You can configure [Key Vault firewalls and virtual networks](network-security.md) to deny access to traffic from all networks (including internet traffic) by default. You can grant access to traffic from specific Azure virtual networks and public internet IP address ranges, allowing you to build a secure network boundary for your applications.
 
 > [!NOTE]
-> Key Vault firewalls and virtual network rules only apply to the [data plane](security-overview.md#privileged-access) of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules and deployment of secrets or keys through ARM templates) are not affected by firewalls and virtual network rules.
+> Key Vault firewalls and virtual network rules only apply to the [data plane](security-features.md#privileged-access) of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules and deployment of secrets or keys through ARM templates) are not affected by firewalls and virtual network rules.
 
 Here are some examples of how you might use service endpoints:
 
@@ -60,4 +60,4 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 ## Next steps
 
 - For step-by-step instructions, see [Configure Azure Key Vault firewalls and virtual networks](network-security.md)
-- see the [Azure Key Vault security overview](security-overview.md)
+- see the [Azure Key Vault security overview](security-features.md)

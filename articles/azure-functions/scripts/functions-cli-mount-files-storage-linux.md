@@ -33,13 +33,13 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates an Azure Storage account. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app. |
-| [az storage share create](/cli/azure/storage/share#az-storage-share-create) | Creates an Azure Files share in storage account. | 
-| [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) | Creates a directory in the share. |
-| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) | Mounts the share to the function app. |
-| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-list) | Shows file shares mounted to the function app. | 
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Creates a function app. |
+| [az storage share create](/cli/azure/storage/share#az_storage_share_create) | Creates an Azure Files share in storage account. | 
+| [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) | Creates a directory in the share. |
+| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) | Mounts the share to the function app. |
+| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_list) | Shows file shares mounted to the function app. | 
 
 ## Next steps
 

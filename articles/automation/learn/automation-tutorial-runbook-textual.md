@@ -4,7 +4,8 @@ description: This article teaches you to create, test, and publish a simple Powe
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
-ms.topic: tutorial
+ms.topic: tutorial 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create a PowerShell Workflow runbook

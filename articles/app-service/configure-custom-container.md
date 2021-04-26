@@ -3,7 +3,8 @@ title: Configure a custom container
 description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 02/23/2021 
+ms.custom: devx-track-azurepowershell
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 

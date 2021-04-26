@@ -188,7 +188,7 @@ Use the following CLI command:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-For more details, check [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) command.
+For more details, check [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) command.
 
 ---
 

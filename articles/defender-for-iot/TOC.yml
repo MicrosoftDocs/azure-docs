@@ -95,7 +95,7 @@
         href: concept-baseline.md
       - name: Azure security baseline for Azure Defender for IoT
         displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline
       - name: Defender-IoT-micro-agent classic event aggregation                                          
         displayName: twin, default, configuration, alerts
         href: event-aggregation.md
@@ -156,7 +156,7 @@
         href: how-to-define-global-user-access-control.md
         displayName: business unit, site, region, user
     - name: Control what traffic is monitored
-      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets
+      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets,  WMI, active, probing, scanning, switch
       href: how-to-control-what-traffic-is-monitored.md
     - name: Manage sensors from the on-premises management console
       displayName: disconnect, connect, activation file, sensor backup
