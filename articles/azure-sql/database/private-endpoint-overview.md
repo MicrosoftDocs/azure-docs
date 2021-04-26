@@ -46,25 +46,30 @@ Once the network admin creates the Private Endpoint (PE), the SQL admin can mana
 1. After approval or rejection, the list will reflect the appropriate state along with the response text.
 ![Screenshot of all PECs after approval][5]
 
-## On-premises connectivity over private peering
+1. Finally clicking on the private endpoint name 
 
-When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a [Server-level firewall rule](firewall-create-server-level-portal-quickstart.md). While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
+![Screenshot of PEC details][7]
 
-With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
+leads to the Network Interface details
 
-## Use cases of Private Link for Azure SQL Database 
+![Screenshot of NIC details][8]
 
-Clients can connect to the Private endpoint from the same virtual network, peered virtual network in same region, or via virtual network to virtual network connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
+which finally leads to the IP address
 
- ![Diagram of connectivity options][1]
-
-In addition, services that are not running directly in the virtual network but are integrated with it (for example, App Service web apps or Functions) can also achieve private connectivity to the database. For more information on this specific use case, see the [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario.
+![Screenshot of Private IP][9]
 
 ## Test connectivity to SQL Database from an Azure VM in same virtual network
+For this scenario, assume you've created an Azure Virtual Machine (VM) running Windows Server 2016 in the same virtual network and subnet as the private endpoint.
 
-For this scenario, assume you've created an Azure Virtual Machine (VM) running Windows Server 2016. 
+Private Endpoints support both Proxy and Redirect [connection policy](/connectivity-architecture.md#connection-policy). Ensure that you have met the following pre-requisites for outbound connectivity from the Azure VM
+- For Proxy mode, outbound traffic is allowed to the private endpoint on port 1433
+- For Redirect mode, outbound traffic is allowed to the private endpoint on port range 1472 to 65535
+
+> [!NOTE]
+>For scenarios where the Azure VM and private endpoint are located in different subnets, ensure that the default NSG rule name AllowVnetInbound is not overwritten by another rule of lower priority.
 
 1. [Start a Remote Desktop (RDP) session and connect to the virtual machine](../../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine). 
+
 1. You can then do some basic connectivity checks to ensure that the VM is connecting to SQL Database via the private endpoint using the following tools:
     1. Telnet
     1. Psping
@@ -78,7 +83,7 @@ For this scenario, assume you've created an Azure Virtual Machine (VM) running W
 Open a Command Prompt window after you have installed Telnet. Run the Telnet command and specify the IP address and private endpoint of the database in SQL Database.
 
 ```
->telnet 10.1.1.5 1433
+>telnet 10.9.0.4 1433
 ```
 
 When Telnet connects successfully, you'll see a blank screen at the command window like the below image:
@@ -93,18 +98,14 @@ Run psping as follows by providing the FQDN for logical SQL server and port 1433
 
 ```
 >psping.exe mysqldbsrvr.database.windows.net:1433
-
-PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
-Copyright (C) 2012-2016 Mark Russinovich
-Sysinternals - www.sysinternals.com
-
-TCP connect to 10.6.1.4:1433:
+...
+TCP connect to 10.9.0.4:1433:
 5 iterations (warmup 1) ping test:
-Connecting to 10.6.1.4:1433 (warmup): from 10.6.0.4:49953: 2.83ms
-Connecting to 10.6.1.4:1433: from 10.6.0.4:49954: 1.26ms
-Connecting to 10.6.1.4:1433: from 10.6.0.4:49955: 1.98ms
-Connecting to 10.6.1.4:1433: from 10.6.0.4:49956: 1.43ms
-Connecting to 10.6.1.4:1433: from 10.6.0.4:49958: 2.28ms
+Connecting to 10.9.0.4:1433 (warmup): from 10.6.0.4:49953: 2.83ms
+Connecting to 10.9.0.4:1433: from 10.6.0.4:49954: 1.26ms
+Connecting to 10.9.0.4:1433: from 10.6.0.4:49955: 1.98ms
+Connecting to 10.9.0.4:1433: from 10.6.0.4:49956: 1.43ms
+Connecting to 10.9.0.4:1433: from 10.6.0.4:49958: 2.28ms
 ```
 
 The output show that Psping could ping the private IP address associated with the PEC.
@@ -116,14 +117,12 @@ Nmap (Network Mapper) is a free and open-source tool used for network discovery 
 Run Nmap as follows by providing the address range of the subnet that hosts the private endpoint.
 
 ```
->nmap -n -sP 10.1.1.0/24
+>nmap -n -sP 10.9.0.0/24
 ...
-...
-Nmap scan report for 10.1.1.5
+Nmap scan report for 10.9.0.4
 Host is up (0.00s latency).
 Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 ```
-
 The result shows that one IP address is up; which corresponds to the IP address for the private endpoint.
 
 ### Check connectivity using SQL Server Management Studio (SSMS)
@@ -136,6 +135,20 @@ Follow the steps here to use [SSMS to connect to the SQL Database](connect-query
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## On-premises connectivity over private peering
+
+When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a [Server-level firewall rule](firewall-create-server-level-portal-quickstart.md). While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
+
+With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
+
+## Use cases of Private Link for Azure SQL Database 
+
+Clients can connect to the Private endpoint from the same virtual network, peered virtual network in same region, or via virtual network to virtual network connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
+
+ ![Diagram of connectivity options][1]
+
+In addition, services that are not running directly in the virtual network but are integrated with it (for example, App Service web apps or Functions) can also achieve private connectivity to the database. For more information on this specific use case, see the [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario.
 
 ## Data exfiltration prevention
 
@@ -184,9 +197,12 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 - You may also be interested in the [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 
 <!--Image references-->
-[1]: media/quickstart-create-single-database/pe-connect-overview.png
-[2]: media/quickstart-create-single-database/telnet-result.png
-[3]: media/quickstart-create-single-database/pec-list-before.png
-[4]: media/quickstart-create-single-database/pec-approve.png
-[5]: media/quickstart-create-single-database/pec-list-after.png
-[6]: media/quickstart-create-single-database/pec-select.png
+[1]: media/private-endpoint/pe-connect-overview.png
+[2]: media/private-endpoint/telnet-result.png
+[3]: media/private-endpoint/pec-list-before.png
+[4]: media/private-endpoint/pec-approve.png
+[5]: media/private-endpoint/pec-list-after.png
+[6]: media/private-endpoint/pec-select.png
+[7]: media/private-endpoint/pec-click.png
+[8]: media/private-endpoint/pec-nic-click.png
+[9]: media/private-endpoint/pec-ip-display.png
