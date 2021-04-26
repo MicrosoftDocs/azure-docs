@@ -430,6 +430,13 @@ We don't support unstructured data sets in the GA service.
 # [Custom question answering (preview release)](#tab/v2)
 
 1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 3
+    }
+    ```
 2. The response also includes the source of answer. 
 
 ---
