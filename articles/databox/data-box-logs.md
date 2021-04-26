@@ -280,7 +280,7 @@ For troubleshooting information for these errors, see [Troubleshoot paused data 
 Here is an example of a non-retryable error that causes an upload to pause:<!--Veda to send a new example. This error is not in the set that pause an upload.-->
 
 ```xml
-<ErroredEntity Path="myfileshare01\myblob01.iso">
+<ErroredEntity Path="myblobcontainer01\myblob01.vhd">
   <Category>UploadErrorCloudHttp</Category>
   <ErrorCode>409</ErrorCode>
   <ErrorMessage>>The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.</ErrorMessage>
