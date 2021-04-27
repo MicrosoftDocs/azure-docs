@@ -1,19 +1,16 @@
 ---
-title: Publish apps on separate networks via connector groups - Azure AD
-description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
+title: Publish apps on separate networks via connector groups - Azure Active Directory
+description: Covers how to create and manage groups of connectors in Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Publish applications on separate networks and locations using connector groups
@@ -124,4 +121,4 @@ In the example below, the company has two datacenters, A and B, with two connect
 ## Next steps
 
 * [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* [Enable single-sign on](what-is-single-sign-on.md)
+* [Enable single-sign on](../manage-apps/what-is-single-sign-on.md)

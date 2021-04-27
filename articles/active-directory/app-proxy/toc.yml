@@ -72,8 +72,8 @@
   - name: Concepts
     expanded: false
     items: 
-  #   - name: Application Proxy
-  #     href: application-proxy.md
+    - name: Application Proxy
+      href: application-proxy.md
   #   - name: Planning an Application Proxy deployment
   #     href: application-proxy-deployment-plan.md
     - name: Connectors
