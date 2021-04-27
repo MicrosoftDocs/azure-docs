@@ -22,7 +22,7 @@ ms.author: yelevin
 
 You can use Azure Sentinel's built-in connector to collect data from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Azure Sentinel. The connector allows you to stream the following log types:
 
-- [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md), which contain information about [interactive user sign-ins](../active-directory/reports-monitoring/concept-all-sign-ins.md#user-sign-ins) where a user provides an authentication factor.
+- [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md), which contain information about interactive user sign-ins where a user provides an authentication factor.
 
     The Azure AD connector now includes the following three additional categories of sign-in logs, all currently in **PREVIEW**:
     
