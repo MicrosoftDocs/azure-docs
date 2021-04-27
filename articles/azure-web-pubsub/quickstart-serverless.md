@@ -43,7 +43,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 
 ## Configure and run the Azure Function app
 
-- In the browser, open the **Azure Portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
+- In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
 - Select **Keys** and copy out the connection string.
 
 # [JavaScript](#tab/javascript)
@@ -52,8 +52,8 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 
   Open the */samples/functions/js/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
   In *local.settings.json*, you need to make these changes and then save the file.
-    - Replace the place holder *<connection-string>* to the real one copied from **Azure Portal** for **`WebPubSubConnectionString`** setting. 
-    - For **`AzureWebJobsStorage`** setting, this is requied due to [Azure Functions requires an Azure Storage account](https://docs.microsoft.com/azure/azure-functions/storage-considerations).
+    - Replace the place holder *<connection-string>* to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
+    - For **`AzureWebJobsStorage`** setting, this is required due to [Azure Functions requires an Azure Storage account](https://docs.microsoft.com/azure/azure-functions/storage-considerations).
         - If you have Azure storage emulator run in local, keep the original settings of "UseDevelopmentStorage=true".
         - If you have an Azure storage connection string, replace the value with it.
  
@@ -77,7 +77,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     ngrok http 7071
     ```    
 
-- Set `Event Handler` in Azure Web PubSub service. Go to **Azure Portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the {ngrok-id} to yours.
+- Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the {ngrok-id} to yours.
 
    - Hub Name: simplechat
    - URL Template: **http://{ngrok-id}.ngrok.io/runtime/webhooks/webpubsub**
