@@ -49,7 +49,60 @@ Next you define the training script. This script downloads the CIFAR10 dataset b
 
 Create a `train.py` script in the `src` subdirectory:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/train.py":::
+```python
+import torch
+import torch.optim as optim
+import torchvision
+import torchvision.transforms as transforms
+
+from model import Net
+
+# download CIFAR 10 data
+trainset = torchvision.datasets.CIFAR10(
+    root="../data",
+    train=True,
+    download=True,
+    transform=torchvision.transforms.ToTensor(),
+)
+trainloader = torch.utils.data.DataLoader(
+    trainset, batch_size=4, shuffle=True, num_workers=2
+)
+
+if __name__ == "__main__":
+
+    # define convolutional network
+    net = Net()
+
+    # set up pytorch loss /  optimizer
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+
+    # train the network
+    for epoch in range(2):
+
+        running_loss = 0.0
+        for i, data in enumerate(trainloader, 0):
+            # unpack the data
+            inputs, labels = data
+
+            # zero the parameter gradients
+            optimizer.zero_grad()
+
+            # forward + backward + optimize
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            # print statistics
+            running_loss += loss.item()
+            if i % 2000 == 1999:
+                loss = running_loss / 2000
+                print(f"epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}")
+                running_loss = 0.0
+
+    print("Finished Training")
+```
 
 You now have the following directory structure:
 
@@ -64,7 +117,7 @@ You now have the following directory structure:
 
 Select **Save and run script in terminal** to run the script.
 
-After you run this script, select **Refresh** above the file folders. You'll see the new data folder called `tutorial/.data`. Expand this folder to view the downloaded data.
+After you run this script, select **Refresh** above the file folders. You'll see the new data folder called `tutorial/data`. Expand this folder to view the downloaded data.  
 
 > [!div class="nextstepaction"]
 > [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
@@ -111,8 +164,8 @@ if __name__ == "__main__":
 
     aml_url = run.get_portal_url()
     print(aml_url)
-```    
-    
+```
+
 ### Understand the code changes
 
 :::row:::
