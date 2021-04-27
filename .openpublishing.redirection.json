@@ -51771,18 +51771,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-javascript-spa",
-      "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-auth-code",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript",
-      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/active-directory/develop/quickstart-v1-remove-azure-ad-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-remove-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-spa",
       "redirect_document_id": true
     },
     {
