@@ -202,7 +202,7 @@ Valid values:
 
 ## MDMaxBackgroundUpgradePeriod 
 
-Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (seven days). 
+Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (weekly). 
 
 Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it may also delay delivering new module versions to your app. 
 
@@ -214,9 +214,11 @@ To learn more, see [Dependency management](functions-reference-powershell.md#dep
 
 ## MDNewSnapshotCheckPeriod
 
-Specifies how often each PowerShell worker checks whether managed dependency upgrades have been installed, which requires a restart. The default frequency is `01:00:00` (every 1 hour). 
+Specifies how often each PowerShell worker checks whether managed dependency upgrades have been installed. The default frequency is `01:00:00` (hourly). 
 
-After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers completes within `MDNewSnapshotCheckPeriod`. Increasing this value decreases the frequency of interruptions, but may also increase the period of time when function invocations use either the old or the new module versions non-deterministically. 
+After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers completes within `MDNewSnapshotCheckPeriod`. 
+
+Within every `MDNewSnapshotCheckPeriod`, the PowerShell worker checks whether or not managed dependency upgrades have been installed. When upgrades have been installed, a restart is initiated. Increasing this value decreases the frequency of interruptions because of restarts. However, the increase might also increase the time during which function invocations could use either the old or the new module versions, non-deterministically. 
 
 |Key|Sample value|
 |---|------------|
@@ -227,7 +229,7 @@ To learn more, see [Dependency management](functions-reference-powershell.md#dep
 
 ## MDMinBackgroundUpgradePeriod
 
-The period of time after a previous managed dependency upgrade check before another upgrade check is started, with a default of  `1.00:00:00` (one day). 
+The period of time after a previous managed dependency upgrade check before another upgrade check is started, with a default of  `1.00:00:00` (daily). 
 
 To avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades isn't performed when any worker has already initiated that check in the last `MDMinBackgroundUpgradePeriod`. 
 
