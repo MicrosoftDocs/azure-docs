@@ -232,6 +232,16 @@ If you want to know when you reach a certain transaction threshold, for example 
 
 ![Screenshot that shows the Alert rules page5.](./media/luis-usage-tiers/alerts-5.png)
 
+### Reset an authoring key
+
+For [migrated authoring resource](luis-migration-authoring.md) apps: If your authoring key is compromised, reset the key in the Azure portal, on the **Keys** page for the authoring resource.
+
+For apps that haven't been migrated: The key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of `Ocp-Apim-Subscription-Key` to the new key.
+
+### Regenerate an Azure key
+
+You can regenerate an Azure key from the **Keys** page in the Azure portal.
+
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
