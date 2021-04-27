@@ -6,7 +6,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 04/27/2021
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -176,7 +176,7 @@ The data factory team has provided a [sample pre- and post-deployment script](#s
 
 ## Manually promote a Resource Manager template for each environment
 
-1. In the **ARM Template** list, select **Export ARM Template** to export the Resource Manager template for your data factory in the development environment.
+1. Go to **Manage** hub in your data factory, and select **ARM template** in the "Source control" section. Under **ARM template** section, select **Export ARM template** to export the Resource Manager template for your data factory in the development environment.
 
    ![Export a Resource Manager template](media/continuous-integration-deployment/continuous-integration-image1.png)
 
