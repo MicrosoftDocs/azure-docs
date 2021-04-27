@@ -26,7 +26,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/devtest-labs-security-baseline
+      href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
     - name: Protect Microsoft 365 from on-premises attacks 
       href: protect-m365-from-on-premises-attacks.md    
     - name: Secure external collaboration
