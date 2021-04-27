@@ -127,7 +127,7 @@ You can use entities as a signal for an intent. For example, the presence of a c
 |Book me a *fight to New York*.|City|Book Flight|
 |Book me the *main conference room*.|Room|Reserve Room|
 
-## Entities as Feature for Entities
+## Entities as Feature for entities
 
 You can also use entities as an indicator of the presence of other entities. A common example of this is using a prebuilt entity as a feature for another ML entity.
 If you are  building a flight booking system and your utterance looks like "Book me a flight from Cairo to Seattle", you will have *Origin City* and *Destination City* as ML entities. A good practice would be to use the prebuilt `GeographyV2` entity as a feature for both entities.
