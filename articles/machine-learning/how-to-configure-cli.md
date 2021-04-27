@@ -108,17 +108,29 @@ And submit, streaming the logs to the console output:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world":::
 
-This will generate a UUID for the job name. You can capture it for use in later commands with `--query`:
+> [!IMPORTANT]
+> This may take a couple minutes to run the first time, as the Docker image is pulled locally and the Azure ML job is run. Subsequent runs will have the image cached locally and complete much quicker.
+
+If one isn't specified, a UUID is automatically generated for the job name. You can capture it for use in later commands with `--query`:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world_output":::
+
+> [!TIP]
+> Although you can set the job name with `--name/-n`, it is not recommended as it must be unique per workspace.
 
 Then open the job's run details in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="show_job_in_studio":::
 
+> [!TIP]
+> In the studio, you can view the run details like the environment used, the command run, and even the git commit the code is from.
+
 Or, stream the logs, which will block the console:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="stream_job_logs_to_console":::
+
+> [!TIP]
+> This can be useful in CI/CD automation to wait for the job to complete.
 
 Check the status:
 

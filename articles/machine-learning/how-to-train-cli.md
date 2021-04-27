@@ -15,8 +15,7 @@ ms.date: 05/25/2021
 
 Training a machine learning model is generally an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated.
 
-
-The Azure CLI extension for Machine Learning enables you to accelerate the iterative model training process while easily scaling up and out on Azure compute.
+The Azure CLI extension for Machine Learning enables you to accelerate the iterative model training process while easily scaling up and out on Azure compute while tracking the model lifecycle.
 
 ## Prerequisites
 
