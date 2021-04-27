@@ -1,14 +1,14 @@
 ---
-title: Publish on-premises apps with Azure AD Application Proxy 
+title: Publish on-premises apps with Azure Active Directory Application Proxy 
 description: Understand why to use Application Proxy to publish on-premises web applications externally to remote users. Learn about Application Proxy architecture, connectors, authentication methods, and security benefits.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/31/2020
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
@@ -94,7 +94,7 @@ App Proxy also supports the following authentication protocols with third-party 
 * [**Forms- or password-based authentication**](application-proxy-configure-single-sign-on-password-vaulting.md). With this authentication method, users sign on to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. In this scenario, authentication is handled by Azure AD.
 * [**SAML authentication**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-based single sign-on is supported for applications that use either SAML 2.0 or WS-Federation protocols. With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account.
 
-For more information on supported methods, see [Choosing a single sign-on method](sso-options.md#choosing-a-single-sign-on-method).
+For more information on supported methods, see [Choosing a single sign-on method](../manage-apps/sso-options.md#choosing-a-single-sign-on-method).
 
 ### Security benefits
 
@@ -114,7 +114,7 @@ The remote access solution offered by Application Proxy and Azure AD support sev
 
 Another major benefit of implementing Application Proxy is extending Azure AD to your on-premises environment. In fact, implementing App Proxy is a key step in moving your organization and apps to the cloud. By moving to the cloud and away from on-premises authentication, you reduce your on-premises footprint and use Azure AD's identity management capabilities as your control plane. With minimal or no updates to existing applications, you have access to cloud capabilities such as single sign-on, multi-factor authentication, and central management. Installing the necessary components to App Proxy is a simple process for establishing a remote access framework. And by moving to the cloud, you have access to the latest Azure AD features, updates, and functionality, such as high availability and the disaster recovery.
 
-To learn more about migrating your apps to Azure AD, see the [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper) white paper.
+To learn more about migrating your apps to Azure AD, see the [Migrating Your Applications to Azure Active Directory](../manage-apps/migration-resources.md).
 
 ## Architecture
 
@@ -132,7 +132,7 @@ The following diagram illustrates in general how Azure AD authentication service
 
 |**Component**|**Description**|
 |:-|:-|
-|Endpoint|The endpoint is a URL or an [end-user portal](end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or an end-user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|
+|Endpoint|The endpoint is a URL or an [end-user portal](../manage-apps/end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or an end-user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|
 |Azure AD|Azure AD performs the authentication using the tenant directory stored in the cloud.|
 |Application Proxy service|This Application Proxy service runs in the cloud as part of Azure AD. It passes the sign-on token from the user to the Application Proxy Connector. Application Proxy forwards any accessible headers on the request and sets the headers as per its protocol, to the client IP address. If the incoming request to the proxy already has that header, the client IP address is added to the end of the comma-separated list that is the value of the header.|
 |Application Proxy connector|The connector is a lightweight agent that runs on a Windows Server inside your network. The connector manages communication between the Application Proxy service in the cloud and the on-premises application. The connector only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).|
