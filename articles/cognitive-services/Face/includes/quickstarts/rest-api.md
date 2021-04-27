@@ -170,7 +170,7 @@ This operation takes a single detected face (source) and searches a set of other
 
 ### Detect faces for comparison
 
-First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect faces](#detect-faces-in-an-image) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different detection model.
+First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect and analyze](#detect-and-analyze-faces) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different detection model.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
 

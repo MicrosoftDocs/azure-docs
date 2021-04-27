@@ -194,7 +194,7 @@ The following code takes a single detected face (source) and searches a set of o
 
 ### Find matches
 
-First, run the code in the above section ([Detect faces in an image](#detect-faces-in-an-image)) to save a reference to a single face. Then run the following code to get references to several faces in a group image.
+First, run the code in the above section ([Detect and analyze faces](#detect-and-analyze-faces)) to save a reference to a single face. Then run the following code to get references to several faces in a group image.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detectgroup)]
 

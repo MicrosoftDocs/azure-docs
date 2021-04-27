@@ -230,7 +230,7 @@ The following code takes a single detected face (source) and searches a set of o
 
 ### Detect faces for comparison
 
-First, save a reference to the face you detected in the [Detect faces in an image](#detect-faces-in-an-image) section. This face will be the source.
+First, save a reference to the face you detected in the [Detect and analyze](#detect-and-analyze-faces) section. This face will be the source.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_single_ref)]
 
