@@ -9,7 +9,9 @@ ms.author: anmenard
 # Central Secret Service in Azure Service Fabric 
 Central Secret Service (CSS), also known as Central Secret Store, is a Service Fabric system service meant to safeguard secrets within a cluster. CSS eases the management of secrets for SF applications, eliminating the need to rely on encrypted parameters.
 
-Central Secret Service is a durable, replicated in-cluster secret cache; secrets stored in CSS are encrypted at rest to a customer-provided encryption certificate. CSS provides client APIs for secret management, accessible to entities authenticating as the cluster, or a cluster admin user. The Service Fabric runtime application model integrates with CSS, allowing the declaration of application parameters as CSS secret references. CSS is also instrumental in provisioning application secrets declared as [KeyVault secret URIs](service-fabric-keyvault-references.md), in combination with [Managed Identity for Azure-deployed Service Fabric Applications](concepts-managed-identity.md).
+Central Secret Service is a durable, replicated in-cluster secret cache; secrets stored in CSS are encrypted at rest to a customer-provided encryption certificate. CSS provides client APIs for secret management, accessible to entities authenticating as the cluster, or a cluster admin user. The Service Fabric runtime application model integrates with CSS, allowing the declaration of application parameters as CSS secret references. 
+
+CSS is also instrumental in provisioning application secrets declared as [KeyVault secret URIs](service-fabric-keyvault-references.md), in combination with [Managed Identity for Azure-deployed Service Fabric Applications](concepts-managed-identity.md).
 
 Central Secret Service is not meant to be a replacement for a dedicated, external secrets management service, such as Azure Key Vault. 
 
@@ -94,6 +96,7 @@ An application can consume a secret from CSS by declaring it as an environment v
       <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
      </Section>
 ```
+
 2. Import the section in **ApplicationManifest.xml**.
 ```xml
 <ServiceManifestImport>
@@ -107,12 +110,7 @@ An application can consume a secret from CSS by declaring it as an environment v
 </ServiceManifestImport>
 ```
    
-The environment variable `SecretPath` will point to the directory where all secrets are stored. Each parameter listed under the `testsecrets` section is stored in a separate file. The application can now use the secret as follows:
-```C#
-secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
-```
-   
-2.1. Mount the secrets to a container. The only change required to make the secrets available inside the container is to `specify` a mount point in `<ConfigPackage>`.
+Example 1: Mount the secrets to a container. The only change required to make the secrets available inside the container is to `specify` a mount point in `<ConfigPackage>`.
 The following snippet is the modified **ApplicationManifest.xml**.  
 ```xml
    <ServiceManifestImport>
@@ -130,12 +128,17 @@ The following snippet is the modified **ApplicationManifest.xml**.
 ```
 Secrets are available under the mount point inside your container.
 
-3. You can bind a secret to a process environment variable by specifying `Type='SecretsStoreRef`. The following snippet is an example of how to bind the `supersecret` version `ver1` to the environment variable `MySuperSecret` in **ServiceManifest.xml**.
+Example 2: Bind a secret to a process environment variable by specifying `Type='SecretsStoreRef`. The following snippet is an example of how to bind the `supersecret` version `ver1` to the environment variable `MySuperSecret` in **ServiceManifest.xml**.
 
 ```xml
    <EnvironmentVariables>
      <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
    </EnvironmentVariables>
+```
+
+The environment variable `SecretPath` will point to the directory where all secrets are stored. Each parameter listed under the `testsecrets` section is stored in a separate file. The application can now use the secret as follows:
+```C#
+secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
 ```
    
 ## Rotating the Central Secret Service Encryption Certificate
