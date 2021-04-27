@@ -16,7 +16,20 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Semantic search is in public preview, available through the preview REST API and portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic search is a collection of query-related capabilities that add semantic relevance and language understanding to search results. *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds *captions* and *answers* within your content that summarize the matching document or answer a question, which can then be rendered on a search results page for a more productive search experience.
+Semantic search is a collection of query-related capabilities that add semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
+
+We recommend reviewing this article for background, but if you'd rather get started right away, follow these steps:
+
+1. [Sign up for the preview](https://aka.ms/SemanticSearchPreviewSignup), assuming a service that meets [regional and tier requirements](#availability-and-pricing).
+1. Modify existing queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
+1. Add a few more properties to also include [semantic answers](semantic-answers.md).
+1. Optionally, include a [spell check](speller-how-to-add.md) query property to maximize precision and recall.
+
+## What is semantic search?
+
+Semantic search is an optional layer of search-related AI that extends the traditional query execution pipeline with a semantic ranking model, and returns additional properties that improve the user experience.
+
+*Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds *captions* and *answers* within your content that summarize the matching document or answer a question, which can then be rendered on a search results page for a more productive search experience.
 
 State-of-the-art pretrained models are used for summarization and ranking. To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default similarity scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms). Using those results as the document corpus, semantic ranking re-scores those results based on the semantic strength of the match.
 
