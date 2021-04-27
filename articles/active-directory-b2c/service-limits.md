@@ -20,7 +20,7 @@ This article contains the usage constraints and other service limits for the Azu
 
 ## End user/consumption related limits
 
-The following end-user related service limits apply to all authentication requests to Azure AD B2C. The table below illustrates the peak token issuances per journey type.
+The following end-user related service limits apply to all authentication requests to Azure AD B2C. The table below illustrates the peak token issuances per user journey type for user flows and custom policies.
 
 |User Journey      | Limit    |
 |---------|---------|
@@ -36,7 +36,7 @@ When multiple user journeys are in use, they contribute to the overall limits be
 |Number of requests per IP address per Azure AD B2C tenant     |1,200/min          |
 |Total number of requests per Azure AD B2C tenant   |12,000/min          |
 
-Using the above limits, you can arrive at the following throughput for the **Combined Sign up or Sign in policy**:
+Using the above limits, the following demonstrates the throughput for the **Combined Sign up or Sign in policy**:
 - Perform Sign up's at a rate of 3,000/min
 - Perform Sign in's at a rate of 9,000/min
 - All authentications originate from a unique client IP address
