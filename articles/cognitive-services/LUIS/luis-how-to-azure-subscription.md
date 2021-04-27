@@ -1,6 +1,6 @@
 ---
 title: Azure Resources
-description: learn more about azure resources.
+description: how to use azure resources.
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -10,9 +10,9 @@ ms.date: 04/26/2021
 
 # LUIS Recources
 
-Learn more about LUIS resources [here](./luis-concept-azure-subscripton.md).
+Learn more about LUIS resources [here](./luis-concept-azure-subscription.md).
 
-# Create LUIS resources 
+## Create LUIS resources 
 
 [!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
@@ -70,7 +70,7 @@ Resource `kind`:
     > [!Note]
     > These keys aren't used by the LUIS portal until they're assigned on the **Manage** > **Azure Resources** page in the LUIS portal.
 
-# Assign LUIS resources
+## Assign LUIS resources
 Creating a resource doesn't necessarily mean that it is put to use, you need to asign it to your apps.
 
 ## Assign resources using LUIS portal
@@ -131,7 +131,7 @@ For automated processes like CI/CD pipelines, you might want to automate the ass
 
     When this API is successful, it returns `201 - created status`.
 
-# Unassign a resource
+## Unassign a resource
 
 When you unassign a resource, it's not deleted from Azure. It's only unlinked from LUIS.
 
@@ -194,7 +194,7 @@ To change the ownership of a resource, you can take one of these actions:
 1.  Select the pricing tier you want, and click **Select** to save your change<br>
     When the pricing change is complete, a notification appears in the top right verifying  the pricing tier update.
 
-# View Azure resource metrics
+## View Azure resource metrics
 
 ## View a summary of Azure resource usage
 You can view LUIS usage information in the Azure portal. The **Overview** page shows a summary, including recent calls and errors. If you make a LUIS endpoint request, allow up to five minutes for the change to appear.
@@ -218,19 +218,19 @@ If you want to know when you reach a certain transaction threshold, for example 
 
 3. Click on **Add Condition**
 
-![Screenshot that shows the Alert rules page.](./media/luis-usage-tiers/alerts-2.png)
+![Screenshot that shows the Alert rules page2.](./media/luis-usage-tiers/alerts-2.png)
 
 4.Select **Total Calls**
 
-![Screenshot that shows the Alert rules page.](./media/luis-usage-tiers/alerts-3.png)
+![Screenshot that shows the Alert rules page3.](./media/luis-usage-tiers/alerts-3.png)
 
 5. Scroll down to the **Alert logic** section and set the attributes as you want and click **Done**
 
-![Screenshot that shows the Alert rules page.](./media/luis-usage-tiers/alerts-4.png)
+![Screenshot that shows the Alert rules page4.](./media/luis-usage-tiers/alerts-4.png)
 
 6. To send notifications or invoke actions when the alert rule triggers go to hthe **Actions** section and add your action group.
 
-![Screenshot that shows the Alert rules page.](./media/luis-usage-tiers/alerts-5.png)
+![Screenshot that shows the Alert rules page5.](./media/luis-usage-tiers/alerts-5.png)
 
 ## Next steps
 
