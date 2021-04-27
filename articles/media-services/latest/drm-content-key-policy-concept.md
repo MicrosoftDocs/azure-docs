@@ -23,16 +23,16 @@ ms.custom: seodec18
 
 With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
-To specify encryption options on your stream, you need to create a [Streaming Policy](streaming-policy-concept.md) and associate it with your [Streaming Locator](streaming-locators-concept.md). You create the [Content Key Policy](/rest/api/media/contentkeypolicies) to configure how the content key (that provides secure access to your [Assets](assets-concept.md)) is delivered to end clients. You need to set the requirements (restrictions) on the Content Key Policy that must be met in order for keys with the specified configuration to be delivered to clients. The content key policy is not needed for clear streaming or downloading. 
+To specify encryption options on your stream, you need to create a [Streaming Policy](stream-streaming-policy-concept.md) and associate it with your [Streaming Locator](stream-streaming-locators-concept.md). You create the [Content Key Policy](/rest/api/media/contentkeypolicies) to configure how the content key (that provides secure access to your [Assets](assets-concept.md)) is delivered to end clients. You need to set the requirements (restrictions) on the Content Key Policy that must be met in order for keys with the specified configuration to be delivered to clients. The content key policy is not needed for clear streaming or downloading. 
 
-Usually, you associate your content key policy with your [Streaming Locator](streaming-locators-concept.md). Alternatively, you can specify the content key policy inside a [Streaming Policy](streaming-policy-concept.md) (when creating a custom streaming policy for advanced scenarios). 
+Usually, you associate your content key policy with your [Streaming Locator](stream-streaming-locators-concept.md). Alternatively, you can specify the content key policy inside a [Streaming Policy](stream-streaming-policy-concept.md) (when creating a custom streaming policy for advanced scenarios). 
 
 ## Best practices and considerations
 
 > [!IMPORTANT]
 > Please review the following recommendations.
 
-* You should design a limited set of policies for your Media Service account and reuse them for your streaming locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints.md).
+* You should design a limited set of policies for your Media Service account and reuse them for your streaming locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints-reference.md).
 * Content key policies are updatable. It can take up to 15 minutes for the key delivery caches to update and pick up the updated policy. 
 
    By updating the policy, you are overwriting your existing CDN cache which could cause playback issue for customers that are using cached content.  
@@ -51,7 +51,7 @@ To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [G
 
 ## Filtering, ordering, paging
 
-See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+See [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md).
 
 ## Additional notes
 

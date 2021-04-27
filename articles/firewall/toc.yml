@@ -63,7 +63,7 @@
     - name: FQDN in network rules
       href: fqdn-filtering-network-rules.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/firewall-security-baseline
     - name: Active FTP support
       href: active-ftp-support.md
 - name: How-to guides
@@ -103,10 +103,12 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrate to Azure Firewall Premium
       href: premium-migrate.md
+    - name: Scale Outbound SNAT Ports
+      href: integrate-with-nat-gateway.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/azure-firewall/network/firewall
+    href: /cli/azure/network/firewall
   - name: Azure PowerShell
     href: /powershell/module/az.network/new-azfirewall
   - name: .NET

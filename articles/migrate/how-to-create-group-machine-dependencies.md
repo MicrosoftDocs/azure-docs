@@ -49,6 +49,8 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 
     ![Add a new workspace](./media/how-to-create-group-machine-dependencies/workspace.png)
 
+> [!Note]
+> [Learn how](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security) to configure the OMS workspace for private endpoint connectivity.  
 
 ## Download and install the VM agents
 

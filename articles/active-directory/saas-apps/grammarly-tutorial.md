@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/13/2021
 ms.author: jeedes
 ---
 
@@ -32,8 +32,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Grammarly supports **IDP** initiated SSO
-* Grammarly supports **Just In Time** user provisioning
+* Grammarly supports **IDP** initiated SSO.
+* Grammarly supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -48,7 +48,6 @@ To configure the integration of Grammarly into Azure AD, you need to add Grammar
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Grammarly** in the search box.
 1. Select **Grammarly** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Grammarly
 
@@ -69,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Grammarly** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -126,12 +125,12 @@ In this section, a user called B.Simon is created in Grammarly. Grammarly suppor
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click on **Test this application** in Azure portal and you should be automatically signed in to the Grammarly for which you set up the SSO 
+* Click on Test this application in Azure portal and you should be automatically signed in to the Grammarly for which you set up the SSO.
 
-2. You can use Microsoft Access Panel. When you click the Grammarly tile in the Access Panel, you should be automatically signed in to the Grammarly for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Grammarly tile in the My Apps, you should be automatically signed in to the Grammarly for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
-Once you configure Grammarly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Grammarly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

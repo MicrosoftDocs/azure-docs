@@ -3,12 +3,12 @@ title: Migrate databases to SQL Managed Instance using Log Replay Service
 description: Learn how to migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 03/29/2021
+ms.date: 03/31/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -29,6 +29,7 @@ You might consider using LRS in the following cases:
 - The Database Migration Service executable file doesn't have file access to database backups.
 - No access to the host OS is available, or there are no administrator privileges.
 - You can't open network ports from your environment to Azure.
+- Network throttling, or proxy blocking issues in your environment.
 - Backups are stored directly to Azure Blob Storage through the `TO URL` option.
 - You need to use differential backups.
 
@@ -394,9 +395,9 @@ Functional limitations of LRS are:
 After you start LRS, use the monitoring cmdlet (`get-azsqlinstancedatabaselogreplay` or `az_sql_midb_log_replay_show`) to see the status of the operation. If LRS fails to start after some time and you get an error, check for the most common issues:
 
 - Does an existing database on SQL Managed Instance have the same name as the one you're trying to migrate from SQL Server? Resolve this conflict by renaming one of databases.
-- Was the database backup on SQL Server made via the `CHECKSUM` option?
-- Are the permissions on the SAS token only read and list for LRS?
-- Did you copy the SAS token for LRS after the question mark (`?`), with content starting like this: `sv=2020-02-10...`? 
+- Was the database backup on SQL Server made via theÂ `CHECKSUM` option?
+- Are the permissions on the SAS tokenÂ only read and list for LRS?
+- Did you copy the SAS token for LRS after the question mark (`?`), with content starting like this: `sv=2020-02-10...`?Â 
 - Is the SAS token validity time applicable for the time window of starting and completing the migration? There might be mismatches due to the different time zones used for SQL Managed Instance and the SAS token. Try regenerating the SAS token and extending the token validity of the time window before and after the current date.
 - Are the database name, resource group name, and managed instance name spelled correctly?
 - If you started LRS in autocomplete mode, was a valid filename for the last backup file specified?

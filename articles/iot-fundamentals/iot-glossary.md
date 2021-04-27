@@ -431,6 +431,12 @@ In [IoT Edge](#iot-edge), a module is a Docker container that you can deploy to 
 
 ## O
 
+### Ontology
+
+A set of models for a particular domain, such as real estate, smart cities, IoT systems, energy grids, and more. Ontologies are often used as schemas for knowledge graphs like the ones in [Azure Digital Twins](#azure-digital-twins), because they provide a starting point based on industry standards and best practices.
+
+For more information about ontologies, see [What is an ontology?](../digital-twins/concepts-ontologies.md)
+
 ### Operations monitoring
 
 IoT Hub [operations monitoring](../iot-hub/iot-hub-operations-monitoring.md) enables you to monitor the status of operations on your IoT hub in real time. [IoT Hub](#iot-hub) tracks events across several categories of operations. You can opt into sending events from one or more categories to an IoT Hub endpoint for processing. You can monitor the data for errors or set up more complex processing based on data patterns.

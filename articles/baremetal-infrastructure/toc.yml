@@ -6,13 +6,11 @@
     href: concepts-baremetal-infrastructure-overview.md
   - name: Know the terms
     href: know-baremetal-terms.md
-  - name: Connect BareMetal Instance units in Azure
+  - name: Connect BareMetal instances in Azure
     displayName: Azure CLI, az baremetalinstance, az baremetalinstance restart
     href: connect-baremetal-infrastructure.md
 - name: Workloads
   items: 
-  - name: BareMetal workload types
-    href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context  
   - name: SAP HANA on Azure (Large Instances)
     items:
     - name: Certification
@@ -87,3 +85,6 @@
         href: /azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration?context=/azure/baremetal-infrastructure/workloads/sap/context/context
       - name: Buy an SAP HANA Large Instances reservation
         href: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+  - name: Oracle
+    href: ./workloads/oracle/toc.yml
+    

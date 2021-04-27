@@ -2,11 +2,14 @@
 title: 'Quickstart: Create an Azure SignalR Service - ARM template'
 description: In this Quickstart, learn how to create an Azure SignalR Service using an Azure Resource Manager template (ARM template).
 author: sffamily
-ms.service: signalr
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
+ms.topic: quickstart
+ms.service: signalr
+ms.custom:
+  - subject-armqs
+  - devx-track-azurecli
+  - mode-arm
 ---
 
 # Quickstart: Use an ARM template to deploy Azure SignalR Service

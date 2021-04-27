@@ -28,7 +28,7 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 ## Before you begin
 
-ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient). The detailed specifications of NSG flow logs REST API can be found [here](https://docs.microsoft.com/rest/api/network-watcher/flowlogs) 
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 

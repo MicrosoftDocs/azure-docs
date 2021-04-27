@@ -67,7 +67,7 @@ All IoT Hub endpoints use the [TLS](https://tools.ietf.org/html/rfc5246) protoco
 
 ## Custom endpoints
 
-You can link existing Azure services in your subscription to your IoT hub to act as endpoints for message routing. These endpoints act as service endpoints and are used as sinks for message routes. Devices cannot write directly to the additional endpoints. Learn more about [message routing](../iot-hub/iot-hub-devguide-messages-d2c.md).
+You can link existing Azure services in your Azure subscriptions to your IoT hub to act as endpoints for message routing. These endpoints act as service endpoints and are used as sinks for message routes. Devices cannot write directly to the additional endpoints. Learn more about [message routing](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 IoT Hub currently supports the following Azure services as additional endpoints:
 

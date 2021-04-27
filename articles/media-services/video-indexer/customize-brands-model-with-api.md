@@ -23,7 +23,7 @@ You can use the Video Indexer APIs to create, use, and edit custom Brands models
 
 ## Create a Brand
 
-The [create a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) API creates a new custom brand and adds it to the custom Brands model for the specified account.
+The [create a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Brand) API creates a new custom brand and adds it to the custom Brands model for the specified account.
 
 > [!NOTE]
 > Setting `enabled` (in the body) to true puts the brand in the *Include* list for Video Indexer to detect. Setting `enabled` to false puts the brand in the *Exclude* list, so Video Indexer won't detect it.
@@ -57,7 +57,7 @@ The response provides information on the brand that you just created following t
 
 ## Delete a Brand
 
-The [delete a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API removes a brand from the custom Brands model for the specified account. The account is specified in the `accountId` parameter. Once called successfully, the brand will no longer be in the *Include* or *Exclude* brands lists.
+The [delete a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Brand) API removes a brand from the custom Brands model for the specified account. The account is specified in the `accountId` parameter. Once called successfully, the brand will no longer be in the *Include* or *Exclude* brands lists.
 
 ### Response
 
@@ -65,7 +65,7 @@ There's no returned content when the brand is deleted successfully.
 
 ## Get a specific Brand
 
-The [get a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID.
+The [get a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brand) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID.
 
 ### Response
 
@@ -94,7 +94,7 @@ The response provides information on the brand that you searched (using brand ID
 
 ## Update a specific brand
 
-The [update a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID.
+The [update a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brand) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID.
 
 ### Response
 
@@ -120,7 +120,7 @@ The response provides the updated information on the brand that you updated foll
 
 ## Get all of the Brands
 
-The [get all brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) API returns all of the brands in the custom Brands model for the specified account regardless of whether the brand is meant to be in the *Include* or *Exclude* brands list.
+The [get all brands](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API returns all of the brands in the custom Brands model for the specified account regardless of whether the brand is meant to be in the *Include* or *Exclude* brands list.
 
 ### Response
 
@@ -160,7 +160,7 @@ The response provides a list of all of the brands in your account and each of th
 
 ## Get Brands model settings
 
-The [get brands settings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
+The [get brands settings](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
 
 ### Response
 
@@ -178,7 +178,7 @@ The response shows whether Bing brands are enabled following the format of the e
 
 ## Update Brands model settings
 
-The [update brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) API updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
+The [update brands](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brands-Model-Settings) API updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
 
 The `useBuiltIn` flag set to true means that Bing brands are enabled. If `useBuiltin` is false, Bing brands are disabled.
 

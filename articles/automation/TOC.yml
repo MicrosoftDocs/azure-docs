@@ -51,7 +51,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/automation-security-baseline
     - name: Data security
       items:
         - name: Encryption of secure assets
@@ -66,6 +66,12 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: quickstart-create-automation-account-template.md
+        - name: Managed identity
+          items:
+            - name: Enable managed identity
+              href: enable-managed-identity-for-automation.md
+            - name: Disable managed identity
+              href: disable-managed-identity-for-automation.md
         - name: Run As account
           items:
             - name: Create Run As account
@@ -90,6 +96,8 @@
           href: delete-account.md
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
+        - name: How to remove a DSC package
+          href: how-to/remove-desired-state-configuration-package.md
     - name: Shared resources
       items:
         - name: Manage certificates
@@ -116,7 +124,7 @@
           href: troubleshoot/shared-resources.md
     - name: Process automation
       items:
-        - name: Use runbooks and modules in PowerShell Gallery
+        - name: Use existing runbooks and modules
           href: automation-runbook-gallery.md
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
@@ -334,6 +342,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation
   - name: Azure PowerShell AzureRM
@@ -365,4 +375,3 @@
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-

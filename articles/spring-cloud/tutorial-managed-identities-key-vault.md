@@ -24,14 +24,14 @@ Azure Key Vault can be used to securely store and tightly control access to toke
 * [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 
 ## Create a resource group
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the command [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
 ## Set up your Key Vault
-To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az-keyvault-create):
+To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az_keyvault_create):
 
 > [!Important]
 > Each Key Vault must have a unique name. Replace <your-keyvault-name> with the name of your Key Vault in the following examples.
@@ -42,7 +42,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Make a note of the returned `vaultUri`, which will be in the format "https://<your-keyvault-name>.vault.azure.net". It will be used in the following step.
 
-You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
+You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set):
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" \

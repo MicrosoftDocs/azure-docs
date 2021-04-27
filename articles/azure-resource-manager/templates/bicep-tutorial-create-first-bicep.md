@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy Azure Resource Manager Bicep files
 description: Create your first Bicep file for deploying Azure resources. In the tutorial, you learn about the Bicep file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -55,7 +55,7 @@ Okay, you're ready to start learning about Bicep.
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-      name: '{provide-unique-name}'
+      name: '{provide-unique-name}'  // must be globally unique
       location: 'eastus'
       sku: {
         name: 'Standard_LRS'
@@ -83,6 +83,10 @@ Okay, you're ready to start learning about Bicep.
         If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties is available.
 
         If you decide to change the API version for a resource, make sure you evaluate the properties for that version and adjust your Bicep file appropriately.
+
+    For more information, see [Bicep structure](./bicep-file.md).
+
+    There is a comment for the name property.  Use `//` for single-line comments or `/* ... */` for multi-line comments
 
 1. Replace `{provide-unique-name}` including the curly braces `{}` with a unique storage account name.
 

@@ -43,7 +43,7 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 You'll also need to install some additional, language-specific tools to develop your module:
 
-- C#, including Azure Functions: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
+- C#, including Azure Functions: [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1)
 
 - Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
 
@@ -139,7 +139,7 @@ If you're developing in C#, Node.js, or Java, your module requires use of a **Mo
 
 On your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
 
-1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+1. In the **Explorer** tab on the left side, expand the **Azure IoT Hub** section. Right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
 
 ### Set up IoT Edge simulator for single module app
@@ -220,7 +220,7 @@ Currently, debugging in attach mode is supported only as follows:
 
 In your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
 
-1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+1. In the **Explorer** tab on the left side, expand the **Azure IoT Hub** section. Right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 
 1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
 

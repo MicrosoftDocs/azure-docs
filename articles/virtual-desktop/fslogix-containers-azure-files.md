@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # FSLogix profile containers and Azure files

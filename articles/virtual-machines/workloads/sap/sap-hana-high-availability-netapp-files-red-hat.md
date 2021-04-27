@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.author: radeltch
 ---
 
@@ -254,7 +254,6 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Enter the name of the new load balancer rule (for example, **hana-lb**).
 		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
 		1.	Select **HA Ports**.
-		1.	Increase the **idle timeout** to 30 minutes.
 		1.	Make sure to **enable Floating IP**.
 		1.	Select **OK**.
 
@@ -467,6 +466,71 @@ This section describes necessary steps required for cluster to operate seamlessl
 ### Create a Pacemaker cluster
 
 Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
+
+### Implement the Python system replication hook SAPHanaSR
+
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+
+1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
+
+   > [!TIP]
+   > The python hook can only be implemented for HANA 2.0.        
+
+   1. Prepare the hook as `root`.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Stop HANA on both nodes. Execute as <sid\>adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Adjust `global.ini` on each cluster node.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+For more details on the implementation of the SAP HANA system replication hook see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
 
 ### Configure filesystem resources
 
