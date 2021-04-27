@@ -3,7 +3,7 @@ title: Work with indoor maps in Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
