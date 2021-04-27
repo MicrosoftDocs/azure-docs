@@ -50,7 +50,7 @@ This article uses the following values:
 
 In this step, you create an application in your Azure Active Directory tenant that uses Application Proxy. You set the external URL and specify the internal URL, both of which are used later in SharePoint.
 
-1. Create the app as described with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+1. Create the app as described with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    * **Internal URL**: SharePoint internal URL that will be set later in SharePoint, such as `https://sharepoint`.
    * **Pre-Authentication**: Azure Active Directory
    * **Translate URLs in Headers**: No
