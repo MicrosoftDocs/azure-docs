@@ -6,9 +6,9 @@
     tocHref: /azure/active-directory/saas-apps/
     topicHref: /azure/active-directory/index
     items:
-    - name: Application provisioning
+    - name: Application proxy
       tocHref: /azure/active-directory/saas-apps/
-      topicHref: /azure/active-directory/app-provisioning/index
+      topicHref: /azure/active-directory/app-proxy/index
   
 - name: Azure
   tocHref: /azure/
@@ -18,9 +18,9 @@
     tocHref: /azure/active-directory/fundamentals/
     topicHref: /azure/active-directory/index
     items:
-    - name: Application provisioning
+    - name: Application proxy
       tocHref: /azure/active-directory/fundamentals/
-      topicHref: /azure/active-directory/app-provisioning/index
+      topicHref: /azure/active-directory/app-proxy/index
   
 - name: Azure
   tocHref: /azure/
@@ -30,9 +30,9 @@
     tocHref: /azure/active-directory/reports-monitoring/
     topicHref: /azure/active-directory/index
     items:
-    - name: Application provisioning
+    - name: Application proxy
       tocHref: /azure/active-directory/reports-monitoring/
-      topicHref: /azure/active-directory/app-provisioning/index
+      topicHref: /azure/active-directory/app-proxy/index
 
 - name: Azure
   tocHref: /azure/
@@ -42,9 +42,9 @@
     tocHref: /azure/active-directory/hybrid/
     topicHref: /azure/active-directory/index
     items:
-    - name: Application provisioning
+    - name: Application proxy
       tocHref: /azure/active-directory/hybrid/
-      topicHref: /azure/active-directory/app-provisioning/index
+      topicHref: /azure/active-directory/app-proxy/index
   
 - name: Azure
   tocHref: /azure/
@@ -54,9 +54,9 @@
     tocHref: /azure/active-directory/develop/
     topicHref: /azure/active-directory/index
     items:
-    - name: Application provisioning
+    - name: Application proxy
       tocHref: /azure/active-directory/develop/
-      topicHref: /azure/active-directory/app-provisioning/index
+      topicHref: /azure/active-directory/app-proxy/index
 
 - name: Azure
   tocHref: /azure/
@@ -66,6 +66,6 @@
     tocHref: /azure/active-directory-domain-services/
     topicHref: /azure/active-directory/index
     items:
-    - name: Application provisioning
+    - name: Application proxy
       tocHref: /azure/active-directory-domain-services/
-      topicHref: /azure/active-directory/app-provisioning/index
+      topicHref: /azure/active-directory/app-proxy/index
