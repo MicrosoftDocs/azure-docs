@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: janders
+author: JasonMAnderson
 ms.author: janders
 ---
 
