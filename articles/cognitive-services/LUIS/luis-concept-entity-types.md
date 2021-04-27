@@ -78,7 +78,7 @@ A pattern.Any entity is a variable-length placeholder used only in a pattern's t
 
 See the [Pattern.Any entities reference article](./reference-entity-pattern-any.md) for more information.
 
-## Machine learned (ML) Entity
+## Machine learned (ML) entity
 
 Machine learned entity uses context to extract entities based on labeled examples. It is the preferred entity for building LUIS applications. It relies on machine learning algorithms and requires labeling to be tailored to your application successfully. Use an ML entity to identify data that is not always well formatted but have the same meaning. 
 
