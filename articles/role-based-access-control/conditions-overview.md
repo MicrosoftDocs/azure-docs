@@ -114,5 +114,6 @@ To better understand Azure RBAC and Azure ABAC, you can refer back to the follow
 
 ## Next steps
 
-- [Example Azure role assignment conditions](../storage/blobs/storage-blob-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](../storage/blobs/storage-blob-abac-portal.md)
+- [FAQ for Azure role assignment conditions (Preview)](conditions-faq.md)
+- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/blobs/storage-blob-abac-portal.md)

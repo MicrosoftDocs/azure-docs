@@ -55,3 +55,8 @@ When using Azure CLI to add or update conditions, you must use the following ver
 ## Permissions
 
 Just like role assignments, to add or update conditions, you must be signed in to Azure with a user that has the `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner).
+
+## Next steps
+
+- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/blobs/storage-blob-abac-portal.md)
