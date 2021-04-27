@@ -114,7 +114,7 @@ To build machine learned entities effectively, follow these best practices:
 
 * Your labeling should be consistent across the intents. This includes even utterances you provide in the *None* intent that includes this entity. Otherwise the model will not be able to determine the sequences effectively.
 
-# Entities as features
+## Entities as features
 
 Another important function of entities is to use them as features or distinguishing traits for another intents or entities so that your system observes and learns through them.
 
