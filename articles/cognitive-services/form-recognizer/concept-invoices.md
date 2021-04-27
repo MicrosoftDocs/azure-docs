@@ -40,7 +40,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 ## Supported locales 
 
-* **Pre-built Receipt v2.0** (GA) and **Pre-built Receipt v2.1-preview.3** (Public Preview) supports invoices in the EN-US locale
+**Pre-built Receipt v2.0** (GA) and **Pre-built Receipt v2.1-preview.3** (preview) support invoices in the EN-US locale.
 
 
 ## The Analyze Invoice operation
