@@ -54,6 +54,7 @@ To deactivate your device, perform the following steps. A device must be online 
     The deactivate process starts and takes a few minutes to complete.
    
     ![Deactivate in progress](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete2.png)
+
 4. After deactivation, the list of devices refreshes.
    
     ![Deactivate complete](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)
