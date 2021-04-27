@@ -5,19 +5,22 @@ description: Learn how to enable Policy Support to protect your VMs using Azure 
 author: rishjai-msft
 ms.author: rishjai
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 04/27/2021
 ms.custom: template-how-to
 
 ---
 
-# Using Policy with Azure Site Recovery
+# Using Policy with Azure Site Recovery (Public Preview)
 
 This article describes how to set up [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) for your resources, using Azure Policy. [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) helps to enforce certain business rules on your Azure resources and assess compliance of said resources.
 
 ## Disaster Recovery with Azure Policy
 Site Recovery helps you keep your applications up and running in the event of planned or unplanned zonal/regional outages. Enabling Site Recovery on your machines at scale through the Azure portal can be challenging. Now, you have way to enable Site Recovery en masse on specific Resource Groups (_Scope_ of the Policy) through the portal.
 
-Azure Policy solves this problem. Once you have a disaster recovery policy created for a resource group (scope), then all the new virtual machines that are added to the scope will get Site Recovery enabled for them automatically. Moreover, for all the virtual machines already present in the scope, you can get Site Recovery enabled through a process called _remediation_ (details below).
+Azure Policy solves this problem. Once you have a disaster recovery policy created for a resource group, then all the new virtual machines that are added to the Resource Group will get Site Recovery enabled for them automatically. Moreover, for all the virtual machines already present in the Resource Group, you can get Site Recovery enabled through a process called _remediation_ (details below).
+
+>[!NOTE]
+    >The _Scope_ of this policy should be at Resource Group Level.
 
 ## Prerequisites
 
@@ -31,7 +34,7 @@ Managed Disks | Supported
 Unmanaged Disks  | Not supported
 Multiple Disks | Supported
 Availability Sets | Supported
-Availability Zones | Not supported
+Availability Zones | Supported
 Azure Disk Encryption (ADE) enabled VMs | Not supported
 Proximity Placement Groups (PPG) | Not supported
 Customer-managed keys (CMK) enabled disks | Not supported
@@ -45,9 +48,12 @@ Interoperability with Azure Backup | Not supported
 Hot add/remove of disks | Not supported
 Interoperability with other policies applied as default by Azure (if any) | Supported
 
+>[!NOTE]
+    >If a not-supported VM is created within the scope of policy, Site Recovery will not be enabled for them. However, they wil reflect as _Non-complaint_ in Resource Compliance.
+
 ## Create a Policy Assignment
 In this section, you create a policy assignment that enables Azure Site Recovery for all newly created resources.
-1. Go to the **Azure Portal** and navigate to **Azure Policy**
+1. Go to the **Azure portal** and navigate to **Azure Policy**
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to execute on a specific scope.
 :::image type="content" source="./media/azure-to-azure-how-to-enable-policy/select-assignments.png" alt-text="Screenshot of selecting the Assignments page from Policy Overview page." border="false":::
@@ -76,16 +82,17 @@ You are on the way to create a Policy to enable Azure Site Recovery. Let us now 
     - **Target Resource Group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region.
     - **Vault Resource Group**: The resource group in which Recovery Services Vault exists.
     - **Recovery Services Vault**: The Vault against which all the VMs of the Scope will get protected.
-    - **Existing Recovery Virtual Network**: Pick an existing virtual network in the target region to be used for recovery virtual machine.
+    - **Recovery Virtual Network**: Pick an existing virtual network in the target region to be used for recovery virtual machine.
     - **Target Availability Zone**: Enter the Availability Zone of the Target Region where the Virtual Machine will failover.
     >[!NOTE]
     >For Zone to Zone Scenario, you need to choose the Same Target Region as the Source Region, and opt for a different Availability Zone in _Target Availability Zone_.     
     >If some of the virtual machines in your resource group are already in the target availability zone, then the policy will not be applied to them in case you are setting up Zone to Zone DR.
+    - **Effect**: Enable or disable the execution of the policy. Select _DeployIfNotExists_ to enable the policy as soon as it gets created.
 
 1. Select on **Next** to decide on Remediation Task.
 
 ## Remediation and other properties
-1. You have configured the Target Properties for Azure Site Recovery. However, this policy will take effect only for newly created virtual machines in the scope of the Policy. It can be applied to existing resources via a Remediation Task after the policy is assigned. You can create a Remediation Task here by checking _Create a Remediation Task_ checkbox.
+1. The Target Properties for Azure Site Recovery have been configured. However, this policy will take effect only for newly created virtual machines in the scope of the Policy. It can be applied to existing resources via a Remediation Task after the policy is assigned. You can create a Remediation Task here by checking _Create a Remediation Task_ checkbox.
 
 1. Azure Policy will create a [Managed Identity](https://aka.ms/arm-policy-identity), which will have owner permissions to enable Azure Site Recovery for the resources in the scope.
 
