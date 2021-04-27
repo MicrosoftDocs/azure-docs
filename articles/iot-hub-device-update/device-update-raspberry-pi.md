@@ -119,7 +119,7 @@ Replace `<device connection string>` with your connection string
 
 1. On the left-hand side of the page, select 'IoT Devices'.
 2. Select the link with your device name.
-3. At the top of the page, select 'Device Twin' if directly connecting to Device Update using the IoT device indentity. Otherwise select the module you created above and selct its ‘Module Twin’.
+3. At the top of the page, select 'Device Twin' if directly connecting to Device Update using the IoT device identity. Otherwise select the module you created above and click on its ‘Module Twin’.
 4. Under the 'reported' section of the device twin properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from Device Update, the
 [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value will represent
