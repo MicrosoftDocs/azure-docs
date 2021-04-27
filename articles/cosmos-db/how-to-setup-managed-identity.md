@@ -87,6 +87,25 @@ az cosmosdb identity assign \
     -g $resourceGroupName
 ```
 
+After your Azure Cosmos DB account has been created or updated, you can fetch the identity assigned with the `az cosmosdb identity show` command:
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb identity show \
+    -n $accountName \
+    -g $resourceGroupName
+```
+
+```json
+{
+    "type": "SystemAssigned",
+    "tenantId": "<azure-ad-tenant-id>",
+    "principalId": "<azure-ad-principal-id>"
+}
+```
+
 ## Remove a system-assigned identity
 
 ### Using an Azure Resource Manager (ARM) template
