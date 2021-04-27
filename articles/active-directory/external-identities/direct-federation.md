@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/23/2021
 
 ms.author: mimart
 author: msmimart
@@ -175,7 +175,7 @@ Next, you'll configure federation with the identity provider configured in step 
 
 ### To configure direct federation in Azure AD using PowerShell
 
-1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the quickstart for adding a guest user includes the section [Install the latest AzureADPreview module](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
+1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the Quickstart includes the guidance, [Powershell Module](b2b-quickstart-invite-powershell.md#prerequisites).)
 2. Run the following command: 
    ```powershell
    Connect-AzureAD
