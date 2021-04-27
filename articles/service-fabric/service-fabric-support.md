@@ -42,7 +42,7 @@ Get answers to Service Fabric questions directly from Microsoft engineers, Azure
 
 [Microsoft Q&A](https://docs.microsoft.com/answers/products/) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html):
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the **azure-service-fabric** tag. Here are some Microsoft Q&A tips for writing [high-quality questions](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html).
 
 ## Open a GitHub issue
 
