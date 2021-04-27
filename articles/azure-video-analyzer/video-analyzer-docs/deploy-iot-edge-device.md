@@ -30,7 +30,7 @@ Click the **Deploy to Azure** button
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava/click-to-deploy/form)
 
-* Select the your **subscription**
+* Select your **subscription**
 * Select your preferred **region**
 * Select the **resource group** that your edge device is in 
 * **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
@@ -45,7 +45,7 @@ Click the **Deploy to Azure** button
 
 * On the final page, click **Create**
 
-It may take a few moments for the Azure resoruces to be created and the edge modules to be deployed
+It may take a few moments for the Azure resoruces to be created and the edge modules to be deployed.
 
 
 ### Verify your deployment
