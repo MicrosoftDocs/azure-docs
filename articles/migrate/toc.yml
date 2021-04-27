@@ -89,7 +89,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/migrate-security-baseline
+      href: /security/benchmark/azure/baselines/migrate-security-baseline?toc=/azure/migrate/toc.json
   - name: Discover
     items:
     - name: VMware discovery support
