@@ -606,7 +606,7 @@ For HDInsight 4.0, do the following steps:
 1. Type the following command to run the script:
 
     ```
-    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    sudo bash hdi_enable_replication.sh -m <hn*> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
     ```
 For HDInsight 3.6, do the following:
 

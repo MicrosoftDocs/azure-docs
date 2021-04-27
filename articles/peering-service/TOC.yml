@@ -25,7 +25,7 @@
   - name: Security
     items:
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/peering-service-desktop-security-baseline
+        href: /security/benchmark/azure/baselines/peering-service-desktop-security-baseline?toc=/azure/peering-service/TOC.json
 - name: How-to-guides
   items:
   - name: Register Peering Service
