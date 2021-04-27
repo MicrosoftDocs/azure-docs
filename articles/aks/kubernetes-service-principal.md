@@ -292,8 +292,8 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 
 Check the age of the credentials file using the following command:
 
-```console
-ls -la $HOME/.azure/aksServicePrincipal.json
+```azurepowershell-interactive
+Get-ChildItem -Path $HOME/.azure/aksServicePrincipal.json
 ```
 
 The default expiration time for the service principal credentials is one year. If your *aksServicePrincipal.json* file is older than one year, delete the file and try to deploy an AKS cluster again.
