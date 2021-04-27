@@ -31,7 +31,7 @@ The data regarding transactions and blocks is physically stored as rows in two n
 | transactional_ordinal | int | Offset of the transaction in the block. |
 | user_name() | sysname) | The name of the user who initiated the transaction. Captured by calling ORIGINAL_LOGIN(). |
 | commit_time | datetime2(7) | The time of the committing transaction. |
-| table_hashes | varbinary(max) | This is a set of key-values pairs, stored in a binary format. The keys are object ids (from sys.objects) of ledger database tables, modified by the transaction. Each value is a SHA-256 hash of all row versions a transaction created or invalidated.<br /><version> - indicates the encoding version. Length: 1 byte.<br /><length> - the number of entries in the key-value pair list. Length: 1 byte.<key> - an object id. Length: 4 bytes.<br /><value> - the hash of rows the transaction tached in the table with the object id stored as the key. Length: 32 bytes. \| |
+| table_hashes | varbinary(max) | This is a set of key-values pairs, stored in a binary format. The keys are object ids (from sys.objects) of ledger database tables, modified by the transaction. Each value is a SHA-256 hash of all row versions a transaction created or invalidated.<br /><version> - indicates the encoding version. Length: 1 byte.<br /><length> - the number of entries in the key-value pair list. Length: 1 byte.<key> - an object id. Length: 4 bytes.<br /><value> - the hash of rows the transaction cached in the table with the object id stored as the key. Length: 32 bytes. \| |
 
 ### sys.database_ledger_blocks schema
 
