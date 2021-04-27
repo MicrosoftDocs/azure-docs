@@ -18,9 +18,9 @@ This tutorial shows you how to connect to a virtual machine through your browser
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create a bastion host for your VNet
-> * Remove the public IP address from a VM
-> * Connect to a Windows virtual machine
+> * Create a bastion host for your VNet.
+> * Remove the public IP address from a virtual machine.
+> * Connect to a Windows virtual machine.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -77,7 +77,7 @@ This section helps you create the bastion object in your VNet. This is required 
 1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
 
-## Remove the public IP address
+## Remove a VM public IP address
 
 When you connect to a VM using Azure Bastion, you do not need a public IP address for your VM. To disassociate a public IP address for your VM, use the following steps:
 
