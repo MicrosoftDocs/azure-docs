@@ -43,7 +43,7 @@ Click the **Deploy to Azure** button
 * Click **Next**
 ![Screenshot of second deployment form](./media/deploy-iot-edge-device/form2.PNG)
 
-* Click **Create**
+* On the final page, click **Create**
 
 It may take a few moments for the Azure resoruces to be created and the edge modules to be deployed
 
