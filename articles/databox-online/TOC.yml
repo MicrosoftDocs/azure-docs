@@ -269,14 +269,14 @@
           href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
         - name: Manage virtual switches
           href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
-      - name: Install custom script extension
-        href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
-      - name: Back up VM disks 
-        href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
-      - name: Troubleshoot
-        items:
-        - name: Connect to VM console
-          href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+        - name: Install custom script extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+        - name: Back up VM disks 
+          href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
+        - name: Troubleshoot
+          items:
+          - name: Connect to VM console
+            href: azure-stack-edge-gpu-connect-virtual-machine-console.md
     - name: Manage certificates
       items:
       - name: Requirements
