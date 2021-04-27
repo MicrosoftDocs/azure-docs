@@ -107,7 +107,7 @@
         - name: Assign an Azure Managed Identity
           href: overview-managed-identity.md
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/app-config-security-baseline
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
     - name: High availability

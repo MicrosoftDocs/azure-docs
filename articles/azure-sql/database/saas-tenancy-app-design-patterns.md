@@ -109,7 +109,7 @@ Other management features that scale well include the following:
 
 #### Automation
 
-The management operations can be scripted and offered through a [devops][http-visual-studio-devops-485m] model.  The operations can even be automated and exposed in the application.
+The management operations can be scripted and offered through a [devops](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops) model.  The operations can even be automated and exposed in the application.
 
 For example, you could automate the recovery of a single tenant to an earlier point in time.  The recovery only needs to restore the one single-tenant database that stores the tenant.  This restore has no impact on other tenants, which confirms that management operations are at the finely granular level of each individual tenant.
 

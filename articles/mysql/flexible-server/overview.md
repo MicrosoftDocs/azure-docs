@@ -140,6 +140,8 @@ One of the advantage of running your workload in Azure is it's global reach. The
 | Korea Central | :heavy_check_mark: | :x: | 
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | 
 | Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :x:|
+| Brazil South | :heavy_check_mark: | :x: |
 
 We are working on adding new regions soon.
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Quickstart - Use the Azure Digital Twins Explorer sample to visualize and explore a prebuilt scenario.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/24/2020
+ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
 
@@ -93,11 +93,11 @@ Follow these steps to upload models.
 1. In the Open window that appears, navigate to the **digital-twins-explorer-main/client/examples** folder that you downloaded earlier.
 1. Select **Room.json** and **Floor.json**, and select **Open**. You can upload additional models if you want, but they won't be used in this quickstart.
 
-Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **MODELS** box and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
+Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **MODELS** panel and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="A view of the MODELS box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="A view of the MODELS panel with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -150,11 +150,15 @@ Follow these steps to import the graph.
     :::column-end:::
    :::row-end:::
 
-5. The graph has now been uploaded to Azure Digital Twins Explorer. To see the graph, select the **Run Query** button in the **QUERY EXPLORER** panel, near the top of the Azure Digital Twins Explorer window.
+5. The graph has now been uploaded to Azure Digital Twins Explorer. Switch back to the **TWIN GRAPH** panel.
+ 
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="The Twin Graph tab is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png"::: 
+ 
+6. To see the graph, select the **Run Query** button in the **QUERY EXPLORER** panel, near the top of the Azure Digital Twins Explorer window.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="The Run Query button in the upper-right corner of the window is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 
-This action runs the default query to select and display all digital twins. Azure Digital Twins Explorer retrieves all twins and relationships from the service. It draws the graph defined by them in the **TWIN GRAPH** box.
+This action runs the default query to select and display all digital twins. Azure Digital Twins Explorer retrieves all twins and relationships from the service. It draws the graph defined by them in the **TWIN GRAPH** panel.
 
 ## Explore the graph
 
@@ -204,7 +208,7 @@ In this section, you'll run a query to answer the question of how many twins in 
 
 To see the answer, run the following query in the **QUERY EXPLORER** panel.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="TemperatureQuery":::
 
 Recall from viewing the twin properties earlier that Room0 has a temperature of 70, and Room1 has a temperature of 80. For this reason, only Room1 shows up in the results here.
     
@@ -219,7 +223,7 @@ You can use Azure Digital Twins Explorer to edit the properties of the twins rep
 
 To start, rerun the following query to select all digital twins. This will display the full graph once more in the **TWIN GRAPH** panel.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 Select **Room0** to bring up its property list in the **PROPERTIES** panel.
 
@@ -239,7 +243,7 @@ Now, you'll see a **Patch Information** window where the patch code appears that
 
 To verify that the graph successfully registered your update to the temperature for Room0, rerun the query from earlier to get all the twins in the environment with a temperature above 75.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="TemperatureQuery":::
 
 Now that the temperature of Room0 has been changed from 70 to 76, both twins should show up in the result.
 

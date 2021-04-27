@@ -70,5 +70,5 @@ Now that you've covered Azure VMware Solution network and interconnectivity conc
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management
 [concepts-storage]: ./concepts-storage.md
