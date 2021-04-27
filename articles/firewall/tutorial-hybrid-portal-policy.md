@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy and configure Azure Firewall in a hybrid network using the Azure portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall using Azure portal. 
+title: 'Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal'
+description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -10,11 +10,11 @@ ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 
-# Tutorial: Deploy and configure Azure Firewall in a hybrid network using the Azure portal
+# Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal
 
 When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
 
-You can use Azure Firewall to control network access in a hybrid network using rules that define allowed and denied network traffic.
+You can use Azure Firewall and Firewall Policy to control network access in a hybrid network using rules that define allowed and denied network traffic.
 
 For this tutorial, you create three virtual networks:
 
@@ -30,17 +30,14 @@ In this tutorial, you learn how to:
 > * Create the firewall hub virtual network
 > * Create the spoke virtual network
 > * Create the on-premises virtual network
-> * Configure and deploy the firewall
+> * Configure and deploy the firewall and policy
 > * Create and connect the VPN gateways
 > * Peer the hub and spoke virtual networks
 > * Create the routes
 > * Create the virtual machines
 > * Test the firewall
 
-If you want to use Azure PowerShell instead to complete this tutorial, see [Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell](tutorial-hybrid-ps.md).
-
-> [!NOTE]
-> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this tutorial using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal](tutorial-hybrid-portal-policy.md).
+If you want to use Azure PowerShell instead to complete this procedure, see [Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell](tutorial-hybrid-ps.md).
 
 ## Prerequisites
 
@@ -145,15 +142,17 @@ Now deploy the firewall into the firewall hub virtual network.
 2. In the left column, select **Networking**, and search for and then select **Firewall**.
 4. On the **Create a Firewall** page, use the following table to configure the firewall:
 
-   |Setting  |Value  |
+      |Setting  |Value  |
    |---------|---------|
    |Subscription     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Name     |**AzFW01**|
    |Region     |**East US**|
-   |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
-   |Choose a virtual network     |**Use existing**:<br> **VNet-hub**|
+   |Firewall management|**Use a Firewall Policy to manage this firewall**|
+   |Firewall policy|Add new:<br>**hybrid-test-pol**<br>**East US** 
+   |Choose a virtual network     |Use existing:<br> **VNet-hub**|
    |Public IP address     |Add new: <br>**fw-pip**. |
+
 
 5. Select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
@@ -166,9 +165,9 @@ Now deploy the firewall into the firewall hub virtual network.
 
 First, add a network rule to allow web traffic.
 
-1. On the **AzFW01** page, Select **Rules**.
-2. Select the **Network rule collection** tab.
-3. Select **Add network rule collection**.
+1. From the **FW-Hybrid-Test** resource group, select the **hybrid-test-pol** Firewall Policy.
+2. Select **Network rules**.
+3. Select **Add add a rule collection**.
 4. For **Name**, type **RCNet01**.
 5. For **Priority**, type **100**.
 6. For **Rule collection action**, select **Allow**.
@@ -448,10 +447,10 @@ So now you've verified that the firewall rules are working:
 
 Next, change the firewall network rule collection action to **Deny** to verify that the firewall rules work as expected.
 
-1. Select the **AzFW01** firewall.
-2. Select **Rules**.
-3. Select the **Network rule collection** tab and select the **RCNet01** rule collection.
-4. For **Action**, select **Deny**.
+1. Select the **hybrid-test-pol** Firewall Policy.
+2. Select **Rule Collections**.
+3. Select the **RCNet01** rule collection.
+4. For **Rule collection action**, select **Deny**.
 5. Select **Save**.
 
 Close any existing remote desktops before testing the changed rules. Now run the tests again. They should all fail this time.
