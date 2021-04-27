@@ -137,7 +137,7 @@
       - name: Security recommendations
         href: security-recommendations.md
       - name: Security baseline
-        href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: /security/benchmark/azure/baselines/storage-security-baseline?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:

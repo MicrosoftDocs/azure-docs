@@ -8,7 +8,7 @@ ms.subservice: core
 author: juliakm
 ms.author: jukullam
 ms.date: 10/19/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: github-actions-azure
 ---
 

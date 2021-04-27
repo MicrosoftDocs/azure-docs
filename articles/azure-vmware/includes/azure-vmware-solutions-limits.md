@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/24/2021
 ---
 
-<!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->
+<!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md and concepts-networking.md -->
 
 The following table describes the maximum limits for Azure VMware Solution.
 

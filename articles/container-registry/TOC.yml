@@ -44,7 +44,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/container-registry-security-baseline
     - name: Container registry tiers and limits
       href: container-registry-skus.md
     - name: Registries, repositories, and images

@@ -17,7 +17,7 @@ Use this Azure Resource Manager template (ARM template) to deploy an instance of
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.datamigration%2fazure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ The Azure Database Migration Service ARM template requires the following:
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datamigration/azure-database-migration-simple-deploy/azuredeploy.json":::
 
 Three Azure resources are defined in the template: 
 
@@ -45,7 +45,7 @@ More Azure Database Migration Services templates can be found in the [quickstart
 
 1. Select the following image to sign in to Azure and open a template. The template creates an instance of the Azure Database Migration Service. 
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.datamigration%2fazure-database-migration-simple-deploy%2fazuredeploy.json)
 
 2. Select or enter the following values.
 

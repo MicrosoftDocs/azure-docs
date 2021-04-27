@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 03/02/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python,contperf-fy21q1
 
 ---
 

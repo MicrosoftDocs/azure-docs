@@ -93,6 +93,9 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
 
 Next, configure the Connector Updater service to use the proxy by making a similar change to the C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config file.
 
+> [!NOTE]
+> The Connector service evaluates the **defaultProxy** configuration for usage in `%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config`, if the **defaultProxy** is not configured (by default) in ApplicationProxyConnectorService.exe.config. The same applies to the Connector Updater service (ApplicationProxyConnectorUpdaterService.exe.config) too. 
+
 ### Step 2: Configure the proxy to allow traffic from the connector and related services to flow through
 
 There are four aspects to consider at the outbound proxy:
