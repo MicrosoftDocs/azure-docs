@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
+ms.date: 05/01/2021
 ---
 # Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
 
@@ -27,25 +27,26 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 ## Prerequisites
 
-This tutorial requires Azure PowerShell and [SSMS](/sql/ssms/download-sql-server-management-studio-ssms).
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- SQL Server Management Studio (SSMS), version 18.9.1 or later. See [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
 
 ### PowerShell requirements
 
-See [Overview of Azure PowerShell](/powershell/azure) for information on how to install and run Azure PowerShell. 
+If you choose to perform some of the steps in this tutorial using PowerShell, instead of Azure Portal, you also need to install the following PowerShell modules.
 
-Minimum version of Az modules required to support attestation operations:
+1. Az version 5.6 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
 
-- Az 4.5.0
-- Az.Accounts 1.9.2
-- Az.Attestation 0.1.8
+  ```powershell
+  Get-InstalledModule -Name Az
+  ```
 
-Run the below command to verify the installed version of all Az modules:
+2. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](https://docs.microsoft.com/azure/attestation/quickstart-powershell#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
 
-```powershell
-Get-InstalledModule
-```
+  ```powershell
+  Get-InstalledModule -Name Az.Attestation
+  ```
 
-If the versions aren't matching with the minimum requirement, run the `Update-Module` command.
+If the versions aren't matching with the minimum requirements, run the `Update-Module` command.
 
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. You may receive the following errors if you are using a TLS version lower than 1.2:
 
@@ -58,21 +59,18 @@ To continue to interact with the PowerShell Gallery, run the following command b
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 ```
 
-### SSMS requirements
-
-See [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
-
-The required minimum version of SSMS is 18.8.
-
-
 ## Step 1: Create and configure a server and a DC-series database
 
 In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-vcore.md#dc-series).
 
+# [Portal](#tab/azure-portal)
+
+# [PowerShell](#tab/azure-powershell)
+
 1. Open a PowerShell console and import the required version of Az.
 
   ```PowerShell
-  Import-Module "Az" -MinimumVersion "4.5.0"
+  Import-Module "Az" -MinimumVersion "5.6.0"
   ```
   
 2. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
@@ -111,14 +109,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
   ```
 
-6. Assign a managed system identity to your server. 
-
-  ```PowerShell
-  $server = Set-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -AssignIdentity
-  $serverObjectId = $server.Identity.PrincipalId
-  ```
-
-7. Create a DC-series database.
+6. Create a DC-series database.
 
   ```powershell
   $databaseName = "ContosoHR"
@@ -133,12 +124,11 @@ In this step, you will create a new Azure SQL Database logical server and a new 
     -ComputeGeneration $generation
   ```
 
-8. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
+7. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
 
   ```powershell
   Write-Host 
   Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
-  Write-Host "Server Object Id: $serverObjectId"
   Write-Host "Database name: $databaseName"
   ```
   
