@@ -276,8 +276,6 @@
           href: application-sign-in-problem-first-party-microsoft.md
       - name: Troubleshoot on-premises apps
         items:
-        - name: Application Proxy troubleshooting
-          href: application-proxy-troubleshoot.md
         - name: Connector troubleshooting flowchart
           href: application-proxy-debug-connectors.md
         - name: Application troubleshooting flowchart

@@ -171,8 +171,8 @@
     #       href: application-proxy-qlik.md
     - name: Troubleshoot
       items:
-    #   - name: Application Proxy troubleshooting
-    #     href: application-proxy-troubleshoot.md
+      - name: Application Proxy troubleshooting
+        href: application-proxy-troubleshoot.md
     #   - name: Connector troubleshooting flowchart
     #     href: application-proxy-debug-connectors.md
     #   - name: Application troubleshooting flowchart
