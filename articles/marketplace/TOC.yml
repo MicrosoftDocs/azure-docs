@@ -368,9 +368,9 @@
     - name: Available APIs
       href: analytics-available-apis.md
     - name: Get all datasets
-      href: analytics-api-get-all-datasets-api.md
+      href: analytics-api-get-all-datasets.md
     - name: Get report queries
-      href: analytics-api-get-report-queries-api.md
+      href: analytics-api-get-report-queries.md
     - name: Delete report queries
       href: analytics-api-delete-report-queries.md
     - name: Try report queries
