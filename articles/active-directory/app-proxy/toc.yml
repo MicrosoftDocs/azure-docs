@@ -80,6 +80,8 @@
       href: application-proxy-connectors.md
     - name: Connector groups
       href: application-proxy-connector-groups.md
+    - name: Header-based SSO (on-prem apps)
+      href: application-proxy-configure-single-sign-on-with-headers.md
   #   - name: Security
   #     href: application-proxy-security.md
   #   - name: Network topology
@@ -88,6 +90,22 @@
   #     href: application-proxy-high-availability-load-balancing.md
   #   - name: Comparison of remote access solutions
   #     href: application-proxy-migration.md
+      #   - name: Single sign-on with on-prem apps
+      #   href: application-proxy-config-sso-how-to.md
+      # - name: OIDC-based SSO
+      #   href: configure-oidc-single-sign-on.md
+      # - name: SAML-based SSO
+      #   href: configure-saml-single-sign-on.md
+      # - name: SAML-based SSO (on-prem apps)
+      #   href: application-proxy-configure-single-sign-on-on-premises-apps.md
+      # - name: Password-based SSO
+      #   href: configure-password-single-sign-on-non-gallery-applications.md
+      # - name: Password-based SSO (on-prem apps)
+      #   href: application-proxy-configure-single-sign-on-password-vaulting.md
+      # - name: Linked-based SSO
+      #   href: configure-linked-sign-on.md
+      # - name: Kerberos-based SSO (on-prem apps)
+      #   href: application-proxy-configure-single-sign-on-with-kcd.md
   - name: How-to guides
     expanded: false
     items:
