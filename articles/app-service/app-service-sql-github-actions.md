@@ -37,8 +37,6 @@ To complete this tutorial:
 
 1. [Create a new GitHub repository](https://docs.github.com/en/github/getting-started-with-github/create-a-repo) with the sample project code. 
 
-[!INCLUDE [deployment credentials](includes/github-actions-deployment-creds.md)]
-
 
 ## Create the target resource group
 
@@ -84,6 +82,12 @@ Create a new secret in your repository for `SQL_SERVER_ADMIN_PASSWORD`. This sec
 
 ## Create Azure resources
 
+The create Azure resources workflow runs an [ARM template](/azure/azure-resource-manager/templates/overview) to deploy resources to Azure. The workflow:
+- Checks out source code with the [Checkout action](https://github.com/marketplace/actions/checkout).
+- Logs into Azure with the [Azure Login action](https://github.com/marketplace/actions/azure-login) and gathers environment and Azure resource information. 
+- Deploys resources with the [ARM Deploy action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template.)
+
+To run the create Azure resourcse workflow:
 
 1. Open the `azuredeploy.yaml` file in `.github/workflows` within your repository.
 
@@ -114,10 +118,17 @@ Create a new secret in your repository for `SQL_SERVER_ADMIN_PASSWORD`. This sec
 1. Create a new secret for `SQL_CONNECTION_STRING`. Replace `{your_password}` with your `SQL_SERVER_ADMIN_PASSWORD`. 
 
 
-## Deploy your image
+## Build, push, and deploy your image
+
+The build, push, and deploy workflow builds a container with the latest app changes, pushes the container to [Azure Container Registry](/azure/container-registry/) and, updates the web application staging slot to point to the latest container pushed. The workflow containers a build and deploy job:
+- The build job checks out source code with the [Checkout action](https://github.com/marketplace/actions/checkout). The job then uses the [Docker login action](https://github.com/marketplace/actions/docker-login) and a custom script to authenticate with Azure Container Registry, build a container image, and deploy it to Azure Container Registry. 
+- The deployment job logs into Azure with the [Azure Login action](https://github.com/marketplace/actions/azure-login) and gathers environment and Azure resource information. The job then updates Web App Settings with the [Azure App Service Settings action](https://github.com/marketplace/actions/azure-app-service-settings) and deploys to an App Service staging slot with the [Azure Web Deploy action](https://github.com/marketplace/actions/azure-webapp). Last, the job runs a custom script to update the SQL database and swaps staging slot to production.
+
+
+To run the build, push, and deploy workflow:
 
 1. Open your `build-deploy.yaml` file in `.github/workflows` within your repository.  
 
-1. Verify that the environment variables match the ones in `azuredeploy.yaml`. 
+1. Verify that the environment variables for `AZURE_RESOURCE_GROUP` and `WEB_APP_NAME` match the ones in `azuredeploy.yaml`. 
 
-1. 
+1. Update the `ACR_LOGIN_SERVER` value for your Azure Container Registry login server.
