@@ -4,7 +4,7 @@ description: Learn how to deploy an ASP.NET core app to Azure and to Azure SQL D
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/22/2021
-ms.author: juliakm
+ms.author: jukullam
 ms.custom: github-actions-azure
 ---
 
