@@ -41,7 +41,7 @@ Here is a pipeline topology.
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline/topology.png" alt-text="A pipeline topology" lightbox="./media/pipeline/topology.png":::
 
-You start with [creating the pipeline topology]()<!--TODO: Add link-->. Once the topology is defined, you can create pipelines by providing values for the parameters. Upon successful creation a pipeline starts in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state. 
+You start with [creating the pipeline topology](#pipeline-opologies). Once the topology is defined, you can create pipelines by providing values for the parameters. Upon successful creation a pipeline starts in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state. 
 
 The data flow starts upon reaching “Active” state. Upon deactivation, an active pipeline enters the “Deactivating” state and then “Inactive” state. Only inactive pipelines can be deleted.
 
@@ -62,7 +62,7 @@ An RTSP source node enables you to capture media from a RTSP server. The RTSP pr
 
 #### IoT Hub message source
 
-Like other [IoT Edge modules](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-module), Azure video analyzer on IoT Edge module can receive messages via the [IoT Edge hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub). Messages can be sent from other modules, or apps running on the Edge device, or from the cloud. Such messages can be delivered (routed) to a [named input](https://docs.microsoft.com/azure/iot-edge/module-composition?view=iotedge-2020-11&preserve-view=true#sink) on the video analyzer module. An IoT Hub message source node enables the ingestion of such messages into a pipeline. Messages can then be used in a pipeline to activate a signal gate (see [signal gates]()<!--TODO, add a link--> below).
+Like other [IoT Edge modules](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-module), Azure video analyzer on IoT Edge module can receive messages via the [IoT Edge hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub). Messages can be sent from other modules, or apps running on the Edge device, or from the cloud. Such messages can be delivered (routed) to a [named input](https://docs.microsoft.com/azure/iot-edge/module-composition?view=iotedge-2020-11&preserve-view=true#sink) on the video analyzer module. An IoT Hub message source node enables the ingestion of such messages into a pipeline. Messages can then be used in a pipeline to activate a signal gate (see [signal gates](#signal-gate-processor) below).
 
 For example, you could have an IoT Edge module that generates a message when a door is opened. The message from that module can be routed to IoT Edge hub, from where it can be then routed to the IoT hub message source of a pipeline. Within the pipeline, the message can be passed from the IoT hub message source to a signal gate processor, which can then turn on recording of the video from an RTSP source into a file.
 
@@ -74,11 +74,11 @@ The motion detection processor node enables you to detect motion in live video. 
 
 #### HTTP extension processor
 
-The HTTP extension processor node enables you to extend the video analyzer pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here]()<!--TODO, add a link-->.
+The HTTP extension processor node enables you to extend the video analyzer pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here](pipeline-extension.md#http-extension-processor).
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC]()<!--TODO, add a link--> endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports jpeg, png, and bmp formats. Learn more about the [processor here]()<!--TODO, add a link-->.
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports jpeg, png, and bmp formats. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
 
 #### Signal gate processor
 
@@ -111,17 +111,17 @@ An IoT Hub message sink node enables you to publish events to IoT Edge hub. The 
 
 ## Rules on the use of nodes
 
-See [limitations on pipelines]()<!--TODO, add a link--> for additional rules on how different nodes can be used within a pipeline.
+See [limitations on pipelines](quotas-limitations.md#limitations-on-pipeline-topologies-at-preview) for additional rules on how different nodes can be used within a pipeline.
 
 ## Scenarios
 
 Using a combination of the sources, processors, and sinks defined above, you can build pipelines for a variety of scenarios involving analysis of live video. Example scenarios are:
 
 * [Continuous video recording](continuous-video-recording.md) 
-* [Event-based video recording](event-based-video-recording-concept.md ) 
+* [Event-based video recording](event-based-video-recording-concept.md) 
 * [Video analysis without video recording](analyze-live-video-without-recording.md) 
 
 ## Next steps
 
-To see how you can run motion detection on a live video feed, see [Quickstart: Run Video Analyzer with your own model]()<!--TODO, add a link-->.
+To see how you can run motion detection on a live video feed, see [Quickstart: Run Video Analyzer with your own model](get-started-detect-motion-emit-events.md).
 

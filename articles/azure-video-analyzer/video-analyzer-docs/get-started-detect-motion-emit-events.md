@@ -80,15 +80,15 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
 
 > [!TIP]
-> If you have [manually deployed Azure Video Analyzer]()<!--add link--> yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+> If you have [manually deployed Azure Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/direct-methods?branch=release-azure-video-analyzer)<!--add a link-->.
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](direct-methods.md).
 
 ### Invoke pipelineTopologyList
 
-To enumerate all of the [pipelines](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- add a link-->  in the module:
+To enumerate all of the [pipelines](pipeline.md) in the module:
 
 1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
 1. In the box that appears, enter pipelineTopologyList.
@@ -447,7 +447,7 @@ Within few seconds, you see the following response in the **OUTPUT** window:
 In the response payload, notice that:
 
 * The status code is 201, indicating a new instance was created.
-* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see [Pipeline states]()<!--TODO:add a link later-->.
+* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see [Pipeline states](pipeline.md#pipeline-states).
 
 Try the following next steps:
 
@@ -649,5 +649,5 @@ Try the following next steps:
 
 ## Next steps
 
-* Learn how to [record video by using Live Video Analytics on IoT Edge]()<!--TODO: add a link once the topic is staged -->.
-* Learn more about [diagnostic messages]()<!--TODO: add a link once the topic is staged -->.
+* Learn how to [record video by using Live Video Analytics on IoT Edge](deploy-iot-edge-device.md) 
+* Learn more about [diagnostic messages](monitor-log-edge.md) 

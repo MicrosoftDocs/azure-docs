@@ -35,7 +35,6 @@ Complete the following steps to use Azure Video Analyzer on IoT Edge to detect t
 
 ## Setup Azure Resources
 
-
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
 [!INCLUDE [resources](includes/common-includes/azure-resources.md)]
@@ -45,9 +44,9 @@ Complete the following steps to use Azure Video Analyzer on IoT Edge to detect t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/detect-motion-record-video-edge-devices/overview.png" alt-text="Publish associated inference events to IoT Edge Hub":::
 
-The preceding diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]()<!--add a link--> node pulls the video feed from this server and sends video frames to the [motion detection]()<!--add a link--> processor node. The RTSP source sends the same video frames to a [signal gate processor]()<!--add a link--> node, which remains closed until it's triggered by an event.
+The preceding diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor)  node. The RTSP source sends the same video frames to a [signal gate processor](pipeline.md#signal-gate-processor) node, which remains closed until it's triggered by an event.
 
-When the motion detection processor detects motion in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink]()<!--add a link--> node. This sink node records the video as an MP4 file on the local file system of your edge device. The file is saved in the configured location.
+When the motion detection processor detects motion in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink](pipeline.md#file-sink) node. This sink node records the video as an MP4 file on the local file system of your edge device. The file is saved in the configured location.
 
 In this quickstart, you will:
 
@@ -67,7 +66,7 @@ In this quickstart, you will:
 
 ## Review - Check the modules' status
 
-In the [Generate and deploy the IoT Edge deployment manifest]()<!--add a link--> step, in Visual Studio Code, expand the **avasample-iot-edge-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
+In the [Generate and deploy the IoT Edge deployment manifest](add-valid-link.md) step, in Visual Studio Code, expand the **avasample-iot-edge-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
 
 * The Azure Video Analyzer module, named avaedge.
 * The rtspsim module, which simulates an RTSP server that acts as the source of a live video feed.
@@ -195,7 +194,7 @@ In the preceding output:
 
 ### RecordingStarted event
 
-When motion is detected, the signal gate processor node is activated, and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an operational event. The type is set to motion to indicate that it's a result from the motion detection processor. The eventTime value is the UTC time at which the motion occurred. For more information about this process, see the [Overview]()<!--add a link--> section in this quickstart.
+When motion is detected, the signal gate processor node is activated, and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an operational event. The type is set to motion to indicate that it's a result from the motion detection processor. The eventTime value is the UTC time at which the motion occurred. For more information about this process, see the [overview](detect-motion-record-video-edge-devices.md#overview) section in this quickstart.
 
 Here's an example of this message:
 
@@ -220,14 +219,14 @@ In the preceding message:
 
 * In applicationProperties, subject references the node in the media graph from which the message was generated. In this case, the message originates from the file sink node.
 * In applicationProperties, eventType indicates that this event is operational.
-* The eventTime value is the time when the event occurred. This time is 5 to 6 seconds after MediaSessionEstablished and after video starts to flow. This time corresponds to the 5-to-6-second mark when the [car started to move]()<!--add a link--> into the parking lot.
+* The eventTime value is the time when the event occurred. This time is 5 to 6 seconds after MediaSessionEstablished and after video starts to flow. This time corresponds to the 5-to-6-second mark when the [car started to move](add-valid-link.md)<!--add a link--> into the parking lot.
 * The body section contains data about the operational event. In this case, the data comprises outputType and outputLocation.
 * The outputType variable indicates that this information is about the file path.
 * The outputLocation value is the location of the MP4 file in the edge module.
 
 ## RecordingStopped and RecordingAvailable events
 
-If you examine the properties of the signal gate processor node in the [graph topology]()<!--add a link-->, you see that the activation times are set to 5 seconds. So about 5 seconds after the RecordingStarted event is received, you get:
+If you examine the properties of the signal gate processor node in the [graph topology](pipeline.md), you see that the activation times are set to 5 seconds. So about 5 seconds after the RecordingStarted event is received, you get:
 
 * A RecordingStopped event, indicating that the recording has stopped.
 * A RecordingAvailable event, indicating that the MP4 file can now be used for viewing.
@@ -244,7 +243,7 @@ To play the MP4 clip:
 
   > [!div class="mx-imgBorder"]
   > :::image type="content" source="./media/detect-motion-record-video-edge-devices/sample-iot-edge-device.png" alt-text= "Edge device":::
-1. Sign in by using the credentials that were generated when you [set up your Azure resources]()<!-- add a link-->.
+1. Sign in by using the credentials that were generated when you [set up your Azure resources](add-valid-link.md).
 1. At the command prompt, go to the relevant directory. The default location is /var/media. You should see the MP4 files in the directory.
 
   > [!div class="mx-imgBorder"]
@@ -258,7 +257,7 @@ If you intend to try the other quickstarts, then keep the resources you created.
 
 ## Next steps
 
-* Follow the [Run Azure Video Analyzer with your own model]()<!--add a link--> quickstart to apply AI to live video feeds.
+* Follow the [Run Azure Video Analyzer with your own model](add-valid-link.md) quickstart to apply AI to live video feeds.
 * Review additional challenges for advanced users:
     
     * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.

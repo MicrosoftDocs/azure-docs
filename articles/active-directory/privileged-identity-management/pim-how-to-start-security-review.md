@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 4/05/2021
+ms.date: 4/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ This article describes how to create one or more access reviews for privileged A
 
 ## Prerequisite license
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
 >  Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
@@ -38,35 +38,35 @@ This article describes how to create one or more access reviews for privileged A
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the Privileged role administrator role.
 
-1. Select **Identity Governance**
+2. Select **Identity Governance**
  
-1. Select **Azure AD roles** under **Azure AD Privileged Identity Management**.
+3. Select **Azure AD roles** under **Azure AD Privileged Identity Management**.
  
-1. Select **Azure AD roles** again under **Manage**.
+4. Select **Azure AD roles** again under **Manage**.
 
-1. Under Manage, select **Access reviews**, and then select **New**.
+5. Under Manage, select **Access reviews**, and then select **New**.
 
     ![Azure AD roles - Access reviews list showing the status of all reviews](./media/pim-how-to-start-security-review/access-reviews.png)
 
-Click **New** to create a new access review.
+6. Click **New** to create a new access review.
 
-1. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
+7. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
     ![Create an access review - Review name and description](./media/pim-how-to-start-security-review/name-description.png)
 
-1. Set the **Start date**. By default, an access review occurs once, starts the same time it's created, and it ends in one month. You can change the start and end dates to have an access review start in the future and last however many days you want.
+8. Set the **Start date**. By default, an access review occurs once, starts the same time it's created, and it ends in one month. You can change the start and end dates to have an access review start in the future and last however many days you want.
 
     ![Start date, frequency, duration, end, number of times, and end date](./media/pim-how-to-start-security-review/start-end-dates.png)
 
-1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly**, **Annually**, or **Semi-annually**. Use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
+9. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly**, **Annually**, or **Semi-annually**. Use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
 
-1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
+10. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-1. In the **Users Scope** section, select the scope of the review. To review users and groups with access to the Azure AD role, select **Users and Groups**, or select **(Preview) Service Principals** to review the machine accounts with access to the Azure AD role.
+11. In the **Users Scope** section, select the scope of the review. To review users and groups with access to the Azure AD role, select **Users and Groups**, or select **(Preview) Service Principals** to review the machine accounts with access to the Azure AD role.
 
     ![Users scope to review role membership of](./media/pim-how-to-start-security-review/users.png)
 
-1. Under **Review role membership**, select the privileged Azure AD roles to review. 
+12. Under **Review role membership**, select the privileged Azure AD roles to review. 
 
     > [!NOTE]
     > - Roles selected here include both [permanent and eligible roles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -80,7 +80,7 @@ Click **New** to create a new access review.
 
     ![Review membership pane listing Azure resource roles you can select](./media/pim-how-to-start-security-review/review-membership-azure-resource-roles.png)
 
-1. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
+13. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
     ![Reviewers list of selected users or members (self)](./media/pim-how-to-start-security-review/reviewers.png)
 
@@ -102,6 +102,10 @@ Click **New** to create a new access review.
     - **Remove access** - Remove user's access
     - **Approve access** - Approve user's access
     - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
+
+1. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
+
+    ![Upon completion settings - Add additional users to receive notifications](./media/pim-how-to-start-security-review/upon-completion-settings-additional-receivers.png) 
 
 ### Advanced settings
 
