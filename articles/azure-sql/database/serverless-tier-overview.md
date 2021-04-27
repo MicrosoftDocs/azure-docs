@@ -249,7 +249,7 @@ Modifying the maximum or minimum vCores, and autopause delay, is performed by us
 
 ### Use the Azure CLI
 
-Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
+Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az_sql_db_update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
 
 
 ## Monitoring

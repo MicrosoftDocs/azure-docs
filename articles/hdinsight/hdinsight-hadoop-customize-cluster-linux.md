@@ -315,12 +315,12 @@ The following example script demonstrates using the cmdlets to promote and then 
 
 | Command | Description |
 | --- | --- |
-| [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |Deletes a specified persisted script action of the cluster. This command doesn't undo the actions done by a script, it only removes the persisted flag.|
-|[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|Execute script actions on the specified HDInsight cluster.|
-| [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list) |Lists all the persisted script actions for the specified cluster. |
-|[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list-execution-history)|Lists all scripts' execution history for the specified cluster.|
-|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-promote)|Promotes the specified ad hoc script execution to a persisted script.|
-|[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-show-execution-details)|Gets the script execution detail for the given script execution ID.|
+| [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_delete) |Deletes a specified persisted script action of the cluster. This command doesn't undo the actions done by a script, it only removes the persisted flag.|
+|[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_execute)|Execute script actions on the specified HDInsight cluster.|
+| [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_list) |Lists all the persisted script actions for the specified cluster. |
+|[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_list_execution_history)|Lists all scripts' execution history for the specified cluster.|
+|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_promote)|Promotes the specified ad hoc script execution to a persisted script.|
+|[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_show_execution_details)|Gets the script execution detail for the given script execution ID.|
 
 ### HDInsight .NET SDK
 

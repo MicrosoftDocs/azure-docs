@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
@@ -43,15 +43,21 @@ The Microsoft Graph [Application entity][MS-Graph-App-Entity] defines the schema
 ## Service principal object
 To access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This requirement is true for both users (user principal) and applications (service principal). The security principal defines the access policy and permissions for the user/application in the Azure AD tenant. This enables core features such as authentication of the user/application during sign-in, and authorization during resource access.
 
-A service principal is the local representation, or application instance, of a global application object in a single tenant or directory. A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object.  The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+There are three types of service principal: application, managed identity, and legacy.
+
+The first type of service principal is the local representation, or application instance, of a global application object in a single tenant or directory. In this case, a service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object.  The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
 
 When an application is given permission to access resources in a tenant (upon registration or [consent](developer-glossary.md#consent)), a service principal object is created. You can also create service principal objects in a tenant using [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), the [Azure portal][AZURE-Portal], and other tools. When using the portal, a service principal is created automatically when you register an application.
+
+The second type of service principal is used to represent a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. When a managed identity is enabled, a service principal representing that managed identity is created in your tenant. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.
+
+The third type of service principal represents a legacy app (an app created before app registrations were introduced or created through legacy experiences). A legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The service principal can only be used in the tenant where it was created.
+
+The Microsoft Graph [ServicePrincipal entity][MS-Graph-Sp-Entity] defines the schema for a service principal object's properties.
 
 The **Enterprise applications** blade in the portal is used to list and manage the service principals in a tenant. You can see the service principal's permissions, user consented permissions, which users have done that consent, sign in information, and more.
 
 ![Enterprise apps blade](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
-
-The Microsoft Graph [ServicePrincipal entity][MS-Graph-Sp-Entity] defines the schema for a service principal object's properties.
 
 ## Relationship between application objects and service principals
 

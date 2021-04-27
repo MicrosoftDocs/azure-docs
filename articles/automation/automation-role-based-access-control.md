@@ -5,7 +5,8 @@ keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Manage role permissions and security
 

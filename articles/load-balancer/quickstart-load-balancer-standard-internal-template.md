@@ -73,7 +73,7 @@ az deployment group create \
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group and all resources contained within.
 
 ```azurecli-interactive
   az group delete \

@@ -4,7 +4,8 @@ description: This article tells how to troubleshoot and resolve issues with Azur
 services: automation
 ms.subservice: update-management
 ms.date: 04/16/2021
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Update Management issues

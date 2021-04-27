@@ -81,13 +81,12 @@ With password-based sign-on, users sign on to the application with a username an
 
 Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores user names and passwords for the application. User credentials are stored in an encrypted state in the directory.
 
+Additionaly, Administrator can enable Azure AD conditional access policies or multi-factor authentication for password-based SSO.
+
 Choose password-based single sign-on when:
 
 - An application doesn't support SAML single sign-on protocol.
 - An application authenticates with a username and password instead of access tokens and headers.
-
->[!NOTE]
->You cannot apply conditional access policies or multi-factor authentication for password-based SSO.
 
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 

@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 04/22/2021
 ---
 
 # What's new in Azure Backup
@@ -13,6 +13,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- April 2021
+  - [Enhancements to encryption using customer-managed keys for Azure Backup (in preview)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - March 2021
   - [Azure Disk Backup is now generally available](#azure-disk-backup-is-now-generally-available)
   - [Backup center is now generally available](#backup-center-is-now-generally-available)
@@ -147,6 +149,22 @@ One such feature is soft delete. With soft delete, even if a malicious actor del
 Now, in addition to soft delete support for Azure VMs, SQL Server and SAP HANA workloads in Azure VMs are also protected with soft delete.
 
 For more information, see [Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads](soft-delete-sql-saphana-in-azure-vm.md).
+
+## Enhancements to encryption using customer-managed keys for Azure Backup (in preview)
+
+Azure Backup now provides enhanced capabilities (in preview) to manage encryption with customer-managed keys. Azure Backup allows you to bring in your own keys to encrypt the backup data in the Recovery Services vaults, thus providing you a better control.
+
+- Supports user-assigned managed identities to grant permissions to the keys to manage data encryption in the Recovery Services vault.
+- Enables encryption with customer-managed keys while creating a Recovery Services vault.
+  >[!NOTE]
+  >This feature is currently in limited preview. To sign up, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u), and write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+- Allows you to use Azure Policies to audit and enforce encryption using customer-managed keys.
+>[!NOTE]
+>- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
+>- You can use the audit policy for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021.  
+>- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview).
+
+For more information, see [Encryption for Azure Backup using customer-managed keys](encryption-at-rest-with-cmk.md). 
 
 ## Next steps
 
