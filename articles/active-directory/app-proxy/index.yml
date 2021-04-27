@@ -1,70 +1,112 @@
 ### YamlMime:Landing
 
-title: Application and HR provisioning documentation
-summary: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
+title: Application proxy documentation
+summary: Azure Active Directory app proxy supports you on your cloud journey by providing secure remote access and cloud scale security to your private applications.
 
 metadata: 
-   title: Application provisioning documentation
-   description: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
+   title: Application proxy documentation
+   description: Azure Active Directory app proxy supports you on your cloud journey by providing secure remote access and cloud scale security to your private applications.
    ms.service: active-directory
-   ms.subservice: app-provisioning
+   ms.subservice: app-proxy
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 02/06/2020
-   author: msmimart
-   ms.author: mimart
-   manager: celested
+   ms.date: 04/27/2021
+   author: kenwith
+   ms.author: kenwith
+   manager: mtillman
 
 landingContent:
-  - title: Provision users and groups to a cloud app
+  - title: About app management
     linkLists:
       - linkListType: overview
         links:
-          - text: What is application provisioning?
-            url: user-provisioning.md
-          - text: How provisioning works
-            url: how-provisioning-works.md
-      - linkListType: tutorial
-        links:
-          - text: SAP Cloud Platform Identity Authentication provisioning
-            url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-          - text: Oracle Fusion ERP provisioning
-            url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-          - text: Atlassian Cloud provisioning
-            url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-      - linkListType: how-to-guide
-        links:
-          - text: Adding a gallery app? Configure provisioning to the app
-            url: configure-automatic-user-provisioning-portal.md
-          - text: Customize attribute mappings
-            url: customize-application-attributes.md
-          - text: Use scoping filters
-            url: define-conditional-rules-for-provisioning-user-accounts.md
-  - title: Develop an app using SCIM for provisioning
+          - text: What is application management?
+            url: what-is-application-management.md
+          - text: What is single sign-on?
+            url: what-is-single-sign-on.md
+  - title: Get started
     linkLists:
-      - linkListType: overview
+      - linkListType: quickstart
         links:
-          - text: Provisioning with SCIM (Identity Standards Blog)
-            url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
-      - linkListType: how-to-guide
-        links:
-          - text: Developing an app? Use SCIM for automatic provisioning
-            url: use-scim-to-provision-users-and-groups.md
-  - title: Manage cloud HR in-bound provisioning
+          - text: View your apps
+            url: view-applications-portal.md
+          - text: Add an app
+            url: add-application-portal.md
+  - title: Add and configure apps
     linkLists:
-      - linkListType: overview
+      - linkListType: learn
         links:
-          - text: Plan a cloud HR user provisioning deployment
-            url: plan-cloud-hr-provision.md
-      - linkListType: tutorial
+          - text: Add an app
+            url: add-application-portal.md
+          - text: Configure an app
+            url: add-application-portal-configure.md
+  - title: Manage apps
+    linkLists:
+      - linkListType: learn
         links:
-          - text: Workday provisioning
-            url: ../saas-apps/workday-inbound-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-          - text: SAP SuccessFactors provisioning
-            url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+          - text: Best practices
+            url: application-management-fundamentals.md
+          - text: Common scenarios
+            url: common-scenarios.md
+  - title: Understand single sign-on
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Single sign-on concepts
+            url: what-is-single-sign-on.md
+          - text: Single sign-on options
+            url: sso-options.md
+  - title: App consent
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Configure user consent
+            url: configure-user-consent.md
+          - text: Configure admin consent
+            url: configure-admin-consent-workflow.md
+  - title: Migrate apps
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Migration resources
+            url: migration-resources.md
+          - text: Migrate an AD FS app to Azure
+            url: migrate-adfs-apps-to-azure.md
+  - title: Use on-premises apps
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: What is App Proxy?
+            url: what-is-application-proxy.md
+          - text: App Proxy deployment
+            url: application-proxy-deployment-plan.md
+  - title: Secure apps
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Manage access to apps
+            url: what-is-access-management.md
+          - text: Manage tenant restrictions
+            url: tenant-restrictions.md
+  - title: Configure My Apps
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Plan a My Apps deployment
+            url: my-apps-deployment-plan.md
+          - text: Create collections
+            url: access-panel-collections.md
+  - title: Develop new apps
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Guidance for developers
+            url: ../develop/v2-howto-app-gallery-listing.md
+          - text: Understand the platform
+            url: ../develop/v2-overview.md
   - title: New in docs
     linkLists:
       - linkListType: whats-new
         links:
           - text: What's new in docs
-            url: whats-new-docs.md            
+            url: whats-new-docs.md
