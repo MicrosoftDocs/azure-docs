@@ -3,29 +3,71 @@ title: Playback of video recordings - Azure Video Analyzer
 description: You can use Azure Video Analyzer on IoT Edge for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback such recordings.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/26/2021
 
 ---
 # Playback of video recordings 
 
 ## Pre-read  
 
-* [Video playback]()<!--video-playback-concept.md-->
 * [Continuous video recording](continuous-video-recording.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
+* [Access policies]() <!-- access policy doc -->
 
 ## Background  
 
 You can use Azure Video Analyzer on IoT Edge for [continuous video recording](continuous-video-recording.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
 
+If you are evaluating the capabilities of Video Analyzer, then you should go through the [tutorial on CVR](continuous-video-recording-tutorial.md), where you would play back the recordings using Azure Portal.
+
+If you are building an application or service using Video Analyzer APIs, then you should review the following to understand how you can play back recordings, in addition to reviewing the article on [access policies]()<!-- todo-->.
+
 Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag]()<!-- add link to swagger--> that will be set to `true` for the video resource.
 
-
-Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). See the [video playback]()<!--video-playback-concept.md--> article for more details. You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [Widgets]() <!-- add link--> that are JavaScript plugins built on top of the Client APIs.
+Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [Widgets]() <!-- add link--> that are JavaScript plugins built on top of the Client APIs.
  
 ### Live vs. VoD  
 
 Streaming protocols like HLS and MPEG-DASH were authored to handle scenarios like streaming of live videos, as well as streaming of on-demand/pre-recorded content like TV shows and movies. For live videos, HLS and MPEG-DASH clients are designed to start playing from the ‘most recent’ time onwards. With movies, however, viewers expect to be able to start from the beginning and jump around if they choose to. The HLS and MPEG-DASH manifests have flags that indicate to the clients whether the video represents a live stream, or it is pre-recorded content. This concept also applies to HLS and MPEG-DASH streams from video resources in your Video Analyzer account.
+
+## RVX Widget One Player
+
+You can install the RVX Widget to playback video recordings. The widget can be installed using `npm` or `yarn` and this will allow you to include it in your own client-side application. Run one of the following commands to include the widget in your own application:
+
+NPM:
+```
+npm install –-save @azure/video-analytics/widgets
+```
+YARN:
+```
+yarn add @azure/video-analytics/widgets 
+```
+Alternatively you can embed an existing pre-build script by adding type="module" to the script element referencing the pre-build location using the following example:
+
+```
+<script async type="module" src="https://unpkg.com/@azure/video-analytics/widgets"></script> 
+``` 
+
+## Media endpoint 
+
+You can use your own player to play videos directly from your Video Analyzer account in DASH/HLS format. When you [query]()<!-- add link to swagger --> the properties of a video resource, the returned values will include the `archiveBaseUrl` [property]()<!-- add link to swagger--> of the video resource. This URL servers as the media endpoint to which players can connect. Such media endpoints authorize a player by verifying the playback token presented by the player. In order to get access to the video you will need to provide a JWT token. Currently we support a JWT token to be passed by the following ways:
+
+* JWT token as HTTP authorization header
+* JWT token as cookie
+* JWT token as querystring
+
+The JWT will expire and you will need to renew the JWT at regular intervals for continued playback of the videos.
+
+## Streaming authorization 
+Following are the high level steps in order to enable playback of recordings in your application.
+
+1. Create an access policy that grants permission to playback video recordings according the rules you desire, in your application.
+1. Create a pipeline topology that incorporates a video sink.
+1. Create a live pipeline using the above topology, and activate it. You can either check for the `RecordingAvailable` operational event, or the `canStream` flag on the video resource, to determine whether the recording is ready for playback.
+1. Generate a JWT token that matches your access policy, and call the Client API to retrieve the video resource representing the video recording. The returned properties will include `archiveBaseUrl`. 
+1. For the selected video, call [playback authorization API]() <!-- link to swagger --> to get the cookie and expiration time.
+1. Start streaming video from the above URL, and pass the playback auth token as part of the call via a cookie. 
+1. Call playback authorization API as needed to renew the cookie.
 
 
 ## Browsing and selective playback of recordings  
@@ -35,7 +77,7 @@ Consider the scenario where you have used Azure Video Analyzer on IoT Edge to re
 * A way to determine what dates/hours of video you have in a  recording.
 * A way to select a portion (for example, 9AM to 11AM on New Years Day) of that recording to playback.
 
-Video Analyzer provides you with a query parameter (`availableMedia`) to address the first issue, and time-range filters (startTime, endTime) to address the second. This parameter is to be appended with to the `archiveBaseUrl` [property]()<!-- add link to swagger--> of the video resource.
+Video Analyzer provides you with a query parameter (`availableMedia`) to address the first issue, and time-range filters (startTime, endTime) to address the second. This parameter is to be appended to the `archiveBaseUrl` [property]()<!-- add link to swagger--> of the video resource.
 
 ## Query API 
 
