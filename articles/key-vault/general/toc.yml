@@ -61,7 +61,7 @@
     - name: Network Security
       href: network-security.md
     - name: Azure Security Baseline for Key Vault
-      href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
+      href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context?toc=/azure/key-vault/general/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context

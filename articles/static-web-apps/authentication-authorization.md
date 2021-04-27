@@ -19,11 +19,11 @@ Azure Static Web Apps streamlines the authentication experience by managing auth
 - Google<sup>1</sup>
 - Twitter
 
-Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](routes.md) by rules defined in the _staticwebapp.config.json_ file.
+Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](configuration.md#routes) by rules defined in the _staticwebapp.config.json_ file.
 
 All authentication providers are enabled by default. To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
 
-The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [routing guide](routes.md) along with this article.
+The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [configuration guide](configuration.md#routes) along with this article.
 
 ## Roles
 
@@ -118,7 +118,7 @@ https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 
 ## System folder
 
-Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routes.md) to create friendly URLs.
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](configuration.md#routes) to create friendly URLs.
 
 ## Login
 
@@ -184,7 +184,7 @@ If you want a user to return to a specific page after logout, provide a URL in `
 
 You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
 
-To block a provider, you can create [route rules](routes.md) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
+To block a provider, you can create [route rules](configuration.md#routes) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
 
 ```json
 {
