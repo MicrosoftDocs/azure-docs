@@ -16,7 +16,7 @@ In this article, you:
 * Inventory Azure Arc enabled servers supported VM extensions installed
 * Uninstall all VM extensions from the Arc enabled server
 * Identify Azure services the resource ID of the Arc enabled server is registered with, and prepare to update those Azure services to use the new Azure VM identity after migration.
-* Document the Azure role-based access control (Azure RBAC) access rights granted to the Arc enabled server resource to maintain who has access to the resource after it has been migrated to an Azure VM.
+* Review and note the Azure role-based access control (Azure RBAC) access rights granted to the Arc enabled server resource to maintain who has access to the resource after it has been migrated to an Azure VM. Identify 
 * Delete the Arc enabled server resource identity from Azure and remove the Arc enabled server agent.
 * Install the Azure guest agent
 * Migrate the server or VM to Azure
@@ -29,18 +29,17 @@ With Azure PowerShell, use the [Get-AzConnectedMachineExtension](/powershell/mod
 
 With the Azure CLI, use the [az connectedmachine extension list](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_list) command with the `--machine-name` and `--resource-group` parameters. By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format.
 
-After identifying which VM extensions are deployed, you need to remove them. If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), it is necessary to [create an exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) to prevent re-evaluation and deployment of the extensions on the Arc enabled server.
+After identifying which VM extensions are deployed, you need to remove them. If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), it is necessary to [create an exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) to prevent re-evaluation and deployment of the extensions on the Arc enabled server before the migration is complete.
 
-## Step 2: Inventory Azure services 
+## Step 2: Review access rights 
 
-To inventory the Azure services that 
+To list role assignments for the Arc enabled servers resource, you can use [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource).
 
-## Step 3: Review access rights 
+if you're using a manage identity in your application on an azure arc server, you'll want to:
+make sure the azure VM has a managed identity assignedupdate rbac on any resources accessed by the managed identity to allow the new Azure VM identity (the Arc managed identity cannot be re-used on an Azure VM so it will necessarily change)ensure your app switches to the Azure IMDS endpoint to retrieve the managed identity token (link to their docs)
 
-To list role assignments for the Arc enabled servers resource, you can use [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource) 
 
-
-## Step 4: Disconnect from Azure Arc and uninstall agent
+## Step 3: Disconnect from Azure Arc and uninstall agent
 
 To delete the resource ID of the Arc enabled server in Azure, use one of the following methods:
 
@@ -52,15 +51,15 @@ To delete the resource ID of the Arc enabled server in Azure, use one of the fol
 
 Remove the Azure Arc enabled servers Windows or Linux agent following the [Remove agent](manage-agent.md#remove-the-agent) steps.
 
-## Step 5: Install the Azure Guest Agent
+## Step 4: Install the Azure Guest Agent
 
 The VM that is migrated to Azure from on-premises doesn't have the Linux or Windows Azure Guest Agent installed. In these scenarios, you have to manually install the VM agent. For more information about how to install the VM Agent, see [Azure Virtual Machine Windows Agent Overview](../../virtual-machines/extensions/agent-windows.md) or [Azure Virtual Machine Linux Agent Overview](../../virtual-machines/extensions/agent-linux.md).
 
-## Step 6: Migrate server or machine to Azure
+## Step 5: Migrate server or machine to Azure
 
 Before proceeding with the migration with Azure Migration, review the [Prepare on-premises machines for migration to Azure](../../migrate/prepare-for-migration.md) article to learn about requirements necessary to use Azure Migrate. To complete the migration to Azure, review the Azure Migrate [migration options](../../migrate/prepare-for-migration.md#next-steps) based on your environment.
 
-## Step 7: Deploy Azure VM extensions
+## Step 6: Deploy Azure VM extensions
 
 After migration and completion of all post-migration configuration steps, you can now deploy the Azure VM extensions based on the VM extensions originally installed on your Arc enabled server. Review [Azure virtual machine extensions and features](../../virtual-machines/extensions/overview.md) to help plan your extension deployment. 
 
