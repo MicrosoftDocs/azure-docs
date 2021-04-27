@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 04/26/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -104,28 +104,29 @@ To run a network readiness check, do these steps:
 
 1. Open PowerShell on a client computer running on the network where you'll deploy the Azure Stack Edge device.
 
-1.  Run a network readiness check by entering the following command:<!--Add new parameters.-->
+1. Run a network readiness check by entering the following command:<!--Add new parameters.-->
 
     ```powershell
-    Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [-WindowsUpdateServer <uri[]>] [-SkipTests {LinkLayer | IPConfig | DnsServer | TimeServer | DuplicateIP | AzureEndpoint] |
+    Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [ProxyCredential <pscredentials>] [-WindowsUpdateServer <uri[]>] [CustomUrl <url[]>] [AzureEnvironment {AzureCloud | AzureChinaCloud | AzureGermanCloud |
+    AzureUSGovernment | CustomCloud}] [-SkipTests {LinkLayer | IPConfig | DnsServer | TimeServer | DuplicateIP | AzureEndpoint] |
     WindowsUpdateServer | DnsRegistration}] [-OutputPath <string>]
     ```
-    
-    Enter the following parameters. This set of parameters (all but `-SkipTests`) are needed to get meaningful Network Readiness Checker results that find key issues in your network setup>
+   
+   To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include the following parameters: `-DnsServer`, `-DeviceFqdn`, `-TimeServer`, `-WindowsUpdateServer`, `-ComputeIPs`. Enter other parameters required for your environment (for example, a proxy server).
 
     |Parameter|Description|
     |---------|-----------|
-    `-DnsServer`|IP addresses of the DNS servers (for example, your primary and secondary DNS servers).|
-    |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.| 
+    |`-DnsServer`|IP addresses of the DNS servers (for example, your primary and secondary DNS servers).|
+    |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.|
     |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
     |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
-    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)<!--Get entry format. Add to example-->|
+    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)|
     |`-WindowsUpdateServer`|URIs for one or more Windows Update Servers or Windows Update for Business Servers. (Optional)|
-    |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.<!--Add to example-->|    
-    |`AzureEnvironment`|Indicates the Azure environment if the device is deployed to an environment other than the Azure public cloud. For example, Azure Gov or Azure Germany. (Optional)<!--Get entry format.-->| 
-    |`-SkipTests`|Can be used to exclude tests. (Optional)<br> Separate test names with a comma. For a list of test names, see [Network tests](#about-the-tool), above.|
-    |`CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
-    |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the log and report from the previous run.| 
+    |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.|
+    |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
+    |`-AzureEnvironment`|Indicates the Azure environment. Required if the device is deployed to an environment other than the Azure public cloud (Azure Cloud).| 
+    |`-SkipTests`|Can be used to exclude tests. (Optional)<br> Separate test names with a comma.|
+    |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the existing log and report.|
  
 
 ## Sample output: Success
@@ -168,12 +169,13 @@ Invoke-AzsNetworkValidation Completed
 
 If a test fails, the Network Readiness Checker returns information to help you resolve the issue, as shown in the sample output below. 
 
-The following sample is the output from this command:<!--1) Generalize all URLs. Use Success URLs for standard entries. 2) IntroducesCustomUrl in Success sample. 3) Use command-line location, log location, and report location from Success example.-->
+The following sample is the output from this command:
 
-`Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://time.windows.com','http://fakename.fakeurl.com'`
+`Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.custom1.com','http://time.windows.com','http://fakename.fakeurl.com'`
 
 ```powershell
-   PS D:\src\AzureStack-Solution-OnRamp\src\ExternalTools\Utils\AzsReadinessChecker> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://time.windows.com','http://fakename.fakeurl.com'
+   PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://time.windows.com','http://fakename.fakeurl.com'
+
 Invoke-AzsNetworkValidation v1.0 started.
 Validating input parameters
 The following tests will be executed: LinkLayer, IPConfig, DnsServer, TimeServer, AzureEndpoint, WindowsUpdateServer, DuplicateIP, DnsRegistration, CustomUrl
@@ -214,20 +216,31 @@ Additional help URL http://aka.ms/azsnrc
 Log location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsNetworkValidation Completed
-PS D:\src\AzureStack-Solution-OnRamp\src\ExternalTools\Utils\AzsReadinessChecker>
 ```
 
-For more information, you can review the log file that the tool saves to the output path. The following sample is the log file entry for the error that the sample command returned.<!--Assuming one exemplary error in the sample above. Will adjust code type in formatting.-->
+For more information, you can review the log file that the tool saves to the output path. The following sample is taken from the log file for the test above.<!--Get log sample for failed scenario.-->
 
-```powershell
+```XML
    TBD
 ```
 
-And there's a report file that WHAT PURPOSE DOES THIS FILE SERVE? WHAT ADDITIONAL INFO? FORMAT DOES NOT LEND ITSELF TO A BRIEF EXCERPT, SO I WILL JUST BRIEFLY DESCRIBE.-->
+There's also a report file, AzsReadinessCheckerReport.json, which gives detailed diagnostic information collected during each test. The diagnostic information includes:
+
+- A list of network adapters, with the driver version, MAC addresses, and connection state for each adapter, on the machine used to run the tests
+- IP configuration of the machine used to run the tests
+- Detailed DNS response properties that the DNS server returned for each test
+- Detailed HTTP response for all URL tests
+- Network route trace for each test
+
+```
+
+The following sample is taken from the report file for the test above.<!--Get sample report for failed scenario.-->
+
+```JSON
+   TBD
+```
 
 
 ## Next steps
 
 - Learn how to [Connect to an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-connect.md).
-
-
