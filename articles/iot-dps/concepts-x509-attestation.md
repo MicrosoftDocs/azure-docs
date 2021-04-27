@@ -33,7 +33,7 @@ To learn more, see [Conceptual understanding of X.509 CA certificates in the IoT
 
 ### Root certificate
 
-A root certificate is a self-signed X.509 certificate representing a certificate authority (CA). It is the terminus, or trust anchor, of the certificate chain. Root certificates can be self-issued by an organization or purchased from a root certificate authority. To learn more, see [Get X.509 CA certificates](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates). The root certificate can also be referred to as a root CA certificate.
+A root certificate is a self-signed X.509 certificate representing a certificate authority (CA). It is the terminus, or trust anchor, of the certificate chain. Root certificates can be self-issued by an organization or purchased from a root certificate authority. To learn more, see [Get X.509 CA certificates](../iot-hub/tutorial-x509-scripts.md). The root certificate can also be referred to as a root CA certificate.
 
 ### Intermediate certificate
 
