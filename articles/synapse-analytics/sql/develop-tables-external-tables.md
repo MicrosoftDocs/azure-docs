@@ -16,8 +16,8 @@ ms.reviewer: jrasnick
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
 
 Depending on the type of the external data source, you can use two types of external tables:
-- Hadoop external tables that you can use to read and write data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
-- Native external tables that you can use to read and write data in various data formats such as CSV as Parquet. Native external tables are available in serverless Synapse SQL pools, but they are not available in dedicated Synapse SQL pools.
+- Hadoop external tables that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
+- Native external tables that you can use to read and export data in various data formats such as CSV as Parquet. Native external tables are available in serverless Synapse SQL pools, but they are not available in dedicated Synapse SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
@@ -29,7 +29,7 @@ The key differences between Hadoop and native external tables are presented in t
 | Folder partition elimination | No | Only for the partitioned tables synchronized from Apache Spark pools in Synapse workspace |
 | Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | Always | Only when specified `/**` in the location path |
-| Storage authentication | SAK, AAD passthrough, Managed identity | SAK, AAD passthrough, Managed identity, Custom application Azure AD identity |
+| Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
@@ -37,7 +37,7 @@ External table created on `HADOOP` external data sources to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
 - Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
-- Import data from Azure Blob Storage and Azure Data Lake Storage and store it into dedicated SQL pool.
+- Import data from Azure Blob Storage and Azure Data Lake Storage and store it into dedicated SQL pool (only Hadoop tables in dedicated pool).
 
 > [!NOTE]
 > When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the **dedicated** SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
@@ -65,7 +65,7 @@ External data sources are used to connect to storage accounts. The complete docu
 
 #### [Hadoop](#tab/hadoop)
 
-External data sources with TYPE=HADOOP are available only in dedicated SQL pools.
+External data sources with `TYPE=HADOOP` are available only in dedicated SQL pools.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -79,7 +79,7 @@ WITH
 
 #### [Native](#tab/native)
 
-External data sources without TYPE=HADOOP are available only in serverless SQL pools.
+External data sources without `TYPE=HADOOP` are available only in serverless SQL pools.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -122,7 +122,7 @@ TYPE = `HADOOP` is the option that specifies that Java-based technology should b
 
 #### [Hadoop](#tab/hadoop)
 
-The following example creates an external data source for Azure Data Lake Gen2 pointing to the New York data set:
+The following example creates an Hadoop external data source in dedicated SQL pool for Azure Data Lake Gen2 pointing to the New York data set:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
@@ -136,7 +136,7 @@ WITH
 
 #### [Native](#tab/native)
 
-The following example creates an external data source for Azure Data Lake Gen2 that can be accessed using SAS credential:
+The following example creates an external data source in serverless SQL pool for Azure Data Lake Gen2 that can be accessed using SAS credential:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
@@ -256,7 +256,7 @@ The DELIMITEDTEXT file format type supports the following compression method:
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 
 PARSER_VERSION = 'parser_version'
-Specifies parser version to be used when reading CSV files. The available parser versions are `1.0` and `2.0`.
+Specifies parser version to be used when reading CSV files. The available parser versions are `1.0` and `2.0`. This option is available only in serverless SQL pools.
 
 ### Example for CREATE EXTERNAL FILE FORMAT
 
