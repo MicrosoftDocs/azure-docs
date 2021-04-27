@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 04/27/2021
 ms.author: apimpm
 
 ---
@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 ## Expose Web App with API Management
 
-[Azure App Service](../app-service/overview.md) is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. API developers can use their preferred technology stacks and pipelines to develop APIs and publish their API backends as Web Apps in an isolated, secure, scalable environment. Then, use API Management to expose the Web Apps, manage and protect the APIs throughout their lifecycle, and publish them to consumers.
+[Azure App Service](../app-service/overview.md) is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. API developers can use their preferred technology stacks and pipelines to develop APIs and publish their API backends as Web Apps in a secure, scalable environment. Then, use API Management to expose the Web Apps, manage and protect the APIs throughout their lifecycle, and publish them to consumers.
 
 API Management is the recommended environment to expose a Web App-hosted API, for several reasons:
 
@@ -41,10 +41,14 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 API Management supports import of Web Apps hosted in App Service that include an OpenAPI specification (Swagger definition). However, an OpenAPI specification isn't required.
 
-* If an OpenAPI specification is included, API Management creates API operations that map directly to the definitions, including required paths, parameters, and response types. 
+* If the Web App has an OpenAPI specification configured in an API definition, API Management creates API operations that map directly to the definition, including required paths, parameters, and response types. 
 
-* If an OpenAPI specification isn't provided, API Management generates wildcard operations for the common HTTP verbs (GET, PUT, and so on). You can append a path or parameters to a wildcard operation to pass an API request through to the backend API.
+  Having an OpenAPI specification is recommended, because the API is imported to API Management with high fidelity, giving you flexibility to validate, manage, secure, and update configurations for each operation separately.
 
+* If an OpenAPI specification isn't provided, API Management generates [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation) for the common HTTP verbs (GET, PUT, and so on). Append a required path or parameters to a wildcard operation to pass an API request through to the backend API.
+
+  With wildcard operations, you can still take advantage of the same API Management features, but operations aren't defined at the same level of detail by default. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
+ 
 ### Example
 Your backend Web App might support two GET operations: 
 *  `https://myappservice.azurewebsites.net/customer/{id}`
@@ -57,7 +61,7 @@ You import the Web App to your API Management service at a path such as `https:/
 |OpenAPI specification    | `GET  /customer/{id}`<br/><br/> `GET  /customers`         |  `GET https://contosoapi.azureapi.net/store/customer/1`<br/><br/>`GET https://contosoapi.azureapi.net/store/customers`       |
 |Wildcard     | `GET  /*`         | `GET https://contosoapi.azureapi.net/store/customer/1`<br/><br/>`GET https://contosoapi.azureapi.net/store/customers`  |
 
-The wildcard operation allows the same requests to the backend service as the operations in the OpenAPI specification. However, the OpenAPI-specified operations can be validated, managed, secured, and updated separately in API Management. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
+The wildcard operation allows the same requests to the backend service as the operations in the OpenAPI specification. However, the OpenAPI-specified operations can be managed separately in API Management. 
 
 ## Prerequisites
 
