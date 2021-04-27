@@ -74,5 +74,3 @@ WebSocket APIs are available through Azure portal and Management API. They are n
 * Azure CLI, PowerShell, and SDK
 
 ## Next steps
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
