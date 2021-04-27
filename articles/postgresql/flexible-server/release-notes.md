@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/20/2021
+ms.date: 04/26/2021
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -18,7 +18,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## April-2021-Release-1.0
 
-* Support for [latest minors](./concepts-supported-versions.md) 12.6 and 11.11 with new server creates. Your existing servers will be automatically upgraded to the latest minor versions in your subsequent scheduled maintenance window.
+* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 12.6 and 11.11 with new server creates.
 * Support for Virtual Network (VNET) [private DNS zone](./concepts-networking.md#private-access-vnet-integration).
 * Support to choose the Availability zone during Point-in-time recovery operation.
 * Support for new [regions](./overview.md#azure-regions) including Australia East, Canada Central, and France Central.
