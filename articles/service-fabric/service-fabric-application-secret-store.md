@@ -16,7 +16,7 @@ CSS is also instrumental in provisioning application secrets declared as [KeyVau
 Central Secret Service is not meant to be a replacement for a dedicated, external secrets management service, such as Azure Key Vault. 
 
   > [!NOTE] 
-  > When activating CSS on an SF cluster running a version earlier than [7.1. CU3](service-fabric-versions.md#service-fabric-version-name-and-number-reference), activation can fail and leave CSS in a permanently unhealthy state the cluster is configured for Windows authentication or if `EncryptionCertificateThumbprint` is declared incorrectly or the corresponding certificate is not installed. In either case, it is advisable to upgrade the cluster to an SF runtime version newer than 7.1. CU3 before proceeding. 
+  > When activating CSS on an SF cluster running a version earlier than [7.1. CU3](service-fabric-versions.md#service-fabric-version-name-and-number-reference), activation can fail and leave CSS in a permanently unhealthy state if the cluster is configured for Windows authentication or if `EncryptionCertificateThumbprint` is declared incorrectly or the corresponding certificate is not installed. In either case, it is advisable to upgrade the cluster to an SF runtime version newer than 7.1. CU3 before proceeding. 
   
 ## Enable Central Secrets Service
 To enable Central Secret Service, update the cluster configuration as described below. We recommend that you use an encryption certificate that is different from your cluster certificate. This certificate must be installed on all nodes.
