@@ -137,6 +137,26 @@ az spring-cloud app-insights update --disable â€“name "assignedName" â€�
 
 ```
 
+## Java Agent Update/Upgrade
+
+The java agent will be updated/upgraded regularly with JDK, the updating/upgrading may impact below scenarios.
+
+> Note: The version of JDK will be updated/upgraded quarterly per year.
+
+* Your existed applications with the java agent before updating/upgrading will be unchanged.
+* Your new created applications after updating/upgrading will leverage the new version of the java agent.
+* Your existed applications need to restart or redeploy to leverage the new version of the java agent.
+
+## Java Agent Configuration Hot-Loading
+
+Azure Spring Cloud enabled some hot-loading mechanism to help you adjust the settings of agent configuration without restart your applications.
+
+> Note: The hot-loading mechanism has delay in minutes.
+
+* When your java agent enabled already, adjust `Application Insights` instance or `SamplingRate` do __NOT__ require application restart to take effect.
+* When you enable java agent, requires application restart to take effect.
+* When you disable java agent, the application will stop to send all monitoring data with delay in minutes. You can restart the application to remove the agent of java runtime environment.
+
 ## See also
 * [Use distributed tracing with Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)
