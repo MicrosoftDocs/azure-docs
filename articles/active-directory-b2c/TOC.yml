@@ -88,6 +88,9 @@
       href: user-flow-overview.md
     - name: Custom policy overview
       href: custom-policy-overview.md
+  - name: API Connectors
+    href: api-connectors-overview.md
+    displayName: REST API, web API, API connectors
   - name: User accounts
     href: user-overview.md
   - name: User profile attributes
@@ -277,18 +280,14 @@
       href: conditional-access-user-flow.md
   - name: Configure age gating
     href: age-gating.md
-  - name: API connectors (preview)
+  - name: API connectors
     items:
-    - name: Overview
-      href: api-connectors-overview.md
     - name: Add an API connector
       href: add-api-connector.md
   - name: Custom policy
     items:
     - name: Add your own business logic
       items:
-      - name: Integrate REST API
-        href: custom-policy-rest-api-intro.md
       - name: Validate user input
         href: custom-policy-rest-api-claims-validation.md
         displayName: rest claims validation, validate
