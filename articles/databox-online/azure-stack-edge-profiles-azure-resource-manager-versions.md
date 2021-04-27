@@ -20,39 +20,41 @@ The API profile uses three naming conventions:
 - **yyyy-mm-dd-hybrid**
 - **yyyy-mm-dd-profile**
 
-For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Edge](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles?view=azs-2008).
+For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles?view=azs-2008).<!--Article title cites "Hub," not "Edge."-->
 
 
-## Overview of the 2019-03-01-hybrid profile
+## Overview of 2019-03-01-hybrid profile
 
-|Resource types                        |API versions|
-|--------------------------------------|------------|
-|Deployment/operations                 |2018-05-01  |
-|Links                                 |2018-05-01  |
-|Locations                             |2018-05-01  |
-|Operations	                           |2018-05-01  |
-|Providers                             |2018-05-01  |
-|ResourceGroups                        |2018-05-01  |
-|Resources	                           |2018-05-01  |
-|Subscriptions	                       |2018-05-01  |
-|Subscriptions/locations               |2016-06-01  |
-|Subscriptions/operationresults        |2018-05-01  |
-|Subscriptions/providers               |2018-05-01  |
-|Subscriptions/ResourceGroups          |2018-05-01  |
-|Subscriptions/resourceGroups/resources|2018-05-01  |
-|Subscriptions/resources               |2018-05-01  |
-|Subscriptions/tagNames                |2018-05-01  |
-|Subscriptions/tagNames/tagValues      |2018-05-01  |
-|Tenants                               |2016-06-01  |
+<!--Intro sentence needed to explain what this section is about.-->
+
+|Resource types                        |API version|
+|--------------------------------------|-----------|
+|Deployment/operations<!--Does slash indicate 2 resource types? Throughout.-->|2018-05-01 |
+|Links                                 |2018-05-01 |
+|Locations                             |2018-05-01 |
+|Operations	                           |2018-05-01 |
+|Providers                             |2018-05-01 |
+|ResourceGroups                        |2018-05-01 |
+|Resources	                           |2018-05-01 |
+|Subscriptions	                       |2018-05-01 |
+|Subscriptions/locations               |2016-06-01 |
+|Subscriptions/operationresults        |2018-05-01 |
+|Subscriptions/providers               |2018-05-01 |
+|Subscriptions/ResourceGroups          |2018-05-01 |
+|Subscriptions/resourceGroups/resources|2018-05-01 |
+|Subscriptions/resources               |2018-05-01 |
+|Subscriptions/tagNames                |2018-05-01 |
+|Subscriptions/tagNames/tagValues      |2018-05-01 |
+|Tenants                               |2016-06-01 |
 
 ## Microsoft.Network
 
-The operations call result is a representation of the available network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/en-us/rest/api/operation/).
+The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/en-us/rest/api/operation/).<!--What is this link expected to provide for the user? It opens an empty "Overview" article with no links to subordinate articles.-->
 
-|Resource types    |API versions|
-|------------------|------------|
-|Network Interfaces|2017-10-01  |
-|Virtual Networks  |2017-10-01  |
+|Resource type     |API version|
+|------------------|-----------|
+|Network Interfaces|2017-10-01 |
+|Virtual Networks  |2017-10-01 |
 
 ## Microsoft Storage
 
