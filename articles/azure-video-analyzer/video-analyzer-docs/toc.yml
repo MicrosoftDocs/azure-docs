@@ -18,8 +18,8 @@
     href: track-objects-live-video.md
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-edge-devices.md
-  - name: Create media graph using VS Code extension
-    href: create-media-graph-vs-code-extension.md #404
+  - name: Create pipeline topology using VS Code extension
+    href: create-topology-vs-code-extension.md #404
   - name: Analyze live video
     items:
     - name: with your own gRPC model
@@ -40,27 +40,26 @@
       href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
-  - name: Playback multi-day recordings	
+  - name: Playback multi-day recordings
     href: playback-multi-day-recordings.md #404
   - name: Use continuous video recording
     href: use-continuous-video-recording.md #404
   - name: Use event-based video recording
     href: record-event-based-live-video.md #404
-  - name: Use Line Crossing
+  - name: Use line crossing
     href: use-line-crossing.md #404
   - name: Analyze live video
     items:
-    - name: Live Video with Computer Vision for Spatial Analysis
+    - name: With Spatial Analysis
       href: computer-vision-for-spatial-analysis.md    
     - name: With OVMS via HTTP extension
       displayName: analyze live video, intel, OpenVINO 
-      href: use-intel-openvino-tutorial.md
+    - name: With OV DL Streamer via gRPC extension
+      displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
+      href: use-intel-grpc-vas-tutorial.md #404
     - name: With Custom Vision
       displayName: analyze live video    
       href: analyze-live-video-custom-vision.md #404
-    - name: With OVMS / HTTP
-      displayName: analyze live video    
-      href: analyze-live-video-intel-openvino.md #404
 - name: Concepts
   items:
   - name: Pipeline
@@ -85,7 +84,7 @@
   items:
   - name: Set up your dev environment
     href: set-up-dev-environment.md #404
-  - name: Create an new account
+  - name: Create a new account
     href: create-video-analyzer-account.md
   - name: Use access policies for playback
     href: use-access-policies-playback.md #404
@@ -93,7 +92,7 @@
     href: record-stream-inference-data-with-video.md #404
   - name: Develop and deploy gRPC inference server
     href: develop-deploy-grpc-inference-srv.md
-  - name: Manage retention policy
+  - name: Manage recording policy
     href: manage-retention-policy-how-to.md
   - name: AI Composition
     href: ai-composition.md
@@ -101,13 +100,13 @@
     href: deploy-iot-edge-device.md
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
-  - name: Playback a recordings
+  - name: Playback a recording
     href: playback-recordings-how-to.md
   - name: Configure a signal gate
     href: configure-signal-gate.md #404
   - name: Use widgets
     href: use-widgets.md #404
-  - name: Monitor and log on IoT Edge
+  - name: Monitor and logging
     href: monitor-logging-edge.md 
   - name: Troubleshoot
     href: troubleshoot.md
@@ -126,7 +125,7 @@
   - name: Cloud APIs #404
     href: cloud-apis.md
   - name: Module Twin configuration schema
-    href: module-twin-configuration-shcema.md  #404
+    href: module-twin-configuration-schema.md  #404
   - name: Production readiness and best practices	
     href: production-readiness.md  #404
   - name: VS Code extension
