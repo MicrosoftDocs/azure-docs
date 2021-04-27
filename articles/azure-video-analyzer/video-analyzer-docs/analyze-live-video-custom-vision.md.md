@@ -13,7 +13,7 @@ In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.mi
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Azure Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
-This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in C#. The information in this tutorial builds on the [Detect motion and emit events](et-started-detect-motion-emit-events.md) quickstart.
+This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in C#. The information in this tutorial builds on the [Detect motion and emit events](get-started-detect-motion-emit-events.md) quickstart.
 
 The tutorial shows you how to:
 
