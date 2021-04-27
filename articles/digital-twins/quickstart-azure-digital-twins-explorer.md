@@ -195,11 +195,13 @@ Follow these steps to import the graph.
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
    :::row-end:::
 
-5. The graph has now been uploaded to Azure Digital Twins Explorer. To see the graph, select the **Run Query** button in the **GRAPH EXPLORER** panel, near the top of the Azure Digital Twins Explorer window.
+5. The graph has now been uploaded to Azure Digital Twins Explorer. Switch back to the **TWIN GRAPH** panel.
+ 
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="The Twin Graph tab is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png":::
+
+6. To see the graph, select the **Run Query** button in the **QUERY EXPLORER** panel, near the top of the Azure Digital Twins Explorer window.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="The Run Query button in the upper-right corner of the window is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 

@@ -98,7 +98,7 @@ Now you should have the Azure Digital Twins Explorer sample app running in a bro
 
 :::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called Azure Digital Twins Explorer and contains boxes for Query Explorer, Models, Twin Graph, and Properties. There's no onscreen data yet." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-To verify the connection, select the **Run Query** button to run the default query that displays all twins and relationships in the graph in the **GRAPH EXPLORER** box.
+To verify the connection, select the **Run Query** button to run the default query that displays all twins and relationships in the graph in the **TWIN GRAPH** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -182,17 +182,15 @@ Azure Digital Twins Explorer now uploads your models and graph (including the tw
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
-To verify everything was uploaded successfully, select the **Run Query** button in the **GRAPH EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
+To verify everything was uploaded successfully, switch back to the **TWIN GRAPH** tab and select the **Run Query** button in the **QUERY EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the Run Query button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
 
-You should see your graph with all its twins and relationships displayed in the **GRAPH EXPLORER** box. You should also see your models listed in the **MODELS** box.
+You should see your graph with all its twins and relationships displayed in the **TWIN GRAPH** box. You should also see your models listed in the **MODELS** box.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the Models box and a graph highlighted in the Graph Explorer box." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the Models box and a graph highlighted in the Twin Graph box." lightbox="media/how-to-move-regions/post-upload.png":::
 
 These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
 
