@@ -22,9 +22,9 @@ This list includes only a few example workloads that you can automate with the L
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-To securely access, process, and run various operations on data from various sources and in real time, choose from a [constantly growing gallery](/connectors/connector-reference/connector-reference-logicapps-connectors) of [connectors managed by Microsoft](#logic-app-concepts). Examples include connectors for Azure Blob Storage, Azure Service Bus, file shares, FTP servers, Office 365, SFTP, SharePoint, SQL Server, and more.
+To securely access, process, and run various operations on data from various sources and in real time, choose from a [constantly growing gallery](/connectors/connector-reference/connector-reference-logicapps-connectors) of [connectors managed by Microsoft](#logic-app-concepts). Examples include connectors for Azure services such as Blob Storage, Office 365 services such as Outlook and SharePoint, database servers such as SQL and Oracle, enterprise systems such as SAP and IBM MQ, file shares such as FTP and SFTP, and more.
 
-To communicate with any service endpoint, run your own code, organize and control workflow steps, or manipulate data, you can use [built-in triggers and actions](#logic-app-concepts) that run natively within Logic Apps. Examples of built-in triggers include Request, HTTP, and Recurrence. Examples of built-in actions include Condition, For each, Convert, Compose, and others for calling Azure functions, web apps or API apps hosted in Azure, and other Logic Apps workflows.
+To communicate with any service endpoint, run your own code, organize and control workflow steps, or manipulate data, you can use [built-in triggers and actions](#logic-app-concepts) that run natively within Logic Apps. Examples of built-in triggers include Request, HTTP, and Recurrence. Examples of built-in actions include Condition, For each, Convert, Compose, Execute JavaScript code, and operations to call Azure functions, web apps or API apps hosted in Azure, or even other Logic Apps workflows.
 
 For B2B integration scenarios, Logic Apps includes capabilities from [BizTalk Server](/biztalk/core/introducing-biztalk-server). You can create an [integration account](logic-apps-enterprise-integration-create-integration-account.md) where you define trading partners, agreements, schemas, maps, and other B2B artifacts. When you link this account to a logic app, you can create workflows to work with those artifacts and exchange messages using protocols such as AS2, EDIFACT, and X12.
 
@@ -55,13 +55,13 @@ You can visually build workflows using the Logic Apps designer in the Azure port
 
 * **Action**: Each subsequent step that follows after the trigger and performs some operation in a workflow
 
-* **Managed connector**: Provides access to data, services, and systems. You can use prebuilt Microsoft-managed connectors that are designed to connect, access, and work with your data. See [Connectors for Azure Logic Apps](../connectors/apis-list.md).
+* **Managed connector**: A Microsoft-managed connector that provides access to a specific kind of app, data, service, or system. Before you can use them, most managed connectors require that you first create a connection from your workflow and authenticate your identity.
 
-You can use prebuilt Microsoft-managed connectors that are designed to connect, access, and work with your data. See [Connectors for Azure Logic Apps](../connectors/apis-list.md).
+  For example, you can start a workflow with a trigger or include an action that works with Azure Blob Storage, Office 365, Salesforce, or SFTP servers. For more information, review [Managed connectors for Azure Logic Apps](../connectors/managed.md).
 
-* **Built-in trigger or action**: An operation that provides a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, and complete other tasks in your workflow. All built-in operations run natively in the Logic Apps service, and most don't require that you create a connection before you use them.
+* **Built-in trigger or action**: A natively running Logic Apps operation that provides a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, or complete other tasks in your workflow. Most built-in operations aren't associated with any service or system. Many also don't require that you first create a connection from your workflow and authenticate your identity. Built-in operations are also available for a small number of services, systems, and protocols, such as Azure Functions, Azure API Management, Azure App Services, and more.
 
-  Most built-in triggers and actions aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. Built-in operations are available for a small number of services, systems, and protocols, such as Azure Functions, Azure API Management, Azure App Services, and so on.
+  For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. For more information, review [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md).
 
 ## Why use Logic Apps
 
