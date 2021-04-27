@@ -1339,11 +1339,11 @@
   - name: Security baselines
     items:
     - name: Linux
-      href: /security/benchmark/azure/baselines/virtual-machines-linux-security-baseline?toc=/azure/virtual-machines/TOC.json?toc=/azure/virtual-machines/TOC.json
+      href: /security/benchmark/azure/baselines/virtual-machines-linux-security-baseline?context=/azure/virtual-machines/context/context
       displayname: Security baselines
     - name: Windows
       displayName: Security baselines
-      href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline?toc=/azure/virtual-machines/TOC.json?toc=/azure/virtual-machines/TOC.json
+      href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline?context=/azure/virtual-machines/context/context
   - name: Recommendations
     href: security-recommendations.md
   - name: Trusted launch
