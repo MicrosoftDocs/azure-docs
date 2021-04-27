@@ -57,26 +57,7 @@ SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2,
 
 ## Remarks
 
-This system function will [use indexes](index-overview.md#index-usage) differently, depending on the case-insensitive setting.
-
-If case isn't ignored:
-
-| Index lookup type | Non-aggregate query | Aggregate query |
-| ----------------- | ------------------- | --------------- |
-| Index seek        |                   |                 |
-| Precise index scan       | x                   |       x          |
-| Index scan        |                     |                 |
-| Full scan         |                     |                |
-
-If case is ignored:
-
-| Index lookup type | Non-aggregate query | Aggregate query |
-| ----------------- | ------------------- | --------------- |
-| Index seek        |                   |                 |
-| Precise index scan       |                    |                 |
-| Index scan        |        x             |                 |
-| Full scan         |                     |          x      |
-
+Learn about [how this string system function uses the index](sql-query-string-functions.md).
 
 ## Next steps
 

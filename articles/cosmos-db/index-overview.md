@@ -70,8 +70,9 @@ Azure Cosmos DB currently supports three types of indexes. You can configure the
 - Equality queries:
 
     ```sql
-   SELECT * FROM container c WHERE c.property = 'value'
-   ```
+       SELECT * FROM container c WHERE c.property = 'value'
+    ```
+
 
    ```sql
    SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
@@ -80,14 +81,14 @@ Azure Cosmos DB currently supports three types of indexes. You can configure the
    Equality match on an array element
    ```sql
     SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
-    ```
+   ```
 
 - Range queries:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (works for `>`, `<`, `>=`, `<=`, `!=`)
+    (works for `>`, `<`, `>=`, `<=`, `!=`)
 
 - Checking for the presence of a property:
 
@@ -178,23 +179,27 @@ To learn how to configure composite indexes, see [Composite indexing policy exam
 
 ## Index usage
 
-There are four ways that the query engine can evaluate query filters, sorted by most-efficient to least-efficient:
+There are five ways that the query engine can evaluate query filters, sorted by most-efficient to least-efficient:
 
 - Index seek
 - Precise index scan
-- Index scan
+- Expanded index scan
+- Full index scan
 - Full scan
 
-When you index properties, the query engine will automatically use the indexes as efficiently as possible. Aside from creating new indexes, you don't need to configure anything to optimize how queries use indexes. A query's RU charge is a combination of both the RU charge from index usage and the RU charge from loading item.
+When you index properties, the query engine will automatically use the indexes as efficiently as possible. Aside from creating new indexes, you don't need to configure anything to optimize how queries use indexes. A query's RU charge is a combination of both the RU charge from index usage and the RU charge from loading items.
 
 Here is a table that summarizes the different ways indexes are used in Azure Cosmos DB:
 
 | Index lookup type  | Description                                                  | Common Examples                                 | RU charge from index usage                                   | RU charge from loading items                        |
 | ------------------ | ------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |
-| Index seek         | Read only index pages that match the query filter and load only matching items | Equality filters, IN                            | Constant                                                     | Increases based on number of items in query results |
-| Precise index scan | Optimized search of index pages and load only matching items | Range comparisons (>, <, <=, or >=), StartsWith | Comparable to index seek, increases slightly as cardinality increases | Increases based on number of items in query results |
-| Index scan         | Read all index pages and load only matching items            | Contains, EndsWith, RegexMatch, LIKE            | Increases linearly with cardinality of indexed properties    | Increases based on number of items in query results |
-| Full scan          | Load all items                                               | Upper, Lower                                    | N/A                                                          | Increases with number of items in query results     |
+| Index seek         | Read only index pages that match the query filter and load only matching items | Equality filters, IN                            | Constant per equality filter                                                     | Increases based on number of items in query results |
+| Precise index scan | Binary search of index pages and load only matching items | Range comparisons (>, <, <=, or >=), StartsWith | Comparable to index seek, increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Expanded index scan | Optimized search of index pages and load only matching items | StartsWith (case-insensitive), StringEquals (case-insensitive) | Increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Full index scan    | Read all index pages and load only matching items                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Increases linearly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Full scan          | Load all items                                               | Upper, Lower                                    | N/A                                                          | Increases based on number of items in container |
+
+When writing queries, you should use filter predicate that use the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it will do a precise index scan instead of a full index scan.
 
 ## Index usage details
 
@@ -204,6 +209,7 @@ Example items:
 
 ```json
     {
+        "id": 1,
         "locations": [
             { "country": "Germany", "city": "Berlin" },
             { "country": "France", "city": "Paris" }
@@ -218,6 +224,7 @@ Example items:
 
 ```json
     {
+        "id": 2,
         "locations": [
             { "country": "Ireland", "city": "Dublin" }
         ],
@@ -230,25 +237,19 @@ Example items:
     }
 ```
 
-Azure Cosmos DB uses an inverted index. The index works by dividing the item id space into many different index pages. Each index page contains a list of item id's, encoded as a compressed bitmap. 
+Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. Here is a sample diagram of an inverted index for a container that includes the two example items:
 
-Azure Cosmos DB maps each JSON path to the set of index pages that contain that value. A path may have many index pages that correspond to a particular value. Here is a sample diagram of an inverted index for a container that includes the two example items:
-
-| Path                    | Value   | Index page | Bitmap            |
-| ----------------------- | ------- | ---------- | ----------------- |
-| /locations/0/country    | Germany | 7          | 0 0 1 0 0 0 1 ... |
-| /locations/0/country    | Ireland | 6          | 0 1 0 1 1 0 0 ... |
-| /locations/0/city       | Berlin  | 7          | 0 0 1 0 0 0 1 ... |
-| /locations/0/city       | Dublin  | 6          | 0 1 0 1 1 0 0 ... |
-| /locations/1/country    | France  | 7          | 0 1 1 0 1 0 0 ... |
-| /locations/1/country    | France  | 18         | 0 0 0 0 1 0 0 ... |
-| /locations/1/city       | Paris   | 7          | 0 1 1 0 0 0 0 ... |
-| /locations/1/city       | Paris   | 18         | 0 0 0 0 1 0 0 ... |
-| /headquarters/country   | Belgium | 6          | 0 1 1 0 0 0 1 ... |
-| /headquarters/country   | Belgium | 7          | 0 0 1 0 0 0 1 ... |
-| /headquarters/country   | Belgium | 17         | 0 0 1 0 1 1 1 ... |
-| /headquarters/employees | 200     | 6          | 0 1 1 0 0 0 0 ... |
-| /headquarters/employees | 250     | 7          | 0 0 1 0 0 0 0 ... |
+| Path                    | Value   | List of item ids   |
+| ----------------------- | ------- | ---------- |
+| /locations/0/country    | Germany | 1          |
+| /locations/0/country    | Ireland | 2          |
+| /locations/0/city       | Berlin  | 1          |
+| /locations/0/city       | Dublin  | 1          |
+| /locations/1/country    | France  | 1          |
+| /locations/1/city       | Paris   | 1          |
+| /headquarters/country   | Belgium | 2          |
+| /headquarters/employees | 200     | 2          |
+| /headquarters/employees | 250     | 1          |
 
 The inverted index has two important attributes:
 - For a given path, values are sorted in ascending order. Therefore, the query engine can easily serve `ORDER BY` from the index.
@@ -280,25 +281,39 @@ Consider the following query:
 SELECT *
 FROM company
 WHERE company.headquarters.employees > 200
-``` 
+```
 
 The query predicate (filtering on items where there are more than 200 employees) can be evaluated with a precise index scan of the `headquarters/employees` path. When doing a precise index scan, the query engine starts by doing a binary search of the distinct set of possible values to find the location of the value `200` for the `headquarters/employees` path. Since the values for each path are sorted in ascending order, it's easy for the query engine to do a binary search. After the query engine finds the value `200`, it starts reading all remaining index pages (going into the ascending direction).
 
 Because the query engine can do a binary search to avoid scanning unnecessary index pages, precise index scans tend to have comparable latency and RU charges to index seek operations.
 
-### Index scan
+### Expanded index scan
 
 Consider the following query: 
 
 ```sql
 SELECT *
 FROM company
-WHERE CONTAINS(company.headquarters.country, "United")
+WHERE StartsWith(company.headquarters.country, "United", true)
 ```
 
-The query predicate (filtering on items that have headquarters in a country that contains "United") can be evaluated with an index scan of the `headquarters/country` path. Unlike a precise index scan, an index scan will always scan through the distinct set of possible values to identify the index pages where there are results. The index lookup time and RU charge for index scans increases as the cardinality of the path increases. In other words, the more possible distinct values that the query engine needs to scan, the higher the latency and RU charge involved in doing an index scan.
+The query predicate (filtering on items that have headquarters in a country that start with case-sensitive "United") can be evaluated with an expanded index scan of the `headquarters/country` path. Operations that do an expanded index scan have optimizations that can help avoid needs to scan every index page but are slightly more expensive than a precise index scan's binary search.
 
-For example, consider two properties: town and country. The cardinality of town is 5,000 and the cardinality of country is 200. Here are two example queries that each have a [Contains](sql-query-contains.md) system functions that does an index scan on the `town` property. The first query will use more RUs than the second query because the cardinality of town is higher than country.
+For example, when evaluating case-insensitive StartsWith, the query engine will check the index for different possible combinations of uppercase and lowercase values. This optimization allows the query engine to avoid reading the majority of index pages. Different system functions have different optimizations that they can use to avoid reading every index page, so we'll broadly categorize these as **expanded index scan**. 
+
+### Full index scan
+
+Consider the following query: 
+
+```sql
+SELECT *
+FROM company
+WHERE Contains(company.headquarters.country, "United")
+```
+
+The query predicate (filtering on items that have headquarters in a country that contains "United") can be evaluated with an index scan of the `headquarters/country` path. Unlike a precise index scan, a full index scan will always scan through the distinct set of possible values to identify the index pages where there are results. In this case, `Contains` is run on the index. The index lookup time and RU charge for index scans increases as the cardinality of the path increases. In other words, the more possible distinct values that the query engine needs to scan, the higher the latency and RU charge involved in doing an index scan.  
+
+For example, consider two properties: town and country. The cardinality of town is 5,000 and the cardinality of country is 200. Here are two example queries that each have a [Contains](sql-query-contains.md) system function that does an index scan on the `town` property. The first query will use more RUs than the second query because the cardinality of town is higher than country.
 
 ```sql
     SELECT *
@@ -328,7 +343,43 @@ FROM company
 WHERE company.headquarters.employees = 200 AND CONTAINS(company.headquarters.country, "United")
 ```
 
-To execute this query, the query engine must do a precise index seek on `headquarters/employees` and index scan on `headquarters/country`. The query engine has internal heuristics that it uses to evaluate the query filter expression as efficiently as possible. In this case, the query engine would avoid needing to read unncessary index pages by doing the index seek first, before the index scan. 
+To execute this query, the query engine must do a precise index seek on `headquarters/employees` and full index scan on `headquarters/country`. The query engine has internal heuristics that it uses to evaluate the query filter expression as efficiently as possible. In this case, the query engine would avoid needing to read unnecessary index pages by doing the index seek first. If, for example, only fifty items matched the equality filter, the query engine would only need to evaluate `Contains` on the index pages that contained those fifty items. A full index scan of the entire container wouldn't be necessary.
+
+## Index utilization for scalar aggregate functions
+
+Queries with aggregate functions must rely exclusively on the index in order to use it. 
+
+In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. In this case, the query engine will load all index matches, evaluate the filter on the loaded items, and return only the correct results.
+
+For the majority of queries, loading false positive index matches will not have any noticable impact on index utilization.
+
+For example, consider the following query:
+
+```sql
+SELECT *
+FROM company
+WHERE Contains(company.headquarters.country, "United")
+```
+
+The `Contains` system function may return some false positive matches, so the query engine will need to verify whether each loaded item matches the filter expression. In this example, the query engine may only need to load an extra few items, so the impact on index utilization and RU charge is minimal.
+
+However, queries with aggregate functions must rely exclusively on the index in order to use it. For example, consider the following query with a `Count` aggregate:
+
+```sql
+SELECT COUNT(1)
+FROM company
+WHERE Contains(company.headquarters.country, "United")
+```
+
+Like in the first example, the `Contains` system function may return some false positive matches. Unlike the `SELECT *` query, however, the `Count` query can't evaluate the filter expression on the loaded items to verify all index matches. The `Count` query must rely exclusively on the index, so if there's a chance a filter expression will return false positive matches, the query engine will resort to a full scan.
+
+Queries with the following aggregate functions must rely exclusively on the index, so evaluating some system functions requires a full scan.
+
+- `Avg`
+- `Count`
+- `Max`
+- `Min`
+- `Sum`
 
 ## Next steps
 

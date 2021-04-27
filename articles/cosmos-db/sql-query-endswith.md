@@ -57,16 +57,7 @@ SELECT ENDSWITH("abc", "b", false) AS e1, ENDSWITH("abc", "bC", false) AS e2, EN
 
 ## Remarks
 
-This system function will [use indexes](index-overview.md#index-usage) the same way, regardless of the case-insensitive option.
-
-| Index lookup type  | Non-aggregate query | Aggregate query |
-| ------------------ | ------------------- | --------------- |
-| Index seek         |                     |                 |
-| Precise index scan |                     |                 |
-| Index scan         |  x                  |                 |
-| Full scan          |                     | x               |
-
-If the property size in [EndsWith](sql-query-contains.md) is greater than 1 KB for some items, the query engine will need to load those items. In this case, the query engine won't be able to fully evaluate EndsWith with an index. The RU charge for EndsWith will be high if you have a large number of items with property sizes more than 1 KB.
+Learn about [how this string system function uses the index](sql-query-string-functions.md).
 
 ## Next steps
 

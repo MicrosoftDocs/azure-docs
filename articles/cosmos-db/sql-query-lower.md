@@ -50,13 +50,6 @@ SELECT LOWER("Abc") AS lower
 
 This system function will not [use indexes](index-overview.md#index-usage).
 
-| Index lookup type  | Non-aggregate query | Aggregate query |
-| ------------------ | ------------------- | --------------- |
-| Index seek         |                     |                 |
-| Precise index scan |                     |                 |
-| Index scan         |                     |                 |
-| Full scan          |   x                 | x               |
-
 ## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
